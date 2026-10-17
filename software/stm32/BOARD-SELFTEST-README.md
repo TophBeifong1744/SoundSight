@@ -1,6 +1,6 @@
 # 探索者 V3.5 统一自检
 
-硬件 STM32F407ZGT6；Keil uVision5 / ARM Compiler 5.06 update 7 / DAP-SWD。S1 与 ABI 引用仓库唯一 `software/common`，S2 源码位于 `src` / `include`。
+硬件 STM32F407ZGT6；Keil uVision5 / ARM Compiler 5.06 update 7 / DAP-SWD。S1 与 ABI 引用仓库唯一 `software/common`，S2 源码位于 `src` / `include`。P3 已接入 P1/P2/app，完整命令及停止/恢复见 [P3说明](INTEGRATION-P3.md)。
 
 ## 打开、编译、下载
 
@@ -16,9 +16,13 @@
 |---|---|
 |`board` / 启动|128/128/32/64 MHz 时钟；TIM2 1 us、HAL 毫秒、DWT；SPI/GPIO、安全片选；S2 初始化；禁动作写；S1 双 BIST 各 32 次|
 |`fpga`|本板检查后探测 ID/ABI、SPI 双 BIST、锁帧释放再读、消费、IRQ 电平/边沿、软件超时隔离与恢复、运动禁用读回|
-|`stream`|最多 2 秒 / 8 帧真实输入，记录帧号、方向/拒绝原因、IRQ；结束 STOP。重新完整联调前复位 PL，避免把粘滞故障误作新错误|
+|`stream`|默认 2 秒 / 8 帧真实输入，分步运行可响应 status/stop；记录方向/拒绝及队列统计；结束 STOP、显式禁用并排尾|
+|`status` / `stop`|查看配置/运行/故障统计；请求停止，保留 READY 队列|
+|`config 8 2000 4`|空闲时配置帧数/期限毫秒/日志间隔|
+|`ackstop` / `recover` / `discard`|分别为孤立 STOP 确认、显式恢复、不动作的诊断消费；具体先决条件见 P3 说明|
+|`motion`|动作入口禁用|
 
-BOARD_ONLY 预期 `pass=11,fail=0,skip=11,result=PASS_WITH_SKIPS,NOT_SYSTEM_ACCEPTANCE`。这是模式预期；真实原板日志单独保存于 `document/evidence/stm32-board-20261017`。
+BOARD_ONLY 预期 `pass=13,fail=0,skip=11,result=PASS_WITH_SKIPS,NOT_SYSTEM_ACCEPTANCE`。新增 P3_APP_INIT/P2_BUILD_GATE_CLOSED 两项。这是新固件模式预期，尚未取得新板端结果；原板 11/0/11 日志单独保存于 `document/evidence/stm32-board-20261017`。
 主动请求 fpga 却探测不到身份时报告 FAIL，后续依赖项 SKIP。ID 预期 `0x5A5A2026`，ABI `0x00010000`。
 
 ## 配置与接线

@@ -12,6 +12,7 @@ static void fixture(mock_t *m, ss_runtime_t *r)
     memset(m, 0, sizeof(*m)); memset(r, 0, sizeof(*r));
     m->magic=UINT32_C(0x5A5A2026); m->version=UINT32_C(0x10000);
     m->ctrl=8U; m->duration_ms=1U;
+    m->strict_control=1;
     b.user=m; b.transfer=transfer; b.now_ms=now_ms;
     b.transfer_timeout_ms=5U; b.operation_timeout_ms=100U;
     CHECK("runtime init", ss_runtime_init(r,&b,&c)==SS_OK);

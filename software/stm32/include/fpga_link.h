@@ -52,6 +52,13 @@ ss_status_t ss_probe(ss_link_t *link);
  * Configure only when empty, fault-free. All runs keep movement disabled. */
 ss_status_t ss_start(ss_link_t *link, ss_run_t mode);
 ss_status_t ss_stop(ss_link_t *link);
+/* STOP latches internally in PL; explicitly disable preserving mode bits, then
+ * verify before declaring producer idle. Does not clear sticky faults. */
+ss_status_t ss_disable(ss_link_t *link);
+/* Explicit acknowledgement of ONLY an isolated STOP fault, after disabled,
+ * drain-free and motion-off readbacks. Never clears any other fault. BUSY if
+ * still enabled/draining. Does not restart, consume, or reset frame history. */
+ss_status_t ss_acknowledge_stop(ss_link_t *link);
 ss_status_t ss_read_register(ss_link_t *link, uint32_t address, uint32_t *value);
 /* 39 transfers on success; frame is fully validated, lock stays held. */
 ss_status_t ss_acquire_frame(ss_link_t *link, doa_frame_input_t *frame);

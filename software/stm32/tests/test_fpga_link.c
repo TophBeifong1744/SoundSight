@@ -18,6 +18,7 @@ typedef struct {
     uint32_t sequence, clock_ms, duration_ms, status_or, status_xor;
     unsigned int count, fail_at, mutate_at, arrival_at;
     int fail_after, timeout_error, arrival_on_consume, ignore_release;
+    int strict_control, stop_latched; /* optional RTL-faithful STOP/disable/W1C */
     uint32_t mutate_word;
     unsigned int consumes, releases, acquires, action_writes, permit_writes;
     unsigned int bad_tx, transcript_count;
@@ -102,6 +103,10 @@ static void write_word(mock_t *m,uint32_t a,uint32_t v)
         uint32_t old=m->ctrl;
         if((v&~UINT32_C(0xB))!=0U || (v&8U)==0U) { ++m->bad_tx; return; }
         m->ctrl=v;
+        if(m->strict_control!=0 && (v&1U)==0U) {
+            m->stop_latched=0; m->act=0U;
+            if((old&1U)!=0U) m->fault|=64U;
+        }
         if((old&1U)==0U && (v&3U)==3U)
             publish(m,packet(m->bist==1U,1,m->sequence+1U));
     } else if(a==0x1CU) {
@@ -128,11 +133,17 @@ static void write_word(mock_t *m,uint32_t a,uint32_t v)
         } else if(v!=0U) ++m->bad_tx;
     } else if(a==0x58U) {
         if((v&UINT32_C(9))!=0U) ++m->permit_writes;
-        if(v==2U) { m->act=0U; m->ctrl&=~UINT32_C(1); m->fault|=64U; }
+        if(v==2U) { m->act=0U; m->stop_latched=1;
+            if(m->strict_control==0) m->ctrl&=~UINT32_C(1);
+            m->fault|=64U; }
         else if(v==4U || v==0U) m->act=0U;
         else { ++m->bad_tx; }
     } else if(a==0x60U) { m->watchdog=v; if(v==0U) m->act=0U; }
     else if(a==0x18U) { ++m->action_writes; }
+    else if(a==0x64U && m->strict_control!=0) {
+        if((v & ~UINT32_C(0xFFF))!=0U) ++m->bad_tx;
+        else if((m->ctrl&1U)==0U && (m->status_or&UINT32_C(0x8000))==0U) m->fault&=~v;
+    }
     else { ++m->bad_tx; }
 }
 static ss_bus_status_t transfer(void *user,const uint8_t tx[5],uint8_t rx[5],uint32_t timeout)

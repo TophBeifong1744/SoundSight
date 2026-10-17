@@ -1,6 +1,6 @@
 # P2 水平动作命令管理
 
-2026-10-18：独立 C99 软件和寄存器模型验证完成，ARM Compiler 5 两种配置的对象编译通过。尚未接入 Keil 主循环、下载或进行物理运动。P3 再接合运行状态机和原 board/fpga/stream；P4/P5 取得跨板及机械结果。
+2026-10-18：独立 C99 软件和寄存器模型验证完成，ARM Compiler 5 两种配置的对象编译通过。P3现已接入 Keil 主循环并完整链接，尚未下载或进行物理运动。[P3说明](INTEGRATION-P3.md)；P4/P5取得跨板及机械结果。
 
 入口：[ss_motion.h](include/ss_motion.h)、[ss_motion.c](src/ss_motion.c)、[模型测试](tests/test_ss_motion.c)。S2 新增私有的同一 deadline 组合入口和受限动作写入，原公共 API 保持；冻结 ABI、S1、P1 源码、FPGA RTL 和板级写门禁均未改。
 
@@ -30,7 +30,7 @@
 
 1. **编译门禁默认关闭**：`SS_ENABLE_MOTION_WRITES=0`。默认构建会拒绝shadow、非零watchdog、permit和commit；STOP/REVOKE仍可用。测试脚本只对PC模型单独编译一个`=1`的可执行文件。
 2. **运行配置必须显式允许**：`allow_submission=1`，再显式调用arm；配置本身不执行动作。机械映射、watchdog、最大持锁时间均由调用方提供，不能将模型示例当作实物标定。
-3. **现有板级物理写门禁保持**：`soundsight_board.c`仍拦截动作和非零watchdog写入；本次没有链接P2到现有固件，也没有解除该门禁。未来需要真实动作时另行按用户授权和现场参数接合。
+3. **现有板级物理写门禁保持**：`soundsight_board.c`仍拦截动作和非零watchdog写入；P2原批没有链接固件，P3现已链接，仍未解除该门禁。未来需要真实动作时另行按用户授权和现场参数接合。
 
 私有写入口只接受水平有效shadow、单独PERMIT/COMMIT、撤销/STOP及watchdog；拒绝垂直轴、组合PERMIT+COMMIT和其他地址。不提供通用寄存器写接口来绕过限制。配置与context字段只读，不能在ARMED时由调用者修改或重新init绕过帧序记录。
 
@@ -55,9 +55,9 @@ python software/stm32/tests/run_host_tests.py
 
 结果和首错：[正式记录](../../document/evidence/stm32-motion-p2-20261018/REPORT.md)。默认关闭配置43项、模型开启配置74240项，均0失败；340组故障组合另外列示。这些是寄存器模型结果，不是硬件验收。
 
-## P3必须处理的接合项
+## P3接合项及剩余现场条件
 
 - P1和P2共用同一link，取帧所有权只能有一个；diagnostic与motion模式明确选择。现有板级门禁默认保留。
-- **STOP回读差异已静态发现**：当前基线`ss_control_regs.sv`在STOP时置`stop_latched`，未直接清`sys_ctrl[0]`。P1现在等待`SYS_CTRL.enable=0`才确认生产者停止，其旧模型则在STOP时清enable，因此主机回归通过不能覆盖此差异。P3需按真实RTL调整停止确认/显式禁用步骤及模型，或与A对齐，不能直接声称当前P1已可跨板确认STOP。P2本身只报告STOP传输结果。
+- **STOP回读差异已由P3修正并在严格模型中验证，跨板仍未测**。原发现：当前基线`ss_control_regs.sv`在STOP时置`stop_latched`，未直接清`sys_ctrl[0]`。P1原先等待`SYS_CTRL.enable=0`才确认生产者停止，其旧模型则在STOP时清enable，因此主机回归通过不能覆盖此差异。P3已增加显式禁用和独立STOP确认，不能据模型声称跨板STOP已通过。P2本身只报告STOP传输结果。
 - 实物机械上下限、零点/方向、PL ACTUATOR_BOUND/时钟参数、watchdog预算和持锁时限需按当前映像/机构绑定；示例90°偏置及100ms watchdog没有被当作现场参数接受。
 - 若要求证明动作接收或真实采集年龄，需要A/B共同讨论可观察接口，不能由STM32自行改变冻结ABI；本批保留UNCONFIRMED和未知年龄边界。

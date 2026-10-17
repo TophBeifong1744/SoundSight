@@ -1,0 +1,3 @@
+COMMAND: F:\STUDY\IT\C\develop\mingw64\bin\gcc.exe -std=c99 -O2 -Wall -Wextra -Wconversion -Wshadow -Werror -pedantic -D__USE_MINGW_ANSI_STDIO=1 -DSS_ENABLE_MOTION_WRITES=1 -Isoftware/common -Isoftware/common/s1 -Isoftware/stm32/include software/common/s1/doa_solver.c software/stm32/src/fpga_link.c software/stm32/src/ss_motion.c software/stm32/src/ss_runtime.c software/stm32/src/ss_app.c software/stm32/tests/test_ss_app.c -lm -o F:\NUEC\SoundSight-stm32\software\stm32\build\integration-p3\app-1.exe
+
+EXIT_CODE: 0

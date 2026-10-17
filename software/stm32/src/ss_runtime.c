@@ -149,6 +149,8 @@ ss_runtime_event_t ss_runtime_step(ss_runtime_t *r)
         if (s != SS_OK) return fault(r, s);
         r->stop_sent = 1U;
         if (r->link.recovery_required != 0U) return fault(r, SS_RECOVERY_REQUIRED);
+        s = ss_disable(&r->link);
+        if (s != SS_OK) return fault(r, s);
         r->state = SS_RT_DRAINING; r->poll_pending = 1U;
         return SS_RT_STATE_CHANGED;
     case SS_RT_DRAINING:

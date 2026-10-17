@@ -1,11 +1,13 @@
 #include "soundsight_board.h"
+#include "ss_app.h"
 #include "SYSTEM/usart/usart.h"
 #include <stdio.h>
 #include <string.h>
 
 static unsigned int passes,fails,skips;
 static int board_ok;
-static ss_link_t link;
+static ss_app_t application;
+#define link (application.runtime.link)
 static doa_frame_input_t frame,held;
 static doa_solve_output_t solved;
 static const doa_servo_config_t map={1U,23040,1,-23040,23040,0U,180U,180U};
@@ -85,8 +87,8 @@ static ss_status_t wait_frame(int hold_lock)
 }
 static int live_probe(void)
 {
-    ss_bus_t b=ss_board_bus();ss_status_t s;uint32_t id=0U,abi=0U;
-    s=ss_init(&link,&b);if(s==SS_OK)s=ss_probe(&link);
+    ss_status_t s;uint32_t id=0U,abi=0U;
+    s=ss_probe(&link);
     if(s==SS_OK)s=ss_read_register(&link,REG_MAGIC_ID,&id);
     if(s==SS_OK)s=ss_read_register(&link,REG_ABI_VERSION,&abi);
     printf("DATA,FPGA_ID_ABI,status=%u,id=0x%08lX,abi=0x%08lX\r\n",
@@ -94,10 +96,25 @@ static int live_probe(void)
     item("FPGA_ID_ABI",s==SS_OK && id==FPGA_ABI_MAGIC_VALUE && abi==FPGA_ABI_VERSION_VALUE);
     return s==SS_OK && id==FPGA_ABI_MAGIC_VALUE && abi==FPGA_ABI_VERSION_VALUE;
 }
+/* Each requested FPGA diagnostic explicitly disables and acknowledges ONLY
+ * the resulting isolated STOP before selecting the next BIST. */
+static int prepare_diagnostic(void)
+{
+    ss_status_t s=ss_disable(&link); uint32_t t=ss_board_us();
+    if(s!=SS_OK) return 0;
+    do {
+        s=ss_acknowledge_stop(&link);
+        if(s!=SS_BUSY) break;
+        if(!ss_board_wait_us(100U)) return 0;
+    } while((uint32_t)(ss_board_us()-t)<500000U);
+    printf("DATA,DIAGNOSTIC_PREPARE,status=%u,only_isolated_STOP_acknowledged\r\n",(unsigned int)s);
+    return s==SS_OK;
+}
 static int live_bist(int pass)
 {
     ss_status_t s;uint32_t first_id,before,us,cycles,irq_before=ss_board_stats.irq_edges;
     const char *name=pass?"FPGA_SPI_BIST_PASS":"FPGA_SPI_BIST_REJECT";
+    if(!prepare_diagnostic()) {item(name,0);return 0;}
     s=ss_start(&link,pass?SS_RUN_BIST_PASS:SS_RUN_BIST_REJECT);
     if(s!=SS_OK) {printf("DATA,START,status=%u,reset_PL_if_BUSY_or_FAULT\r\n",(unsigned int)s);item(name,0);return 0;}
     s=wait_frame(1);
@@ -123,6 +140,7 @@ static int live_bist(int pass)
 static void live_timeout(void)
 {
     ss_status_t s;uint32_t injected=ss_board_stats.timeout_count;
+    if(!prepare_diagnostic()) {item("FPGA_TIMEOUT_PREPARE",0);return;}
     s=ss_start(&link,SS_RUN_BIST_PASS);
     if(s!=SS_OK) {item("FPGA_TIMEOUT_PREPARE",0);return;}
     ss_board_stats.inject_timeout=1U;
@@ -153,6 +171,7 @@ void ss_selftest_run(int live_fpga)
 {
     uint32_t t0,u0,dt,du,c0,cy,min,max;unsigned int i,b;int timing,ok,all;
     ss_bus_t bus;ss_link_t local;uint8_t tx[5]={0x98U,0U,0U,0U,0U},rx[5];
+    if(application.initialized!=0U && application.active!=0U) {printf("COMMAND,BUSY,stop_stream_first\r\n");return;}
     passes=0U;fails=0U;skips=0U;board_ok=0;
     printf("\r\nSELFTEST,BEGIN,mode=%s,motion_submission=DISABLED\r\n",live_fpga?"FPGA":"BOARD_ONLY");
     printf("CLOCK,sys=%lu,hclk=%lu,pclk1=%lu,pclk2=%lu,spi_calc=%lu\r\n",
@@ -195,6 +214,10 @@ void ss_selftest_run(int live_fpga)
         printf("PERF,S1_%s,runs=32,min_cycles=%lu,max_cycles=%lu,clock_hz=128000000\r\n",
                b?"PASS":"REJECT",(unsigned long)min,(unsigned long)max);
     }
+    if(application.initialized==0U) {
+        bus=ss_board_bus(); item("P3_APP_INIT",ss_app_init(&application,&bus)==SS_OK);
+    } else item("P3_APP_INIT",1);
+    item("P2_BUILD_GATE_CLOSED",ss_motion_build_enabled()==0);
     board_ok=fails==0U;
     if(!live_fpga) fpga_skips("FPGA_NOT_REQUESTED_OR_CONNECTED");
     else if(!board_ok) fpga_skips("BOARD_CHECKS_FAILED");
@@ -203,7 +226,10 @@ void ss_selftest_run(int live_fpga)
         skip("FPGA_RELEASE_CONSUME","ID_ABI_FAILED");skip("FPGA_IRQ_LEVEL_EDGE","ID_ABI_FAILED");
         skip("FPGA_TIMEOUT_RECOVERY","ID_ABI_FAILED");skip("FPGA_MOTION_DISABLED","ID_ABI_FAILED");
     } else {
-        if(live_bist(0) && live_bist(1)) live_timeout();
+        if(live_bist(0) && live_bist(1)) {
+            live_timeout();
+            if(fails==0U) item("FPGA_IDLE_AFTER_TEST",prepare_diagnostic());
+        }
         else { skip("REMAINING_FPGA_TESTS","PRIOR_BIST_FAILED");(void)ss_stop(&link); }
         safety_readback();
     }
@@ -214,48 +240,74 @@ void ss_selftest_run(int live_fpga)
     printf("SUMMARY,scope=%s,pass=%u,fail=%u,skip=%u,result=%s,NOT_SYSTEM_ACCEPTANCE\r\n",
         live_fpga?"FPGA_DIAGNOSTIC":"BOARD_ONLY",passes,fails,skips,
         fails?"FAIL":skips?"PASS_WITH_SKIPS":"PASS");
-    printf("COMMANDS,board / fpga / stream (send CRLF); reset boots BOARD_ONLY\r\n");
+    printf("COMMANDS,board / fpga / stream / status / stop / recover / ackstop / discard / config N MS EVERY / motion (CRLF)\r\n");
+}
+static void app_status(void)
+{
+    printf("APP,status=%u,state=%u,active=%u,frames=%lu,rejected=%lu,queued=%lu,drops=%lu,max_step_ms=%lu,producer_idle=%u,motion_gate=%d,motion_state=%u,commit_outcome=%u,fault=0x%08lX,first_error=%u,max_frames=%lu,duration_ms=%lu,print_every=%lu\r\n",
+        (unsigned int)application.last_status,(unsigned int)application.runtime.state,(unsigned int)application.active,
+        (unsigned long)application.frames,(unsigned long)application.rejected,(unsigned long)application.queued,
+        (unsigned long)application.drop_count,(unsigned long)application.max_step_ms,
+        (unsigned int)application.runtime.producer_idle_observed,ss_motion_build_enabled(),
+        (unsigned int)application.motion.state,(unsigned int)application.motion.outcome,
+        (unsigned long)link.faults,(unsigned int)application.runtime.first_error,
+        (unsigned long)application.config.max_frames,(unsigned long)application.config.duration_ms,
+        (unsigned long)application.config.print_every);
 }
 void ss_selftest_stream(void)
 {
-    uint32_t start,id=0U,seen=0U,queued=0U;ss_status_t s=SS_OK;
-    passes=0U;fails=0U;skips=0U;
-    printf("\r\nSTREAM,BEGIN,max_frames=8,deadline_ms=2000,no_actions\r\n");
-    if(!board_ok) {skip("STREAM","RUN_BOARD_CHECKS_FIRST");return;}
-    if(!live_probe()) {skip("STREAM","ID_ABI_FAILED");return;}
-    s=ss_start(&link,SS_RUN_REAL);item("STREAM_START",s==SS_OK);
-    if(s!=SS_OK) {printf("STREAM,STOP,status=%u,reset_PL_then_retry\r\n",(unsigned int)s);return;}
-    start=ss_board_us();
-    while(seen<8U && (uint32_t)(ss_board_us()-start)<2000000U) {
-        s=ss_poll_solve(&link,&map,&frame,&solved);
-        if(s==SS_NO_FRAME) {if(!ss_board_wait_us(100U)){s=SS_TIMEOUT;break;}continue;}
-        if(s!=SS_OK)break;
-        if(frame.frame_id<=id || (frame.flags&SNAP_STATUS_BIST)!=0U){s=SS_WIRE_FORMAT;break;}
-        id=frame.frame_id;++seen;
-        if((link.snapshot_status&SNAP_STATUS_QUEUED)!=0U)++queued;
-        item("STREAM_IRQ_STATUS",irq_equals_status());
-        printf("STREAM,frame=%lu,valid=%u,reason=%u,angle_q8=%ld,NO_ACTION_SUBMITTED\r\n",
-            (unsigned long)id,(unsigned int)solved.direction_valid,(unsigned int)solved.direction_reason,(long)solved.angle_q8);
+    ss_status_t s;
+    if(!board_ok) {printf("STREAM,SKIP,RUN_BOARD_CHECKS_FIRST\r\n");return;}
+    s=ss_app_start(&application);
+    printf("STREAM,BEGIN,status=%u,max_frames=%lu,deadline_ms=%lu,print_every=%lu,motion=DISABLED\r\n",
+        (unsigned int)s,(unsigned long)application.config.max_frames,(unsigned long)application.config.duration_ms,
+        (unsigned long)application.config.print_every);
+}
+static void app_tick(void)
+{
+    uint32_t t=ss_board_us();
+    ss_app_event_t event=ss_app_step(&application);
+    uint32_t us=ss_board_us()-t;
+    if(event==SS_APP_FRAME && (application.frames==1U || application.frames%application.config.print_every==0U))
+        printf("STREAM,frame=%lu,valid=%u,reason=%u,angle_q8=%ld,step_us=%lu,NO_ACTION_SUBMITTED\r\n",
+            (unsigned long)application.frame.frame_id,(unsigned int)application.result.direction_valid,
+            (unsigned int)application.result.direction_reason,(long)application.result.angle_q8,(unsigned long)us);
+    if(event==SS_APP_ENDED || event==SS_APP_ERROR) {
+        const char *result=event==SS_APP_ERROR?"FAIL":application.user_stopped?"STOPPED":
+            application.frames>=application.config.max_frames?"DIAGNOSTIC_COMPLETE":application.frames==0U?"SKIP_NO_FRAMES":"INCOMPLETE";
+        app_status();
+        printf("STREAM,END,result=%s,NOT_SYSTEM_ACCEPTANCE,ackstop_then_stream_for_next_run\r\n",result);
     }
-    printf("STREAM,frames=%lu,queued_observations=%lu,status=%u\r\n",(unsigned long)seen,(unsigned long)queued,(unsigned int)s);
-    item("STREAM_8_REAL_FRAMES",seen==8U && (s==SS_OK || s==SS_NO_FRAME));
-    if(queued)item("QUEUED_FRAME_OBSERVED",1);else skip("QUEUED_FRAME_OBSERVED","NO_BACKLOG_OBSERVED");
-    safety_readback();
-    s=ss_stop(&link);item("STREAM_STOP_TRANSPORT",s==SS_OK);
-    printf("STREAM,END,pass=%u,fail=%u,skip=%u,result=%s,STOP_MAY_LATCH_FAULT_RESET_PL_BEFORE_NEW_RUN\r\n",
-           passes,fails,skips,fails?"FAIL":skips?"PASS_WITH_SKIPS":"PASS");
 }
 void ss_selftest_command_poll(void)
 {
-    char command[32];uint16_t state,n;uint32_t mask;
-    if((*(volatile uint16_t *)&g_usart_rx_sta & 0x8000U)==0U)return;
-    mask=__get_PRIMASK();__disable_irq();
-    state=g_usart_rx_sta;n=state&0x3FFFU;
-    if(n>=sizeof(command))n=sizeof(command)-1U;
-    memcpy(command,g_usart_rx_buf,n);command[n]='\0';g_usart_rx_sta=0U;
-    __set_PRIMASK(mask);
-    if(strcmp(command,"board")==0)ss_selftest_run(0);
-    else if(strcmp(command,"fpga")==0)ss_selftest_run(1);
-    else if(strcmp(command,"stream")==0)ss_selftest_stream();
-    else printf("COMMANDS,board / fpga / stream; CRLF required\r\n");
+    char command[64];uint16_t state,n;uint32_t mask;
+    ss_status_t s=SS_OK; int handled=0;
+    if((*(volatile uint16_t *)&g_usart_rx_sta & 0x8000U)!=0U) {
+        mask=__get_PRIMASK();__disable_irq();
+        state=g_usart_rx_sta;n=state&0x3FFFU;
+        if(n<sizeof(command)) {memcpy(command,g_usart_rx_buf,n);command[n]='\0';}
+        g_usart_rx_sta=0U;__set_PRIMASK(mask);
+        if(n>=sizeof(command)) printf("COMMAND,REJECT,LENGTH\r\n");
+        else if(strcmp(command,"status")==0)app_status();
+        else if(strcmp(command,"stop")==0) {s=ss_app_stop(&application);handled=1;}
+        else if(strcmp(command,"recover")==0) {s=ss_app_recover(&application);handled=1;}
+        else if(strcmp(command,"ackstop")==0) {s=ss_app_ack_stop(&application);handled=1;}
+        else if(strcmp(command,"discard")==0) {
+            s=ss_app_discard(&application);handled=1;
+            printf("DISCARD,status=%u,frame=%lu,NO_ACTION\r\n",(unsigned int)s,(unsigned long)application.frame.frame_id);
+        }
+        else if(strcmp(command,"motion")==0) {s=ss_app_arm(&application);handled=1;printf("MOTION,DISABLED,build_gate=%d\r\n",ss_motion_build_enabled());}
+        else if(strncmp(command,"config ",7U)==0) {
+            ss_app_config_t c;s=ss_app_parse_config(command+7,&c);
+            if(s==SS_OK)s=ss_app_configure(&application,&c);
+            handled=1;
+        }
+        else if(strcmp(command,"board")==0)ss_selftest_run(0);
+        else if(strcmp(command,"fpga")==0)ss_selftest_run(1);
+        else if(strcmp(command,"stream")==0)ss_selftest_stream();
+        else printf("COMMANDS,board / fpga / stream / status / stop / recover / ackstop / discard / config N MS EVERY / motion; CRLF\r\n");
+        if(handled)printf("COMMAND,%s,status=%u\r\n",command,(unsigned int)s);
+    }
+    if(application.initialized!=0U)app_tick();
 }

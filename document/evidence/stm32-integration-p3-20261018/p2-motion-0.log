@@ -1,0 +1,5 @@
+COMMAND: F:\NUEC\SoundSight-stm32\software\stm32\build\motion-p2\motion-0.exe
+P2_GATES,PASS,build_default_off,runtime_opt_in,physical_adapter_unchanged
+P2_RESULT,PASS,build_gate=0,checks=43,failures=0
+
+EXIT_CODE: 0

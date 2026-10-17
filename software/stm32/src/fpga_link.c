@@ -231,6 +231,47 @@ static ss_status_t acquire_inner(ss_link_t *l, uint32_t t, doa_frame_input_t *f)
         return SS_WIRE_FORMAT;
     return SS_OK;
 }
+
+static ss_status_t disable_inner(ss_link_t *l,uint32_t t)
+{
+    uint32_t ctrl,v;
+    TRY_LOCAL(rd(l,t,REG_SYS_CTRL,&ctrl));
+    if((ctrl & ~SYS_CTRL_WRITE_MASK)!=0U || (ctrl & SYS_CTRL_LITE_DEBUG_MODE)==0U)
+        return SS_WIRE_FORMAT;
+    TRY_LOCAL(wr(l,t,REG_SYS_CTRL,ctrl & ~SYS_CTRL_ENABLE));
+    TRY_LOCAL(rd(l,t,REG_SYS_CTRL,&v));
+    return v==(ctrl & ~SYS_CTRL_ENABLE) ? SS_OK : SS_DEVICE_FAULT;
+}
+ss_status_t ss_disable(ss_link_t *l)
+{
+    ss_status_t s=ready(l);
+    if(s!=SS_OK) return s;
+    s=disable_inner(l,l->bus.now_ms(l->bus.user));
+    return s==SS_OK ? s : fail(l,s);
+}
+static ss_status_t acknowledge_stop_inner(ss_link_t *l,uint32_t t)
+{
+    uint32_t v;
+    TRY_LOCAL(rd(l,t,REG_SYS_CTRL,&v));
+    if((v & ~SYS_CTRL_WRITE_MASK)!=0U || (v & SYS_CTRL_LITE_DEBUG_MODE)==0U) return SS_WIRE_FORMAT;
+    if((v & SYS_CTRL_ENABLE)!=0U) return SS_BUSY;
+    TRY_LOCAL(status_read(l,t,&v));
+    if((v & SNAP_STATUS_DRAINING)!=0U) return SS_BUSY;
+    TRY_LOCAL(rd(l,t,REG_ACT_CTRL,&v)); if(v!=0U) return SS_DEVICE_FAULT;
+    TRY_LOCAL(rd(l,t,REG_WATCHDOG_TICKS,&v)); if(v!=0U) return SS_DEVICE_FAULT;
+    TRY_LOCAL(rd(l,t,REG_FAULT_STATUS,&l->faults));
+    if((l->faults & ~FAULT_CANCEL_STOP)!=0U) return SS_DEVICE_FAULT;
+    if(l->faults!=0U) TRY_LOCAL(wr(l,t,REG_FAULT_STATUS,FAULT_CANCEL_STOP));
+    TRY_LOCAL(rd(l,t,REG_FAULT_STATUS,&l->faults));
+    return l->faults==0U ? SS_OK : SS_DEVICE_FAULT;
+}
+ss_status_t ss_acknowledge_stop(ss_link_t *l)
+{
+    ss_status_t s=ready(l);
+    if(s!=SS_OK) return s;
+    s=acknowledge_stop_inner(l,l->bus.now_ms(l->bus.user));
+    return s==SS_OK || s==SS_BUSY ? s : fail(l,s);
+}
 ss_status_t ss_acquire_frame(ss_link_t *l, doa_frame_input_t *f)
 {
     return ss_link_acquire_at(l, configured(l) ? l->bus.now_ms(l->bus.user) : 0U, f);

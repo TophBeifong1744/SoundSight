@@ -27,8 +27,8 @@ for name, checks in [('s1',4705), ('s2',15980)]:
     if expected not in output: raise RuntimeError(f'{name}: missing {expected}')
     print(expected)
 user=STM/'keil/soundsight_f407/User'
-run('compile-selftest', BASE+['-I'+str(STM/'tests/mock_hal'), '-I'+str(user), solver, link, user/'soundsight_selftest.c', STM/'tests/test_selftest_host.c', '-lm', '-o', OUT/'selftest.exe'])
-expected={'board':(11,0,11,0), 'live':(29,0,4,263), 'no_peer':(11,1,10,1), 'dead_tick':(10,1,11,0), 'bad_config':(10,1,11,0)}
+run('compile-selftest', BASE+['-I'+str(STM/'tests/mock_hal'), '-I'+str(user), solver, link, STM/'src/ss_runtime.c', STM/'src/ss_motion.c', STM/'src/ss_app.c', user/'soundsight_selftest.c', STM/'tests/test_selftest_host.c', '-lm', '-o', OUT/'selftest.exe'])
+expected={'board':(13,0,11,0), 'live':(32,0,4,302), 'no_peer':(13,1,10,1), 'dead_tick':(12,1,11,0), 'bad_config':(12,1,11,0)}
 for mode,(passed,failed,skipped,transfers) in expected.items():
     output=run('host-'+mode,[OUT/'selftest.exe',mode])
     counts=f'pass={passed},fail={failed},skip={skipped},'
@@ -37,4 +37,7 @@ for mode,(passed,failed,skipped,transfers) in expected.items():
     if failed and 'result=FAIL,NOT_SYSTEM_ACCEPTANCE' not in output:
         raise RuntimeError(f'{mode}: failure was hidden')
     print(f'HOST_MODEL,{mode},EXPECTED_COUNTS_OK,NOT_BOARD_MEASUREMENT')
+output=run('host-commands',[OUT/'selftest.exe','commands'])
+if 'COMMAND_TESTS,PASS' not in output or 'failures=0' not in output: raise RuntimeError('commands failed')
+print('P3_COMMANDS,PASS,nonblocking_stream,STOP_ack,busy_config,no_motion')
 print('MIGRATION_HOST_TESTS,PASS,5_SELFTEST_SCENARIOS')

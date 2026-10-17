@@ -1,6 +1,6 @@
 # P1 运行控制状态机
 
-2026-10-18：独立软件完成，PC 寄存器模型验证与 ARM Compiler 5 对象编译通过。尚未接入 Keil 主循环、未下载本板、未做真实 FPGA 联调。原 board/fpga/stream 固件保持原样，P3 再统一接入；三维保留暂停。
+2026-10-18：独立软件完成，PC 寄存器模型验证与 ARM Compiler 5 对象编译通过。后续 P3 已接入 Keil 主循环并修正 STOP 的显式禁用步骤；未下载新固件、未做真实 FPGA 联调。详见 [P3](INTEGRATION-P3.md)；三维保留暂停。
 
 代码：[接口](include/ss_runtime.h)、[实现](src/ss_runtime.c)、[测试](tests/test_ss_runtime.c)。复用原 S1、S2 和冻结 ABI，没有修改它们，没有新增跨板寄存器或更改 STOP 语义。
 
@@ -11,7 +11,7 @@
 |init → IDLE|初始化主机上下文，不访问设备|不声称 FPGA 已停止|
 |start → PROBING → STARTING|核对 ID/ABI，关闭运动许可和看门狗；等待排尾／队列空后按原 S2 启动|成功 RUNNING；BUSY 在启动总时限内等待，不清空旧队列|
 |RUNNING|周期检查 fault，再读取、解算、消费一帧|有效方向或拒绝方向事件；无帧继续等待，不依赖 IRQ 新边沿|
-|stop → STOPPING → DRAINING|只发送一次 STOP；有界回读 enable=0 且 draining=0|STOPPED 且 producer_idle_observed=1；保留 READY 队列|
+|stop → STOPPING → DRAINING|只发送一次 STOP，显式清 enable 并保留模式；有界回读 enable=0 且 draining=0|STOPPED 且 producer_idle_observed=1；保留 READY 队列|
 |FAULT|清除当前结果，保留错误和帧序历史|不自动访问设备，不自动重发消费命令|
 |recover → RECOVERING|重新核对设备、撤销许可、释放实际 LOCKED 槽、读取故障|无故障才回 IDLE，既不消费也不启动；sticky fault 保留|
 |resume → RESUMING|仅允许此前成功启动且未请求 STOP 的会话；回读原 enable、模式及 BIST 选择|匹配才回 RUNNING；不写 enable、不切模式、不清队列|
@@ -56,6 +56,6 @@ python software/stm32/tests/run_host_tests.py
 
 不提供 `--armcc` 时明确记录 ARMCC SKIP。GCC 使用 C99、O2、严格警告视为错误；AC5 使用 Cortex-M4.fp.sp、C99、microlib、O2、strict 和警告视为错误。日志和可再生成二进制在 `software/stm32/build/runtime-p1/`；必要交付日志在 [P1 验证记录](../../document/evidence/stm32-runtime-p1-20261018/REPORT.md)。
 
-P1 测试复用现有 literal-address 寄存器模型，实际调用 S1/S2，不是 RTL、电气 SPI 或真实板测。164 组取帧故障和 140 组启停恢复故障覆盖事务生效前／后各两类返回错误；并覆盖持续 IRQ、取消、残差拒绝、来源错误、重复帧、回绕、总时限、排尾、错误身份与保留 sticky fault。原 S1/S2 和五种统一自检主机模型另跑回归。没有独立审阅者或新硬件结果的声明。
+P1 测试复用现有 literal-address 寄存器模型，实际调用 S1/S2，不是 RTL、电气 SPI 或真实板测。原批 164 组取帧故障和 140 组启停恢复故障（P3修正后启停恢复增至152组）覆盖事务生效前／后各两类返回错误；并覆盖持续 IRQ、取消、残差拒绝、来源错误、重复帧、回绕、总时限、排尾、错误身份与保留 sticky fault。原 S1/S2 和五种统一自检主机模型另跑回归。没有独立审阅者或新硬件结果的声明。
 
-下一步 P2：水平动作命令管理。实际接入固件与本板复测放在 P3；真实跨板放在 P4。当前不要求 A 改 ABI。
+P2/P3软件已完成；P3最新P1回归27104项、0失败，模型保留STOP时的enable。下一步用户本板复测，真实跨板放在P4。当前不要求A改ABI。

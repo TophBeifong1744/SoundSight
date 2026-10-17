@@ -63,7 +63,10 @@ static void motion_write(motion_mock_t *m,uint32_t a,uint32_t v)
                 m->remaining=b->watchdog; m->have_command=1; ++m->watchdog_loads;
             } else { b->fault|=128U; b->act=0U; }
         } else { ++b->bad_tx; b->fault|=2U; }
-    } else write_word(b,a,v);
+    } else {
+        write_word(b,a,v);
+        if(a==0x04U && (v&1U)==0U) m->stop_latched=0;
+    }
     if(b->fault!=0U) { b->act=0U; m->have_command=0; }
 }
 static ss_bus_status_t motion_transfer(void *user,const uint8_t tx[5],uint8_t rx[5],uint32_t timeout)
@@ -329,7 +332,10 @@ static void identity_and_races(unsigned int commit_pos)
           ss_motion_recover(NULL)==SS_ARGUMENT && ss_motion_poll(NULL,&f,&r)==SS_ARGUMENT);
     puts("P2_RACES,PASS,locked_frame_swap,late_fault,post_commit_expiry,wrong_ID,stuck_lock,no_combined_commit");
 }
-int main(void)
+#ifndef SS_MOTION_TEST_MAIN
+#define SS_MOTION_TEST_MAIN main
+#endif
+int SS_MOTION_TEST_MAIN(void)
 {
     gate_test();
     if(ss_motion_build_enabled()) {

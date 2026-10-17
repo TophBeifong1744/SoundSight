@@ -657,6 +657,21 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\..\src\fpga_link.c</FilePath>
             </File>
+            <File>
+              <FileName>ss_app.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\src\ss_app.c</FilePath>
+            </File>
+            <File>
+              <FileName>ss_motion.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\src\ss_motion.c</FilePath>
+            </File>
+            <File>
+              <FileName>ss_runtime.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\src\ss_runtime.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
