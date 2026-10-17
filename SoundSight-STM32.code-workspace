@@ -1,0 +1,7 @@
+{
+  "folders": [{"name": "SoundSight STM32", "path": "."}],
+  "settings": {
+    "files.exclude": {"software/stm32/build": true},
+    "search.exclude": {"software/stm32/build": true}
+  }
+}

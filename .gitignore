@@ -24,3 +24,8 @@
 
 # Private machine tool locations; copy the tracked example for a new machine.
 /tools.local.env
+
+# Keil personal debugger/editor state; firmware outputs use software/stm32/build.
+/software/stm32/keil/**/*.uvoptx
+/software/stm32/keil/**/*.uvguix.*
+/software/stm32/keil/**/DebugConfig/

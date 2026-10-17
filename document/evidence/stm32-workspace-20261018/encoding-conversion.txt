@@ -1,0 +1,21 @@
+Original source comments and notices retained. Initial GB18030-only conversion encountered a Windows-1252 comment byte; final conversion explicitly handles both source encodings.
+readme.txt: gb18030 -> UTF-8 without BOM
+Drivers/readme.txt: gb18030 -> UTF-8 without BOM
+Middlewares/readme.txt: gb18030 -> UTF-8 without BOM
+User/main.c: gb18030 -> UTF-8 without BOM
+Drivers/SYSTEM/readme.txt: gb18030 -> UTF-8 without BOM
+Drivers/SYSTEM/delay/delay.c: gb18030 -> UTF-8 without BOM
+Drivers/SYSTEM/delay/delay.h: gb18030 -> UTF-8 without BOM
+Drivers/SYSTEM/sys/sys.c: gb18030 -> UTF-8 without BOM
+Drivers/SYSTEM/sys/sys.h: gb18030 -> UTF-8 without BOM
+Drivers/SYSTEM/usart/usart.c: gb18030 -> UTF-8 without BOM
+Drivers/SYSTEM/usart/usart.h: gb18030 -> UTF-8 without BOM
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cryp.c: gb18030 -> UTF-8 without BOM
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cryp_ex.c: cp1252 -> UTF-8 without BOM
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_alarm_template.c: gb18030 -> UTF-8 without BOM
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c: gb18030 -> UTF-8 without BOM
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_wwdg.c: gb18030 -> UTF-8 without BOM
+Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h: gb18030 -> UTF-8 without BOM
+Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f407xx.s: gb18030 -> UTF-8 without BOM
+Drivers/BSP/LED/led.c: gb18030 -> UTF-8 without BOM
+Drivers/BSP/LED/led.h: gb18030 -> UTF-8 without BOM

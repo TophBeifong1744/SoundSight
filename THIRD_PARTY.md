@@ -8,3 +8,7 @@
 - `research/competition-skills`是旧比赛成果参考，不自动安装，也不作为本项目工作流规则。
 
 新仓库尚未由本任务公开或上传。后续公开发布时保留原文件声明，并按实际分发范围处理第三方附件。
+
+## STM32 工程补充
+
+`software/stm32/keil/soundsight_f407/Drivers` 来自探索者 V3.5 已用工程，含 ST HAL、ARM CMSIS 和 正点原子 SYSTEM 驱动；User/main.c 保留原模板声明。原头部许可/来源保持，不重新许可为项目 MIT。STM32 组自行实现 S2、soundsight_board/selftest 及测试接合；S1 仍为 software/common 唯一版本。构建工具与设备 Pack 使用本机合法安装，不随源码提交。

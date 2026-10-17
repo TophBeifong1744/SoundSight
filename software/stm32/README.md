@@ -1,14 +1,20 @@
-# STM32组入口
+# STM32 工作区入口
 
-已收到探索者V3.5 / STM32F407ZGT6、Keil uVision5+DAP可下载的确认，以及v2接线和三方分工。
+2026-10-18 已接入 B 侧 S2、探索者 V3.5 板级适配和统一自检工程。主方案为 STM32F407ZGT6 + PL，保留 128 MHz / USART1 115200、SPI1 1 MHz。默认关闭动作提交。
 
-- 冻结合同和共享头：`../common/FROZEN_SSOT_ABI.md`、`../common/fpga_stm32_abi_frozen.h`。
-- 已完成S1：`../common/s1/`，两种CPU目标共用同一份代码；不要再复制一份后各改各的。
-- B原文：`board-handoff/`。
-- 当前接线：`../../hardware/stm32/SPI-WIRING.txt`。
+|内容|路径|
+|---|---|
+|唯一冻结 ABI、S1|`../common/`、`../common/s1/`|
+|S2 通用驱动|`src/fpga_link.c`、`include/fpga_link.h`|
+|Keil 工程|`keil/soundsight_f407/Projects/MDK-ARM/atk_f407.uvprojx`|
+|板级实现与统一入口|`keil/soundsight_f407/User/soundsight_board.c`、`soundsight_selftest.c`|
+|主机回归|`tests/run_host_tests.py`|
+|生成物|`build/`（Git 忽略）|
+|操作和接线|[板级自检说明](BOARD-SELFTEST-README.md)、[接线表](../../hardware/stm32/SPI-WIRING.txt)|
+|原板端日志|[2026-10-17 记录](../../document/evidence/stm32-board-20261017/board-only-user-uart.log)|
 
-**S2 SPI驱动、会话/快照管理、STM32时钟/外设配置及Keil工程尚未收到。** 本目录不是已经能下载运行的完整STM32固件，迁移没有代替B实现这些任务。
+在仓库根目录运行 `python software/stm32/tests/run_host_tests.py`。工具位置由环境变量、被忽略的 tools.local.env 或 PATH 提供。
 
-后续收到源码后，放`src/`、`include/`、`board/`、`keil/`和`tests/`；构建输出统一放`build/`并忽略。必要启动文件、链接脚本、实际型号、库/Pack版本和配置归Git；调试器个人状态与Objects/Listings等生成物不归Git。
+已完成范围：S1 PC 4705 项、S2 PC 15980 项；原硬件 BOARD_ONLY 11 PASS / 0 FAIL / 11 SKIP。本次搬移后的编译/测试见 [迁移记录](../../document/stm32-workspace.md)。原板端输出不能替代搬移后固件上板测试；实际跨板 SPI/IRQ/快照仍未测。
 
-SPI Mode0、1MHz、40位事务和独立动作许可保持冻结规则。STM32独占主方案的ACQUIRE/RELEASE/CONSUME与动作提交。不能直接套用PS版AXI物理访问实现。
+同一功能只在当前工作区修改；原工程作为保留副本。公共 S1/ABI 未修改，不能在 STM32 目录另建分叉。动作写门禁继续保留，未连接 FPGA 的项目显示 SKIP。
