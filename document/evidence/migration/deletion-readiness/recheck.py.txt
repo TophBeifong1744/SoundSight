@@ -1,0 +1,84 @@
+"""Deletion readiness audit. Reads old/new files, never deletes or runs EDA."""
+from pathlib import Path
+import csv, json, os, re, zipfile, xml.etree.ElementTree as ET
+
+ROOT = Path(__file__).resolve().parents[2]
+OLD = ROOT.parent / 'Competition_fpga'
+OUT = Path(__file__).resolve().parent
+result = {'scope': 'Current migration file completeness and old-path independence; no EDA or deletion', 'errors': []}
+errors = result['errors']
+rows = list(csv.DictReader((ROOT/'document/migration-source-map.csv').open(encoding='utf-8-sig')))
+missing = [r['new_project_path'] for r in rows if not (ROOT/r['new_project_path']).is_file()]
+errors.extend('missing mapped file: '+s for s in missing)
+cutoff = (ROOT/'document/migration-source-map.csv').stat().st_mtime
+late = [r['old_repository_path'] for r in rows if (OLD/r['old_repository_path']).is_file() and (OLD/r['old_repository_path']).stat().st_mtime > cutoff+2]
+result['mapping'] = {'entries': len(rows), 'missing': missing, 'old_mapped_files_changed_after_copy_manifest': late}
+errors.extend('late old input needs review: '+s for s in late)
+
+result['native_projects'] = []
+for rel in ['project/par/SoundSight.xpr','variants/pl_ps/project/par/SoundSight_PS.xpr']:
+    p=ROOT/rel; tree=ET.parse(p); n=0
+    for f in tree.findall('.//File'):
+        raw=f.attrib.get('Path','')
+        if not raw: continue
+        value=raw
+        for macro, replacement in {'$PPRDIR':p.parent, '$PSRCDIR':p.parent/(p.stem+'.srcs'), '$PGENDIR':p.parent/(p.stem+'.gen')}.items():
+            value=value.replace(macro,str(replacement))
+        target=Path(value).resolve(); n+=1
+        if '$' in value or not target.is_relative_to(ROOT) or not target.is_file():
+            errors.append(f'native source unresolved/outside/missing: {rel}: {raw}')
+    result['native_projects'].append({'project':rel,'registered_file_references':n})
+
+reparse=[]; live_hits=[]; scanned=0
+extensions={'.v','.sv','.svh','.vhd','.tcl','.xdc','.py','.c','.h','.sh','.bat','.txt','.xpr','.xci','.bd','.mem','.coe','.f','.prj','.do'}
+for base in ['project','variants','simulation/tb','simulation/models','simulation/script','software/common','software/ps','software/tests','tools']:
+    for directory, dirs, files in os.walk(ROOT/base, followlinks=False):
+        for name in dirs+files:
+            p=Path(directory)/name
+            if p.lstat().st_file_attributes & 0x400: reparse.append(str(p.relative_to(ROOT)))
+        dirs[:]=[d for d in dirs if d not in {'__pycache__','.Xil','build','_launcher','reports','.cache'} and not d.endswith(('.cache','.runs'))]
+        for name in files:
+            p=Path(directory)/name
+            if p.suffix.lower() not in extensions: continue
+            scanned+=1
+            s=p.read_text('utf-8-sig',errors='replace').replace('\\','/')
+            hits=[(i,line[:500]) for i,line in enumerate(s.splitlines(),1) if re.search(r'Competition_fpga|i17_live_loop',line,re.I)]
+            if hits: live_hits.append({'path':p.relative_to(ROOT).as_posix(),'lines':hits})
+result['reference_scan']={'text_files':scanned,'reparse_points':reparse,'old_name_occurrences':live_hits}
+for hit in live_hits:
+    if hit['path']=='tools/check_project.py': continue
+    if hit['path'].startswith('project/ip/reference/') and hit['path'].endswith('.xci'): continue
+    errors.append('unclassified old reference: '+hit['path'])
+errors.extend('reparse point requires review: '+s for s in reparse)
+
+result['archives']=[]
+for name in ['legacy-technical.zip','migration-input-originals.zip']:
+    with zipfile.ZipFile(ROOT/'local_archive'/name) as z:
+        bad=z.testzip()
+        if bad: errors.append('corrupt archive entry: '+bad)
+        mismatched=[]; checked=0
+        if name=='legacy-technical.zip':
+            # Compare current old technical files against the preserved snapshot.
+            for info in z.infolist():
+                p=OLD/info.filename
+                if p.is_file():
+                    checked+=1
+                    if p.read_bytes()!=z.read(info):mismatched.append(info.filename)
+        errors.extend('old archived source changed: '+s for s in mismatched)
+        result['archives'].append({'name':name,'entries':len(z.infolist()),'crc_error':bad,'compared_to_current_old_files':checked,'mismatched':mismatched})
+
+# The two latest product trees must not contain unaccounted-for source files.
+mapped={r['old_repository_path'] for r in rows}
+unmapped=[]
+for variant in ['clean_pl_20261017','zynq_ps_20261017']:
+    for sub in ['rtl','hardware','test','software','documentation']:
+        for p in (OLD/'migration'/variant/sub).rglob('*'):
+            if not p.is_file() or '__pycache__' in p.parts or 'build' in p.parts:continue
+            if p.suffix.lower() not in {'.v','.sv','.svh','.mem','.c','.h','.xdc','.txt','.html','.csv','.json'}:continue
+            rel=p.relative_to(OLD).as_posix()
+            if rel not in mapped:unmapped.append(rel)
+result['latest_product_unmapped_files']=unmapped
+errors.extend('latest product input missing from map: '+s for s in unmapped)
+result['status']='PASS' if not errors else 'REVIEW_REQUIRED'
+(OUT/'RESULT.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+print(json.dumps(result,ensure_ascii=False,indent=2))

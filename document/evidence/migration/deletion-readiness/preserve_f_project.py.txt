@@ -1,0 +1,55 @@
+"""Preserve selected old F-project originals before user discards it; no edits to old project."""
+from pathlib import Path
+import json, os, zipfile, xml.etree.ElementTree as ET
+
+NEW=Path(__file__).resolve().parents[2]
+OLD=Path('F:/AMD/p/i17_live_loop')
+OUT=NEW/'local_archive/f-project-originals-20261017.zip'
+assert not OUT.exists(), 'Do not overwrite an existing preservation archive'
+selected={}
+def include(p):
+    selected[p.resolve()]=p.relative_to(OLD).as_posix()
+for name in ['i17_live_loop.xpr','hann-u18f17.mem','vivado.log','vivado.jou','dfx_runtime.txt']:
+    p=OLD/name
+    if p.is_file():include(p)
+# Keep user-editable sources/configuration and useful original reports; no old EDA database.
+suffixes={'.sv','.v','.vhd','.vhdl','.svh','.vh','.xdc','.sdc','.tcl','.mem','.coe','.xci','.bd','.xpr','.hwh','.json','.csv','.md','.txt','.py','.ps1','.bat','.c','.h'}
+for directory,dirs,files in os.walk(OLD):
+    dirs[:]=[d for d in dirs if d!='.Xil' and not d.endswith(('.cache','.gen','.ip_user_files','.sim','.runs','.hw'))]
+    for name in files:
+        p=Path(directory)/name
+        if p.suffix.lower() in suffixes:include(p)
+for subtree in ['reports','i17_live_loop.runs','fast_pl_runs']:
+    for p in (OLD/subtree).rglob('*'):
+        if p.is_file() and p.suffix.lower() in {'.rpt','.log','.jou','.tcl'}: include(p)
+for p in (OLD/'reports').glob('*.rpx'):include(p)
+
+xpr=OLD/'i17_live_loop.xpr'
+unpreserved=[]; missing=[]
+for node in ET.parse(xpr).findall('.//File'):
+    raw=node.attrib.get('Path','')
+    if not raw:continue
+    value=raw
+    for macro,replacement in {'$PPRDIR':OLD,'$PSRCDIR':OLD/'i17_live_loop.srcs','$PGENDIR':OLD/'i17_live_loop.gen'}.items():value=value.replace(macro,str(replacement))
+    p=Path(value).resolve()
+    if p.suffix.lower() in {'.dcp','.wdb','.bit'}:
+        unpreserved.append({'path':str(p),'reason':'old generated database/bitstream, not needed by new project'})
+        continue
+    if '$' in value or not p.is_file():missing.append(raw);continue
+    if p not in selected:
+        selected[p]=('external_registered/'+p.drive.rstrip(':')+'/'+p.as_posix().split(':',1)[-1].lstrip('/')) if not p.is_relative_to(OLD) else p.relative_to(OLD).as_posix()
+
+record={'source':str(OLD),'role':'Historical reference only, not a runnable or complete backup of old Vivado project',
+        'files':len(selected),'uncompressed_bytes':sum(p.stat().st_size for p in selected),
+        'registered_missing_in_old_project':missing,'intentionally_excluded_registered_outputs':unpreserved,
+        'files_by_original_path':{str(p):name for p,name in selected.items()}}
+with zipfile.ZipFile(OUT,'x',zipfile.ZIP_DEFLATED,compresslevel=5) as z:
+    for p,name in sorted(selected.items()):z.write(p,name)
+    z.writestr('PRESERVATION-NOTE.json',json.dumps(record,ensure_ascii=False,indent=2))
+with zipfile.ZipFile(OUT) as z:
+    assert z.testzip() is None
+    for p,name in selected.items():assert z.read(name)==p.read_bytes(),str(p)
+record.pop('files_by_original_path')
+record.update(archive=OUT.relative_to(NEW).as_posix(),archive_bytes=OUT.stat().st_size,crc_check='PASS',byte_comparison='PASS')
+(Path(__file__).parent/'F-PROJECT-RESULT.json').write_text(json.dumps(record,ensure_ascii=False,indent=2),encoding='utf-8')
+print(json.dumps(record,ensure_ascii=False,indent=2))

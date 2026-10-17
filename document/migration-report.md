@@ -57,3 +57,9 @@
 新本地仓库使用main，完整可维护源、接口、模型、文档和必要结果纳入基线；不带旧.git，不设置origin，不创建或推送GitHub仓库。local_archive保留11,418份旧技术文件（约602MiB压缩）及补充迁移输入原文；69条Issue/PR条目、703条讨论评论也已只读保存。它们不参与构建、不默认上传。
 
 原Competition_fpga、原F盘Vivado工程和旧GitHub仓库均未删除。新的工程迁移已完成，但仍需用户配置真实PS7/DDR/PYNQ并继续人工综合/实现；STM32 S2和板级验证仍按current-status.md接续。
+
+## 临时文件收尾 — 2026-10-17
+
+删除前复核说明已归入[正式记录](deletion-readiness.md)，结果和原始检查步骤保存在evidence/migration/deletion-readiness。Git导出验证的软件原始日志和结果补入evidence/migration/git-portability/raw。历史失败日志和local_archive均保留。
+
+确认导出副本的600份源码与导出包完全一致、没有独立修改，且必要结果均已归档后，删除codex_out下两个临时目录，共616个文件、75,006,523字节；空codex_out一并移除。未修改工程源码，未运行EDA。后续临时目录按AGENTS.md和directory-guide.md的任务收尾规则管理。

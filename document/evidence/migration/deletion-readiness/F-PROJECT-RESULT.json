@@ -1,0 +1,17 @@
+{
+  "source": "F:\\AMD\\p\\i17_live_loop",
+  "role": "Historical reference only, not a runnable or complete backup of old Vivado project",
+  "files": 398,
+  "uncompressed_bytes": 16657049,
+  "registered_missing_in_old_project": [],
+  "intentionally_excluded_registered_outputs": [
+    {
+      "path": "F:\\AMD\\p\\i17_live_loop\\i17_live_loop.srcs\\utils_1\\imports\\synth_1\\i17_vio_board_top.dcp",
+      "reason": "old generated database/bitstream, not needed by new project"
+    }
+  ],
+  "archive": "local_archive/f-project-originals-20261017.zip",
+  "archive_bytes": 1463545,
+  "crc_check": "PASS",
+  "byte_comparison": "PASS"
+}
