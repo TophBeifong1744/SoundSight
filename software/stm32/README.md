@@ -2,6 +2,8 @@
 
 2026-10-18 已接入 B 侧 S2、探索者 V3.5 板级适配和统一自检工程。主方案为 STM32F407ZGT6 + PL，保留 128 MHz / USART1 115200、SPI1 1 MHz。默认关闭动作提交。
 
+当前完成范围及剩余模块见 [STM32模块进度表](../../document/STM32-MODULE-PROGRESS.md)。
+
 |内容|路径|
 |---|---|
 |唯一冻结 ABI、S1|`../common/`、`../common/s1/`|

@@ -9,6 +9,8 @@
 
 两版分别生成自己的独立Vivado工程。当前器件 `xc7z020clg400-1`，Vivado `2025.2`；采集/公共控制61.44MHz，计算及PS侧AXI100MHz。
 
+STM32专项进度见 [STM32模块进度表](document/STM32-MODULE-PROGRESS.md)，区分PC、板端与待联调结果。
+
 ## 先读这些
 
 1. [目录怎么用](document/directory-guide.md)
