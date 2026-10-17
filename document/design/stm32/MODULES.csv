@@ -1,30 +1,30 @@
 ﻿组,源码,行数,用途,接口
-旧单域回归参考,rtl/bd_board_clock.v,24,原板外50MHz时钟包装的BD适配，不加入当前BD。,sys_clk和cold_reset_n输入，clk/rst_n输出；当前工程统一改用PS FCLK、Clocking Wizard与Processor System Reset。
-BD端口适配,rtl/bd_clean_compute.v,44,可作为Vivado Module Reference的Verilog薄封装。,逐线连接ss_dual_compute，不增加寄存器；两个时钟和复位端口必须分别连接。
-BD端口适配,rtl/bd_stm32_link.v,58,可加入BD的STM32通信薄封装。,下层ss_stm32_link；全部61.44MHz，冻结SPI/看门狗单位不变。
-05 六对特征,rtl/doa_math_pkg.sv,270,保留PHAT所用192位整数类型和倒平方根种子ROM。,package没有物理端口；已去掉未使用的LS和CORDIC函数。
-06 六对特征,rtl/doa_math_serial.sv,152,以多周期方式执行共享整数算术，避免全部运算挤在一拍。,操作选择、操作数、启动/忙/结果；完整定义见源码声明及状态机。
-06 六对特征,rtl/doa_phat_client.sv,97,把 PHAT 所需算术请求送到共享多周期计算单元。,请求/返回握手、操作数和结果；等待期间保持当前对的计算上下文。
-06 六对特征,rtl/f1a_frame_store.sv,90,六个工作槽加一个稳定输出槽；前一对不会被后一对覆盖。,pair_event/index/160 位字组；frame_finish 后 feature_valid。背压保持整帧；满则丢新，不堵物理采集。
-05 前向 FFT 与定点转换,rtl/fft29_official.sv,42,薄封装官方 ss_fft29，不实现另一套 FFT 数学模型。,config/data/out/status 独立握手；29 位实虚部；配置字固定 0x0AAAAB。
-08 动作保护,rtl/i17_turntable_pwm_guard.sv,61,撤销许可时阻止新高脉冲；已有高脉冲完整结束；冷复位立即低。,raw_pwm/permit/revoke/fresh_command→受保护 PWM、排尾和等待新命令状态。
-06 六对特征,rtl/ifft25_official.sv,36,薄封装官方 ss_ifft25，方向与缩放配置来自六对引擎。,24 位 config、64 位数据打包、10 位输出索引、独立 status/events。
-08 动作保护,rtl/motor_drive.v,137,沿原映射产生 20 ms 周期、约 0.5–2.5 ms 高脉冲，周期边界更新目标。,angle_deg_i/angle_valid_i→pwm_o。实物范围由参数绑定，代码默认不是机械标定。
-03 采集与分帧,rtl/pdm_cic3.v,39,单路三级CIC，bit_valid每到64次产生一次S24 PCM。,clk为61.44MHz处理时钟；bit_valid是PDM采样使能，不是独立时钟。pdm_bit输入，pcm_valid/pcm/clipped输出。
-旧单域回归参考,rtl/sound_servo_clock.sv,36,原两级MMCM时钟原语组合，供保存的单域仿真复现。,sys_clk输入50MHz；输出clk50、clk_pcm及对应rst50_n、rst_pcm_n。当前BD改用官方Clocking Wizard。
-08 动作保护,rtl/ss_actuator_control.sv,69,检查独立许可、当前锁帧、新鲜度、角度范围和看门狗后接受一次动作。,影子角度/COMMIT、锁帧序号、资格、故障；permit/PWM/拒绝/超时。ACTUATOR_BOUND 默认 0。
-跨时钟传输,rtl/ss_async_word.sv,41,官方XPM异步FIFO封装，完整传递多位载荷。,WIDTH为载荷宽度；物理16项，CAPACITY=1..16限制逻辑占用。源/目的valid-ready各属于自己的时钟域；背压数据稳定；两端冷复位必须协调，STOP不清FIFO。
-07 SPI 与快照,rtl/ss_bist_source.sv,36,产生冻结的拒绝/0 度通过两组特征，只验证传输和软件求解。,trigger/select_pass→valid/六对特征。BIST 不能给出实物运动资格。
-旧单域回归参考,rtl/ss_board_clock.sv,25,原50MHz到61.44MHz时钟及复位封装，仅用于旧clock测试。,sys_clk/cold_reset_n输入、clk/rst_n输出；不能与当前官方时钟复位BD重复实例化。
-02 计算总接合,rtl/ss_clean_compute.sv,106,协调窗口、预处理、FFT及六对计算；DUAL_CLOCK=1时采集61.44MHz、其余100MHz。,clk/rst_n为计算域；acq_clk/acq_rst_n/acq_enable为采集域。PCM通过97位异步FIFO；active表示仍有计算/IP义务；feature_*仍属于计算域，由外层过桥。
-06 寄存器与快照,rtl/ss_control_regs.sv,201,冻结ABI的寄存器语义层，连接两槽、BIST和运动保护。,address 为7位字节偏移；commit 单拍产生一次副作用；write_access 分读写。组合read_data供传输层锁存。默认ACTUATOR_BOUND=0。
-双时钟总接合,rtl/ss_dual_compute.sv,41,接合61.44MHz采集/控制与100MHz计算，向公共控制域交付整帧。,clk/rst_n为100MHz；io_clk/io_rst_n为61.44MHz。外部enable、feature_*、draining、source_faults均属io_clk域；debug_frontend/backend属100MHz。内部单字控制同步及992位、单帧容量跨域缓存。
-04 预处理与FFT,rtl/ss_fft_frontend.sv,131,调度8个官方FFT，检查1024个输入、1024个输出及独立status；转发域1的四路513点半谱。,begin/s/end 均带同一真实32位帧号。STOP 后排完已配置FFT，再发 end_cancelled；不借 STOP 冷复位 IP。
-05 六对特征,rtl/ss_pair_engine.sv,452,按01、02、03、12、13、23串行做跨谱、PHAT、IFFT、整数峰和邻点提取；没有PL内LS或角度解算。,begin/s/end 使用32位帧号；S25实虚部及channel/bin顺序检查。取消保留已完成对并终结其余对。feature_pairs 每对160位、共960位。
-03 采集与分帧,rtl/ss_pcm_windows.sv,64,2048组四通道环形缓存；每1024点形成一窗，以512点为步进。,window_valid/ready 移交一个真实32位窗口帧号；read_enable/index 请求同步读，下一拍 read_valid/pcm；release_window 释放窗口。拥塞报错并停止新增，物理采集时钟不停。
-03 采集与分帧,rtl/ss_pdm_capture.sv,41,四路 PDM 同步采样，复用原 CIC 抽取；麦克风时钟连续运行。,pdm_data[3:0] 经同步器；四个 S24 PCM 按通道0在最低24位拼成96位；sample_valid 一拍。
-04 预处理与FFT,rtl/ss_preprocess.sv,112,先拷贝1024组PCM，然后串行计算两域四通道共8个FFT输入单元。,域0去均值后乘Hann；域1直接乘Hann。U18F17系数、RNE舍入、DOA S24饱和并报错；输出S29=处理值乘16。out_valid/ready 背压时数据不变。
-07 SPI 与快照,rtl/ss_snapshot_queue.sv,92,两槽 FREE/READY/LOCKED；锁最老完整帧；满时丢新，已锁内容不动。,整帧输入；ACQUIRE/RELEASE/CONSUME；锁帧内容、序号、gap/drop/错误。与新帧同拍消费优先释放槽。
-07 SPI 与快照,rtl/ss_spi_mode0.sv,78,同步过采样 Mode0 事务；仅在 CS 释放且恰好 40 位时提交副作用。,异步 CS/SCK/MOSI；内部 address/read_data/write_data/commit。MISO 空闲驱动 0，当前用于独占点对点总线。
-06 寄存器与快照,rtl/ss_stm32_link.sv,43,仅把SPI传输层和独立寄存器层接起来，避免重复一套控制逻辑。,SPI Mode0、1 MHz、每片选40位；STM32独占快照与动作；MISO空闲主动输出0，只用于独占点对点连接。
-单域回归入口,rtl/ss_stm32_tile.sv,35,保留原61.44MHz单域整链，供已有定向测试复现。,仅作旧单域回归，不用于当前双时钟BD物理顶层；当前连接用bd_clean_compute和bd_stm32_link。
+旧单域回归参考,project/rtl/bd_board_clock.v,24,原板外50MHz时钟包装的BD适配，不加入当前BD。,sys_clk和cold_reset_n输入，clk/rst_n输出；当前工程统一改用PS FCLK、Clocking Wizard与Processor System Reset。
+BD端口适配,project/rtl/bd_clean_compute.v,44,可作为Vivado Module Reference的Verilog薄封装。,逐线连接ss_dual_compute，不增加寄存器；两个时钟和复位端口必须分别连接。
+BD端口适配,project/rtl/bd_stm32_link.v,58,可加入BD的STM32通信薄封装。,下层ss_stm32_link；全部61.44MHz，冻结SPI/看门狗单位不变。
+05 六对特征,project/rtl/doa_math_pkg.sv,270,保留PHAT所用192位整数类型和倒平方根种子ROM。,package没有物理端口；已去掉未使用的LS和CORDIC函数。
+06 六对特征,project/rtl/doa_math_serial.sv,152,以多周期方式执行共享整数算术，避免全部运算挤在一拍。,操作选择、操作数、启动/忙/结果；完整定义见源码声明及状态机。
+06 六对特征,project/rtl/doa_phat_client.sv,97,把 PHAT 所需算术请求送到共享多周期计算单元。,请求/返回握手、操作数和结果；等待期间保持当前对的计算上下文。
+06 六对特征,project/rtl/f1a_frame_store.sv,90,六个工作槽加一个稳定输出槽；前一对不会被后一对覆盖。,pair_event/index/160 位字组；frame_finish 后 feature_valid。背压保持整帧；满则丢新，不堵物理采集。
+05 前向 FFT 与定点转换,project/rtl/fft29_official.sv,42,薄封装官方 ss_fft29，不实现另一套 FFT 数学模型。,config/data/out/status 独立握手；29 位实虚部；配置字固定 0x0AAAAB。
+08 动作保护,project/rtl/i17_turntable_pwm_guard.sv,61,撤销许可时阻止新高脉冲；已有高脉冲完整结束；冷复位立即低。,raw_pwm/permit/revoke/fresh_command→受保护 PWM、排尾和等待新命令状态。
+06 六对特征,project/rtl/ifft25_official.sv,36,薄封装官方 ss_ifft25，方向与缩放配置来自六对引擎。,24 位 config、64 位数据打包、10 位输出索引、独立 status/events。
+08 动作保护,project/rtl/motor_drive.v,137,沿原映射产生 20 ms 周期、约 0.5–2.5 ms 高脉冲，周期边界更新目标。,angle_deg_i/angle_valid_i→pwm_o。实物范围由参数绑定，代码默认不是机械标定。
+03 采集与分帧,project/rtl/pdm_cic3.v,39,单路三级CIC，bit_valid每到64次产生一次S24 PCM。,clk为61.44MHz处理时钟；bit_valid是PDM采样使能，不是独立时钟。pdm_bit输入，pcm_valid/pcm/clipped输出。
+旧单域回归参考,project/rtl/sound_servo_clock.sv,36,原两级MMCM时钟原语组合，供保存的单域仿真复现。,sys_clk输入50MHz；输出clk50、clk_pcm及对应rst50_n、rst_pcm_n。当前BD改用官方Clocking Wizard。
+08 动作保护,project/rtl/ss_actuator_control.sv,69,检查独立许可、当前锁帧、新鲜度、角度范围和看门狗后接受一次动作。,影子角度/COMMIT、锁帧序号、资格、故障；permit/PWM/拒绝/超时。ACTUATOR_BOUND 默认 0。
+跨时钟传输,project/rtl/ss_async_word.sv,41,官方XPM异步FIFO封装，完整传递多位载荷。,WIDTH为载荷宽度；物理16项，CAPACITY=1..16限制逻辑占用。源/目的valid-ready各属于自己的时钟域；背压数据稳定；两端冷复位必须协调，STOP不清FIFO。
+07 SPI 与快照,project/rtl/ss_bist_source.sv,36,产生冻结的拒绝/0 度通过两组特征，只验证传输和软件求解。,trigger/select_pass→valid/六对特征。BIST 不能给出实物运动资格。
+旧单域回归参考,project/rtl/ss_board_clock.sv,25,原50MHz到61.44MHz时钟及复位封装，仅用于旧clock测试。,sys_clk/cold_reset_n输入、clk/rst_n输出；不能与当前官方时钟复位BD重复实例化。
+02 计算总接合,project/rtl/ss_clean_compute.sv,106,协调窗口、预处理、FFT及六对计算；DUAL_CLOCK=1时采集61.44MHz、其余100MHz。,clk/rst_n为计算域；acq_clk/acq_rst_n/acq_enable为采集域。PCM通过97位异步FIFO；active表示仍有计算/IP义务；feature_*仍属于计算域，由外层过桥。
+06 寄存器与快照,project/rtl/ss_control_regs.sv,201,冻结ABI的寄存器语义层，连接两槽、BIST和运动保护。,address 为7位字节偏移；commit 单拍产生一次副作用；write_access 分读写。组合read_data供传输层锁存。默认ACTUATOR_BOUND=0。
+双时钟总接合,project/rtl/ss_dual_compute.sv,41,接合61.44MHz采集/控制与100MHz计算，向公共控制域交付整帧。,clk/rst_n为100MHz；io_clk/io_rst_n为61.44MHz。外部enable、feature_*、draining、source_faults均属io_clk域；debug_frontend/backend属100MHz。内部单字控制同步及992位、单帧容量跨域缓存。
+04 预处理与FFT,project/rtl/ss_fft_frontend.sv,131,调度8个官方FFT，检查1024个输入、1024个输出及独立status；转发域1的四路513点半谱。,begin/s/end 均带同一真实32位帧号。STOP 后排完已配置FFT，再发 end_cancelled；不借 STOP 冷复位 IP。
+05 六对特征,project/rtl/ss_pair_engine.sv,452,按01、02、03、12、13、23串行做跨谱、PHAT、IFFT、整数峰和邻点提取；没有PL内LS或角度解算。,begin/s/end 使用32位帧号；S25实虚部及channel/bin顺序检查。取消保留已完成对并终结其余对。feature_pairs 每对160位、共960位。
+03 采集与分帧,project/rtl/ss_pcm_windows.sv,64,2048组四通道环形缓存；每1024点形成一窗，以512点为步进。,window_valid/ready 移交一个真实32位窗口帧号；read_enable/index 请求同步读，下一拍 read_valid/pcm；release_window 释放窗口。拥塞报错并停止新增，物理采集时钟不停。
+03 采集与分帧,project/rtl/ss_pdm_capture.sv,41,四路 PDM 同步采样，复用原 CIC 抽取；麦克风时钟连续运行。,pdm_data[3:0] 经同步器；四个 S24 PCM 按通道0在最低24位拼成96位；sample_valid 一拍。
+04 预处理与FFT,project/rtl/ss_preprocess.sv,112,先拷贝1024组PCM，然后串行计算两域四通道共8个FFT输入单元。,域0去均值后乘Hann；域1直接乘Hann。U18F17系数、RNE舍入、DOA S24饱和并报错；输出S29=处理值乘16。out_valid/ready 背压时数据不变。
+07 SPI 与快照,project/rtl/ss_snapshot_queue.sv,92,两槽 FREE/READY/LOCKED；锁最老完整帧；满时丢新，已锁内容不动。,整帧输入；ACQUIRE/RELEASE/CONSUME；锁帧内容、序号、gap/drop/错误。与新帧同拍消费优先释放槽。
+07 SPI 与快照,project/rtl/ss_spi_mode0.sv,78,同步过采样 Mode0 事务；仅在 CS 释放且恰好 40 位时提交副作用。,异步 CS/SCK/MOSI；内部 address/read_data/write_data/commit。MISO 空闲驱动 0，当前用于独占点对点总线。
+06 寄存器与快照,project/rtl/ss_stm32_link.sv,43,仅把SPI传输层和独立寄存器层接起来，避免重复一套控制逻辑。,SPI Mode0、1 MHz、每片选40位；STM32独占快照与动作；MISO空闲主动输出0，只用于独占点对点连接。
+单域回归入口,project/rtl/ss_stm32_tile.sv,35,保留原61.44MHz单域整链，供已有定向测试复现。,仅作旧单域回归，不用于当前双时钟BD物理顶层；当前连接用bd_clean_compute和bd_stm32_link。

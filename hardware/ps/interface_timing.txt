@@ -26,7 +26,7 @@ IRQ和servo_pwm是异步电平/脉宽输出，约束内部寄存器至端口≤2
 
 综合实现后
 报告检查：时钟来自PS100MHz、中间96MHz，业务域100/61.44MHz；同步器首级对象数PDM4、SPI各1；内部单周期路径和hold都要检查。
-Clocking Wizard、Processor System Reset、XPM FIFO/CDC的实例约束由官方IP提供；没有整域false_path。额外复位保护详见documentation/时钟复位.txt。
+Clocking Wizard、Processor System Reset、XPM FIFO/CDC的实例约束由官方IP提供；没有整域false_path。额外复位保护详见document/design/ps/时钟复位.txt。
 report_cdc的异步输入需按本文件与RTL逐条审查，不能批量降低严重性。实现后的max-delay是否达标必须看真实报告。
 
 原件

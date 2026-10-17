@@ -1,6 +1,6 @@
 [
   {
-    "path": "rtl/ss_axi_lite_regs.sv",
+    "path": "project/rtl/ss_axi_lite_regs.sv",
     "group": "PS独有",
     "purpose": "AXI4-Lite总线转换，AW/W分开保存，B/R背压保持。",
     "interfaces": "clk、aresetn与五个AXI通道；address/commit/write_access/write_data/read_data为寄存器内接口。无效对齐/范围/字节写返回SLVERR。",
@@ -14,7 +14,7 @@
     ]
   },
   {
-    "path": "rtl/ss_ps_control_regs.sv",
+    "path": "project/rtl/ss_ps_control_regs.sv",
     "group": "PS独有",
     "purpose": "PS版寄存器层；与SPI版相同公开字段，增加host_stop保留快照的停用入口。",
     "interfaces": "host_stop来自同步总线复位；冷rst_n才清队列。普通PS复位清使能、角度影子和看门狗，不能自动恢复动作。",
@@ -28,7 +28,7 @@
     ]
   },
   {
-    "path": "rtl/ss_ps_link.sv",
+    "path": "project/rtl/ss_ps_link.sv",
     "group": "PS独有",
     "purpose": "片内CPU控制入口，组合AXI转换和PS寄存器层。",
     "interfaces": "S_AXI为32位AXI4-Lite、12位局部地址；clk61.44MHz。rst_n为PL冷复位，aresetn为PS总线复位。",
@@ -42,7 +42,7 @@
     ]
   },
   {
-    "path": "rtl/bd_ps_link.v",
+    "path": "project/rtl/bd_ps_link.v",
     "group": "PS版BD端口适配",
     "purpose": "可加入BD的PS寄存器薄封装。",
     "interfaces": "寄存器端61.44MHz；上游100MHz经官方AXI Clock Converter，rst_n冷复位与aresetn总线复位分开。",
