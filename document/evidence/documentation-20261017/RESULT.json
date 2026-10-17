@@ -1,0 +1,25 @@
+{
+  "scope": "Documentation update and static reconciliation only; no HDL/ABI/BD recipe changes or EDA run",
+  "catalog_files_checked": 33,
+  "module_declarations_match_rtl": true,
+  "native_bd_graphs": [
+    {
+      "variant": "stm32",
+      "cells": 13,
+      "nets": 30,
+      "interface_nets": 2
+    },
+    {
+      "variant": "ps",
+      "cells": 19,
+      "nets": 32,
+      "interface_nets": 5
+    }
+  ],
+  "runtime": "Codex primary runtime 26.1015.12040 python; workspace loader tool unavailable; local runtime manifest verified",
+  "word_visual_review": "PASS: all 41 pages inspected; no clipping or missing glyphs",
+  "word_source_links_checked": 33,
+  "static_project_check": "PASS",
+  "recipe_graph_comparison": "PASS: current Tcl recipes expanded using stub commands; both graphs match prepared native BD",
+  "eda_this_task": "NOT_RUN"
+}

@@ -1,5 +1,5 @@
-STM32—FPGA 开发接线，2026-10-17；双方已通过 v2 补充确认分配，尚未安装 XDC 或通电验证。
-文件名沿用以保留旧链接；最新 B 原文位于 migration/clean_pl_20261017/input/b_sync_v2/。
+STM32—FPGA 开发接线，2026-10-17；双方已通过 v2 补充确认分配；新STM32工程已注册对应XDC，尚未通电验证。
+文件名沿用以保留旧链接；最新 B 原文位于 software/stm32/board-handoff/。
 
 STM32 用户确认：探索者 V3.5，STM32F407ZGT6，Keil uVision5 + DAP，可下载。
 FPGA 资料/实物：正点原子领航者 ATK-DF7010/7020P，底板 V3.9，XC7Z020。
@@ -18,7 +18,7 @@ J4 为底板下边缘标有“7020 ONLY”的 2x20、2.54 mm 排针。
 两板各自供电，只连接上述五信号及 GND。J4-38 是 3.3 V、J4-40 是 5 V，不属于本接线方案。
 SPI Mode0 / MSB first / 初始 1 MHz / 每事务 CS 下恰好 40 个时钟；IRQ 高电平有效。
 CLK、CS、MOSI 使用 61.44 MHz 同步过采样，SCK 不送 FPGA 全局时钟输入。
-本次没有把这些候选引脚写入任何实际工程，未改变旧四麦和舵机接线。
+当前STM32工程使用project/sdc/stm32/board_pins.xdc；PS版不引出这些SPI/IRQ管脚，本接线表在PS版仅作参考。
 
 本地原件核对：
 1. hardware/reference/navigator-zynq/navigator-zynq-baseboard-schematic-v3.9.pdf，第5页：
@@ -29,7 +29,7 @@ CLK、CS、MOSI 使用 61.44 MHz 同步过采样，SCK 不送 FPGA 全局时钟�
    到 VCCIO 的 R220/R222 标为 NC。名义供电 3.3V，不代表现场实测值；若焊改过供电，须重新核对。
 4. navigator-zynq-board-spec-v1.2.pdf，第36页 3.22：J4 的 Bank13 仅7020可用；扩展IO不接5V逻辑。
 5. hardware/evidence/board-2026-09-07/baseboard-front-core-xc7z020.jpg：底板 J4 位置、管脚丝印。
-6. migration/f1a_20261017/baseline/constrs_1/i17_vio_pins.xdc：候选五球与既有11个板级IO不重叠。
+6. project/sdc/stm32/board_pins.xdc：SPI/IRQ五球与四麦及舵机引脚不重叠；PS时钟来自片内，不再绑定外部sys_clk引脚。
 
 上板前核对：当前 J4-5..9 没有另外接外设、实际 Bank 供电未改、XDC 为 LVCMOS33，
 两端 1 脚与奇偶排方向正确。B 已确认 SPI1/U16 分配：SCK=5、CS_N=4、MOSI=6、MISO=7、IRQ=8、GND=1。

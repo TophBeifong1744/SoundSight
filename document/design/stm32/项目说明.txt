@@ -1,3 +1,5 @@
+路径约定：以下路径相对SoundSight根目录；当前模块总表为document/modules/RTL-INTERFACES.html。
+
 项目现在在哪里
 
 目标仍是四麦二维定位和转台闭环。新的主方案把计算分成两段：FPGA处理大量连续样本，STM32处理每帧只有六对的较小结果。PS/PYNQ保留加载和展示职责。旧纯FPGA时序返修已停止，旧失败报告保留；新架构不能沿用旧综合通过结论。
@@ -26,7 +28,7 @@ pair3=1/2，dx=0 dy=1；pair4=1/3，dx=-1 dy=1；pair5=2/3，dx=-1 dy=0。
 每对5个32位字：FEATURE_0、peak、left、right、second。整帧30字=120字节。
 FEATURE_0含S8 lag（实际S6范围）、pair回显、raw_valid、second_valid、IFFT资格、取消/数值错误、mask0..79、PHAT/IFFT阶段。四个相关数原为S25，读出时符号扩展成S32。
 阶段0待处理、1成功、2拒绝、3数值错、4协议错、5取消、6跳过。六对都终结才发布；终结不等于成功。无效数值清零但保留原因。
-完整位域与寄存器表直接见contract/stm32/FROZEN_SSOT_ABI.md及共享头，文档不另造一套偏移。
+完整位域与寄存器表直接见software/common/FROZEN_SSOT_ABI.md及共享头，文档不另造一套偏移。
 
 简单的帧关联代替旧宽身份
 
@@ -47,8 +49,8 @@ STOP在控制域立即停止接新角度，计算域经同步后停止接新任�
 
 哪些结果能复现
 
-verification各目录保存编译、展开、仿真日志及实际输出。pair使用显式IFFT回放夹具验证六对封存/取消/背压；clean/frontstop/stm32使用官方FFT/IFFT，输入在PCM边界注入。预处理用独立Python整数模型逐点比对，窗口用明确的四路计数序列比对。
-旧迁移的队列随机1500操作、SPI畸形事务、21项动作保护和时钟原语用例可复用；保留在verification/reused，注明来自同一未改模块的旧执行。它们不是本次又跑了一遍。
+document/evidence/inherited/stm32保存迁移前的编译、展开、仿真日志及实际输出。pair使用显式IFFT回放夹具验证六对封存/取消/背压；clean/frontstop/stm32使用官方FFT/IFFT，输入在PCM边界注入。预处理用独立Python整数模型逐点比对，窗口用明确的四路计数序列比对。
+旧迁移的队列随机1500操作、SPI畸形事务、21项动作保护和时钟原语用例可复用；保留在document/evidence/inherited/stm32/reused，注明来自同一未改模块的旧执行。它们不是本次又跑了一遍。
 当前双时钟新增pdm用例从四路外部PDM引脚输入同一个PRBS，实际CIC与独立FIR比对7312个PCM值；经官方FFT/IFFT到SPI读取两帧，共124440项检查。仅暖机缩短为32样本，未跳过分帧或计算。最长计算378781个100MHz周期。没有真实声源定位证据，没有新候选实现时序/资源证据，没有板测。默认禁止运动不等于PWM已做机械验证。
 
 下一阶段按什么顺序完成

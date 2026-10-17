@@ -1,27 +1,27 @@
 无STM32实验版软件使用说明
 
 PC复现（本工程目录）：
-python -E -s -B -X utf8 test/test_software.py
-python -E -s -B -X utf8 test/test_application.py
+python -E -s -B -X utf8 software/tests/test_software.py
+python -E -s -B -X utf8 software/tests/test_application.py
 前者原S1 4705项与桥接/客户9项，后者HWH寻址/保存失败/中断保帧8项。
 GCC默认F:/Program/env/mingw64/bin/gcc.exe，也可用SS_GCC指定；PC DLL不能给ARM运行。
 
 以后由A完成DDR/MIO/PYNQ并加载配套bit/hwh后，在目标板项目目录执行：
-sh software/build_solver.sh
-python3 software/run_capture.py --hwh 实际设计.hwh --output records.jsonl --mode bist-reject
-python3 software/run_capture.py --hwh 实际设计.hwh --output records.jsonl --mode bist-pass
-python3 software/run_capture.py --hwh 实际设计.hwh --output records.jsonl --mode real --frames 100
+sh software/ps/build_solver.sh
+python3 software/ps/run_capture.py --hwh 实际设计.hwh --output records.jsonl --mode bist-reject
+python3 software/ps/run_capture.py --hwh 实际设计.hwh --output records.jsonl --mode bist-pass
+python3 software/ps/run_capture.py --hwh 实际设计.hwh --output records.jsonl --mode real --frames 100
 本轮没有执行这些目标板命令；不自动加载bit、复位或开启运动。
 
 地址从实际HWH里的bd_ps_link实例读取，默认实例名ps_link；改名可用--ip指定。
-verification/bd_preparation/interface.hwh只用于PC测试，不是已构建位流的配套运行文件。
-默认ARM库software/libss_solver.so；--library可更改。库先加载成功才访问MMIO。
+document/evidence/migration/native/ps/interface.hwh记录BD准备时的寻址，仅供对照；PC测试夹具在document/evidence/inherited/ps/bd_preparation/interface.hwh。二者都不是已构建位流的配套运行文件。
+默认ARM库software/ps/libss_solver.so；--library可更改。库先加载成功才访问MMIO。
 Linux文件锁防止本程序重复运行；不能阻止另一个绕过本程序的MMIO工具。
 每帧JSONL先write/flush/fsync成功，再CONSUME。介质本身的掉电行为仍由实际存储决定。
 保存失败或Ctrl+C时finally停用，不消费失败帧。硬件只有两个公共槽，长时间不取会按冻结规则丢新并记账。
 
 异常后保留原位流、FCLK和缓存，用以下方式只保存剩余记录，不启动新采集：
-python3 software/run_capture.py --hwh 实际设计.hwh --output recovery.jsonl --drain-existing
+python3 software/ps/run_capture.py --hwh 实际设计.hwh --output recovery.jsonl --drain-existing
 普通总线复位与STOP不清槽；重新配置PL、冷复位/失钟冷恢复会清状态，不属于保记录恢复。
 
 高级Client提供显式arm/command，但CLI不调用。机械参数必须来自实际标定：

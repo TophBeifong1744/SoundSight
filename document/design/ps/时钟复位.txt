@@ -1,4 +1,6 @@
-时钟、复位和跨域连接（2026-10-17用户决定）
+时钟、复位和跨域连接（2026-10-17核对新工程）
+
+路径均相对SoundSight根目录；共同配置见project/ip/create_platform_clock.tcl，PS附加总线配置见project/bd/ps.tcl。
 
 主方案与独立PS版都从BD中的PS7取时钟，不再接外部PL sys_clk/U18。
 PS7/FCLK_CLK0 = 100MHz → clk_main（Clocking Wizard）。clk_main输出1为96MHz，只送第二个clk_audio；输出2为100MHz，送计算与PS侧AXI。
@@ -21,7 +23,7 @@ draining包含停止请求往返、计算活动及在途结果，避免尚有结
 复位IP怎么接
 每个有业务逻辑的时钟域使用自己的Processor System Reset，slowest_sync_clk接本域时钟，dcm_locked接clk_audio/locked。
 core_reset服务100MHz，io_reset服务61.44MHz；96MHz只给另一个时钟IP，不单独挂业务复位。
-PS7/FCLK_RESET1_N是平台冷复位：接clk_main/resetn及core_reset、io_reset的ext_reset_in。clk_main/locked接clk_audio/resetn。辅助复位aux_reset_in为低有效，接常量1；mb_debug_sys_rst高有效，接0。
+PS7/FCLK_RESET1_N是平台冷复位：接clk_main/resetn及core_reset、io_reset的ext_reset_in。clk_main/locked接clk_audio/resetn。在当前生成配置中，ext_reset_in与aux_reset_in均低有效（C_EXT_RESET_HIGH=0、C_AUX_RESET_HIGH=0）；手动配置IP时必须核对这两项，不能假定所有新实例的默认极性相同。aux_reset_in接常量1；mb_debug_sys_rst高有效，接0。
 普通PS总线复位另用FCLK_RESET0_N。PS实验版bus_reset在100MHz、bus_io_reset在61.44MHz，各自接这根线；只复位总线和软件控制，不接存储冷复位。
 总线复位保留快照的前提是FCLK和PL配置仍然存在；PS关掉FCLK、重新配置PL或请求RESET1冷复位属于清状态恢复，不能保帧。
 
@@ -36,3 +38,13 @@ BD Connection Automation可以生成基础Processor System Reset连线，但不�
 官方时钟/复位模型检查9项通过：启动、两个频率、同步释放、双域总线复位保留记录、时钟丢失时断言复位、显式冷恢复清旧记录。
 原先常量0接低有效ext/aux会一直复位，以及MMCM复位固定无效导致失锁后不能恢复的试验均保留失败现场，已在当前脚本修正。
 100MHz候选的综合、实现STA、CDC/RDC报告和板测仍需人操作后验证。
+
+逐根线的必要补充
+core_reset/peripheral_aresetn → core_reset_gate/Op1；io_reset/peripheral_aresetn → io_reset_gate/Op1。
+clk_audio/locked → core_reset_gate/Op2、io_reset_gate/Op2；两个gate均为1位AND。
+core_reset_gate/Res → core_release/src_arst；io_reset_gate/Res → io_release/src_arst。
+core_release/dest_clk接100MHz；io_release/dest_clk接61.44MHz。
+两套XPM CDC Generator：CDC_TYPE=xpm_cdc_async_rst、DEST_SYNC_FF=3、INIT_SYNC_FF=true、RST_ACTIVE_HIGH=false；dest_arst虽然没有_n后缀，在本配置中仍为低有效。
+两套Clocking Wizard输入均为No_buffer；USE_RESET=true、RESET_TYPE=ACTIVE_LOW，使用resetn端口。one/zero均为1位常量，值分别为1/0。
+PS版bus_reset及bus_io_reset的dcm_locked也都接clk_audio/locked；aux_reset_in接one/dout、mb_debug_sys_rst接zero/dout，ext/aux极性同上。
+STM32版没有bus_reset、bus_io_reset、control_bus、control_cdc，FCLK_RESET0_N不接link/rst_n。
