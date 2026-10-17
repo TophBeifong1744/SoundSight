@@ -1,0 +1,84 @@
+{
+  "scope": "ANALYTIC_GEOMETRY_ONLY",
+  "mic_xyz_mm": [
+    [
+      23.094010767585033,
+      0,
+      -8.16496580927726
+    ],
+    [
+      -11.547005383792516,
+      20.0,
+      -8.16496580927726
+    ],
+    [
+      -11.547005383792516,
+      -20.0,
+      -8.16496580927726
+    ],
+    [
+      0,
+      0,
+      24.49489742783178
+    ]
+  ],
+  "height_mm": 32.65986323710904,
+  "pairs": [
+    {
+      "pair": "01",
+      "length_mm": 40.0,
+      "max_lag_samples": 5.597667638483965,
+      "pl_search_limit": 6
+    },
+    {
+      "pair": "02",
+      "length_mm": 40.0,
+      "max_lag_samples": 5.597667638483965,
+      "pl_search_limit": 8
+    },
+    {
+      "pair": "03",
+      "length_mm": 40.0,
+      "max_lag_samples": 5.597667638483965,
+      "pl_search_limit": 6
+    },
+    {
+      "pair": "12",
+      "length_mm": 40.0,
+      "max_lag_samples": 5.597667638483965,
+      "pl_search_limit": 6
+    },
+    {
+      "pair": "13",
+      "length_mm": 40.0,
+      "max_lag_samples": 5.597667638483965,
+      "pl_search_limit": 8
+    },
+    {
+      "pair": "23",
+      "length_mm": 40.0,
+      "max_lag_samples": 5.597667638483965,
+      "pl_search_limit": 6
+    }
+  ],
+  "normal_matrix_mm2": [
+    [
+      3200.000000000001,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      3200.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      3200.0
+    ]
+  ],
+  "ideal_condition_2": 1,
+  "band_top_hz": 3984.375,
+  "half_wavelength_frequency_hz": 4287.5
+}

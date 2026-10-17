@@ -1,0 +1,6 @@
+"software/common/s1_3d/doa_solver_3d.c", line 92: Warning:  #1035-D: single-precision operand implicitly converted to double-precision
+              rows[i][j]=((double)cfg->mic_mm[pb[i]][j]-cfg->mic_mm[pa[i]][j])*cfg->sample_rate_hz/(1000.0*cfg->sound_speed_m_s);
+                                                                                                           ^
+software/common/s1_3d/doa_solver_3d.c: 1 warning, 0 errors
+AC5_COMPILE_PASS,doa_solver_3d.c
+AC5_COMPILE_PASS,doa_dispatch.c

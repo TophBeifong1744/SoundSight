@@ -1,0 +1,9 @@
+COMMAND: F:\NUEC\SoundSight-stm32\software\stm32\build\host\s2.exe
+BIST,REJECT,transactions=40,ux=46831,uy=-171729,residual=590912626,valid=0,reason=3,angle_q8=0,servo_cmd_valid=0
+BIST,PASS,transactions=40,ux=749295,uy=0,residual=0,valid=1,reason=0,angle_q8=0,servo_cmd_valid=0
+FAULT_MATRIX,CHECKED,40_positions,x2_before_after_commit,x2_io_timeout=160
+WIRE_CHECKS,CHECKED,pair_echo,reserved_bits,S6,S25,mask,stages,frame_id,sign_extension
+QUEUE,CHECKED,empty,oldest,release,overflow,concurrent_arrival,level_IRQ,duplicate,reset
+CONTROL,CHECKED,identity,ABI,address,disabled_config,queue_busy,stop,time_wrap,deadline,recovery
+SOURCE,CHECKED,real_synthetic,cancel_priority,first_error,mask_rejection,no_actuation
+RESULT,PASS,checks=15980,failures=0
