@@ -5,6 +5,8 @@
 ```text
 SoundSight/
   README.md, AGENTS.md, LICENSE
+  tools.local.env.example  可提交的工具配置空模板
+  tools.local.env          本机工具路径，被Git忽略
   project/
     rtl/                  唯一公共RTL、薄BD封装、Hann系数
     bd/                   stm32.tcl、ps.tcl连接配方
@@ -17,7 +19,7 @@ SoundSight/
   simulation/
     tb/stm32, ps/         原定向测试、输入向量、预期结果
     models/               独立整数参考生成脚本
-    script/               run.bat、setting.txt、src_list.txt、vsim.do
+    script/               run.bat、src_list.txt、vsim.do
     work/                 编译/展开/仿真数据库及本次结果
   software/
     common/               冻结ABI、共享头、原S1求解器及原测试

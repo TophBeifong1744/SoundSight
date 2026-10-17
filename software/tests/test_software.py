@@ -3,11 +3,10 @@ from pathlib import Path
 import sys, subprocess, os, time, json, importlib.util
 
 P=Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(P/'tools'))
+from tool_config import gcc_executable
+gcc=gcc_executable()
 out=P/'software/build'/('software_'+time.strftime('%Y%m%d_%H%M%S'));out.mkdir(parents=True)
-gcc=Path(os.environ.get('SS_GCC',str(P/'tools'/'gcc-not-configured')))
-if not gcc.is_file():
-    config=dict(line.split('=',1) for line in (P/'simulation/script/setting.txt').read_text('utf-8').splitlines() if line and not line.startswith('#'))
-    gcc=Path(config['GCC_ROOT'])/'bin/gcc.exe'
 spec=importlib.util.spec_from_file_location('ps_client',P/'software/ps/ps_client.py')
 m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 common=[str(gcc),'-std=c99','-O2','-Wall','-Wextra','-Wconversion','-Wshadow','-Werror','-pedantic','-D__USE_MINGW_ANSI_STDIO=1','-I'+str(P/'software/common'),'-I'+str(P/'software/common/s1')]
@@ -22,7 +21,7 @@ run('compile_bridge',common+['-shared',str(P/'software/ps/ss_solver_bridge.c'),s
 solver=m.Solver(library)
 frames=[];results=[];checks=0
 candidates=list((P/'simulation/work').glob('ps_*/ps_bist_pass.txt'))+list((P/'document/evidence/inherited/ps').glob('ps_*/ps_bist_pass.txt'))
-if not candidates:raise RuntimeError('需要实际AXI仿真的双BIST输出；先运行test/run.py ps')
+if not candidates:raise RuntimeError('需要实际AXI仿真的双BIST输出；先运行simulation/script/run.bat batch ps')
 evidence=max(candidates,key=lambda p:p.parent.name).parent
 for which in ('reject','pass'):
     words=[int(v,16) for v in (evidence/('ps_bist_'+which+'.txt')).read_text().split()]

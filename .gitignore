@@ -21,3 +21,6 @@
 /software/ps/*.dll
 /software/stm32/build/
 # Deliberately no global *.log/*.json/*.csv ignore: retained evidence is source-managed.
+
+# Private machine tool locations; copy the tracked example for a new machine.
+/tools.local.env

@@ -21,6 +21,8 @@ AI可按任务编辑源码、文档、测试和独立BD配方，执行必要定�
 
 采用当前fpga-team-workflow的Git管理和run-fpga-workflow的目录管理思路；项目适配见document/git-workflow.md与directory-guide.md。main为集成基线，短任务分支使用codex/<slug>；不设置永久develop。main不代表整机已经通过。
 
+本机工具安装路径只写入被Git忽略的tools.local.env；公共脚本按环境变量、本地配置、PATH查找工具，仓库只保留tools.local.env.example空模板。不得把个人盘符写回公共默认值；历史证据中的原路径保留。
+
 源/约束/IP与BD配方在project；原生工程与构建输出在project/par，PS目标在variants/pl_ps/project/par；TB在simulation/tb、仿真输出在simulation/work；软件在software；诊断临时工作在codex_out。不要创建project2/par2或新的一套重复源码。
 
 ### 临时文件必须随任务收尾

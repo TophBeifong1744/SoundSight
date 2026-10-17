@@ -1,4 +1,0 @@
-# Tool installation roots; these are the only machine-specific defaults.
-VIVADO_ROOT=F:/AMD/2025.2/Vivado
-PYTHON_EXE=C:/Python314/python.exe
-GCC_ROOT=F:/Program/env/mingw64
