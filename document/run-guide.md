@@ -4,10 +4,21 @@
 
 ## 配置工具位置
 
-- Vivado工程入口：`project/script/setting.bat`。
-- XSim/PC测试配置：`simulation/script/setting.txt`。
-- 默认使用本机现有`F:/AMD/2025.2/Vivado`、`C:/Python314/python.exe`、`F:/Program/env/mingw64`。
-- 只改变子进程PATH，不修改系统PATH；可用环境变量覆盖。其他机器安装目录不同就改这两处配置。
+需要 Vivado 2025.2、Python 3；PC C 测试还需要 MinGW-w64 GCC。公共脚本不绑定个人安装盘符。
+
+1. 若工具已在 `PATH` 中，可直接运行。否则复制根目录的 `tools.local.env.example` 为 `tools.local.env`，填写本机安装位置。
+2. `VIVADO_ROOT` 填包含 `bin` 的 Vivado 安装目录，`PYTHON_EXE` 填 Python 可执行文件完整路径，`GCC_ROOT` 填含 `bin/gcc.exe` 的目录；也可用 `SS_GCC` 直接指定 GCC。
+3. 格式为 `KEY=value`，路径可以包含空格，不加引号、不写 shell 命令或变量表达式。只填写需要的项。优先级是环境变量、本地配置、PATH；显式配置无效会报错，不悄悄换另一套工具。
+4. `tools.local.env` 已被 Git 忽略，只保存在本机；换电脑或重新克隆时重新配置。不要提交它，也不要将个人路径写回公共脚本。当前电脑已迁入原工具路径，无需再填一次。
+
+只核对位置，不打开 Vivado、不运行仿真：
+
+```powershell
+.\project\script\run.bat --check-tools
+.\simulation\script\run.bat --check-tools
+```
+
+`tools/python.bat` 用同一配置启动 Python，供下面的 PC 检查使用；不必在系统 PATH 中再装一份 Python。脚本仅调整子进程环境，不修改系统 PATH。
 
 以下命令从SoundSight根目录执行；BAT自身也能从其他当前目录调用。
 
@@ -47,9 +58,9 @@
 .\simulation\script\run.bat batch dual
 .\simulation\script\run.bat batch pscdc
 .\simulation\script\run.bat batch pdm
-& C:/Python314/python.exe -E -s -B -X utf8 software/tests/test_software.py
-& C:/Python314/python.exe -E -s -B -X utf8 software/tests/test_application.py
-& C:/Python314/python.exe -E -s -B -X utf8 tools/check_project.py
+.\tools\python.bat software/tests/test_software.py
+.\tools\python.bat software/tests/test_application.py
+.\tools\python.bat tools/check_project.py
 ```
 
 其他已有case：pair、preprocess、capture、clean、link、stm32、frontstop、queue、spi、actuator、clock、axi、ps。不同case覆盖范围不同，不需要每次小改都全跑。

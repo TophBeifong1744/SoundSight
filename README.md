@@ -25,8 +25,7 @@
 ## 三个常用入口
 
 ```powershell
-# 先进入自己的SoundSight目录；迁移到其他位置时修改此行。
-Set-Location 'E:\Users\Toph Beifong\Documents\GitHub\SoundSight'
+# 在自己克隆的 SoundSight 根目录打开终端；工具配置见 document/run-guide.md。
 .\project\script\run.bat prepare stm32
 .\project\script\run.bat prepare ps
 .\simulation\script\run.bat batch samplecdc

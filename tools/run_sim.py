@@ -1,27 +1,24 @@
 """SoundSight XSim入口：目录无关；只做仿真，不打开或构建物理工程。"""
 from pathlib import Path
 import argparse, json, os, re, shutil, subprocess, time
+from tool_config import vivado_root, simulation_tools
 
 ROOT = Path(__file__).resolve().parents[1]
 CASES = ('pair','preprocess','capture','clean','dual','cdc','samplecdc','link','stm32',
          'pdm','frontstop','queue','spi','actuator','clock','axi','ps','pscdc','platform')
 
-def settings():
-    values = {}
-    for line in (ROOT/'simulation/script/setting.txt').read_text('utf-8-sig').splitlines():
-        if line.strip() and not line.lstrip().startswith('#'):
-            key, value = line.split('=',1); values[key.strip()] = value.strip()
-    return values
-
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('case',choices=CASES,nargs='?',default='link')
     ap.add_argument('--gui',action='store_true',help='展开后打开波形GUI；不提前宣称测试通过')
+    ap.add_argument("--check-tools", action="store_true", help="Resolve tools only; no simulation")
     args=ap.parse_args(); case=args.case
-    toolroot=Path(os.environ.get('VIVADO_ROOT',settings()['VIVADO_ROOT']))
+    toolroot=simulation_tools(vivado_root())
     tool=toolroot/'bin'
-    for exe in ('xvlog','xvhdl','xelab','xsim'):
-        if not (tool/(exe+'.bat')).is_file():raise FileNotFoundError(f'Configure VIVADO_ROOT: {exe}')
+    if args.check_tools:
+        import sys
+        print(json.dumps({'python': sys.executable, 'xsim': str(tool/'xsim.bat'), 'eda_started': False}))
+        return 0
     out=ROOT/'simulation/work'/(case+'_'+time.strftime('%Y%m%d_%H%M%S'))
     out.mkdir(parents=True,exist_ok=False)
     source_dir=out/'sources';source_dir.mkdir()

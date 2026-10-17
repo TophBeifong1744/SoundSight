@@ -1,14 +1,20 @@
 """只准备/打开独立SoundSight工程，或生成IP输出；不提供自动综合/实现/下载动作。"""
 from pathlib import Path
-import argparse, os, subprocess, time
+import argparse, os, subprocess, time, json
+from tool_config import vivado_root
 
 ROOT=Path(__file__).resolve().parents[1]
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('action',choices=('prepare','open','outputs'),nargs='?',default='prepare')
     ap.add_argument('variant',choices=('stm32','ps'),nargs='?',default='stm32')
+    ap.add_argument("--check-tools", action="store_true", help="Resolve tools only; no EDA execution")
     args=ap.parse_args()
-    toolroot=Path(os.environ.get('VIVADO_ROOT','F:/AMD/2025.2/Vivado'))
+    toolroot=vivado_root()
+    if args.check_tools:
+        import sys
+        print(json.dumps({'python': sys.executable, 'vivado': str(toolroot/'bin/vivado.bat'), 'eda_started': False}))
+        return 0
     out=ROOT/('project/par' if args.variant=='stm32' else 'variants/pl_ps/project/par')
     log=out/'_launcher'/time.strftime('%Y%m%d_%H%M%S');log.mkdir(parents=True,exist_ok=False)
     env=os.environ.copy()

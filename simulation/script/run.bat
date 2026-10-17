@@ -1,10 +1,11 @@
 @echo off
 setlocal
-for /f "usebackq tokens=1,* delims==" %%A in ("%~dp0setting.txt") do (
-  if "%%A"=="VIVADO_ROOT" if not defined VIVADO_ROOT set "VIVADO_ROOT=%%B"
-  if "%%A"=="PYTHON_EXE" if not defined PYTHON_EXE set "PYTHON_EXE=%%B"
+call "%~dp0..\..\project\script\setting.bat"
+if errorlevel 1 exit /b 2
+if "%~1"=="--check-tools" (
+  "%PYTHON_EXE%" -E -s -B -X utf8 "%~dp0..\..\tools\run_sim.py" --check-tools
+  goto done
 )
-if not exist "%PYTHON_EXE%" exit /b 2
 if "%~1"=="batch" goto batch
 if "%~1"=="" (
   "%PYTHON_EXE%" -E -s -B -X utf8 "%~dp0..\..\tools\run_sim.py" link --gui
