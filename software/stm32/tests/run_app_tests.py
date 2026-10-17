@@ -33,7 +33,7 @@ def main():
             raise RuntimeError(f'{name} failed; see {out / (name + ".log")}')
         return p.stdout
 
-    includes = ['-Isoftware/common', '-Isoftware/common/s1', '-Isoftware/stm32/include']
+    includes = ['-Isoftware/common', '-Isoftware/common/s1', '-Isoftware/common/s1_3d', '-Isoftware/stm32/include']
     for gate in (0, 1):
         flags = [f'-DSS_ENABLE_MOTION_WRITES={gate}'] if gate else []
         sources = ['software/common/s1/doa_solver.c', 'software/stm32/src/fpga_link.c',

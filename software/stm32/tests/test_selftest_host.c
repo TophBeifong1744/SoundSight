@@ -4,6 +4,7 @@
 #include "test_fpga_link.c"
 #undef main
 #include "soundsight_board.h"
+#include "doa_dispatch.h"
 #include <stdlib.h>
 
 GPIO_TypeDef host_b,host_g;
@@ -53,6 +54,11 @@ static void command(const char *s)
 static void command_tests(void)
 {
     unsigned int before=device.count;
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    command("stream"); command("motion"); command("status");
+    CHECK("3D live gate no bus I/O",device.count==before && device.consumes==0U);
+    puts("D1_COMMANDS,PASS,unaligned_3D_stream_blocked,no_motion");
+#else
     command("config -1 2000 4");command("config 2 2000 1");
     command("streamXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
     CHECK("bad command no I/O",device.count==before);
@@ -70,6 +76,7 @@ static void command_tests(void)
     CHECK("command stop reaches disabled",device.ctrl==8U && device.consumes==2U);
     CHECK("no forbidden writes",device.action_writes==0U && device.permit_writes==0U);
     printf("COMMAND_TESTS,PASS,nonblocking_stream,busy_board,strict_config,length,STOP_ack,no_motion\n");
+#endif
 }
 int main(int argc,char **argv)
 {

@@ -92,6 +92,15 @@ static void stop_model_and_clear_matrix(void)
     }
     printf("P3_STOP_ACK,PASS,latched_enable,drain_guard,fault_injections=%u\n",total*4U);
 }
+static void statistics_failure(void)
+{
+    motion_mock_t m;ss_app_t a;
+    app_fixture(&m,&a);app_begin(&m,&a);m.bus.duration_ms=0U;
+    publish(&m.bus,packet(1,0,1U));m.bus.fail_at=m.bus.count+42U;
+    CHECK("same-ms statistics failure",ss_app_step(&a)==SS_APP_ERROR && a.runtime.state==SS_RT_FAULT && !a.fresh && m.bus.consumes==1U);
+    m.bus.fail_at=0U;
+    CHECK("statistics recover to IDLE",ss_app_recover(&a)==SS_OK && a.runtime.state==SS_RT_IDLE);
+}
 static void motion_owner(void)
 {
     motion_mock_t m;ss_app_t a;unsigned int before;
@@ -108,7 +117,7 @@ static void motion_owner(void)
 }
 int main(void)
 {
-    run_stream();config_and_failures();stop_model_and_clear_matrix();
+    run_stream();config_and_failures();stop_model_and_clear_matrix();statistics_failure();
     if(ss_motion_build_enabled())motion_owner();
     printf("P3_RESULT,%s,gate=%d,checks=%u,failures=%u\n",failures==0U?"PASS":"FAIL",ss_motion_build_enabled(),checks,failures);
     return failures==0U?0:1;

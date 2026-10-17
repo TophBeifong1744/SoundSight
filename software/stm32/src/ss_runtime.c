@@ -1,4 +1,7 @@
 #include "ss_runtime.h"
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+#include "ss_spatial.h"
+#endif
 #include <string.h>
 
 static int valid(const ss_runtime_t *r) { return r != NULL && r->initialized != 0U; }
@@ -10,6 +13,9 @@ static void clear_result(ss_runtime_t *r)
     r->fresh_result = 0U;
     memset(&r->frame, 0, sizeof(r->frame));
     memset(&r->result, 0, sizeof(r->result));
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    memset(&r->spatial_result,0,sizeof(r->spatial_result));
+#endif
 }
 static void transition(ss_runtime_t *r, ss_runtime_state_t state)
 { r->state = state; r->state_since_ms = now(r); r->poll_pending = 1U; }
@@ -52,6 +58,9 @@ ss_status_t ss_runtime_init(ss_runtime_t *r, const ss_bus_t *bus,
     s = ss_init(&r->link, &b);
     if (s != SS_OK) return s;
     r->config = c; r->initialized = 1U;
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    doa3d_default_config(&r->spatial_config);
+#endif
     transition(r, SS_RT_IDLE);
     return SS_OK;
 }
@@ -128,14 +137,26 @@ ss_runtime_event_t ss_runtime_step(ss_runtime_t *r)
         transition(r, SS_RT_RUNNING);
         return SS_RT_STATE_CHANGED;
     case SS_RT_RUNNING:
+        /* An app-side statistics read can quarantine the link within the same
+         * millisecond. Fault must take precedence over polling throttling. */
+        if (r->link.recovery_required != 0U)
+            return fault(r,r->link.last_error!=SS_OK?r->link.last_error:SS_RECOVERY_REQUIRED);
         if (!poll_due(r)) return SS_RT_NONE;
         s = read_faults(r);
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+        if (s == SS_OK) s = ss_spatial_poll(&r->link,&r->spatial_config,&r->frame,&r->spatial_result);
+#else
         if (s == SS_OK) s = ss_poll_solve(&r->link, NULL, &r->frame, &r->result);
+#endif
         r->last_poll_ms = now(r);
         if (s == SS_NO_FRAME) { increment(&r->empty_polls); return SS_RT_NONE; }
         if (s != SS_OK) return fault(r, s);
         increment(&r->frames); r->fresh_result = 1U;
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+        if (r->spatial_result.direction_valid != 0U) return SS_RT_FRAME_VALID;
+#else
         if (r->result.direction_valid != 0U) return SS_RT_FRAME_VALID;
+#endif
         increment(&r->rejected_frames);
         return SS_RT_FRAME_REJECTED;
     case SS_RT_STOPPING:

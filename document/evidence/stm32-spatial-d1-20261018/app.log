@@ -1,0 +1,11 @@
+COMMAND: F:\NUEC\SoundSight-stm32\software\stm32\build\spatial-d1\app.exe
+D1_DIRECTION,expected_az=45.0,expected_el=30.0,az_q8=11520,el_q8=7680,az_valid=1,consumes=1,transfers=42
+D1_DIRECTION,expected_az=-45.0,expected_el=-30.0,az_q8=-11520,el_q8=-7680,az_valid=1,consumes=2,transfers=42
+D1_DIRECTION,expected_az=0.0,expected_el=90.0,az_q8=0,el_q8=23040,az_valid=0,consumes=3,transfers=42
+D1_DIRECTION,expected_az=0.0,expected_el=-90.0,az_q8=0,el_q8=-23040,az_valid=0,consumes=4,transfers=42
+D1_DIRECTION,expected_az=120.0,expected_el=15.0,az_q8=30720,el_q8=3840,az_valid=1,consumes=5,transfers=42
+D1_REJECTIONS,PASS,mask,legacy_BIST,cancel,no_frame,clear_stale,recover,explicit_discard
+D1_FAULTS,PASS,160_before_after_IO_timeout,shared_budget,wrap,solver_error
+D1_RESULT,PASS,checks=8072,failures=0
+
+EXIT_CODE: 0

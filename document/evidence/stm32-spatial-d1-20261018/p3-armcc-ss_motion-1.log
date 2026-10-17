@@ -1,0 +1,3 @@
+COMMAND: F:/STUDY/STM32/tools/Keil_v5/ARM/ARMCC/Bin/armcc.exe --cpu=Cortex-M4.fp.sp --c99 --library_type=microlib -O2 --strict --diag_error=warning -DSS_ENABLE_MOTION_WRITES=1 -Isoftware/common -Isoftware/common/s1 -Isoftware/common/s1_3d -Isoftware/stm32/include -c software/stm32/src/ss_motion.c -o F:\NUEC\SoundSight-stm32\software\stm32\build\integration-p3\ss_motion-1.o
+
+EXIT_CODE: 0

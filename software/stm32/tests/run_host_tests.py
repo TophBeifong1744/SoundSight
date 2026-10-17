@@ -8,7 +8,7 @@ STM = ROOT / 'software/stm32'
 COMMON = ROOT / 'software/common'
 OUT = STM / 'build/host'
 OUT.mkdir(parents=True, exist_ok=True)
-BASE = [str(gcc_executable()), '-std=c99', '-O2', '-Wall', '-Wextra', '-Wconversion', '-Wshadow', '-Werror', '-pedantic', '-D__USE_MINGW_ANSI_STDIO=1', '-I'+str(COMMON), '-I'+str(COMMON/'s1'), '-I'+str(STM/'include')]
+BASE = [str(gcc_executable()), '-std=c99', '-O2', '-Wall', '-Wextra', '-Wconversion', '-Wshadow', '-Werror', '-pedantic', '-D__USE_MINGW_ANSI_STDIO=1', '-I'+str(COMMON), '-I'+str(COMMON/'s1'), '-I'+str(COMMON/'s1_3d'), '-I'+str(STM/'include')]
 
 def run(name, cmd):
     p = subprocess.run([str(v) for v in cmd], cwd=ROOT, capture_output=True, text=True)

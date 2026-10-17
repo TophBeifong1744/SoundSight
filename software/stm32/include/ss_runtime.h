@@ -1,6 +1,7 @@
 #ifndef SOUNDSIGHT_RUNTIME_H
 #define SOUNDSIGHT_RUNTIME_H
 #include "fpga_link.h"
+#include "doa_dispatch.h"
 
 /* P1: diagnostic runtime, exclusive main-loop ownership of link/bus.
  * Zero-initialize before first init. Never call from IRQ or concurrently.
@@ -30,7 +31,11 @@ typedef struct {
     uint8_t initialized, poll_pending, fresh_result;
     uint8_t resume_allowed, stop_attempted, stop_sent, producer_idle_observed;
     doa_frame_input_t frame;
-    doa_solve_output_t result;
+    doa_solve_output_t result; /* planar only; stays zero in 3D */
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    doa3d_config_t spatial_config; /* D1 nominal geometry, read-only */
+    doa_dispatch_output_t spatial_result;
+#endif
 } ss_runtime_t;
 
 ss_status_t ss_runtime_init(ss_runtime_t *runtime, const ss_bus_t *bus,

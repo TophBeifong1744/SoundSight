@@ -1,0 +1,6 @@
+COMMAND: F:\STUDY\IT\C\develop\mingw64\bin\gcc.exe -std=c99 -O2 -Wall -Wextra -Wconversion -Wshadow -Werror -pedantic -D__USE_MINGW_ANSI_STDIO=1 -DSS_DOA_PROFILE=1 -Isoftware/common -Isoftware/common/s1 -Isoftware/common/s1_3d -Isoftware/stm32/include -DSS_ENABLE_MOTION_WRITES=1 -c software/stm32/src/ss_spatial.c -o F:\NUEC\SoundSight-stm32\software\stm32\build\spatial-d1\forbidden.o
+software/stm32/src/ss_spatial.c:6:2: error: #error Three-dimensional diagnostic build must keep motion writes disabled
+ #error Three-dimensional diagnostic build must keep motion writes disabled
+  ^~~~~
+
+EXIT_CODE: 1

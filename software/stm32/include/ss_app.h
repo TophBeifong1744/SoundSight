@@ -18,7 +18,10 @@ typedef struct {
     ss_status_t last_status;
     uint8_t initialized, active, fresh, user_stopped;
     doa_frame_input_t frame;
-    doa_solve_output_t result;
+    doa_solve_output_t result; /* planar only; zero in 3D */
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    doa_dispatch_output_t spatial_result;
+#endif
 } ss_app_t;
 ss_status_t ss_app_init(ss_app_t *,const ss_bus_t *);
 ss_status_t ss_app_parse_config(const char *,ss_app_config_t *);

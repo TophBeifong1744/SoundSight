@@ -1,0 +1,12 @@
+COMMAND: F:\NUEC\SoundSight-stm32\software\stm32\build\runtime-p1\runtime.exe
+P1_BIST,REJECT,transfers=41,ux=46831,uy=-171729,residual=590912626,valid=0,reason=3,consumes=1
+P1_BIST,PASS,transfers=41,ux=749295,uy=0,residual=0,valid=1,reason=0,consumes=1
+P1_STREAM,PASS,valid/residual/cancel/source_error,stale_after_recovery,no_motion
+P1_FAULT_MATRIX,PASS,41_positions_x_before_after_x_IO_timeout=164,no_blind_consume_retry
+P1_STOP,PASS,host_vs_producer_confirmation,drain_timeout,sticky_fault,backlog_retained
+P1_BOUNDARIES,PASS,identity,wrap,throttle,saturation,busy,deadline,fault,wire,explicit_resume
+P1_LIFECYCLE_FAULTS,PASS,cases=152,probe/start/stop/drain/recover/resume
+P1_QUEUE_BUDGETS,PASS,continuous_IRQ,whole_frame_timeout,wrap_deadline,late_callback,reserved_bits
+P1_RESULT,PASS,checks=27104,failures=0
+
+EXIT_CODE: 0

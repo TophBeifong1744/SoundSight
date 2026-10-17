@@ -1,4 +1,7 @@
 #include "ss_app.h"
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+#include "ss_spatial.h"
+#endif
 #include <string.h>
 static int valid(const ss_app_t *a) { return a!=NULL && a->initialized!=0U; }
 static uint32_t now(const ss_app_t *a) { return a->runtime.link.bus.now_ms(a->runtime.link.bus.user); }
@@ -76,7 +79,11 @@ ss_status_t ss_app_arm(ss_app_t *a)
 {
     if(!valid(a)) return SS_ARGUMENT;
     if(a->active==0U || a->runtime.state!=SS_RT_RUNNING) return SS_BUSY;
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    return SS_ARGUMENT; /* 3D is diagnostic-only, including horizontal motion */
+#else
     return ss_motion_arm(&a->motion);
+#endif
 }
 ss_status_t ss_app_recover(ss_app_t *a)
 {
@@ -110,7 +117,12 @@ ss_status_t ss_app_discard(ss_app_t *a)
     if(!valid(a)) return SS_ARGUMENT;
     if(a->active!=0U || a->motion.state==SS_MOTION_ARMED) return SS_BUSY;
     a->fresh=0U;
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    memset(&a->result,0,sizeof(a->result));
+    s=ss_spatial_poll(&a->runtime.link,&a->runtime.spatial_config,&a->frame,&a->spatial_result);
+#else
     s=ss_poll_solve(&a->runtime.link,NULL,&a->frame,&a->result);
+#endif
     a->last_status=s; a->fresh=(uint8_t)(s==SS_OK);
     return s;
 }
@@ -118,13 +130,19 @@ ss_app_event_t ss_app_step(ss_app_t *a)
 {
     ss_runtime_event_t event=SS_RT_NONE; ss_status_t s=SS_OK;
     uint32_t t,elapsed;
+#if SS_DOA_PROFILE == SS_DOA_PLANAR
     int used_motion=0;
+#endif
     if(!valid(a)) return SS_APP_ERROR;
     a->fresh=0U;
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    memset(&a->spatial_result,0,sizeof(a->spatial_result));
+#endif
     if(a->active==0U) return SS_APP_NONE;
     t=now(a);
     if((a->runtime.state==SS_RT_RUNNING || a->runtime.state==SS_RT_STARTING || a->runtime.state==SS_RT_PROBING) &&
        (a->frames>=a->config.max_frames || t-a->started_ms>=a->config.duration_ms)) (void)stop_run(a);
+#if SS_DOA_PROFILE == SS_DOA_PLANAR
     if(a->runtime.state==SS_RT_RUNNING && a->motion.state==SS_MOTION_ARMED) {
         used_motion=1;
         s=ss_motion_poll(&a->motion,&a->frame,&a->result);
@@ -133,28 +151,38 @@ ss_app_event_t ss_app_step(ss_app_t *a)
             (void)ss_runtime_step(&a->runtime); /* quarantined link: no acquire */
             event=SS_RT_ERROR;
         }
-    } else {
+    } else
+#endif
+    {
         event=ss_runtime_step(&a->runtime);
         if(event==SS_RT_ERROR) s=a->runtime.last_error;
         if(event==SS_RT_FRAME_VALID || event==SS_RT_FRAME_REJECTED) {
             a->frame=a->runtime.frame; a->result=a->runtime.result;
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+            a->spatial_result=a->runtime.spatial_result;
+#endif
         }
     }
     if(event==SS_RT_FRAME_VALID || event==SS_RT_FRAME_REJECTED) {
-        ++a->frames; if(a->result.direction_valid==0U) ++a->rejected;
+        ++a->frames; if(event==SS_RT_FRAME_REJECTED) ++a->rejected;
         if((a->runtime.link.snapshot_status & SNAP_STATUS_QUEUED)!=0U) ++a->queued;
         s=ss_read_register(&a->runtime.link,REG_DROP_COUNT,&a->drop_count);
         if(s!=SS_OK) { (void)ss_runtime_step(&a->runtime); event=SS_RT_ERROR; }
         else a->fresh=1U;
+#if SS_DOA_PROFILE == SS_DOA_PLANAR
         if(used_motion && a->motion.outcome==SS_MOTION_REJECTED) {
             (void)stop_run(a); if(event!=SS_RT_ERROR) a->fresh=1U;
         }
+#endif
     }
     elapsed=now(a)-t; if(elapsed>a->max_step_ms) a->max_step_ms=elapsed;
     if(event==SS_RT_ERROR || a->runtime.state==SS_RT_FAULT) {
         if(s==SS_OK) s=a->runtime.last_error;
         a->last_status=s; a->active=0U; a->fresh=0U;
         memset(&a->frame,0,sizeof(a->frame)); memset(&a->result,0,sizeof(a->result));
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+        memset(&a->spatial_result,0,sizeof(a->spatial_result));
+#endif
         return SS_APP_ERROR;
     }
     if(a->runtime.state==SS_RT_STOPPED) {

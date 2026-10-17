@@ -11,6 +11,7 @@
 |P1 独立运行状态机|[使用和边界](RUNTIME-P1.md)；`src/ss_runtime.c`、`include/ss_runtime.h`；P3已链接，待新板端结果|
 |P2 独立水平动作管理|[使用和边界](MOTION-P2.md)；`src/ss_motion.c`、`include/ss_motion.h`；默认动作写入关闭，已由P3接合|
 |P3 参数/诊断/应用接合|[使用说明](INTEGRATION-P3.md)；`src/ss_app.c`、`include/ss_app.h`；单一取帧所有者，默认无动作|
+|D1三维应用诊断|[状态与用法](THREE-D-DIAGNOSTICS-D1.md)；PC接合通过，三维AC5链接受限；二维默认不变|
 |Keil 工程|`keil/soundsight_f407/Projects/MDK-ARM/atk_f407.uvprojx`|
 |板级实现与统一入口|`keil/soundsight_f407/User/soundsight_board.c`、`soundsight_selftest.c`|
 |主机回归|`tests/run_host_tests.py`|

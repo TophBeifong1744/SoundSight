@@ -1,0 +1,3 @@
+COMMAND: F:\STUDY\IT\C\develop\mingw64\bin\gcc.exe -std=c99 -O2 -Wall -Wextra -Wconversion -Wshadow -Werror -pedantic -D__USE_MINGW_ANSI_STDIO=1 -Isoftware/common -Isoftware/common/s1 -Isoftware/common/s1_3d -Isoftware/stm32/include software/common/s1/doa_solver.c software/stm32/src/fpga_link.c software/stm32/src/ss_runtime.c software/stm32/tests/test_ss_runtime.c -lm -o F:\NUEC\SoundSight-stm32\software\stm32\build\runtime-p1\runtime.exe
+
+EXIT_CODE: 0

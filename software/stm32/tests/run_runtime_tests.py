@@ -33,7 +33,7 @@ def main():
             raise RuntimeError(f'{name} failed; see {out / (name + ".log")}')
         return p.stdout
 
-    includes = ['-Isoftware/common', '-Isoftware/common/s1', '-Isoftware/stm32/include']
+    includes = ['-Isoftware/common', '-Isoftware/common/s1', '-Isoftware/common/s1_3d', '-Isoftware/stm32/include']
     run('compile-runtime', [gcc_executable(), '-std=c99', '-O2', '-Wall', '-Wextra',
         '-Wconversion', '-Wshadow', '-Werror', '-pedantic', '-D__USE_MINGW_ANSI_STDIO=1',
         *includes, 'software/common/s1/doa_solver.c', 'software/stm32/src/fpga_link.c',

@@ -60,6 +60,42 @@ static void numerical_line(const char *tag,uint32_t cycles,uint32_t us)
         (unsigned int)solved.direction_reason,(long)solved.angle_q8,
         (unsigned int)solved.servo_cmd_valid,(unsigned long)cycles,(unsigned long)us);
 }
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+static void spatial_local_checks(void)
+{
+    static const int32_t tau[3][6]={{-5139,-19180,1254,-14041,6393,20434},{-19180,-5139,-17467,14041,1713,-12327},{0,0,18721,0,18721,18721}};
+    static const int32_t expected_az[3]={11520,-11520,0};
+    static const int32_t expected_el[3]={7680,-7680,23040};
+    static const char *names[3]={"D1_TETRA_UP","D1_TETRA_DOWN","D1_TETRA_POLE"};
+    doa3d_config_t cfg; doa_dispatch_output_t out;
+    unsigned int k,i; uint32_t cycles,us; int ok;
+    doa3d_default_config(&cfg);
+    for(k=0U;k<3U;++k) {
+        memset(&frame,0,sizeof(frame)); frame.frame_id=k+1U; frame.flags=SNAP_STATUS_ALL_TERMINAL;
+        for(i=0U;i<6U;++i) {
+            int32_t q=tau[k][i],lag=(q>=0?q+2048:q-2048)/4096,delta=q-lag*4096;
+            doa_pair_input_t *p=&frame.pair[i];
+            p->lag=lag;p->peak=100000;p->r_minus=95904-2*delta;p->r_plus=95904+2*delta;
+            p->second_peak=10000;p->mask_count=79;
+            p->flags=FEATURE_0_RAW_PEAK_VALID|FEATURE_0_SECOND_VALID|FEATURE_0_IFFT_QUALIFIED|
+                (UINT32_C(1)<<FEATURE_0_PHAT_STAGE_SHIFT)|(UINT32_C(1)<<FEATURE_0_IFFT_STAGE_SHIFT);
+        }
+        cycles=DWT->CYCCNT;us=ss_board_us();
+        ok=doa_dispatch_solve(&frame,NULL,&cfg,&out)==DOA_OK;
+        cycles=DWT->CYCCNT-cycles;us=ss_board_us()-us;
+        ok=ok && out.profile==1U && out.direction_valid && out.elevation_valid &&
+            out.spatial.reason==DOA3D_VALID && out.spatial.coordinates_measured==0U &&
+            out.elevation_q8>=expected_el[k]-8 && out.elevation_q8<=expected_el[k]+8 &&
+            out.azimuth_valid==(uint8_t)(k!=2U) && out.azimuth_q8>=expected_az[k]-8 &&
+            out.azimuth_q8<=expected_az[k]+8;
+        item(names[k],ok);
+        printf("DATA,TETRA_SYNTHETIC,frame=%lu,az_q8=%ld,el_q8=%ld,az_valid=%u,el_valid=%u,reason=%u,cycles=%lu,us=%lu,NOMINAL_NOT_MEASURED,NO_SPI_NO_ACTION\r\n",
+            (unsigned long)frame.frame_id,(long)out.azimuth_q8,(long)out.elevation_q8,
+            (unsigned int)out.azimuth_valid,(unsigned int)out.elevation_valid,(unsigned int)out.spatial.reason,
+            (unsigned long)cycles,(unsigned long)us);
+    }
+}
+#endif
 static void fpga_skips(const char *why)
 {
     skip("FPGA_ID_ABI",why);skip("FPGA_SPI_BIST_REJECT",why);skip("FPGA_SPI_BIST_PASS",why);
@@ -214,6 +250,10 @@ void ss_selftest_run(int live_fpga)
         printf("PERF,S1_%s,runs=32,min_cycles=%lu,max_cycles=%lu,clock_hz=128000000\r\n",
                b?"PASS":"REJECT",(unsigned long)min,(unsigned long)max);
     }
+    printf("APP_PROFILE,%u,legacy_BIST=PLANAR_TRANSPORT,motion=DISABLED\r\n",(unsigned int)SS_DOA_PROFILE);
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    spatial_local_checks();
+#endif
     if(application.initialized==0U) {
         bus=ss_board_bus(); item("P3_APP_INIT",ss_app_init(&application,&bus)==SS_OK);
     } else item("P3_APP_INIT",1);
@@ -256,22 +296,36 @@ static void app_status(void)
 }
 void ss_selftest_stream(void)
 {
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    printf("STREAM,SKIP,THREE_DIMENSIONAL_PROFILE_NOT_ALIGNED_WITH_A\r\n");
+#else
     ss_status_t s;
     if(!board_ok) {printf("STREAM,SKIP,RUN_BOARD_CHECKS_FIRST\r\n");return;}
     s=ss_app_start(&application);
     printf("STREAM,BEGIN,status=%u,max_frames=%lu,deadline_ms=%lu,print_every=%lu,motion=DISABLED\r\n",
         (unsigned int)s,(unsigned long)application.config.max_frames,(unsigned long)application.config.duration_ms,
         (unsigned long)application.config.print_every);
+#endif
 }
 static void app_tick(void)
 {
     uint32_t t=ss_board_us();
     ss_app_event_t event=ss_app_step(&application);
     uint32_t us=ss_board_us()-t;
-    if(event==SS_APP_FRAME && (application.frames==1U || application.frames%application.config.print_every==0U))
+    if(event==SS_APP_FRAME && (application.frames==1U || application.frames%application.config.print_every==0U)) {
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+        printf("STREAM3D,frame=%lu,valid=%u,reason=%u,az_q8=%ld,el_q8=%ld,az_valid=%u,el_valid=%u,geometry_measured=%u,step_us=%lu,NO_ACTION_SUBMITTED\r\n",
+            (unsigned long)application.frame.frame_id,(unsigned int)application.spatial_result.direction_valid,
+            (unsigned int)application.spatial_result.spatial.reason,(long)application.spatial_result.azimuth_q8,
+            (long)application.spatial_result.elevation_q8,(unsigned int)application.spatial_result.azimuth_valid,
+            (unsigned int)application.spatial_result.elevation_valid,(unsigned int)application.spatial_result.spatial.coordinates_measured,
+            (unsigned long)us);
+#else
         printf("STREAM,frame=%lu,valid=%u,reason=%u,angle_q8=%ld,step_us=%lu,NO_ACTION_SUBMITTED\r\n",
             (unsigned long)application.frame.frame_id,(unsigned int)application.result.direction_valid,
             (unsigned int)application.result.direction_reason,(long)application.result.angle_q8,(unsigned long)us);
+#endif
+    }
     if(event==SS_APP_ENDED || event==SS_APP_ERROR) {
         const char *result=event==SS_APP_ERROR?"FAIL":application.user_stopped?"STOPPED":
             application.frames>=application.config.max_frames?"DIAGNOSTIC_COMPLETE":application.frames==0U?"SKIP_NO_FRAMES":"INCOMPLETE";

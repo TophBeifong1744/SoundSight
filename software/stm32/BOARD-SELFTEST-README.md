@@ -4,7 +4,7 @@
 
 ## 打开、编译、下载
 
-1. 打开 `keil/soundsight_f407/Projects/MDK-ARM/atk_f407.uvprojx`，目标 Template，选择 ARM Compiler 5.06 update 7，DFP 2.15.0。
+1. 打开 `keil/soundsight_f407/Projects/MDK-ARM/atk_f407.uvprojx`，二维目标 Template（继续默认使用），选择 ARM Compiler 5.06 update 7，DFP 2.15.0。
 2. 项目已列全需要的 C 文件、头路径、8 KiB 栈和启动文件，不添加 PC `tests` 到 Keil。
 3. Rebuild；确认 0 Error 后使用 `software/stm32/build/keil/atk_f407.axf` 或 `.hex`。全部构建产物均在此被忽略目录。
 4. 本机已保留原 DAP uvoptx 作为本地文件，不上传个人调试状态。其他机器首次打开时，在 Options for Target → Debug 选择 CMSIS-DAP、SWD；Utilities 使用相同调试器，Flash 算法选 STM32F4xx 1 MB。串口 115200、8N1。
@@ -43,3 +43,5 @@ BOARD_ONLY 预期 `pass=13,fail=0,skip=11,result=PASS_WITH_SKIPS,NOT_SYSTEM_ACCE
 动作提交始终禁用；适配层拒绝 ACTUATOR_CMD、许可/COMMIT 和非零 WATCHDOG 写入。数学 BIST 通过不提交动作。PLLQ 当前非 48 MHz，不用于 USB/SDIO/RNG。
 
 物理波形、总线电气卡死、PWM 运动和真实声学未验证；软件超时注入发生在 CS 前，仅验证软件隔离/恢复。SPI 1 MHz/40 时钟/CS 建立保持仍需外部仪器确认。主机 HAL 模型不执行实际板级寄存器轮询。
+
+三维另有Tetra3D_Diagnostic目标，详见[D1](THREE-D-DIAGNOSTICS-D1.md)。当前本机链接受限，没有三维HEX；不要把二维HEX改名当作三维固件。真实三维stream保持待A对齐门禁。
