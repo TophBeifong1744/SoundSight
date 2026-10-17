@@ -8,6 +8,7 @@
 |---|---|
 |唯一冻结 ABI、S1|`../common/`、`../common/s1/`|
 |S2 通用驱动|`src/fpga_link.c`、`include/fpga_link.h`|
+|P1 独立运行状态机|[使用和边界](RUNTIME-P1.md)；`src/ss_runtime.c`、`include/ss_runtime.h`；尚未接入板端|
 |Keil 工程|`keil/soundsight_f407/Projects/MDK-ARM/atk_f407.uvprojx`|
 |板级实现与统一入口|`keil/soundsight_f407/User/soundsight_board.c`、`soundsight_selftest.c`|
 |主机回归|`tests/run_host_tests.py`|
