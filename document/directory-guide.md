@@ -1,6 +1,6 @@
 # 新项目目录
 
-所有维护内容集中在SoundSight总目录；两个FPGA目标共用源代码，分别保存原生工程输出。
+正式维护内容集中在SoundSight总目录；两个FPGA目标共用源代码。当前用户在仓库外手工开发，验证后将源码与导出配置接回；下列par是仓库配方的重建输出位置，不限定外部工作目录。
 
 ```text
 SoundSight/
@@ -50,7 +50,7 @@ SoundSight/
 
 ## 源码与历史的界限
 
-- `project/rtl`是唯一需要日常修改的RTL。旧单域tile/clock参考文件仍在其中供原用例编译，正式两目标源清单明确排除。
+- `project/rtl`是唯一正式维护的RTL；外部工程允许有本批工作副本，验证后对比接回。旧单域tile/clock参考文件仍在其中供原用例编译，正式两目标源清单明确排除。
 - `project/ip/reference`是固定版本官方模型/配置参考，不能把其中旧生成目录直接注册进新工程；准备脚本在新par内正式重建IP。
 - `document/design`和Word使用当前SoundSight路径与操作入口；两版逐线连接分别见`document/design/stm32/BD连线.txt`和`document/design/ps/PS平台.txt`。完整当前源码链接集中在`document/modules/RTL-INTERFACES.html`。历史原始日志仍保留原路径，不作为新操作入口。
 - `software/common`只维护一份冻结合同与S1。两版同时引用，避免两边各自改出不同协议。

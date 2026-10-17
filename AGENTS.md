@@ -23,7 +23,15 @@ AI可按任务编辑源码、文档、测试和独立BD配方，执行必要定�
 
 本机工具安装路径只写入被Git忽略的tools.local.env；公共脚本按环境变量、本地配置、PATH查找工具，仓库只保留tools.local.env.example空模板。不得把个人盘符写回公共默认值；历史证据中的原路径保留。
 
-源/约束/IP与BD配方在project；原生工程与构建输出在project/par，PS目标在variants/pl_ps/project/par；TB在simulation/tb、仿真输出在simulation/work；软件在software；诊断临时工作在codex_out。不要创建project2/par2或新的一套重复源码。
+源/约束/IP与BD配方在project；仓库配方重建输出在project/par，PS目标在variants/pl_ps/project/par。用户当前在仓库外手动搭建并验证工程，外部工作目录由用户选择；这是开发工作副本，不是第二套长期维护的产品源码。TB在simulation/tb、仿真输出在simulation/work；软件在software；诊断临时工作在codex_out。不要创建project2/par2。
+
+### 仓库外开发与工程交接
+
+- 当前默认由用户在仓库外手动新建、配置和运行Vivado工程；导入时复制RTL、XDC、初始化数据到工作工程，核对源属性中的实际位置，避免GUI编辑直接修改仓库基线。记录来源Git版本；同一任务只修改一个工作副本，避免双向同时编辑。
+- 验证到本批要求后，对比并接回有效源码，导出最新工程/BD Tcl、PS与IP配置，放回project对应正式目录；使用项目相对路径，补齐全部依赖。BAT仅为入口，单独交BAT/Tcl不算完整重建包。GUI修改不会自动更新仓库配方。
+- 完成当批必要验证后，经任务分支/PR集成。Validate、输出生成、仿真、综合、实现和板测分别记录，实际EDA操作仍按用户权限执行。
+- 日常共享源码与重建配方；需要解压打开的交接时使用Vivado Archive Project，可排除运行结果，另补未登记的外部软件/脚本/数据。发布包放release/output，按交付需要附同候选bit/HWH/LTX及必要报告，不把整个缓存数据库提交Git。
+- 已有仓库内准备工程保留，当前BAT仍按既定par目录重建，无参数默认为prepare stm32；它不是当前外部手工工程的启动或导出入口。未经明确任务不自动创建、覆盖、移动或删除外部工作工程。
 
 ### 临时文件必须随任务收尾
 
