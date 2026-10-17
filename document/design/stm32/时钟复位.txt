@@ -1,0 +1,38 @@
+时钟、复位和跨域连接（2026-10-17用户决定）
+
+主方案与独立PS版都从BD中的PS7取时钟，不再接外部PL sys_clk/U18。
+PS7/FCLK_CLK0 = 100MHz → clk_main（Clocking Wizard）。clk_main输出1为96MHz，只送第二个clk_audio；输出2为100MHz，送计算与PS侧AXI。
+clk_audio（Clocking Wizard）将96MHz变为61.44MHz，送PDM/CIC、SPI/快照/动作保护、PS寄存器端。
+实际工具配置：第一级M=9、D=1、O1=9.375、O2=9，VCO900MHz；第二级M=52、D=5、O1=16.25，VCO998.4MHz。不是把近似61.44MHz当精确值。
+实际官方模型测得周期：计算10.000000ns，采集16.276042ns。物理时钟误差还由板上PS参考晶振决定。
+
+为什么保留61.44MHz外围控制
+冻结头FPGA_ABI_PROCESS_CLOCK_HZ=61440000，WATCHDOG_TICKS以该接口控制域周期计时。SPI过采样和PWM沿用此域，B侧字段、计时、舵机映射不变。
+100MHz只提高计算和PS侧AXI时钟，PDM仍3.072MHz、PCM仍48kHz、1024点窗/512点步进不变。
+一个步进是10.666667ms：61.44MHz域655360拍，100MHz域约1066666.67拍。现有定向测试继续用更严格的655360个计算周期上限；这不是全部输入最坏耗时证明。
+
+两个时钟域之间如何传数据
+PCM：四路S24拼成96位，再加1位削顶标记，经ss_async_word的97位、16项异步FIFO送计算域。物理采集不能停；满时报告故障、停止新窗口，不默默覆盖。
+结果：960位六对特征加32位终态，经992位异步FIFO整体回61.44MHz。底层XPM最小物理深度16，逻辑限制仅一个在途整帧；不是增加16个公共快照槽。
+数据只有valid/ready同时有效时转移，背压时完整载荷保持。XPM负责指针跨域。不能给96位PCM逐位打两拍当作同组样本。
+enable和独立故障位用官方XPM同步器。STOP在控制域立即禁止新角度/PWM新脉冲；计算域收到同步后的停止再取消并排尾。跨域传播需要同步延迟，不承诺两个域同一瞬间改变。
+draining包含停止请求往返、计算活动及在途结果，避免尚有结果未交出就宣告可重启。普通STOP不复位跨域FIFO、不清已保存记录。
+
+复位IP怎么接
+每个有业务逻辑的时钟域使用自己的Processor System Reset，slowest_sync_clk接本域时钟，dcm_locked接clk_audio/locked。
+core_reset服务100MHz，io_reset服务61.44MHz；96MHz只给另一个时钟IP，不单独挂业务复位。
+PS7/FCLK_RESET1_N是平台冷复位：接clk_main/resetn及core_reset、io_reset的ext_reset_in。clk_main/locked接clk_audio/resetn。辅助复位aux_reset_in为低有效，接常量1；mb_debug_sys_rst高有效，接0。
+普通PS总线复位另用FCLK_RESET0_N。PS实验版bus_reset在100MHz、bus_io_reset在61.44MHz，各自接这根线；只复位总线和软件控制，不接存储冷复位。
+总线复位保留快照的前提是FCLK和PL配置仍然存在；PS关掉FCLK、重新配置PL或请求RESET1冷复位属于清状态恢复，不能保帧。
+
+为什么还多一个小的复位保护IP
+实际仿真发现：时钟停止时，Processor System Reset的61.44MHz输出可能来不及改变。因此本工程把它的复位输出与locked经util_vector_logic合并，再用XPM CDC Generator的Async Reset模式，异步断言、在本域3拍同步释放。两域各一份，最终输出分别叫core_release/dest_arst和io_release/dest_arst，均低有效。
+这仍是官方IP组合，没有手写复位状态机。该保护保证失锁时即使目标时钟停了，也能撤销复位输出许可；释放始终在本域时钟边沿。
+MMCM输入时钟丢失后，恢复需PS显式拉低RESET1、保持FCLK运行并满足复位脉宽，再解除RESET1等待锁定。这会清旧记录。仅重新打开FCLK不等于已恢复，官方模型已验证这个区别。
+BD Connection Automation可以生成基础Processor System Reset连线，但不认识“总线复位保记录”的项目用途；需按上述分域/分用途核对。
+
+验证和未验证
+两套独立BD已由Vivado2025.2实际Validate、生成wrapper及官方IP输出。没有运行synth_design、launch_runs或硬件操作。
+官方时钟/复位模型检查9项通过：启动、两个频率、同步释放、双域总线复位保留记录、时钟丢失时断言复位、显式冷恢复清旧记录。
+原先常量0接低有效ext/aux会一直复位，以及MMCM复位固定无效导致失锁后不能恢复的试验均保留失败现场，已在当前脚本修正。
+100MHz候选的综合、实现STA、CDC/RDC报告和板测仍需人操作后验证。

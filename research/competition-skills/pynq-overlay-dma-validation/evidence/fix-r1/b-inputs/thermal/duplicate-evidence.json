@@ -1,0 +1,45 @@
+{
+  "evidence_level": "mock",
+  "overlay_downloaded": false,
+  "artifact_hashes": {
+    "bit": "c03bb7637b9430aab4ec6a1cdd637af1d6b5f8f154ed098957ab7b44f9ce8718",
+    "hwh": "1f1e05cca1113b746daed84e486d3d9b105af86c246e702fa686b9ff034feeec"
+  },
+  "register_reads": {
+    "version": 3
+  },
+  "performance": {
+    "minimum_throughput_bytes_per_second": 1,
+    "maximum_latency_seconds": 0.1
+  },
+  "dma_runs": [
+    {
+      "id": "fixture-loopback",
+      "length_bytes": 96,
+      "timed_out": true,
+      "dma_error": false,
+      "mm2s_completed": true,
+      "s2mm_completed": true,
+      "tlast_observed": true,
+      "cache_operations": [
+        "tx.flush",
+        "rx.invalidate"
+      ],
+      "mismatch_count": 4
+    },
+    {
+      "id": "fixture-loopback",
+      "length_bytes": 96,
+      "timed_out": false,
+      "dma_error": false,
+      "mm2s_completed": true,
+      "s2mm_completed": true,
+      "tlast_observed": true,
+      "cache_operations": [
+        "tx.flush",
+        "rx.invalidate"
+      ],
+      "mismatch_count": 0
+    }
+  ]
+}

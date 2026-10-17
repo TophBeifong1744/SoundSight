@@ -1,0 +1,268 @@
+# set h [open $::ss_state_file w]
+# puts $h "Vivado=[version -short] part=[get_property PART [current_project]]"
+# foreach cell {ps7 clk_main clk_audio core_reset io_reset core_release io_release bus_reset bus_io_reset control_cdc} {
+#  set objects [get_bd_cells -quiet $cell];if {![llength $objects]} {continue}
+#  puts $h "CELL=$cell"
+#  foreach p [list_property $objects] {
+#   if {[regexp {CONFIG\.(PCW_FPGA0_PERIPHERAL_FREQMHZ|PCW_EN_RST[01]_PORT|MMCM_|C_EXT_RESET_HIGH|C_AUX_RESET_HIGH|CLKOUT[12]_REQUESTED_OUT_FREQ|ACLK_ASYNC|SYNCHRONIZATION_STAGES|CDC_TYPE|DEST_SYNC_FF|RST_ACTIVE_HIGH)} $p]} {puts $h "$p=[get_property $p $objects]"}
+#  }
+# }
+# foreach run [get_runs] {puts $h "run=$run state=[get_property STATUS $run]"}
+# foreach net [get_bd_nets] {puts $h "net=$net pins=[get_bd_pins -quiet -of_objects $net]"}
+# foreach seg [get_bd_addr_segs -quiet -of_objects [get_bd_addr_spaces -quiet ps7/Data]] {puts $h "address=$seg offset=[get_property OFFSET $seg] range=[get_property RANGE $seg]"}
+# close $h
+# foreach name {core_reset io_reset bus_reset bus_io_reset} {
+#  if {![llength [get_bd_cells -quiet $name]]} {continue}
+#  foreach p {C_EXT_RESET_HIGH C_AUX_RESET_HIGH} {if {[get_property CONFIG.$p [get_bd_cells $name]]!=0} {error "Reset polarity mismatch: $name/$p"}}
+# }
+# foreach {pin hz} {clk_main/clk_out2 100000000 clk_audio/clk_out1 61440000} {
+#  if {[get_property CONFIG.FREQ_HZ [get_bd_pins $pin]] != $hz} {error "Clock metadata mismatch: $pin"}
+# }
+# puts {PLATFORM_STATE_SAVED_RESET_POLARITY_AND_CLOCKS_CHECKED}
+PLATFORM_STATE_SAVED_RESET_POLARITY_AND_CLOCKS_CHECKED
+PS_FINAL_BEGIN
+# file normalize [file dirname [info script]]
+# file join $ps_root vivado_project
+# current_project
+# set_property target_language Verilog soundsight_ps
+# current_project
+# set_property simulator_language Mixed soundsight_ps
+# current_project
+# set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY XPM_FIFO} soundsight_ps
+# glob [file join $ps_root rtl *.sv] [file join $ps_root rtl *.v]
+# list [file join $ps_root rtl hann-u18f17.mem]
+# file join $ps_root create_fft_ip.tcl
+## file join $destination ip
+## ::tcl::file::mkdir {E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/ip}
+## file join $destination ip
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/AMD/2025.2/Vivado/data/ip'.
+## list CONFIG.channels {1} CONFIG.transform_length {1024} CONFIG.target_clock_frequency {100} CONFIG.implementation_options {radix_2_burst_io} CONFIG.target_data_throughput {50} CONFIG.run_time_configurable_transform_length {false} CONFIG.data_format {fixed_point} CONFIG.input_width {29} CONFIG.phase_factor_width {24} CONFIG.scaling_options {scaled} CONFIG.rounding_modes {convergent_rounding} CONFIG.aclken {false} CONFIG.aresetn {true} CONFIG.ovflo {true} CONFIG.xk_index {true} CONFIG.throttle_scheme {nonrealtime} CONFIG.output_ordering {natural_order} CONFIG.cyclic_prefix_insertion {false} CONFIG.memory_options_data {block_ram} CONFIG.memory_options_phase_factors {block_ram} CONFIG.memory_options_reorder {block_ram} CONFIG.number_of_stages_using_block_ram_for_data_and_phase_factors {0} CONFIG.memory_options_hybrid {false} CONFIG.complex_mult_type {use_mults_resources} CONFIG.butterfly_type {use_luts} CONFIG.super_sample_rates {1} CONFIG.systolicfft_inv {false}
+## get_ips ss_fft29
+## set_property -dict {CONFIG.channels 1 CONFIG.transform_length 1024 CONFIG.target_clock_frequency 100 CONFIG.implementation_options radix_2_burst_io CONFIG.target_data_throughput 50 CONFIG.run_time_configurable_transform_length false CONFIG.data_format fixed_point CONFIG.input_width 29 CONFIG.phase_factor_width 24 CONFIG.scaling_options scaled CONFIG.rounding_modes convergent_rounding CONFIG.aclken false CONFIG.aresetn true CONFIG.ovflo true CONFIG.xk_index true CONFIG.throttle_scheme nonrealtime CONFIG.output_ordering natural_order CONFIG.cyclic_prefix_insertion false CONFIG.memory_options_data block_ram CONFIG.memory_options_phase_factors block_ram CONFIG.memory_options_reorder block_ram CONFIG.number_of_stages_using_block_ram_for_data_and_phase_factors 0 CONFIG.memory_options_hybrid false CONFIG.complex_mult_type use_mults_resources CONFIG.butterfly_type use_luts CONFIG.super_sample_rates 1 CONFIG.systolicfft_inv false} ss_fft29
+## file join $destination ip
+## list CONFIG.channels {1} CONFIG.transform_length {1024} CONFIG.target_clock_frequency {100} CONFIG.implementation_options {radix_2_burst_io} CONFIG.target_data_throughput {50} CONFIG.run_time_configurable_transform_length {false} CONFIG.data_format {fixed_point} CONFIG.input_width {25} CONFIG.phase_factor_width {24} CONFIG.scaling_options {scaled} CONFIG.rounding_modes {convergent_rounding} CONFIG.aclken {false} CONFIG.aresetn {true} CONFIG.ovflo {true} CONFIG.xk_index {true} CONFIG.throttle_scheme {nonrealtime} CONFIG.output_ordering {natural_order} CONFIG.cyclic_prefix_insertion {false} CONFIG.memory_options_data {block_ram} CONFIG.memory_options_phase_factors {block_ram} CONFIG.memory_options_reorder {block_ram} CONFIG.number_of_stages_using_block_ram_for_data_and_phase_factors {0} CONFIG.memory_options_hybrid {false} CONFIG.complex_mult_type {use_mults_resources} CONFIG.butterfly_type {use_luts} CONFIG.super_sample_rates {1} CONFIG.systolicfft_inv {false}
+## get_ips ss_ifft25
+## set_property -dict {CONFIG.channels 1 CONFIG.transform_length 1024 CONFIG.target_clock_frequency 100 CONFIG.implementation_options radix_2_burst_io CONFIG.target_data_throughput 50 CONFIG.run_time_configurable_transform_length false CONFIG.data_format fixed_point CONFIG.input_width 25 CONFIG.phase_factor_width 24 CONFIG.scaling_options scaled CONFIG.rounding_modes convergent_rounding CONFIG.aclken false CONFIG.aresetn true CONFIG.ovflo true CONFIG.xk_index true CONFIG.throttle_scheme nonrealtime CONFIG.output_ordering natural_order CONFIG.cyclic_prefix_insertion false CONFIG.memory_options_data block_ram CONFIG.memory_options_phase_factors block_ram CONFIG.memory_options_reorder block_ram CONFIG.number_of_stages_using_block_ram_for_data_and_phase_factors 0 CONFIG.memory_options_hybrid false CONFIG.complex_mult_type use_mults_resources CONFIG.butterfly_type use_luts CONFIG.super_sample_rates 1 CONFIG.systolicfft_inv false} ss_ifft25
+Wrote  : <E:\Users\Toph Beifong\Documents\GitHub\Competition_fpga\migration\eda\p04\soundsight_ps.srcs\sources_1\bd\soundsight_ps_bd\soundsight_ps_bd.bd> 
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'io_clk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'io_clk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'io_rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'io_rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'io_clk': Added interface parameter 'ASSOCIATED_RESET' with value 'io_rst_n'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'FREQ_HZ' with value '100000000'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst_n'.
+INFO: [IP_Flow 19-4728] Bus Interface 'io_clk': Added interface parameter 'FREQ_HZ' with value '61440000'.
+INFO: [IP_Flow 19-7067] Note that bus interface 'clk' has a fixed FREQ_HZ of '100000000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-7067] Note that bus interface 'io_clk' has a fixed FREQ_HZ of '61440000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+WARNING: [IP_Flow 19-5661] Bus Interface 'io_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'irq' of definition 'xilinx.com:signal:interrupt:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'irq' of definition 'xilinx.com:signal:interrupt:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'S_AXI'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'FREQ_HZ' with value '61440000'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'PROTOCOL' with value 'AXI4LITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'DATA_WIDTH' with value '32'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'ADDR_WIDTH' with value '12'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'READ_WRITE_MODE' with value 'READ_WRITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_READ_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_WRITE_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'irq': Added interface parameter 'SENSITIVITY' with value 'LEVEL_HIGH'.
+INFO: [IP_Flow 19-7067] Note that bus interface 'clk' has a fixed FREQ_HZ of '61440000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+# file join $ps_root create_platform_clock.tcl
+## list CONFIG.PCW_EN_CLK0_PORT 1 CONFIG.PCW_EN_RST0_PORT 1 CONFIG.PCW_EN_RST1_PORT 1 CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ 100
+## get_bd_cells ps7
+## set_property -dict {CONFIG.PCW_EN_CLK0_PORT 1 CONFIG.PCW_EN_RST0_PORT 1 CONFIG.PCW_EN_RST1_PORT 1 CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ 100} /ps7
+## get_bd_intf_pins ps7/DDR
+## get_bd_intf_pins ps7/FIXED_IO
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconstant:1.0 for the IP type xilinx.com:ip:xlconstant:1.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconstant:1.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+## list CONFIG.CONST_WIDTH 1 CONFIG.CONST_VAL 0
+## get_bd_cells zero
+## set_property -dict {CONFIG.CONST_WIDTH 1 CONFIG.CONST_VAL 0} /zero
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconstant:1.0 for the IP type xilinx.com:ip:xlconstant:1.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconstant:1.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+## list CONFIG.CONST_WIDTH 1 CONFIG.CONST_VAL 1
+## get_bd_cells one
+## set_property -dict {CONFIG.CONST_WIDTH 1 CONFIG.CONST_VAL 1} /one
+## list CONFIG.PRIM_SOURCE No_buffer CONFIG.PRIM_IN_FREQ 100.000 CONFIG.CLKOUT1_REQUESTED_OUT_FREQ 96.000 CONFIG.CLKOUT2_USED true CONFIG.CLKOUT2_REQUESTED_OUT_FREQ 100.000 CONFIG.USE_RESET true CONFIG.RESET_TYPE ACTIVE_LOW
+## get_bd_cells clk_main
+## set_property -dict {CONFIG.PRIM_SOURCE No_buffer CONFIG.PRIM_IN_FREQ 100.000 CONFIG.CLKOUT1_REQUESTED_OUT_FREQ 96.000 CONFIG.CLKOUT2_USED true CONFIG.CLKOUT2_REQUESTED_OUT_FREQ 100.000 CONFIG.USE_RESET true CONFIG.RESET_TYPE ACTIVE_LOW} /clk_main
+## list CONFIG.PRIM_SOURCE No_buffer CONFIG.PRIM_IN_FREQ 96.000 CONFIG.CLKOUT1_REQUESTED_OUT_FREQ 61.440 CONFIG.USE_RESET true CONFIG.RESET_TYPE ACTIVE_LOW
+## get_bd_cells clk_audio
+## set_property -dict {CONFIG.PRIM_SOURCE No_buffer CONFIG.PRIM_IN_FREQ 96.000 CONFIG.CLKOUT1_REQUESTED_OUT_FREQ 61.440 CONFIG.USE_RESET true CONFIG.RESET_TYPE ACTIVE_LOW} /clk_audio
+## get_bd_pins ps7/FCLK_CLK0
+## get_bd_pins clk_main/clk_in1
+## get_bd_pins ps7/FCLK_RESET1_N
+## get_bd_pins clk_main/resetn
+## get_bd_pins clk_main/clk_out1
+## get_bd_pins clk_audio/clk_in1
+## get_bd_pins clk_main/locked
+## get_bd_pins clk_audio/resetn
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilvector_logic:1.0 for the IP type xilinx.com:ip:util_vector_logic:2.0 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:util_vector_logic:2.0 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+xpm_cdc_async_rst  *****  2
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilvector_logic:1.0 for the IP type xilinx.com:ip:util_vector_logic:2.0 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:util_vector_logic:2.0 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+xpm_cdc_async_rst  *****  2
+## get_bd_pins clk_main/clk_out2
+## get_bd_pins compute/clk
+## get_bd_pins core_release/dest_arst
+## get_bd_pins compute/rst_n
+## get_bd_pins clk_audio/clk_out1
+## get_bd_pins compute/io_clk
+## get_bd_pins io_release/dest_arst
+## get_bd_pins compute/io_rst_n
+# list CONFIG.PCW_USE_M_AXI_GP0 1 CONFIG.PCW_USE_FABRIC_INTERRUPT 1 CONFIG.PCW_IRQ_F2P_INTR 1
+# get_bd_cells ps7
+# set_property -dict {CONFIG.PCW_USE_M_AXI_GP0 1 CONFIG.PCW_USE_FABRIC_INTERRUPT 1 CONFIG.PCW_IRQ_F2P_INTR 1} /ps7
+# get_bd_cells control_bus
+# set_property CONFIG.NUM_MI 1 /control_bus
+# list CONFIG.PROTOCOL AXI4LITE CONFIG.ACLK_ASYNC 1 CONFIG.SYNCHRONIZATION_STAGES 3
+# get_bd_cells control_cdc
+# set_property -dict {CONFIG.PROTOCOL AXI4LITE CONFIG.ACLK_ASYNC 1 CONFIG.SYNCHRONIZATION_STAGES 3} /control_cdc
+# get_bd_pins clk_main/clk_out2
+# get_bd_pins ps7/M_AXI_GP0_ACLK
+# get_bd_pins control_bus/ACLK
+# get_bd_pins control_bus/S00_ACLK
+# get_bd_pins control_bus/M00_ACLK
+# get_bd_pins control_cdc/s_axi_aclk
+# get_bd_pins clk_audio/clk_out1
+# get_bd_pins control_cdc/m_axi_aclk
+# get_bd_pins ps_link/clk
+# get_bd_pins io_release/dest_arst
+# get_bd_pins ps_link/rst_n
+# get_bd_pins bus_reset/interconnect_aresetn
+# get_bd_pins control_bus/ARESETN
+# get_bd_pins bus_reset/peripheral_aresetn
+# get_bd_pins control_bus/S00_ARESETN
+# get_bd_pins control_bus/M00_ARESETN
+# get_bd_pins control_cdc/s_axi_aresetn
+# get_bd_pins bus_io_reset/peripheral_aresetn
+# get_bd_pins control_cdc/m_axi_aresetn
+# get_bd_pins ps_link/aresetn
+# get_bd_intf_pins ps7/M_AXI_GP0
+# get_bd_intf_pins control_bus/S00_AXI
+# get_bd_intf_pins control_bus/M00_AXI
+# get_bd_intf_pins control_cdc/S_AXI
+# get_bd_intf_pins control_cdc/M_AXI
+# get_bd_intf_pins ps_link/S_AXI
+# get_bd_pins ps_link/feature_ready
+# get_bd_pins compute/feature_ready
+# get_bd_pins ps_link/run_enable
+# get_bd_pins compute/enable
+# get_bd_pins compute/draining
+# get_bd_pins ps_link/compute_draining
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconcat:1.0 for the IP type xilinx.com:ip:xlconcat:2.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconcat:2.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+# list CONFIG.NUM_PORTS 2 CONFIG.IN0_WIDTH 1 CONFIG.IN1_WIDTH 15
+# get_bd_cells irq_concat
+# set_property -dict {CONFIG.NUM_PORTS 2 CONFIG.IN0_WIDTH 1 CONFIG.IN1_WIDTH 15} /irq_concat
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconstant:1.0 for the IP type xilinx.com:ip:xlconstant:1.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconstant:1.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+# list CONFIG.CONST_WIDTH 15 CONFIG.CONST_VAL 0
+# get_bd_cells irq_zero
+# set_property -dict {CONFIG.CONST_WIDTH 15 CONFIG.CONST_VAL 0} /irq_zero
+# get_bd_pins ps_link/irq
+# get_bd_pins irq_concat/In0
+# get_bd_pins irq_zero/dout
+# get_bd_pins irq_concat/In1
+# get_bd_pins irq_concat/dout
+# get_bd_pins ps7/IRQ_F2P
+# create_bd_port -dir O servo_pwm
+# get_bd_pins ps_link/servo_pwm
+INFO: [BD 41-3093] Triggering Legacy Auto Assign Algorithm
+Slave segment '/ps_link/S_AXI/reg0' is being assigned into address space '/ps7/Data' at <0x4000_0000 [ 4K ]>.
+clk_domain: soundsight_ps_bd_ps7_0_FCLK_CLK0, clk_domain_1: soundsight_ps_bd_clk_main_0_clk_out1, clkDomainValSrc_1: DEFAULT, clk_domain_ctrl: 0
+clk_domain: soundsight_ps_bd_clk_main_0_clk_out1, clk_domain_1: soundsight_ps_bd_clk_audio_0_clk_out1, clkDomainValSrc_1: DEFAULT, clk_domain_ctrl: 0
+clk_domain: soundsight_ps_bd_ps7_0_FCLK_CLK0, clk_domain_1: soundsight_ps_bd_clk_main_0_clk_out1, clkDomainValSrc_1: PROPAGATED, clk_domain_ctrl: 0
+clk_domain: soundsight_ps_bd_ps7_0_FCLK_CLK0, clk_domain_1: soundsight_ps_bd_ps7_0_FCLK_CLK0, clkDomainValSrc_1: PROPAGATED, clk_domain_ctrl: 0
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_main clk_wiz propagate
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_audio clk_wiz propagate
+INFO: [xilinx.com:ip:util_vector_logic:2.0-10] /core_reset_gate IP set output pin Res type to "rst" when Input pin Op1 type is "rst" and Input pin Op2 type is "undef".
+INFO: [xilinx.com:ip:util_vector_logic:2.0-10] /io_reset_gate IP set output pin Res type to "rst" when Input pin Op1 type is "rst" and Input pin Op2 type is "undef".
+Wrote  : <E:\Users\Toph Beifong\Documents\GitHub\Competition_fpga\migration\eda\p04\soundsight_ps.srcs\sources_1\bd\soundsight_ps_bd\soundsight_ps_bd.bd> 
+# get_files -quiet */soundsight_ps_bd.bd
+# make_wrapper -files $bd_file -top
+INFO: [BD 41-1662] The design 'soundsight_ps_bd.bd' is already validated. Therefore parameter propagation will not be re-run.
+Verilog Output written to : E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/soundsight_ps.gen/sources_1/bd/soundsight_ps_bd/synth/soundsight_ps_bd.v
+Verilog Output written to : E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/soundsight_ps.gen/sources_1/bd/soundsight_ps_bd/sim/soundsight_ps_bd.v
+Verilog Output written to : E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/soundsight_ps.gen/sources_1/bd/soundsight_ps_bd/hdl/soundsight_ps_bd_wrapper.v
+# get_filesets sources_1
+# set_property top soundsight_ps_bd_wrapper sources_1
+PS_BD_CONNECTIONS_VALIDATED: user configures DDR/MIO/boot before synthesis; no build or hardware action
+PS_FINAL_RC=0 result=
+PS_FINAL_END
+PS_FINAL_OUTPUTS_BEGIN
+# if {![llength [get_projects -quiet]]} {error {Open the independent migration project first}}
+# if {[get_property NAME [current_project]] ni {soundsight_stm32 soundsight_ps}} {error {Wrong project; old F project will not be edited}}
+# assign_bd_address
+INFO: [BD 41-3093] Triggering Legacy Auto Assign Algorithm
+# validate_bd_design
+INFO: [BD 5-320] Validate design is not run, since the design is already validated.
+# save_bd_design
+# foreach ip {ss_fft29 ss_ifft25} {generate_target all [get_ips $ip]}
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'ss_fft29'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'ss_fft29'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'ss_fft29'...
+INFO: [IP_Flow 19-1686] Generating 'C Simulation' target for IP 'ss_fft29'...
+INFO: [IP_Flow 19-1686] Generating 'Test Bench' target for IP 'ss_fft29'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'ss_fft29'...
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'ss_ifft25'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'ss_ifft25'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'ss_ifft25'...
+INFO: [IP_Flow 19-1686] Generating 'C Simulation' target for IP 'ss_ifft25'...
+INFO: [IP_Flow 19-1686] Generating 'Test Bench' target for IP 'ss_ifft25'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'ss_ifft25'...
+# set bd [get_files -quiet *.bd]
+# if {[llength $bd]!=1} {error {Expected exactly one migration BD}}
+# generate_target all $bd
+INFO: [BD 41-1662] The design 'soundsight_ps_bd.bd' is already validated. Therefore parameter propagation will not be re-run.
+Verilog Output written to : E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/soundsight_ps.gen/sources_1/bd/soundsight_ps_bd/synth/soundsight_ps_bd.v
+Verilog Output written to : E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/soundsight_ps.gen/sources_1/bd/soundsight_ps_bd/sim/soundsight_ps_bd.v
+Verilog Output written to : E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/soundsight_ps.gen/sources_1/bd/soundsight_ps_bd/hdl/soundsight_ps_bd_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block compute .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps_link .
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI_GP0'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block zero .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block one .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_main .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_audio .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block core_reset .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block io_reset .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block core_reset_gate .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block core_release .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block io_reset_gate .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block io_release .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'e:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/soundsight_ps.gen/sources_1/bd/soundsight_ps_bd/ip/soundsight_ps_bd_control_bus_imp_auto_pc_0/soundsight_ps_bd_control_bus_imp_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block control_bus/s00_couplers/auto_pc .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'e:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/soundsight_ps.gen/sources_1/bd/soundsight_ps_bd/ip/soundsight_ps_bd_control_cdc_0/soundsight_ps_bd_control_cdc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block control_cdc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block bus_reset .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block bus_io_reset .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block irq_concat .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block irq_zero .
+Exporting to file E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/soundsight_ps.gen/sources_1/bd/soundsight_ps_bd/hw_handoff/soundsight_ps_bd.hwh
+Generated Hardware Definition File E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/soundsight_ps.gen/sources_1/bd/soundsight_ps_bd/synth/soundsight_ps_bd.hwdef
+INFO: [BD 41-3262] Generated VHDL Instantiation Template file e:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/soundsight_ps.gen/sources_1/bd/soundsight_ps_bd/soundsight_ps_bd.vho
+INFO: [BD 41-3262] Generated Verilog Instantiation Template file e:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/soundsight_ps.gen/sources_1/bd/soundsight_ps_bd/soundsight_ps_bd.veo
+INFO: [BD 41-3262] Generated System Verilog Instantiation Template file e:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/soundsight_ps.gen/sources_1/bd/soundsight_ps_bd/soundsight_ps_bd_sv.sveo
+generate_target: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1194.648 ; gain = 31.145
+# set wrappers [make_wrapper -files $bd -top]
+# add_files -norecurse $wrappers
+WARNING: [filemgmt 56-12] File 'e:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/eda/p04/soundsight_ps.gen/sources_1/bd/soundsight_ps_bd/hdl/soundsight_ps_bd_wrapper.v' cannot be added to the project because it already exists in the project, skipping this file
+# update_compile_order -fileset sources_1
+# puts {OUTPUT_PRODUCTS_READY_NO_SYNTHESIS_IMPLEMENTATION_DOWNLOAD}
+OUTPUT_PRODUCTS_READY_NO_SYNTHESIS_IMPLEMENTATION_DOWNLOAD
+PS_FINAL_OUTPUTS_RC=0 result=
+PS_FINAL_OUTPUTS_END

@@ -1,0 +1,4 @@
+# Source and evidence hashes describe the author's exact bytes.
+# Preserve them across checkout; publication does not change the tested source.
+* -text
+** -text

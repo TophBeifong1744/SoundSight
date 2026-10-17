@@ -1,0 +1,8 @@
+{
+  "split": "dev",
+  "target_id": "P01",
+  "items": [
+    {"path": "dev/P01_D01.wav", "recording_id": "P01_D01", "speaker_id": "P01", "session_id": "S2", "condition": "quiet_near", "usage_authorized": false},
+    {"path": "dev/P02_D01.wav", "recording_id": "P02_D01", "speaker_id": "P02", "session_id": "S2", "condition": "quiet_near", "usage_authorized": false}
+  ]
+}

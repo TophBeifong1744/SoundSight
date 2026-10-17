@@ -1,0 +1,132 @@
+{
+  "case": "ps",
+  "inputs": [
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\doa_math_pkg.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\doa_math_serial.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\doa_phat_client.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\f1a_frame_store.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\fft29_official.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\i17_turntable_pwm_guard.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ifft25_official.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\motor_drive.v"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\pdm_cic3.v"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\sound_servo_clock.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_actuator_control.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_axi_lite_regs.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_bist_source.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_board_clock.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_clean_compute.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_control_regs.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_fft_frontend.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_pair_engine.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_pcm_windows.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_pdm_capture.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_preprocess.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_ps_control_regs.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_ps_link.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_snapshot_queue.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_spi_mode0.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_stm32_link.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\rtl\\ss_stm32_tile.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\test\\tb_ps.sv"
+    },
+    {
+      "path": "F:\\AMD\\2025.2\\Vivado\\data\\verilog\\src\\glbl.v"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\ip\\ss_fft29\\sim\\ss_fft29.vhd"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\zynq_ps_20261017\\ip\\ss_ifft25\\sim\\ss_ifft25.vhd"
+    }
+  ],
+  "stages": [
+    {
+      "stage": "vhdl",
+      "exit": 0,
+      "timeout": false,
+      "pass_": true,
+      "errors": [],
+      "seconds": 0.5180457000005845
+    },
+    {
+      "stage": "compile",
+      "exit": 0,
+      "timeout": false,
+      "pass_": true,
+      "errors": [],
+      "seconds": 0.6280284999993455
+    },
+    {
+      "stage": "elaborate",
+      "exit": 0,
+      "timeout": false,
+      "pass_": true,
+      "errors": [],
+      "seconds": 2.534345800000665
+    },
+    {
+      "stage": "simulate",
+      "exit": 0,
+      "timeout": false,
+      "pass_": true,
+      "errors": [],
+      "seconds": 2.4212946000006923
+    }
+  ]
+}

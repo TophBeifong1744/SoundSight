@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "C:\\Users\\Toph Beifong\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "scripts/simulate_dma.py",
+    "--contract",
+    "references/example-session.json",
+    "--fault",
+    "timeout",
+    "--fault",
+    "abort-timeout",
+    "--output",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\results\\tmp\\skl002-fix\\skill\\pynq-overlay-dma-validation\\evidence\\fix-r1\\timeout.json"
+  ],
+  "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\results\\tmp\\skl002-fix\\skill\\pynq-overlay-dma-validation",
+  "started_utc": "2026-09-14T09:37:58.545995+00:00",
+  "exit_code": 1,
+  "expected_exit": 1,
+  "stdout_sha256": "0f82748bca794113917e5606b003957e3da49dccfeab925ac59e9eb8d248f3af",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "report_sha256": "0f82748bca794113917e5606b003957e3da49dccfeab925ac59e9eb8d248f3af",
+  "status": "FAIL",
+  "matched": true
+}

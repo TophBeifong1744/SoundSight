@@ -1,0 +1,22 @@
+part=xc7z020clg400-1 top=soundsight_stm32_bd_wrapper
+run=synth_1 state=Not started
+run=impl_1 state=Not started
+net=/clock_tree_clk pins=/clock_tree/clk /compute/clk /link/clk ports=
+net=/clock_tree_rst_n pins=/clock_tree/rst_n /compute/rst_n /link/rst_n ports=
+net=/cold_reset_inactive_dout pins=/cold_reset_inactive/dout /clock_tree/cold_reset_n ports=
+net=/compute_draining pins=/compute/draining /link/compute_draining ports=
+net=/compute_feature_flags pins=/compute/feature_flags /link/feature_flags ports=
+net=/compute_feature_pairs pins=/compute/feature_pairs /link/feature_pairs ports=
+net=/compute_feature_valid pins=/compute/feature_valid /link/feature_valid ports=
+net=/compute_pdm_clocks pins=/compute/pdm_clocks ports=/pdm_clocks
+net=/compute_source_faults pins=/compute/source_faults /link/source_faults ports=
+net=/link_feature_ready pins=/link/feature_ready /compute/feature_ready ports=
+net=/link_irq pins=/link/irq ports=/irq
+net=/link_run_enable pins=/link/run_enable /compute/enable ports=
+net=/link_servo_pwm pins=/link/servo_pwm ports=/servo_pwm
+net=/link_spi_miso pins=/link/spi_miso ports=/spi_miso
+net=/pdm_data_1 pins=/compute/pdm_data ports=/pdm_data
+net=/spi_cs_n_1 pins=/link/spi_cs_n ports=/spi_cs_n
+net=/spi_mosi_1 pins=/link/spi_mosi ports=/spi_mosi
+net=/spi_sck_1 pins=/link/spi_sck ports=/spi_sck
+net=/sys_clk_1 pins=/clock_tree/sys_clk ports=/sys_clk

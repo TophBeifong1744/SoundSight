@@ -1,0 +1,23 @@
+# Native projects and formal run outputs are recreated by the documented entry.
+/project/par/
+/variants/pl_ps/project/par/
+/simulation/work/
+/software/build/
+/software/ps/build/
+/release/output/
+/codex_out/
+# Kept physically inside SoundSight, but not pushed as new active source/history.
+/local_archive/
+/research/speaker-verification/models/
+/research/speaker-verification/private/
+/research/speaker-verification/runs/
+**/__pycache__/
+**/.venv/
+**/*.pyc
+**/*.pyo
+**/.Xil/
+**/.DS_Store
+/software/ps/libss_solver.so
+/software/ps/*.dll
+/software/stm32/build/
+# Deliberately no global *.log/*.json/*.csv ignore: retained evidence is source-managed.

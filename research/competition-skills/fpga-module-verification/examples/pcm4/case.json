@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "name": "pcm4",
+  "top": "tb_pcm4_skill",
+  "tool_version": "2025.2",
+  "contract": "contract.md",
+  "sources": ["../../../../rtl/acquisition/pcm4_signext_pack.v", "tb_pcm4_skill.sv"],
+  "minimum_checks": 792
+}

@@ -1,0 +1,37 @@
+STM32—FPGA 开发接线，2026-10-17；双方已通过 v2 补充确认分配，尚未安装 XDC 或通电验证。
+文件名沿用以保留旧链接；最新 B 原文位于 migration/clean_pl_20261017/input/b_sync_v2/。
+
+STM32 用户确认：探索者 V3.5，STM32F407ZGT6，Keil uVision5 + DAP，可下载。
+FPGA 资料/实物：正点原子领航者 ATK-DF7010/7020P，底板 V3.9，XC7Z020。
+
+信号  STM32   方向             FPGA球号   J4针号   Bank   原理图默认VCCO
+SCK   PB3     STM32 -> FPGA     V7         5        13     3.3 V
+CS_N  PG7     STM32 -> FPGA     U7         6        13     3.3 V
+MOSI  PB5     STM32 -> FPGA     W8         7        13     3.3 V
+MISO  PB4     FPGA -> STM32     V8         8        13     3.3 V
+IRQ   PG8     FPGA -> STM32     U9         9        13     3.3 V
+GND   GND     共地              --         37或39   --     GND
+
+J4 为底板下边缘标有“7020 ONLY”的 2x20、2.54 mm 排针。
+按实物正面、USB/RJ45 在上方的照片方向，J4 在下边缘。
+以排针旁丝印 V7/U7、W8/V8、U9 和针号为准，不按杜邦线颜色或翻转后的左右位置猜。
+两板各自供电，只连接上述五信号及 GND。J4-38 是 3.3 V、J4-40 是 5 V，不属于本接线方案。
+SPI Mode0 / MSB first / 初始 1 MHz / 每事务 CS 下恰好 40 个时钟；IRQ 高电平有效。
+CLK、CS、MOSI 使用 61.44 MHz 同步过采样，SCK 不送 FPGA 全局时钟输入。
+本次没有把这些候选引脚写入任何实际工程，未改变旧四麦和舵机接线。
+
+本地原件核对：
+1. hardware/reference/navigator-zynq/navigator-zynq-baseboard-schematic-v3.9.pdf，第5页：
+   J4-5=B13_L11_N；6=B13_L11_P；7=B13_L15_N；8=B13_L15_P；9=B13_L17_P；37/39=GND。
+2. hardware/reference/navigator-zynq/zynq7010-7020-coreboard-schematic-v2.5.pdf，第6页：
+   上述网络分别对应 V7/U7/W8/V8/U9，均为 Bank13。
+3. 同一核心板原理图第7页：VCCO_B13 默认经 R223/R221 的 0R 接 +3.3V，
+   到 VCCIO 的 R220/R222 标为 NC。名义供电 3.3V，不代表现场实测值；若焊改过供电，须重新核对。
+4. navigator-zynq-board-spec-v1.2.pdf，第36页 3.22：J4 的 Bank13 仅7020可用；扩展IO不接5V逻辑。
+5. hardware/evidence/board-2026-09-07/baseboard-front-core-xc7z020.jpg：底板 J4 位置、管脚丝印。
+6. migration/f1a_20261017/baseline/constrs_1/i17_vio_pins.xdc：候选五球与既有11个板级IO不重叠。
+
+上板前核对：当前 J4-5..9 没有另外接外设、实际 Bank 供电未改、XDC 为 LVCMOS33，
+两端 1 脚与奇偶排方向正确。B 已确认 SPI1/U16 分配：SCK=5、CS_N=4、MOSI=6、MISO=7、IRQ=8、GND=1。
+U16-2 的 3.3 V 和 U16-3 的 PG6 不连接；无线模块拔下，PB14 置高取消 Flash 片选，关闭 PB3 的 SWO/Trace，
+使用 SWD，不启用 RS485，不把 PG8 配成输出。1 MHz 仍是冻结频率，实际 STM32 时钟树由 B 实现。

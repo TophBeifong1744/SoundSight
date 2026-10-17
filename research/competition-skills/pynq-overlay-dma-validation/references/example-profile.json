@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "profile_id": "replace-with-project-board-overlay-v1",
+  "board": {
+    "board_name": "replace-with-exact-board-name",
+    "board_revision": "replace-with-revision",
+    "device_part": "replace-with-full-vivado-part",
+    "pynq_image": "replace-with-image-version",
+    "compatibility_contains": ["replace-with-device-tree-token"]
+  },
+  "overlay": {
+    "bit": "artifacts/replace.bit",
+    "hwh": "artifacts/replace.hwh",
+    "manifest": "artifacts/build-manifest.json",
+    "build_id": "replace-with-build-id",
+    "interface_version": 1,
+    "vivado_version": "replace-with-vivado-version",
+    "required_ip": ["control_regs", "axi_dma_0"],
+    "required_interrupts": []
+  },
+  "register_contract": {
+    "ip_name": "control_regs",
+    "address_span_bytes": 4096,
+    "registers": [
+      {"name": "hardware_id", "offset": 0, "width_bits": 32, "access": "ro"},
+      {"name": "interface_version", "offset": 4, "width_bits": 32, "access": "ro"}
+    ],
+    "identity": [
+      {"register": "hardware_id", "expected": 305419896, "mask": 4294967295},
+      {"register": "interface_version", "expected": 1, "mask": 4294967295}
+    ]
+  },
+  "dma_contract": {
+    "ip_name": "axi_dma_0",
+    "mode": "simple",
+    "mm2s_channel": "sendchannel",
+    "s2mm_channel": "recvchannel",
+    "stream_data_width_bits": 32,
+    "buffer_alignment_bytes": 64,
+    "length_granularity_bytes": 4,
+    "max_transfer_bytes": 1048576,
+    "cache_policy": {"tx": "flush", "rx": "invalidate"},
+    "tlast_required": true,
+    "status_offsets": {"mm2s": 4, "s2mm": 52}
+  },
+  "self_tests": [
+    {
+      "id": "counter-loopback-4k",
+      "kind": "loopback",
+      "length_bytes": 4096,
+      "pattern": "counter8",
+      "timeout_seconds": 2.0,
+      "golden": "exact"
+    }
+  ],
+  "acceptance": {
+    "minimum_throughput_bytes_per_second": 1000000,
+    "maximum_latency_seconds": 0.05,
+    "timing": {"minimum_wns_ns": 0.0},
+    "resources": {"lut_max": 20000, "ff_max": 30000, "bram_max": 100, "dsp_max": 100}
+  }
+}

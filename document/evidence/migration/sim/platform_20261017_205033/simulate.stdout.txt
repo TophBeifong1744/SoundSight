@@ -1,0 +1,19 @@
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Oct 17 20:50:39 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/platform/xsim_script.tcl
+# xsim {platform} -maxdeltaid 1000 -autoloadwcfg -tclbatch {run.tcl} -onerror quit
+Time resolution is 1 ps
+source run.tcl
+## run all
+Warning: [Unisim MMCME2_ADV-21] Input CLKIN1 is stopped at time             42088532. Reset is required when input clock returns. Instance tb_platform.main_clock.inst.mmcm_adv_inst 
+PLATFORM_PASS checks=9 core_period_ns=10.000000 io_period_ns=16.276042 ps_reset_preserves=1 restart_clears=1
+$finish called at time : 62135592 ps : File "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/platform_20261017_205033/sources/tb_platform.sv" Line 49
+## quit
+INFO: [Common 17-206] Exiting xsim at Sat Oct 17 20:50:42 2026...

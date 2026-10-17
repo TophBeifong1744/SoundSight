@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "evidence_level": "mock",
+  "board_execution": false,
+  "transaction_id": 1,
+  "mode": "receive",
+  "status": "FAIL",
+  "requested_bytes": 96,
+  "actual_bytes": null,
+  "events": [
+    "rx.allocate",
+    "rx.fill",
+    "rx.flush",
+    "rx.invalidate_before",
+    "rx.arm",
+    "abort.request",
+    "buffers.retain"
+  ],
+  "errors": [
+    "poll: OSError: injected unreadable DMA status",
+    "diagnostic: OSError: injected unreadable DMA status",
+    "abort: OSError: injected unreadable DMA status"
+  ],
+  "snapshots": [],
+  "mismatch_count": null,
+  "first_mismatch": null,
+  "transfer_elapsed_seconds": null,
+  "throughput_bytes_per_second": null,
+  "buffer_disposition": "retained",
+  "tlast_observed": null,
+  "session_blocked": true,
+  "next_run": {
+    "schema_version": 1,
+    "evidence_level": "mock",
+    "board_execution": false,
+    "transaction_id": 2,
+    "mode": "receive",
+    "status": "FAIL",
+    "requested_bytes": 96,
+    "actual_bytes": null,
+    "events": [],
+    "errors": [
+      "SESSION_BLOCKED: previous failure requires external review"
+    ],
+    "snapshots": [],
+    "mismatch_count": null,
+    "first_mismatch": null,
+    "transfer_elapsed_seconds": null,
+    "throughput_bytes_per_second": null,
+    "buffer_disposition": "retained",
+    "tlast_observed": null,
+    "session_blocked": true
+  },
+  "adapter_trace": [
+    "rx.allocate",
+    "rx.write",
+    "rx.flush",
+    "rx.invalidate",
+    "rx.arm",
+    "snapshot",
+    "snapshot",
+    "abort.request",
+    "snapshot"
+  ],
+  "payload_format": "<h",
+  "golden_sha256": "b2decedfbcf9d1ab45a1f49c0447821f2a2079063c781fba7b3c1a626bbe1dfe",
+  "timing_source": "synthetic mock clock; not hardware throughput"
+}

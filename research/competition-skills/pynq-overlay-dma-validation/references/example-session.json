@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "pattern": "xorshift32",
+  "mock_coherent": false,
+  "transfer": {
+    "mode": "receive",
+    "length_bytes": 96,
+    "buffer_alignment_bytes": 64,
+    "length_granularity_bytes": 8,
+    "max_transfer_bytes": 4096,
+    "timeout_seconds": 0.02,
+    "abort_timeout_seconds": 0.01,
+    "tx_policy": "flush",
+    "rx_policy": "invalidate",
+    "allow_abort": true,
+    "poll_interval_seconds": 0.001,
+    "max_polls": 100
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "case": "platform",
+  "scope": "RTL simulation only",
+  "inputs": [
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\ip\\reference\\stm32\\platform_sim\\soundsight_ps_bd_clk_audio_0.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\ip\\reference\\stm32\\platform_sim\\soundsight_ps_bd_clk_audio_0_clk_wiz.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\ip\\reference\\stm32\\platform_sim\\soundsight_ps_bd_clk_main_0.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\ip\\reference\\stm32\\platform_sim\\soundsight_ps_bd_clk_main_0_clk_wiz.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\ip\\reference\\stm32\\platform_sim\\soundsight_ps_bd_core_release_0.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\ip\\reference\\stm32\\platform_sim\\soundsight_ps_bd_io_release_0.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\tb\\stm32\\tb_platform.sv",
+    "F:\\AMD\\2025.2\\Vivado\\data\\verilog\\src\\glbl.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\ip\\reference\\stm32\\platform_sim\\soundsight_ps_bd_bus_io_reset_0.vhd",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\ip\\reference\\stm32\\platform_sim\\soundsight_ps_bd_bus_reset_0.vhd",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\ip\\reference\\stm32\\platform_sim\\soundsight_ps_bd_core_reset_0.vhd",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\ip\\reference\\stm32\\platform_sim\\soundsight_ps_bd_io_reset_0.vhd"
+  ],
+  "stages": [
+    {
+      "stage": "vhdl",
+      "exit": 0,
+      "pass": true,
+      "timeout": false,
+      "seconds": 0.9946488999994472,
+      "errors": []
+    },
+    {
+      "stage": "compile",
+      "exit": 0,
+      "pass": true,
+      "timeout": false,
+      "seconds": 0.5236971000013,
+      "errors": []
+    },
+    {
+      "stage": "elaborate",
+      "exit": 0,
+      "pass": true,
+      "timeout": false,
+      "seconds": 3.855500199999369,
+      "errors": []
+    },
+    {
+      "stage": "simulate",
+      "exit": 0,
+      "pass": true,
+      "timeout": false,
+      "seconds": 2.793849300000147,
+      "errors": []
+    }
+  ]
+}

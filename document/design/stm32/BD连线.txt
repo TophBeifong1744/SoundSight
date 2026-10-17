@@ -1,0 +1,35 @@
+STM32主方案BD连接
+
+prepare_bd.tcl在空白Vivado里建立独立工程，自动加入源码、XCI、引脚/I/O约束，建BD、Validate并生成顶层wrapper。不会运行综合、实现或下载。原F工程保留。
+当前入口已实际通过Vivado2025.2验证。generate_outputs.tcl只生成IP/BD输出；之后综合、实现由A点击。
+用户自行配置真实PS板级DDR/MIO/PYNQ环境；脚本里的默认PS参数不是本板可直接启动的preset。
+
+加入哪些模块
+两个Verilog Module Reference：compute=bd_clean_compute，link=bd_stm32_link。它们是薄接口，下方分别是ss_dual_compute和ss_stm32_link；不复制算法。
+官方IP：processing_system7:5.5、两级clk_wiz:6.0、两套proc_sys_reset:5.0、两套xpm_cdc_gen:1.0复位保护、util_vector_logic及常量。
+FFT/IFFT在计算RTL内部实例化，不再另放一套到BD。XPM异步FIFO/单比特同步器也在RTL内部。
+ss_stm32_tile、bd_board_clock、ss_board_clock、sound_servo_clock是旧单域测试/参考入口，不加入当前BD。不能把内部tile设成物理顶层。
+
+时钟与复位
+详细配置和每根线见同目录时钟复位.txt。PS FCLK0=100MHz，经Clocking Wizard输出100MHz计算与61.44MHz采集/控制。
+clk_main/clk_out2→compute/clk；core_release/dest_arst→compute/rst_n。
+clk_audio/clk_out1→compute/io_clk、link/clk；io_release/dest_arst→compute/io_rst_n、link/rst_n。
+主方案不启用PS的GP0访问这个link。PS负责启动时钟/加载及后续展示；STM32仍是唯一快照/动作控制者。
+
+计算块与通信块之间（这些端口全部属于61.44MHz域）
+compute/feature_valid→link/feature_valid，1位；compute/feature_pairs→link/feature_pairs，960位，pair0在最低160位。
+compute/feature_flags→link/feature_flags，32位；compute/source_faults→link/source_faults，12位；compute/draining→link/compute_draining，1位。
+link/feature_ready→compute/feature_ready，1位；link/run_enable→compute/enable，1位。
+这些端口已经在compute内部完成跨域，BD外不要再重复插同步器。
+
+外部接口
+PS的DDR与FIXED_IO引出，由用户按实板配置。没有外部PL sys_clk端口。
+pdm_data[3:0]输入、pdm_clocks[3:0]输出接compute；spi_cs_n/spi_sck/spi_mosi输入、spi_miso/irq/servo_pwm输出接link。
+引脚见hardware/board_pins.xdc，I/O路径限制及使用条件见interface_timing.xdc/.txt。
+debug_frontend[3:0]、debug_backend[4:0]属于100MHz；fault_status属于61.44MHz。ILA分别用对应采样时钟，不能把不同域未经处理凑给同一个时钟采样。
+默认ACTUATOR_BOUND=0；真实机械范围/零位/方向未标定前保持此值。
+
+后续人操作
+先阅读模块与连接，需要调整时修改这套独立设计。配置好PS板级参数后Validate Design，运行generate_outputs.tcl，然后由A点击Run Synthesis、Run Implementation。
+完成相应run后source export_reports.tcl，再调用ss_reports::save synth或ss_reports::save impl。报告含setup/hold、未约束、CDC、DRC、资源、时钟和I/O；不根据某个WNS自动进入下一步。
+本次没有运行综合/实现/板测。BD通过只说明结构可由工具生成，不说明100MHz已经物理收敛。

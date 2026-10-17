@@ -1,0 +1,77 @@
+{
+  "tool": "pynq-overlay-dma-validation/validate_profile.py",
+  "generated_at_utc": "2026-09-14T09:37:57.394798+00:00",
+  "mode": "offline",
+  "profile_id": "b-thermal",
+  "evidence_level": "static",
+  "status": "PASS",
+  "artifact_hashes": {
+    "bit": "c03bb7637b9430aab4ec6a1cdd637af1d6b5f8f154ed098957ab7b44f9ce8718",
+    "hwh": "1f1e05cca1113b746daed84e486d3d9b105af86c246e702fa686b9ff034feeec",
+    "manifest": "03da6d52e98c646b9669d84f24030a3bef15ec0993e7b9487cd5213f6b52630f"
+  },
+  "checks": [
+    {
+      "code": "OVERLAY_STEM",
+      "status": "PASS",
+      "message": ".bit and .hwh must share a basename for PYNQ"
+    },
+    {
+      "code": "OVERLAY_DIRECTORY",
+      "status": "PASS",
+      "message": ".bit and .hwh must be adjacent so PYNQ loads the validated HWH"
+    },
+    {
+      "code": "MANIFEST_BUILD_ID",
+      "status": "PASS",
+      "message": "manifest build_id must equal profile overlay build_id"
+    },
+    {
+      "code": "MANIFEST_INTERFACE_VERSION",
+      "status": "PASS",
+      "message": "manifest interface_version must equal profile overlay interface_version"
+    },
+    {
+      "code": "MANIFEST_VIVADO_VERSION",
+      "status": "PASS",
+      "message": "manifest vivado_version must equal profile overlay vivado_version"
+    },
+    {
+      "code": "MANIFEST_DEVICE_PART",
+      "status": "PASS",
+      "message": "manifest device_part must equal board.device_part"
+    },
+    {
+      "code": "BIT_HASH",
+      "status": "PASS",
+      "message": "actual bit SHA-256 must match manifest"
+    },
+    {
+      "code": "HWH_HASH",
+      "status": "PASS",
+      "message": "actual hwh SHA-256 must match manifest"
+    },
+    {
+      "code": "HWH_DEVICE_PART",
+      "status": "PASS",
+      "message": "HWH metadata must contain board.device_part"
+    },
+    {
+      "code": "HWH_IP",
+      "status": "PASS",
+      "message": "HWH must expose required IP 'thermal_control'"
+    },
+    {
+      "code": "HWH_IP",
+      "status": "PASS",
+      "message": "HWH must expose required IP 'temperature_dma'"
+    }
+  ],
+  "issues": [
+    {
+      "severity": "WARNING",
+      "code": "NO_RUN_EVIDENCE",
+      "message": "profile/artifacts validated without run evidence"
+    }
+  ]
+}

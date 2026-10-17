@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "C:\\Users\\Toph Beifong\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\results\\tmp\\skl002-fix\\skill\\pynq-overlay-dma-validation\\evidence\\fix-r1\\old-input\\validate_profile.py",
+    "--profile",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\results\\tmp\\skl002-fix\\skill\\pynq-overlay-dma-validation\\evidence\\fix-r1\\b-inputs\\thermal\\missing-control-ip.json",
+    "--mode",
+    "offline",
+    "--output",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\results\\tmp\\skl002-fix\\skill\\pynq-overlay-dma-validation\\evidence\\fix-r1\\missing-control-old.json"
+  ],
+  "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\results\\tmp\\skl002-fix\\skill\\pynq-overlay-dma-validation",
+  "started_utc": "2026-09-14T09:37:57.333797+00:00",
+  "exit_code": 0,
+  "expected_exit": 0,
+  "stdout_sha256": "8234e9cd2d66348a6881516a32e5be80952bfa3d75bdfba572b9bd8e0d979f2d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "report_sha256": "8234e9cd2d66348a6881516a32e5be80952bfa3d75bdfba572b9bd8e0d979f2d",
+  "status": "PASS",
+  "matched": true
+}

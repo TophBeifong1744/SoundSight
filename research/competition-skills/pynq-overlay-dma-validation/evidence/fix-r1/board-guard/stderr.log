@@ -1,0 +1,4 @@
+usage: pynq_probe.py [-h] --profile PROFILE [--download]
+                     [--supplemental-evidence SUPPLEMENTAL_EVIDENCE] --output
+                     OUTPUT
+pynq_probe.py: error: the following arguments are required: --profile, --output

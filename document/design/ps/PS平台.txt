@@ -1,0 +1,39 @@
+无STM32 PL+PS版：BD、平台和软件
+
+用户已明确自行配置DDR、真实PS板级参数和PYNQ镜像。这里提供片内接合与软件，不把旧-2器件配置用于当前xc7z020clg400-1。
+本候选已在Vivado2025.2独立目录实际Validate、生成wrapper及官方IP输出；synth_1、impl_1均未启动。
+
+时钟和复位
+与主方案采用相同PS FCLK100→Clocking Wizard→100/61.44MHz结构，具体端口见时钟复位.txt。
+计算100MHz，采集/寄存器/快照/PWM保护61.44MHz；公共WATCHDOG_TICKS保持原61.44MHz单位。
+PS7/M_AXI_GP0_ACLK及control_bus全部ACLK接clk_main/clk_out2，100MHz。
+control_cdc为AXI Clock Converter 2.1，AXI4-Lite，ACLK_ASYNC=1、同步3级；s_axi_aclk接100MHz，m_axi_aclk接61.44MHz。
+ps_link=bd_ps_link，clk接61.44MHz，rst_n接io_release/dest_arst，aresetn接bus_io_reset/peripheral_aresetn。
+bus_reset/interconnect_aresetn→control_bus/ARESETN；bus_reset/peripheral_aresetn→control_bus的S00/M00_ARESETN和control_cdc/s_axi_aresetn。
+bus_io_reset/peripheral_aresetn→control_cdc/m_axi_aresetn及ps_link/aresetn。
+两套bus reset的ext_reset_in接PS FCLK_RESET0_N；PL冷复位使用独立FCLK_RESET1_N。辅助复位低有效接1，debug复位高有效接0。
+
+总线与特征
+PS7/M_AXI_GP0→control_bus/S00_AXI→control_bus/M00_AXI→control_cdc/S_AXI→control_cdc/M_AXI→ps_link/S_AXI。
+compute与ps_link的feature_valid/pairs/flags/source_faults/draining以及反向feature_ready/enable按主方案同名连接，全部为61.44MHz域。
+ps_link/irq→xlconcat的bit0→PS7/IRQ_F2P；其余15位为0。软件先按电平查询，不声称Linux中断驱动完成。
+DDR、FIXED_IO引出；四麦和PWM物理引脚与主方案相同。本版不引出STM32 SPI五根线，不提供第二个同时消费快照的入口。
+
+地址与应用
+本次实际BD分配ps_link局部4KiB段到0x40000000，证据在verification/bd_preparation。它是工具本次分配结果，不是硬编码公共地址。
+run_capture.py从用户实际HWH读取地址与范围；单一进程持有控制权，调用原S1，先写入JSONL并fsync，再消费硬件槽。
+默认BIST拒绝向量；可选BIST通过和真实取数。CLI默认不请求动作；ARM共享库先构建，真实机械绑定/许可仍需另行明确。
+存储失败、Ctrl+C或正常退出都请求停止；未完成保存的帧保留。--drain-existing先停新采集，再取已存记录。程序不会加载bit、复位PS或控制硬件下载。
+无须DMA搬120字节特征；这里没有原始PCM/频谱采样通道。
+
+用户自行完成的实际配置
+DDR型号、容量、位宽、速率、走线/训练；MIO外设/电平；合法-1 PS时钟树和参考晶振；匹配的启动及PYNQ镜像。
+保持FCLK0=100MHz、两个复位端口，以及上述分域连线。确认平台初始化释放FCLK_RESET1_N，普通总线恢复只用RESET0，时钟丢失恢复用RESET1冷重启。
+配置后Validate并生成HWH，再自行点击综合/实现。ARM实际编译运行、最坏调度时间、真实音频、机械闭环仍需实测。
+
+官方依据
+https://docs.amd.com/r/2025.2-English/ug994-vivado-ip-subsystems/Limitations-of-the-Module-Reference-Feature
+https://docs.amd.com/r/en-US/pg065-clk-wiz/Configuring-Output-Clocks
+https://docs.amd.com/api/khub/documents/5VcEWg~hYG0gT~7WNDt64g/content （Processor System Reset PG164）
+https://docs.amd.com/api/khub/documents/uaBd8Qxmf_K1~~tiVnOxrw/content （Zynq DS187）
+https://pynq.readthedocs.io/en/v2.7.0/pynq_package/pynq.mmio.html

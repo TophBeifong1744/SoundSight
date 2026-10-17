@@ -1,0 +1,6 @@
+{
+  "base_address": 1073741824,
+  "range": 4096,
+  "input": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\variants\\pl_ps\\project\\par\\SoundSight_PS.gen\\sources_1\\bd\\soundsight_ps_bd\\hw_handoff\\soundsight_ps_bd.hwh",
+  "scope": "metadata only; no MMIO access"
+}

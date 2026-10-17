@@ -1,0 +1,27 @@
+# Paths relative to SoundSight root; package compile order is explicit.
+project/rtl/doa_math_pkg.sv
+project/rtl/bd_clean_compute.v
+project/rtl/bd_ps_link.v
+project/rtl/doa_math_serial.sv
+project/rtl/doa_phat_client.sv
+project/rtl/f1a_frame_store.sv
+project/rtl/fft29_official.sv
+project/rtl/i17_turntable_pwm_guard.sv
+project/rtl/ifft25_official.sv
+project/rtl/motor_drive.v
+project/rtl/pdm_cic3.v
+project/rtl/ss_actuator_control.sv
+project/rtl/ss_async_word.sv
+project/rtl/ss_axi_lite_regs.sv
+project/rtl/ss_bist_source.sv
+project/rtl/ss_clean_compute.sv
+project/rtl/ss_dual_compute.sv
+project/rtl/ss_fft_frontend.sv
+project/rtl/ss_pair_engine.sv
+project/rtl/ss_pcm_windows.sv
+project/rtl/ss_pdm_capture.sv
+project/rtl/ss_preprocess.sv
+project/rtl/ss_ps_control_regs.sv
+project/rtl/ss_ps_link.sv
+project/rtl/ss_snapshot_queue.sv
+project/rtl/hann-u18f17.mem

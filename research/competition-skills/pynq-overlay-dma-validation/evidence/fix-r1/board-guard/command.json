@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "C:\\Users\\Toph Beifong\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "scripts/pynq_probe.py",
+    "--download"
+  ],
+  "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\results\\tmp\\skl002-fix\\skill\\pynq-overlay-dma-validation",
+  "started_utc": "2026-09-14T09:37:58.938078+00:00",
+  "exit_code": 2,
+  "expected_exit": 2,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "27b249a03bc025ce2d49dc5815bef6b90dccf7043cc46155b88d9c06c7891731",
+  "matched": true
+}

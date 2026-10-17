@@ -1,0 +1,21 @@
+{
+  "repository": "speechbrain/spkrec-ecapa-voxceleb",
+  "revision": "0f99f2d0ebe89ac095bcc5903c4dd8f72b367286",
+  "license": "apache-2.0",
+  "source": "https://huggingface.co/speechbrain/spkrec-ecapa-voxceleb/tree/0f99f2d0ebe89ac095bcc5903c4dd8f72b367286",
+  "files": {
+    "embedding_model.ckpt": {
+      "sha256": "0575cb64845e6b9a10db9bcb74d5ac32b326b8dc90352671d345e2ee3d0126a2",
+      "bytes": 83316686
+    },
+    "hyperparams.yaml": {
+      "sha256": "6f78854fa04ba59e761437b76a2575d3aba5e5016de3e9b69f0c9a5077fb1a41",
+      "bytes": 1919
+    },
+    "README.md": {
+      "sha256": "00f58c3cbd7a7510de9374080da0e82a4c4e8f4df567f7338fe6efe108be705a",
+      "bytes": 5377
+    }
+  },
+  "expected_embedding_sha256": "0575cb64845e6b9a10db9bcb74d5ac32b326b8dc90352671d345e2ee3d0126a2"
+}

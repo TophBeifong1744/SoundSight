@@ -1,0 +1,97 @@
+{
+  "case": "preprocess",
+  "inputs": [
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\doa_math_pkg.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\doa_math_serial.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\doa_phat_client.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\f1a_frame_store.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\fft29_official.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\i17_turntable_pwm_guard.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\ifft25_official.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\motor_drive.v"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\pdm_cic3.v"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\sound_servo_clock.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\ss_actuator_control.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\ss_bist_source.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\ss_board_clock.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\ss_fft_frontend.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\ss_pair_engine.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\ss_pcm_windows.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\ss_pdm_capture.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\ss_preprocess.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\ss_snapshot_queue.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\ss_spi_mode0.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\rtl\\ss_stm32_link.sv"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\clean_pl_20261017\\test\\tb_preprocess.sv"
+    }
+  ],
+  "stages": [
+    {
+      "stage": "compile",
+      "exit": 0,
+      "timeout": false,
+      "pass_": true,
+      "errors": [],
+      "seconds": 0.6427163000007567
+    },
+    {
+      "stage": "elaborate",
+      "exit": 0,
+      "timeout": false,
+      "pass_": true,
+      "errors": [],
+      "seconds": 1.4320740000002843
+    },
+    {
+      "stage": "simulate",
+      "exit": 0,
+      "timeout": false,
+      "pass_": true,
+      "errors": [],
+      "seconds": 2.4341519000008702
+    }
+  ]
+}
