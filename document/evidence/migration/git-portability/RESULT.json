@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "source_commit": "ef7153a61cfafd39d4a8cc290989472a35e31e77",
+  "input": "git archive HEAD only; excludes every ignored file and all native outputs",
+  "checks": [
+    {
+      "script": "tools/check_project.py",
+      "exit": 0
+    },
+    {
+      "script": "software/tests/test_software.py",
+      "exit": 0
+    },
+    {
+      "script": "software/tests/test_application.py",
+      "exit": 0
+    }
+  ],
+  "old_repository_needed": false,
+  "archive_bytes": 30634160
+}

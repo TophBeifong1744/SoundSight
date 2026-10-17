@@ -25,7 +25,8 @@
 ## 三个常用入口
 
 ```powershell
-# 不依赖PowerShell当前所在目录；先把下面路径换成自己的SoundSight目录。
+# 先进入自己的SoundSight目录；迁移到其他位置时修改此行。
+Set-Location 'E:\Users\Toph Beifong\Documents\GitHub\SoundSight'
 .\project\script\run.bat prepare stm32
 .\project\script\run.bat prepare ps
 .\simulation\script\run.bat batch samplecdc
