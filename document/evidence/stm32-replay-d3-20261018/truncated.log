@@ -1,0 +1,4 @@
+COMMAND: D:\Python\python.exe F:\NUEC\SoundSight-stm32\software\stm32\tools\replay_3d.py --input F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\truncated.jsonl --geometry F:\NUEC\SoundSight-stm32\software\stm32\config\tetra40-nominal.json --out F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\truncated-out
+REPLAY_FAILED,Line 2: Expecting ',' delimiter: line 1 column 14 (char 13)
+
+EXIT_CODE: 2

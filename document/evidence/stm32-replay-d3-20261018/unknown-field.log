@@ -1,0 +1,4 @@
+COMMAND: D:\Python\python.exe F:\NUEC\SoundSight-stm32\software\stm32\tools\replay_3d.py --input F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\unknown-field.jsonl --geometry F:\NUEC\SoundSight-stm32\software\stm32\config\tetra40-nominal.json --out F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\unknown-field-out
+REPLAY_FAILED,Line 2: Unexpected/missing JSON fields; expected: frame_id flags pairs reference
+
+EXIT_CODE: 2

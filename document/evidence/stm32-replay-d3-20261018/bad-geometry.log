@@ -1,0 +1,9 @@
+COMMAND: D:\Python\python.exe F:\NUEC\SoundSight-stm32\software\stm32\tools\replay_3d.py --input F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\bad-geometry.jsonl --geometry F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\coplanar.json --out F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\bad-geometry-out
+REPLAY_FAILED,C replay failed:
+COMMAND: F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\worker-oj1n9aen\replay.exe
+Geometry rejected: status=6,pair=255
+
+EXIT_CODE: 2
+
+
+EXIT_CODE: 2

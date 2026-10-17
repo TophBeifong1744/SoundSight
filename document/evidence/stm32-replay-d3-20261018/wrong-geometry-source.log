@@ -1,0 +1,4 @@
+COMMAND: D:\Python\python.exe F:\NUEC\SoundSight-stm32\software\stm32\tools\replay_3d.py --input F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\wrong-geometry-source.jsonl --geometry F:\NUEC\SoundSight-stm32\software\stm32\config\tetra40-nominal.json --out F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\wrong-geometry-source-out
+REPLAY_FAILED,Geometry identity/pair order mismatch
+
+EXIT_CODE: 2

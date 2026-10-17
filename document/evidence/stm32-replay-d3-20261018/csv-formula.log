@@ -1,0 +1,5 @@
+COMMAND: D:\Python\python.exe F:\NUEC\SoundSight-stm32\software\stm32\tools\replay_3d.py --input F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\formula-source.jsonl --geometry F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\formula-geometry.json --out F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\formula-out
+REPLAY_COMPLETE,F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\formula-out
+{"total_records": 1, "disposition_counts": {"VALID": 1}, "algorithm_rejection_counts": {}, "accuracy": {"angular": {"count": 1, "mean_deg": 0.0, "rms_deg": 0.0, "max_deg": 0.0}, "azimuth_absolute": {"count": 1, "mean_deg": 0.0, "rms_deg": 0.0, "max_deg": 0}, "elevation_absolute": {"count": 1, "mean_deg": 0.0, "rms_deg": 0.0, "max_deg": 0}}}
+
+EXIT_CODE: 0

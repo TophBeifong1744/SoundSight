@@ -1,0 +1,5 @@
+COMMAND: D:\Python\python.exe F:\NUEC\SoundSight-stm32\software\stm32\tools\replay_3d.py --input F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\wrap.jsonl --geometry F:\NUEC\SoundSight-stm32\software\stm32\config\tetra40-nominal.json --out F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\wrap-out
+REPLAY_COMPLETE,F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\tests-ozkupy5r\wrap-out
+{"total_records": 6, "disposition_counts": {"VALID": 4, "SEQUENCE_REJECT": 2}, "algorithm_rejection_counts": {}, "accuracy": {"angular": {"count": 4, "mean_deg": 0.00033141471560589814, "rms_deg": 0.000498315002782254, "max_deg": 0.0009021886364143582}, "azimuth_absolute": {"count": 4, "mean_deg": 0.00022602500000346026, "rms_deg": 0.0004279691606896549, "max_deg": 0.0008545000000026448}, "elevation_absolute": {"count": 4, "mean_deg": 0.00023317499999997437, "rms_deg": 0.00033141204338397095, "max_deg": 0.0005130999999991559}}}
+
+EXIT_CODE: 0

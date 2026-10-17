@@ -61,3 +61,7 @@ python software/stm32/tests/run_host_tests.py
 原文结果在 document/evidence/tetra3d-20261018。生成物在software/stm32/build/tetra3d；没有临时整套工程副本。
 
 下一阶段：A核对实际当前PL的通道顺序、lag符号、窗口/邻点与频带；完成三维配置附录后再接入板端统一入口、实测耗时，最终使用实测几何与独立声源角度验证。双轴PWM和运动标定另做，本批不开放动作。
+
+## 后续离线工具
+
+[D2几何配置](../../stm32/GEOMETRY-D2.md)提供来源/版本/通道与误差上界检查；[D3回放](../../stm32/REPLAY-D3.md)直接调用本C求解器生成逐帧/逐对CSV及独立参考误差。均为软件验证，真实数据和三维固件链接待条件。

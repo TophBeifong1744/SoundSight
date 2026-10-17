@@ -1,0 +1,7 @@
+COMMAND: F:\STUDY\IT\C\develop\mingw64\bin\gcc.exe -std=c99 -O2 -Wall -Wextra -Wconversion -Wshadow -Werror -pedantic -D__USE_MINGW_ANSI_STDIO=1 -IF:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\worker-35k_coah -Isoftware/common -Isoftware/common/s1 -Isoftware/common/s1_3d software/stm32/tools/replay_3d_bridge.c software/common/s1_3d/doa_solver_3d.c software/common/s1_3d/doa_geometry.c -lm -o F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\worker-35k_coah\replay.exe
+
+EXIT_CODE: 0
+
+COMMAND: F:\NUEC\SoundSight-stm32\software\stm32\build\replay-d3\worker-35k_coah\replay.exe
+
+EXIT_CODE: 0

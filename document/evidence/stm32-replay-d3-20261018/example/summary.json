@@ -1,0 +1,158 @@
+{
+  "run_status": "COMPLETED",
+  "scope": "OFFLINE_FEATURE_REPLAY_ONLY",
+  "input_declaration": {
+    "schema": "SS_3D_FEATURE_REPLAY_V1",
+    "session_id": "tetra40-demo-v1",
+    "source_kind": "SYNTHETIC_FEATURES",
+    "source_id": "analytic-six-pair-demo-v1",
+    "geometry_revision": 1,
+    "geometry_source_id": "tetra40-nominal-v1",
+    "pair_order": [
+      "01",
+      "02",
+      "03",
+      "12",
+      "13",
+      "23"
+    ]
+  },
+  "geometry_declaration": {
+    "schema": 1,
+    "revision": 1,
+    "provenance": "NOMINAL",
+    "source_id": "tetra40-nominal-v1",
+    "sample_rate_hz": 48000,
+    "sound_speed_m_s": 343,
+    "position_error_mm": -1,
+    "microphones": [
+      {
+        "channel": 0,
+        "xyz_mm": [
+          23.094010767585033,
+          0,
+          -8.16496580927726
+        ]
+      },
+      {
+        "channel": 1,
+        "xyz_mm": [
+          -11.547005383792516,
+          20,
+          -8.16496580927726
+        ]
+      },
+      {
+        "channel": 2,
+        "xyz_mm": [
+          -11.547005383792516,
+          -20,
+          -8.16496580927726
+        ]
+      },
+      {
+        "channel": 3,
+        "xyz_mm": [
+          0,
+          0,
+          24.49489742783178
+        ]
+      }
+    ]
+  },
+  "total_records": 68,
+  "disposition_counts": {
+    "VALID": 57,
+    "ALGORITHM_REJECT": 6,
+    "INPUT_REJECT": 3,
+    "SEQUENCE_REJECT": 2
+  },
+  "sequence_counts": {
+    "FIRST": 1,
+    "NEXT": 64,
+    "DUPLICATE": 1,
+    "BACKWARD_OR_AMBIGUOUS": 1,
+    "GAP": 1
+  },
+  "observed_frame_id_gap_total": 2,
+  "api_status_counts": {
+    "OK": 63,
+    "INPUT_RANGE": 1,
+    "INPUT_FLAGS": 1,
+    "INCOMPLETE_FRAME": 1
+  },
+  "algorithm_rejection_counts": {
+    "PAIRS": 1,
+    "NORM": 1,
+    "RESIDUAL": 1,
+    "CANCELLED": 1,
+    "SOURCE": 1,
+    "LEGACY_BIST": 1
+  },
+  "reference_records": 66,
+  "accuracy": {
+    "angular": {
+      "count": 56,
+      "mean_deg": 0.0682695944157833,
+      "rms_deg": 0.15864027179790482,
+      "max_deg": 0.5062122694075927
+    },
+    "azimuth_absolute": {
+      "count": 54,
+      "mean_deg": 0.040873880185184015,
+      "rms_deg": 0.10304140216707085,
+      "max_deg": 0.38171389999999406
+    },
+    "elevation_absolute": {
+      "count": 56,
+      "mean_deg": 0.05219183073214329,
+      "rms_deg": 0.12973262680893852,
+      "max_deg": 0.5022935999999998
+    }
+  },
+  "limits": [
+    "Source/reference provenance is declared, not independently verified by this tool.",
+    "Feature-level replay; no PCM, FFT/PHAT, board timing, SPI or acoustic acceptance.",
+    "Frame ID gaps do not prove physical drop count; no capture timestamps.",
+    "Accuracy uses valid referenced frames only; rejection counts remain in denominator report.",
+    "No-reference accuracy is unavailable, not zero; undefined pole azimuth stays empty."
+  ],
+  "geometry_preflight": {
+    "geometry_valid": true,
+    "solver_api": 65536,
+    "normal_condition": 1,
+    "uncertainty_known": 0,
+    "pairs": [
+      [
+        40,
+        5.59766769,
+        -1
+      ],
+      [
+        40,
+        5.59766769,
+        -1
+      ],
+      [
+        40,
+        5.59766769,
+        -1
+      ],
+      [
+        40,
+        5.59766769,
+        -1
+      ],
+      [
+        40,
+        5.59766769,
+        -1
+      ],
+      [
+        40,
+        5.59766769,
+        -1
+      ]
+    ]
+  }
+}
