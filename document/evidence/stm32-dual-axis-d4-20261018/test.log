@@ -1,0 +1,15 @@
+COMMAND: F:\NUEC\SoundSight-stm32\software\stm32\build\target-d4\target.exe
+D4_MAP,az=45,el=30,h=135,v=120,SOFTWARE_ONLY
+D4_MAP,az=-45,el=-30,h=45,v=60,SOFTWARE_ONLY
+D4_MAP,reverse_both=1,vertical_zero=80,h=45,v=110,revision=7
+D4_BOUNDARIES,PASS,RNE,domain,pre_round_limits,no_wrap,no_clamp
+D4_REJECTIONS,PASS,16_bad_configs,invalid_sources,clear_previous_target
+D4_SWEEP,PASS,92162_Q8_sign_combinations
+D4_CHAIN,az=45,el=30,status=0,valid=1,h=135,v=120
+D4_CHAIN,az=-45,el=-30,status=0,valid=1,h=45,v=60
+D4_CHAIN,az=120,el=15,status=8,valid=0,h=0,v=0
+D4_CHAIN,az=0,el=90,status=6,valid=0,h=0,v=0
+D4_CHAIN,az=0,el=-90,status=6,valid=0,h=0,v=0
+D4_RESULT,PASS,checks=92270,failures=0
+
+EXIT_CODE: 0

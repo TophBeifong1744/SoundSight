@@ -1,0 +1,3 @@
+COMMAND: F:\STUDY\IT\C\develop\mingw64\bin\gcc.exe -std=c99 -O2 -Wall -Wextra -Wconversion -Wshadow -Werror -pedantic -D__USE_MINGW_ANSI_STDIO=1 -DSS_DOA_PROFILE=1 -Isoftware/common -Isoftware/common/s1 -Isoftware/common/s1_3d software/common/s1/doa_solver.c software/common/s1_3d/doa_solver_3d.c software/common/s1_3d/doa_dispatch.c software/common/s1_3d/doa_target_3d.c software/stm32/tests/test_target_3d.c -lm -o F:\NUEC\SoundSight-stm32\software\stm32\build\target-d4\target.exe
+
+EXIT_CODE: 0
