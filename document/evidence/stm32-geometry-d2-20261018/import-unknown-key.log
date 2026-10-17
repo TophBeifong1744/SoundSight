@@ -1,0 +1,4 @@
+COMMAND: D:\Python\python.exe F:\NUEC\SoundSight-stm32\software\stm32\tools\prepare_geometry.py --input F:\NUEC\SoundSight-stm32\software\stm32\build\geometry-d2\import-tests-zy795khw\unknown-key.json --out F:\NUEC\SoundSight-stm32\software\stm32\build\geometry-d2\import-tests-zy795khw\unknown-key.h
+GEOMETRY_REJECT,Unexpected/missing JSON fields; expected: schema revision provenance source_id sample_rate_hz sound_speed_m_s position_error_mm microphones
+
+EXIT_CODE: 1

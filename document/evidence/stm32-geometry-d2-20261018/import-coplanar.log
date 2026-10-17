@@ -1,0 +1,5 @@
+COMMAND: D:\Python\python.exe F:\NUEC\SoundSight-stm32\software\stm32\tools\prepare_geometry.py --input F:\NUEC\SoundSight-stm32\software\stm32\build\geometry-d2\import-tests-zy795khw\coplanar.json --out F:\NUEC\SoundSight-stm32\software\stm32\build\geometry-d2\import-tests-zy795khw\coplanar.h
+GEOMETRY,status=6,valid=0,uncertainty_known=0,condition=0.000000,bad_pair=255
+GEOMETRY_REJECT,C geometry validation failed; output not written
+
+EXIT_CODE: 1

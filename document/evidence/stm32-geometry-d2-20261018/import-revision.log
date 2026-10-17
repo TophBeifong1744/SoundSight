@@ -1,0 +1,4 @@
+COMMAND: D:\Python\python.exe F:\NUEC\SoundSight-stm32\software\stm32\tools\prepare_geometry.py --input F:\NUEC\SoundSight-stm32\software\stm32\build\geometry-d2\import-tests-zy795khw\revision.json --out F:\NUEC\SoundSight-stm32\software\stm32\build\geometry-d2\import-tests-zy795khw\revision.h
+GEOMETRY_REJECT,Integer out of range
+
+EXIT_CODE: 1

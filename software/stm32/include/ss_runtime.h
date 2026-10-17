@@ -33,7 +33,7 @@ typedef struct {
     doa_frame_input_t frame;
     doa_solve_output_t result; /* planar only; stays zero in 3D */
 #if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
-    doa3d_config_t spatial_config; /* D1 nominal geometry, read-only */
+    doa3d_config_t spatial_config; /* default nominal; D2 app cold setter owns updates */
     doa_dispatch_output_t spatial_result;
 #endif
 } ss_runtime_t;

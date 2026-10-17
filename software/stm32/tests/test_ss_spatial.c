@@ -112,7 +112,10 @@ static void statistics_failure(void)
     m.fail_at=0U;
     CHECK("stats error recover to idle",ss_app_recover(&a)==SS_OK && a.runtime.state==SS_RT_IDLE);
 }
-int main(void)
+#ifndef SS_SPATIAL_TEST_ENTRY
+#define SS_SPATIAL_TEST_ENTRY main
+#endif
+int SS_SPATIAL_TEST_ENTRY(void)
 {
     directions();rejected_and_recovery();faults_and_budget();statistics_failure();
     printf("D1_RESULT,%s,checks=%u,failures=%u\n",failures?"FAIL":"PASS",checks,failures);

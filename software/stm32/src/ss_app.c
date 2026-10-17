@@ -1,6 +1,9 @@
 #include "ss_app.h"
 #if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
 #include "ss_spatial.h"
+#ifdef SS_GEOMETRY_HEADER
+#include SS_GEOMETRY_HEADER /* generated ss_geometry_selected, D2 */
+#endif
 #endif
 #include <string.h>
 static int valid(const ss_app_t *a) { return a!=NULL && a->initialized!=0U; }
@@ -41,6 +44,15 @@ ss_status_t ss_app_init(ss_app_t *a,const ss_bus_t *bus)
     s=ss_runtime_init(&a->runtime,bus,&rt); if(s!=SS_OK) return s;
     s=ss_motion_init(&a->motion,&a->runtime.link,&motion); if(s!=SS_OK) return s;
     a->config.max_frames=8U; a->config.duration_ms=2000U; a->config.print_every=4U;
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+#ifdef SS_GEOMETRY_HEADER
+    a->geometry=ss_geometry_selected;
+#else
+    doa_geometry_nominal(&a->geometry);
+#endif
+    if(doa_geometry_build(&a->geometry,&a->runtime.spatial_config,&a->geometry_report)!=DOA_GEOMETRY_OK)
+        return SS_ARGUMENT;
+#endif
     a->initialized=1U; return SS_OK;
 }
 ss_status_t ss_app_configure(ss_app_t *a,const ss_app_config_t *c)
@@ -49,12 +61,33 @@ ss_status_t ss_app_configure(ss_app_t *a,const ss_app_config_t *c)
     if(a->active!=0U) return SS_BUSY;
     a->config=*c; return SS_OK;
 }
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+ss_status_t ss_app_set_geometry(ss_app_t *a,const doa_geometry_record_t *record,
+                                doa_geometry_report_t *report)
+{
+    doa3d_config_t candidate; doa_geometry_report_t checked;
+    const ss_link_t *l;
+    if(!valid(a) || record==NULL || report==NULL) return SS_ARGUMENT;
+    l=&a->runtime.link;
+    if(a->geometry_locked || a->active || a->runtime.state!=SS_RT_IDLE ||
+       l->probed || l->identity_verified || l->locked || l->have_consumed ||
+       l->recovery_required || a->runtime.recoveries!=0U) return SS_BUSY;
+    if(doa_geometry_build(record,&candidate,&checked)!=DOA_GEOMETRY_OK) {
+        *report=checked;return SS_ARGUMENT;
+    }
+    a->geometry=*record;a->runtime.spatial_config=candidate;
+    a->geometry_report=checked;*report=checked;return SS_OK;
+}
+#endif
 ss_status_t ss_app_start(ss_app_t *a)
 {
     ss_status_t s;
     if(!valid(a)) return SS_ARGUMENT;
     if(a->active!=0U || a->motion.state==SS_MOTION_ARMED) return SS_BUSY;
     s=ss_runtime_start(&a->runtime,SS_RUN_REAL); if(s!=SS_OK) return s;
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    a->geometry_locked=1U;
+#endif
     a->frames=0U; a->rejected=0U; a->queued=0U; a->drop_count=0U; a->max_step_ms=0U;
     a->last_status=SS_OK; a->active=1U; a->fresh=0U; a->user_stopped=0U; a->started_ms=now(a);
     return SS_OK;
@@ -71,6 +104,9 @@ static ss_status_t stop_run(ss_app_t *a)
 ss_status_t ss_app_stop(ss_app_t *a)
 {
     if(!valid(a)) return SS_ARGUMENT;
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    a->geometry_locked=1U;
+#endif
     a->user_stopped=1U;
     if(a->active==0U) a->active=1U; /* allow explicit STOP even after fault */
     return stop_run(a);
@@ -89,6 +125,9 @@ ss_status_t ss_app_recover(ss_app_t *a)
 {
     ss_status_t s;
     if(!valid(a)) return SS_ARGUMENT;
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    a->geometry_locked=1U;
+#endif
     if(a->active!=0U) return SS_BUSY;
     a->fresh=0U;
     s=ss_motion_recover(&a->motion);
@@ -103,6 +142,9 @@ ss_status_t ss_app_ack_stop(ss_app_t *a)
 {
     ss_status_t s;
     if(!valid(a)) return SS_ARGUMENT;
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    a->geometry_locked=1U;
+#endif
     if(a->active!=0U || a->motion.state==SS_MOTION_ARMED) return SS_BUSY;
     /* Explicit command may unblock transport diagnostics while leaving faults. */
     s=ss_recover(&a->runtime.link);
@@ -115,6 +157,9 @@ ss_status_t ss_app_discard(ss_app_t *a)
 {
     ss_status_t s;
     if(!valid(a)) return SS_ARGUMENT;
+#if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL
+    a->geometry_locked=1U;
+#endif
     if(a->active!=0U || a->motion.state==SS_MOTION_ARMED) return SS_BUSY;
     a->fresh=0U;
 #if SS_DOA_PROFILE == SS_DOA_TETRAHEDRAL

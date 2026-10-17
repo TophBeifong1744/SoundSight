@@ -1,0 +1,4 @@
+COMMAND: D:\Python\python.exe F:\NUEC\SoundSight-stm32\software\stm32\tools\prepare_geometry.py --input F:\NUEC\SoundSight-stm32\software\stm32\build\geometry-d2\import-tests-zy795khw\nan.json --out F:\NUEC\SoundSight-stm32\software\stm32\build\geometry-d2\import-tests-zy795khw\nan.h
+GEOMETRY_REJECT,Nonfinite JSON: NaN
+
+EXIT_CODE: 1

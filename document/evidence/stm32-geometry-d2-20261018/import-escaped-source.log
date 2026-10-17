@@ -1,0 +1,11 @@
+COMMAND: D:\Python\python.exe F:\NUEC\SoundSight-stm32\software\stm32\tools\prepare_geometry.py --input F:\NUEC\SoundSight-stm32\software\stm32\build\geometry-d2\import-tests-zy795khw\escaped-source.json --out F:\NUEC\SoundSight-stm32\software\stm32\build\geometry-d2\import-tests-zy795khw\escaped-source.h
+GEOMETRY,status=0,valid=1,uncertainty_known=0,condition=1.000000,bad_pair=255
+PAIR,0,mm=40.000000,nominal_samples=5.597668,bounded_samples=-1.000000
+PAIR,1,mm=40.000000,nominal_samples=5.597668,bounded_samples=-1.000000
+PAIR,2,mm=40.000000,nominal_samples=5.597668,bounded_samples=-1.000000
+PAIR,3,mm=40.000000,nominal_samples=5.597668,bounded_samples=-1.000000
+PAIR,4,mm=40.000000,nominal_samples=5.597668,bounded_samples=-1.000000
+PAIR,5,mm=40.000000,nominal_samples=5.597668,bounded_samples=-1.000000
+HEADER_CREATED,F:\NUEC\SoundSight-stm32\software\stm32\build\geometry-d2\import-tests-zy795khw\escaped-source.h
+
+EXIT_CODE: 0

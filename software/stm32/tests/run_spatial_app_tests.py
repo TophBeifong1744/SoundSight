@@ -17,7 +17,7 @@ def run(name,cmd,expected_exit=0):
     return p.stdout+p.stderr
 inc=['-Isoftware/common','-Isoftware/common/s1','-Isoftware/common/s1_3d','-Isoftware/stm32/include']
 base=[gcc_executable(),'-std=c99','-O2','-Wall','-Wextra','-Wconversion','-Wshadow','-Werror','-pedantic','-D__USE_MINGW_ANSI_STDIO=1','-DSS_DOA_PROFILE=1',*inc]
-sources=['software/common/s1/doa_solver.c','software/common/s1_3d/doa_solver_3d.c','software/common/s1_3d/doa_dispatch.c',*[f'software/stm32/src/{u}.c' for u in ('fpga_link','ss_runtime','ss_motion','ss_app','ss_spatial')]]
+sources=['software/common/s1/doa_solver.c','software/common/s1_3d/doa_solver_3d.c','software/common/s1_3d/doa_dispatch.c','software/common/s1_3d/doa_geometry.c',*[f'software/stm32/src/{u}.c' for u in ('fpga_link','ss_runtime','ss_motion','ss_app','ss_spatial')]]
 run('compile-app',base+sources+['software/stm32/tests/test_ss_spatial.c','-lm','-o',OUT/'app.exe'])
 s=run('app',[OUT/'app.exe']);print(s,end='')
 if not re.search(r'D1_RESULT,PASS,checks=\d+,failures=0',s):raise RuntimeError('Missing D1 result')

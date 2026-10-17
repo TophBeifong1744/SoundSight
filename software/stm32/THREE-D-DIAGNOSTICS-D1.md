@@ -62,3 +62,5 @@ UV4.exe -r software/stm32/keil/soundsight_f407/Projects/MDK-ARM/atk_f407.uvprojx
 ```
 
 结果：[D1记录](../../document/evidence/stm32-spatial-d1-20261018/REPORT.md)。后续可独立推进D2几何配置；三维完整链接需解决本机工具限额。D3回放、D4双轴软件映射、D5跨板合同与D6实物验证均在[原进度表](../../document/STM32-MODULE-PROGRESS.md)，本轮不同时执行。
+
+D2后续增量已完成配置软件与PC验证，见[几何配置](GEOMETRY-D2.md)。本文33936字节属于D1旧候选，不是加入D2后的映像大小；三维完整链接仍待条件。

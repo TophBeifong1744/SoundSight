@@ -1271,6 +1271,11 @@
               <FilePath>..\..\..\..\..\common\s1_3d\doa_solver_3d.c</FilePath>
             </File>
             <File>
+              <FileName>doa_geometry.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\common\s1_3d\doa_geometry.c</FilePath>
+            </File>
+            <File>
               <FileName>doa_dispatch.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\common\s1_3d\doa_dispatch.c</FilePath>
