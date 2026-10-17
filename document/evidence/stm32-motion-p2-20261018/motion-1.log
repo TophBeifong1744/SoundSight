@@ -1,0 +1,13 @@
+COMMAND: F:\NUEC\SoundSight-stm32\software\stm32\build\motion-p2\motion-1.exe
+P2_GATES,PASS,build_default_off,runtime_opt_in,physical_adapter_unchanged
+P2_VALID,frame=1,angle=0,target=90,model_accepted=1,consumed=1,transfers=58,commit_position=55,wire_acceptance=UNCONFIRMED
+P2_NONZERO,frame=2,angle_q8=23040,target=180
+P2_NONZERO,frame=3,angle_q8=-23040,target=0
+P2_POLL_FAULT_MATRIX,PASS,cases=232,before_after_x_IO_timeout,no_duplicate_commit
+P2_CONTROL_FAULT_MATRIX,PASS,cases=68,arm_disarm_stop
+P2_BOUNDARIES,PASS,BIST/reject/cancel/mapping/bound/age/budget/shadow/permit/ACK/watchdog/wrap/STOP
+P2_RECOVERY_FAULT_MATRIX,PASS,cases=40,commit_fence_preserved
+P2_RACES,PASS,locked_frame_swap,late_fault,post_commit_expiry,wrong_ID,stuck_lock,no_combined_commit
+P2_RESULT,PASS,build_gate=1,checks=74240,failures=0
+
+EXIT_CODE: 0

@@ -1,0 +1,3 @@
+COMMAND: F:/STUDY/STM32/tools/Keil_v5/ARM/ARMCC/Bin/armcc.exe --cpu=Cortex-M4.fp.sp --c99 --library_type=microlib -O2 --strict --diag_error=warning -DSS_ENABLE_MOTION_WRITES=1 -Isoftware/common -Isoftware/common/s1 -Isoftware/stm32/include -c software/stm32/src/fpga_link.c -o F:\NUEC\SoundSight-stm32\software\stm32\build\motion-p2\fpga_link-1.o
+
+EXIT_CODE: 0

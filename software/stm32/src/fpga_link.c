@@ -1,4 +1,5 @@
 #include "fpga_link.h"
+#include "fpga_link_internal.h"
 #include <string.h>
 
 static int configured(const ss_link_t *l)
@@ -232,12 +233,16 @@ static ss_status_t acquire_inner(ss_link_t *l, uint32_t t, doa_frame_input_t *f)
 }
 ss_status_t ss_acquire_frame(ss_link_t *l, doa_frame_input_t *f)
 {
+    return ss_link_acquire_at(l, configured(l) ? l->bus.now_ms(l->bus.user) : 0U, f);
+}
+ss_status_t ss_link_acquire_at(ss_link_t *l, uint32_t t, doa_frame_input_t *f)
+{
     ss_status_t s;
     doa_frame_input_t tmp;
     if (f == NULL) return SS_ARGUMENT;
     memset(f, 0, sizeof(*f)); memset(&tmp, 0, sizeof(tmp));
     s = ready(l); if (s != SS_OK) return s;
-    s = acquire_inner(l, l->bus.now_ms(l->bus.user), &tmp);
+    s = acquire_inner(l, t, &tmp);
     if (s == SS_OK) { *f = tmp; return SS_OK; }
     return s == SS_NO_FRAME || s == SS_BUSY ? s : fail(l, s);
 }
@@ -253,10 +258,14 @@ static ss_status_t finish_inner(ss_link_t *l, uint32_t t, ss_finish_t how)
 }
 ss_status_t ss_finish_frame(ss_link_t *l, ss_finish_t how)
 {
+    return ss_link_finish_at(l, configured(l) ? l->bus.now_ms(l->bus.user) : 0U, how);
+}
+ss_status_t ss_link_finish_at(ss_link_t *l, uint32_t t, ss_finish_t how)
+{
     ss_status_t s = ready(l);
     if (s != SS_OK) return s;
     if ((how != SS_CONSUME && how != SS_RELEASE) || l->locked == 0U) return SS_ARGUMENT;
-    s = finish_inner(l, l->bus.now_ms(l->bus.user), how);
+    s = finish_inner(l, t, how);
     return s == SS_OK ? s : fail(l, s);
 }
 ss_status_t ss_poll_solve(ss_link_t *l, const doa_servo_config_t *servo,
@@ -307,4 +316,44 @@ ss_status_t ss_recover(ss_link_t *l)
     s = recover_inner(l, l->bus.now_ms(l->bus.user));
     if (s == SS_IDENTITY) { l->last_error = s; l->recovery_required = 1U; return s; }
     return s == SS_OK ? s : fail(l, s);
+}
+
+ss_status_t ss_link_fail(ss_link_t *l, ss_status_t s)
+{ return fail(l, s); }
+
+ss_status_t ss_link_read_at(ss_link_t *l, uint32_t t, uint32_t a, uint32_t *v)
+{
+    ss_status_t s;
+    if (v == NULL) return SS_ARGUMENT;
+    *v = 0U;
+    s = ready(l); if (s != SS_OK) return s;
+    if (!known_address(a)) return SS_BAD_REGISTER;
+    s = rd(l, t, a, v);
+    if (s != SS_OK) { *v = 0U; return fail(l, s); }
+    return SS_OK;
+}
+
+ss_status_t ss_link_motion_write_at(ss_link_t *l, uint32_t t, uint32_t a, uint32_t v)
+{
+    ss_status_t s;
+    int safe = (a == REG_ACT_CTRL && (v == ACT_CTRL_REVOKE || v == ACT_CTRL_STOP || v == 0U)) ||
+               (a == REG_WATCHDOG_TICKS && v == 0U);
+    if (!configured(l)) return SS_ARGUMENT;
+    if (safe) {
+        if (l->identity_verified == 0U) return SS_NOT_PROBED;
+    } else {
+        s = ready(l); if (s != SS_OK) return s;
+#if SS_ENABLE_MOTION_WRITES == 0
+        return SS_ARGUMENT;
+#else
+        if (a == REG_ACT_CTRL) {
+            if (v != ACT_CTRL_PERMIT && v != ACT_CTRL_COMMIT) return SS_ARGUMENT;
+        } else if (a == REG_ACTUATOR_CMD) {
+            if ((v & ~(ACTUATOR_HORIZONTAL_MASK | ACTUATOR_HORIZONTAL_VALID)) != 0U ||
+                (v & ACTUATOR_HORIZONTAL_VALID) == 0U) return SS_ARGUMENT;
+        } else if (a != REG_WATCHDOG_TICKS) return SS_BAD_REGISTER;
+#endif
+    }
+    s = wr(l, t, a, v);
+    return s == SS_OK ? SS_OK : fail(l, s);
 }
