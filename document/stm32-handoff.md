@@ -55,7 +55,7 @@ ss_preprocess.sv         ss_snapshot_queue.sv      ss_spi_mode0.sv
 ss_stm32_link.sv
 ```
 
-本次便于转发的包另外带上本说明、逐文件清单、`tools.local.env.example` 空模板、`.gitignore` 和原 `LICENSE`，**共 45 个文件**。不包含本机 `tools.local.env`、生成的 wrapper、`.xpr`、BD 数据库、缓存、运行结果。wrapper 和官方 IP 由 Vivado 根据配方生成；原始两份 XCI 已用于核对，不再作为重建时重复导入的第二份 IP。
+本次便于转发的包另外带上本说明、逐文件清单、`tools.local.env.example` 空模板、`.gitignore` 和原 `LICENSE`，再附三份实现资料及其说明，**共 49 个文件**。不包含本机 `tools.local.env`、生成的 wrapper、`.xpr`、BD 数据库、缓存或完整运行数据库。wrapper 和官方 IP 由 Vivado 根据配方生成；原始两份 XCI 已用于核对，不再作为重建时重复导入的第二份 IP。
 
 包按当前本地工作区制作，包括用户已同步的三份 RTL 和两份 STM32 XDC；并不是只打包旧 Git 提交。用户另两份 PS XDC 和 Word 修改仍保留在仓库，不属于这份 STM32 FPGA 包。
 
@@ -81,4 +81,4 @@ ss_stm32_link.sv
 
 用户提供的布线后报告：WNS `+0.248 ns`、WHS `+0.036 ns`；LUT `13894`、FF `14458`、BRAM `25`、DSP `41`。这些是外部手工工程的已有结果，本次没有重新运行 Vivado、仿真、综合、实现或板测，不能把静态配方比对说成已经重建通过。当前磁盘比较也不能单独证明当时 DCP 的完整输入身份。
 
-原始报告、比较脚本及实际结果见完整仓库中的 [证据说明](evidence/stm32-handoff-20261018/README.md)。轻量交接 ZIP 不带该证据目录；上述证据链接需要在完整仓库中打开，不属于重建依赖。本次没有修改电路行为、用户 XDC 或 Word；没有给既有 `par` 或 F 盘工程写入任何文件。
+三份实现资料集中放在 [project/reports/stm32](../project/reports/stm32/README.md)，随交接 ZIP 一起提供。比较脚本及静态结果见完整仓库中的 [证据说明](evidence/stm32-handoff-20261018/README.md)。轻量交接 ZIP 不带该证据目录；上述证据链接需要在完整仓库中打开，不属于重建依赖。本次没有修改电路行为、用户 XDC 或 Word；没有给既有 `par` 或 F 盘工程写入任何文件。

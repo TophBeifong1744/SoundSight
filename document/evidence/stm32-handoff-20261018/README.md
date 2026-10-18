@@ -3,7 +3,7 @@
 输入：`F:/AMD/work/SoundSight_STM32/handoff/20261018_153509`，为本次读取时 handoff 下唯一导出批。用户手工工程是 `SoundSight_STM32.xpr`，器件 `xc7z020clg400-2`，Vivado 2025.2。
 
 - `original/`：四份原始导出，原样保存。里面的路径属于历史原文，不是活动工程依赖，不应直接 source 原始 project.tcl。
-- `timing_report_imp.txt`、`utilization_report_imp.txt`：用户外部工程已有布线后报告。时序报告时间 2026-10-18 14:53:59，资源报告时间 14:54:45；不是本次运行的新结果。
+- [实现报告与布局布线图](../../../project/reports/stm32/README.md)：按用户要求集中放在工程目录 `project/reports/stm32`，本目录不再重复存放。用户外部工程已有布线后报告。时序报告时间 2026-10-18 14:53:59，资源报告时间 14:54:45；不是本次运行的新结果。
 - `source-comparison.json`：当前磁盘 26 份源文件、两份 STM32 XDC 的逐项比较，以及从实际生成 IP 的 XCI 读取的关键默认参数。RTL 仅一处行尾空白不同。比较范围不包含 PS 目标构建，也不证明 DCP 当时输入未发生漂移。
 - `check_export.py`、`static-result.json`：以普通 Tcl 解释器记录原始和整理后配方的创建/属性/连接命令，比对 13 单元、30 普通网络、两接口网络和布局；核两个 FFT 显式配置、运行属性与交接文件清单。工具调用被记录函数替代，不调用 Vivado。
 - `project-check.json`：仓库既有静态结构检查结果。
