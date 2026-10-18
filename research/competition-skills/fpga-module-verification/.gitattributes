@@ -4,3 +4,7 @@
 *.v text eol=lf
 *.sv text eol=lf
 .gitattributes text eol=lf
+# The restored example and its tested case are preserved as executed/exported.
+examples/pcm4/pcm4_signext_pack.v -text -whitespace
+examples/pcm4/case.json -text whitespace=cr-at-eol
+examples/pcm4/provenance.json -text whitespace=cr-at-eol

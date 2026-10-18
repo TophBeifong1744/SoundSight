@@ -21,6 +21,7 @@
 8. [删除旧项目之前](document/delete-old-project.md)
 9. [实际STM32工程配方与完整交接清单](document/stm32-handoff.md)
 10. [Vitis裸机平台与application交接](software/vitis/stm32/README.md)
+11. [两个比赛Skills的交付包与复现](document/competition-skills-delivery.md)
 
 用户外部STM32手工工程已有布线后时序/资源报告（WNS +0.248 ns，WHS +0.036 ns），实际BD/PS/IP配方已接回，详见[交接说明](document/stm32-handoff.md)。本次仅完成静态配置比对，没有重新构建验证仓库配方；真实启动、声学精度、机械闭环及独立PS目标仍未完成。STM32 S2仍按收到的B侧材料标为未实施。
 

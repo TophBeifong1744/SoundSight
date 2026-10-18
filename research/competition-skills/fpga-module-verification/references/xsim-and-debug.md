@@ -4,10 +4,10 @@ Requirements: Python 3.10+, Vivado XSim tools, a reviewed local case manifest. W
 
 `case.json` uses schema_version 1, an ASCII name/top, tool_version, a contract path, an ordered list of Verilog/SystemVerilog sources, and minimum_checks >= 1. Paths resolve relative to the manifest. Only standalone `.v`/`.sv` sources are supported; includes, vendor IP libraries, VHDL, Tcl hooks and external data files are not silently inferred. Extend the runner and tests explicitly when these become necessary.
 
-Example, from the repository root:
+Example, from this Skill directory (also works after standalone extraction):
 
 ```text
-python -B skill/fpga-module-verification/scripts/run_xsim.py --case skill/fpga-module-verification/examples/elastic/case.json --vivado-bin F:/AMD/2025.2/Vivado/bin --output task-packages/PKG-A-SKILLS/runs/elastic-new
+python -B scripts/run_xsim.py --case examples/elastic/case.json --vivado-bin "<your-vivado-install>/bin" --output "<new-output-directory>"
 ```
 
 The output directory must not exist. It receives `result.json`, original source/contract snapshots and compiler/elaboration/runtime logs; `work/` is reproducible simulator cache, not source. No existing project is opened or edited. A TB is executable code: inspect third-party cases before running them. The runner is not a sandbox or permission grant.

@@ -1,18 +1,12 @@
-# Competition Skills Index
+# 比赛 Skills
 
-The 2026-09-23 candidate `929d737f062adc03dbb8759aafe3584119d65b2a` is published for review, not approved. The active implementations remain at the limited approvals below. The external team-workflow tooling is not an original competition Skill.
+这两个目录是 SoundSight 的比赛 Skill 正式维护入口。当前批次是 2026-10-18 新仓库适配；历史限定批准与本次迁移验证分开。通用 fpga-team-workflow/run-fpga-workflow 是开发辅助工具，不计作本队原创 Skill。
 
-Both Skills have independent B approval at the limited scopes below. Skill execution, author tests, B approval and main publication are separate; neither Skill proves full FPGA-system or board acceptance.
+| Skill | 能做什么 | 能力边界 |
+|---|---|---|
+| [fpga-module-verification](fpga-module-verification/README.md) | 模块合同、RTL/TB、真实 XSim、错误定位与复测 | 单模块仿真，不代表综合、时序、CDC 或上板 |
+| [pynq-overlay-dma-validation](pynq-overlay-dma-validation/README.md) | Overlay 配置与数据检查、DMA 生命周期和故障模拟 | static/mock；真实 PYNQ 适配器及实板仍待办 |
 
-| ID / Skill | Actual purpose | Current status |
-| --- | --- | --- |
-| SKL-001 [fpga-module-verification](fpga-module-verification/README.md) | Module contract, RTL/self-checking TB development, real XSim execution, first failure and repair/retest | B PASS (module simulation), exact a7e1ea9; PCM 792 / elastic 13800 checks; S1 timing/capacity fault independently rejected |
-| SKL-002 [pynq-overlay-dma-validation](pynq-overlay-dma-validation/README.md) | Profile-driven Overlay checks and mock DMA lifecycle validation | B PASS (offline only), exact 3ac597d; 55 tests / 57 subtests and 14 independent sessions; real PYNQ NOT_RUN |
+每个 Skill 自带代码、测试、说明和许可证，可以脱离仓库运行。工具路径由使用者提供，无旧仓库、旧工程或历史 Git 对象依赖。
 
-Approval and evidence: [B repair review](../docs/maintenance/skills-rereview-b-2026-09-14.md). SKL-002 is active at its approved offline scope. SKL-001 is active at its approved module simulation scope. Historical candidate publication records remain unchanged below their current-status notice.
-
-Use the [delivery/acceptance plan](../docs/skills-delivery-plan.md) for requirements, dates, ownership, limitations, licensing and submission export. A develops; B independently reviews SKL-001 (#21), and C reviews SKL-002 (#22) with qualified specialist support where necessary. Full source/test/effect/provenance and visible AI correction records are needed, not just README files. Generic PYNQ bonus is explicitly in the guide; no fixed score is guaranteed.
-
-The old workflow-only Skill and its 0.2.0 unreviewed package are [archived byte-for-byte](../archive/2026-09-13-before-skl001-technical-upgrade/README.md). They are not active alternatives. Keep one maintained source per Skill; retained run inputs are evidence snapshots, not another development tree.
-
-Current hardware/algorithm status belongs in [current-status](../docs/current-status.md), not a historical Skill example. Vivado is fixed at 2025.2, actual part is xc7z020clg400-2; diagnostic captures exist, but formal M1/full H3/real-time/accuracy/audio and PYNQ qualification are separate unfinished gates.
+迁移结果、准确命令、交付包及可见纠错记录见[本次交付说明](../../document/competition-skills-delivery.md)。历史批准只绑定当时版本，不能自动批准迁移版；历史审查原件见 document/evidence/competition-skills-20261018/history（仓库根目录下）。

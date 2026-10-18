@@ -1,0 +1,23 @@
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sun Oct 18 21:14:35 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/module_test/xsim_script.tcl
+# xsim {module_test} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+ACCOUNTING width=1 sent=177 consumed=176 discarded=1 pending=0
+CASE_PASS width=1 checks=4600
+ACCOUNTING width=8 sent=177 consumed=176 discarded=1 pending=0
+CASE_PASS width=8 checks=4600
+ACCOUNTING width=16 sent=177 consumed=176 discarded=1 pending=0
+CASE_PASS width=16 checks=4600
+SKILL_PASS cases=3 checks=13800
+$finish called at time : 4446 ns : File "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/competition-skills-20261018/export-run/xsim/restored/work/tb_elastic.sv" Line 132
+exit
+INFO: [Common 17-206] Exiting xsim at Sun Oct 18 21:14:37 2026...

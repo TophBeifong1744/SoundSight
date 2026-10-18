@@ -1,0 +1,192 @@
+{
+  "status": "PASS",
+  "scope": "offline and optional isolated XSim only",
+  "started_utc": "2026-10-18T13:10:41.696425+00:00",
+  "checks": [
+    {
+      "name": "module-units",
+      "argv": [
+        "C:\\Python314\\python.exe",
+        "-E",
+        "-s",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\research\\competition-skills\\fpga-module-verification",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "name": "pynq-units",
+      "argv": [
+        "C:\\Python314\\python.exe",
+        "-E",
+        "-s",
+        "-B",
+        "-X",
+        "utf8",
+        "scripts/run_offline_tests.py",
+        "--output",
+        "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\source-run\\pynq-tests.json"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\research\\competition-skills\\pynq-overlay-dma-validation",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "name": "receive",
+      "argv": [
+        "C:\\Python314\\python.exe",
+        "-E",
+        "-s",
+        "-B",
+        "-X",
+        "utf8",
+        "scripts/simulate_dma.py",
+        "--contract",
+        "references/example-session.json",
+        "--output",
+        "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\source-run\\receive.json"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\research\\competition-skills\\pynq-overlay-dma-validation",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "name": "timeout",
+      "argv": [
+        "C:\\Python314\\python.exe",
+        "-E",
+        "-s",
+        "-B",
+        "-X",
+        "utf8",
+        "scripts/simulate_dma.py",
+        "--contract",
+        "references/example-session.json",
+        "--output",
+        "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\source-run\\timeout.json",
+        "--fault",
+        "timeout",
+        "--fault",
+        "abort-timeout"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\research\\competition-skills\\pynq-overlay-dma-validation",
+      "exit_code": 1,
+      "expected_exit": 1
+    },
+    {
+      "name": "board-guard",
+      "argv": [
+        "C:\\Python314\\python.exe",
+        "-E",
+        "-s",
+        "-B",
+        "-X",
+        "utf8",
+        "scripts/pynq_probe.py",
+        "--profile",
+        "references/example-profile.json",
+        "--output",
+        "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\source-run\\forbidden-board.json"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\research\\competition-skills\\pynq-overlay-dma-validation",
+      "exit_code": 1,
+      "expected_exit": 1
+    },
+    {
+      "name": "xsim-examples",
+      "argv": [
+        "C:\\Python314\\python.exe",
+        "-E",
+        "-s",
+        "-B",
+        "-X",
+        "utf8",
+        "scripts/run_examples.py",
+        "--vivado-bin",
+        "F:\\AMD\\2025.2\\Vivado\\bin",
+        "--output",
+        "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\source-run\\xsim"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\research\\competition-skills\\fpga-module-verification",
+      "exit_code": 0,
+      "expected_exit": 0
+    }
+  ],
+  "board": "NOT_RUN",
+  "synthesis_implementation": "NOT_RUN",
+  "xsim": [
+    {
+      "name": "pcm4",
+      "expected": "PASS_SIMULATION",
+      "actual": "PASS_SIMULATION",
+      "matched": true,
+      "checks": 792,
+      "first_failure": null,
+      "result": "pcm4/result.json",
+      "result_sha256": "7c9136f27b038e8194b85633bfb89a96c4b306cbb96a62f5c5958e5387248a90"
+    },
+    {
+      "name": "elastic",
+      "expected": "PASS_SIMULATION",
+      "actual": "PASS_SIMULATION",
+      "matched": true,
+      "checks": 13800,
+      "first_failure": null,
+      "result": "elastic/result.json",
+      "result_sha256": "0adea53713a439aa9f28f58bab9a719b1ef1e026f21319008d11535f42fd2998"
+    },
+    {
+      "name": "bad_data",
+      "expected": "FAIL_SIMULATION",
+      "actual": "FAIL_SIMULATION",
+      "matched": true,
+      "checks": null,
+      "first_failure": "Fatal: SKILL_FAIL one_edge_data width=1 cycle=2 after_edge=1 transaction=0 expected=1 actual=0",
+      "result": "bad_data/result.json",
+      "result_sha256": "66bac9ebca498af2b51d1dec4c6c568c3339861b78cdc937c25b315f059592f7"
+    },
+    {
+      "name": "bad_ready",
+      "expected": "FAIL_SIMULATION",
+      "actual": "FAIL_SIMULATION",
+      "matched": true,
+      "checks": null,
+      "first_failure": "Fatal: SKILL_FAIL slot_ready width=1 cycle=2 after_edge=0 occupancy=0 actual=0",
+      "result": "bad_ready/result.json",
+      "result_sha256": "86d2a6e8815310e3ffad7aafb41d313136081fa68f2ac9d0a38f6730ef37a0c8"
+    },
+    {
+      "name": "two_stage",
+      "expected": "FAIL_SIMULATION",
+      "actual": "FAIL_SIMULATION",
+      "matched": true,
+      "checks": null,
+      "first_failure": "Fatal: SKILL_FAIL one_edge_valid width=1 cycle=2 after_edge=1 expected=1 actual=0",
+      "result": "two_stage/result.json",
+      "result_sha256": "3eaf9d7dbd82911dc67643529308d5015c72d865cd9345dac06ff1280fd9753f"
+    },
+    {
+      "name": "restored",
+      "expected": "PASS_SIMULATION",
+      "actual": "PASS_SIMULATION",
+      "matched": true,
+      "checks": 13800,
+      "first_failure": null,
+      "result": "restored/result.json",
+      "result_sha256": "99bff18df7c13e87a8aa4fb28aa97da0d49c5638cbb617b35dd8f2631ac83509"
+    }
+  ],
+  "module_unit_tests": 7,
+  "pynq_tests": 55,
+  "pynq_subtests": 57,
+  "checker_sha256": "aeac24a4a3e93acdf3f3312264233e2ac69ee274e710aa3a420be5fc2add010f"
+}

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "C:\\Python314\\python.exe",
+    "-E",
+    "-s",
+    "-B",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "research/competition-skills/fpga-module-verification/tests",
+    "-v"
+  ],
+  "exit_code": 1,
+  "scope": "Baseline before path repair; expected missing PCM dependency"
+}

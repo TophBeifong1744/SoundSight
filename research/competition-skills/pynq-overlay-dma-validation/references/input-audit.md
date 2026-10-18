@@ -1,3 +1,5 @@
+> Historical input audit (2026-09-13). These old XSA/paths describe the former acquisition case, not the current SoundSight STM32 BD. No runtime dependency on these locations; preserved for provenance only.
+
 # Read-only project input audit - 2026-09-13
 
 This is a SoundSight case study, **not a generic default profile**. Only local
