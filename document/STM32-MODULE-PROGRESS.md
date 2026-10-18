@@ -27,7 +27,7 @@
 |对应工作包|待办／状态|下一责任与所需材料|
 |---|---|---|
 |P3 本板确认|[用户新串口已确认13 PASS/0 FAIL/11 SKIP](evidence/stm32-p3-board-ready-20261018/REPORT.md)，启动自检完成；status命令回读待补|用户可补status全文；匹配PL/接线就绪后P4|
-|P4 真实FPGA基础联调|[P4准备已启动](../software/stm32/FPGA-BRINGUP-P4.md)：A的PR6/7及ABI/XDC静态已核对；待实际bit/PS启动/接线确认和首次fpga日志，通信仍未测|A提供匹配映像/电气条件，用户接线及运行，B分析|
+|P4 真实FPGA基础联调|[P4准备已启动](../software/stm32/FPGA-BRINGUP-P4.md)：A的PR6/7及ABI/XDC静态已核对，PR8位流/PS启动材料齐备；待现场JTAG启动/接线与首次fpga日志，通信仍未测|A提供匹配映像/电气条件，用户接线及运行，B分析|
 |P5 连续帧与水平闭环|待P4；真实时延/积压/丢帧、独立方向误差、水平机构标定与闭环未验证|A/B与现场人员；动作须明确启用|
 |D1 三维固件链接|阻断：[本次只读复核](evidence/stm32-p3-board-ready-20261018/tool-edition.txt)armcc/armlink均为MDK-ARM Lite 5.36；旧D1 O2映像33936字节触发L6047U，后续大小未重测|用户正在配置授权，已要求暂停超限相关构建；通知恢复后B再核查/链接，随后板端耗时与栈检查|
 |D2/D3 实测补充|软件完成；四面体实物、声孔坐标/通道及误差上界、真实六对特征和独立方向基准待补|现场制作/测量，B配置与回放；无参考时不报告真实精度|
@@ -82,7 +82,7 @@ D5对齐材料已上传并在[Issue #5](https://github.com/TophBeifong1744/Sound
 |P1|运行控制状态机（STM-09、STM-04）|软件完成／硬件待验证|P3已接入并修正STOP后显式清enable、保留模式和故障|[最新回归](evidence/stm32-integration-p3-20261018/REPORT.md)：27104项0失败，164+152组故障；AC5完整默认固件链接通过|B/AI已完成；跨板P4/P5|
 |P2|水平动作命令管理（STM-09、STM-03）|软件完成／硬件待验证|同一LOCKED帧内解算→shadow→COMMIT→CONSUME；独立许可、watchdog、持锁超时、防同帧重复尝试；默认编译及板级门禁关闭|[P2实际结果](evidence/stm32-motion-p2-20261018/REPORT.md)：默认43/开启模型74240项0失败，340组通信故障；AC5双配置对象编译及原回归通过|不改冻结ABI；无接受ACK/采集时间戳，分别保留UNCONFIRMED/真实年龄未知；机械动作留到P5|
 |P3|参数与诊断整理、软件集成自检（STM-05～08、STM-10）|软件完成／本板启动自检通过|[P3说明](../software/stm32/INTEGRATION-P3.md)：配置/统计/单一所有者、STOP修正及有限ackstop，Keil入口齐备|[结果](evidence/stm32-integration-p3-20261018/REPORT.md)：2900/3113项、五主机场景/命令测试通过；AC5完整构建0错误0警告；新board用户实测13/0/11，额外status命令输出待补|AI完成源码/测试；用户board已返回；匹配PL就绪进入P4|
-|P4|真实FPGA基础联调（STM-01、04、06、07）|准备中／待现场启动确认和首轮日志|[完整步骤与预期](../software/stm32/FPGA-BRINGUP-P4.md)；A最新ABI/XDC静态一致，交接为工程不含bit，不以模拟器替代实测|匹配ID/ABI→SPI波形→双BIST→快照RELEASE/CONSUME→IRQ；故障/STOP/恢复逐项留实际结果，未测项不算通过|A提供匹配映像/电气条件；用户接线、仪器和运行，B分析修复|
+|P4|真实FPGA基础联调（STM-01、04、06、07）|材料齐备／待现场JTAG启动和首轮日志|[完整步骤与预期](../software/stm32/FPGA-BRINGUP-P4.md)；A最新ABI/XDC静态一致；[PR8包核对](evidence/stm32-p4-pr8-20261018/REVIEW.md)已补bit/PS7初始化/ELF，不以包核对替代实测|匹配ID/ABI→SPI波形→双BIST→快照RELEASE/CONSUME→IRQ；故障/STOP/恢复逐项留实际结果，未测项不算通过|A提供匹配映像/电气条件；用户接线、仪器和运行，B分析修复|
 |P5|真实连续帧、方向与水平闭环（STM-02、03、08、09）|待P4及现场条件|先设计可见指标与记录格式；目前不启用动作|先验证真实stream、预算/积压/丢帧、长运行和异常恢复；再做独立方向测量及机械标定，在明确动作授权后验证水平闭环|B+A协作；用户提供真实声源/标定与安全操作；P2软件通过不等于本步完成|
 
 当前P1/P2/P3软件接合已完成。下一步用户下载P3固件确认board；A匹配映像与接线就绪后进入P4，随后P5。三维已恢复离线开发，见D1～D6；真实接入待条件齐备。

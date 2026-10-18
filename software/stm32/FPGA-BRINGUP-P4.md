@@ -1,18 +1,18 @@
 # P4 两板基础联调：先运行无动作双 BIST
 
-2026-10-18。状态：已启动准备，等待现场确认映像/启动/接线及首次fpga串口；尚无P4实板结果。使用已通过用户BOARD_ONLY 13/0/11的二维Template固件，无需重新构建。三维超限构建按用户要求暂停。
+2026-10-18。状态：PR8映像与PS启动材料已核对齐备，可进入Vitis/JTAG现场启动及首轮fpga；尚无P4实板结果。使用已通过用户BOARD_ONLY 13/0/11的二维Template固件，无需重新构建。三维超限构建按用户要求暂停。
 
 ## 当前双方基线
 
 - B：P3用户串口13 PASS/0 FAIL/11 SKIP；二维APP_PROFILE=0、动作门禁关闭。[记录](../../document/evidence/stm32-p3-board-ready-20261018/REPORT.md)。
 - A：main `24f063a54efcfebd27e8f1281f870d4da77eb36a`，PR [#6](https://github.com/TophBeifong1744/SoundSight/pull/6)/[#7](https://github.com/TophBeifong1744/SoundSight/pull/7)已合入。STM32主方案实际配置/报告已接回，器件xc7z020clg400-2，顶层soundsight_stm32_bd_wrapper。已有外部工程报告WNS+0.248ns/WHS+0.036ns；不能据此声明当前板上映像身份或通信已通过。
 - 本轮直接读取A上述提交的冻结ABI文档/头，与本机规范化换行后全文一致；读取ss_control_regs.sv，ID=0x5A5A2026、ABI=0x00010000；双BIST源码向量与现有S1一致；STM32 XDC五信号/3.3V标准一致。这是静态核对，不替代真实SPI。
-- [A交接说明](https://github.com/TophBeifong1744/SoundSight/blob/24f063a54efcfebd27e8f1281f870d4da77eb36a/document/stm32-handoff.md)明确不含可直接下载bit或PYNQ启动镜像。现场bit文件名/路径、加载方法、PS初始化状态仍需用户/A补充。
+- PR8已补齐Vitis/JTAG材料：[交付入口](https://github.com/TophBeifong1744/SoundSight/tree/bf6c9b5a9d1201a16ec6a750ec3718d381420376/software/vitis/stm32)。实际XSA/工作区ZIP及位流一致性已核对，详见[核对记录](../../document/evidence/stm32-p4-pr8-20261018/REVIEW.md)。材料足够进入首轮无动作P4，现场加载/PS初始化/接线仍待确认；不要求为此补PYNQ或SD启动镜像。
 - 三维D5 Issue #5尚无回复；它不阻断本次二维P4。此次未合并A的main，也未覆盖用户Keil工程在途修改。
 
 ## 第一步：确认现场与接线
 
-使用 **STM32主方案** 映像，不使用PL+PS实验目标。由A/现场人员按其实际环境加载匹配bit和必要PS初始化；记录文件名/路径、来源工程版本、加载方式及是否完成启动。不在未明确加载环境时猜测PYNQ或JTAG命令。
+使用 **STM32主方案** 映像，不使用PL+PS实验目标。按PR8 README解包、Vitis2025.2 Set Workspace打开已有组件，重新选择本机JTAG连接。已有first_app_hw_1配置指向first/_ide/bitstream/pl_stm32.bit及first/build/first.elf，启用PS7 Init/Post Init。由现场人员启动并确认PS串口出现PS application running.，保留启动日志；不要求重建或只单独下载bit。此串口提示不能替代随后SPI身份检查。
 
 此设计FCLK0=100MHz，经Clocking Wizard得到96/100MHz及61.44MHz；冷复位来自FCLK_RESET1_N。需要PS实际提供时钟和正确释放复位，不能把下载PL成功当成接口已经运行。无应答时优先核查这两项。
 
