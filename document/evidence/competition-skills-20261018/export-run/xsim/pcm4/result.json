@@ -1,0 +1,102 @@
+{
+  "status": "PASS_SIMULATION",
+  "stage": "simulate",
+  "evidence_class": "rtl_simulation",
+  "not_run": [
+    "synthesis",
+    "timing",
+    "cdc",
+    "board",
+    "system"
+  ],
+  "runner_sha256": "80eabf73d614898636fcc599844c714480987cea66ee9e0bdbbc710f36a144e6",
+  "commands": [
+    {
+      "stage": "version",
+      "argv": [
+        "F:\\AMD\\2025.2\\Vivado\\bin\\xvlog.bat",
+        "--version"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\export-run\\xsim\\pcm4\\work",
+      "returncode": 0,
+      "timed_out": false,
+      "log_sha256": "77c08d9897bb965504c2b5d52c23b33f1ddfa900b65deaa955558153f3329bd2"
+    },
+    {
+      "stage": "compile_v",
+      "argv": [
+        "F:\\AMD\\2025.2\\Vivado\\bin\\xvlog.bat",
+        "pcm4_signext_pack.v"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\export-run\\xsim\\pcm4\\work",
+      "returncode": 0,
+      "timed_out": false,
+      "log_sha256": "4e52cc4fbdee6237b70cf91e73b7fe98be79aa2349bdf1342ec5e6ea56411b7e"
+    },
+    {
+      "stage": "compile_sv",
+      "argv": [
+        "F:\\AMD\\2025.2\\Vivado\\bin\\xvlog.bat",
+        "--sv",
+        "tb_pcm4_skill.sv"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\export-run\\xsim\\pcm4\\work",
+      "returncode": 0,
+      "timed_out": false,
+      "log_sha256": "8caf7ae29421e85c83cac741df4bfa728e54ad29732051de457b146956068732"
+    },
+    {
+      "stage": "elaborate",
+      "argv": [
+        "F:\\AMD\\2025.2\\Vivado\\bin\\xelab.bat",
+        "work.tb_pcm4_skill",
+        "-s",
+        "module_test",
+        "-timescale",
+        "1ns/1ps"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\export-run\\xsim\\pcm4\\work",
+      "returncode": 0,
+      "timed_out": false,
+      "log_sha256": "ebd90cf67c325474ef8524b82fb2a12daf08dd37e9ad5f991f3cbe367a7ed584"
+    },
+    {
+      "stage": "simulate",
+      "argv": [
+        "F:\\AMD\\2025.2\\Vivado\\bin\\xsim.bat",
+        "module_test",
+        "-runall",
+        "-log",
+        "xsim.log"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\export-run\\xsim\\pcm4\\work",
+      "returncode": 0,
+      "timed_out": false,
+      "log_sha256": "a5cd45a0b45579001008a8d71ada7ad916f7e7662db262b0b21472af95864a59"
+    }
+  ],
+  "sources": [
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\software\\build\\competition-skills-export-check\\\u72ec\u7acb\u89e3\u538b \u7a7a\u683c\\skills\\fpga-module-verification\\examples\\pcm4\\pcm4_signext_pack.v",
+      "snapshot": "inputs/pcm4_signext_pack.v",
+      "sha256": "85269ccd9991c80a2dbd507d342cc19d6e58517b9cc525520dce03b710df215a"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\software\\build\\competition-skills-export-check\\\u72ec\u7acb\u89e3\u538b \u7a7a\u683c\\skills\\fpga-module-verification\\examples\\pcm4\\tb_pcm4_skill.sv",
+      "snapshot": "inputs/tb_pcm4_skill.sv",
+      "sha256": "e35fcf8526373193977e1e7a261edb4e2b1e681a0c00efff732c8f2241be70b6"
+    }
+  ],
+  "started_utc": "2026-10-18T13:13:56.058460+00:00",
+  "python_version": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "win32",
+  "name": "pcm4",
+  "top": "tb_pcm4_skill",
+  "expected_tool_version": "2025.2",
+  "manifest_sha256": "0c598c572e80bf7629e69c7f3f79bbdfcee5efeaf4c1a5a3459a54d4a5c80017",
+  "vivado_bin": "F:\\AMD\\2025.2\\Vivado\\bin",
+  "contract_sha256": "d082595a909383cd6b6618c1ccd4cafe56aaafe666fd98acd28d9858b90262db",
+  "cases": 3,
+  "checks": 792,
+  "elapsed_seconds": 6.712398399999074
+}

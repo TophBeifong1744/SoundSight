@@ -1,0 +1,5 @@
+# Elastic stage contract
+
+Unrelated to acoustic processing. Unsigned opaque WIDTH-bit payload (WIDTH >= 1), one clock, synchronous active-low reset. Input/output accepted on valid AND ready at rising edge when not in reset. One registered slot, no combinational data bypass; latency one edge, initiation interval one cycle when downstream is ready. Empty slot accepts independently of output ready. Occupied stalled output holds data/valid. Consume-and-replace is supported. Reset clears valid/data and discards pending transaction; valid=0 payload otherwise unspecified.
+
+TB uses an accepted-transaction queue rather than reimplementing RTL next-state equations. Widths 1/8/16; directed reset with pending data, stall/hold, full throughput, fixed xorshift seed 0x12345678, 400 random cycles per width, stable stalled input and final drain. Positive self-check count and watchdog required. No CDC/AXI sidebands/IP or physical/timing claim. New teaching/reference module, not integrated production RTL.

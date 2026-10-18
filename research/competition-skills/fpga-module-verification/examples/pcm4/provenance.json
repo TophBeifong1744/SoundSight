@@ -1,0 +1,7 @@
+{
+  "origin": "C C-RTL-003; historical Skill examples-r2 actual simulation input",
+  "archive_member": "task-packages/PKG-A-SKILLS/evidence/examples-r2/pcm4/inputs/pcm4_signext_pack.v",
+  "sha256": "85269ccd9991c80a2dbd507d342cc19d6e58517b9cc525520dce03b710df215a",
+  "license": "MIT; retain original C attribution",
+  "role": "Self-contained historical example, not current production RTL; archive not needed at runtime"
+}

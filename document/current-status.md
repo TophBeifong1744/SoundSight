@@ -40,4 +40,4 @@
 | 舵机机械标定与闭环 | ACTUATOR_BOUND默认0，不默认启用输出 |
 | PS↔STM32遥测/展示 | 未冻结；主方案PS不抢STM32快照所有权 |
 
-六麦三维、声纹和旧比赛Skills放在research，保留成果但不进入当前关键路径。
+六麦三维、声纹放在research，保留成果但不进入当前关键路径。两个比赛Skills已适配新仓库：PCM示例自包含、当前路径/说明统一，仓库内离线回归与六次真实XSim验证通过；独立导出包及其配套验证见[Skills交付说明](competition-skills-delivery.md)。PYNQ真实驱动和板测仍NOT_RUN，不占用本次上板安排。

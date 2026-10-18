@@ -1,0 +1,18 @@
+{
+  "deleted": [
+    {
+      "path": "simulation/work/competition-skills-20261018",
+      "files": 771,
+      "bytes": 3436164,
+      "reason": "Task-created regenerable caches/extracted copies; all necessary logs, inputs and results archived and byte-checked"
+    },
+    {
+      "path": "software/build/competition-skills-export-check",
+      "files": 274,
+      "bytes": 898646,
+      "reason": "Task-created regenerable caches/extracted copies; all necessary logs, inputs and results archived and byte-checked"
+    }
+  ],
+  "codex_out_used": false,
+  "original_external_projects_touched": false
+}

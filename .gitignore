@@ -4,7 +4,9 @@
 /simulation/work/
 /software/build/
 /software/ps/build/
-/release/output/
+/release/output/*
+# Small reviewed competition deliverable; other generated releases remain ignored.
+!/release/output/soundsight-competition-skills.zip
 /codex_out/
 # Kept physically inside SoundSight, but not pushed as new active source/history.
 /local_archive/

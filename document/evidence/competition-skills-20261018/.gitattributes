@@ -1,0 +1,3 @@
+# Raw execution evidence and historical originals must keep their exact bytes.
+* -text -whitespace
+** -text -whitespace

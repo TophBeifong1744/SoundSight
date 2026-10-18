@@ -1,0 +1,101 @@
+{
+  "status": "FAIL_SIMULATION",
+  "stage": "simulate",
+  "evidence_class": "rtl_simulation",
+  "not_run": [
+    "synthesis",
+    "timing",
+    "cdc",
+    "board",
+    "system"
+  ],
+  "runner_sha256": "80eabf73d614898636fcc599844c714480987cea66ee9e0bdbbc710f36a144e6",
+  "commands": [
+    {
+      "stage": "version",
+      "argv": [
+        "F:\\AMD\\2025.2\\Vivado\\bin\\xvlog.bat",
+        "--version"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\final-export-run\\xsim\\two_stage\\work",
+      "returncode": 0,
+      "timed_out": false,
+      "log_sha256": "77c08d9897bb965504c2b5d52c23b33f1ddfa900b65deaa955558153f3329bd2"
+    },
+    {
+      "stage": "compile_v",
+      "argv": [
+        "F:\\AMD\\2025.2\\Vivado\\bin\\xvlog.bat",
+        "elastic_stage.v"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\final-export-run\\xsim\\two_stage\\work",
+      "returncode": 0,
+      "timed_out": false,
+      "log_sha256": "105b32bd1d1d8c2cc72b903154a20a7b8adc63483b262094c8e3c1356b742d19"
+    },
+    {
+      "stage": "compile_sv",
+      "argv": [
+        "F:\\AMD\\2025.2\\Vivado\\bin\\xvlog.bat",
+        "--sv",
+        "tb_elastic.sv"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\final-export-run\\xsim\\two_stage\\work",
+      "returncode": 0,
+      "timed_out": false,
+      "log_sha256": "58494081487b5abf1df0cc0625f3f1d1fade04a932d9c0aa87bfeeb41aeeb611"
+    },
+    {
+      "stage": "elaborate",
+      "argv": [
+        "F:\\AMD\\2025.2\\Vivado\\bin\\xelab.bat",
+        "work.tb_elastic",
+        "-s",
+        "module_test",
+        "-timescale",
+        "1ns/1ps"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\final-export-run\\xsim\\two_stage\\work",
+      "returncode": 0,
+      "timed_out": false,
+      "log_sha256": "b45646c5bb57ffd5d09dc2b31c00d0f1df91913c6a62fc67e45ac21a6d056100"
+    },
+    {
+      "stage": "simulate",
+      "argv": [
+        "F:\\AMD\\2025.2\\Vivado\\bin\\xsim.bat",
+        "module_test",
+        "-runall",
+        "-log",
+        "xsim.log"
+      ],
+      "cwd": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\final-export-run\\xsim\\two_stage\\work",
+      "returncode": 0,
+      "timed_out": false,
+      "log_sha256": "858e329d1c0ded10a6353a4aa2d0ee592066aa161bc12eb5987138e8266423b3"
+    }
+  ],
+  "sources": [
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\final-export-run\\xsim\\fixtures\\two_stage\\elastic_stage.v",
+      "snapshot": "inputs/elastic_stage.v",
+      "sha256": "a3e70dfe02200e91e411f8f6d41a38f54cd4ff1e839c20ab38b21b9388498b96"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\competition-skills-20261018\\final-export-run\\xsim\\fixtures\\two_stage\\tb_elastic.sv",
+      "snapshot": "inputs/tb_elastic.sv",
+      "sha256": "15dd48ef072b6aeae4fd56961ff1025c56c15e19e8d42ce7ece75ff1a37cb4f7"
+    }
+  ],
+  "started_utc": "2026-10-18T13:19:12.098194+00:00",
+  "python_version": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "win32",
+  "name": "elastic",
+  "top": "tb_elastic",
+  "expected_tool_version": "2025.2",
+  "manifest_sha256": "0beb4fc4fa2e76fe0eb274389cdd7043affd29330fd57259d8a985b6442258d2",
+  "vivado_bin": "F:\\AMD\\2025.2\\Vivado\\bin",
+  "contract_sha256": "1eebb98f2b6dcc05a3dcb56cb9193fe684424b5ccdc44dd78440e62e9f61e383",
+  "first_failure": "Fatal: SKILL_FAIL one_edge_valid width=1 cycle=2 after_edge=1 expected=1 actual=0",
+  "elapsed_seconds": 8.389792699999816
+}
