@@ -20,3 +20,4 @@
 *.bin binary
 *.ckpt binary
 *.zip binary
+*.xsa binary

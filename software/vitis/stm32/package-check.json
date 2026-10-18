@@ -1,0 +1,77 @@
+{
+  "status": "PASS_PACKAGE_CHECKS_ONLY",
+  "vitis_version": "2025.2",
+  "platform": "pl_stm32_platform",
+  "application": "first",
+  "processor": "ps7_cortexa9_0",
+  "os": "standalone",
+  "archive_files": 1557,
+  "archive_bytes": 8148948,
+  "uncompressed_bytes": 39104764,
+  "standalone_xsa_bytes": 728431,
+  "included_components_match_original_bytes": false,
+  "source_files_stable_during_copy": true,
+  "xsa_zip_integrity": "PASS",
+  "embedded_and_three_copied_bitstreams_match": true,
+  "xsa_copies_match": true,
+  "existing_elf_files": {
+    "first/build/first.elf": {
+      "format": "ELF32 little-endian ARM",
+      "bytes": 160576
+    },
+    "pl_stm32_platform/zynq_fsbl/build/fsbl.elf": {
+      "format": "ELF32 little-endian ARM",
+      "bytes": 356288
+    },
+    "pl_stm32_platform/export/pl_stm32_platform/sw/boot/fsbl.elf": {
+      "format": "ELF32 little-endian ARM",
+      "bytes": 356288
+    }
+  },
+  "existing_build_status": {
+    "platform": "export=SUCCESS (2026-10-18 20:00:34 CST)",
+    "application": "hw=SUCCESS (2026-10-18 20:00:38 CST)"
+  },
+  "exclusions": [
+    "workspace _ide except version.ini",
+    ".rigel_lopper",
+    ".Xil",
+    ".git",
+    "logs, locks, debugger peer identity",
+    "CMakeFiles, CMakeCache, Ninja cache, objects, compile_commands.json",
+    ".clangd and generated hash-map",
+    "BSP build_configs intermediates",
+    "generated memory.map (historical linker paths)"
+  ],
+  "explicitly_skipped_files": 82,
+  "original_absolute_paths_preserved_inside_snapshot": false,
+  "official_vitis_export_archive": false,
+  "ide_import_rebuild_download_board_tests": "NOT_RUN",
+  "main_source_only_inside_application_archive": true,
+  "original_vivado_xsa_matches": true,
+  "relative_path_entries": 61,
+  "normalized_metadata_files": [
+    "first/src/app.yaml",
+    "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/bsp.yaml",
+    "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/lib_list.yaml",
+    "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/bsp.yaml",
+    "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/lib_list.yaml",
+    "pl_stm32_platform/vitis-comp.json",
+    "pl_stm32_platform/zynq_fsbl/app.yaml",
+    "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+    "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/lib_list.yaml"
+  ],
+  "unchanged_content": "All retained original files except the listed metadata files match the source bytes; main.c, XSA, BIT, ELF and BSP libraries are unchanged.",
+  "local_path_preparation": "Relative archive metadata is materialized only into the selected external workspace; no project generation/build/EDA.",
+  "relative_paths_and_unpack_checks": {
+    "status": "PASS",
+    "relative_archive_paths": 61,
+    "local_metadata_files": 9,
+    "all_unmodified_payloads_preserved": true,
+    "relocated_workspace_with_spaces_and_chinese": true,
+    "existing_workspace_rejected": true,
+    "unsafe_zip_rejected_before_writing": true,
+    "eda_started": false,
+    "vitis_open_or_native_build": "NOT_RUN"
+  }
+}
