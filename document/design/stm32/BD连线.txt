@@ -37,7 +37,7 @@ debug_frontend[3:0]、debug_backend[4:0]属于100MHz；fault_status属于61.44MH
 本次没有运行综合/实现/板测。BD通过只说明结构可由工具生成，不说明100MHz已经物理收敛。
 
 手动新建工程时
-器件xc7z020clg400-1，Vivado2025.2。按project/script/src_list.txt注册文件，含project/rtl/hann-u18f17.mem；不要把全部回归参考模块设为顶层。
+器件xc7z020clg400-2，Vivado2025.2。按project/script/src_list.txt注册文件，含project/rtl/hann-u18f17.mem；不要把全部回归参考模块设为顶层。
 FFT配置配方是project/ip/create_fft_ip.tcl：在已打开工程的Tcl Console先设置 destination 为本工程的输出目录，再source该文件；创建的两个IP模块名必须为ss_fft29和ss_ifft25。不要直接注册project/ip/reference中的旧XCI。
 时钟与复位的精确配置见project/ip/create_platform_clock.tcl；若手动连线，按本文件末尾逐线表核对。不要在手动已创建相同单元的BD里重复source创建配方。
 Make External得到DDR_0和FIXED_IO_0；PL外部端口名必须与XDC一致。生成wrapper后顶层为soundsight_stm32_bd_wrapper。

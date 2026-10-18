@@ -25,7 +25,7 @@
 ## 原件位置
 
 - `originals/`：用户原先保存的赛题指南、FAQ与测试文件。本次未查询官网新版本。
-- `../history/competition-acceptance.md`等：有日期的旧验收/声学计划原文。其中旧日程、成员流程、`-2`器件记录等不作为新工程当前配置；当前实际目标为`xc7z020clg400-1`。
+- `../history/competition-acceptance.md`等：有日期的旧验收/声学计划原文。旧日程和成员流程不作为当前操作依据；当前实际目标按用户2026-10-18更正统一为`xc7z020clg400-2`。历史报告中的器件信息保留原文，不自动转为当前目标的验证结果。
 - `../../local_archive/legacy-technical.zip`：旧录音、对照结果、算法/工作包原件和报告素材，保留原相对路径。
 
 日常工程按本项目README、AGENTS、current-status和实际新报告推进，不执行旧资料里的过期派工。

@@ -2,8 +2,8 @@
 
 所有路径相对SoundSight根目录。入口：project/script/run.bat prepare ps；已有工程用open ps；仅生成输出用outputs ps。工程位于variants/pl_ps/project/par/SoundSight_PS.xpr，顶层soundsight_ps_bd_wrapper。
 
-用户已明确自行配置DDR、真实PS板级参数和PYNQ镜像。这里提供片内接合与软件，不把旧-2器件配置用于当前xc7z020clg400-1。
-本候选已在Vivado2025.2独立目录实际Validate、生成wrapper及官方IP输出；synth_1、impl_1均未启动。
+用户已明确自行配置DDR、真实PS板级参数和PYNQ镜像。这里提供片内接合与软件，当前目标器件统一为xc7z020clg400-2。
+迁移阶段曾在Vivado2025.2独立目录实际Validate、生成wrapper及官方IP输出；这些记录对应当时配置。本次统一器件后未重新Validate或生成IP输出，synth_1、impl_1均未启动。
 
 时钟和复位
 与主方案采用相同PS FCLK100→Clocking Wizard→100/61.44MHz结构，具体端口见时钟复位.txt。
@@ -32,7 +32,7 @@ run_capture.py从用户实际HWH读取地址与范围；单一进程持有控制
 无须DMA搬120字节特征；这里没有原始PCM/频谱采样通道。
 
 用户自行完成的实际配置
-DDR型号、容量、位宽、速率、走线/训练；MIO外设/电平；合法-1 PS时钟树和参考晶振；匹配的启动及PYNQ镜像。
+DDR型号、容量、位宽、速率、走线/训练；MIO外设/电平；符合-2器件规格的PS时钟树和参考晶振；匹配的启动及PYNQ镜像。
 保持FCLK0=100MHz、两个复位端口，以及上述分域连线。确认平台初始化释放FCLK_RESET1_N，普通总线恢复只用RESET0，时钟丢失恢复用RESET1冷重启。
 配置后Validate并生成HWH，再自行点击综合/实现。ARM实际编译运行、最坏调度时间、真实音频、机械闭环仍需实测。
 

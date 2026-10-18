@@ -7,7 +7,7 @@
 - 本目录是新的独立项目；不依赖旧 Competition_fpga 仓库或旧F盘工程。
 - 先读 README.md、document/current-status.md 和当前任务必要接口，不从旧历史重新派工。
 - FPGA+STM32为主方案；PL+PS是独立目标。两版公共RTL只有project/rtl一份，S1及冻结头只有software/common一份。
-- 器件xc7z020clg400-1、Vivado2025.2。PS FCLK经Clocking Wizard生成100MHz计算域、61.44MHz采集/控制域。复位使用官方IP，普通总线复位与冷复位分开。
+- 器件xc7z020clg400-2、Vivado2025.2。PS FCLK经Clocking Wizard生成100MHz计算域、61.44MHz采集/控制域。复位使用官方IP，普通总线复位与冷复位分开。
 - 公共合同在software/common/FROZEN_SSOT_ABI.md及fpga_stm32_abi_frozen.h；数值、SPI字段、停止语义不能单方修改。
 - 真实PS板级DDR/MIO/PYNQ由用户配置。STM32 S2/板级驱动由STM32组接续，不把占位目录说成已完成软件。
 
