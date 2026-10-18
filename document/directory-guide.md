@@ -26,6 +26,7 @@ SoundSight/
     common/               冻结ABI、共享头、原S1求解器及原测试
     stm32/                STM32板级交接和后续S2入口
     ps/                   AXI客户程序、PYNQ应用、C求解桥
+    vitis/stm32/          小型裸机XSA与platform/application交接包，不展开第二份main
     tests/                PC验证
     build/                软件测试/编译输出
   hardware/               板卡、麦克风、电气资料、照片、接线
@@ -42,6 +43,8 @@ SoundSight/
 ```
 
 ## 对工作流目录的适配
+
+软件侧Vitis交接放在`software/vitis/stm32`，与`project`下Vivado源码、BD配方及实现报告分开。此处按用户授权提交固定入口的XSA和工作区ZIP，不把它们误放到被忽略的临时构建目录。ZIP内工程引用同样必须相对化；厂商需要的本机绝对路径仅在解压后的本地副本生成。原始二进制和必要构建状态保留，缓存/私有连接排除。详见该目录README和AGENTS的Vitis约定。
 
 采用已安装fpga-team-workflow 0.3.1、run-fpga-workflow本地0.5.0中的Git/目录原则。当前项目已有有效XSim验证，因此继续使用XSim；`vsim.do`存放它接受的Tcl仿真命令，不声称运行了ModelSim/Questa。
 

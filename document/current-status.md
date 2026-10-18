@@ -10,6 +10,12 @@
 
 外部工程布线后报告：WNS +0.248 ns、WHS +0.036 ns；LUT 13894、FF 14458、BRAM 25、DSP 41。本批没有重跑Vivado，未把静态比对当作配方重建通过或系统功能通过。PS独立目标不继承这次实现结果。完整文件清单、原件和边界见[工程交接说明](stm32-handoff.md)。
 
+## Vitis小型裸机交接
+
+用户已完成Vitis 2025.2的pl_stm32_platform和first，目标ps7_cortexa9_0/standalone；现有构建记录显示平台和应用成功。XSA（含bit）、组件包及本机路径准备工具归入[software/vitis/stm32](../software/vitis/stm32/README.md)。main只打印启动信息并休眠，源码仅随application包保留，不与PYNQ业务代码混淆。
+
+交付ZIP内九份元数据的61项路径改为相对引用；仅在接收方工作副本中填写厂商必需的本机路径。XSA/bit/ELF与应用代码未改写，解压和路径核验通过；本次未打开Vitis、重新编译或上板，既有构建记录不等于实机启动验证。
+
 ## 已有成果
 
 - 简化后的采集/分窗/预处理/官方FFT/六对PHAT与IFFT/整帧封存。
