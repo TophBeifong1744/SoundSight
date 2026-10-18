@@ -51,7 +51,7 @@ SoundSight/
 ## 源码与历史的界限
 
 - `project/rtl`是唯一正式维护的RTL；外部工程允许有本批工作副本，验证后对比接回。旧单域tile/clock参考文件仍在其中供原用例编译，正式两目标源清单明确排除。
-- `project/ip/reference`是固定版本官方模型/配置参考，不能把其中旧生成目录直接注册进新工程；准备脚本在新par内正式重建IP。
+- `project/ip/reference`是固定版本官方模型/配置参考，保留生成时的器件元数据，不手改厂商输出。当前目标统一为`xc7z020clg400-2`；不能把参考中的旧生成目录直接注册进新工程，准备脚本在新par内按当前目标正式重建IP。参考模型用于仿真不构成当前目标的IP生成或时序证据。
 - `document/design`和Word使用当前SoundSight路径与操作入口；两版逐线连接分别见`document/design/stm32/BD连线.txt`和`document/design/ps/PS平台.txt`。完整当前源码链接集中在`document/modules/RTL-INTERFACES.html`。历史原始日志仍保留原路径，不作为新操作入口。
 - `software/common`只维护一份冻结合同与S1。两版同时引用，避免两边各自改出不同协议。
 - `local_archive`保留历史原件，旧脚本不作为新运行入口。旧Git提交图没有搬入新Git。

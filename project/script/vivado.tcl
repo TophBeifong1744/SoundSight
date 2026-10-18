@@ -19,7 +19,7 @@ namespace eval ss_project {
             if {[file tail $existing] ne "_launcher"} {error {Output directory contains existing work; preparation does not overwrite it}}
         }
         file mkdir $destination
-        create_project $project_name $destination -part xc7z020clg400-1
+        create_project $project_name $destination -part xc7z020clg400-2
         set_property target_language Verilog [current_project]
         set_property simulator_language Mixed [current_project]
         set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY XPM_FIFO} [current_project]
@@ -48,7 +48,7 @@ namespace eval ss_project {
         }
         update_compile_order -fileset sources_1
         set handle [open [file join $destination prepared.txt] w]
-        puts $handle "variant=$variant\npart=xc7z020clg400-1\nvivado=[version -short]\nPS_DDR_MIO=user_configuration_required\nsynthesis=NOT_RUN\nimplementation=NOT_RUN"
+        puts $handle "variant=$variant\npart=xc7z020clg400-2\nvivado=[version -short]\nPS_DDR_MIO=user_configuration_required\nsynthesis=NOT_RUN\nimplementation=NOT_RUN"
         close $handle
         puts "SOUNDSIGHT_PREPARED $destination; no synthesis, implementation or hardware action"
     }

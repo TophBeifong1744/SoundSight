@@ -1,6 +1,6 @@
 # FPGA＋STM32：仓库外手工搭建
 
-本页适用于Vivado 2025.2、xc7z020clg400-1。用户选择仓库外工作目录；当前不使用仓库run.bat建工程。先建RTL Project，勾选Do not specify sources at this time，再选择准确器件。
+本页适用于Vivado 2025.2、xc7z020clg400-2。用户选择仓库外工作目录；当前不使用仓库run.bat建工程。先建RTL Project，勾选Do not specify sources at this time，再选择准确器件。
 
 ## 添加源码
 
