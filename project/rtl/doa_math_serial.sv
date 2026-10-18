@@ -31,7 +31,7 @@ module doa_math_serial (
   assign add_full={1'b0,add_a}+{1'b0,(add_b^{194{subtract}})}+subtract;
   assign add_value=add_full[193:0];
   assign no_borrow=add_full[194];
-  assign equal_value=(add_value==0);
+  assign equal_value=(add_a==add_b);
   always_comb begin
     add_a=0;add_b=0;subtract=0;
     case(phase)
