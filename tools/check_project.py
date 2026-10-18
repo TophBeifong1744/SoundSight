@@ -12,7 +12,7 @@ def main():
             p=(ROOT/name).resolve()
             if not p.is_relative_to(ROOT) or not p.is_file():errors.append('missing/outside source: '+name)
         counts[rel]=len(lines)
-    live=['project/rtl','project/script','project/bd','tools','simulation/models','software/ps','software/tests']
+    live=['project/rtl','project/script','project/bd','project/ip','tools','simulation/models','software/ps','software/tests']
     scripts=[]
     for base in live:
         for p in (ROOT/base).rglob('*'):

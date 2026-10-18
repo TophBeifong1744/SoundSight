@@ -1,6 +1,6 @@
 时钟、复位和跨域连接（2026-10-17核对新工程）
 
-路径均相对SoundSight根目录；共同配置见project/ip/create_platform_clock.tcl，PS附加总线配置见project/bd/ps.tcl。
+路径均相对SoundSight根目录；STM32实际导出配方见project/bd/stm32.tcl及project/ip/ps7_stm32.tcl。project/ip/create_platform_clock.tcl现由独立PS版使用，PS附加总线配置见project/bd/ps.tcl。2026-10-18接回说明见document/stm32-handoff.md。
 
 主方案与独立PS版都从BD中的PS7取时钟，不再接外部PL sys_clk/U18。
 PS7/FCLK_CLK0 = 100MHz → clk_main（Clocking Wizard）。clk_main输出1为96MHz，只送第二个clk_audio；输出2为100MHz，送计算与PS侧AXI。

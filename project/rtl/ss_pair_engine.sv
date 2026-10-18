@@ -83,7 +83,7 @@ module ss_pair_engine (
     logic [49:0] spectrum_read [0:3];
     logic [49:0] spectrum_a,spectrum_b;
     logic cross_phase;
-    logic [1:0] normal_phase;
+    logic [2:0] normal_phase;
     logic [2:0] math_phase;
     logic signed [49:0] product_arbr,product_aibi,product_aibr,product_arbi;
     logic signed [50:0] cross_re_exact,cross_im_exact;
@@ -122,9 +122,10 @@ module ss_pair_engine (
     logic signed [24:0] second_peak;
     logic second_valid;
     logic [114:0] mask_scaled_square;
+    logic [114:0] mask_scaled_square_q;
     wide_t normal_square;
     logic [51:0] normalized;
-    integer i,j,a_ch,b_ch,dx,dy,addr_a,addr_b,next_half_index,scan_index,left_index,right_index;
+    integer i,j,a_ch,b_ch,dx,dy,next_half_index,scan_index,left_index,right_index;
 
     wire raw_ok=(state==NEXT_PAIR) && pair_valid[pair_id] && !killed;
     reg [3:0] raw_phat_stage,raw_ifft_stage;
@@ -191,7 +192,6 @@ module ss_pair_engine (
         4:begin a_ch=1;b_ch=3;dx=-1;dy=1;end
         default:begin a_ch=2;b_ch=3;dx=-1;dy=0;end
       endcase
-      addr_a=a_ch*513+k; addr_b=b_ch*513+k;
       spectrum_a=spectrum_read[a_ch];spectrum_b=spectrum_read[b_ch];
       // 25位输入的单乘积精确占50位，加/减精确占51位。
       product_arbr=$signed(spectrum_a[49:25])*$signed(spectrum_b[49:25]);
@@ -335,18 +335,35 @@ module ss_pair_engine (
             end
           end
           NORMALIZE: begin
-            if(killed) begin pair_state[pair_id*4+:4]<=CANCELLED;pair_physically_retired[pair_id]<=1;state<=NEXT_PAIR;normal_phase<=0;end
+            if(killed) begin
+                pair_state[pair_id*4+:4]<=CANCELLED;
+                pair_physically_retired[pair_id]<=1;
+                state<=NEXT_PAIR;normal_phase<=0;
+            end
             else case(normal_phase)
               0: begin
-                if(k>=7 && k<=85) begin phat_half[k-7]<=0;normal_phase<=3;end
-                else if(k==512) state<=PHAT_FINAL;
-                else k<=k+1;
-              end
+                    if(k>=7 && k<=85) begin
+                        phat_half[k-7]<=0;
+                        normal_phase<=3;
+                    end
+                    else if(k==512) state<=PHAT_FINAL;
+                    else k<=k+1;
+                end
               3: begin
-                // 当前bin同步读出后才判mask/发PHAT，禁止读取未写空间。
-                if(normal_square>0 && mask_scaled_square>={12'd0,maximum_square}) begin
-                  mask_count<=mask_count+1;normal_phase<=1;
-                end else begin normal_phase<=0;k<=k+1;end
+                // 先寄存完整乘积。
+                mask_scaled_square_q <= mask_scaled_square;
+                normal_phase <= 4;
+              end
+              4: begin
+                // 下一拍使用寄存乘积做比较。
+                if (normal_square > 0 &&
+                    mask_scaled_square_q >= {12'd0, maximum_square}) begin
+                  mask_count <= mask_count + 1;
+                  normal_phase <= 1;
+                end else begin
+                  normal_phase <= 0;
+                  k <= k + 1;
+                end
               end
               1: if(phat_start) normal_phase<=2;
               2: if(phat_done) begin

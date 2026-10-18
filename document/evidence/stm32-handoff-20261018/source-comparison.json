@@ -1,0 +1,141 @@
+{
+  "external_project": "F:/AMD/work/SoundSight_STM32",
+  "compared_current_disk_files": [
+    {
+      "file": "project/rtl/doa_math_pkg.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/bd_clean_compute.v",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/bd_stm32_link.v",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/doa_math_serial.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/doa_phat_client.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/f1a_frame_store.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/fft29_official.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/i17_turntable_pwm_guard.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/ifft25_official.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/motor_drive.v",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/pdm_cic3.v",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/ss_actuator_control.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/ss_async_word.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/ss_bist_source.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/ss_clean_compute.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/ss_control_regs.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/ss_dual_compute.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/ss_fft_frontend.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/ss_pair_engine.sv",
+      "match": "trailing_whitespace_only"
+    },
+    {
+      "file": "project/rtl/ss_pcm_windows.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/ss_pdm_capture.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/ss_preprocess.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/ss_snapshot_queue.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/ss_spi_mode0.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/ss_stm32_link.sv",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/rtl/hann-u18f17.mem",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/sdc/stm32/board_pins.xdc",
+      "match": "text_identical"
+    },
+    {
+      "file": "project/sdc/stm32/interface_timing.xdc",
+      "match": "text_identical"
+    }
+  ],
+  "resolved_ip_parameters": {
+    "soundsight_stm32_bd_processing_system7_0_0.xci": {
+      "PCW_UIPARAM_DDR_BUS_WIDTH": "32 Bit",
+      "PCW_UIPARAM_DDR_PARTNO": "MT41J256M16 RE-125",
+      "PCW_UIPARAM_DDR_FREQ_MHZ": "533.333333",
+      "PCW_PRESET_BANK0_VOLTAGE": "LVCMOS 3.3V",
+      "PCW_PRESET_BANK1_VOLTAGE": "LVCMOS 1.8V"
+    },
+    "soundsight_stm32_bd_proc_sys_reset_0_0.xci": {
+      "C_EXT_RESET_HIGH": "0",
+      "C_AUX_RESET_HIGH": "0"
+    },
+    "soundsight_stm32_bd_proc_sys_reset_0_1.xci": {
+      "C_EXT_RESET_HIGH": "0",
+      "C_AUX_RESET_HIGH": "0"
+    },
+    "soundsight_stm32_bd_xpm_cdc_gen_0_0.xci": {
+      "RST_ACTIVE_HIGH": "false"
+    },
+    "soundsight_stm32_bd_xpm_cdc_gen_0_1.xci": {
+      "RST_ACTIVE_HIGH": "false"
+    }
+  },
+  "limitation": "Disk comparison does not independently prove the source content used at the time of the routed checkpoint."
+}

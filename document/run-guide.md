@@ -44,9 +44,11 @@
 
 在已打开Vivado的Tcl Console，也可source `project/script/vivado.tcl`后调用`ss_project::prepare stm32|ps`、`ss_project::outputs`。准备前必须关闭当前工程，脚本不会接管用户已打开的其他项目。
 
+实际STM32配置已从2026-10-18用户导出接回，文件与参数见[交接说明](stm32-handoff.md)。旧的已有par工程不会被自动更新；prepare只用于新的输出目录。
+
 ## 用户手动配置与构建
 
-1. 阅读BD，按真实板卡设置PS7 DDR/MIO/参考时钟和PYNQ启动配置；保留FCLK0=100MHz、RESET0与RESET1的用途。
+1. STM32版已带用户导出的PS7配置，仍需核对接收方板卡与启动方式；独立PS版DDR/MIO及PYNQ仍由用户配置。保留FCLK0=100MHz、RESET0与RESET1的用途。
 2. Validate Design并生成输出后，由用户点击Run Synthesis，再按报告决定是否Run Implementation。
 3. 完成run后source `tools/export_reports.tcl`，调用`ss_reports::save synth`或`ss_reports::save impl`。
 4. 报告写入该项目par内的reports；导出命令不会启动下一阶段。
