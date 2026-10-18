@@ -5,9 +5,9 @@
   "application": "first",
   "processor": "ps7_cortexa9_0",
   "os": "standalone",
-  "archive_files": 1557,
-  "archive_bytes": 8148948,
-  "uncompressed_bytes": 39104764,
+  "archive_files": 1554,
+  "archive_bytes": 8128884,
+  "uncompressed_bytes": 39089057,
   "standalone_xsa_bytes": 728431,
   "included_components_match_original_bytes": false,
   "source_files_stable_during_copy": true,
@@ -33,7 +33,7 @@
     "application": "hw=SUCCESS (2026-10-18 20:00:38 CST)"
   },
   "exclusions": [
-    "workspace _ide except version.ini",
+    "workspace-level _ide and .gitignore; no outer Vitis directory",
     ".rigel_lopper",
     ".Xil",
     ".git",
@@ -43,7 +43,6 @@
     "BSP build_configs intermediates",
     "generated memory.map (historical linker paths)"
   ],
-  "explicitly_skipped_files": 82,
   "original_absolute_paths_preserved_inside_snapshot": false,
   "official_vitis_export_archive": false,
   "ide_import_rebuild_download_board_tests": "NOT_RUN",
@@ -72,6 +71,24 @@
     "existing_workspace_rejected": true,
     "unsafe_zip_rejected_before_writing": true,
     "eda_started": false,
-    "vitis_open_or_native_build": "NOT_RUN"
-  }
+    "vitis_open_or_native_build": "NOT_RUN",
+    "component_only_root_verified": true,
+    "old_wrapper_rejected_before_writing": true,
+    "missing_component_rejected_before_writing": true,
+    "cli_unpack_passed": true
+  },
+  "archive_name": "vitis_components.zip",
+  "archive_top_level_directories": [
+    "first",
+    "pl_stm32_platform"
+  ],
+  "path_manifest_outside_archive": true,
+  "component_payloads_match_previous_relative_archive": true,
+  "initial_source_packaging_explicitly_skipped_files": 82,
+  "repack_removed_workspace_files": [
+    ".gitignore",
+    "_ide/version.ini"
+  ],
+  "repack_externalized_manifest": "path-bases.json",
+  "check_harness_correction": "Initial string comparison resolved an installed Vitis junction only on the expected side; valid Vitis/data and shared data paths differ as strings. Corrected the checker to compare the selected base plus relative path and verify existence; no package path change was required."
 }

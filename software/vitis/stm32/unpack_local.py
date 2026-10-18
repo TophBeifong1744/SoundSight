@@ -9,7 +9,8 @@ import zipfile
 HERE = Path(__file__).resolve().parent
 
 
-def unpack(workspace, vitis_root, archive=HERE / "vitis_workspace.zip"):
+def unpack(workspace, vitis_root, archive=HERE / "vitis_components.zip",
+           path_bases=HERE / "path-bases.json"):
     workspace = Path(workspace).resolve()
     vitis_root = Path(vitis_root).resolve()
     if workspace.exists():
@@ -24,17 +25,22 @@ def unpack(workspace, vitis_root, archive=HERE / "vitis_workspace.zip"):
         files = {}
         for item in z.infolist():
             name = PurePosixPath(item.filename)
-            if (not name.parts or name.parts[0] != "Vitis" or
+            if (not name.parts or name.parts[0] not in {"first", "pl_stm32_platform"} or
                     ".." in name.parts or "\\" in item.filename or ":" in item.filename):
                 raise ValueError("ZIP 中存在不安全路径")
             if item.is_dir():
                 continue
-            rel = PurePosixPath(*name.parts[1:]).as_posix()
-            if rel in files or rel == ".":
+            rel = name.as_posix()
+            if rel in files or len(name.parts) < 2:
                 raise ValueError("ZIP 中存在重复/无效文件名")
             files[rel] = z.read(item)
 
-    mapping = json.loads(files["path-bases.json"])
+    for component in ("first", "pl_stm32_platform"):
+        if component + "/vitis-comp.json" not in files:
+            raise ValueError("ZIP 缺少组件配置: " + component)
+
+    # 路径清单随工具单独交接；ZIP 和目标工作区只放两个组件。
+    mapping = json.loads(Path(path_bases).read_text(encoding="utf-8"))
     changed = set()
     for entry in mapping["paths"]:
         rel = PurePosixPath(entry["relative"])
