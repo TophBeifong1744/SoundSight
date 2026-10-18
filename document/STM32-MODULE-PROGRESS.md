@@ -26,17 +26,17 @@
 
 |对应工作包|待办／状态|下一责任与所需材料|
 |---|---|---|
-|P3 本板确认|本板确认已启动：[当前二维固件重建0错误0警告](evidence/stm32-p3-board-ready-20261018/REPORT.md)，待用户下载及串口；现有真实记录仍11/0/11，新版13/0/11为预期|用户下载后提供串口全文；B分析异常|
+|P3 本板确认|[用户新串口已确认13 PASS/0 FAIL/11 SKIP](evidence/stm32-p3-board-ready-20261018/REPORT.md)，启动自检完成；status命令回读待补|用户可补status全文；匹配PL/接线就绪后P4|
 |P4 真实FPGA基础联调|待匹配PL映像和接线就绪；真实ID/ABI、SPI波形、双BIST、快照、IRQ、超时/STOP/恢复未验证|A提供匹配映像/电气条件，用户接线及运行，B分析|
 |P5 连续帧与水平闭环|待P4；真实时延/积压/丢帧、独立方向误差、水平机构标定与闭环未验证|A/B与现场人员；动作须明确启用|
-|D1 三维固件链接|阻断：[本次只读复核](evidence/stm32-p3-board-ready-20261018/tool-edition.txt)armcc/armlink均为MDK-ARM Lite 5.36；旧D1 O2映像33936字节触发L6047U，后续大小未重测|用户确认合法可用授权环境，或另行确定并验证工具链；B续做链接/板端耗时与栈检查|
+|D1 三维固件链接|阻断：[本次只读复核](evidence/stm32-p3-board-ready-20261018/tool-edition.txt)armcc/armlink均为MDK-ARM Lite 5.36；旧D1 O2映像33936字节触发L6047U，后续大小未重测|用户正在配置授权，已要求暂停超限相关构建；通知恢复后B再核查/链接，随后板端耗时与栈检查|
 |D2/D3 实测补充|软件完成；四面体实物、声孔坐标/通道及误差上界、真实六对特征和独立方向基准待补|现场制作/测量，B配置与回放；无参考时不报告真实精度|
 |D5 三维Profile对齐|[Issue #5](https://github.com/TophBeifong1744/SoundSight/issues/5)已请求A对齐／待回复；通道、lag符号、搜索窗口/频带与真实3D启用条件待确认|B已上传对齐稿，A反馈实际PL条件|
 |D5 双轴设备接合|[Issue #5](https://github.com/TophBeifong1744/SoundSight/issues/5)已请求A反馈／待共同设计实施：双轴命令、原子性、两路PWM、STOP/看门狗保护；D4软件目标不是现有设备命令|A/B共同确认接口，用户决定运动策略与机构；不单方改冻结ABI|
 |D6 三维实板与双轴闭环|待D1～D5及实物：实际性能、声学误差、双轴零点/方向/限位/策略和闭环|用户现场操作，A/B协作；D4示例参数不是标定|
 |STM-14 PS遥测／界面|后续扩展，未定义，不作为当前二维SPI联调前置|A/B确定通信介质、消息及请求权限后再实现|
 
-D5对齐材料已上传并在[Issue #5](https://github.com/TophBeifong1744/SoundSight/issues/5)指派A，待回复；P4需A的匹配映像/现场条件，三维完整链接需工具条件。当前没有新增硬件运行结果，不提升这些状态。
+D5对齐材料已上传并在[Issue #5](https://github.com/TophBeifong1744/SoundSight/issues/5)指派A，待回复；P4需A的匹配映像/现场条件，三维完整链接需工具条件。仅P3新增用户本板13/0/11结果；没有新增跨板/三维/动作运行结果。
 
 ## 当前二维主线
 
@@ -48,10 +48,10 @@ D5对齐材料已上传并在[Issue #5](https://github.com/TophBeifong1744/Sound
 |STM-04|S2通用SPI／锁帧／释放消费／故障恢复|代码与PC模型完成；跨板待验证|[驱动](../software/stm32/src/fpga_link.c)、[接口](../software/stm32/include/fpga_link.h)；15980项，含160组逐事务故障|实际ID/ABI、双BIST、39+1事务、RELEASE/CONSUME和错误恢复|B；依赖A匹配映像及接线|
 |STM-05|F407启动、128MHz、串口、HAL/TIM2/DWT|原板本地检查通过|[板端原日志](evidence/stm32-board-20261017/board-only-user-uart.log)；50ms/50001us相对计时、DWT正常|新目录复建固件若重新下载需留运行记录；时钟未外部仪器校准|B；用户操作下载|
 |STM-06|SPI1/GPIO/EXTI与安全初态|适配已实现；本板配置检查通过|[板级源码](../software/stm32/keil/soundsight_f407/User/soundsight_board.c)；CS/Flash安全高、写门禁通过|实际1MHz/40时钟/CS波形、IRQ电平/边沿与电气故障；寄存器回读不替代测量|B；A确认3.3V/XDC，人工接线/仪器|
-|STM-07|统一board/fpga/stream诊断入口|P3已接合，旧board实测通过；新固件待板测|[P3说明](../software/stm32/INTEGRATION-P3.md)；新主机board13/0/11、五场景及命令测试通过；原板11/0/11保留|用户下载并回传新board日志；真实fpga/stream待P4/P5|B准备；用户运行|
+|STM-07|统一board/fpga/stream诊断入口|P3已接合，新board实测13/0/11通过|[P3说明](../software/stm32/INTEGRATION-P3.md)；新主机board13/0/11、五场景及命令测试通过；原板11/0/11保留|status命令回读待补；真实fpga/stream待P4/P5|B准备；用户运行|
 |STM-08|真实连续帧消费与运行预算|P3有限入口及统计完成；未实测|默认2秒/8帧，可配置；单一取帧所有者、丢帧/队列/step耗时及停止日志|真实帧率、读取/解算耗时、积压/丢帧、连续IRQ、长运行与恢复|B与A；依赖持续出帧|
 |STM-09|运行控制状态机／实际动作提交|P1/P2/P3软件完成；实物动作禁用|[P3结果](evidence/stm32-integration-p3-20261018/REPORT.md)：STOP显式禁用修正，P1 27104项，P2 43/74240，P3 2900/3113项，均0失败；AC5完整链接通过|P4/P5跨板与闭环；没有动作接受ACK或采集时间戳，真实帧龄未知|B软件，A保护，用户实物操作与标定|
-|STM-10|Keil完整工程与可复建工作区|P3完整固件构建完成|[工程](../software/stm32/keil/soundsight_f407/Projects/MDK-ARM/atk_f407.uvprojx)已含P1/P2/app；AC5重建0错误0警告，HEX生成|新固件由用户下载并留BOARD_ONLY结果；构建不代替板测|B；默认二维/无动作|
+|STM-10|Keil完整工程与可复建工作区|P3完整固件构建完成|[工程](../software/stm32/keil/soundsight_f407/Projects/MDK-ARM/atk_f407.uvprojx)已含P1/P2/app；AC5重建0错误0警告，HEX生成|用户已返回新版BOARD_ONLY 13/0/11；真实跨板仍待P4/P5|B；默认二维/无动作|
 
 ## 保留模块及后续扩展
 
@@ -70,7 +70,7 @@ D5对齐材料已上传并在[Issue #5](https://github.com/TophBeifong1744/Sound
 - 三维AC5只编译为对象，尚无三维板端耗时、栈或完整固件链接证据。[三维记录](evidence/tetra3d-20261018/)
 - P1历史26561项/304组；P3按参考RTL修正STOP显式禁用后，27104项/316组通过并接入固件。实际跨板STOP仍未测。
 - P2：默认关闭43项／模型开启74240项、0失败；340组通信故障，AC5双配置S2/P2对象通过；58事务动作路径，仅模型，实际接受无ACK、真实采集年龄未知。
-- P3：默认/测试开启2900/3113项、五主机自检场景和串口命令测试通过；Keil完整构建0错误0警告。新board13/0/11尚待用户实测，原板11/0/11不升级。
+- P3：默认/测试开启2900/3113项、五主机自检场景和串口命令测试通过；Keil完整构建0错误0警告。用户已返回新board实测13/0/11，见[实板记录](evidence/stm32-p3-board-ready-20261018/REPORT.md)；原板11/0/11作为历史保留。
 - 所有模式默认关闭动作；尚未完成整机、声学精度或机械闭环验收。
 
 ## 当前主线计划：五个工作包，不是五个算法模块
@@ -81,7 +81,7 @@ D5对齐材料已上传并在[Issue #5](https://github.com/TophBeifong1744/Sound
 |---|---|---|---|---|---|
 |P1|运行控制状态机（STM-09、STM-04）|软件完成／硬件待验证|P3已接入并修正STOP后显式清enable、保留模式和故障|[最新回归](evidence/stm32-integration-p3-20261018/REPORT.md)：27104项0失败，164+152组故障；AC5完整默认固件链接通过|B/AI已完成；跨板P4/P5|
 |P2|水平动作命令管理（STM-09、STM-03）|软件完成／硬件待验证|同一LOCKED帧内解算→shadow→COMMIT→CONSUME；独立许可、watchdog、持锁超时、防同帧重复尝试；默认编译及板级门禁关闭|[P2实际结果](evidence/stm32-motion-p2-20261018/REPORT.md)：默认43/开启模型74240项0失败，340组通信故障；AC5双配置对象编译及原回归通过|不改冻结ABI；无接受ACK/采集时间戳，分别保留UNCONFIRMED/真实年龄未知；机械动作留到P5|
-|P3|参数与诊断整理、软件集成自检（STM-05～08、STM-10）|软件完成／新本板确认待返回|[P3说明](../software/stm32/INTEGRATION-P3.md)：配置/统计/单一所有者、STOP修正及有限ackstop，Keil入口齐备|[结果](evidence/stm32-integration-p3-20261018/REPORT.md)：2900/3113项、五主机场景/命令测试通过；AC5完整构建0错误0警告；新board预期13/0/11，尚无实测|AI完成源码/测试；用户下载返回board；匹配PL就绪进入P4|
+|P3|参数与诊断整理、软件集成自检（STM-05～08、STM-10）|软件完成／本板启动自检通过|[P3说明](../software/stm32/INTEGRATION-P3.md)：配置/统计/单一所有者、STOP修正及有限ackstop，Keil入口齐备|[结果](evidence/stm32-integration-p3-20261018/REPORT.md)：2900/3113项、五主机场景/命令测试通过；AC5完整构建0错误0警告；新board用户实测13/0/11，额外status命令输出待补|AI完成源码/测试；用户board已返回；匹配PL就绪进入P4|
 |P4|真实FPGA基础联调（STM-01、04、06、07）|待A映像与接线就绪|提前准备检查步骤和预期输出，不以模拟器替代实测|匹配ID/ABI→SPI波形→双BIST→快照RELEASE/CONSUME→IRQ；故障/STOP/恢复逐项留实际结果，未测项不算通过|A提供匹配映像/电气条件；用户接线、仪器和运行，B分析修复|
 |P5|真实连续帧、方向与水平闭环（STM-02、03、08、09）|待P4及现场条件|先设计可见指标与记录格式；目前不启用动作|先验证真实stream、预算/积压/丢帧、长运行和异常恢复；再做独立方向测量及机械标定，在明确动作授权后验证水平闭环|B+A协作；用户提供真实声源/标定与安全操作；P2软件通过不等于本步完成|
 

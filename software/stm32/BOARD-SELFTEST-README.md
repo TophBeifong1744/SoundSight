@@ -22,7 +22,7 @@
 |`ackstop` / `recover` / `discard`|分别为孤立 STOP 确认、显式恢复、不动作的诊断消费；具体先决条件见 P3 说明|
 |`motion`|动作入口禁用|
 
-BOARD_ONLY 预期 `pass=13,fail=0,skip=11,result=PASS_WITH_SKIPS,NOT_SYSTEM_ACCEPTANCE`。新增 P3_APP_INIT/P2_BUILD_GATE_CLOSED 两项。这是新固件模式预期，尚未取得新板端结果；原板 11/0/11 日志单独保存于 `document/evidence/stm32-board-20261017`。
+BOARD_ONLY 预期 `pass=13,fail=0,skip=11,result=PASS_WITH_SKIPS,NOT_SYSTEM_ACCEPTANCE`。新增 P3_APP_INIT/P2_BUILD_GATE_CLOSED 两项。2026-10-18用户已返回相符的[新版实板13/0/11日志](../../document/evidence/stm32-p3-board-ready-20261018/REPORT.md)；原板 11/0/11 日志单独保存于 `document/evidence/stm32-board-20261017`。
 主动请求 fpga 却探测不到身份时报告 FAIL，后续依赖项 SKIP。ID 预期 `0x5A5A2026`，ABI `0x00010000`。
 
 ## 配置与接线

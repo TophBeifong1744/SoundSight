@@ -1,6 +1,6 @@
 # P3 参数、诊断与固件接合
 
-2026-10-18：软件接合、PC 模型与 AC5 完整固件构建完成；新固件未下载，真实 FPGA 联调未测。128 MHz 时钟、S1、冻结 ABI、板级物理写门禁不变，三维不接入。
+2026-10-18：软件接合、PC 模型与 AC5 完整固件构建完成；用户已返回新固件BOARD_ONLY实测13通过/0失败/11跳过，真实 FPGA 联调未测。128 MHz 时钟、S1、冻结 ABI、板级物理写门禁不变，三维不接入。
 
 ## 本批改动
 
@@ -38,7 +38,7 @@
 
 - `DIAGNOSTIC_COMPLETE`：取得配置帧数并结束；可包含方向拒绝帧，不表示声学或系统验收通过。
 - `SKIP_NO_FRAMES`：期限内没有帧；`INCOMPLETE`：期限内帧数不足；`STOPPED`：用户请求停止；`FAIL`：运行错误。均保留 `NOT_SYSTEM_ACCEPTANCE`。
-- 新 BOARD_ONLY 的 13/0/11 是 PC 验证的预期。原用户实板记录仍是旧固件 11/0/11，不能替代本固件重测。
+- 新 BOARD_ONLY 的 13/0/11 已获用户实板日志确认，见[记录](../../document/evidence/stm32-p3-board-ready-20261018/REPORT.md)；额外status命令输出尚未提供。原11/0/11仅保留为旧固件历史。
 - P1 有效帧 41 次事务，本应用额外读 DROP_COUNT，共 42 次（1 MHz 纯线上 1.68 ms）；测试专用 P2 动作路径 58+1=59 次。原 S2 40 次完整读帧合同不变。
 - 配置期限触发停止，之后仍需有限排尾时间；不是精确硬实时截止。`step_us` 包括当次取帧/解算/状态读取，不包含随后的串口打印；`max_step_ms` 分辨率为 HAL 毫秒。串口仍为阻塞输出，STOP 要等当前有限操作和打印返回，不能抢占 SPI。
 - status 的 fault 是最近驱动观察缓存，首错误保留历史；该命令不额外访问 SPI，缓存 0 不证明当前设备无故障。
@@ -58,4 +58,4 @@ python software/stm32/tests/run_app_tests.py --armcc <armcc.exe>
 UV4.exe -r software/stm32/keil/soundsight_f407/Projects/MDK-ARM/atk_f407.uvprojx -o <构建日志绝对路径>
 ```
 
-[本批结果和失败记录](../../document/evidence/stm32-integration-p3-20261018/REPORT.md)。下一步先由用户下载本固件、返回 BOARD_ONLY 日志；匹配 PL 映像及接线就绪后进入 P4。这里不自动操作板卡、不开始 P4/P5 或恢复三维。
+[本批结果和失败记录](../../document/evidence/stm32-integration-p3-20261018/REPORT.md)。用户已返回BOARD_ONLY通过日志；可补status命令输出，匹配 PL 映像及接线就绪后进入 P4。这里不自动操作板卡、不开始 P4/P5 或恢复三维。
