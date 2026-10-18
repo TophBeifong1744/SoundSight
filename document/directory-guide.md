@@ -13,6 +13,7 @@ SoundSight/
     ip/                   FFT/时钟配方；reference中是原官方配置与仿真模型
     sdc/stm32, ps/        两目标引脚与外部接口XDC
     script/               run.bat、setting.bat、src_list.txt、vivado.tcl
+    reports/stm32/       用户实现时序/资源报告和布局布线图（进入Git）
     par/SoundSight.xpr    STM32主方案原生入口；同级为其数据库和报告
   variants/pl_ps/
     project/par/SoundSight_PS.xpr  无STM32版原生入口，不复制公共RTL
