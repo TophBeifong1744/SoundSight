@@ -32,6 +32,18 @@ typedef struct {
 typedef enum { SS_RUN_REAL = 0, SS_RUN_BIST_REJECT, SS_RUN_BIST_PASS } ss_run_t;
 typedef enum { SS_RELEASE = 0, SS_CONSUME } ss_finish_t;
 
+/* Last transaction of the latest ss_start attempt. RAM-only diagnostics:
+ * expected/mask describe the next read check; for writes expected is payload.
+ * actual is meaningful only with actual_valid=1 (successful read).
+ * step counts existing transfers, not additional diagnostic transactions.
+ * bus_status is transport status; result is the final ss_start status.
+ * active is private; fail/revoke and later operations must not overwrite it. */
+typedef struct {
+    uint32_t address, expected, mask, actual;
+    ss_status_t bus_status, result;
+    uint8_t step, write, actual_valid, active;
+} ss_start_trace_t;
+
 /* Treat fields as read-only diagnostics outside the implementation. Re-init
  * resets sequence history: use only for a deliberate new session after reset,
  * not as a way to bypass a stale-frame or recovery error.
@@ -42,6 +54,7 @@ typedef struct {
     uint8_t probed, identity_verified, recovery_required, locked, have_consumed;
     ss_status_t last_error, revoke_result;
     doa_status_t solver_status;
+    ss_start_trace_t start_trace;
 } ss_link_t;
 
 ss_status_t ss_init(ss_link_t *link, const ss_bus_t *bus);

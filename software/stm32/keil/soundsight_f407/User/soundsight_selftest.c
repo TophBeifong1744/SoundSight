@@ -146,13 +146,23 @@ static int prepare_diagnostic(void)
     printf("DATA,DIAGNOSTIC_PREPARE,status=%u,only_isolated_STOP_acknowledged\r\n",(unsigned int)s);
     return s==SS_OK;
 }
+static void start_trace_line(void)
+{
+    const ss_start_trace_t *d=&link.start_trace;
+    printf("DATA,START_TRACE,step=%u,op=%c,addr=0x%02lX,expected=0x%08lX,mask=0x%08lX,actual_valid=%u,actual=0x%08lX,bus_status=%u,result=%u,recovery=%u\r\n",
+        (unsigned int)d->step,d->write?'W':'R',(unsigned long)d->address,
+        (unsigned long)d->expected,(unsigned long)d->mask,(unsigned int)d->actual_valid,
+        (unsigned long)d->actual,(unsigned int)d->bus_status,(unsigned int)d->result,
+        (unsigned int)link.recovery_required);
+}
 static int live_bist(int pass)
 {
     ss_status_t s;uint32_t first_id,before,us,cycles,irq_before=ss_board_stats.irq_edges;
     const char *name=pass?"FPGA_SPI_BIST_PASS":"FPGA_SPI_BIST_REJECT";
     if(!prepare_diagnostic()) {item(name,0);return 0;}
     s=ss_start(&link,pass?SS_RUN_BIST_PASS:SS_RUN_BIST_REJECT);
-    if(s!=SS_OK) {printf("DATA,START,status=%u,reset_PL_if_BUSY_or_FAULT\r\n",(unsigned int)s);item(name,0);return 0;}
+    start_trace_line();
+    if(s!=SS_OK) {printf("DATA,START,status=%u,inspect_START_TRACE_do_not_auto_reset\r\n",(unsigned int)s);item(name,0);return 0;}
     s=wait_frame(1);
     if(s!=SS_OK) {printf("DATA,ACQUIRE,status=%u\r\n",(unsigned int)s);item(name,0);return 0;}
     held=frame;first_id=frame.frame_id;
@@ -198,8 +208,13 @@ static void safety_readback(void)
     ss_status_t a=ss_read_register(&link,REG_ACT_CTRL,&act);
     ss_status_t b=ss_read_register(&link,REG_WATCHDOG_TICKS,&wd);
     ss_status_t c=ss_read_register(&link,REG_FAULT_STATUS,&fault);
-    printf("DATA,SAFETY,act=%lu,watchdog=%lu,fault=0x%08lX\r\n",
-        (unsigned long)act,(unsigned long)wd,(unsigned long)fault);
+    printf("DATA,SAFETY_READ_STATUS,act=%u,watchdog=%u,fault=%u,last_error=%u,recovery=%u\r\n",
+        (unsigned int)a,(unsigned int)b,(unsigned int)c,(unsigned int)link.last_error,
+        (unsigned int)link.recovery_required);
+    if(a==SS_OK && b==SS_OK && c==SS_OK)
+        printf("DATA,SAFETY,act=%lu,watchdog=%lu,fault=0x%08lX\r\n",
+            (unsigned long)act,(unsigned long)wd,(unsigned long)fault);
+    else printf("DATA,SAFETY,INVALID_READBACK,values_not_reported\r\n");
     item("FPGA_MOTION_DISABLED",a==SS_OK && b==SS_OK && act==0U && wd==0U);
     item("FPGA_NO_UNEXPECTED_FAULT",c==SS_OK && fault==0U);
 }
@@ -209,6 +224,7 @@ void ss_selftest_run(int live_fpga)
     ss_bus_t bus;ss_link_t local;uint8_t tx[5]={0x98U,0U,0U,0U,0U},rx[5];
     if(application.initialized!=0U && application.active!=0U) {printf("COMMAND,BUSY,stop_stream_first\r\n");return;}
     passes=0U;fails=0U;skips=0U;board_ok=0;
+    printf("FIRMWARE_DIAG,P4_START_V1\r\n");
     printf("\r\nSELFTEST,BEGIN,mode=%s,motion_submission=DISABLED\r\n",live_fpga?"FPGA":"BOARD_ONLY");
     printf("CLOCK,sys=%lu,hclk=%lu,pclk1=%lu,pclk2=%lu,spi_calc=%lu\r\n",
         (unsigned long)HAL_RCC_GetSysClockFreq(),(unsigned long)HAL_RCC_GetHCLKFreq(),
@@ -284,6 +300,9 @@ void ss_selftest_run(int live_fpga)
 }
 static void app_status(void)
 {
+    printf("LINK_DIAG,last_error=%u,recovery=%u,start_result=%u,start_step=%u\r\n",
+        (unsigned int)link.last_error,(unsigned int)link.recovery_required,
+        (unsigned int)link.start_trace.result,(unsigned int)link.start_trace.step);
     printf("APP,status=%u,state=%u,active=%u,frames=%lu,rejected=%lu,queued=%lu,drops=%lu,max_step_ms=%lu,producer_idle=%u,motion_gate=%d,motion_state=%u,commit_outcome=%u,fault=0x%08lX,first_error=%u,max_frames=%lu,duration_ms=%lu,print_every=%lu\r\n",
         (unsigned int)application.last_status,(unsigned int)application.runtime.state,(unsigned int)application.active,
         (unsigned long)application.frames,(unsigned long)application.rejected,(unsigned long)application.queued,

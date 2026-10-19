@@ -20,7 +20,7 @@ static int known_address(uint32_t a)
     default: return 0;
     }
 }
-static ss_status_t transaction(ss_link_t *l, uint32_t start, uint32_t a,
+static ss_status_t transaction_inner(ss_link_t *l, uint32_t start, uint32_t a,
                                int write, uint32_t *v)
 {
     uint8_t tx[5] = {0}, rx[5] = {0};
@@ -46,6 +46,27 @@ static ss_status_t transaction(ss_link_t *l, uint32_t start, uint32_t a,
                         ((uint32_t)rx[3] << 8) | (uint32_t)rx[4];
     return SS_OK;
 }
+/* Capture only while ss_start is running, before fail() can issue REVOKE.
+ * No UART, extra transfer, retry, or altered deadline in this wrapper. */
+static ss_status_t transaction(ss_link_t *l, uint32_t start, uint32_t a,
+                               int write, uint32_t *v)
+{
+    ss_status_t s;
+    ss_start_trace_t *d = &l->start_trace;
+    if (d->active != 0U) {
+        ++d->step; d->address = a; d->write = (uint8_t)(write != 0);
+        d->actual = 0U; d->actual_valid = 0U;
+        if (write != 0) { d->expected = *v; d->mask = UINT32_MAX; }
+    }
+    s = transaction_inner(l, start, a, write, v);
+    if (d->active != 0U) {
+        d->bus_status = s;
+        if (write == 0 && s == SS_OK) { d->actual = *v; d->actual_valid = 1U; }
+    }
+    return s;
+}
+static void start_expected(ss_link_t *l, uint32_t expected, uint32_t mask)
+{ l->start_trace.expected = expected; l->start_trace.mask = mask; }
 static ss_status_t rd(ss_link_t *l, uint32_t t, uint32_t a, uint32_t *v)
 { return transaction(l, t, a, 0, v); }
 static ss_status_t wr(ss_link_t *l, uint32_t t, uint32_t a, uint32_t v)
@@ -132,16 +153,21 @@ ss_status_t ss_read_register(ss_link_t *l, uint32_t a, uint32_t *v)
 static ss_status_t start_inner(ss_link_t *l, uint32_t t, ss_run_t mode)
 {
     uint32_t ctrl, status, v, desired;
+    start_expected(l, SYS_CTRL_LITE_DEBUG_MODE, ~SYS_CTRL_WRITE_MASK | SYS_CTRL_LITE_DEBUG_MODE);
     TRY_LOCAL(rd(l, t, REG_SYS_CTRL, &ctrl));
     if ((ctrl & ~SYS_CTRL_WRITE_MASK) != 0U || (ctrl & SYS_CTRL_LITE_DEBUG_MODE) == 0U)
         return SS_WIRE_FORMAT;
     TRY_LOCAL(wr(l, t, REG_SYS_CTRL, ctrl & ~SYS_CTRL_ENABLE));
+    start_expected(l, ctrl & ~SYS_CTRL_ENABLE, UINT32_MAX);
     TRY_LOCAL(rd(l, t, REG_SYS_CTRL, &v));
     if (v != (ctrl & ~SYS_CTRL_ENABLE)) return SS_DEVICE_FAULT;
+    start_expected(l, SNAP_STATUS_PROFILE_SUPPORTED, ~SNAP_STATUS_DEFINED_MASK |
+                   SNAP_STATUS_PROFILE_SUPPORTED | SNAP_STATUS_LOCKED | SNAP_STATUS_QUEUED | SNAP_STATUS_DRAINING);
     TRY_LOCAL(status_read(l, t, &status));
     if ((status & (SNAP_STATUS_LOCKED | SNAP_STATUS_QUEUED | SNAP_STATUS_DRAINING)) != 0U)
         return SS_BUSY;
     if ((status & SNAP_STATUS_PROFILE_SUPPORTED) == 0U) return SS_WIRE_FORMAT;
+    start_expected(l, 0U, UINT32_MAX);
     TRY_LOCAL(rd(l, t, REG_FAULT_STATUS, &l->faults));
     if (l->faults != 0U) return SS_DEVICE_FAULT;
     TRY_LOCAL(wr(l, t, REG_ACT_CTRL, ACT_CTRL_REVOKE));
@@ -149,26 +175,35 @@ static ss_status_t start_inner(ss_link_t *l, uint32_t t, ss_run_t mode)
     if (mode != SS_RUN_REAL) {
         desired = mode == SS_RUN_BIST_PASS ? BIST_SELECT_PASS : BIST_SELECT_REJECT;
         TRY_LOCAL(wr(l, t, REG_BIST_SELECT, desired));
+        start_expected(l, desired, UINT32_MAX);
         TRY_LOCAL(rd(l, t, REG_BIST_SELECT, &v));
         if (v != desired) return SS_DEVICE_FAULT;
     }
     desired = SYS_CTRL_LITE_DEBUG_MODE | (mode == SS_RUN_REAL ? UINT32_C(0) : SYS_CTRL_BIST_MODE);
     TRY_LOCAL(wr(l, t, REG_SYS_CTRL, desired));
+    start_expected(l, desired, UINT32_MAX);
     TRY_LOCAL(rd(l, t, REG_SYS_CTRL, &v));
     if (v != desired) return SS_DEVICE_FAULT;
     desired |= SYS_CTRL_ENABLE;
     TRY_LOCAL(wr(l, t, REG_SYS_CTRL, desired));
+    start_expected(l, desired, UINT32_MAX);
     TRY_LOCAL(rd(l, t, REG_SYS_CTRL, &v));
     return v == desired ? SS_OK : SS_DEVICE_FAULT;
 }
 ss_status_t ss_start(ss_link_t *l, ss_run_t mode)
 {
-    ss_status_t s = ready(l);
-    if (s != SS_OK) return s;
-    if (mode != SS_RUN_REAL && mode != SS_RUN_BIST_REJECT && mode != SS_RUN_BIST_PASS)
-        return SS_ARGUMENT;
-    if (l->locked != 0U) return SS_BUSY;
+    ss_status_t s;
+    if (l == NULL) return SS_ARGUMENT;
+    memset(&l->start_trace, 0, sizeof(l->start_trace));
+    s = ready(l);
+    if (s == SS_OK && mode != SS_RUN_REAL && mode != SS_RUN_BIST_REJECT && mode != SS_RUN_BIST_PASS)
+        s = SS_ARGUMENT;
+    if (s == SS_OK && l->locked != 0U) s = SS_BUSY;
+    if (s != SS_OK) { l->start_trace.result = s; return s; }
+    l->start_trace.active = 1U;
     s = start_inner(l, l->bus.now_ms(l->bus.user), mode);
+    l->start_trace.active = 0U;
+    l->start_trace.result = s;
     return s == SS_OK || s == SS_BUSY ? s : fail(l, s);
 }
 ss_status_t ss_stop(ss_link_t *l)

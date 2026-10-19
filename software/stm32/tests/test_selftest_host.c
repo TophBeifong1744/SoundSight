@@ -15,7 +15,7 @@ uint16_t g_usart_rx_sta;
 uint8_t g_usart_rx_buf[200];
 volatile ss_board_stats_t ss_board_stats;
 static mock_t device;
-static int bad_tick,bad_config;
+static int bad_tick,bad_config,bad_start;
 uint32_t HAL_GetTick(void) { return bad_tick?0U:device.clock_ms; }
 uint32_t HAL_RCC_GetSysClockFreq(void) { return 128000000U; }
 uint32_t HAL_RCC_GetHCLKFreq(void) { return 128000000U; }
@@ -38,6 +38,9 @@ static ss_bus_status_t host_transfer(void *unused,const uint8_t tx[5],uint8_t rx
         ss_board_stats.inject_timeout=0U;++ss_board_stats.timeout_count;return SS_BUS_TIMEOUT;
     }
     r=transfer(&device,tx,rx,timeout);
+    if(bad_start && r==SS_BUS_OK && tx[0]==0x04U && device.ctrl==10U) {
+        store32(&rx[1],8U); bad_start=0; /* mode write/readback mismatch */
+    }
     if(r==SS_BUS_OK)++ss_board_stats.completed;
     if(ss_board_irq()!=old_irq)++ss_board_stats.irq_edges;
     return r;
@@ -91,6 +94,7 @@ int main(int argc,char **argv)
         if(strcmp(argv[1],"no_peer")==0)device.magic=UINT32_MAX;
         if(strcmp(argv[1],"dead_tick")==0)bad_tick=1;
         if(strcmp(argv[1],"bad_config")==0)bad_config=1;
+        if(strcmp(argv[1],"bad_start")==0)bad_start=1;
     }
     printf("HOST_MODEL_ONLY,NOT_BOARD_MEASUREMENT\n");
     ss_selftest_run(live);
