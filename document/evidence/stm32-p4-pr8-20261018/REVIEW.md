@@ -31,3 +31,11 @@
 实际接线、JTAG/PS启动、PL运行时钟/复位及双板SPI/IRQ均未在本轮实测；现场加载bit应来自此包。原PR6/7实现报告与当前位流的完整构建身份关系没有在本轮重建证明，不把旧时序报告提升成新的全系统验收。
 
 读取过程中GitHub raw二进制接口报transform: short source buffer，大blob接口随后stream CANCEL；已改准确提交的公开raw路径经代理读取，最终完整ZIP通过。未保留下载副本，全部在内存检查；没有构建、解包到工程、下载板卡、复位或授权配置变更。用户Keil uvprojx在途修改保留；三维超限构建继续暂停。
+
+## 2026-10-19 当前main组件包增量核对
+
+用户再次指定main目录，当前main为b486b567db3cb20f1c56f98c89a7f081e265dc9b。交付现为六文件：README.md、package-check.json、path-bases.json、pl_stm32.xsa、unpack_local.py、vitis_components.zip；旧vitis_workspace.zip操作名称不再适用。
+
+本轮实际读取新版README/检查说明/解包脚本，并在内存打开准确提交的组件ZIP：8128884字节、1554条目、CRC无错误，根目录只有first与pl_stm32_platform。包内硬件XSA与此前单独交付对象一致；三份bit均与XSA内bit一致；first ELF、FSBL ELF及first/_ide/psinit/ps7_init.tcl存在，调试用ps7_init.tcl与XSA内文件逐字节一致。launch配置仍启用PS7 Init/Post Init、下载匹配bit和first ELF；main仅打印后sleep。
+
+结论保持：足够进入Vitis2025.2/JTAG首轮无动作P4。下载当前六文件同放一个目录，使用同版unpack_local.py和外置path-bases.json配置新工作区，不能混用旧解包器。现场需重新选JTAG连接、完成PS/PL启动和原接线确认，再在既有二维STM32固件运行status→fpga→status。包检查不代表实际板测或自动导入成功；未运行IDE、构建、下载、复位或改授权。三维构建继续暂停。
