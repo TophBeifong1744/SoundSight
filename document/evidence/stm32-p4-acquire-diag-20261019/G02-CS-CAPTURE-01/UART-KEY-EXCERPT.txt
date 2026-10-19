@@ -1,0 +1,10 @@
+User supplied full UART in chat; this file is explicitly a key excerpt, not the full UART.
+FIRMWARE_DIAG,P4_ACQUIRE_V3
+DATA,FPGA_ID_ABI,status=0,id=0x5A5A2026,abi=0x00010000
+CHECK,FPGA_ID_ABI,PASS
+DATA,DIAGNOSTIC_PREPARE,status=10,only_isolated_STOP_acknowledged
+CHECK,FPGA_SPI_BIST_REJECT,FAIL
+CHECK,REMAINING_FPGA_TESTS,SKIP,PRIOR_BIST_FAILED
+DATA,SAFETY_READ_STATUS,act=12,watchdog=12,fault=12,last_error=10,recovery=1
+DATA,SAFETY,INVALID_READBACK,values_not_reported
+SUMMARY,scope=FPGA_DIAGNOSTIC,pass=14,fail=3,skip=5,result=FAIL,NOT_SYSTEM_ACCEPTANCE
