@@ -216,23 +216,41 @@ ss_status_t ss_stop(ss_link_t *l)
     if (s != SS_OK) return fail(l, s);
     return SS_OK; /* Transport completed; not a measurement of physical PWM. */
 }
+static ss_status_t acquire_format(ss_link_t *l, ss_acquire_check_t check,
+                                  uint32_t address, unsigned int pair, uint32_t word)
+{
+    l->acquire_trace.check=(uint8_t)check;
+    l->acquire_trace.address=(uint8_t)address;
+    l->acquire_trace.pair=(uint8_t)pair;
+    l->acquire_trace.word=word;
+    return SS_WIRE_FORMAT;
+}
 static ss_status_t acquire_inner(ss_link_t *l, uint32_t t, doa_frame_input_t *f)
 {
     uint32_t status, w, raw_mask = 0U;
+    ss_status_t s;
     unsigned int i, j;
     const uint32_t addresses[4] = { REG_FEATURE_1, REG_R_MINUS, REG_R_PLUS, REG_R_SECOND };
+    memset(&l->acquire_trace,0,sizeof(l->acquire_trace));
     if (l->locked != 0U) return SS_BUSY;
     TRY_LOCAL(wr(l, t, REG_SNAP_CMD, SNAP_CMD_ACQUIRE));
-    TRY_LOCAL(status_read(l, t, &status));
-    if ((status & SNAP_STATUS_PROFILE_SUPPORTED) == 0U) return SS_WIRE_FORMAT;
+    s=status_read(l,t,&status);
+    if(s!=SS_OK && s!=SS_WIRE_FORMAT) return s;
+    l->acquire_trace.snapshot=status;
+    if(s==SS_WIRE_FORMAT)
+        return acquire_format(l,SS_ACQ_STATUS_RESERVED,REG_SNAP_STATUS,255U,status);
+    if ((status & SNAP_STATUS_PROFILE_SUPPORTED) == 0U)
+        return acquire_format(l,SS_ACQ_PROFILE,REG_SNAP_STATUS,255U,status);
     if ((status & SNAP_STATUS_LOCKED) == 0U) return SS_NO_FRAME;
     l->locked = 1U;
     if ((status & (SNAP_STATUS_ALL_TERMINAL | SNAP_STATUS_PROFILE_SUPPORTED)) !=
-        (SNAP_STATUS_ALL_TERMINAL | SNAP_STATUS_PROFILE_SUPPORTED)) return SS_WIRE_FORMAT;
+        (SNAP_STATUS_ALL_TERMINAL | SNAP_STATUS_PROFILE_SUPPORTED))
+        return acquire_format(l,SS_ACQ_TERMINAL,REG_SNAP_STATUS,255U,status);
     if ((status & SNAP_STATUS_BIST) == 0U &&
         (status & (SNAP_STATUS_ENERGY_VALID | SNAP_STATUS_REAL_ENERGY_CAP)) != 0U)
-        return SS_WIRE_FORMAT;
+        return acquire_format(l,SS_ACQ_ENERGY,REG_SNAP_STATUS,255U,status);
     TRY_LOCAL(rd(l, t, REG_FRAME_CNT, &f->frame_id));
+    l->acquire_trace.frame_id=f->frame_id;
     l->locked_id = f->frame_id;
     if (f->frame_id == 0U || (l->have_consumed != 0U && f->frame_id <= l->last_consumed_id))
         return SS_STALE_FRAME;
@@ -242,14 +260,21 @@ static ss_status_t acquire_inner(ss_link_t *l, uint32_t t, doa_frame_input_t *f)
         int32_t values[4];
         TRY_LOCAL(wr(l, t, REG_FEATURE_SELECT, (uint32_t)i));
         TRY_LOCAL(rd(l, t, REG_FEATURE_0, &w));
-        if ((w & ~FEATURE_0_DEFINED_MASK) != 0U || FEATURE_0_GET_PAIR(w) != i ||
-            FEATURE_0_GET_PHAT_STAGE(w) == FPGA_STAGE_PENDING ||
-            FEATURE_0_GET_PHAT_STAGE(w) > FPGA_STAGE_SKIPPED ||
-            FEATURE_0_GET_IFFT_STAGE(w) == FPGA_STAGE_PENDING ||
-            FEATURE_0_GET_IFFT_STAGE(w) > FPGA_STAGE_SKIPPED) return SS_WIRE_FORMAT;
+        if ((w & ~FEATURE_0_DEFINED_MASK) != 0U)
+            return acquire_format(l,SS_ACQ_FEATURE_RESERVED,REG_FEATURE_0,i,w);
+        if (FEATURE_0_GET_PAIR(w) != i)
+            return acquire_format(l,SS_ACQ_PAIR,REG_FEATURE_0,i,w);
+        if (FEATURE_0_GET_PHAT_STAGE(w) == FPGA_STAGE_PENDING ||
+            FEATURE_0_GET_PHAT_STAGE(w) > FPGA_STAGE_SKIPPED)
+            return acquire_format(l,SS_ACQ_PHAT_STAGE,REG_FEATURE_0,i,w);
+        if (FEATURE_0_GET_IFFT_STAGE(w) == FPGA_STAGE_PENDING ||
+            FEATURE_0_GET_IFFT_STAGE(w) > FPGA_STAGE_SKIPPED)
+            return acquire_format(l,SS_ACQ_IFFT_STAGE,REG_FEATURE_0,i,w);
         p->lag = FEATURE_0_GET_LAG(w);
-        if (p->lag < -32 || p->lag > 31 || FEATURE_0_GET_MASK_COUNT(w) > 79U)
-            return SS_WIRE_FORMAT;
+        if (p->lag < -32 || p->lag > 31)
+            return acquire_format(l,SS_ACQ_LAG,REG_FEATURE_0,i,w);
+        if (FEATURE_0_GET_MASK_COUNT(w) > 79U)
+            return acquire_format(l,SS_ACQ_MASK_COUNT,REG_FEATURE_0,i,w);
         p->mask_count = (uint8_t)FEATURE_0_GET_MASK_COUNT(w);
         p->flags = FEATURE_0_GET_FLAGS(w);
         if ((w & FEATURE_0_RAW_PEAK_VALID) != 0U) raw_mask |= UINT32_C(1) << i;
@@ -257,13 +282,13 @@ static ss_status_t acquire_inner(ss_link_t *l, uint32_t t, doa_frame_input_t *f)
             TRY_LOCAL(rd(l, t, addresses[j], &w));
             values[j] = fpga_abi_word_to_s32(w);
             if (values[j] < FPGA_ABI_S25_MIN || values[j] > FPGA_ABI_S25_MAX)
-                return SS_WIRE_FORMAT;
+                return acquire_format(l,SS_ACQ_S25,addresses[j],i,w);
         }
         p->peak = values[0]; p->r_minus = values[1];
         p->r_plus = values[2]; p->second_peak = values[3];
     }
     if (raw_mask != ((status & SNAP_STATUS_VALID_PAIRS_MASK) >> SNAP_STATUS_VALID_PAIRS_SHIFT))
-        return SS_WIRE_FORMAT;
+        return acquire_format(l,SS_ACQ_VALID_PAIRS,REG_SNAP_STATUS,255U,raw_mask);
     return SS_OK;
 }
 

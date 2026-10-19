@@ -4,6 +4,10 @@
 
 “完成”只指表中已验证的范围。PC模型、编译、STM32本板和两板实测分别记录；SKIP不计通过。后续直接更新此表，不另开重复进度表。
 
+## P4 下一诊断固件已就绪（2026-10-19）
+
+[V3取帧首错诊断](evidence/stm32-p4-acquire-diag-20261019/REPORT.md)已完成PC15435项/107组格式拒绝/156组传输故障验证，原S1/S2/启动诊断/P3回归通过；二维Template构建0错误0警告，标记`P4_ACQUIRE_V3`。尚未下载，等待用户与A确认PL候选和初态后回传status→fpga→status；V2的status8尚未定位具体字段，P4仍未通过。
+
 ## P4 最新实板回测（2026-10-19）
 
 [P4_TIM2_GUARD_V2回测](evidence/stm32-p4-tim2-guard-20261019/BOARD-RESULT.md)：用户明确尚未加入A的修改。BOARD_ONLY13/0/11，FPGA_DIAGNOSTIC20/3/5。第一组BIST/快照/IRQ通过；第二组启动成功后取帧返回SS_WIRE_FORMAT=8，未完成第二组数值验证，超时恢复未执行。最后fault0为旧缓存，不能证明0x41消失。待记录取帧具体校验/原始读值并与A核对；原延时修正保留，动作关闭，P4尚未通过。
@@ -35,7 +39,7 @@
 |对应工作包|待办／状态|下一责任与所需材料|
 |---|---|---|
 |P3 本板确认|[用户新串口已确认13 PASS/0 FAIL/11 SKIP](evidence/stm32-p3-board-ready-20261018/REPORT.md)，启动自检完成；status命令回读待补|用户可补status全文；匹配PL/接线就绪后P4|
-|P4 真实FPGA基础联调|[P4准备已启动](../software/stm32/FPGA-BRINGUP-P4.md)：[诊断回测26通过/3失败/4跳过](evidence/stm32-p4-start-diag-20261019/BOARD-RESULT.md)：双BIST/40事务/释放重读/IRQ通过，超时测试准备被fault=0x41（SPI格式+STOP）阻断，待定位物理事务|A提供匹配映像/电气条件，用户接线及运行，B分析|
+|P4 真实FPGA基础联调|V2实板20/3/5，第二组BIST取帧status8；[V3诊断固件已构建待下载](evidence/stm32-p4-acquire-diag-20261019/REPORT.md)，可记录失败字段/原始值；P4未通过|B提供诊断，A核对PL候选/初态，用户下载并回传全文|
 |P5 连续帧与水平闭环|待P4；真实时延/积压/丢帧、独立方向误差、水平机构标定与闭环未验证|A/B与现场人员；动作须明确启用|
 |D1 三维固件链接|阻断：[本次只读复核](evidence/stm32-p3-board-ready-20261018/tool-edition.txt)armcc/armlink均为MDK-ARM Lite 5.36；旧D1 O2映像33936字节触发L6047U，后续大小未重测|用户正在配置授权，已要求暂停超限相关构建；通知恢复后B再核查/链接，随后板端耗时与栈检查|
 |D2/D3 实测补充|软件完成；四面体实物、声孔坐标/通道及误差上界、真实六对特征和独立方向基准待补|现场制作/测量，B配置与回放；无参考时不报告真实精度|

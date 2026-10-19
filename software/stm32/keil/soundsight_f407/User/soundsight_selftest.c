@@ -111,12 +111,20 @@ static int irq_equals_status(void)
     } while((uint32_t)(ss_board_us()-start)<5000U && --spins!=0U);
     return 0;
 }
+static void acquire_trace_line(void)
+{
+    const ss_acquire_trace_t *d=&link.acquire_trace;
+    if(d->check==0U) return;
+    printf("DATA,ACQUIRE_FORMAT,check=%u,addr=0x%02X,pair=%u,word=0x%08lX,snapshot=0x%08lX,frame=%lu\r\n",
+        (unsigned int)d->check,(unsigned int)d->address,(unsigned int)d->pair,
+        (unsigned long)d->word,(unsigned long)d->snapshot,(unsigned long)d->frame_id);
+}
 static ss_status_t wait_frame(int hold_lock)
 {
     uint32_t start=ss_board_us();ss_status_t s;
     do {
         s=hold_lock?ss_acquire_frame(&link,&frame):ss_poll_solve(&link,&map,&frame,&solved);
-        if(s!=SS_NO_FRAME) return s;
+        if(s!=SS_NO_FRAME) { if(s==SS_WIRE_FORMAT) acquire_trace_line(); return s; }
         if(!ss_board_wait_us(100U)) return SS_TIMEOUT;
     } while((uint32_t)(ss_board_us()-start)<500000U);
     return SS_TIMEOUT;
@@ -173,6 +181,7 @@ static int live_bist(int pass)
     before=ss_board_stats.completed;us=ss_board_us();cycles=DWT->CYCCNT;
     s=ss_poll_solve(&link,&map,&frame,&solved);
     cycles=DWT->CYCCNT-cycles;us=ss_board_us()-us;
+    if(s==SS_WIRE_FORMAT) acquire_trace_line();
     printf("DATA,%s,transfers=%lu,status=%u\r\n",name,
            (unsigned long)(ss_board_stats.completed-before),(unsigned int)s);
     item("FPGA_RELEASE_SAME_FRAME",s==SS_OK && frame.frame_id==first_id && memcmp(&frame,&held,sizeof(frame))==0);
@@ -224,7 +233,7 @@ void ss_selftest_run(int live_fpga)
     ss_bus_t bus;ss_link_t local;uint8_t tx[5]={0x98U,0U,0U,0U,0U},rx[5];
     if(application.initialized!=0U && application.active!=0U) {printf("COMMAND,BUSY,stop_stream_first\r\n");return;}
     passes=0U;fails=0U;skips=0U;board_ok=0;
-    printf("FIRMWARE_DIAG,P4_TIM2_GUARD_V2\r\n");
+    printf("FIRMWARE_DIAG,P4_ACQUIRE_V3\r\n");
     printf("\r\nSELFTEST,BEGIN,mode=%s,motion_submission=DISABLED\r\n",live_fpga?"FPGA":"BOARD_ONLY");
     printf("CLOCK,sys=%lu,hclk=%lu,pclk1=%lu,pclk2=%lu,spi_calc=%lu\r\n",
         (unsigned long)HAL_RCC_GetSysClockFreq(),(unsigned long)HAL_RCC_GetHCLKFreq(),

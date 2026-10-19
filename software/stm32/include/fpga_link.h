@@ -44,6 +44,22 @@ typedef struct {
     uint8_t step, write, actual_valid, active;
 } ss_start_trace_t;
 
+/* RAM-only first rejected field of the latest acquire attempt. check=0 means
+ * no format rejection was captured, NOT proof of a successful acquisition.
+ * pair=255 is frame-wide. word is raw readback except VALID_PAIRS, where it
+ * is the computed six-pair mask; snapshot retains the raw status word.
+ * Frozen SPI ABI is unchanged. No extra bus transactions are performed. */
+typedef enum {
+    SS_ACQ_NONE=0, SS_ACQ_STATUS_RESERVED, SS_ACQ_PROFILE,
+    SS_ACQ_TERMINAL, SS_ACQ_ENERGY, SS_ACQ_FEATURE_RESERVED,
+    SS_ACQ_PAIR, SS_ACQ_PHAT_STAGE, SS_ACQ_IFFT_STAGE,
+    SS_ACQ_LAG, SS_ACQ_MASK_COUNT, SS_ACQ_S25, SS_ACQ_VALID_PAIRS
+} ss_acquire_check_t;
+typedef struct {
+    uint32_t word, snapshot, frame_id;
+    uint8_t check, address, pair;
+} ss_acquire_trace_t;
+
 /* Treat fields as read-only diagnostics outside the implementation. Re-init
  * resets sequence history: use only for a deliberate new session after reset,
  * not as a way to bypass a stale-frame or recovery error.
@@ -55,6 +71,7 @@ typedef struct {
     ss_status_t last_error, revoke_result;
     doa_status_t solver_status;
     ss_start_trace_t start_trace;
+    ss_acquire_trace_t acquire_trace;
 } ss_link_t;
 
 ss_status_t ss_init(ss_link_t *link, const ss_bus_t *bus);

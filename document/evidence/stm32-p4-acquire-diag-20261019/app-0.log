@@ -1,0 +1,7 @@
+COMMAND: F:\NUEC\SoundSight-stm32\software\stm32\build\integration-p3\app-0.exe
+P3_STREAM,PASS,8_frames,1_rejection,explicit_disable,STOP_only_ack,new_run_frame9,no_motion
+P3_CONFIG_RECOVERY,PASS,strict_parser,busy_gates,no_frame,wrong_ID,explicit_discard,mixed_fault_preserved
+P3_STOP_ACK,PASS,latched_enable,drain_guard,fault_injections=28
+P3_RESULT,PASS,gate=0,checks=3070,failures=0
+
+EXIT_CODE: 0

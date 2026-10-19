@@ -1,0 +1,4 @@
+COMMAND: F:\NUEC\SoundSight-stm32\software\stm32\build\acquire-trace\trace.exe
+ACQUIRE_TRACE_RESULT,PASS,checks=15435,failures=0,format_cases=107,transport_cases=156
+
+EXIT_CODE: 0

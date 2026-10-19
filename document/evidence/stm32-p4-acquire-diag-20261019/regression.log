@@ -1,0 +1,16 @@
+COMMAND: D:\Python\python.exe software/stm32/tests/run_start_trace_tests.py
+RESULT,PASS,checks=4705,failures=0
+RESULT,PASS,checks=15980,failures=0
+HOST_MODEL,board,EXPECTED_COUNTS_OK,NOT_BOARD_MEASUREMENT
+HOST_MODEL,live,EXPECTED_COUNTS_OK,NOT_BOARD_MEASUREMENT
+HOST_MODEL,no_peer,EXPECTED_COUNTS_OK,NOT_BOARD_MEASUREMENT
+HOST_MODEL,dead_tick,EXPECTED_COUNTS_OK,NOT_BOARD_MEASUREMENT
+HOST_MODEL,bad_config,EXPECTED_COUNTS_OK,NOT_BOARD_MEASUREMENT
+P3_COMMANDS,PASS,nonblocking_stream,STOP_ack,busy_config,no_motion
+MIGRATION_HOST_TESTS,PASS,5_SELFTEST_SCENARIOS
+
+START_TRACE_RESULT,PASS,checks=1459,failures=0,readback_cases=8,transport_cases=52
+
+START_TRACE_UART,PASS,mode_readback_failure_and_invalid_safety_values_visible
+
+EXIT_CODE: 0
