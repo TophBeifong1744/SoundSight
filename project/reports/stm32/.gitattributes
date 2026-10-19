@@ -1,0 +1,4 @@
+# Native reports are evidence; retain their original line endings and spacing.
+timing_report_imp.txt -text
+utilization_report_imp.txt -text
+drc_report_imp.txt -text

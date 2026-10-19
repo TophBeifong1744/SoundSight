@@ -1,0 +1,4 @@
+# Preserve native evidence bytes across Windows/Linux checkouts.
+original/*.tcl -text
+first_spi_fault_uart.txt -text
+first_spi_fault.ila binary

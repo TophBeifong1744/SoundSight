@@ -47,11 +47,20 @@ module ss_spi_mode0 (
                 malformed<=ck_sync[2] || (idle_age<7);edge_age<=0;idle_age<=0;
             end else if(select_rise) begin
                 if(active) begin
-                    if(bits_seen==40 && !malformed && !ck_sync[2] && !rise && edge_age>=7) begin
-                        commit<=1;write_data<=rx;
-                    end else format_error<=1;
+                    // CS释放时SCK必须已稳定为低。
+                    // 若本拍刚发生下降沿，edge_age仍是旧值，禁止提交。
+                    if(bits_seen==40 && !malformed &&
+                       !ck_sync[2] && !rise && !fall && edge_age>=7) begin
+                        commit<=1;
+                        write_data<=rx;
+                    end else begin
+                        format_error<=1;
+                    end
                 end
-                active<=0;miso<=0;read_pending<=0;idle_age<=0;
+                active<=0;
+                miso<=0;
+                read_pending<=0;
+                idle_age<=0;
             end else if(active && !cs_sync[2]) begin
                 if(rise || fall) begin
                     edge_age<=0;

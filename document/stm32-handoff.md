@@ -1,68 +1,43 @@
-# STM32 主方案 FPGA 工程交接
+# STM32 主方案 FPGA 工程交接（无 ILA）
 
-本次已把用户在 Vivado 2025.2 中实际配置的 BD、PS7、IP 和运行设置接回正式目录。交接用源码与配方重建，不需要旧 F 盘工程数据库。这里交接的是 **FPGA 工程**，不包含 STM32 的完整 Keil 外设工程、PYNQ 镜像或可直接下载的 bit。
+当前正式入口为一份公共源码与可搬移重建配方，目标`xc7z020clg400-2`、Vivado 2025.2。2026-10-19已将用户外部工程的有效RTL修改接回。此入口不创建ILA、不加载调试XDC、不依赖发送方F盘目录。
 
-## 这次用了哪些原件
+## 本次接回了什么
 
-读取用户导出目录 `F:/AMD/work/SoundSight_STM32/handoff/20261018_153509` 的全部四份文件：
+| 项目 | 核查与处理 |
+|---|---|
+| 公共RTL | `project/rtl/ss_spi_mode0.sv`接回CS释放时的`!fall`检查，避免SCK刚下降时用旧`edge_age`提交；无公共ABI变化 |
+| 其他源码和数据 | 25份RTL、Hann系数、两份STM32 XDC共28项，与当前外部副本忽略换行/行尾空格后匹配；不复制第二套RTL |
+| BD、PS、时钟和复位 | 最新导出的63项功能事件与现有配方一致；保留原配方和既有GUI布局 |
+| 独立FFT IP | 两份XCI与此前原件相同；每个27项显式参数匹配正式创建配方，不重复导入XCI |
+| 工程运行设置 | 77项属性匹配现有`stm32_settings.tcl`；保留Global综合模式 |
+| ILA | 外部导出登记的`spi_ila_debug.xdc`为禁用状态；正式入口完全不登记此文件，也不创建ILA或调试hub |
+| 实现资料 | 原位置更新用户最新时序、布局后资源报告，并保留路由后DRC警告原件 |
 
-| 原件 | 用途 | 接回位置 |
-|---|---|---|
-| `stm32_bd.tcl` | 13 个 BD 单元、全部连线及 GUI 布局 | `project/bd/stm32.tcl` |
-| 同一份 `stm32_bd.tcl` 内的 PS7 属性 | DDR、MIO、FCLK、复位和外设开关 | `project/ip/ps7_stm32.tcl` |
-| `project.tcl` | 核对器件、源文件、Global 模式、综合/实现运行参数 | `project/script/vivado.tcl`、`stm32_settings.tcl` |
-| `ss_fft29.xci` | 前向 FFT 实际参数 | 核对现有 `project/ip/create_fft_ip.tcl`，27 项显式参数一致 |
-| `ss_ifft25.xci` | 逆向 FFT 实际参数 | 同上，27 项显式参数一致 |
+最新导出中的BD内部XCI只用于核对，不再作为另一套维护对象。原始导出作为证据可能含历史绝对路径和禁用调试引用，不能直接作为正式重建入口。当前工程配方的功能配置未变，因此不为同步日期重写它们。
 
-此外读取外部工程的实际 `.bd`、生成的复位/PS7 IP 配置、26 份源文件和两份 STM32 XDC；核对未显式导出的默认参数及当前磁盘源码。四份导出原件原样保存在 [证据目录](evidence/stm32-handoff-20261018/README.md)。原件可能保留个人路径，只作证据，不能直接作为重建入口。
+本次材料及比较结果见[10月19日接回证据](evidence/stm32-handoff-20261019/README.md)。首次接回的历史配置与原件见[10月18日记录](evidence/stm32-handoff-20261018/README.md)。
 
-## 已接回的实际配置
+## 正式依赖与唯一维护位置
 
-- 器件：`xc7z020clg400-2`，Vivado `2025.2`，Verilog / Mixed，启用 XPM CDC、FIFO、Memory。
-- PS7：DDR3 型号配置为 `MT41J256M16 RE-125`，总线 32 bit，约 533.333 MHz；这是用户工程配置值，不是本次重新核验 DDR 实物型号。
-- QSPI 使用 MIO 1–6，UART0 使用 MIO 14–15；PS Bank0 为 3.3 V、Bank1 为 1.8 V。这是 PS MIO 电压，不能拿来替代 PL Bank13 的供电检查。
-- FCLK0 为 100 MHz；一级 Clocking Wizard 输出 96 MHz 和 100 MHz，二级把 96 MHz 转为 61.44 MHz。
-- 冷复位来自 `FCLK_RESET1_N`。两个 Processor System Reset 的外部/辅助复位均低有效；辅助复位接 1、调试复位接 0。两组 XPM 异步复位同步释放也均低有效，释放同步级数为 3。
-- STM32 版未使用 GP0 AXI；`FCLK_RESET0_N` 未接业务逻辑。PL+PS 版继续使用独立配方，本次没有把 STM32 的 PS7 配置覆盖过去。
-- 两个 FFT 均为 1024 点、Radix-2 Burst、定点、缩放、收敛舍入、自然序，输入分别 29/25 bit、相位因子 24 bit；运行时方向及缩放字仍由 RTL 给出。
-- 两个 FFT 与 BD 均采用 Global 综合（`SYNTH_CHECKPOINT_MODE=None`），不复用原工程 DCP。综合/实现策略为 Vivado Defaults，保留实际导出的 77 项运行属性；布局后物理优化开启、布线后物理优化关闭。
-- BD 共 13 个单元：PS7、两个时钟 IP、两个复位 IP、两个逻辑门、两个 XPM 复位同步器、两个常量、`compute` 和 `link`。共有 30 条普通网络和两条接口网络；没有 ILA。
+完整FPGA工程输入仍为[40项文件清单](build/stm32-handoff-files.txt)，没有新增第二套工程目录：
 
-## 交接实际需要哪些文件
+| 类别 | 正式位置 |
+|---|---|
+| 25份公共RTL与Hann初始化数据 | `project/rtl` |
+| 两份STM32引脚/时序约束 | `project/sdc/stm32` |
+| BD和PS配置 | `project/bd/stm32.tcl`、`project/ip/ps7_stm32.tcl` |
+| 官方FFT创建配方 | `project/ip/create_fft_ip.tcl` |
+| 工程创建、源清单与运行设置 | `project/script` |
+| 工具查找与准备辅助入口 | `tools` |
 
-**工程入口及完整依赖共 40 个文件**。逐文件准确清单在 [stm32-handoff-files.txt](build/stm32-handoff-files.txt)，全部路径相对项目根目录，打包时保留目录结构。
+STM32和PL+PS目标共用公共RTL；各自使用BD和约束。生成的wrapper、官方IP输出、综合/实现结果在接收方生成，不提交工作缓存。相同工程后续更新原位置，旧版由Git历史保留；任务证据不作为另一套产品源码。
 
-| 分类 | 数量 | 文件 |
-|---|---:|---|
-| 公共 RTL | 25 | 下面列出；均在 `project/rtl` |
-| 初始化数据 | 1 | `project/rtl/hann-u18f17.mem` |
-| STM32 约束 | 2 | `project/sdc/stm32/board_pins.xdc`、`interface_timing.xdc` |
-| BD / PS / FFT / 运行设置 | 4 | `project/bd/stm32.tcl`、`project/ip/ps7_stm32.tcl`、`project/ip/create_fft_ip.tcl`、`project/script/stm32_settings.tcl` |
-| 工程入口与源清单 | 4 | `project/script/run.bat`、`setting.bat`、`vivado.tcl`、`src_list.txt` |
-| 入口辅助与准备结果记录 | 4 | `tools/run_vivado.py`、`tool_config.py`、`vivado_cli.tcl`、`audit_native.tcl` |
+## 接收方如何重建
 
-25 份 RTL 为：
-
-```text
-doa_math_pkg.sv           bd_clean_compute.v        bd_stm32_link.v
-doa_math_serial.sv        doa_phat_client.sv        f1a_frame_store.sv
-fft29_official.sv         i17_turntable_pwm_guard.sv ifft25_official.sv
-motor_drive.v            pdm_cic3.v                ss_actuator_control.sv
-ss_async_word.sv         ss_bist_source.sv         ss_clean_compute.sv
-ss_control_regs.sv       ss_dual_compute.sv        ss_fft_frontend.sv
-ss_pair_engine.sv        ss_pcm_windows.sv         ss_pdm_capture.sv
-ss_preprocess.sv         ss_snapshot_queue.sv      ss_spi_mode0.sv
-ss_stm32_link.sv
-```
-
-本次便于转发的包另外带上本说明、逐文件清单、`tools.local.env.example` 空模板、`.gitignore` 和原 `LICENSE`，再附三份实现资料及其说明，**共 49 个文件**。不包含本机 `tools.local.env`、生成的 wrapper、`.xpr`、BD 数据库、缓存或完整运行数据库。wrapper 和官方 IP 由 Vivado 根据配方生成；原始两份 XCI 已用于核对，不再作为重建时重复导入的第二份 IP。
-
-包按当前本地工作区制作，包括用户已同步的三份 RTL 和两份 STM32 XDC；并不是只打包旧 Git 提交。用户另两份 PS XDC 和 Word 修改仍保留在仓库，不属于这份 STM32 FPGA 包。
-
-## 接收人如何使用
-
-1. 安装 Vivado 2025.2 和 Python 3。把 `tools.local.env.example` 复制为 `tools.local.env`，填写自己的 `VIVADO_ROOT`、`PYTHON_EXE`；若工具已在 PATH 中，可不填。不要沿用发送方的工具盘符。
-2. 在解压根目录执行下面命令。`prepare` 在包内 `project/par` 创建新工程；已有工程时会停止，不覆盖。这里创建的是供接收人使用的工程，不会修改发送方 F 盘工作副本。
+1. 安装Vivado 2025.2、Zynq-7000器件支持和Python 3；按所用官方IP满足许可要求。
+2. 取得完整仓库，或按40项清单保留相对目录。将`tools.local.env.example`复制为本机`tools.local.env`并填写本机工具位置，或配置PATH。不要照搬发送方工具路径。
+3. 在仓库根目录执行：
 
 ```powershell
 .\project\script\run.bat --check-tools
@@ -71,14 +46,14 @@ ss_stm32_link.sv
 .\project\script\run.bat open stm32
 ```
 
-3. 在 Vivado 中查看 `soundsight_stm32_bd` 和 wrapper。综合、实现仍由使用者自行点击；脚本不会自动运行。输出生成后的准备检查针对尚未启动 run 的新工程，不应在已有综合/实现工作副本上当作通用检查命令使用。
+`prepare`在`project/par`准备工程；已有输出时拒绝覆盖，不能拿它重置用户在途工程。`outputs`生成官方IP/BD输出；两者不运行综合、实现或下载。综合、实现、生成bit由用户在Vivado执行，启动和烧录也由用户完成。
 
-导出的 PS 配置也不等于启动镜像：真实 PS 初始化、FCLK/复位释放、DDR 启动和 STM32 通信仍需实机验证。接收人若使用不同板卡，需按实物调整 PS 和引脚。
+本次未重新执行上述EDA步骤。静态核查确认所列依赖存在、活动入口没有本机工作区路径或ILA引用；不等于已实际重建通过。
 
-## 本次验证到哪里
+## 已有硬件报告与未完成范围
 
-已执行 Tcl 命令记录比对：整理后的 BD 与原导出的单元、显式属性、端口、连线和布局相同；两个 FFT 各 27 项显式参数及 77 项运行属性一致。40 个工程依赖齐全，活动配方无 F/E 盘依赖。外部工程 26 份源文件与仓库文本一致，仅 `ss_pair_engine.sv` 有行尾空白差异；两份 STM32 XDC 文本一致。
+用户10月19日最新报告记录：布线后WNS +0.379 ns、WHS +0.036 ns；布局后LUT 13895、FF 14458、BRAM 25、DSP 41。报告在[project/reports/stm32](../project/reports/stm32/README.md)，其中历史布局截图明确保留10月18日标签。路由后DRC仍有警告及报告数量截断，没有新的同候选专项CDC报告。
 
-用户提供的布线后报告：WNS `+0.248 ns`、WHS `+0.036 ns`；LUT `13894`、FF `14458`、BRAM `25`、DSP `41`。这些是外部手工工程的已有结果，本次没有重新运行 Vivado、仿真、综合、实现或板测，不能把静态配方比对说成已经重建通过。当前磁盘比较也不能单独证明当时 DCP 的完整输入身份。
+本次只同步用户已实施的板级修正，按当前工作流不重复仿真；新构建、新板测与Flash回读均未执行。首发CS短脉冲导致的SPI_FORMAT仍待排查，禁用ILA不构成故障修复。原始ILA诊断与当前无ILA实现分别记录，不混称同一候选。
 
-三份实现资料集中放在 [project/reports/stm32](../project/reports/stm32/README.md)，随交接 ZIP 一起提供。比较脚本及静态结果见完整仓库中的 [证据说明](evidence/stm32-handoff-20261018/README.md)。轻量交接 ZIP 不带该证据目录；上述证据链接需要在完整仓库中打开，不属于重建依赖。本次没有修改电路行为、用户 XDC 或 Word；没有给既有 `par` 或 F 盘工程写入任何文件。
+本次不更新`software/vitis/stm32`中的旧XSA、组件ZIP、ELF或配套bit，也不改B侧STM32固件。复现Flash上电运行还需与新FPGA候选匹配的XSA、PS初始化/FSBL、启动镜像和STM32固件；现有旧软件包不能自动视为最新候选配套。PL+PS目标、声学精度和机械闭环不继承此次STM32物理结果。

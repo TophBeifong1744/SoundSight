@@ -23,7 +23,7 @@
 10. [Vitis裸机平台与application交接](software/vitis/stm32/README.md)
 11. [两个比赛Skills的交付包与复现](document/competition-skills-delivery.md)
 
-用户外部STM32手工工程已有布线后时序/资源报告（WNS +0.248 ns，WHS +0.036 ns），实际BD/PS/IP配方已接回，详见[交接说明](document/stm32-handoff.md)。本次仅完成静态配置比对，没有重新构建验证仓库配方；真实启动、声学精度、机械闭环及独立PS目标仍未完成。STM32 S2仍按收到的B侧材料标为未实施。
+2026-10-19已将外部STM32工程的SPI末沿检查修正接回唯一公共RTL，并核对最新BD/PS/IP/运行配置，详见[交接说明](document/stm32-handoff.md)。用户最新布线后报告为WNS +0.379 ns、WHS +0.036 ns；本次仅同步与静态核查，没有重新构建仓库配方。板测已发现CS短脉冲导致SPI_FORMAT，根因仍未解决；声学精度、机械闭环及独立PS目标仍未验收。STM32诊断固件属于B侧工作，本次未合入其软件分支。
 
 ## 三个常用入口
 
