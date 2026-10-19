@@ -1,0 +1,3 @@
+COMMAND: F:\STUDY\IT\C\develop\mingw64\bin\gcc.exe -std=c99 -O2 -Wall -Wextra -Wconversion -Werror -pedantic -D__USE_MINGW_ANSI_STDIO=1 F:\NUEC\SoundSight-stm32\software\stm32\build\board-delay\fixed.c -o F:\NUEC\SoundSight-stm32\software\stm32\build\board-delay\fixed.exe
+
+EXIT_CODE: 0

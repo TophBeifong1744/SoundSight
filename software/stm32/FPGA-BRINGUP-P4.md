@@ -1,6 +1,8 @@
 # P4 两板基础联调：先运行无动作双 BIST
 
-2026-10-19。最新状态：[P4_START_V1实板回测](../../document/evidence/stm32-p4-start-diag-20261019/BOARD-RESULT.md)26通过/3失败/4跳过；双BIST、40事务、同帧重读、IRQ通过，第三次准备被fault=0x41（SPI格式+STOP）阻断。超时注入/恢复未执行，不能整项通过。暂停盲目重复测试和stream；下一需定位格式错误的具体物理事务。下文保留为原首轮步骤，旧启动失败记录保留。使用已通过用户BOARD_ONLY 13/0/11的二维Template固件，无需重新构建。三维超限构建按用户要求暂停。
+2026-10-19。最新待回测固件为`P4_TIM2_GUARD_V2`，已修正STM32最小等待并完成二维Template构建；下载及回测步骤见[本批报告](../../document/evidence/stm32-p4-tim2-guard-20261019/REPORT.md)。不需新增Keil源文件，但必须下载新AXF/HEX才应用修正。先与A确认FPGA候选及复测起始状态，旧粘滞故障不会因下载STM32而消失。
+
+上一次[P4_START_V1实板回测](../../document/evidence/stm32-p4-start-diag-20261019/BOARD-RESULT.md)为26通过/3失败/4跳过；双BIST、40事务、同帧重读、IRQ通过，第三次准备被fault=0x41阻断，超时注入/恢复未执行。本次软件测试不关闭此板端问题；下文保留原接线/首轮步骤，后续先按本批报告回测，不进入stream或动作。三维超限构建仍暂停。
 
 ## 当前双方基线
 

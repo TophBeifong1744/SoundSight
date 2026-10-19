@@ -1,0 +1,4 @@
+COMMAND: F:\NUEC\SoundSight-stm32\software\stm32\build\board-delay\fixed.exe
+BOARD_DELAY_MODEL,PASS,checks=1549,phase_cases=768,min_1us_128ths=129,NOT_PIN_MEASUREMENT
+
+EXIT_CODE: 0

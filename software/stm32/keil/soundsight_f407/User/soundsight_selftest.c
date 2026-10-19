@@ -224,7 +224,7 @@ void ss_selftest_run(int live_fpga)
     ss_bus_t bus;ss_link_t local;uint8_t tx[5]={0x98U,0U,0U,0U,0U},rx[5];
     if(application.initialized!=0U && application.active!=0U) {printf("COMMAND,BUSY,stop_stream_first\r\n");return;}
     passes=0U;fails=0U;skips=0U;board_ok=0;
-    printf("FIRMWARE_DIAG,P4_START_V1\r\n");
+    printf("FIRMWARE_DIAG,P4_TIM2_GUARD_V2\r\n");
     printf("\r\nSELFTEST,BEGIN,mode=%s,motion_submission=DISABLED\r\n",live_fpga?"FPGA":"BOARD_ONLY");
     printf("CLOCK,sys=%lu,hclk=%lu,pclk1=%lu,pclk2=%lu,spi_calc=%lu\r\n",
         (unsigned long)HAL_RCC_GetSysClockFreq(),(unsigned long)HAL_RCC_GetHCLKFreq(),

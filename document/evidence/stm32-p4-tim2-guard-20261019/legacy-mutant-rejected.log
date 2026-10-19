@@ -1,0 +1,4 @@
+COMMAND: F:\NUEC\SoundSight-stm32\software\stm32\build\board-delay\legacy-mutant.exe
+FAIL,line=43,elapsed_128ths=127
+
+EXIT_CODE: 1

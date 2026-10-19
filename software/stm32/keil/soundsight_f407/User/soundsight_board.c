@@ -14,7 +14,11 @@ int ss_board_wait_us(uint32_t us)
 {
     uint32_t start=ss_board_us(), n=SS_LOOP_LIMIT;
     if (!ss_board_stats.timer_ready || us>100000U) return 0;
-    while ((uint32_t)(ss_board_us()-start)<us) if (--n==0U) return 0;
+    if (us==0U) return 1;
+    /* The initial sample may be just before a 1MHz tick. One extra tick
+     * guarantees at least us full periods, independent of that phase.
+     * us is bounded above, so us+1 cannot overflow. Subtraction wraps. */
+    while ((uint32_t)(ss_board_us()-start)<us+1U) if (--n==0U) return 0;
     return 1;
 }
 int ss_board_irq(void) { return (GPIOG->IDR & GPIO_PIN_8)!=0U; }
@@ -130,6 +134,7 @@ static ss_bus_status_t transfer5(void *user,const uint8_t tx[5],uint8_t rx[5],ui
     if((SPI1->SR&(SPI_SR_RXNE|SPI_SR_OVR|SPI_SR_MODF|SPI_SR_BSY))!=0U) spi_reset();
     if(!ss_board_wait_us(1U)) goto finish;
     GPIOG->BSRR=(uint32_t)GPIO_PIN_7<<16;
+    __DSB(); /* Complete CS write before starting the setup interval. */
     if(!ss_board_wait_us(1U)) goto finish;
     for(i=0U;i<5U;++i) {
         w=wait_sr(SPI_SR_TXE,1,start,budget);if(w!=1) goto finish;
@@ -145,6 +150,7 @@ static ss_bus_status_t transfer5(void *user,const uint8_t tx[5],uint8_t rx[5],ui
 finish:
     if(!ss_board_wait_us(1U)) result=SS_BUS_ERROR;
     GPIOG->BSRR=GPIO_PIN_7; /* EVERY asserted-CS exit releases the peer */
+    __DSB(); /* Complete CS write before starting the idle interval. */
     if(!ss_board_wait_us(1U)) result=SS_BUS_ERROR;
     elapsed=ss_board_us()-start;
     if(w==0 || elapsed>=budget) result=SS_BUS_TIMEOUT;
