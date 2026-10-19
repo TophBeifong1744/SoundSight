@@ -1,5 +1,7 @@
 # P4 两板基础联调：先运行无动作双 BIST
 
+最新实板：[V3 + A修改](../../document/evidence/stm32-p4-acquire-diag-20261019/BOARD-RESULT.md)14通过/3失败/5跳过。请求pair5读回pair4（0x664F1CFF，预期0x664F1D02），等待A对选择写/读数据路径定位；V3已下载，本轮不需再次下载。下文保留原交付与历史回测说明。
+
 当前下载版本：`P4_ACQUIRE_V3`。已完成二维Template构建，新增取帧格式首错输出；[下载步骤、check对照和测试结果](../../document/evidence/stm32-p4-acquire-diag-20261019/REPORT.md)。尚未实板回测，以下V2结果保留为历史失败记录。
 
 2026-10-19最新实板：[V2回测](../../document/evidence/stm32-p4-tim2-guard-20261019/BOARD-RESULT.md)20通过/3失败/5跳过。新版已下载，A修改尚未加载；第一组BIST通过，第二组启动成功但取帧status8。暂缓重复尝试及stream，下一定位取帧首错，以下保留原修正/回测说明。
