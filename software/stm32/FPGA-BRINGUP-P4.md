@@ -1,20 +1,10 @@
-# P4 两板基础联调：先运行无动作双 BIST
+# P4 两板基础联调
 
-当前测试依据：[第二/三次对照](../../document/evidence/stm32-p4-acquire-diag-20261019/RETEST-3.md)。第三次仅复位STM32，prepare被PL粘滞0x41拦截，没有独立重现第二次数值错误；第二次作为主要定位记录，第一次操作条件存疑仅留历史。等待A的ILA及明确两板复测初态，不反复只按STM32 reset。
+当前采用[统一重复测试操作](P4-REPEAT-TEST.md)，记录见[统计表](../../document/evidence/stm32-p4-acquire-diag-20261019/RUN-STATISTICS.md)。固定STM32 P4_ACQUIRE_V3，已有三次全部保留；新G01先做5次，每次先明确PL/PS初始化，再STM32 reset，然后status→fpga一次→status。当前新批0次完成。ILA/bit或接线变化另开批次，动作关闭。
 
-最新再次回测：[V3实测18/4/5](../../document/evidence/stm32-p4-acquire-diag-20261019/RETEST-2.md)，同帧重读/精确数值/IRQ检查失败，有效读回0x41；没有本轮pair格式拒绝。保留V3，下一配合A的ILA候选定位，不继续盲目加延时或进入stream。以下均为原交付/历史回测。
+V3代码/构建及下载入口见[诊断报告](../../document/evidence/stm32-p4-acquire-diag-20261019/REPORT.md)，用户已下载V3，无需重新构建。下列原基线与接线材料供参考，实际PL版本以A本轮交付为准；重复测试顺序以上述统一操作为准。
 
-最新实板：[V3 + A修改](../../document/evidence/stm32-p4-acquire-diag-20261019/BOARD-RESULT.md)14通过/3失败/5跳过。请求pair5读回pair4（0x664F1CFF，预期0x664F1D02），等待A对选择写/读数据路径定位；V3已下载，本轮不需再次下载。下文保留原交付与历史回测说明。
-
-当前下载版本：`P4_ACQUIRE_V3`。已完成二维Template构建，新增取帧格式首错输出；[下载步骤、check对照和测试结果](../../document/evidence/stm32-p4-acquire-diag-20261019/REPORT.md)。尚未实板回测，以下V2结果保留为历史失败记录。
-
-2026-10-19最新实板：[V2回测](../../document/evidence/stm32-p4-tim2-guard-20261019/BOARD-RESULT.md)20通过/3失败/5跳过。新版已下载，A修改尚未加载；第一组BIST通过，第二组启动成功但取帧status8。暂缓重复尝试及stream，下一定位取帧首错，以下保留原修正/回测说明。
-
-2026-10-19。最新待回测固件为`P4_TIM2_GUARD_V2`，已修正STM32最小等待并完成二维Template构建；下载及回测步骤见[本批报告](../../document/evidence/stm32-p4-tim2-guard-20261019/REPORT.md)。不需新增Keil源文件，但必须下载新AXF/HEX才应用修正。先与A确认FPGA候选及复测起始状态，旧粘滞故障不会因下载STM32而消失。
-
-上一次[P4_START_V1实板回测](../../document/evidence/stm32-p4-start-diag-20261019/BOARD-RESULT.md)为26通过/3失败/4跳过；双BIST、40事务、同帧重读、IRQ通过，第三次准备被fault=0x41阻断，超时注入/恢复未执行。本次软件测试不关闭此板端问题；下文保留原接线/首轮步骤，后续先按本批报告回测，不进入stream或动作。三维超限构建仍暂停。
-
-## 当前双方基线
+## 历史基线核对与交接
 
 - B：P3用户串口13 PASS/0 FAIL/11 SKIP；二维APP_PROFILE=0、动作门禁关闭。[记录](../../document/evidence/stm32-p3-board-ready-20261018/REPORT.md)。
 - A：main `24f063a54efcfebd27e8f1281f870d4da77eb36a`，PR [#6](https://github.com/TophBeifong1744/SoundSight/pull/6)/[#7](https://github.com/TophBeifong1744/SoundSight/pull/7)已合入。STM32主方案实际配置/报告已接回，器件xc7z020clg400-2，顶层soundsight_stm32_bd_wrapper。已有外部工程报告WNS+0.248ns/WHS+0.036ns；不能据此声明当前板上映像身份或通信已通过。

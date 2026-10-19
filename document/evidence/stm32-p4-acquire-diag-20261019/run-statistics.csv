@@ -1,0 +1,9 @@
+﻿trial_id,group,state,stm32_marker,fpga_image,ila,initialization,comparable_independent,first_failure,detail,board_pass,board_fail,board_skip,fpga_pass,fpga_fail,fpga_skip,fault_value,fault_evidence,record,notes
+H01,HISTORICAL,OBSERVED,P4_ACQUIRE_V3,A_MODIFIED_USER_CONFIRMED_EXACT_IMAGE_UNKNOWN,UNKNOWN,UNKNOWN,NO,ACQUIRE_PAIR_ECHO,check6 requested5 returned4 word0x664F1CFF frame1 status8,13,0,11,14,3,5,,FINAL_READ_BLOCKED,user-uart-retest.txt,User questioned procedure; retained in symptom classification per latest instruction
+H02,HISTORICAL,OBSERVED,P4_ACQUIRE_V3,SAME_REPORTED_SETUP_EXACT_IMAGE_UNKNOWN,UNKNOWN,UNKNOWN,NO,RELEASE_REACQUIRE_CONSISTENCY,40 transfers status0; ux47037 uy-171934 residual590892309; BIST/IRQ/fault also fail,13,0,11,18,4,5,0x41,SUCCESSFUL_FINAL_READ,user-uart-retest-2.txt,STOP may be test cleanup; SPI error onset unknown
+H03,CONTINUATION_OF_H02,OBSERVED,P4_ACQUIRE_V3,FPGA_NOT_RESET_FROM_H02,UNKNOWN,MCU_RESET_ONLY_USER_CONFIRMED,NO,PREPARE,status10 start_step0; BIST not started,13,0,11,14,3,5,0x41,PREPARE_READ_CACHED_FINAL_READ_BLOCKED,RETEST-3.md,Key excerpt only; full UART in user chat; consistent with retained sticky faults
+G01-R01,G01,PLANNED,P4_ACQUIRE_V3,TO_RECORD,TO_RECORD,TO_RECORD,PENDING,,,,,,,,,,,,
+G01-R02,G01,PLANNED,P4_ACQUIRE_V3,TO_RECORD,TO_RECORD,TO_RECORD,PENDING,,,,,,,,,,,,
+G01-R03,G01,PLANNED,P4_ACQUIRE_V3,TO_RECORD,TO_RECORD,TO_RECORD,PENDING,,,,,,,,,,,,
+G01-R04,G01,PLANNED,P4_ACQUIRE_V3,TO_RECORD,TO_RECORD,TO_RECORD,PENDING,,,,,,,,,,,,
+G01-R05,G01,PLANNED,P4_ACQUIRE_V3,TO_RECORD,TO_RECORD,TO_RECORD,PENDING,,,,,,,,,,,,
