@@ -1,5 +1,7 @@
 # P4 两板基础联调：先运行无动作双 BIST
 
+最新再次回测：[V3实测18/4/5](../../document/evidence/stm32-p4-acquire-diag-20261019/RETEST-2.md)，同帧重读/精确数值/IRQ检查失败，有效读回0x41；没有本轮pair格式拒绝。保留V3，下一配合A的ILA候选定位，不继续盲目加延时或进入stream。以下均为原交付/历史回测。
+
 最新实板：[V3 + A修改](../../document/evidence/stm32-p4-acquire-diag-20261019/BOARD-RESULT.md)14通过/3失败/5跳过。请求pair5读回pair4（0x664F1CFF，预期0x664F1D02），等待A对选择写/读数据路径定位；V3已下载，本轮不需再次下载。下文保留原交付与历史回测说明。
 
 当前下载版本：`P4_ACQUIRE_V3`。已完成二维Template构建，新增取帧格式首错输出；[下载步骤、check对照和测试结果](../../document/evidence/stm32-p4-acquire-diag-20261019/REPORT.md)。尚未实板回测，以下V2结果保留为历史失败记录。
