@@ -1,6 +1,6 @@
 # P4 两板基础联调：先运行无动作双 BIST
 
-2026-10-19。状态：已取得首轮真实P4日志，ID/ABI通过，但BIST启动status=10；汇总14通过/3失败/5跳过，见[首错记录](../../document/evidence/stm32-p4-first-run-20261019/RESULT.md)。已补[启动诊断固件](../../document/evidence/stm32-p4-start-diag-20261019/REPORT.md)：下载新Template，确认FIRMWARE_DIAG,P4_START_V1后进行一次status→fpga→status回测。保留FPGA映像和接线，不进入stream；本次目标是定位寄存器首错。下文操作保留为原首轮步骤。使用已通过用户BOARD_ONLY 13/0/11的二维Template固件，无需重新构建。三维超限构建按用户要求暂停。
+2026-10-19。最新状态：[P4_START_V1实板回测](../../document/evidence/stm32-p4-start-diag-20261019/BOARD-RESULT.md)26通过/3失败/4跳过；双BIST、40事务、同帧重读、IRQ通过，第三次准备被fault=0x41（SPI格式+STOP）阻断。超时注入/恢复未执行，不能整项通过。暂停盲目重复测试和stream；下一需定位格式错误的具体物理事务。下文保留为原首轮步骤，旧启动失败记录保留。使用已通过用户BOARD_ONLY 13/0/11的二维Template固件，无需重新构建。三维超限构建按用户要求暂停。
 
 ## 当前双方基线
 
