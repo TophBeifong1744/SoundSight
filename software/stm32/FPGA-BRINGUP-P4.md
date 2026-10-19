@@ -1,6 +1,8 @@
 # P4 两板基础联调
 
-当前采用[统一重复测试操作](P4-REPEAT-TEST.md)，记录见[统计表](../../document/evidence/stm32-p4-acquire-diag-20261019/RUN-STATISTICS.md)。固定STM32 P4_ACQUIRE_V3，已有三次全部保留；新G01先做5次，每次先明确PL/PS初始化，再STM32 reset，然后status→fpga一次→status。当前新批0次完成。ILA/bit或接线变化另开批次，动作关闭。
+最新：[G01五次冷启动结果](../../document/evidence/stm32-p4-acquire-diag-20261019/G01-RESULTS.md)已收到，用户确认映像/接线不变；5次未整体通过，3次上一pair错配、2次准备失败。固化程序每轮冷启动即可，无需重复烧录。下一等待A的ILA候选与采集，不继续单纯重复串口；新增映像另列G02。
+
+当前采用[统一重复测试操作](P4-REPEAT-TEST.md)，记录见[统计表](../../document/evidence/stm32-p4-acquire-diag-20261019/RUN-STATISTICS.md)。固定STM32 P4_ACQUIRE_V3，已有三次全部保留；新G01先做5次，每次先明确PL/PS初始化，再STM32 reset，然后status→fpga一次→status。G01已完成5次；下次新配置另列G02。ILA/bit或接线变化另开批次，动作关闭。
 
 V3代码/构建及下载入口见[诊断报告](../../document/evidence/stm32-p4-acquire-diag-20261019/REPORT.md)，用户已下载V3，无需重新构建。下列原基线与接线材料供参考，实际PL版本以A本轮交付为准；重复测试顺序以上述统一操作为准。
 
