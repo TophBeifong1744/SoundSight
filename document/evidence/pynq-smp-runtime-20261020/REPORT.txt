@@ -1,0 +1,53 @@
+C：同一Linux/PYNQ双核软件接合自测
+日期：2026-10-20
+
+来源与范围
+SoundSight main：ade821b49551d33b764fc44a04e24fe36b7ee9fd。
+B交付PR #15：61e7303331641ec2353f89088b060aa81ffd6110。
+C候选：本报告所在提交的software/ps和software/tests变更，以PR准确HEAD为准。
+只改C负责的Python运行/检查/说明，没有修改PL、BD、C算法或公共ABI。
+两个ARM核共用Linux/PYNQ；CPU1的Python调用一次C库并独占硬件，CPU0控制和保存。
+
+实际PC执行
+Windows AMD64，Python 3.13.5，PC编译器MinGW GCC 8.3.0。
+1. python -E -s -B -X utf8 software/tests/test_smp.py
+   Ran 17 tests / OK。
+2. python -E -s -B -X utf8 software/tests/test_application.py
+   APPLICATION_PASS checks=8。
+3. B PR #15测试、S1和冻结头文件取自上述准确候选；生产ps_client.py替换为本批版本，
+   在ignored软件测试副本运行test_software.py和test_solver_migration.py，后者使用
+   B保存的PC-RESULT.json作--golden。
+   SOFTWARE_PASS original_s1=4705 bridge_and_client_checks=9。
+   MIGRATION_PASS original_s1=4705 equivalence=157 bridge_negative=6。
+4. run_smp.py --help和git diff --check通过。
+
+测试原件留在本地ignored输出：
+software/build/application_20261020_192009/RESULT.json
+software/build/pr15_c_integration_20261020_192418/test_0.log
+software/build/pr15_c_integration_20261020_192418/test_1.log
+software/build/pr15_c_integration_20261020_192418/software/build/solver-migration/RESULT.json
+输入和数值基准复用B的PR，不在本批再提交一份完整157组结果。
+
+17项覆盖
+真实spawn/Pipe、保存成功才消费、结果保存后才COMMIT、动作记录保存后才消费；
+普通/动作日志失败、KeyboardInterrupt、ACK缺失/错误、进程EOF均STOP并保帧；
+求解器异常和桥错误传给父进程，桥错误输入已保存但不消费；
+历史故障需显式清除；ACK后取消仍拦截动作/消费；
+机械参数合法性、故障在保存中产生、显式排空故障帧、CPU affinity检查/恢复。
+SMP测试使用假MMIO/假求解器。CPU affinity用注入OS函数检查，未在Windows伪造Linux绑定。
+另有实际PC C编译、原算法与桥的一致性回归；这些是不同层次的证据。
+
+未运行/后续接合
+目标ARM共享库、PYNQ实际加载、两个Linux核真实绑定、目标耗时：NOT_RUN。
+真实麦克风、FPGA数据/PWM、持续压力/STOP/恢复、机械到位：NOT_RUN。
+没有执行Vivado、下载、复位、接线或执行器动作；A负责硬件和现场。
+当前公共算法/寄存器只有二维方位和水平轴，B的PR #15也未提供双轴或ARM.so。
+双轴接口和匹配硬件仍由B/A交付后C接合，不能把本报告作为双轴迁移完成。
+配置不采用示例默认值；实际通道/几何/机械标定及看门狗需接合前确定。
+超时保持原250ms等待；新增进程失联检测不提供硬实时或无损保证。
+软件完全失联/C库挂死时STOP可能未确认，需硬件看门狗和A现场处理。
+
+交接
+给A：software/ps/run_smp.py及运行说明.txt；提供同一次bit/HWH、目标启动环境和标定。
+给B：现有Solver与PR #15的PC对照兼容；目标ARM运行后回ARM-RESULT.json。
+以上属于C自测和接收记录，不是A/B批准、GitHub Approve或整机验收。

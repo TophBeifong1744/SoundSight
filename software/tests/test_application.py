@@ -24,7 +24,7 @@ class Client:
     def disable(self):self.events.append('disable')
     def start(self,bist):self.events.append(('start',bist))
     def read(self,a):return 2 if self.queued else 0
-    def record_one(self,sink):
+    def record_one(self,sink,**kwargs):
         sink({'n':self.consumed+1});self.consumed+=1;self.queued-=1
 
 c=Client();records=[]
