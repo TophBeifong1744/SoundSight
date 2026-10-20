@@ -54,10 +54,13 @@ SMP测试使用假MMIO/假求解器。CPU affinity用注入OS函数检查，未�
 
 2026-10-20补充：SSCOM离线交付
 新增software/ps/串口部署.txt、package_serial.py、copy_serial_step.ps1，
-固定交付release/output/soundsight-pynq-serial.zip，沿PR #16累计更新。
+固定交付release/output/soundsight-pynq-serial.zip。
+PR #15/#16在本次工作期间由上游合入；本补充从main 6482d52913cbc6a4c806fa09e80b31b72be61ee0
+接续到codex/pynq-serial-handoff，由新的补充PR交付，不重复修改已合入的实现。
 ZIP含PC复制助手/步骤/短命令和可恢复原始相对目录的payload.tar.gz。
 B测试仍取PR #15准确Git对象；没有复制第二份活动算法或引入旧仓库路径。
-当前payload 58390字节；45条命令，最长2113 ASCII字节，均小于原方式3800字节限制。
+初版payload 58390字节；45条命令，最长2113 ASCII字节，均小于原方式3800字节限制。
+补充分支说明更新后重建最终ZIP，准确长度随包内serial_commands.txt生成，不硬编码到板上程序。
 每块独立写文件，允许重发；拼接只读本包声明块数，重建前清本轮暂存tar，
 长度/gzip检查失败不解包，已有目标目录不覆盖。源码/共享库编译后再BIST，首次不动作。
 

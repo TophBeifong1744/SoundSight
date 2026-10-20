@@ -11,7 +11,8 @@ CPU1的Python调用C共享库并独占MMIO，CPU0负责控制、保存和显示�
 
 二、在电脑取得文件
 项目：https://github.com/TophBeifong1744/SoundSight
-固定交付包：release/output/soundsight-pynq-serial.zip（本批在PR #16分支，尚未合入main）。
+固定交付包：release/output/soundsight-pynq-serial.zip。
+PR #15/#16已合入main；本次串口补充在codex/pynq-serial-handoff分支，由新的补充PR交付。
 下载ZIP并在电脑解压到任意工作目录，得到：
   串口部署.txt             本步骤
   copy_serial_step.ps1     复制指定一条命令，不连接或自动发送串口
