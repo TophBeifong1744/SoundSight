@@ -6,6 +6,7 @@
 import ctypes as C
 import json
 import time
+import sys
 from pathlib import Path
 
 MAGIC, SYS, SEQ, FEATURE, PEAK, ENERGY, ANGLE, SELECT = 0,4,8,12,16,20,24,28
@@ -45,11 +46,16 @@ class Client:
         while self.read(STATUS)&0x8000:
             if time.monotonic()>deadline:raise TimeoutError('仍在排空；保留记录，不自动复位')
             time.sleep(.001)
-    def start(self, bist=None):
-        self.identify();self.disable()
+    def start(self, bist=None, clear_faults=0):
+        if type(clear_faults) is not int or not 0<=clear_faults<=0xfff:
+            raise ValueError('清错掩码必须在0..0xfff内')
+        self.identify();before=self.read(FAULT);self.disable()
         # 已保存结果由调用者先处理，绝不为了启动偷偷消费。
         if self.read(STATUS)&3:raise RuntimeError('先处理已有快照，再启动新会话')
-        self.write(SYS,8);self.write(FAULT,0xfff)
+        # 只自动清本次STOP新增的取消位；历史故障须由操作者显式选择。
+        if before&~clear_faults:
+            raise RuntimeError('启动前有历史故障0x%x；处理原因和旧槽后显式指定清错掩码'%before)
+        self.write(SYS,8);self.write(FAULT,(before&clear_faults)|0x40)
         if self.read(FAULT):raise RuntimeError('故障原因未消失')
         if bist is not None:
             if bist not in (0,1):raise ValueError('BIST只能0或1')
@@ -80,14 +86,29 @@ class Client:
         if not self.read(STATUS)&1 or self.read(SEQ)!=frame['sequence']:
             raise RuntimeError('当前锁帧与待消费记录不一致')
         self.write(SNAP,4);self.last_consumed=frame['sequence']
-    def record_one(self, sink, config=None):
+    def record_one(self, sink, config=None, motion=False, allow_fault=False):
         """sink必须把记录保存成功才返回；失败时保留硬件槽并请求STOP。"""
         try:
-            frame=self.acquire();result=self.solver.solve(frame,config)
-            record=dict(frame=frame,result=result);sink(record);self.consume(frame)
+            began=time.monotonic_ns();frame=self.acquire();acquired=time.monotonic_ns()
+            if frame['fault'] and not allow_fault:
+                raise RuntimeError('锁帧时发现故障0x%x；STOP并保帧，使用排空模式保存'%frame['fault'])
+            result=self.solver.solve(frame,config)
+            record=dict(frame=frame,result=result,motion_requested=motion,
+                        timing_ns={'acquire':acquired-began,'solve':time.monotonic_ns()-acquired})
+            sink(record)
+            if result['bridge_status']!=0:raise RuntimeError('C桥报错；已保存输入，保留锁帧')
+            if motion and result['bridge_status']==0 and result['direction_valid'] and result['servo_cmd_valid']:
+                self.command(frame,result)
+                # 这里只确认COMMIT后未读到故障；没有机械位置反馈。
+                sink(dict(frame={'sequence':frame['sequence']},
+                          action='commit_no_fault_observed',mechanical_arrival='UNVERIFIED'))
+            if not allow_fault and self.read(FAULT):raise RuntimeError('保存期间设备新增故障；STOP并保帧')
+            self.consume(frame)
             return record
-        except Exception:
-            self.stop();raise
+        except BaseException:
+            try:self.stop()
+            except Exception as exc:print('STOP也失败：'+str(exc),file=sys.stderr)
+            raise
     def arm(self, watchdog_ticks):
         if not 1<=watchdog_ticks<=0xffffffff:raise ValueError('看门狗必须非零且在32位内')
         if not self.read(STATUS)&0x80000:raise RuntimeError('硬件执行器参数未绑定')
@@ -97,7 +118,7 @@ class Client:
     def command(self, frame, result):
         # 必须在消费前调用；求解成功不自动意味着允许动作。
         status=self.read(STATUS)
-        if result['bridge_status'] or not result['servo_cmd_valid'] or frame['status']&8:
+        if result['bridge_status'] or not result['direction_valid'] or not result['servo_cmd_valid'] or frame['status']&8:
             raise RuntimeError('没有合法的真实帧舵机命令')
         if not status&1 or self.read(SEQ)!=frame['sequence'] or not self.read(ACT)&1 or self.read(FAULT):
             raise RuntimeError('锁帧/许可/故障条件不满足')
