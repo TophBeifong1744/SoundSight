@@ -3,6 +3,7 @@
 PC复现（本工程目录）：
 python -E -s -B -X utf8 software/tests/test_software.py
 python -E -s -B -X utf8 software/tests/test_application.py
+python -E -s -B -X utf8 software/tests/test_smp.py
 前者原S1 4705项与桥接/客户9项，后者HWH寻址/保存失败/中断保帧8项。
 PC测试按环境变量、根目录tools.local.env、PATH的顺序找GCC；用GCC_ROOT或SS_GCC配置，不提供个人安装路径默认值。PC DLL不能给ARM运行。
 
@@ -24,7 +25,71 @@ Linux文件锁防止本程序重复运行；不能阻止另一个绕过本程序
 python3 software/ps/run_capture.py --hwh 实际设计.hwh --output recovery.jsonl --drain-existing
 普通总线复位与STOP不清槽；重新配置PL、冷复位/失钟冷恢复会清状态，不属于保记录恢复。
 
-高级Client提供显式arm/command，但CLI不调用。机械参数必须来自实际标定：
+双核PYNQ入口（2026-10-20，按SoundSight的PL/PS迁移分工由C接续）：
+项目来源只有 https://github.com/TophBeifong1744/SoundSight 。
+两个ARM核运行同一个Linux/PYNQ：默认CPU1的Python进程用ctypes调用B的ARM Linux C共享库，
+负责唯一MMIO、锁帧、角度提交和消费；CPU0的Python进程负责启动/退出、JSONL落盘和显示。
+这不是两块板，也不是一核Linux、一核裸机。C算法只在CPU1执行一次，不在CPU0重复计算。
+原run_capture.py保留为单进程诊断入口；正式双核入口为run_smp.py。
+
+目标板先由A检查两个核均在线且允许当前进程使用：
+python3 -c "import os; print(sorted(os.sched_getaffinity(0)))"
+默认应包含0、1；程序实际记录两进程PID与CPU affinity，不能靠启动了两个进程就称双核已验证。
+如果仍用旧实验的maxcpus=1或CPU1裸机配置，应由A恢复匹配PYNQ的双核Linux启动配置；
+不要向已由Linux管理的CPU1下载旧裸机ELF。本程序不改启动参数、不加载位流或释放第二核。
+Python标准库外仅worker依赖目标PYNQ；B交ARM Linux .so或在目标板用既有build_solver.sh编译。
+同一次A导出的bit/HWH须已加载；本机Windows DLL、arm-none-eabi ELF均不适用。
+
+在目标板项目根目录运行（这些是交给A的操作，未在本机执行）：
+python3 software/ps/run_smp.py --hwh 实际设计.hwh --output reject.jsonl --mode bist-reject
+检查停止原因、处理已有槽后，下一轮显式清STOP历史位：
+python3 software/ps/run_smp.py --hwh 实际设计.hwh --output pass.jsonl --mode bist-pass --clear-faults 0x40
+python3 software/ps/run_smp.py --hwh 实际设计.hwh --output real.jsonl --mode real --frames 100 --clear-faults 0x40
+--host-cpu/--worker-cpu可指定两个不同且允许使用的核，默认0/1。
+不要复制清错掩码去清未查明的溢出/看门狗/协议故障；未显式选择的历史故障会拒绝启动。
+程序只自动清本次启动STOP新增的取消位；startup记录保存故障原值及显式清错选择。
+
+进程间一次只允许一条记录待确认：CPU0 write/flush/fsync成功才ACK，CPU1收到当前ACK才继续。
+ACK最长等待250ms；取帧、排空仍各用原250ms上界。软件调度不提供硬实时保证，不能据此宣称零丢帧。
+父进程5秒启动等待、750ms失联检测仅用于进程管理，不改变服务预算。
+退出、磁盘满、ACK错误/超时、断连、C桥错误或设备故障会请求STOP，保留未消费帧。
+如果C或驱动完全挂死，父进程只能有界终止子进程并报告STOP未确认，由A检查现场和看门狗。
+恢复时不重新加载bit，使用run_smp.py相同HWH和--drain-existing；不允许恢复模式重发动作。
+已落盘但未收到ACK/未消费的记录可能在恢复中重复保存，以同一PL运行期间的帧号关联。
+冷复位后帧号可重新开始，不能跨冷复位仅凭帧号去重；输出按运行批次选新文件。
+
+水平闭环需A确认标定、硬件限位和看门狗预算后现场执行，默认不开启。
+CLI必须同时显式提供--mode real --horizontal-motion --servo-config 标定.json --watchdog-ticks 约定周期数。
+标定.json为七个整数数组，机械参数必须来自实际标定：
 offset_q8、direction、domain_min_q8、domain_max_q8、mechanical_min、mechanical_max、servo_max。
 不能默认采用示例90度偏置或0..180机械范围。BIST始终禁止实物动作。
+参数须满足现有C合同：offset_q8在[-8388608,8388607]，direction为±1，
+-46080<=domain_min_q8<=domain_max_q8<46080，0<=mechanical_min<=mechanical_max<=servo_max<=511，servo_max非零。
+软件只提前检查配置合法性；映射、整数舍入和正式方向继续由B的C库完成。
+保存计算结果后才能COMMIT；COMMIT后未读到故障只记commit_no_fault_observed，
+动作记录也保存后才消费。该记录不证明机械到位；失败帧恢复只保存，不重放旧命令。
+
+当前公共库/寄存器仅有二维方位及水平轴，垂直有效位必须为0。
+用户选定的STM32双轴版本仍需B提供相应ARM Linux调用接口、A提供匹配双轴寄存器和硬件；
+C收到后接合，不另造第二套接口，也不把当前水平自测称作双轴完成。
+2026-10-20收到B的PR #15（61e7303331641ec2353f89088b060aa81ffd6110）：
+https://github.com/TophBeifong1744/SoundSight/pull/15
+它补充二维157组离线输入/PC基准和6组桥接拒绝测试，仍使用原ss_solve_words。
+它未交付双轴API或ARM共享库。取得该PR准确版本或其后正式合入版本后，按其中
+software/common/s1/PS-MIGRATION.md在目标板编译并运行test_solver_migration.py，
+向B返回ARM-RESULT.json。不要把该PR的Windows PC结果改名作ARM结果。
+给A：本目录运行程序、以上依赖/启动/停止说明及PC自测；给B：当前桥接仍为ss_solve_words，
+双轴库需一并交调用合同、目标.so、输入/预期和原算法对比结果。
+日志timing_ns给出每帧取数和C调用耗时；finished/failed中的stats给出已消费帧数及
+从取帧到保存确认、可选动作记录和消费完成的max_service_ns（不含启动/最终排空）。
+这些字段仅在实际执行后有测量意义；10.667ms仍是采样步进，不是软件实测耗时。
 ARM执行耗时、Linux调度/存储预算、PS7实际启动与机械行为仍未验证。
+
+本次C软件PC自测（2026-10-20）：test_smp.py 17项、test_application.py 8项通过。
+另接收PR #15准确候选，在独立临时软件目录叠加本次ps_client.py重跑：
+原S1 4705项、既有桥接/客户9项、157组同输入对照及6组非法桥输入全部通过。
+此处使用现有x86_64 MinGW GCC 8.3.0，不是ARM编译器；测试与限制详见
+document/evidence/pynq-smp-runtime-20261020/REPORT.txt。
+SMP测试使用真实spawn/Pipe及假MMIO/假求解器；覆盖保存/动作记录顺序、故障/断连/
+超时/中断保帧、历史清错、机械参数检查，CPU affinity仅用注入OS接口检查。
+它不是ARM实跑、RTL仿真或Linux实核绑定测试；未执行上面任何实板操作。
