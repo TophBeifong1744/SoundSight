@@ -1,6 +1,14 @@
-# 当前状态 — 2026-10-19
+# 当前状态 — 2026-10-20
 
 目标：四麦二维定位、连续测量、转台闭环。FPGA+STM32为主方案，PL+PS为独立实验目标。
+
+## PS双核软件接合与首次上传包
+
+已接合检查并合并B的PR #15（61e7303）与C的PR #16（0d38858）；main合入点为6482d52。组合实跑通过原S1 4705项、桥接/客户端9项、157组数值对照、6组非法桥输入、双进程17项与应用8项。检查者未参与这两个PR的实现，本次没有改写生产算法或双进程程序。范围仅为离线软件接合，非ARM、板上或双轴批准。
+
+A的外部PS工程已生成bit；读取其布线后报告WNS +0.278 ns、WHS +0.036 ns、setup/hold失败端点为0，DRC仍有警告。本次bit/HWH与A导出的XSA内容一致。用户确认匹配PYNQ已启动，但实际双核affinity、ARM共享库数值对照、PL复位/寄存器/BIST和真实采集仍待现场验证。ACTUATOR_BOUND=0，双轴接口仍未交付。
+
+上传包入口为release/output/soundsight_pynq.zip（本地产物，不提交缓存或Windows DLL）；重打包工具tools/package_pynq.py，步骤见[pynq-first-run.md](pynq-first-run.md)，证据见[evidence/pynq-integration-20261020](evidence/pynq-integration-20261020/README.md)。第一步只检查环境和HWH，不访问MMIO、不加载位流、不复位。
 
 用户2026-10-18更正：两版器件约定和新建工程默认值统一为`xc7z020clg400-2`。本次仅更正配置和说明，未重建已有工程、重新Validate、生成IP输出或运行综合/实现。迁移阶段报告及固定官方仿真参考中的旧器件记录保留原文，不能据此宣称当前目标已验证。
 

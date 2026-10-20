@@ -1,0 +1,43 @@
+{
+  "result": "PASS",
+  "machine": "AMD64",
+  "system": "Windows",
+  "python": "3.14.6",
+  "compiler": "gcc.exe (x86_64-win32-seh-rev1, Built by MinGW-Builds project) 16.1.0",
+  "original_s1_assertions": 4705,
+  "equivalence_cases": 157,
+  "bridge_negative_cases": [
+    {
+      "name": "ZERO_SEQUENCE",
+      "expected": -1,
+      "actual": -1
+    },
+    {
+      "name": "STATUS_RESERVED",
+      "expected": -2,
+      "actual": -2
+    },
+    {
+      "name": "NOT_LOCKED",
+      "expected": -3,
+      "actual": -3
+    },
+    {
+      "name": "PAIR_ECHO",
+      "expected": -4,
+      "actual": -4
+    },
+    {
+      "name": "FEATURE_RESERVED",
+      "expected": -4,
+      "actual": -4
+    },
+    {
+      "name": "NEGATIVE_MECHANICAL_LIMIT",
+      "expected": -5,
+      "actual": -5
+    }
+  ],
+  "golden_compared": true,
+  "scope": "OFFLINE_NO_MMIO_NO_MOTION"
+}

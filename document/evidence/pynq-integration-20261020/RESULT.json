@@ -1,0 +1,72 @@
+{
+  "smp": {
+    "exit": 0,
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-E",
+      "-s",
+      "-B",
+      "-X",
+      "utf8",
+      "software/tests/test_smp.py"
+    ],
+    "tail": "PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 50104}\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 34016}\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 41240}\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 52232}\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 44676}\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 50908}\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 43104}\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 2220}\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 39984}\n.................\n----------------------------------------------------------------------\nRan 17 tests in 3.449s\n\nOK\n"
+  },
+  "application": {
+    "exit": 0,
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-E",
+      "-s",
+      "-B",
+      "-X",
+      "utf8",
+      "software/tests/test_application.py"
+    ],
+    "tail": "APPLICATION_PASS checks=8\nE:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\software\\build\\pynq-integration\\software\\build\\application_20261020_223831\n"
+  },
+  "software": {
+    "exit": 0,
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-E",
+      "-s",
+      "-B",
+      "-X",
+      "utf8",
+      "software/tests/test_software.py"
+    ],
+    "tail": "SOFTWARE_PASS original_s1=4705 bridge_and_client_checks=9\nE:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\software\\build\\pynq-integration\\software\\build\\software_20261020_223831\n"
+  },
+  "migration": {
+    "exit": 0,
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-E",
+      "-s",
+      "-B",
+      "-X",
+      "utf8",
+      "software/tests/test_solver_migration.py",
+      "--golden",
+      "document/evidence/ps-solver-migration-20261020/PC-RESULT.json",
+      "--output",
+      "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\software\\build\\pynq-integration\\software\\build\\integration-review\\PC-INTEGRATION-RESULT.json"
+    ],
+    "tail": "_q8\": 23040, \"api_status\": 0, \"bad_pair\": 255, \"bridge_status\": 0, \"direction_valid\": 1, \"first_error\": 0, \"map_status\": 0, \"reason\": 0, \"servo_cmd_valid\": 1, \"servo_deg\": 180, \"ux_q20\": 0, \"uy_q20\": 749295, \"valid_pairs\": 6}\nMINUS_90 {\"angle_q8\": -23040, \"api_status\": 0, \"bad_pair\": 255, \"bridge_status\": 0, \"direction_valid\": 1, \"first_error\": 0, \"map_status\": 0, \"reason\": 0, \"servo_cmd_valid\": 1, \"servo_deg\": 0, \"ux_q20\": 0, \"uy_q20\": -749295, \"valid_pairs\": 6}\nMINUS_180 {\"angle_q8\": -46080, \"api_status\": 0, \"bad_pair\": 255, \"bridge_status\": 0, \"direction_valid\": 1, \"first_error\": 0, \"map_status\": 4, \"reason\": 0, \"servo_cmd_valid\": 0, \"servo_deg\": 0, \"ux_q20\": -749295, \"uy_q20\": 0, \"valid_pairs\": 6}\nOFF_AXIS {\"angle_q8\": 3593, \"api_status\": 0, \"bad_pair\": 255, \"bridge_status\": 0, \"direction_valid\": 1, \"first_error\": 0, \"map_status\": 0, \"reason\": 0, \"servo_cmd_valid\": 1, \"servo_deg\": 104, \"ux_q20\": 749295, \"uy_q20\": 187324, \"valid_pairs\": 6}\nE:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\software\\build\\pynq-integration\\software\\build\\integration-review\\PC-INTEGRATION-RESULT.json\n"
+  },
+  "cli": {
+    "exit": 0,
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-E",
+      "-s",
+      "-B",
+      "-X",
+      "utf8",
+      "software/ps/run_smp.py",
+      "--help"
+    ],
+    "tail": "bist-reject,bist-pass,real}] [--frames FRAMES]\n                  [--drain-existing] [--lock-file LOCK_FILE]\n                  [--clear-faults CLEAR_FAULTS] [--horizontal-motion]\n                  [--servo-config SERVO_CONFIG]\n                  [--watchdog-ticks WATCHDOG_TICKS] [--host-cpu HOST_CPU]\n                  [--worker-cpu WORKER_CPU]\n\n同一Linux/PYNQ的双核入口：CPU1取帧/调用C/提交，CPU0控制/落盘/显示。\n不加载bit、不复位PS。默认BIST且不运动。当前公共ABI仅支持水平轴。\n\noptions:\n  -h, --help            show this help message and exit\n  --hwh HWH             当前已加载bit配套的实际HWH\n  --ip IP               HWH中的Module Reference实例名\n  --library LIBRARY\n  --output OUTPUT       追加写入JSONL；保存成功才消费\n  --mode {bist-reject,bist-pass,real}\n  --frames FRAMES\n  --drain-existing      停用后只保存已有帧，不启动新采集\n  --lock-file LOCK_FILE\n  --clear-faults CLEAR_FAULTS\n                        只清显式选择的历史故障位；先处理原因/已有槽\n  --horizontal-motion   显式启用当前ABI支持的水平轴动作\n  --servo-config SERVO_CONFIG\n                        实测标定的config[7] JSON数组，无默认参数\n  --watchdog-ticks WATCHDOG_TICKS\n                        已约定的61.44MHz看门狗周期数，无默认值\n  --host-cpu HOST_CPU\n  --worker-cpu WORKER_CPU\n"
+  }
+}

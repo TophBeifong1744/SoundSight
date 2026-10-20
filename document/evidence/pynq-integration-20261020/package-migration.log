@@ -1,0 +1,10 @@
+MIGRATION_PASS original_s1=4705 equivalence=157 bridge_negative=6
+BIST_REJECT {"angle_q8": 0, "api_status": 0, "bad_pair": 255, "bridge_status": 0, "direction_valid": 0, "first_error": 0, "map_status": 1, "reason": 3, "servo_cmd_valid": 0, "servo_deg": 0, "ux_q20": 46831, "uy_q20": -171729, "valid_pairs": 6}
+BIST_ZERO {"angle_q8": 0, "api_status": 0, "bad_pair": 255, "bridge_status": 0, "direction_valid": 1, "first_error": 0, "map_status": 0, "reason": 0, "servo_cmd_valid": 0, "servo_deg": 90, "ux_q20": 749295, "uy_q20": 0, "valid_pairs": 6}
+PLUS_45 {"angle_q8": 11520, "api_status": 0, "bad_pair": 255, "bridge_status": 0, "direction_valid": 1, "first_error": 0, "map_status": 0, "reason": 0, "servo_cmd_valid": 1, "servo_deg": 135, "ux_q20": 561971, "uy_q20": 561971, "valid_pairs": 6}
+MINUS_45 {"angle_q8": -11520, "api_status": 0, "bad_pair": 255, "bridge_status": 0, "direction_valid": 1, "first_error": 0, "map_status": 0, "reason": 0, "servo_cmd_valid": 1, "servo_deg": 45, "ux_q20": 561971, "uy_q20": -561971, "valid_pairs": 6}
+PLUS_90 {"angle_q8": 23040, "api_status": 0, "bad_pair": 255, "bridge_status": 0, "direction_valid": 1, "first_error": 0, "map_status": 0, "reason": 0, "servo_cmd_valid": 1, "servo_deg": 180, "ux_q20": 0, "uy_q20": 749295, "valid_pairs": 6}
+MINUS_90 {"angle_q8": -23040, "api_status": 0, "bad_pair": 255, "bridge_status": 0, "direction_valid": 1, "first_error": 0, "map_status": 0, "reason": 0, "servo_cmd_valid": 1, "servo_deg": 0, "ux_q20": 0, "uy_q20": -749295, "valid_pairs": 6}
+MINUS_180 {"angle_q8": -46080, "api_status": 0, "bad_pair": 255, "bridge_status": 0, "direction_valid": 1, "first_error": 0, "map_status": 4, "reason": 0, "servo_cmd_valid": 0, "servo_deg": 0, "ux_q20": -749295, "uy_q20": 0, "valid_pairs": 6}
+OFF_AXIS {"angle_q8": 3593, "api_status": 0, "bad_pair": 255, "bridge_status": 0, "direction_valid": 1, "first_error": 0, "map_status": 0, "reason": 0, "servo_cmd_valid": 1, "servo_deg": 104, "ux_q20": 749295, "uy_q20": 187324, "valid_pairs": 6}
+software\build\PC-PACKAGE-RESULT.json
