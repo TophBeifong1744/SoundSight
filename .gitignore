@@ -20,6 +20,7 @@
 **/.Xil/
 **/.DS_Store
 /software/ps/libss_solver.so
+/software/ps/libss_solver_3d.so
 /software/ps/*.dll
 /software/stm32/build/
 # Deliberately no global *.log/*.json/*.csv ignore: retained evidence is source-managed.
