@@ -1,0 +1,4 @@
+# Preserve the user-supplied attachment byte-for-byte, including its line endings.
+real-profile-001-pasted.txt -text -whitespace
+uart-transcript.txt -whitespace
+ram-*-uart.txt -whitespace

@@ -8,7 +8,7 @@
 // 独立寄存器/快照/动作控制层。commit一拍只执行一次副作用；read_data按address组合读取。
 // SPI与后续PS AXI前端只转换总线，不各自复制一套冻结寄存器语义。
 module ss_ps_control_regs #(
-    parameter integer ACTUATOR_BOUND=0, CLK_FREQ_HZ=61440000,
+    parameter integer ACTUATOR_BOUND=0,LEVEL_ENABLE=0, CLK_FREQ_HZ=61440000,
     parameter integer SERVO_MAX=180, MECHANICAL_MIN=0, MECHANICAL_MAX=180
 )(
     input wire clk, rst_n, host_stop,
@@ -20,6 +20,7 @@ module ss_ps_control_regs #(
     output wire feature_ready,
     input wire [959:0] feature_pairs,
     input wire [31:0] feature_flags,
+    input wire [31:0] feature_level,input wire feature_level_valid,
     input wire compute_draining,
     input wire [11:0] source_faults,
     output wire run_enable,
@@ -52,7 +53,8 @@ module ss_ps_control_regs #(
     ss_snapshot_queue queue(.clk(clk),.rst_n(rst_n),.frame_valid(feature_valid || bist_valid),
         .frame_pairs(feature_valid ? feature_pairs : bist_pairs),
         .frame_flags(feature_valid ? feature_flags : 32'h18),
-        .frame_energy(feature_valid ? 32'b0 : 32'd100000),.frame_energy_valid(!feature_valid),
+        .frame_energy(feature_valid ? (LEVEL_ENABLE ? feature_level : 32'b0) : 32'd100000),
+        .frame_energy_valid(feature_valid ? (LEVEL_ENABLE && feature_level_valid) : 1'b1),
         .command(snap_command),.locked(locked),.queued(queued),.occupied(occupied),
         .locked_pairs(locked_pairs),.locked_flags(locked_flags),.locked_energy(locked_energy),
         .locked_sequence(locked_sequence),.locked_energy_valid(energy_valid),
@@ -107,7 +109,7 @@ module ss_ps_control_regs #(
         status_word[0]=locked;status_word[1]=queued;status_word[2]=gap;
         status_word[5]=energy_valid;status_word[7]=motion_permit;
         status_word[14]=irq;status_word[15]=draining;status_word[16]=sys_ctrl[3];
-        status_word[19]=actuator_bound;
+        status_word[19]=actuator_bound;status_word[17]=(LEVEL_ENABLE!=0);
         known_address=1;writable=0;
         case(address)
             'h00: read_data=32'h5a5a2026;
@@ -128,7 +130,7 @@ module ss_ps_control_regs #(
             'h60: begin read_data=watchdog_ticks;writable=1;end
             'h64: begin read_data=fault_status;writable=1;end
             'h68: read_data=drop_count;
-            'h6c: read_data=32'h00010000;
+            'h6c: read_data=LEVEL_ENABLE ? 32'h00010001 : 32'h00010000;
             default: begin read_data=32'hdeadbeef;known_address=0;end
         endcase
     end

@@ -1,0 +1,14 @@
+{
+  "scope": "PC_FAKE_MMIO_NO_HARDWARE",
+  "buffered_tests": 19,
+  "original_uploaded_package_override_spawn": "PASS (5.2s fake startup)",
+  "package_extract_tests": "PASS",
+  "python38_syntax": "PASS",
+  "startup_timeout_seconds": 20,
+  "runtime_timeout_seconds": 0.75,
+  "capture_ack_stop_timeout_seconds": 0.25,
+  "old_delivery": "before-startup-fix.zip",
+  "current_delivery": "release/output/soundsight_ram_queue_update.zip",
+  "current_bytes": 17876,
+  "board_fix_retest": "NOT_RUN"
+}

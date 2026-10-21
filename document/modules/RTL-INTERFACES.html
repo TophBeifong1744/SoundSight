@@ -6,7 +6,7 @@
     (* X_INTERFACE_PARAMETER=&quot;FREQ_HZ 61440000,ASSOCIATED_RESET rst_n&quot; *) output wire clk,
     (* X_INTERFACE_INFO=&quot;xilinx.com:signal:reset:1.0 rst_n RST&quot; *)
     (* X_INTERFACE_PARAMETER=&quot;POLARITY ACTIVE_LOW&quot; *) output wire rst_n
-);</pre></article><article><h2>project/rtl/bd_clean_compute.v</h2><p>BD端口适配：可作为Vivado Module Reference的Verilog薄封装。</p><p>逐线连接ss_dual_compute，不增加寄存器；两个时钟和复位端口必须分别连接。</p><a href="../../project/rtl/bd_clean_compute.v">打开源码</a><pre>module bd_clean_compute #(parameter integer WARMUP_SAMPLES=4096,parameter HANN_FILE=&quot;hann-u18f17.mem&quot;)(
+);</pre></article><article><h2>project/rtl/bd_clean_compute.v</h2><p>BD端口适配：可作为Vivado Module Reference的Verilog薄封装。</p><p>逐线连接ss_dual_compute，不增加寄存器；两个时钟和复位端口必须分别连接。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。</p><a href="../../project/rtl/bd_clean_compute.v">打开源码</a><pre>module bd_clean_compute #(parameter integer WARMUP_SAMPLES=4096,LEVEL_ENABLE=0,parameter HANN_FILE=&quot;hann-u18f17.mem&quot;)(
  (* X_INTERFACE_INFO=&quot;xilinx.com:signal:clock:1.0 clk CLK&quot; *)
  (* X_INTERFACE_PARAMETER=&quot;FREQ_HZ 100000000, ASSOCIATED_RESET rst_n&quot; *)
  input wire clk,
@@ -18,6 +18,7 @@
  output wire [3:0] pdm_clocks,
  output wire feature_valid,input wire feature_ready,
  output wire [959:0] feature_pairs,output wire [31:0] feature_flags,
+ output wire [31:0] feature_level,output wire feature_level_valid,
  output wire draining,output wire [11:0] source_faults,
  output wire [3:0] debug_frontend,output wire [4:0] debug_backend
 );</pre></article><article><h2>project/rtl/bd_stm32_link.v</h2><p>BD端口适配：可加入BD的STM32通信薄封装。</p><p>下层ss_stm32_link；全部61.44MHz，冻结SPI/看门狗单位不变。</p><a href="../../project/rtl/bd_stm32_link.v">打开源码</a><pre>module bd_stm32_link #(
@@ -63,12 +64,14 @@
   output logic signed [191:0] alu_a,alu_b,
   output logic signed [31:0] alu_shift,
   input logic signed [191:0] alu_result
-);</pre></article><article><h2>project/rtl/f1a_frame_store.sv</h2><p>06 六对特征：六个工作槽加一个稳定输出槽；前一对不会被后一对覆盖。</p><p>pair_event/index/160 位字组；frame_finish 后 feature_valid。背压保持整帧；满则丢新，不堵物理采集。</p><a href="../../project/rtl/f1a_frame_store.sv">打开源码</a><pre>module f1a_frame_store (
+);</pre></article><article><h2>project/rtl/f1a_frame_store.sv</h2><p>06 六对特征：六个工作槽加一个稳定输出槽；前一对不会被后一对覆盖。</p><p>pair_event/index/160 位字组；frame_finish 后 feature_valid。背压保持整帧；满则丢新，不堵物理采集。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。</p><a href="../../project/rtl/f1a_frame_store.sv">打开源码</a><pre>module f1a_frame_store #(parameter integer LEVEL_ENABLE=0) (
     input wire clk, cold_rst_n,
     input wire frame_start, frame_start_bist,
     input wire pair_event, input wire [2:0] pair_index,
     input wire [159:0] pair_words,
     input wire frame_finish, frame_cancelled,
+    input wire [31:0] frame_level, input wire frame_level_valid,
+    output reg [31:0] feature_level, output reg feature_level_valid,
     input wire [7:0] first_error,
     input wire [23:0] phat_stages, ifft_stages,
     output wire accepting,
@@ -153,13 +156,14 @@
     (* X_INTERFACE_PARAMETER=&quot;FREQ_HZ 61440000,ASSOCIATED_RESET rst_n&quot; *) output wire clk,
     (* X_INTERFACE_INFO=&quot;xilinx.com:signal:reset:1.0 rst_n RST&quot; *)
     (* X_INTERFACE_PARAMETER=&quot;POLARITY ACTIVE_LOW&quot; *) output wire rst_n
-);</pre></article><article><h2>project/rtl/ss_clean_compute.sv</h2><p>02 计算总接合：协调窗口、预处理、FFT及六对计算；DUAL_CLOCK=1时采集61.44MHz、其余100MHz。</p><p>clk/rst_n为计算域；acq_clk/acq_rst_n/acq_enable为采集域。PCM通过97位异步FIFO；active表示仍有计算/IP义务；feature_*仍属于计算域，由外层过桥。</p><a href="../../project/rtl/ss_clean_compute.sv">打开源码</a><pre>module ss_clean_compute #(parameter integer WARMUP_SAMPLES=4096,DUAL_CLOCK=0,parameter HANN_FILE=&quot;hann-u18f17.mem&quot;)(
+);</pre></article><article><h2>project/rtl/ss_clean_compute.sv</h2><p>02 计算总接合：协调窗口、预处理、FFT及六对计算；DUAL_CLOCK=1时采集61.44MHz、其余100MHz。</p><p>clk/rst_n为计算域；acq_clk/acq_rst_n/acq_enable为采集域。PCM通过97位异步FIFO；active表示仍有计算/IP义务；feature_*仍属于计算域，由外层过桥。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。</p><a href="../../project/rtl/ss_clean_compute.sv">打开源码</a><pre>module ss_clean_compute #(parameter integer WARMUP_SAMPLES=4096,DUAL_CLOCK=0,LEVEL_ENABLE=0,parameter HANN_FILE=&quot;hann-u18f17.mem&quot;)(
  input wire clk,rst_n,enable,input wire [3:0] pdm_data,
- 
+ // DUAL_CLOCK=1: 采集61.44MHz，计算100MHz；0保留单域算法复现入口。
  input wire acq_clk,acq_rst_n,acq_enable,
  output wire [3:0] pdm_clocks,
  output wire feature_valid,input wire feature_ready,
  output wire [959:0] feature_pairs,output wire [31:0] feature_flags,
+ output wire [31:0] feature_level,output wire feature_level_valid,
  output wire draining,active,output wire [11:0] source_faults,
  output wire [3:0] debug_frontend,output wire [4:0] debug_backend
 );</pre></article><article><h2>project/rtl/ss_control_regs.sv</h2><p>06 寄存器与快照：冻结ABI的寄存器语义层，连接两槽、BIST和运动保护。</p><p>address 为7位字节偏移；commit 单拍产生一次副作用；write_access 分读写。组合read_data供传输层锁存。默认ACTUATOR_BOUND=0。</p><a href="../../project/rtl/ss_control_regs.sv">打开源码</a><pre>module ss_control_regs #(
@@ -182,14 +186,15 @@
     output wire [31:0] fault_status,
     output wire motion_permit,
     output wire counter_exhausted
-);</pre></article><article><h2>project/rtl/ss_dual_compute.sv</h2><p>双时钟总接合：接合61.44MHz采集/控制与100MHz计算，向公共控制域交付整帧。</p><p>clk/rst_n为100MHz；io_clk/io_rst_n为61.44MHz。外部enable、feature_*、draining、source_faults均属io_clk域；debug_frontend/backend属100MHz。内部单字控制同步及992位、单帧容量跨域缓存。</p><a href="../../project/rtl/ss_dual_compute.sv">打开源码</a><pre>module ss_dual_compute #(parameter integer WARMUP_SAMPLES=4096,parameter HANN_FILE=&quot;hann-u18f17.mem&quot;)(
+);</pre></article><article><h2>project/rtl/ss_dual_compute.sv</h2><p>双时钟总接合：接合61.44MHz采集/控制与100MHz计算，向公共控制域交付整帧。</p><p>clk/rst_n为100MHz；io_clk/io_rst_n为61.44MHz。外部enable、feature_*、draining、source_faults均属io_clk域；debug_frontend/backend属100MHz。内部单字控制同步及992位、单帧容量跨域缓存。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。</p><a href="../../project/rtl/ss_dual_compute.sv">打开源码</a><pre>module ss_dual_compute #(parameter integer WARMUP_SAMPLES=4096,LEVEL_ENABLE=0,parameter HANN_FILE=&quot;hann-u18f17.mem&quot;)(
  input wire clk,rst_n,io_clk,io_rst_n,enable,input wire [3:0] pdm_data,
  output wire [3:0] pdm_clocks,
  output wire feature_valid,input wire feature_ready,
  output wire [959:0] feature_pairs,output wire [31:0] feature_flags,
+ output wire [31:0] feature_level,output wire feature_level_valid,
  output wire draining,output wire [11:0] source_faults,
  output wire [3:0] debug_frontend,output wire [4:0] debug_backend
-);</pre></article><article><h2>project/rtl/ss_fft_frontend.sv</h2><p>04 预处理与FFT：调度8个官方FFT，检查1024个输入、1024个输出及独立status；转发域1的四路513点半谱。</p><p>begin/s/end 均带同一真实32位帧号。STOP 后排完已配置FFT，再发 end_cancelled；不借 STOP 冷复位 IP。</p><a href="../../project/rtl/ss_fft_frontend.sv">打开源码</a><pre>module ss_fft_frontend #(parameter HANN_FILE=&quot;hann-u18f17.mem&quot;)(
+);</pre></article><article><h2>project/rtl/ss_fft_frontend.sv</h2><p>04 预处理与FFT：调度8个官方FFT，检查1024个输入、1024个输出及独立status；转发域1的四路513点半谱。</p><p>begin/s/end 均带同一真实32位帧号。STOP 后排完已配置FFT，再发 end_cancelled；不借 STOP 冷复位 IP。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。</p><a href="../../project/rtl/ss_fft_frontend.sv">打开源码</a><pre>module ss_fft_frontend #(parameter integer LEVEL_ENABLE=0, parameter HANN_FILE=&quot;hann-u18f17.mem&quot;)(
  input wire clk,rst_n,enable,input wire source_bad,
  input wire window_valid,output wire window_ready,input wire [31:0] window_frame,
  output wire release_window,output wire read_enable,output wire [9:0] read_index,
@@ -202,9 +207,10 @@
  output wire end_cancelled,output wire [7:0] end_error,
  input wire backend_busy,output wire busy,
  output wire [3:0] debug_state,
+ output wire [31:0] frame_level, output wire frame_level_valid,
  output wire audit_valid,output wire audit_domain,output wire [1:0] audit_channel,
  output wire [9:0] audit_bin,output wire signed [28:0] audit_real,audit_imag
-);</pre></article><article><h2>project/rtl/ss_pair_engine.sv</h2><p>05 六对特征：按01、02、03、12、13、23串行做跨谱、PHAT、IFFT、整数峰和邻点提取；没有PL内LS或角度解算。</p><p>begin/s/end 使用32位帧号；S25实虚部及channel/bin顺序检查。取消保留已完成对并终结其余对。feature_pairs 每对160位、共960位。</p><a href="../../project/rtl/ss_pair_engine.sv">打开源码</a><pre>module ss_pair_engine (
+);</pre></article><article><h2>project/rtl/ss_pair_engine.sv</h2><p>05 六对特征：按01、02、03、12、13、23串行做跨谱、PHAT、IFFT、整数峰和邻点提取；没有PL内LS或角度解算。</p><p>begin/s/end 使用32位帧号；S25实虚部及channel/bin顺序检查。取消保留已完成对并终结其余对。feature_pairs 每对160位、共960位。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。</p><a href="../../project/rtl/ss_pair_engine.sv">打开源码</a><pre>module ss_pair_engine #(parameter integer LEVEL_ENABLE=0) (
  input wire clk,rst_n,
  input wire begin_valid,output wire begin_ready,input wire [31:0] begin_frame,
  input wire s_valid,output wire s_ready,input wire [31:0] s_frame,
@@ -213,6 +219,8 @@
  input wire end_valid,output wire end_ready,input wire [31:0] end_frame,
  input wire end_cancelled,input wire [7:0] end_error,
  input wire cancel,
+ input wire [31:0] frame_level,input wire frame_level_valid,
+ output wire [31:0] feature_level,output wire feature_level_valid,
  output wire busy,output wire ip_obligation,
  output wire feature_valid,input wire feature_ready,
  output wire [31:0] feature_frame_id,feature_frame_flags,
@@ -233,7 +241,7 @@
  output wire [3:0] pdm_clocks,output wire sample_valid,
  output wire [95:0] pcm,output wire sample_clipped,output wire warm,
  output wire channel_fault
-);</pre></article><article><h2>project/rtl/ss_preprocess.sv</h2><p>04 预处理与FFT：先拷贝1024组PCM，然后串行计算两域四通道共8个FFT输入单元。</p><p>域0去均值后乘Hann；域1直接乘Hann。U18F17系数、RNE舍入、DOA S24饱和并报错；输出S29=处理值乘16。out_valid/ready 背压时数据不变。</p><a href="../../project/rtl/ss_preprocess.sv">打开源码</a><pre>module ss_preprocess #(parameter HANN_FILE=&quot;hann-u18f17.mem&quot;)(
+);</pre></article><article><h2>project/rtl/ss_preprocess.sv</h2><p>04 预处理与FFT：先拷贝1024组PCM，然后串行计算两域四通道共8个FFT输入单元。</p><p>域0去均值后乘Hann；域1直接乘Hann。U18F17系数、RNE舍入、DOA S24饱和并报错；输出S29=处理值乘16。out_valid/ready 背压时数据不变。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。</p><a href="../../project/rtl/ss_preprocess.sv">打开源码</a><pre>module ss_preprocess #(parameter integer LEVEL_ENABLE=0, parameter HANN_FILE=&quot;hann-u18f17.mem&quot;)(
  input wire clk,rst_n,frame_start,
  output wire read_enable,output wire [9:0] read_index,
  input wire read_valid,input wire [95:0] read_pcm,
@@ -242,7 +250,8 @@
  output wire unit_ready,output reg unit_done,
  output wire out_valid,input wire out_ready,
  output reg signed [28:0] out_real,output wire out_last,
- output reg numeric_error
+ output reg numeric_error,
+ output reg [31:0] frame_level, output reg frame_level_valid
 );</pre></article><article><h2>project/rtl/ss_snapshot_queue.sv</h2><p>07 SPI 与快照：两槽 FREE/READY/LOCKED；锁最老完整帧；满时丢新，已锁内容不动。</p><p>整帧输入；ACQUIRE/RELEASE/CONSUME；锁帧内容、序号、gap/drop/错误。与新帧同拍消费优先释放槽。</p><a href="../../project/rtl/ss_snapshot_queue.sv">打开源码</a><pre>module ss_snapshot_queue (
     input wire clk, rst_n,
     input wire frame_valid,
@@ -305,8 +314,8 @@
  output reg s_axi_rvalid,input wire s_axi_rready,
  output wire [6:0] address,output wire commit,write_access,format_error,
  output wire [31:0] write_data,input wire [31:0] read_data
-);</pre></article><article><h2>project/rtl/ss_ps_control_regs.sv</h2><p>PS独有：PS版寄存器层；与SPI版相同公开字段，增加host_stop保留快照的停用入口。</p><p>host_stop来自同步总线复位；冷rst_n才清队列。普通PS复位清使能、角度影子和看门狗，不能自动恢复动作。</p><a href="../../project/rtl/ss_ps_control_regs.sv">打开源码</a><pre>module ss_ps_control_regs #(
-    parameter integer ACTUATOR_BOUND=0, CLK_FREQ_HZ=61440000,
+);</pre></article><article><h2>project/rtl/ss_ps_control_regs.sv</h2><p>PS独有：PS版寄存器层；与SPI版相同公开字段，增加host_stop保留快照的停用入口。</p><p>host_stop来自同步总线复位；冷rst_n才清队列。普通PS复位清使能、角度影子和看门狗，不能自动恢复动作。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。</p><a href="../../project/rtl/ss_ps_control_regs.sv">打开源码</a><pre>module ss_ps_control_regs #(
+    parameter integer ACTUATOR_BOUND=0,LEVEL_ENABLE=0, CLK_FREQ_HZ=61440000,
     parameter integer SERVO_MAX=180, MECHANICAL_MIN=0, MECHANICAL_MAX=180
 )(
     input wire clk, rst_n, host_stop,
@@ -318,6 +327,7 @@
     output wire feature_ready,
     input wire [959:0] feature_pairs,
     input wire [31:0] feature_flags,
+    input wire [31:0] feature_level,input wire feature_level_valid,
     input wire compute_draining,
     input wire [11:0] source_faults,
     output wire run_enable,
@@ -325,8 +335,8 @@
     output wire [31:0] fault_status,
     output wire motion_permit,
     output wire counter_exhausted
-);</pre></article><article><h2>project/rtl/ss_ps_link.sv</h2><p>PS独有：片内CPU控制入口，组合AXI转换和PS寄存器层。</p><p>S_AXI为32位AXI4-Lite、12位局部地址；clk61.44MHz。rst_n为PL冷复位，aresetn为PS总线复位。</p><a href="../../project/rtl/ss_ps_link.sv">打开源码</a><pre>module ss_ps_link #(
- parameter integer ACTUATOR_BOUND=0,CLK_FREQ_HZ=61440000,
+);</pre></article><article><h2>project/rtl/ss_ps_link.sv</h2><p>PS独有：片内CPU控制入口，组合AXI转换和PS寄存器层。</p><p>S_AXI为32位AXI4-Lite、12位局部地址；clk61.44MHz。rst_n为PL冷复位，aresetn为PS总线复位。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。</p><a href="../../project/rtl/ss_ps_link.sv">打开源码</a><pre>module ss_ps_link #(
+ parameter integer ACTUATOR_BOUND=0,LEVEL_ENABLE=0,CLK_FREQ_HZ=61440000,
  parameter integer SERVO_MAX=180,MECHANICAL_MIN=0,MECHANICAL_MAX=180
 )(
  (* X_INTERFACE_INFO=&quot;xilinx.com:signal:clock:1.0 clk CLK&quot; *)
@@ -340,10 +350,11 @@
  (* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI ARADDR&quot; *) input wire [11:0] s_axi_araddr,(* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI ARPROT&quot; *) input wire [2:0] s_axi_arprot,(* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI ARVALID&quot; *) input wire s_axi_arvalid,(* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI ARREADY&quot; *) output wire s_axi_arready,
  (* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI RDATA&quot; *) output wire [31:0] s_axi_rdata,(* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI RRESP&quot; *) output wire [1:0] s_axi_rresp,(* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI RVALID&quot; *) output wire s_axi_rvalid,(* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI RREADY&quot; *) input wire s_axi_rready,
  input wire feature_valid,output wire feature_ready,input wire [959:0] feature_pairs,input wire [31:0] feature_flags,
+ input wire [31:0] feature_level,input wire feature_level_valid,
  input wire compute_draining,input wire [11:0] source_faults,output wire run_enable,
  output wire irq,servo_pwm,output wire [31:0] fault_status
-);</pre></article><article><h2>project/rtl/bd_ps_link.v</h2><p>PS版BD端口适配：可加入BD的PS寄存器薄封装。</p><p>寄存器端61.44MHz；上游100MHz经官方AXI Clock Converter，rst_n冷复位与aresetn总线复位分开。</p><a href="../../project/rtl/bd_ps_link.v">打开源码</a><pre>module bd_ps_link #(
- parameter integer ACTUATOR_BOUND=0,CLK_FREQ_HZ=61440000,
+);</pre></article><article><h2>project/rtl/bd_ps_link.v</h2><p>PS版BD端口适配：可加入BD的PS寄存器薄封装。</p><p>寄存器端61.44MHz；上游100MHz经官方AXI Clock Converter，rst_n冷复位与aresetn总线复位分开。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。</p><a href="../../project/rtl/bd_ps_link.v">打开源码</a><pre>module bd_ps_link #(
+ parameter integer ACTUATOR_BOUND=0,LEVEL_ENABLE=0,CLK_FREQ_HZ=61440000,
  parameter integer SERVO_MAX=180,MECHANICAL_MIN=0,MECHANICAL_MAX=180
 )(
  (* X_INTERFACE_INFO=&quot;xilinx.com:signal:clock:1.0 clk CLK&quot; *)
@@ -357,6 +368,7 @@
  (* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI ARADDR&quot; *) input wire [11:0] s_axi_araddr,(* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI ARPROT&quot; *) input wire [2:0] s_axi_arprot,(* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI ARVALID&quot; *) input wire s_axi_arvalid,(* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI ARREADY&quot; *) output wire s_axi_arready,
  (* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI RDATA&quot; *) output wire [31:0] s_axi_rdata,(* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI RRESP&quot; *) output wire [1:0] s_axi_rresp,(* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI RVALID&quot; *) output wire s_axi_rvalid,(* X_INTERFACE_INFO=&quot;xilinx.com:interface:aximm:1.0 S_AXI RREADY&quot; *) input wire s_axi_rready,
  input wire feature_valid,output wire feature_ready,input wire [959:0] feature_pairs,input wire [31:0] feature_flags,
+ input wire [31:0] feature_level,input wire feature_level_valid,
  input wire compute_draining,input wire [11:0] source_faults,output wire run_enable,
  (* X_INTERFACE_INFO=&quot;xilinx.com:signal:interrupt:1.0 irq INTERRUPT&quot; *)
  (* X_INTERFACE_PARAMETER=&quot;SENSITIVITY LEVEL_HIGH&quot; *) output wire irq,

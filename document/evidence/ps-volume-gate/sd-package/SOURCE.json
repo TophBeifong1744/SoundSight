@@ -1,0 +1,30 @@
+{
+  "software_git": "65d2472202137ccbb5ae8184fa0f1e7c68adf113",
+  "pr15": "61e7303331641ec2353f89088b060aa81ffd6110",
+  "pr16": "0d388586af1dcd0355a2ab9d51360d4a9fb249cf",
+  "hardware_project_name": "SoundSight_PS_Volume",
+  "original_bit": "soundsight_stm32_bd_wrapper.bit",
+  "original_hwh": "soundsight_stm32_bd.hwh",
+  "xsa_byte_match": true,
+  "bit_bytes": 4045703,
+  "hwh_bytes": 267562,
+  "actuator_bound": 0,
+  "target_arm": "NOT_RUN",
+  "board": "NOT_RUN",
+  "software_source": "current working tree; git value is the base commit",
+  "software_worktree_status": [
+    " M software/ps/run_buffered.py",
+    " M software/tests/test_buffered.py",
+    " M tools/package_pynq.py",
+    "?? software/ps/volume_gate.py",
+    "?? software/tests/test_angle_replay.py",
+    "?? software/tests/test_ps_volume_tcl.py",
+    "?? software/tests/test_volume_gate.py"
+  ],
+  "board_directory": "SoundSight_PYNQ_Volume",
+  "level_enable": 1,
+  "expected_abi": "0x00010001",
+  "threshold": "explicit PS argument; 1000 is an uncalibrated trial value",
+  "online_angle_filter": false,
+  "servo_motion": false
+}

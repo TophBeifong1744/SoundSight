@@ -1,5 +1,7 @@
 无STM32实验版软件使用说明
 
+2026-10-21：无动作连续采集新增run_buffered.py。它完整接入/dev/shm的有界RAM队列后消费PL槽，CPU0线程独立fsync；接近满时STOP并排尾。明确接受断电丢未落盘记录。旧run_smp.py/run_capture.py的逐帧耐久规则未改；下文对它们的说明仍有效。新版操作、SD增量和RAM恢复见document/pynq-ram-queue.md。不要同时启动两个入口。
+
 PC复现（本工程目录）：
 python -E -s -B -X utf8 software/tests/test_software.py
 python -E -s -B -X utf8 software/tests/test_application.py

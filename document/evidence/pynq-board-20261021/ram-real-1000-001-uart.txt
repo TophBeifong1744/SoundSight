@@ -1,0 +1,8 @@
+来源：用户在本聊天回传的板端终端输出；未取得完整JSONL原文件。
+对应运行：ram-real-1000-001.jsonl，单次命令覆盖启动等待20秒。
+
+RAM_QUEUE_SWAP_ACTIVE= True
+RAM_RECOVERY_DIR= /dev/shm/soundsight-ngg4ahbd
+PYNQ双核已启动： {'host_pid': 746, 'host_cpu': 0, 'host_affinity': [0], 'worker_pid': 748, 'worker_cpu': 1, 'worker_affinity': [1]}
+DURABLE_FRAMES= 1000 QUEUE_PEAK= 15 RESULT= {'error': None, 'stats': {'consumed': 1000, 'drained': 0, 'max_service_ns': 30117361}, 'stop_reason': 'requested_frames', 'requested_frames': 1000, 'host_stop_reason': None, 'queue_peak': 15}
+xilinx@pynq:~/SoundSight_PYNQ$

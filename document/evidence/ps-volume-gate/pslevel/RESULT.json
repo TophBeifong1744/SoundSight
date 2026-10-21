@@ -1,0 +1,66 @@
+{
+  "case": "pslevel",
+  "scope": "RTL simulation only",
+  "inputs": [
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\doa_math_pkg.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\bd_board_clock.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\bd_clean_compute.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\bd_ps_link.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\bd_stm32_link.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\doa_math_serial.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\doa_phat_client.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\f1a_frame_store.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\fft29_official.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\i17_turntable_pwm_guard.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ifft25_official.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\motor_drive.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\pdm_cic3.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\sound_servo_clock.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_actuator_control.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_async_word.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_axi_lite_regs.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_bist_source.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_board_clock.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_clean_compute.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_control_regs.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_dual_compute.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_fft_frontend.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_pair_engine.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_pcm_windows.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_pdm_capture.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_preprocess.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_ps_control_regs.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_ps_link.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_snapshot_queue.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_spi_mode0.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_stm32_link.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\project\\rtl\\ss_stm32_tile.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\tb\\ps\\tb_pslevel.sv"
+  ],
+  "stages": [
+    {
+      "stage": "compile",
+      "exit": 0,
+      "pass": true,
+      "timeout": false,
+      "seconds": 0.7701673000010487,
+      "errors": []
+    },
+    {
+      "stage": "elaborate",
+      "exit": 0,
+      "pass": true,
+      "timeout": false,
+      "seconds": 2.5992191000004823,
+      "errors": []
+    },
+    {
+      "stage": "simulate",
+      "exit": 0,
+      "pass": true,
+      "timeout": false,
+      "seconds": 2.7104227999989234,
+      "errors": []
+    }
+  ]
+}

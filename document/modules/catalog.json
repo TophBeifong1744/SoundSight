@@ -17,13 +17,13 @@
     "path": "project/rtl/bd_clean_compute.v",
     "group": "BD端口适配",
     "purpose": "可作为Vivado Module Reference的Verilog薄封装。",
-    "interfaces": "逐线连接ss_dual_compute，不增加寄存器；两个时钟和复位端口必须分别连接。",
-    "lines": 44,
+    "interfaces": "逐线连接ss_dual_compute，不增加寄存器；两个时钟和复位端口必须分别连接。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。",
+    "lines": 46,
     "declarations": [
       {
         "kind": "module",
         "name": "bd_clean_compute",
-        "declaration": "module bd_clean_compute #(parameter integer WARMUP_SAMPLES=4096,parameter HANN_FILE=\"hann-u18f17.mem\")(\n (* X_INTERFACE_INFO=\"xilinx.com:signal:clock:1.0 clk CLK\" *)\n (* X_INTERFACE_PARAMETER=\"FREQ_HZ 100000000, ASSOCIATED_RESET rst_n\" *)\n input wire clk,\n (* X_INTERFACE_INFO=\"xilinx.com:signal:clock:1.0 io_clk CLK\" *)\n (* X_INTERFACE_PARAMETER=\"FREQ_HZ 61440000, ASSOCIATED_RESET io_rst_n\" *)\n input wire io_clk,\n input wire io_rst_n,\n input wire rst_n,enable,input wire [3:0] pdm_data,\n output wire [3:0] pdm_clocks,\n output wire feature_valid,input wire feature_ready,\n output wire [959:0] feature_pairs,output wire [31:0] feature_flags,\n output wire draining,output wire [11:0] source_faults,\n output wire [3:0] debug_frontend,output wire [4:0] debug_backend\n);"
+        "declaration": "module bd_clean_compute #(parameter integer WARMUP_SAMPLES=4096,LEVEL_ENABLE=0,parameter HANN_FILE=\"hann-u18f17.mem\")(\n (* X_INTERFACE_INFO=\"xilinx.com:signal:clock:1.0 clk CLK\" *)\n (* X_INTERFACE_PARAMETER=\"FREQ_HZ 100000000, ASSOCIATED_RESET rst_n\" *)\n input wire clk,\n (* X_INTERFACE_INFO=\"xilinx.com:signal:clock:1.0 io_clk CLK\" *)\n (* X_INTERFACE_PARAMETER=\"FREQ_HZ 61440000, ASSOCIATED_RESET io_rst_n\" *)\n input wire io_clk,\n input wire io_rst_n,\n input wire rst_n,enable,input wire [3:0] pdm_data,\n output wire [3:0] pdm_clocks,\n output wire feature_valid,input wire feature_ready,\n output wire [959:0] feature_pairs,output wire [31:0] feature_flags,\n output wire [31:0] feature_level,output wire feature_level_valid,\n output wire draining,output wire [11:0] source_faults,\n output wire [3:0] debug_frontend,output wire [4:0] debug_backend\n);"
       }
     ]
   },
@@ -87,13 +87,13 @@
     "path": "project/rtl/f1a_frame_store.sv",
     "group": "06 六对特征",
     "purpose": "六个工作槽加一个稳定输出槽；前一对不会被后一对覆盖。",
-    "interfaces": "pair_event/index/160 位字组；frame_finish 后 feature_valid。背压保持整帧；满则丢新，不堵物理采集。",
-    "lines": 90,
+    "interfaces": "pair_event/index/160 位字组；frame_finish 后 feature_valid。背压保持整帧；满则丢新，不堵物理采集。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。",
+    "lines": 95,
     "declarations": [
       {
         "kind": "module",
         "name": "f1a_frame_store",
-        "declaration": "module f1a_frame_store (\n    input wire clk, cold_rst_n,\n    input wire frame_start, frame_start_bist,\n    input wire pair_event, input wire [2:0] pair_index,\n    input wire [159:0] pair_words,\n    input wire frame_finish, frame_cancelled,\n    input wire [7:0] first_error,\n    input wire [23:0] phat_stages, ifft_stages,\n    output wire accepting,\n    output reg feature_valid, input wire feature_ready,\n    output reg [31:0] feature_frame_id, feature_frame_flags,\n    output reg [959:0] feature_pairs,\n    output reg drop_pulse, output reg [31:0] drop_count,\n    output reg gap, counter_exhausted,\n    output reg source_protocol_error\n);"
+        "declaration": "module f1a_frame_store #(parameter integer LEVEL_ENABLE=0) (\n    input wire clk, cold_rst_n,\n    input wire frame_start, frame_start_bist,\n    input wire pair_event, input wire [2:0] pair_index,\n    input wire [159:0] pair_words,\n    input wire frame_finish, frame_cancelled,\n    input wire [31:0] frame_level, input wire frame_level_valid,\n    output reg [31:0] feature_level, output reg feature_level_valid,\n    input wire [7:0] first_error,\n    input wire [23:0] phat_stages, ifft_stages,\n    output wire accepting,\n    output reg feature_valid, input wire feature_ready,\n    output reg [31:0] feature_frame_id, feature_frame_flags,\n    output reg [959:0] feature_pairs,\n    output reg drop_pulse, output reg [31:0] drop_count,\n    output reg gap, counter_exhausted,\n    output reg source_protocol_error\n);"
       }
     ]
   },
@@ -241,13 +241,13 @@
     "path": "project/rtl/ss_clean_compute.sv",
     "group": "02 计算总接合",
     "purpose": "协调窗口、预处理、FFT及六对计算；DUAL_CLOCK=1时采集61.44MHz、其余100MHz。",
-    "interfaces": "clk/rst_n为计算域；acq_clk/acq_rst_n/acq_enable为采集域。PCM通过97位异步FIFO；active表示仍有计算/IP义务；feature_*仍属于计算域，由外层过桥。",
-    "lines": 106,
+    "interfaces": "clk/rst_n为计算域；acq_clk/acq_rst_n/acq_enable为采集域。PCM通过97位异步FIFO；active表示仍有计算/IP义务；feature_*仍属于计算域，由外层过桥。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。",
+    "lines": 111,
     "declarations": [
       {
         "kind": "module",
         "name": "ss_clean_compute",
-        "declaration": "module ss_clean_compute #(parameter integer WARMUP_SAMPLES=4096,DUAL_CLOCK=0,parameter HANN_FILE=\"hann-u18f17.mem\")(\n input wire clk,rst_n,enable,input wire [3:0] pdm_data,\n \n input wire acq_clk,acq_rst_n,acq_enable,\n output wire [3:0] pdm_clocks,\n output wire feature_valid,input wire feature_ready,\n output wire [959:0] feature_pairs,output wire [31:0] feature_flags,\n output wire draining,active,output wire [11:0] source_faults,\n output wire [3:0] debug_frontend,output wire [4:0] debug_backend\n);"
+        "declaration": "module ss_clean_compute #(parameter integer WARMUP_SAMPLES=4096,DUAL_CLOCK=0,LEVEL_ENABLE=0,parameter HANN_FILE=\"hann-u18f17.mem\")(\n input wire clk,rst_n,enable,input wire [3:0] pdm_data,\n // DUAL_CLOCK=1: 采集61.44MHz，计算100MHz；0保留单域算法复现入口。\n input wire acq_clk,acq_rst_n,acq_enable,\n output wire [3:0] pdm_clocks,\n output wire feature_valid,input wire feature_ready,\n output wire [959:0] feature_pairs,output wire [31:0] feature_flags,\n output wire [31:0] feature_level,output wire feature_level_valid,\n output wire draining,active,output wire [11:0] source_faults,\n output wire [3:0] debug_frontend,output wire [4:0] debug_backend\n);"
       }
     ]
   },
@@ -269,13 +269,13 @@
     "path": "project/rtl/ss_dual_compute.sv",
     "group": "双时钟总接合",
     "purpose": "接合61.44MHz采集/控制与100MHz计算，向公共控制域交付整帧。",
-    "interfaces": "clk/rst_n为100MHz；io_clk/io_rst_n为61.44MHz。外部enable、feature_*、draining、source_faults均属io_clk域；debug_frontend/backend属100MHz。内部单字控制同步及992位、单帧容量跨域缓存。",
-    "lines": 41,
+    "interfaces": "clk/rst_n为100MHz；io_clk/io_rst_n为61.44MHz。外部enable、feature_*、draining、source_faults均属io_clk域；debug_frontend/backend属100MHz。内部单字控制同步及992位、单帧容量跨域缓存。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。",
+    "lines": 51,
     "declarations": [
       {
         "kind": "module",
         "name": "ss_dual_compute",
-        "declaration": "module ss_dual_compute #(parameter integer WARMUP_SAMPLES=4096,parameter HANN_FILE=\"hann-u18f17.mem\")(\n input wire clk,rst_n,io_clk,io_rst_n,enable,input wire [3:0] pdm_data,\n output wire [3:0] pdm_clocks,\n output wire feature_valid,input wire feature_ready,\n output wire [959:0] feature_pairs,output wire [31:0] feature_flags,\n output wire draining,output wire [11:0] source_faults,\n output wire [3:0] debug_frontend,output wire [4:0] debug_backend\n);"
+        "declaration": "module ss_dual_compute #(parameter integer WARMUP_SAMPLES=4096,LEVEL_ENABLE=0,parameter HANN_FILE=\"hann-u18f17.mem\")(\n input wire clk,rst_n,io_clk,io_rst_n,enable,input wire [3:0] pdm_data,\n output wire [3:0] pdm_clocks,\n output wire feature_valid,input wire feature_ready,\n output wire [959:0] feature_pairs,output wire [31:0] feature_flags,\n output wire [31:0] feature_level,output wire feature_level_valid,\n output wire draining,output wire [11:0] source_faults,\n output wire [3:0] debug_frontend,output wire [4:0] debug_backend\n);"
       }
     ]
   },
@@ -283,13 +283,13 @@
     "path": "project/rtl/ss_fft_frontend.sv",
     "group": "04 预处理与FFT",
     "purpose": "调度8个官方FFT，检查1024个输入、1024个输出及独立status；转发域1的四路513点半谱。",
-    "interfaces": "begin/s/end 均带同一真实32位帧号。STOP 后排完已配置FFT，再发 end_cancelled；不借 STOP 冷复位 IP。",
-    "lines": 131,
+    "interfaces": "begin/s/end 均带同一真实32位帧号。STOP 后排完已配置FFT，再发 end_cancelled；不借 STOP 冷复位 IP。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。",
+    "lines": 133,
     "declarations": [
       {
         "kind": "module",
         "name": "ss_fft_frontend",
-        "declaration": "module ss_fft_frontend #(parameter HANN_FILE=\"hann-u18f17.mem\")(\n input wire clk,rst_n,enable,input wire source_bad,\n input wire window_valid,output wire window_ready,input wire [31:0] window_frame,\n output wire release_window,output wire read_enable,output wire [9:0] read_index,\n input wire read_valid,input wire [95:0] read_pcm,\n output wire begin_valid,input wire begin_ready,output wire [31:0] begin_frame,\n output wire s_valid,input wire s_ready,output wire [31:0] s_frame,\n output wire [1:0] s_channel,output wire [9:0] s_bin,\n output wire signed [24:0] s_real,s_imag,output wire s_numeric_valid,\n output wire end_valid,input wire end_ready,output wire [31:0] end_frame,\n output wire end_cancelled,output wire [7:0] end_error,\n input wire backend_busy,output wire busy,\n output wire [3:0] debug_state,\n output wire audit_valid,output wire audit_domain,output wire [1:0] audit_channel,\n output wire [9:0] audit_bin,output wire signed [28:0] audit_real,audit_imag\n);"
+        "declaration": "module ss_fft_frontend #(parameter integer LEVEL_ENABLE=0, parameter HANN_FILE=\"hann-u18f17.mem\")(\n input wire clk,rst_n,enable,input wire source_bad,\n input wire window_valid,output wire window_ready,input wire [31:0] window_frame,\n output wire release_window,output wire read_enable,output wire [9:0] read_index,\n input wire read_valid,input wire [95:0] read_pcm,\n output wire begin_valid,input wire begin_ready,output wire [31:0] begin_frame,\n output wire s_valid,input wire s_ready,output wire [31:0] s_frame,\n output wire [1:0] s_channel,output wire [9:0] s_bin,\n output wire signed [24:0] s_real,s_imag,output wire s_numeric_valid,\n output wire end_valid,input wire end_ready,output wire [31:0] end_frame,\n output wire end_cancelled,output wire [7:0] end_error,\n input wire backend_busy,output wire busy,\n output wire [3:0] debug_state,\n output wire [31:0] frame_level, output wire frame_level_valid,\n output wire audit_valid,output wire audit_domain,output wire [1:0] audit_channel,\n output wire [9:0] audit_bin,output wire signed [28:0] audit_real,audit_imag\n);"
       }
     ]
   },
@@ -297,13 +297,13 @@
     "path": "project/rtl/ss_pair_engine.sv",
     "group": "05 六对特征",
     "purpose": "按01、02、03、12、13、23串行做跨谱、PHAT、IFFT、整数峰和邻点提取；没有PL内LS或角度解算。",
-    "interfaces": "begin/s/end 使用32位帧号；S25实虚部及channel/bin顺序检查。取消保留已完成对并终结其余对。feature_pairs 每对160位、共960位。",
-    "lines": 452,
+    "interfaces": "begin/s/end 使用32位帧号；S25实虚部及channel/bin顺序检查。取消保留已完成对并终结其余对。feature_pairs 每对160位、共960位。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。",
+    "lines": 473,
     "declarations": [
       {
         "kind": "module",
         "name": "ss_pair_engine",
-        "declaration": "module ss_pair_engine (\n input wire clk,rst_n,\n input wire begin_valid,output wire begin_ready,input wire [31:0] begin_frame,\n input wire s_valid,output wire s_ready,input wire [31:0] s_frame,\n input wire [1:0] s_channel,input wire [9:0] s_bin,\n input wire signed [24:0] s_real,s_imag,input wire s_numeric_valid,\n input wire end_valid,output wire end_ready,input wire [31:0] end_frame,\n input wire end_cancelled,input wire [7:0] end_error,\n input wire cancel,\n output wire busy,output wire ip_obligation,\n output wire feature_valid,input wire feature_ready,\n output wire [31:0] feature_frame_id,feature_frame_flags,\n output wire [959:0] feature_pairs,\n output wire feature_drop_pulse,output wire [31:0] feature_drop_count,\n output wire feature_gap,feature_counter_exhausted,feature_source_protocol_error,\n output wire [4:0] debug_state\n);"
+        "declaration": "module ss_pair_engine #(parameter integer LEVEL_ENABLE=0) (\n input wire clk,rst_n,\n input wire begin_valid,output wire begin_ready,input wire [31:0] begin_frame,\n input wire s_valid,output wire s_ready,input wire [31:0] s_frame,\n input wire [1:0] s_channel,input wire [9:0] s_bin,\n input wire signed [24:0] s_real,s_imag,input wire s_numeric_valid,\n input wire end_valid,output wire end_ready,input wire [31:0] end_frame,\n input wire end_cancelled,input wire [7:0] end_error,\n input wire cancel,\n input wire [31:0] frame_level,input wire frame_level_valid,\n output wire [31:0] feature_level,output wire feature_level_valid,\n output wire busy,output wire ip_obligation,\n output wire feature_valid,input wire feature_ready,\n output wire [31:0] feature_frame_id,feature_frame_flags,\n output wire [959:0] feature_pairs,\n output wire feature_drop_pulse,output wire [31:0] feature_drop_count,\n output wire feature_gap,feature_counter_exhausted,feature_source_protocol_error,\n output wire [4:0] debug_state\n);"
       }
     ]
   },
@@ -339,13 +339,13 @@
     "path": "project/rtl/ss_preprocess.sv",
     "group": "04 预处理与FFT",
     "purpose": "先拷贝1024组PCM，然后串行计算两域四通道共8个FFT输入单元。",
-    "interfaces": "域0去均值后乘Hann；域1直接乘Hann。U18F17系数、RNE舍入、DOA S24饱和并报错；输出S29=处理值乘16。out_valid/ready 背压时数据不变。",
-    "lines": 112,
+    "interfaces": "域0去均值后乘Hann；域1直接乘Hann。U18F17系数、RNE舍入、DOA S24饱和并报错；输出S29=处理值乘16。out_valid/ready 背压时数据不变。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。",
+    "lines": 128,
     "declarations": [
       {
         "kind": "module",
         "name": "ss_preprocess",
-        "declaration": "module ss_preprocess #(parameter HANN_FILE=\"hann-u18f17.mem\")(\n input wire clk,rst_n,frame_start,\n output wire read_enable,output wire [9:0] read_index,\n input wire read_valid,input wire [95:0] read_pcm,\n output reg copy_done,\n input wire unit_start,input wire domain,input wire [1:0] channel,\n output wire unit_ready,output reg unit_done,\n output wire out_valid,input wire out_ready,\n output reg signed [28:0] out_real,output wire out_last,\n output reg numeric_error\n);"
+        "declaration": "module ss_preprocess #(parameter integer LEVEL_ENABLE=0, parameter HANN_FILE=\"hann-u18f17.mem\")(\n input wire clk,rst_n,frame_start,\n output wire read_enable,output wire [9:0] read_index,\n input wire read_valid,input wire [95:0] read_pcm,\n output reg copy_done,\n input wire unit_start,input wire domain,input wire [1:0] channel,\n output wire unit_ready,output reg unit_done,\n output wire out_valid,input wire out_ready,\n output reg signed [28:0] out_real,output wire out_last,\n output reg numeric_error,\n output reg [31:0] frame_level, output reg frame_level_valid\n);"
       }
     ]
   },
@@ -423,13 +423,13 @@
     "path": "project/rtl/ss_ps_control_regs.sv",
     "group": "PS独有",
     "purpose": "PS版寄存器层；与SPI版相同公开字段，增加host_stop保留快照的停用入口。",
-    "interfaces": "host_stop来自同步总线复位；冷rst_n才清队列。普通PS复位清使能、角度影子和看门狗，不能自动恢复动作。",
-    "lines": 205,
+    "interfaces": "host_stop来自同步总线复位；冷rst_n才清队列。普通PS复位清使能、角度影子和看门狗，不能自动恢复动作。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。",
+    "lines": 207,
     "declarations": [
       {
         "kind": "module",
         "name": "ss_ps_control_regs",
-        "declaration": "module ss_ps_control_regs #(\n    parameter integer ACTUATOR_BOUND=0, CLK_FREQ_HZ=61440000,\n    parameter integer SERVO_MAX=180, MECHANICAL_MIN=0, MECHANICAL_MAX=180\n)(\n    input wire clk, rst_n, host_stop,\n    input wire [6:0] address,\n    input wire commit,write_access,format_error,input wire [31:0] write_data,\n    output reg [31:0] read_data,\n    output wire irq,servo_pwm,\n    input wire feature_valid,\n    output wire feature_ready,\n    input wire [959:0] feature_pairs,\n    input wire [31:0] feature_flags,\n    input wire compute_draining,\n    input wire [11:0] source_faults,\n    output wire run_enable,\n    output reg stop_pulse,\n    output wire [31:0] fault_status,\n    output wire motion_permit,\n    output wire counter_exhausted\n);"
+        "declaration": "module ss_ps_control_regs #(\n    parameter integer ACTUATOR_BOUND=0,LEVEL_ENABLE=0, CLK_FREQ_HZ=61440000,\n    parameter integer SERVO_MAX=180, MECHANICAL_MIN=0, MECHANICAL_MAX=180\n)(\n    input wire clk, rst_n, host_stop,\n    input wire [6:0] address,\n    input wire commit,write_access,format_error,input wire [31:0] write_data,\n    output reg [31:0] read_data,\n    output wire irq,servo_pwm,\n    input wire feature_valid,\n    output wire feature_ready,\n    input wire [959:0] feature_pairs,\n    input wire [31:0] feature_flags,\n    input wire [31:0] feature_level,input wire feature_level_valid,\n    input wire compute_draining,\n    input wire [11:0] source_faults,\n    output wire run_enable,\n    output reg stop_pulse,\n    output wire [31:0] fault_status,\n    output wire motion_permit,\n    output wire counter_exhausted\n);"
       }
     ]
   },
@@ -437,13 +437,13 @@
     "path": "project/rtl/ss_ps_link.sv",
     "group": "PS独有",
     "purpose": "片内CPU控制入口，组合AXI转换和PS寄存器层。",
-    "interfaces": "S_AXI为32位AXI4-Lite、12位局部地址；clk61.44MHz。rst_n为PL冷复位，aresetn为PS总线复位。",
-    "lines": 39,
+    "interfaces": "S_AXI为32位AXI4-Lite、12位局部地址；clk61.44MHz。rst_n为PL冷复位，aresetn为PS总线复位。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。",
+    "lines": 41,
     "declarations": [
       {
         "kind": "module",
         "name": "ss_ps_link",
-        "declaration": "module ss_ps_link #(\n parameter integer ACTUATOR_BOUND=0,CLK_FREQ_HZ=61440000,\n parameter integer SERVO_MAX=180,MECHANICAL_MIN=0,MECHANICAL_MAX=180\n)(\n (* X_INTERFACE_INFO=\"xilinx.com:signal:clock:1.0 clk CLK\" *)\n (* X_INTERFACE_PARAMETER=\"FREQ_HZ 61440000,ASSOCIATED_BUSIF S_AXI,ASSOCIATED_RESET aresetn\" *) input wire clk,\n input wire rst_n,\n (* X_INTERFACE_INFO=\"xilinx.com:signal:reset:1.0 aresetn RST\" *)\n (* X_INTERFACE_PARAMETER=\"POLARITY ACTIVE_LOW\" *) input wire aresetn,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWADDR\" *) (* X_INTERFACE_PARAMETER=\"PROTOCOL AXI4LITE,DATA_WIDTH 32,ADDR_WIDTH 12,READ_WRITE_MODE READ_WRITE,NUM_READ_OUTSTANDING 1,NUM_WRITE_OUTSTANDING 1\" *) input wire [11:0] s_axi_awaddr,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWPROT\" *) input wire [2:0] s_axi_awprot,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWVALID\" *) input wire s_axi_awvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWREADY\" *) output wire s_axi_awready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WDATA\" *) input wire [31:0] s_axi_wdata,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WSTRB\" *) input wire [3:0] s_axi_wstrb,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WVALID\" *) input wire s_axi_wvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WREADY\" *) output wire s_axi_wready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BRESP\" *) output wire [1:0] s_axi_bresp,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BVALID\" *) output wire s_axi_bvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BREADY\" *) input wire s_axi_bready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARADDR\" *) input wire [11:0] s_axi_araddr,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARPROT\" *) input wire [2:0] s_axi_arprot,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARVALID\" *) input wire s_axi_arvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARREADY\" *) output wire s_axi_arready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RDATA\" *) output wire [31:0] s_axi_rdata,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RRESP\" *) output wire [1:0] s_axi_rresp,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RVALID\" *) output wire s_axi_rvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RREADY\" *) input wire s_axi_rready,\n input wire feature_valid,output wire feature_ready,input wire [959:0] feature_pairs,input wire [31:0] feature_flags,\n input wire compute_draining,input wire [11:0] source_faults,output wire run_enable,\n output wire irq,servo_pwm,output wire [31:0] fault_status\n);"
+        "declaration": "module ss_ps_link #(\n parameter integer ACTUATOR_BOUND=0,LEVEL_ENABLE=0,CLK_FREQ_HZ=61440000,\n parameter integer SERVO_MAX=180,MECHANICAL_MIN=0,MECHANICAL_MAX=180\n)(\n (* X_INTERFACE_INFO=\"xilinx.com:signal:clock:1.0 clk CLK\" *)\n (* X_INTERFACE_PARAMETER=\"FREQ_HZ 61440000,ASSOCIATED_BUSIF S_AXI,ASSOCIATED_RESET aresetn\" *) input wire clk,\n input wire rst_n,\n (* X_INTERFACE_INFO=\"xilinx.com:signal:reset:1.0 aresetn RST\" *)\n (* X_INTERFACE_PARAMETER=\"POLARITY ACTIVE_LOW\" *) input wire aresetn,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWADDR\" *) (* X_INTERFACE_PARAMETER=\"PROTOCOL AXI4LITE,DATA_WIDTH 32,ADDR_WIDTH 12,READ_WRITE_MODE READ_WRITE,NUM_READ_OUTSTANDING 1,NUM_WRITE_OUTSTANDING 1\" *) input wire [11:0] s_axi_awaddr,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWPROT\" *) input wire [2:0] s_axi_awprot,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWVALID\" *) input wire s_axi_awvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWREADY\" *) output wire s_axi_awready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WDATA\" *) input wire [31:0] s_axi_wdata,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WSTRB\" *) input wire [3:0] s_axi_wstrb,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WVALID\" *) input wire s_axi_wvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WREADY\" *) output wire s_axi_wready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BRESP\" *) output wire [1:0] s_axi_bresp,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BVALID\" *) output wire s_axi_bvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BREADY\" *) input wire s_axi_bready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARADDR\" *) input wire [11:0] s_axi_araddr,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARPROT\" *) input wire [2:0] s_axi_arprot,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARVALID\" *) input wire s_axi_arvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARREADY\" *) output wire s_axi_arready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RDATA\" *) output wire [31:0] s_axi_rdata,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RRESP\" *) output wire [1:0] s_axi_rresp,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RVALID\" *) output wire s_axi_rvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RREADY\" *) input wire s_axi_rready,\n input wire feature_valid,output wire feature_ready,input wire [959:0] feature_pairs,input wire [31:0] feature_flags,\n input wire [31:0] feature_level,input wire feature_level_valid,\n input wire compute_draining,input wire [11:0] source_faults,output wire run_enable,\n output wire irq,servo_pwm,output wire [31:0] fault_status\n);"
       }
     ]
   },
@@ -451,13 +451,13 @@
     "path": "project/rtl/bd_ps_link.v",
     "group": "PS版BD端口适配",
     "purpose": "可加入BD的PS寄存器薄封装。",
-    "interfaces": "寄存器端61.44MHz；上游100MHz经官方AXI Clock Converter，rst_n冷复位与aresetn总线复位分开。",
-    "lines": 69,
+    "interfaces": "寄存器端61.44MHz；上游100MHz经官方AXI Clock Converter，rst_n冷复位与aresetn总线复位分开。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。",
+    "lines": 71,
     "declarations": [
       {
         "kind": "module",
         "name": "bd_ps_link",
-        "declaration": "module bd_ps_link #(\n parameter integer ACTUATOR_BOUND=0,CLK_FREQ_HZ=61440000,\n parameter integer SERVO_MAX=180,MECHANICAL_MIN=0,MECHANICAL_MAX=180\n)(\n (* X_INTERFACE_INFO=\"xilinx.com:signal:clock:1.0 clk CLK\" *)\n (* X_INTERFACE_PARAMETER=\"FREQ_HZ 61440000,ASSOCIATED_BUSIF S_AXI,ASSOCIATED_RESET aresetn\" *) input wire clk,\n input wire rst_n,\n (* X_INTERFACE_INFO=\"xilinx.com:signal:reset:1.0 aresetn RST\" *)\n (* X_INTERFACE_PARAMETER=\"POLARITY ACTIVE_LOW\" *) input wire aresetn,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWADDR\" *) (* X_INTERFACE_PARAMETER=\"PROTOCOL AXI4LITE,DATA_WIDTH 32,ADDR_WIDTH 12,READ_WRITE_MODE READ_WRITE,NUM_READ_OUTSTANDING 1,NUM_WRITE_OUTSTANDING 1\" *) input wire [11:0] s_axi_awaddr,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWPROT\" *) input wire [2:0] s_axi_awprot,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWVALID\" *) input wire s_axi_awvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWREADY\" *) output wire s_axi_awready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WDATA\" *) input wire [31:0] s_axi_wdata,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WSTRB\" *) input wire [3:0] s_axi_wstrb,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WVALID\" *) input wire s_axi_wvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WREADY\" *) output wire s_axi_wready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BRESP\" *) output wire [1:0] s_axi_bresp,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BVALID\" *) output wire s_axi_bvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BREADY\" *) input wire s_axi_bready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARADDR\" *) input wire [11:0] s_axi_araddr,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARPROT\" *) input wire [2:0] s_axi_arprot,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARVALID\" *) input wire s_axi_arvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARREADY\" *) output wire s_axi_arready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RDATA\" *) output wire [31:0] s_axi_rdata,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RRESP\" *) output wire [1:0] s_axi_rresp,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RVALID\" *) output wire s_axi_rvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RREADY\" *) input wire s_axi_rready,\n input wire feature_valid,output wire feature_ready,input wire [959:0] feature_pairs,input wire [31:0] feature_flags,\n input wire compute_draining,input wire [11:0] source_faults,output wire run_enable,\n (* X_INTERFACE_INFO=\"xilinx.com:signal:interrupt:1.0 irq INTERRUPT\" *)\n (* X_INTERFACE_PARAMETER=\"SENSITIVITY LEVEL_HIGH\" *) output wire irq,\n output wire servo_pwm,output wire [31:0] fault_status\n);"
+        "declaration": "module bd_ps_link #(\n parameter integer ACTUATOR_BOUND=0,LEVEL_ENABLE=0,CLK_FREQ_HZ=61440000,\n parameter integer SERVO_MAX=180,MECHANICAL_MIN=0,MECHANICAL_MAX=180\n)(\n (* X_INTERFACE_INFO=\"xilinx.com:signal:clock:1.0 clk CLK\" *)\n (* X_INTERFACE_PARAMETER=\"FREQ_HZ 61440000,ASSOCIATED_BUSIF S_AXI,ASSOCIATED_RESET aresetn\" *) input wire clk,\n input wire rst_n,\n (* X_INTERFACE_INFO=\"xilinx.com:signal:reset:1.0 aresetn RST\" *)\n (* X_INTERFACE_PARAMETER=\"POLARITY ACTIVE_LOW\" *) input wire aresetn,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWADDR\" *) (* X_INTERFACE_PARAMETER=\"PROTOCOL AXI4LITE,DATA_WIDTH 32,ADDR_WIDTH 12,READ_WRITE_MODE READ_WRITE,NUM_READ_OUTSTANDING 1,NUM_WRITE_OUTSTANDING 1\" *) input wire [11:0] s_axi_awaddr,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWPROT\" *) input wire [2:0] s_axi_awprot,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWVALID\" *) input wire s_axi_awvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWREADY\" *) output wire s_axi_awready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WDATA\" *) input wire [31:0] s_axi_wdata,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WSTRB\" *) input wire [3:0] s_axi_wstrb,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WVALID\" *) input wire s_axi_wvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WREADY\" *) output wire s_axi_wready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BRESP\" *) output wire [1:0] s_axi_bresp,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BVALID\" *) output wire s_axi_bvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BREADY\" *) input wire s_axi_bready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARADDR\" *) input wire [11:0] s_axi_araddr,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARPROT\" *) input wire [2:0] s_axi_arprot,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARVALID\" *) input wire s_axi_arvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARREADY\" *) output wire s_axi_arready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RDATA\" *) output wire [31:0] s_axi_rdata,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RRESP\" *) output wire [1:0] s_axi_rresp,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RVALID\" *) output wire s_axi_rvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RREADY\" *) input wire s_axi_rready,\n input wire feature_valid,output wire feature_ready,input wire [959:0] feature_pairs,input wire [31:0] feature_flags,\n input wire [31:0] feature_level,input wire feature_level_valid,\n input wire compute_draining,input wire [11:0] source_faults,output wire run_enable,\n (* X_INTERFACE_INFO=\"xilinx.com:signal:interrupt:1.0 irq INTERRUPT\" *)\n (* X_INTERFACE_PARAMETER=\"SENSITIVITY LEVEL_HIGH\" *) output wire irq,\n output wire servo_pwm,output wire [31:0] fault_status\n);"
       }
     ]
   }

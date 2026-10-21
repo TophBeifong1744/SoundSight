@@ -7,13 +7,14 @@
 `default_nettype none
 // 精简计算总接合：采集→窗口→预处理/FFT→六对特征。
 // 内部只有一帧在计算，跨模块携带真实window_frame，不再复制725位身份和数千位诊断包。
-module ss_clean_compute #(parameter integer WARMUP_SAMPLES=4096,DUAL_CLOCK=0,parameter HANN_FILE="hann-u18f17.mem")(
+module ss_clean_compute #(parameter integer WARMUP_SAMPLES=4096,DUAL_CLOCK=0,LEVEL_ENABLE=0,parameter HANN_FILE="hann-u18f17.mem")(
  input wire clk,rst_n,enable,input wire [3:0] pdm_data,
  // DUAL_CLOCK=1: 采集61.44MHz，计算100MHz；0保留单域算法复现入口。
  input wire acq_clk,acq_rst_n,acq_enable,
  output wire [3:0] pdm_clocks,
  output wire feature_valid,input wire feature_ready,
  output wire [959:0] feature_pairs,output wire [31:0] feature_flags,
+ output wire [31:0] feature_level,output wire feature_level_valid,
  output wire draining,active,output wire [11:0] source_faults,
  output wire [3:0] debug_frontend,output wire [4:0] debug_backend
 );
@@ -66,7 +67,8 @@ module ss_clean_compute #(parameter integer WARMUP_SAMPLES=4096,DUAL_CLOCK=0,par
  wire [9:0] s_bin;
  wire signed [24:0] s_real,s_imag;
  wire [7:0] end_error;
- ss_fft_frontend #(.HANN_FILE(HANN_FILE)) frontend(
+ wire [31:0] frame_level;wire frame_level_valid;
+ ss_fft_frontend #(.LEVEL_ENABLE(LEVEL_ENABLE),.HANN_FILE(HANN_FILE)) frontend(
    .clk(clk),.rst_n(rst_n),.enable(enable),.source_bad(|faults),
    .window_valid(window_valid),.window_ready(window_ready),.window_frame(window_frame),
    .release_window(release_window),.read_enable(read_enable),.read_index(read_index),.read_valid(read_valid),.read_pcm(read_pcm),
@@ -74,13 +76,16 @@ module ss_clean_compute #(parameter integer WARMUP_SAMPLES=4096,DUAL_CLOCK=0,par
    .s_valid(s_valid),.s_ready(s_ready),.s_frame(s_frame),.s_channel(s_channel),.s_bin(s_bin),
    .s_real(s_real),.s_imag(s_imag),.s_numeric_valid(s_numeric_valid),
    .end_valid(end_valid),.end_ready(end_ready),.end_frame(end_frame),.end_cancelled(end_cancelled),.end_error(end_error),
+   .frame_level(frame_level),.frame_level_valid(frame_level_valid),
    .backend_busy(backend_busy),.busy(front_busy),.debug_state(debug_frontend),
    .audit_valid(),.audit_domain(),.audit_channel(),.audit_bin(),.audit_real(),.audit_imag());
- ss_pair_engine backend(
+ ss_pair_engine #(.LEVEL_ENABLE(LEVEL_ENABLE)) backend(
    .clk(clk),.rst_n(rst_n),.begin_valid(begin_valid),.begin_ready(begin_ready),.begin_frame(begin_frame),
    .s_valid(s_valid),.s_ready(s_ready),.s_frame(s_frame),.s_channel(s_channel),.s_bin(s_bin),
    .s_real(s_real),.s_imag(s_imag),.s_numeric_valid(s_numeric_valid),
    .end_valid(end_valid),.end_ready(end_ready),.end_frame(end_frame),.end_cancelled(end_cancelled),.end_error(end_error),
+   .frame_level(frame_level),.frame_level_valid(frame_level_valid),
+   .feature_level(feature_level),.feature_level_valid(feature_level_valid),
    .cancel(!enable),.busy(backend_busy),.ip_obligation(backend_obligation),
    .feature_valid(feature_valid),.feature_ready(feature_ready),.feature_frame_id(local_sequence),
    .feature_frame_flags(feature_flags),.feature_pairs(feature_pairs),.feature_drop_pulse(frame_drop),

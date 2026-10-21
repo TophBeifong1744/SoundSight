@@ -1,0 +1,54 @@
+{
+  "scope": "PC_FAKE_MMIO_NO_HARDWARE",
+  "results": [
+    {
+      "test": "test_buffered",
+      "returncode": 0,
+      "command": [
+        "python",
+        "-E",
+        "-s",
+        "-B",
+        "-X",
+        "utf8",
+        "software/tests/test_buffered.py",
+        "-v"
+      ]
+    },
+    {
+      "test": "test_smp",
+      "returncode": 0,
+      "command": [
+        "python",
+        "-E",
+        "-s",
+        "-B",
+        "-X",
+        "utf8",
+        "software/tests/test_smp.py",
+        "-v"
+      ]
+    },
+    {
+      "test": "test_application",
+      "returncode": 0,
+      "command": [
+        "python",
+        "-E",
+        "-s",
+        "-B",
+        "-X",
+        "utf8",
+        "software/tests/test_application.py"
+      ]
+    }
+  ],
+  "python38_syntax": "PASS",
+  "target_arm": "NOT_RUN",
+  "board": "NOT_RUN",
+  "counts": {
+    "buffered_unittest": 16,
+    "legacy_smp_unittest": 17,
+    "application_checks": 8
+  }
+}

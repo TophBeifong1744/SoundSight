@@ -1,0 +1,4 @@
+# Preserve original tool output bytes, including Windows log encoding.
+*.log binary
+*.rpt binary
+*.v.txt binary

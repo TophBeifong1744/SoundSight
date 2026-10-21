@@ -1,0 +1,13 @@
+from pathlib import Path
+import os, subprocess, sys
+base=Path(__file__).resolve().parent
+env=os.environ.copy()
+for k in ('PYTHONHOME','PYTHONPATH','PYTHONUSERBASE'):env.pop(k,None)
+for k in ('APPDATA','LOCALAPPDATA','TEMP','TMP'):
+    d=base/'env'/k;d.mkdir(parents=True,exist_ok=True);env[k]=str(d)
+env['TCLLIBPATH']=' '.join(p.parent.as_posix() for p in Path('F:/AMD/2025.2/Vivado/data/XilinxTclStore').rglob('pkgIndex.tcl'))
+name=sys.argv[1] if len(sys.argv)>1 else 'probe'
+with (base/(name+'.stdout.txt')).open('wb') as out:
+    p=subprocess.run(['F:/AMD/2025.2/Vivado/bin/vivado.bat','-mode','batch','-source',name+'.tcl','-log',name+'-isolated.log','-journal',name+'-isolated.jou'],cwd=base,env=env,stdout=out,stderr=subprocess.STDOUT,timeout=480,creationflags=subprocess.CREATE_NO_WINDOW)
+print('VIVADO_PREP_ONLY_EXIT',p.returncode,'LOG',base/(name+'.stdout.txt'))
+sys.exit(p.returncode)

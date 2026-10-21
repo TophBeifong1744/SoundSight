@@ -1,0 +1,37 @@
+from pathlib import Path
+import json
+import shutil
+import xml.etree.ElementTree as ET
+
+root = Path(__file__).resolve().parents[2]
+base = root/'simulation/work/vbt'
+base.mkdir(exist_ok=False)
+source = Path('F:/AMD/work/SoundSight_PS_Volume')
+project = base/'v'
+project.mkdir()
+tree = ET.parse(source/'SoundSight_PS_Volume.xpr')
+tree.getroot().set('Path', (project/'v.xpr').as_posix())
+tree.write(project/'v.xpr', encoding='UTF-8', xml_declaration=True)
+shutil.copytree(source/'SoundSight_PS_Volume.srcs', project/'v.srcs')
+bd = project/'v.srcs/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.bd'
+data=json.loads(bd.read_text())
+data['design']['design_info']['gen_directory']='../../../../v.gen/sources_1/bd/soundsight_stm32_bd'
+bd.write_text(json.dumps(data,indent=2))
+shutil.copy2(bd,base/'before.bd')
+wrapper=Path('sources_1/bd/soundsight_stm32_bd/hdl/soundsight_stm32_bd_wrapper.v')
+(project/'v.gen'/wrapper).parent.mkdir(parents=True)
+shutil.copy2(source/'SoundSight_PS_Volume.gen'/wrapper,project/'v.gen'/wrapper)
+shutil.copytree(source.parent/'SoundSight_PS/ps_constraints',base/'SoundSight_PS/ps_constraints')
+shutil.copytree(root/'project/rtl',base/'p/project/rtl')
+(base/'p/project/bd').mkdir(parents=True)
+shutil.copy2(root/'project/bd/update_ps_volume.tcl',base/'p/project/bd/update_ps_volume.tcl')
+old=source/'handoff/before_ps_volume_20261021_191333_121608975325'
+names=['ss_preprocess.sv','ss_fft_frontend.sv','f1a_frame_store.sv','ss_pair_engine.sv','ss_clean_compute.sv','ss_dual_compute.sv','bd_clean_compute.v','ss_ps_control_regs.sv','ss_ps_link.sv','bd_ps_link.v']
+for name in names:
+    shutil.copy2(old/name,project/'v.srcs/sources_1/imports/rtl'/name)
+shutil.copy2(root/'simulation/work/vbc/run_probe.py',base/'run_probe.py')
+tcl=(root/'simulation/work/vbc/full.tcl').read_text()
+tcl=tcl.replace('report_bd_address','puts "FINAL_ADDRESS_SEGMENTS=[get_bd_addr_segs]"')
+tcl=tcl.replace('puts "OLD_MODULE_PROPERTIES=[list_property [get_bd_cells compute]]"','puts "INITIAL_COMPUTE_LEVEL_PRESENT=[expr {[lsearch -exact [list_property [get_bd_cells compute]] CONFIG.LEVEL_ENABLE]>=0}]"')
+(base/'full.tcl').write_text(tcl)
+print(base)
