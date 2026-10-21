@@ -46,10 +46,11 @@ namespace eval ss_project {
         foreach file {board_pins.xdc interface_timing.xdc} {
             add_files -fileset constrs_1 -norecurse [list [file join $root project sdc $variant $file]]
         }
-        if {$variant eq "stm32"} {source [file join $root project script stm32_settings.tcl]}
+        source [file join $root project script ${variant}_settings.tcl]
         update_compile_order -fileset sources_1
         set platform_config user_configuration_required
         if {$variant eq "stm32"} {set platform_config user_export_20261018_153509_board_boot_unverified}
+        if {$variant eq "ps"} {set platform_config user_volume_export_20261021_volume_board_unverified}
         set handle [open [file join $destination prepared.txt] w]
         puts $handle "variant=$variant\npart=xc7z020clg400-2\nvivado=[version -short]\nPS_DDR_MIO=$platform_config\nsynthesis=NOT_RUN\nimplementation=NOT_RUN"
         close $handle

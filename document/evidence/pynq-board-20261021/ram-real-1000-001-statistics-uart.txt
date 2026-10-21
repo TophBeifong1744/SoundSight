@@ -1,0 +1,13 @@
+来源：用户在本聊天回传的板端完整文件统计及结束后寄存器读数。
+以下保留统计结果；未收取完整JSONL，省略串口发送回显。
+
+FRAMES= 1000 FIRST_LAST= [202] [1201]
+CONTIGUOUS= True
+REASON_AND_VALID_PAIRS= {(0, 6): 689, (3, 5): 36, (3, 6): 153, (0, 5): 52, (0, 4): 26, (3, 3): 2, (1, 1): 8, (1, 2): 3, (1, 0): 22, (0, 3): 4, (3, 4): 4, (4, 3): 1}
+ZERO_MASK_FRAMES= 21
+FAULTS= [0] DROPS= [0]
+
+STATUS= 0x14000
+FAULT= 0x40
+DROPS= 0
+xilinx@pynq:~/SoundSight_PYNQ$

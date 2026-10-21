@@ -1,0 +1,31 @@
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 7292}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 22444}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 40028}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 54796}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 52492}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 1656}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 40480}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 8824}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 45412}
+test_action_log_failure_retains_already_commanded_frame (__main__.SMPTests.test_action_log_failure_retains_already_commanded_frame) ... ok
+test_affinity_checks_and_restore (__main__.SMPTests.test_affinity_checks_and_restore) ... ok
+test_bridge_failure_saved_but_retained (__main__.SMPTests.test_bridge_failure_saved_but_retained) ... ok
+test_calibration_invalid_before_hardware (__main__.SMPTests.test_calibration_invalid_before_hardware) ... ok
+test_cancel_after_ack_still_blocks_commit_and_consume (__main__.SMPTests.test_cancel_after_ack_still_blocks_commit_and_consume) ... ok
+test_eof_stops (__main__.SMPTests.test_eof_stops) ... ok
+test_explicit_fault_clear (__main__.SMPTests.test_explicit_fault_clear) ... ok
+test_fault_frame_requires_explicit_drain (__main__.SMPTests.test_fault_frame_requires_explicit_drain) ... ok
+test_fault_while_saving_stops_and_retains (__main__.SMPTests.test_fault_while_saving_stops_and_retains) ... ok
+test_historical_fault_requires_explicit_clear (__main__.SMPTests.test_historical_fault_requires_explicit_clear) ... ok
+test_interrupt_retains_frame (__main__.SMPTests.test_interrupt_retains_frame) ... ok
+test_missing_ack_times_out_and_stops (__main__.SMPTests.test_missing_ack_times_out_and_stops) ... ok
+test_motion_has_result_then_commit_then_action_then_consume (__main__.SMPTests.test_motion_has_result_then_commit_then_action_then_consume) ... ok
+test_sink_failure_retains_frame (__main__.SMPTests.test_sink_failure_retains_frame) ... ok
+test_solver_exception_reaches_host (__main__.SMPTests.test_solver_exception_reaches_host) ... ok
+test_spawn_save_before_consume (__main__.SMPTests.test_spawn_save_before_consume) ... ok
+test_wrong_ack_stops (__main__.SMPTests.test_wrong_ack_stops) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 3.506s
+
+OK

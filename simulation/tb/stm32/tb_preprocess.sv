@@ -13,7 +13,7 @@ module tb_preprocess;
  reg [95:0] response;
  reg response_valid=0;
  assign read_pcm=response;assign read_valid=response_valid;
- ss_preprocess dut(.*);
+ ss_preprocess dut(.frame_level(),.frame_level_valid(),.*);
  always @(posedge clk)begin response_valid<=read_enable;if(read_enable)response<=sample_memory[read_index];end
  integer cycle=0,outputs=0,unit_no,copy_events=0,checks=0;
  reg held=0;

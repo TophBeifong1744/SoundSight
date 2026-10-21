@@ -9,7 +9,7 @@ module tb_ps;
  wire feature_ready,run_enable,irq,servo_pwm;
  wire [31:0] fault_status;
  `include "axi_tasks.svh"
- ss_ps_link dut(.*);
+ ss_ps_link dut(.feature_level(32'b0),.feature_level_valid(1'b0),.*);
  reg [31:0] value,status,seq;
  integer fd,which;
  task publish(input integer peak);

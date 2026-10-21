@@ -1,0 +1,9 @@
+USER MESSAGE UTC 2026-10-21T09:30:29.361Z
+unter(x['result']['reason'] for x in f))); print('FAULTS=',sorted({x['frame']['fault'] for x in f}),'DROPS=',sorted({x['frame']['drops'] for x in f}))"
+FRAMES= 100 FIRST_LAST= [2] [101]
+CONTIGUOUS= True
+VALID= 53
+REASONS= {0: 53, 3: 17, 1: 30}
+FAULTS= [0] DROPS= [0]
+xilinx@pynq:~/SoundSight_PYNQ$ 
+

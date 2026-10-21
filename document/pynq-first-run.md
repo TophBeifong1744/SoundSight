@@ -2,6 +2,8 @@
 
 本包采用同一个 Linux/PYNQ 管理两个 ARM 核。CPU1 的进程独占硬件寄存器并调用 C，CPU0 的进程控制会话、显示和保存。当前硬件为二维方位、水平轴接口，`ACTUATOR_BOUND=0`，本轮不驱动舵机。
 
+2026-10-21补充：当前板已完成双BIST和20帧真实无动作采集；100帧尝试暴露逐帧SD同步导致的溢出。已增加显式RAM接收策略，SD搬运、旧镜像的XRT/FCLK加载修正及新版操作见 [pynq-ram-queue.md](pynq-ram-queue.md)。以下保留首次安装步骤；已经安装的板只需要增量，不能覆盖实验日志。新版RAM路径仍待板上复验。
+
 ## 第一步：上传、解压、检查环境
 
 在 Jupyter 新建一个空文件夹，把 `soundsight_pynq.zip` 上传进去。在同一文件夹新建 Python 3 Notebook，执行：

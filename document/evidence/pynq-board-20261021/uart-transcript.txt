@@ -1,0 +1,461 @@
+===== USER 2026-10-20T15:26:00.719Z =====
+[  OK  ] Started Unattended Upgrades Shutdown.
+[  OK  ] Finished Network Manager Wait Online.
+[  OK  ] Finished Permit User Sessions.
+[  OK  ] Started Network Manager Script Dispatcher Service.
+[  OK  ] Reached target Network is Online.
+[  OK  ] Started Getty on tty1.
+[  OK  ] Started ISC DHCP IPv4 server.
+[  OK  ] Started ISC DHCP IPv6 server.
+         Starting Samba NMB Daemon...
+[  OK  ] Started Serial Getty on ttyPS0.
+[  OK  ] Reached target Login Prompts.
+
+PYNQ Linux, based on Ubuntu 20.04 pynq ttyPS0
+
+pynq login: xilinx (automatic login)
+
+Welcome to PYNQ Linux, based on Ubuntu 20.04 (GNU/Linux 5.4.0-xilinx-v2020.2 armv7l)
+Last login: Wed Nov 17 22:39:11 UTC 2021 on ttyPS0
+xilinx@pynq:~$ 
+
+
+===== USER 2026-10-20T15:29:56.464Z =====
+---- 已发送 utf8 编码消息: "uname -a\n" ----
+uname -a
+uname: invalid option -- 'u'
+Try 'uname --help' for more information.
+xilinx@pynq:~$ 
+---- 已发送 utf8 编码消息: "cat /proc/cmdline\n" ----
+cat /proc/cmdline
+root=/dev/mmcblk0p2 rw earlyprintk rootfstype=ext4 rootwait devtmpfs.mount=1 uio_pdrv_genirq.of_id="generic-uio" clk_ignore_unused
+xilinx@pynq:~$ 
+---- 已发送 utf8 编码消息: "cat /sys/devices/system/cpu/online\n" ----
+cat /sys/devices/system/cpu/online
+0-1
+xilinx@pynq:~$ 
+---- 已发送 utf8 编码消息: "python3 -c \"import pynq; print(pynq.__version__)\"\n" ----
+python3 -c "import pynq; print(pynq.__version__)"
+/home/xilinx/pynq/pl_server/xrt_device.py:88: UserWarning: xbutil failed to run - unable to determine XRT version
+  warnings.warn(
+2.7.0
+xilinx@pynq:~$ 
+---- 已发送 utf8 编码消息: "systemctl list-units --type=service --state=running --no-pager\n" ----
+systemctl list-units --type=service --state=running --no-pager
+  UNIT                        LOAD   ACTIVE SUB     DESCRIPTION                 
+  avahi-daemon.service        loaded active running Avahi mDNS/DNS-SD Stack     
+  cron.service                loaded active running Regular background program …
+  dbus.service                loaded active running D-Bus System Message Bus    
+  getty@tty1.service          loaded active running Getty on tty1               
+  haveged.service             loaded active running Entropy daemon using the HA…
+  jupyter.service             loaded active running Jupyter Notebook Server     
+  ModemManager.service        loaded active running Modem Manager               
+  networkd-dispatcher.service loaded active running Dispatcher daemon for syste���
+  NetworkManager.service      loaded active running Network Manager             
+  pl_server.service           loaded active running PYNQ PL Server              
+  polkit.service              loaded active running Authorization Manager       
+  rsyslog.service             loaded active running System Logging Service      
+  rtkit-daemon.service        loaded active running RealtimeKit Scheduling Poli…
+  serial-getty@ttyPS0.service loaded active running Serial Getty on ttyPS0      
+  smbd.service                loaded active running Samba SMB Daemon            
+  ssh.service                 loaded active running OpenBSD Secure Shell server 
+  systemd-journald.service    loaded active running Journal Service             
+  systemd-logind.service      loaded active running Login Service               
+  systemd-resolved.service    loaded active running Network Name Resolution     
+  systemd-timesyncd.service   loaded active running Network Time Synchronization
+  systemd-udevd.service       loaded active running udev Kernel Device Manager  
+  unattended-upgrades.service loaded active running Unattended Upgrades Shutdown
+  user@1000.service           loaded active running User Manager for UID 1000   
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+
+23 loaded units listed.
+xilinx@pynq:~$ 
+
+
+===== USER 2026-10-20T15:31:09.700Z =====
+xilinx@pynq:~$ 
+---- 已发送 utf8 编码消息: "uname -a\n" ----
+uname -a
+Linux pynq 5.4.0-xilinx-v2020.2 #1 SMP PREEMPT Wed Aug 27 07:20:50 UTC 2025 armv7l armv7l armv7l GNU/Linux
+xilinx@pynq:~$ 
+---- 已发送 utf8 编码消息: "python3 --version\n" ----
+python3 --version
+Python 3.8.2
+xilinx@pynq:~$ 
+---- 已发送 utf8 编码消息: "gcc --version\n" ----
+gcc --version
+gcc (Ubuntu 9.3.0-10ubuntu2) 9.3.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+xilinx@pynq:~$ 
+---- 已发送 utf8 编码消息: "python3 -c \"import os; print(sorted(os.sched_getaffinity(0)))\"\n" ----
+python3 -c "import os; print(sorted(os.sched_getaffinity(0)))"
+[0, 1]
+xilinx@pynq:~$ 
+---- 已发送 utf8 编码消息: "ps -eo pid,comm,args --width 200 | grep -Ei 'python|soundsight|solver|capture|smp|remoteproc'\n" ----
+ps -eo pid,comm,args --width 200 | grep -Ei 'python|soundsight|solver|capture|smp|remoteproc'
+  205 networkd-dispat /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+  232 start_pl_server /usr/local/share/pynq-venv/bin/python3 /usr/local/share/pynq-venv/bin/start_pl_server.py
+  418 unattended-upgr /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+  508 jupyter-noteboo /usr/local/share/pynq-venv/bin/python3 /usr/local/share/pynq-venv/bin/jupyter-notebook --no-browser --allow-root
+  556 python3         python3 /usr/local/bin/redirect_server
+  592 grep            grep --color=auto -Ei python|soundsight|solver|capture|smp|remoteproc
+xilinx@pynq:~$ 
+
+
+===== USER 2026-10-20T15:35:17.841Z =====
+xilinx@pynq:~$ 
+---- 已发送 utf8 编码消息: "ls -lh /boot/soundsight_pynq.zip\n" ----
+ls -lh /boot/soundsight_pynq.zip
+-rwxr-xr-x 1 root root 626K Oct 20  2026 /boot/soundsight_pynq.zip
+xilinx@pynq:~$ 
+
+
+===== USER 2026-10-20T15:36:44.485Z =====
+---- 已发送 utf8 编码消息: "python3 tools/pynq_preflight.py\n" ----
+python3 tools/pynq_preflight.py
+{
+  "system": "Linux",
+  "machine": "armv7l",
+  "python": "3.8.2",
+  "python_executable": "/usr/local/share/pynq-venv/bin/python3",
+  "process_bits": 32,
+  "allowed_cpus": [
+    0,
+    1
+  ],
+  "pynq_installed": true,
+  "gcc": "/usr/bin/gcc",
+  "hardware_access": false,
+  "bit_downloaded": false,
+  "boot_arguments": "root=/dev/mmcblk0p2 rw earlyprintk rootfstype=ext4 rootwait devtmpfs.mount=1 uio_pdrv_genirq.of_id=\"generic-uio\" clk_ignore_unused",
+  "compiler": "gcc (Ubuntu 9.3.0-10ubuntu2) 9.3.0",
+  "ps_link": {
+    "base": "0x40000000",
+    "bytes": 4096
+  },
+  "actuator_bound": "0",
+  "errors": [],
+  "result": "READY_FOR_ARM_OFFLINE_TEST"
+}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-20T15:37:44.691Z =====
+编译和数值对照测试都通过了
+
+
+===== USER 2026-10-20T15:39:33.067Z =====
+---- 已发送 utf8 编码消息: "sudo /usr/local/share/pynq-venv/bin/python3 -c \"from pynq import Overlay; ol=Overlay('soundsight.bit'); print('LOADED=',ol.is_loaded()); print('PS_LINK=',ol.ip_dict.get('ps_link'))\"\n" ----
+bin/python3 -c "from pynq import Overlay; ol=Overlay('soundsight.bit'); print('LOADED=',ol.is_loaded()); print('PS_LINK=',ol.ip_dict.get('ps_link'))"
+[sudo] password for xilinx: 
+---- 已发送 utf8 编码消息: "xilinx\n" ----
+
+/usr/local/share/pynq-venv/lib/python3.8/site-packages/pynq/pl_server/device.py:79: UserWarning: No devices found, is the XRT environment sourced?
+  warnings.warn(
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/local/share/pynq-venv/lib/python3.8/site-packages/pynq/overlay.py", line 336, in __init__
+    super().__init__(bitfile_name, dtbo, partial=False, device=device)
+  File "/usr/local/share/pynq-venv/lib/python3.8/site-packages/pynq/bitstream.py", line 111, in __init__
+    device = Device.active_device
+  File "/usr/local/share/pynq-venv/lib/python3.8/site-packages/pynq/pl_server/device.py", line 94, in active_device
+    raise RuntimeError("No Devices Found")
+RuntimeError: No Devices Found
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-20T15:43:42.923Z =====
+---- 已发送 utf8 编码消息: "ls -l /sys/class/fpga_manager/\n" ----
+ls -l /sys/class/fpga_manager/
+total 0
+lrwxrwxrwx 1 root root 0 Nov 18 00:33 fpga0 -> ../../devices/soc0/amba/f8007000.devcfg/fpga_manager/fpga0
+xilinx@pynq:~/SoundSight_PYNQ$ 
+---- 已发送 utf8 编码消息: "ls -l /sys/class/fpga_manager/fpga0/firmware /dev/xdevcfg /dev/dri/\n" ----
+ls -l /sys/class/fpga_manager/fpga0/firmware /dev/xdevcfg /dev/dri/
+ls: cannot access '/dev/xdevcfg': No such file or directory
+--w------- 1 root root 4096 Nov 18 00:33 /sys/class/fpga_manager/fpga0/firmware
+
+/dev/dri/:
+total 0
+drwxr-xr-x 2 root root         80 Nov 18 00:24 by-path
+crw-rw---- 1 root video  226,   0 Nov 18 00:24 card0
+crw-rw---- 1 root render 226, 128 Nov 18 00:24 renderD128
+xilinx@pynq:~/SoundSight_PYNQ$ 
+---- 已发送 utf8 编码消息: "python3 -c \"import os; print('USER_XRT=',os.environ.get('XILINX_XRT'))\"\n" ----
+python3 -c "import os; print('USER_XRT=',os.environ.get('XILINX_XRT'))"
+USER_XRT= /usr
+xilinx@pynq:~/SoundSight_PYNQ$ 
+---- 已发送 utf8 编码消息: "sudo /usr/local/share/pynq-venv/bin/python3 -c \"import os; print('ROOT_XRT=',os.environ.get('XILINX_XRT'))\"\n" ----
+sudo /usr/local/share/pynq-venv/bin/python3 -c "import os; print('ROOT_XRT=',os.environ.get('XILINX_XRT'))"
+ROOT_XRT= None
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-20T15:44:50.575Z =====
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 -c \"from pynq import Device; ds=Device.devices; print('DEVICE_COUNT=',len(ds)); print('DEVICE_TYPES=',[type(d).__name__ for d in ds])\"\n" ----
+cal/share/pynq-venv/bin/python3 -c "from pynq import Device; ds=Device.devices; print('DEVICE_COUNT=',len(ds)); print('DEVICE_TYPES=',[type(d).__name__ for d in ds])"
+DEVICE_COUNT= 2
+DEVICE_TYPES= ['EmbeddedDevice', 'XrtDevice']
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-20T15:45:29.842Z =====
+LOADED= True
+PS_LINK= {'fullpath': 'ps_link', 'type': 'xilinx.com:module_ref:bd_ps_link:1.0', 'bdtype': None, 'state': None, 'addr_range': 4096, 'phys_addr': 1073741824, 'mem_id': 'S_AXI', 'memtype': 'REGISTER', 'gpio': {}, 'interrupts': {'irq': {'controller': '', 'index': 0, 'fullpath': 'ps_link/irq', 'raw_irq': 61}}, 'parameters': {'ACTUATOR_BOUND': '0', 'CLK_FREQ_HZ': '61440000', 'MECHANICAL_MAX': '180', 'MECHANICAL_MIN': '0', 'SERVO_MAX': '180', 'Component_Name': 'soundsight_stm32_bd_bd_ps_link_0_0', 'EDK_IPTYPE': 'PERIPHERAL', 'C_BASEADDR': '0x40000000', 'C_HIGHADDR': '0x40000FFF'}, 'registers': {}, 'device': <pynq.pl_server.embedded_device.EmbeddedDevice object at 0xb47e0e98>, 'driver': <class 'pynq.overlay.DefaultIP'>}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-20T15:47:09.196Z =====
+FCLK0_MHz= 133.333333
+FPGA_RST_CTRL= 0x0
+BUS_RESET_ASSERTED= False
+COLD_RESET_ASSERTED= False
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-20T15:49:32.303Z =====
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 -c \"from pynq import Clocks, MMIO; print('FCLK0_MHz=',Clocks.fclk0_mhz); print('REFERENCE_MHz=',Clocks._instance._ref_clk_mhz); m=MMIO(0xF8000000,0x200); print({hex(a):hex(m.read(a)) for a in [0x100,0x104,0x108,0x10c,0x170]})\"\n" ----
+m=MMIO(0xF8000000,0x200); print({hex(a):hex(m.read(a)) for a in [0x100,0x104,0x108,0x10c,0x170]})"
+FCLK0_MHz= 133.333333
+REFERENCE_MHz= 50.0
+{'0x100': '0x28000', '0x104': '0x20000', '0x108': '0x30000', '0x10c': '0x3f', '0x170': '0x300600'}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+---- 已发送 utf8 编码消息: "python3 -c \"from pathlib import Path; print([(str(p),int.from_bytes(p.read_bytes(),'big')) for p in Path('/proc/device-tree').rglob('ps-clk-frequency')])\"\n" ----
+python3 -c "from pathlib import Path; print([(str(p),int.from_bytes(p.read_bytes(),'big')) for p in Path('/proc/device-tree').rglob('ps-clk-frequency')])"
+[('/proc/device-tree/amba/slcr@f8000000/clkc@100/ps-clk-frequency', 33333333)]
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-20T15:55:03.250Z =====
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 - <<'PY' from pathlib import Path from pynq import Clocks, MMIO import time  p = Path('/proc/device-tree/amba/slcr@f8000000/clkc@100/ps-clk-frequency') ref = int.from_bytes(p.read_bytes(), 'big') / 1e6 m = MMIO(0xF8000000, 0x300)  assert abs(ref - 33.333333) < 0.001, 'STOP: reference changed' assert m.read(0x108) == 0x30000, 'STOP: IO PLL changed' assert m.read(0x170) == 0x300600, 'STOP: FCLK0 changed' assert m.read(0x240) == 0, 'STOP: reset state changed'  m.write(0x008, 0xDF0D) m.write(0x240, 3) assert m.read(0x240) == 3, 'STOP: reset not asserted' time.sleep(0.01)  Clocks._instance._ref_clk_mhz = ref Clocks.set_pl_clk(0, div0=4, div1=4) print('FCLK0_CTRL=', hex(m.read(0x170))) print('FCLK0_MHz=', Clocks.fclk0_mhz) print('FPGA_RST_CTRL=', hex(m.read(0x240))) print('PL_HELD_IN_RESET') PY\n" ----
+ef Clocks.set_pl_clk(0, div0=4, div1=4) print('FCLK0_CTRL=', hex(m.read(0x170))) print('FCLK0_MHz=', Clocks.fclk0_mhz) print('FPGA_RST_CTRL=', hex(m.read(0x240))) print('PL_HELD_IN_RESET') PY
+> 
+---- 已发送 utf8 编码消息: "PY\n" ----
+PY
+-bash: syntax error near unexpected token `('
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-20T15:55:39.518Z =====
+ks.set_pl_clk(0,div0=4,div1=4); print('FCLK0_CTRL=',hex(m.read(0x170))); print('FCLK0_MHz=',Clocks.fclk0_mhz); print('FPGA_RST_CTRL=',hex(m.read(0x240))); print('PL_HELD_IN_RESET')"
+FCLK0_CTRL= 0x400400
+FCLK0_MHz= 99.999999
+FPGA_RST_CTRL= 0x3
+PL_HELD_IN_RESET
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-20T15:56:37.097Z =====
+输出是 FPGA_RST_CTRL= 0x0 和 PS_RESET_OUTPUTS_RELEASED。
+
+
+===== USER 2026-10-20T15:57:35.361Z =====
+ID 和 ABI 都符合预期
+
+
+===== USER 2026-10-20T15:59:18.731Z =====
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output bist-reject-001.jsonl --mode bist-reject\n" ----
+sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output bist-reject-001.jsonl --mode bist-reject
+PYNQ双核已启动： {'host_pid': 737, 'host_cpu': 0, 'host_affinity': [0], 'worker_pid': 739, 'worker_cpu': 1, 'worker_affinity': [1]}
+Traceback (most recent call last):
+  File "software/ps/run_smp.py", line 191, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+  File "software/ps/run_smp.py", line 179, in main
+    result=collect(parent,worker,cancel,durable_sink(handle),info)
+  File "software/ps/run_smp.py", line 148, in collect
+    raise RuntimeError('算法���程失败：'+message[1]['error'])
+RuntimeError: 算法进程失败：RuntimeError: 启动前有历史故障0x40；处理原���和旧槽后显式指定清错掩码
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-20T16:02:10.414Z =====
+已经断电检查并重新启动了，串口出现 xilinx@pynq:~$
+
+
+===== USER 2026-10-20T16:04:05.314Z =====
+加载成功了，LOADED=True，FCLK0_CTRL=0x400400，FCLK0_MHz=99.999999，FPGA_RST_CTRL=0x0，下一步怎么做？
+
+
+===== USER 2026-10-21T08:11:59.034Z =====
+READY_FOR_BIST
+xilinx@pynq:~/SoundSight_PYNQ$ sudo env XILINX_XRT=/usr /usr/lo
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output bist-reject-003.jsonl --mode bist-reject --clear-faults 0x40\n" ----
+cal/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output bist-reject-003.jsonl --mode bist-reject --clear-faults 0x40
+PYNQ双核已启动： {'host_pid': 611, 'host_cpu': 0, 'host_affinity': [0], 'worker_pid': 613, 'worker_cpu': 1, 'worker_affinity': [1]}
+已消费帧数： 1 ；水平��作启用： False
+xilinx@pynq:~/SoundSight_PYNQ$ 
+---- 已发送 utf8 编码消息: "cat bist-reject-003.jsonl\n" ----
+cat bist-reject-003.jsonl
+{"event": "startup", "fault_before": 0, "requested_clear_faults": 64, "worker_pid": 613, "worker_cpu": 1, "worker_affinity": [1]}
+{"frame": {"sequence": 1, "status": 98105, "words": [1716459525, 1000, 800, 600, 100, 1716460029, 1000, 800, 600, 100, 1716460032, 1000, 800, 600, 100, 1716460289, 1000, 800, 600, 100, 1716460799, 1000, 800, 600, 100, 1716460802, 1000, 800, 600, 100], "energy": 100000, "fault": 0, "drops": 0}, "result": {"api_status": 0, "direction_valid": 0, "reason": 3, "angle_q8": 0, "ux_q20": 46831, "uy_q20": -171729, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1091529, "solve": 630393}}
+{"event": "finished", "host_pid": 611, "host_cpu": 0, "host_affinity": [0], "saved": 1, "stats": {"consumed": 1, "max_service_ns": 7822266}}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-21T08:13:24.111Z =====
+xilinx@pynq:~/SoundSight_PYNQ$ sudo env XILINX_XRT=/usr /usr/lo
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output bist-pass-001.jsonl --mode bist-pass --clear-faults 0x40\n" ----
+cal/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output bist-pass-001.jsonl --mode bist-pass --clear-faults 0x40
+PYNQ双核已启动： {'host_pid': 625, 'host_cpu': 0, 'host_affinity': [0], 'worker_pid': 627, 'worker_cpu': 1, 'worker_affinity': [1]}
+已消费帧数： 1 ；水平��作启用： False
+xilinx@pynq:~/SoundSight_PYNQ$ 
+---- 已发送 utf8 编码消息: "cat bist-pass-001.jsonl\n" ----
+cat bist-pass-001.jsonl
+{"event": "startup", "fault_before": 64, "requested_clear_faults": 64, "worker_pid": 627, "worker_cpu": 1, "worker_affinity": [1]}
+{"frame": {"sequence": 2, "status": 98105, "words": [1716459524, 1000, 800, 800, 100, 1716459780, 1000, 800, 800, 100, 1716460032, 1000, 800, 800, 100, 1716460288, 1000, 800, 800, 100, 1716460796, 1000, 800, 800, 100, 1716461052, 1000, 800, 800, 100], "energy": 100000, "fault": 0, "drops": 0}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": 0, "ux_q20": 749295, "uy_q20": 0, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1100691, "solve": 625056}}
+{"event": "finished", "host_pid": 625, "host_cpu": 0, "host_affinity": [0], "saved": 1, "stats": {"consumed": 1, "max_service_ns": 7781484}}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-21T08:16:05.287Z =====
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output real-001.jsonl --mode real --frames 1 --clear-faults 0x40\n" ----
+cal/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output real-001.jsonl --mode real --frames 1 --clear-faults 0x40
+PYNQ双核已启动： {'host_pid': 642, 'host_cpu': 0, 'host_affinity': [0], 'worker_pid': 644, 'worker_cpu': 1, 'worker_affinity': [1]}
+已消费帧数： 1 ；水平��作启用： False
+xilinx@pynq:~/SoundSight_PYNQ$ 
+---- 已发送 utf8 编码消息: "cat real-001.jsonl\n" ----
+cat real-001.jsonl
+{"event": "startup", "fault_before": 64, "requested_clear_faults": 64, "worker_pid": 644, "worker_cpu": 1, "worker_affinity": [1]}
+{"frame": {"sequence": 3, "status": 98065, "words": [287913987, 580602, 543228, 577410, 535633, 286734596, 316816, 305717, 303431, 269888, 287652352, 531128, 524993, 503345, 486787, 287914752, 625332, 608489, 598848, 548604, 288636156, 563766, 545285, 555232, 517104, 287784444, 427190, 413928, 416717, 382127], "energy": 0, "fault": 0, "drops": 0}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": -284, "ux_q20": 708638, "uy_q20": -13720, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 25118578, "solve": 654858}}
+{"event": "finished", "host_pid": 642, "host_cpu": 0, "host_affinity": [0], "saved": 1, "stats": {"consumed": 1, "max_service_ns": 32444335}}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-21T08:19:18.038Z =====
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output real-001-tail.jsonl --drain-existing\n" ----
+sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output real-001-tail.jsonl --drain-existing
+PYNQ双核已启动： {'host_pid': 656, 'host_cpu': 0, 'host_affinity': [0], 'worker_pid': 658, 'worker_cpu': 1, 'worker_affinity': [1]}
+已消费帧数： 1 ；水平��作启用： False
+xilinx@pynq:~/SoundSight_PYNQ$ 
+---- 已发送 utf8 编码消息: "cat real-001-tail.jsonl\n" ----
+cat real-001-tail.jsonl
+{"event": "startup", "fault_before": 64, "requested_clear_faults": 0, "worker_pid": 658, "worker_cpu": 1, "worker_affinity": [1]}
+{"frame": {"sequence": 4, "status": 1130513, "words": [1426079744, 0, 0, 0, 0, 1426080000, 0, 0, 0, 0, 1426080256, 0, 0, 0, 0, 1426080512, 0, 0, 0, 0, 1426080768, 0, 0, 0, 0, 1426081024, 0, 0, 0, 0], "energy": 0, "fault": 64, "drops": 0}, "result": {"api_status": 0, "direction_valid": 0, "reason": 6, "angle_q8": 0, "ux_q20": 0, "uy_q20": 0, "valid_pairs": 0, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1083318, "solve": 598122}}
+{"event": "finished", "host_pid": 656, "host_cpu": 0, "host_affinity": [0], "saved": 1, "stats": {"consumed": 1, "max_service_ns": 7869123}}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-21T08:20:57.086Z =====
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output real-100-001.jsonl --mode real --frames 100 --clear-faults 0x40\n" ----
+cal/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output real-100-001.jsonl --mode real --frames 100 --clear-faults 0x40
+PYNQ双核已启动： {'host_pid': 672, 'host_cpu': 0, 'host_affinity': [0], 'worker_pid': 674, 'worker_cpu': 1, 'worker_affinity': [1]}
+Traceback (most recent call last):
+  File "software/ps/run_smp.py", line 191, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+  File "software/ps/run_smp.py", line 179, in main
+    result=collect(parent,worker,cancel,durable_sink(handle),info)
+  File "software/ps/run_smp.py", line 148, in collect
+    raise RuntimeError('算法���程失败：'+message[1]['error'])
+RuntimeError: 算法进程失败：RuntimeError: 保存期间设备新增故障；STOP并���帧
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-21T08:21:35.515Z =====
+---- 已发送 utf8 编码消息: "tail -n 6 real-100-001.jsonl\n" ----
+tail -n 6 real-100-001.jsonl
+{"frame": {"sequence": 6, "status": 98065, "words": [286734336, 361583, 356647, 351526, 336699, 286800132, 347203, 342336, 335374, 322284, 287193603, 379871, 377748, 361460, 356312, 286538499, 295262, 285262, 294388, 282320, 286866436, 296097, 287756, 291276, 273222, 286801152, 345760, 344419, 332460, 328543], "energy": 0, "fault": 0, "drops": 0}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": 23150, "ux_q20": -4905, "uy_q20": 653209, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1093929, "solve": 242175}}
+{"frame": {"sequence": 7, "status": 98065, "words": [287193089, 472456, 466110, 464819, 445818, 287521028, 505710, 488582, 504798, 486129, 287586819, 500981, 486814, 497965, 477569, 287390467, 455453, 444930, 452129, 435327, 287718403, 477301, 466089, 474488, 457476, 287981055, 644174, 620035, 638614, 603262], "energy": 0, "fault": 0, "drops": 0}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": 20219, "ux_q20": 130717, "uy_q20": 671240, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1099611, "solve": 238755}}
+{"frame": {"sequence": 8, "status": 98065, "words": [287062016, 399650, 388767, 393523, 371638, 287717638, 481458, 472670, 468697, 443241, 288045572, 554714, 544429, 538638, 507635, 287849221, 489028, 488896, 472131, 471762, 287980548, 529267, 528040, 506893, 503324, 288505343, 769758, 738479, 754398, 693468], "energy": 0, "fault": 0, "drops": 0}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": 20340, "ux_q20": 155711, "uy_q20": 836291, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1091946, "solve": 241767}}
+{"frame": {"sequence": 9, "status": 98065, "words": [287455232, 519743, 513594, 499969, 481350, 287783173, 435497, 427372, 422994, 399217, 287652356, 466800, 456759, 455557, 426351, 287849221, 509426, 506091, 490603, 481300, 287849476, 506532, 485261, 503396, 475386, 288439552, 724932, 687514, 717450, 664173], "energy": 0, "fault": 0, "drops": 0}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": 23100, "ux_q20": -3453, "uy_q20": 837686, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1098498, "solve": 238554}}
+{"frame": {"sequence": 10, "status": 98065, "words": [288503808, 737621, 700865, 729549, 678601, 288569604, 507754, 505701, 485710, 479973, 288963074, 633421, 601025, 627717, 587821, 287849220, 463145, 460522, 447808, 439510, 288504835, 548710, 532614, 537144, 500489, 288374016, 734144, 700131, 723826, 669480], "energy": 0, "fault": 0, "drops": 0}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": 22396, "ux_q20": 26034, "uy_q20": 593036, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1158390, "solve": 242592}}
+{"event": "failed", "host_pid": 672, "host_cpu": 0, "host_affinity": [0], "error": "RuntimeError: 保存���间设备新增故障；STOP��保帧", "stats": {"consumed": 5, "max_service_ns": 37347334}}
+xilinx@pynq:~/SoundSight_PYNQ$ sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 -c "from pynq import MMIO; m=MMIO(0x40000000,4096); print('SYS=',hex(m.read(0x04))); print('STAT
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 -c \"from pynq import MMIO; m=MMIO(0x40000000,4096); print('SYS=',hex(m.read(0x04))); print('STATUS=',hex(m.read(0x34))); print('FAULT=',hex(m.read(0x64))); print('DROPS=',m.read(0x68)); print('LOCKED_SEQUENCE=',m.read(0x08))\"\n" ----                                                                                               "
+SYS= 0x8(m.read(0x34))); print('FAULT=',hex(m.read(0x64))); print('DROPS=',m.read(0x68)); print('LOCKED_SEQUENCE=',m.read(0x08))" 
+STATUS= 0x17f17
+FAULT= 0x48
+DROPS= 1
+LOCKED_SEQUENCE= 10
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-21T08:22:58.118Z =====
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output real-100-001-tail.jsonl --drain-existing\n" ----
+sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output real-100-001-tail.jsonl --drain-existing
+PYNQ双核已启动： {'host_pid': 698, 'host_cpu': 0, 'host_affinity': [0], 'worker_pid': 700, 'worker_cpu': 1, 'worker_affinity': [1]}
+已消费帧数： 2 ；水平��作启用： False
+xilinx@pynq:~/SoundSight_PYNQ$ 
+---- 已发送 utf8 编码消息: "cat real-100-001-tail.jsonl\n" ----
+cat real-100-001-tail.jsonl
+{"event": "startup", "fault_before": 72, "requested_clear_faults": 0, "worker_pid": 700, "worker_cpu": 1, "worker_affinity": [1]}
+{"frame": {"sequence": 10, "status": 98071, "words": [288503808, 737621, 700865, 729549, 678601, 288569604, 507754, 505701, 485710, 479973, 288963074, 633421, 601025, 627717, 587821, 287849220, 463145, 460522, 447808, 439510, 288504835, 548710, 532614, 537144, 500489, 288374016, 734144, 700131, 723826, 669480], "energy": 0, "fault": 72, "drops": 1}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": 22396, "ux_q20": 26034, "uy_q20": 593036, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1110345, "solve": 647124}}
+{"frame": {"sequence": 11, "status": 98069, "words": [288307200, 716814, 684511, 707014, 657192, 288176389, 493266, 477842, 486782, 457902, 288242180, 479514, 474216, 467348, 450495, 288307973, 494224, 492568, 478476, 473711, 288177157, 497641, 489596, 484465, 460208, 288308481, 698431, 698154, 659529, 660780], "energy": 0, "fault": 72, "drops": 1}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": 22972, "ux_q20": 3990, "uy_q20": 865526, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1105293, "solve": 238866}}
+{"event": "finished", "host_pid": 698, "host_cpu": 0, "host_affinity": [0], "saved": 2, "stats": {"consumed": 2, "max_service_ns": 7808676}}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-21T08:24:21.465Z =====
+---- 已发送 utf8 编码消息: "python3 -c \"import os,time; os.sched_setaffinity(0,{0}); f=open('sd-sync-probe-001.bin','xb',buffering=0); samples=[]; exec('for i in range(100):\\n t=time.monotonic_ns()\\n f.write(bytes(1536))\\n os.fsync(f.fileno())\\n samples.append((time.monotonic_ns()-t)/1e6)'); f.close(); s=sorted(samples); print('SYNC_MS min/median/p95/max=',round(s[0],3),round((s[49]+s[50])/2,3),round(s[94],3),round(s[-1],3)); print('OVER_10_667MS=',sum(t>10.667 for t in samples)); print('OVER_21_334MS=',sum(t>21.334 for t in samples))\"\n" ----
+s[49]+s[50])/2,3),round(s[94],3),round(s[-1],3)); print('OVER_10_667MS=',sum(t>10.667 for t in samples)); print('OVER_21_334MS=',sum(t>21.334 for t in samples))"
+SYNC_MS min/median/p95/max= 3.979 4.65 9.952 21.405
+OVER_10_667MS= 4
+OVER_21_334MS= 1
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-21T08:30:29.588Z =====
+是音乐，方向是正确的，因为我用的是长条音响。下面是串口输出：
+PYNQ双核已启动： {'host_pid': 735, 'host_cpu': 0, 'host_affinity': [0], 'worker_pid': 737, 'worker_cpu': 1, 'worker_affinity': [1]}
+已消费帧数： 1 ；水平��作启用： False
+xilinx@pynq:~/SoundSight_PYNQ$ 
+---- 已发送 utf8 编码消息: "cat real-profile-001-tail.jsonl\n" ----
+cat real-profile-001-tail.jsonl
+{"event": "startup", "fault_before": 64, "requested_clear_faults": 0, "worker_pid": 737, "worker_cpu": 1, "worker_affinity": [1]}
+{"frame": {"sequence": 33, "status": 98069, "words": [288241918, 729874, 706546, 699424, 630988, 288438777, 724637, 689046, 699702, 620650, 287980283, 627872, 616897, 595942, 526527, 288504827, 779628, 733125, 765026, 691444, 288177405, 666440, 666061, 618496, 619442, 288374017, 756191, 719101, 735384, 657153], "energy": 0, "fault": 64, "drops": 1}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": -27649, "ux_q20": -310324, "uy_q20": -954752, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1117065, "solve": 657438}}
+{"event": "finished", "host_pid": 735, "host_cpu": 0, "host_affinity": [0], "saved": 1, "stats": {"consumed": 1, "max_service_ns": 13476351}}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-21T08:31:36.793Z =====
+PYNQ双核已启动： {'host_pid': 749, 'host_cpu': 0, 'host_affinity': [0], 'worker_pid': 751, 'worker_cpu': 1, 'worker_affinity': [1]}
+FSYNC_MS_IN_LOG_ORDER= [29.63, 9.801, 9.027, 8.895, 14.065, 18.708]
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<string>", line 9, in <module>
+  File "software/ps/run_smp.py", line 179, in main
+    result=collect(parent,worker,cancel,durable_sink(handle),info)
+  File "software/ps/run_smp.py", line 148, in collect
+    raise RuntimeError('算��进程失败：'+message[1]['error'])
+RuntimeError: 算法进���失败：RuntimeError: 保存���间设备新增故障；STOP��保帧
+xilinx@pynq:~/SoundSight_PYNQ$ 
+---- 已发送 utf8 编码消息: "tail -n 6 real-profile-002.jsonl\n" ----
+tail -n 6 real-profile-002.jsonl
+{"event": "startup", "fault_before": 64, "requested_clear_faults": 64, "worker_pid": 751, "worker_cpu": 1, "worker_affinity": [1]}
+{"frame": {"sequence": 34, "status": 98069, "words": [286669055, 343061, 338685, 314873, 301962, 286538233, 313554, 293891, 303426, 266669, 286472955, 301514, 294635, 282951, 242346, 286407675, 288904, 282076, 269334, 227538, 286276860, 258768, 244387, 252192, 225666, 286342401, 269087, 253024, 262841, 234299], "energy": 0, "fault": 0, "drops": 1}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": -26849, "ux_q20": -262818, "uy_q20": -989303, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 25185951, "solve": 657447}}
+{"frame": {"sequence": 35, "status": 98069, "words": [286669054, 344363, 314436, 341791, 306792, 286669305, 343548, 314990, 335363, 291850, 286669563, 349098, 340656, 320876, 261214, 286669819, 355456, 344642, 326642, 264032, 286670076, 347256, 334351, 324124, 287403, 286604545, 329442, 302267, 318012, 270148], "energy": 0, "fault": 0, "drops": 1}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": -26648, "ux_q20": -251190, "uy_q20": -1000371, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1090683, "solve": 245319}}
+{"frame": {"sequence": 36, "status": 98069, "words": [287586558, 552407, 521290, 534405, 470342, 287455737, 512122, 469815, 501153, 440584, 287324923, 500242, 491563, 463118, 387378, 287718395, 598005, 552500, 580452, 504844, 287325436, 466967, 427833, 465923, 425439, 287456513, 500725, 459136, 491375, 431372], "energy": 0, "fault": 0, "drops": 1}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": -27491, "ux_q20": -297976, "uy_q20": -951631, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1086370, "solve": 242937}}
+{"frame": {"sequence": 37, "status": 98069, "words": [288241918, 703350, 644668, 688847, 604074, 288242169, 647847, 579593, 646143, 575605, 288439035, 738439, 696122, 702968, 596915, 287915003, 608893, 564801, 589845, 511873, 287915261, 623348, 617034, 563297, 545340, 288111873, 664322, 605918, 654074, 577143], "energy": 0, "fault": 0, "drops": 1}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": -27494, "ux_q20": -288886, "uy_q20": -921961, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1087113, "solve": 246759}}
+{"event": "failed", "host_pid": 749, "host_cpu": 0, "host_affinity": [0], "error": "RuntimeError: 保存期间设备��增故障；STOP并保帧", "stats": {"consumed": 3, "max_service_ns": 37629126}}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+
+===== USER 2026-10-21T08:37:53.927Z =====
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 -c \"from pynq import MMIO; m=MMIO(0x40000000,4096); print('STATUS=',hex(m.read(0x34))); print('FAULT=',hex(m.read(0x64))); print('DROPS=',m.read(0x68)); print('LOCKED_SEQUENCE=',m.read(0x08))\"\n" ----
+O(0x40000000,4096); print('STATUS=',hex(m.read(0x34))); print('FAULT=',hex(m.read(0x64))); print('DROPS=',m.read(0x68)); print('LOCKED_SEQUENCE=',m.read(0x08))"
+sudo env XILINX_XRT=/usr /usr/lo
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output real-profile-002-tail.jsonl --drain-existing\n" ----
+cal/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output real-profile-002-tail.jsonl --drain-existing
+STATUS= 0x17f17
+FAULT= 0x48
+DROPS= 2
+LOCKED_SEQUENCE= 37
+xilinx@pynq:~/SoundSight_PYNQ$ sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_smp.py --hwh soundsight.hwh --output real-profile-002-tail.jsonl --drain-existing
+PYNQ双核已启动： {'host_pid': 790, 'host_cpu': 0, 'host_affinity': [0], 'worker_pid': 792, 'worker_cpu': 1, 'worker_affinity': [1]}
+已消费帧数： 2 ；水平��作启用： False
+xilinx@pynq:~/SoundSight_PYNQ$ 
+---- 已发送 utf8 编码消息: "cat real-profile-002-tail.jsonl\n" ----
+cat real-profile-002-tail.jsonl
+{"event": "startup", "fault_before": 72, "requested_clear_faults": 0, "worker_pid": 792, "worker_cpu": 1, "worker_affinity": [1]}
+{"frame": {"sequence": 37, "status": 98071, "words": [288241918, 703350, 644668, 688847, 604074, 288242169, 647847, 579593, 646143, 575605, 288439035, 738439, 696122, 702968, 596915, 287915003, 608893, 564801, 589845, 511873, 287915261, 623348, 617034, 563297, 545340, 288111873, 664322, 605918, 654074, 577143], "energy": 0, "fault": 72, "drops": 2}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": -27494, "ux_q20": -288886, "uy_q20": -921961, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1136547, "solve": 653760}}
+{"frame": {"sequence": 38, "status": 98069, "words": [287652094, 563712, 512235, 554985, 488378, 287848954, 568791, 564220, 515090, 500372, 287587067, 515839, 476843, 500183, 433205, 288046075, 652678, 605395, 628178, 537590, 287653117, 545610, 543443, 490409, 485827, 287784193, 567920, 518548, 556569, 484218], "energy": 0, "fault": 72, "drops": 2}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": -27359, "ux_q20": -277121, "uy_q20": -913741, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1122519, "solve": 237570}}
+{"event": "finished", "host_pid": 790, "host_cpu": 0, "host_affinity": [0], "saved": 2, "stats": {"consumed": 2, "max_service_ns": 7851180}}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+
+以上是串口输出。此外你分析的结果我不是很明白，再说明白一点
+

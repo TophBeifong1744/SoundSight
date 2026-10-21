@@ -1,0 +1,15 @@
+USER MESSAGE UTC 2026-10-21T09:56:57.580Z
+---- 已发送 utf8 编码消息: "xilinx\n" ----
+
+RAM_QUEUE_SWAP_ACTIVE= True
+RAM_RECOVERY_DIR= /dev/shm/soundsight-aekxtjl9
+Traceback (most recent call last):
+  File "software/ps/run_buffered.py", line 221, in <module>
+    raise SystemExit(main())
+  File "software/ps/run_buffered.py", line 191, in main
+    kind, result = collect(parent, stop_new, queue, args.high_water, info)
+  File "software/ps/run_buffered.py", line 118, in collect
+    raise TimeoutError('算法��程失联；请求STOP，RAM文件保留')
+TimeoutError: 算��进程失联；请求STOP，RAM文件保留
+xilinx@pynq:~/SoundSight_PYNQ$ 
+

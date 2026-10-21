@@ -1,0 +1,15 @@
+test_branch_cut (__main__.AngleReplayTests.test_branch_cut) ... ok
+test_deadband_relative_to_last_emitted_target (__main__.AngleReplayTests.test_deadband_relative_to_last_emitted_target) ... ok
+test_equal_modes_rejected (__main__.AngleReplayTests.test_equal_modes_rejected) ... ok
+test_inlier_minimum_and_majority (__main__.AngleReplayTests.test_inlier_minimum_and_majority) ... ok
+test_invalid_and_incomplete_no_target (__main__.AngleReplayTests.test_invalid_and_incomplete_no_target) ... ok
+test_new_direction_not_rejected_by_old_target (__main__.AngleReplayTests.test_new_direction_not_rejected_by_old_target) ... ok
+test_no_lookahead_and_end_frame_emission (__main__.AngleReplayTests.test_no_lookahead_and_end_frame_emission) ... ok
+test_opposing_mean_is_undefined (__main__.AngleReplayTests.test_opposing_mean_is_undefined) ... ok
+test_rejected_window_not_a_fresh_command (__main__.AngleReplayTests.test_rejected_window_not_a_fresh_command) ... ok
+test_two_spikes (__main__.AngleReplayTests.test_two_spikes) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.002s
+
+OK

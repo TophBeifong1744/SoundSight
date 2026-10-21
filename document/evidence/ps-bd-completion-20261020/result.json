@@ -1,0 +1,13 @@
+{
+  "cells": 19,
+  "connection_table_rows_checked": 37,
+  "ps_board_properties_preserved": 386,
+  "native_pass_iterations": 2,
+  "conflicting_net_negative_test": "PASS",
+  "final_log_errors": 0,
+  "final_log_critical_warnings": 0,
+  "synthesis": "NOT_RUN",
+  "implementation": "NOT_RUN",
+  "hardware": "NOT_RUN",
+  "external_project_modified_by_agent": false
+}

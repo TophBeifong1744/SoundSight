@@ -1,0 +1,88 @@
+"""Archive the bounded native preparation check, not an engineering build."""
+from pathlib import Path
+import json
+import shutil
+import subprocess
+import sys
+
+root=Path(__file__).resolve().parents[2]
+base=root/'simulation/work/vbt'
+out=root/'document/evidence/ps-volume-gate/native-bd'
+out.mkdir(exist_ok=True)
+bd_rel=Path('sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.bd')
+shutil.copy2(base/'before.bd',out/'before.bd')
+shutil.copy2(base/'v/v.srcs'/bd_rel,out/'after.bd')
+shutil.copy2(base/'full.stdout.txt',out/'vivado-preparation.log')
+shutil.copy2(base/'full.tcl',out/'native-check.tcl.txt')
+shutil.copy2(base/'run_probe.py',out/'native-launcher.py.txt')
+shutil.copy2(root/'simulation/work/prepare_volume_native_check.py',out/'prepare-isolated-copy.py.txt')
+
+before=json.loads((out/'before.bd').read_text())['design']
+after=json.loads((out/'after.bd').read_text())['design']
+for key in ('interface_ports','ports','interface_nets','addressing','design_tree'):
+    assert before[key]==after[key], key
+assert set(before['components'])==set(after['components'])
+for name, component in before['components'].items():
+    if name not in ('ps7','compute','ps_link'):
+        assert component==after['components'][name],name
+for name,net in before['nets'].items():
+    assert net==after['nets'][name],name
+new_nets={k:v for k,v in after['nets'].items() if k not in before['nets']}
+assert len(new_nets)==2
+for pin in ('feature_level','feature_level_valid'):
+    assert new_nets['compute_'+pin]['ports']==['compute/'+pin,'ps_link/'+pin]
+for name in ('compute','ps_link'):
+    assert after['components'][name]['parameters']['LEVEL_ENABLE']['value']=='1'
+    for p,value in before['components'][name].get('parameters',{}).items():
+        assert after['components'][name]['parameters'][p]==value,(name,p)
+for p,value in before['components']['ps7']['parameters'].items():
+    assert after['components']['ps7']['parameters'][p]==value,p
+
+xci=bd_rel.parent/'ip/soundsight_stm32_bd_processing_system7_0_0/soundsight_stm32_bd_processing_system7_0_0.xci'
+original=Path('F:/AMD/work/SoundSight_PS_Volume/SoundSight_PS_Volume.srcs')/xci
+updated=base/'v/v.srcs'/xci
+def params(path):
+    d=json.loads(path.read_text())['ip_inst']['parameters']['component_parameters']
+    return {k:[v['value'] for v in vs] for k,vs in d.items()}
+a,b=params(original),params(updated)
+changes={k:{'before':a.get(k),'after':b.get(k)} for k in a.keys()|b.keys() if a.get(k)!=b.get(k)}
+expected={f'PCW_FTM_CTI_{direction}{i}' for direction in ('IN','OUT') for i in range(4)}
+assert set(changes)==expected,changes
+assert all(v=={'before':['DISABLED'],'after':['<Select>']} for v in changes.values())
+for name in ('PCW_USE_CROSS_TRIGGER','PCW_USE_CORESIGHT'):
+    assert a[name]==b[name]==['0']
+(out/'ps7-effective-parameters-before.json').write_text(json.dumps(a,indent=2))
+(out/'ps7-effective-parameters-after.json').write_text(json.dumps(b,indent=2))
+for name in ('board_pins.xdc','interface_timing.xdc'):
+    assert (base/'SoundSight_PS/ps_constraints'/name).read_bytes()==(base/'v/ps_constraints'/name).read_bytes()
+    shutil.copy2(base/'v/ps_constraints'/name,out/name)
+names=['ss_preprocess.sv','ss_fft_frontend.sv','f1a_frame_store.sv','ss_pair_engine.sv','ss_clean_compute.sv','ss_dual_compute.sv','bd_clean_compute.v','ss_ps_control_regs.sv','ss_ps_link.sv','bd_ps_link.v']
+for name in names:
+    assert (root/'project/rtl'/name).read_bytes()==(base/'v/v.srcs/sources_1/imports/rtl'/name).read_bytes()
+assert (root/'project/bd/update_ps_volume.tcl').read_bytes()==(base/'p/project/bd/update_ps_volume.tcl').read_bytes()
+for module in ('bd_clean_compute','bd_ps_link'):
+    files=list((base/'v').rglob(f'soundsight_stm32_bd_{module}_0_0.v'))
+    assert files
+    for f in files:
+        text=f.read_text()
+        assert '.LEVEL_ENABLE(1)' in text and 'feature_level_valid' in text, f
+        shutil.copy2(f,out/(f.parent.name+'-'+f.name+'.txt'))
+log=(out/'vivado-preparation.log').read_text(encoding='gb18030')
+assert '\nERROR:' not in log
+assert 'INITIAL_COMPUTE_LEVEL_PRESENT=0' in log
+assert '\nPS_VOLUME_READY_FOR_GENERATE_BITSTREAM\n' in log
+assert '\nREAL_VIVADO_VOLUME_PREP_PASS_NO_SYNTH_IMPL\n' in log
+result={'result':'PASS_PREPARATION_ONLY','vivado':'2025.2','initial_level_parameter_present':False,
+ 'rtl_copies':10,'constraint_copies':2,'new_internal_nets':list(new_nets),
+ 'old_nets_and_external_ports_unchanged':True,'addressing_unchanged':after['addressing'],
+ 'unrelated_bd_components_unchanged':True,'ps7_parameter_count':len(a),
+ 'ps7_disabled_debug_value_normalization':changes,
+ 'ps7_cross_trigger_and_coresight_enabled':False,
+ 'generated_module_wrappers_level_enable':1,
+ 'synthesis':'NOT_RUN','implementation':'NOT_RUN','hardware':'NOT_RUN',
+ 'warnings':'TclStore local catalog; module port-change upgrade warnings. See original log.'}
+(out/'result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+with (out.parent/'test_ps_volume_tcl.log').open('w',encoding='utf-8') as f:
+    p=subprocess.run([sys.executable,'-B','-X','utf8','software/tests/test_ps_volume_tcl.py','-v'],cwd=root,stdout=f,stderr=subprocess.STDOUT)
+assert p.returncode==0
+print(json.dumps(result,ensure_ascii=False,indent=2))
