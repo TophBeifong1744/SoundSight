@@ -6,12 +6,14 @@
 `timescale 1ns/1ps
 // 中文用途：六个工作槽串行采入；独立保持一份完整输出，满时丢新帧而不阻塞采集。
 // 这是 F1a 工作集和交接寄存器，不是 F2 的 FREE/READY/LOCKED 两槽队列。
-module f1a_frame_store (
+module f1a_frame_store #(parameter integer LEVEL_ENABLE=0) (
     input wire clk, cold_rst_n,
     input wire frame_start, frame_start_bist,
     input wire pair_event, input wire [2:0] pair_index,
     input wire [159:0] pair_words,
     input wire frame_finish, frame_cancelled,
+    input wire [31:0] frame_level, input wire frame_level_valid,
+    output reg [31:0] feature_level, output reg feature_level_valid,
     input wire [7:0] first_error,
     input wire [23:0] phat_stages, ifft_stages,
     output wire accepting,
@@ -54,7 +56,7 @@ module f1a_frame_store (
         if(!cold_rst_n) begin
             work_pairs<=0;seen<=0;expected_pair<=0;active<=0;local_error<=0;work_bist<=0;
             sequence_count<=0;feature_valid<=0;feature_frame_id<=0;
-            feature_frame_flags<=0;feature_pairs<=0;drop_pulse<=0;
+            feature_frame_flags<=0;feature_pairs<=0;drop_pulse<=0;feature_level<=0;feature_level_valid<=0;
             drop_count<=0;gap<=0;counter_exhausted<=0;source_protocol_error<=0;
         end else begin
             drop_pulse<=0;
@@ -79,6 +81,9 @@ module f1a_frame_store (
                     if(!feature_valid || feature_ready) begin
                         feature_valid<=1;feature_frame_id<=sequence_count+1;
                         feature_frame_flags<=sealed_flags;feature_pairs<=sealed_pairs;
+                        // 与六对在同一发布分支锁存；满时保留旧音量，不被下一帧覆盖。
+                        feature_level<=LEVEL_ENABLE ? frame_level : 0;
+                        feature_level_valid<=LEVEL_ENABLE && frame_level_valid && !frame_cancelled && first_error==0 && !local_error;
                     end else begin
                         drop_pulse<=1;gap<=1;
                         if(drop_count!=32'hffffffff) drop_count<=drop_count+1;

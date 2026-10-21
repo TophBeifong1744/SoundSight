@@ -1,0 +1,23 @@
+set base [file dirname [file normalize [info script]]]
+open_project [file join $base v v.xpr]
+open_bd_design [get_files */soundsight_stm32_bd.bd]
+puts "INITIAL_COMPUTE_LEVEL_PRESENT=[expr {[lsearch -exact [list_property [get_bd_cells compute]] CONFIG.LEVEL_ENABLE]>=0}]"
+source [file join $base p project bd update_ps_volume.tcl]
+foreach c {compute ps_link} {
+ if {[get_property CONFIG.LEVEL_ENABLE [get_bd_cells $c]] != 1} {error "FAIL level disabled on $c"}
+ puts "VERIFIED_LEVEL_ENABLE_${c}=1"
+}
+foreach name {feature_level feature_level_valid} {
+ set a [get_bd_nets -of_objects [get_bd_pins compute/$name]]
+ set b [get_bd_nets -of_objects [get_bd_pins ps_link/$name]]
+ if {[llength $a]!=1 || $a ne $b} {error "FAIL new net $name"}
+ puts "VERIFIED_VOLUME_NET=$name"
+}
+foreach f [get_files -of_objects [get_filesets constrs_1]] {
+ puts "FINAL_CONSTRAINT=[get_property NAME $f]"
+}
+puts "FINAL_ADDRESS_SEGMENTS=[get_bd_addr_segs]"
+save_bd_design
+puts {REAL_VIVADO_VOLUME_PREP_PASS_NO_SYNTH_IMPL}
+close_project
+exit

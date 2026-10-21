@@ -5,7 +5,7 @@
 // BD 里添加本模块；算法源码仍在 ss_dual_compute.sv，修改算法时不需重写这里。
 `timescale 1ns/1ps
 `default_nettype none
-module bd_clean_compute #(parameter integer WARMUP_SAMPLES=4096,parameter HANN_FILE="hann-u18f17.mem")(
+module bd_clean_compute #(parameter integer WARMUP_SAMPLES=4096,LEVEL_ENABLE=0,parameter HANN_FILE="hann-u18f17.mem")(
  (* X_INTERFACE_INFO="xilinx.com:signal:clock:1.0 clk CLK" *)
  (* X_INTERFACE_PARAMETER="FREQ_HZ 100000000, ASSOCIATED_RESET rst_n" *)
  input wire clk,
@@ -17,11 +17,12 @@ module bd_clean_compute #(parameter integer WARMUP_SAMPLES=4096,parameter HANN_F
  output wire [3:0] pdm_clocks,
  output wire feature_valid,input wire feature_ready,
  output wire [959:0] feature_pairs,output wire [31:0] feature_flags,
+ output wire [31:0] feature_level,output wire feature_level_valid,
  output wire draining,output wire [11:0] source_faults,
  output wire [3:0] debug_frontend,output wire [4:0] debug_backend
 );
  ss_dual_compute #(
-    .WARMUP_SAMPLES(WARMUP_SAMPLES),
+    .WARMUP_SAMPLES(WARMUP_SAMPLES),.LEVEL_ENABLE(LEVEL_ENABLE),
     .HANN_FILE(HANN_FILE)
  ) u_core(
     .clk(clk),
@@ -35,6 +36,7 @@ module bd_clean_compute #(parameter integer WARMUP_SAMPLES=4096,parameter HANN_F
     .feature_ready(feature_ready),
     .feature_pairs(feature_pairs),
     .feature_flags(feature_flags),
+    .feature_level(feature_level),.feature_level_valid(feature_level_valid),
     .draining(draining),
     .source_faults(source_faults),
     .debug_frontend(debug_frontend),

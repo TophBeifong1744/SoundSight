@@ -1,0 +1,1135 @@
+{
+  "frames": 1000,
+  "valid": 771,
+  "first_last": [
+    202,
+    1201
+  ],
+  "contiguous": true,
+  "reasons": {
+    "0": 771,
+    "1": 33,
+    "3": 195,
+    "4": 1
+  },
+  "faults": [
+    0
+  ],
+  "drops": [
+    0
+  ],
+  "zero_mask_frames": 21,
+  "angle_deg": {
+    "circular_mean": -13.224745655412061,
+    "median": -12.46875,
+    "p05": -18.888671875,
+    "p95": -7.4765625,
+    "min": -89.34375,
+    "max": -2.1171875
+  },
+  "archive_files": [
+    {
+      "name": "bist-pass-001.jsonl",
+      "bytes": 884,
+      "rows": 3,
+      "frames": 1
+    },
+    {
+      "name": "bist-reject-001.jsonl",
+      "bytes": 323,
+      "rows": 2,
+      "frames": 0
+    },
+    {
+      "name": "bist-reject-003.jsonl",
+      "bytes": 888,
+      "rows": 3,
+      "frames": 1
+    },
+    {
+      "name": "ram-bist-pass-001.jsonl",
+      "bytes": 1197,
+      "rows": 3,
+      "frames": 1
+    },
+    {
+      "name": "ram-real-100-001.jsonl",
+      "bytes": 70636,
+      "rows": 102,
+      "frames": 100
+    },
+    {
+      "name": "ram-real-100-002.jsonl",
+      "bytes": 0,
+      "rows": 0,
+      "frames": 0
+    },
+    {
+      "name": "ram-real-100-003.jsonl",
+      "bytes": 74611,
+      "rows": 102,
+      "frames": 100
+    },
+    {
+      "name": "ram-real-1000-001.jsonl",
+      "bytes": 739091,
+      "rows": 1002,
+      "frames": 1000
+    },
+    {
+      "name": "real-001-tail.jsonl",
+      "bytes": 822,
+      "rows": 3,
+      "frames": 1
+    },
+    {
+      "name": "real-001.jsonl",
+      "bytes": 949,
+      "rows": 3,
+      "frames": 1
+    },
+    {
+      "name": "real-100-001-tail.jsonl",
+      "bytes": 1624,
+      "rows": 4,
+      "frames": 2
+    },
+    {
+      "name": "real-100-001.jsonl",
+      "bytes": 4383,
+      "rows": 8,
+      "frames": 6
+    },
+    {
+      "name": "real-profile-001-tail.jsonl",
+      "bytes": 953,
+      "rows": 3,
+      "frames": 1
+    },
+    {
+      "name": "real-profile-001.jsonl",
+      "bytes": 13874,
+      "rows": 22,
+      "frames": 20
+    },
+    {
+      "name": "real-profile-002-tail.jsonl",
+      "bytes": 1633,
+      "rows": 4,
+      "frames": 2
+    },
+    {
+      "name": "real-profile-002.jsonl",
+      "bytes": 3054,
+      "rows": 6,
+      "frames": 4
+    }
+  ],
+  "previous_100": {
+    "frames": 100,
+    "valid": 98,
+    "first_last": [
+      102,
+      201
+    ],
+    "contiguous": true,
+    "reasons": {
+      "0": 98,
+      "1": 1,
+      "3": 1
+    },
+    "faults": [
+      0
+    ],
+    "drops": [
+      0
+    ],
+    "zero_mask_frames": 1,
+    "angle_deg": {
+      "circular_mean": -10.97436072036639,
+      "median": -10.36328125,
+      "p05": -17.382421875,
+      "p95": -5.741406250000006,
+      "min": -22.8671875,
+      "max": -2.71484375
+    }
+  },
+  "blocks": [
+    {
+      "frames": 100,
+      "valid": 85,
+      "first_last": [
+        202,
+        301
+      ],
+      "contiguous": true,
+      "reasons": {
+        "0": 85,
+        "1": 2,
+        "3": 13
+      },
+      "faults": [
+        0
+      ],
+      "drops": [
+        0
+      ],
+      "zero_mask_frames": 0,
+      "angle_deg": {
+        "circular_mean": -12.022425035730667,
+        "median": -11.87109375,
+        "p05": -17.190625,
+        "p95": -7.202343750000001,
+        "min": -19.4375,
+        "max": -6.1796875
+      }
+    },
+    {
+      "frames": 100,
+      "valid": 87,
+      "first_last": [
+        302,
+        401
+      ],
+      "contiguous": true,
+      "reasons": {
+        "0": 87,
+        "1": 4,
+        "3": 9
+      },
+      "faults": [
+        0
+      ],
+      "drops": [
+        0
+      ],
+      "zero_mask_frames": 3,
+      "angle_deg": {
+        "circular_mean": -12.980111092216896,
+        "median": -12.37890625,
+        "p05": -17.78671875,
+        "p95": -8.37578125,
+        "min": -28.6171875,
+        "max": -6.98828125
+      }
+    },
+    {
+      "frames": 100,
+      "valid": 78,
+      "first_last": [
+        402,
+        501
+      ],
+      "contiguous": true,
+      "reasons": {
+        "0": 78,
+        "1": 3,
+        "3": 19
+      },
+      "faults": [
+        0
+      ],
+      "drops": [
+        0
+      ],
+      "zero_mask_frames": 3,
+      "angle_deg": {
+        "circular_mean": -11.864173114867233,
+        "median": -11.853515625,
+        "p05": -16.837890625,
+        "p95": -6.579296875000005,
+        "min": -19.078125,
+        "max": -2.1171875
+      }
+    },
+    {
+      "frames": 100,
+      "valid": 74,
+      "first_last": [
+        502,
+        601
+      ],
+      "contiguous": true,
+      "reasons": {
+        "0": 74,
+        "1": 17,
+        "3": 9
+      },
+      "faults": [
+        0
+      ],
+      "drops": [
+        0
+      ],
+      "zero_mask_frames": 13,
+      "angle_deg": {
+        "circular_mean": -12.729540014925714,
+        "median": -12.45703125,
+        "p05": -18.094140625,
+        "p95": -8.110937500000013,
+        "min": -18.90625,
+        "max": -4.74609375
+      }
+    },
+    {
+      "frames": 100,
+      "valid": 65,
+      "first_last": [
+        602,
+        701
+      ],
+      "contiguous": true,
+      "reasons": {
+        "0": 65,
+        "3": 35
+      },
+      "faults": [
+        0
+      ],
+      "drops": [
+        0
+      ],
+      "zero_mask_frames": 0,
+      "angle_deg": {
+        "circular_mean": -14.8194205646692,
+        "median": -13.546875,
+        "p05": -21.13046875,
+        "p95": -8.8546875,
+        "min": -63.86328125,
+        "max": -4.38671875
+      }
+    },
+    {
+      "frames": 100,
+      "valid": 71,
+      "first_last": [
+        702,
+        801
+      ],
+      "contiguous": true,
+      "reasons": {
+        "0": 71,
+        "1": 3,
+        "3": 26
+      },
+      "faults": [
+        0
+      ],
+      "drops": [
+        0
+      ],
+      "zero_mask_frames": 1,
+      "angle_deg": {
+        "circular_mean": -13.430333357502885,
+        "median": -12.703125,
+        "p05": -19.48046875,
+        "p95": -9.130859375,
+        "min": -22.546875,
+        "max": -7.37890625
+      }
+    },
+    {
+      "frames": 100,
+      "valid": 69,
+      "first_last": [
+        802,
+        901
+      ],
+      "contiguous": true,
+      "reasons": {
+        "0": 69,
+        "1": 2,
+        "3": 29
+      },
+      "faults": [
+        0
+      ],
+      "drops": [
+        0
+      ],
+      "zero_mask_frames": 0,
+      "angle_deg": {
+        "circular_mean": -12.309725144833571,
+        "median": -12.48828125,
+        "p05": -18.46640625,
+        "p95": -7.224218750000001,
+        "min": -25.33203125,
+        "max": -5.0234375
+      }
+    },
+    {
+      "frames": 100,
+      "valid": 83,
+      "first_last": [
+        902,
+        1001
+      ],
+      "contiguous": true,
+      "reasons": {
+        "0": 83,
+        "1": 2,
+        "3": 15
+      },
+      "faults": [
+        0
+      ],
+      "drops": [
+        0
+      ],
+      "zero_mask_frames": 1,
+      "angle_deg": {
+        "circular_mean": -13.12825566273222,
+        "median": -12.97265625,
+        "p05": -18.31953125,
+        "p95": -6.91171875,
+        "min": -27.2734375,
+        "max": -4.60546875
+      }
+    },
+    {
+      "frames": 100,
+      "valid": 82,
+      "first_last": [
+        1002,
+        1101
+      ],
+      "contiguous": true,
+      "reasons": {
+        "0": 82,
+        "3": 18
+      },
+      "faults": [
+        0
+      ],
+      "drops": [
+        0
+      ],
+      "zero_mask_frames": 0,
+      "angle_deg": {
+        "circular_mean": -11.615766049612779,
+        "median": -11.3203125,
+        "p05": -16.25078125,
+        "p95": -7.5425781249999995,
+        "min": -19.38671875,
+        "max": -5.44921875
+      }
+    },
+    {
+      "frames": 100,
+      "valid": 77,
+      "first_last": [
+        1102,
+        1201
+      ],
+      "contiguous": true,
+      "reasons": {
+        "0": 77,
+        "3": 22,
+        "4": 1
+      },
+      "faults": [
+        0
+      ],
+      "drops": [
+        0
+      ],
+      "zero_mask_frames": 0,
+      "angle_deg": {
+        "circular_mean": -17.974073824235585,
+        "median": -13.66015625,
+        "p05": -59.846875,
+        "p95": -9.98046875,
+        "min": -89.34375,
+        "max": -9.125
+      }
+    }
+  ],
+  "events": [
+    {
+      "event": "startup",
+      "fault_before": 64,
+      "requested_clear_faults": 64,
+      "retention": "ram_before_consume",
+      "worker_pid": 748,
+      "worker_cpu": 1,
+      "worker_affinity": [
+        1
+      ],
+      "ram_record": {
+        "session": "soundsight-ngg4ahbd",
+        "ticket": 1
+      }
+    },
+    {
+      "event": "finished",
+      "retention": "ram_before_consume",
+      "host_pid": 746,
+      "host_cpu": 0,
+      "host_affinity": [
+        0
+      ],
+      "error": null,
+      "stats": {
+        "consumed": 1000,
+        "drained": 0,
+        "max_service_ns": 30117361
+      },
+      "stop_reason": "requested_frames",
+      "requested_frames": 1000,
+      "host_stop_reason": null,
+      "queue_peak": 15
+    }
+  ],
+  "farthest_valid_samples": [
+    {
+      "frame": {
+        "sequence": 1128,
+        "status": 98065,
+        "words": [
+          287258624,
+          402580,
+          390602,
+          388273,
+          353505,
+          287390203,
+          324947,
+          318372,
+          310370,
+          290450,
+          286866172,
+          320842,
+          315170,
+          304782,
+          289315,
+          287718396,
+          517843,
+          514972,
+          485607,
+          476683,
+          287325435,
+          469477,
+          459974,
+          441025,
+          412962,
+          287456512,
+          499765,
+          489015,
+          474382,
+          442976
+        ],
+        "energy": 0,
+        "fault": 0,
+        "drops": 0
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 1,
+        "reason": 0,
+        "angle_q8": -22872,
+        "ux_q20": 10233,
+        "uy_q20": -894281,
+        "valid_pairs": 6,
+        "servo_deg": 0,
+        "servo_cmd_valid": 0,
+        "map_status": 1,
+        "first_error": 0,
+        "bad_pair": 255,
+        "bridge_status": 0
+      },
+      "motion_requested": false,
+      "timing_ns": {
+        "acquire": 8209986,
+        "solve": 269664
+      },
+      "ram_record": {
+        "session": "soundsight-ngg4ahbd",
+        "ticket": 928
+      }
+    },
+    {
+      "frame": {
+        "sequence": 1121,
+        "status": 98065,
+        "words": [
+          289093632,
+          797601,
+          749507,
+          777853,
+          694188,
+          289356282,
+          603031,
+          554510,
+          601553,
+          554970,
+          289553148,
+          717608,
+          712689,
+          678278,
+          663655,
+          288504827,
+          699875,
+          663429,
+          680570,
+          608620,
+          289488122,
+          799750,
+          741153,
+          788660,
+          710444,
+          289553919,
+          803601,
+          750402,
+          787547,
+          706640
+        ],
+        "energy": 0,
+        "fault": 0,
+        "drops": 0
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 1,
+        "reason": 0,
+        "angle_q8": -22272,
+        "ux_q20": 50135,
+        "uy_q20": -956467,
+        "valid_pairs": 6,
+        "servo_deg": 0,
+        "servo_cmd_valid": 0,
+        "map_status": 1,
+        "first_error": 0,
+        "bad_pair": 255,
+        "bridge_status": 0
+      },
+      "motion_requested": false,
+      "timing_ns": {
+        "acquire": 6081315,
+        "solve": 247653
+      },
+      "ram_record": {
+        "session": "soundsight-ngg4ahbd",
+        "ticket": 921
+      }
+    },
+    {
+      "frame": {
+        "sequence": 1114,
+        "status": 98065,
+        "words": [
+          288503808,
+          666138,
+          617041,
+          660184,
+          599678,
+          288635388,
+          523326,
+          497855,
+          511992,
+          466622,
+          288963324,
+          638140,
+          616987,
+          613705,
+          551976,
+          288373756,
+          625494,
+          593286,
+          598802,
+          516317,
+          289029371,
+          650705,
+          630672,
+          614384,
+          555045,
+          289029631,
+          826845,
+          762965,
+          803570,
+          698443
+        ],
+        "energy": 0,
+        "fault": 0,
+        "drops": 0
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 1,
+        "reason": 0,
+        "angle_q8": -20895,
+        "ux_q20": 116872,
+        "uy_q20": -793382,
+        "valid_pairs": 6,
+        "servo_deg": 0,
+        "servo_cmd_valid": 0,
+        "map_status": 1,
+        "first_error": 0,
+        "bad_pair": 255,
+        "bridge_status": 0
+      },
+      "motion_requested": false,
+      "timing_ns": {
+        "acquire": 5796312,
+        "solve": 249960
+      },
+      "ram_record": {
+        "session": "soundsight-ngg4ahbd",
+        "ticket": 914
+      }
+    },
+    {
+      "frame": {
+        "sequence": 1115,
+        "status": 98065,
+        "words": [
+          288372736,
+          367613,
+          347574,
+          363728,
+          338819,
+          289225215,
+          273545,
+          270197,
+          270486,
+          262063,
+          289487615,
+          860801,
+          823947,
+          812712,
+          711118,
+          289029118,
+          750786,
+          702286,
+          738658,
+          667360,
+          289225981,
+          468617,
+          452626,
+          451862,
+          406496,
+          289684991,
+          478512,
+          444053,
+          474854,
+          431483
+        ],
+        "energy": 0,
+        "fault": 0,
+        "drops": 0
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 1,
+        "reason": 0,
+        "angle_q8": -16968,
+        "ux_q20": 138984,
+        "uy_q20": -316360,
+        "valid_pairs": 6,
+        "servo_deg": 0,
+        "servo_cmd_valid": 0,
+        "map_status": 1,
+        "first_error": 0,
+        "bad_pair": 255,
+        "bridge_status": 0
+      },
+      "motion_requested": false,
+      "timing_ns": {
+        "acquire": 7100244,
+        "solve": 247242
+      },
+      "ram_record": {
+        "session": "soundsight-ngg4ahbd",
+        "ticket": 915
+      }
+    },
+    {
+      "frame": {
+        "sequence": 624,
+        "status": 98065,
+        "words": [
+          289224706,
+          594719,
+          593936,
+          548576,
+          544127,
+          289224968,
+          333267,
+          281504,
+          370983,
+          228827,
+          289159934,
+          679162,
+          671244,
+          631038,
+          609806,
+          289094653,
+          617411,
+          601483,
+          581703,
+          534595,
+          289291515,
+          646099,
+          623275,
+          620833,
+          557017,
+          289422847,
+          608942,
+          579510,
+          585078,
+          509383
+        ],
+        "energy": 0,
+        "fault": 0,
+        "drops": 0
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 1,
+        "reason": 0,
+        "angle_q8": -16349,
+        "ux_q20": 278493,
+        "uy_q20": -567528,
+        "valid_pairs": 5,
+        "servo_deg": 0,
+        "servo_cmd_valid": 0,
+        "map_status": 1,
+        "first_error": 0,
+        "bad_pair": 255,
+        "bridge_status": 0
+      },
+      "motion_requested": false,
+      "timing_ns": {
+        "acquire": 5828232,
+        "solve": 246432
+      },
+      "ram_record": {
+        "session": "soundsight-ngg4ahbd",
+        "ticket": 424
+      }
+    },
+    {
+      "frame": {
+        "sequence": 1111,
+        "status": 98065,
+        "words": [
+          288831490,
+          526133,
+          504456,
+          513169,
+          467013,
+          288766463,
+          338424,
+          337979,
+          317896,
+          317300,
+          288832253,
+          615240,
+          580089,
+          608443,
+          558232,
+          288504829,
+          691810,
+          652027,
+          674733,
+          603559,
+          288832763,
+          757421,
+          745102,
+          710464,
+          676089,
+          288570878,
+          623484,
+          575864,
+          616108,
+          552108
+        ],
+        "energy": 0,
+        "fault": 0,
+        "drops": 0
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 1,
+        "reason": 0,
+        "angle_q8": -14909,
+        "ux_q20": 354662,
+        "uy_q20": -572901,
+        "valid_pairs": 6,
+        "servo_deg": 0,
+        "servo_cmd_valid": 0,
+        "map_status": 1,
+        "first_error": 0,
+        "bad_pair": 255,
+        "bridge_status": 0
+      },
+      "motion_requested": false,
+      "timing_ns": {
+        "acquire": 5792451,
+        "solve": 245799
+      },
+      "ram_record": {
+        "session": "soundsight-ngg4ahbd",
+        "ticket": 911
+      }
+    },
+    {
+      "frame": {
+        "sequence": 657,
+        "status": 98065,
+        "words": [
+          289552386,
+          675828,
+          652826,
+          640641,
+          573415,
+          289552640,
+          482840,
+          477449,
+          458580,
+          441987,
+          289422078,
+          796815,
+          761050,
+          759794,
+          658756,
+          289553406,
+          856270,
+          855564,
+          790335,
+          790648,
+          289488123,
+          764852,
+          705301,
+          763557,
+          697739,
+          289422846,
+          776316,
+          736162,
+          755291,
+          672658
+        ],
+        "energy": 0,
+        "fault": 0,
+        "drops": 0
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 1,
+        "reason": 0,
+        "angle_q8": -12702,
+        "ux_q20": 371938,
+        "uy_q20": -437279,
+        "valid_pairs": 6,
+        "servo_deg": 0,
+        "servo_cmd_valid": 0,
+        "map_status": 1,
+        "first_error": 0,
+        "bad_pair": 255,
+        "bridge_status": 0
+      },
+      "motion_requested": false,
+      "timing_ns": {
+        "acquire": 4583193,
+        "solve": 248328
+      },
+      "ram_record": {
+        "session": "soundsight-ngg4ahbd",
+        "ticket": 457
+      }
+    },
+    {
+      "frame": {
+        "sequence": 1168,
+        "status": 98065,
+        "words": [
+          289355778,
+          680077,
+          671014,
+          642225,
+          614608,
+          289487104,
+          473980,
+          466326,
+          462676,
+          436607,
+          288570109,
+          584904,
+          548996,
+          579262,
+          533495,
+          288766974,
+          672884,
+          668554,
+          620027,
+          604859,
+          289160443,
+          640643,
+          618623,
+          605297,
+          539300,
+          289291774,
+          780126,
+          750628,
+          739161,
+          653301
+        ],
+        "energy": 0,
+        "fault": 0,
+        "drops": 0
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 1,
+        "reason": 0,
+        "angle_q8": -12655,
+        "ux_q20": 411852,
+        "uy_q20": -481069,
+        "valid_pairs": 6,
+        "servo_deg": 0,
+        "servo_cmd_valid": 0,
+        "map_status": 1,
+        "first_error": 0,
+        "bad_pair": 255,
+        "bridge_status": 0
+      },
+      "motion_requested": false,
+      "timing_ns": {
+        "acquire": 6963201,
+        "solve": 249744
+      },
+      "ram_record": {
+        "session": "soundsight-ngg4ahbd",
+        "ticket": 968
+      }
+    },
+    {
+      "frame": {
+        "sequence": 1129,
+        "status": 98065,
+        "words": [
+          289814531,
+          659826,
+          619846,
+          654199,
+          602777,
+          289945858,
+          505769,
+          497180,
+          490010,
+          469528,
+          289684222,
+          906182,
+          856881,
+          886280,
+          800484,
+          289750014,
+          884756,
+          865559,
+          837234,
+          781563,
+          289684731,
+          762304,
+          755331,
+          702251,
+          680418,
+          289947134,
+          777280,
+          769668,
+          721830,
+          697026
+        ],
+        "energy": 0,
+        "fault": 0,
+        "drops": 0
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 1,
+        "reason": 0,
+        "angle_q8": -7709,
+        "ux_q20": 609031,
+        "uy_q20": -353244,
+        "valid_pairs": 6,
+        "servo_deg": 0,
+        "servo_cmd_valid": 0,
+        "map_status": 1,
+        "first_error": 0,
+        "bad_pair": 255,
+        "bridge_status": 0
+      },
+      "motion_requested": false,
+      "timing_ns": {
+        "acquire": 9306303,
+        "solve": 250074
+      },
+      "ram_record": {
+        "session": "soundsight-ngg4ahbd",
+        "ticket": 929
+      }
+    },
+    {
+      "frame": {
+        "sequence": 399,
+        "status": 98065,
+        "words": [
+          287258627,
+          364713,
+          350640,
+          352964,
+          318843,
+          287389954,
+          284357,
+          282154,
+          270355,
+          261729,
+          287849214,
+          541019,
+          498828,
+          540670,
+          497439,
+          287194110,
+          471921,
+          443512,
+          459750,
+          409696,
+          287325435,
+          434917,
+          429283,
+          408456,
+          393230,
+          287587837,
+          470724,
+          442362,
+          457488,
+          402695
+        ],
+        "energy": 0,
+        "fault": 0,
+        "drops": 0
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 1,
+        "reason": 0,
+        "angle_q8": -7326,
+        "ux_q20": 600536,
+        "uy_q20": -327656,
+        "valid_pairs": 6,
+        "servo_deg": 0,
+        "servo_cmd_valid": 0,
+        "map_status": 1,
+        "first_error": 0,
+        "bad_pair": 255,
+        "bridge_status": 0
+      },
+      "motion_requested": false,
+      "timing_ns": {
+        "acquire": 5786589,
+        "solve": 249072
+      },
+      "ram_record": {
+        "session": "soundsight-ngg4ahbd",
+        "ticket": 199
+      }
+    }
+  ]
+}

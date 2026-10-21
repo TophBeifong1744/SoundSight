@@ -1,0 +1,4 @@
+Fixture: original uploaded software plus command-local START_TIMEOUT=20; spawned fake worker delays 5.2s; no PYNQ/MMIO.
+RAM_RECOVERY_DIR= fake_ram
+PYNQ双核已启动： {'host_pid': 1444, 'host_cpu': 0, 'host_affinity': [0, 1], 'backend': 'delayed-fake-no-mmio'}
+DURABLE_FRAMES= 0 QUEUE_PEAK= 1 RESULT= {'error': None, 'stats': {'consumed': 0, 'drained': 0}, 'stop_reason': 'fixture', 'requested_frames': 1, 'host_stop_reason': None, 'queue_peak': 0}

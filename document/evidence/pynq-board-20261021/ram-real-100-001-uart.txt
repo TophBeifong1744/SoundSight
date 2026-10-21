@@ -1,0 +1,21 @@
+USER MESSAGE UTC 2026-10-21T09:27:14.196Z
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_buffered.py --hwh soundsight.hwh --output ram-real-100-001.jsonl --mode real --frames 100 --clear-faults 0x40\n" ----
+cal/share/pynq-venv/bin/python3 software/ps/run_buffered.py --hwh soundsight.hwh --output ram-real-100-001.jsonl --mode real --frames 100 --clear-faults 0x40
+RAM_QUEUE_SWAP_ACTIVE= True
+RAM_RECOVERY_DIR= /dev/shm/soundsight-08arrvzi
+PYNQ双核已启动： {'host_pid': 642, 'host_cpu': 0, 'host_affinity': [0], 'worker_pid': 644, 'worker_cpu': 1, 'worker_affinity': [1]}
+DURABLE_FRAMES= 100 QUEUE_PEAK= 8 RESULT= {'error': None, 'stats': {'consumed': 100, 'drained': 0, 'max_service_ns': 28680373}, 'stop_reason': 'requested_frames', 'requested_frames': 100, 'host_stop_reason': None, 'queue_peak': 7}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+---- 已发送 utf8 编码消息: "tail -n 3 ram-real-100-001.jsonl\n" ----
+tail -n 3 ram-real-100-001.jsonl
+{"frame": {"sequence": 100, "status": 98065, "words": [286865661, 387300, 370640, 368148, 321123, 286931449, 376294, 359417, 361718, 319129, 286866173, 388957, 361865, 379281, 334860, 287521789, 521183, 484796, 509146, 452019, 287194112, 456284, 416336, 454054, 410569, 287063299, 427901, 401746, 418898, 374852], "energy": 0, "fault": 0, "drops": 0}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": -35506, "ux_q20": -641078, "uy_q20": -563286, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 7174041, "solve": 255087}, "ram_record": {"session": "soundsight-08arrvzi", "ticket": 100}}
+{"frame": {"sequence": 101, "status": 98065, "words": [286734590, 332413, 326521, 312371, 295941, 286407163, 237965, 228421, 237598, 226056, 286276350, 250726, 250285, 239882, 238780, 286800894, 372360, 369537, 353117, 345527, 286735360, 337234, 331662, 322426, 306728, 286670081, 342451, 323628, 338256, 312451], "energy": 0, "fault": 0, "drops": 0}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": -33143, "ux_q20": -370017, "uy_q20": -449421, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 4589973, "solve": 250074}, "ram_record": {"session": "soundsight-08arrvzi", "ticket": 101}}
+{"event": "finished", "retention": "ram_before_consume", "host_pid": 642, "host_cpu": 0, "host_affinity": [0], "error": null, "stats": {"consumed": 100, "drained": 0, "max_service_ns": 28680373}, "stop_reason": "requested_frames", "requested_frames": 100, "host_stop_reason": null, "queue_peak": 7}
+xilinx@pynq:~/SoundSight_PYNQ$ sudo env XILINX_XRT=/usr /usr/lo
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 -c \"from pynq import MMIO; m=MMIO(0x40000000,4096); print('STATUS=',hex(m.read(0x34))); print('FAULT=',hex(m.read(0x64))); print('DROPS=',m.read(0x68))\"\n" ----
+cal/share/pynq-venv/bin/python3 -c "from pynq import MMIO; m=MMIO(0x40000000,4096); print('STATUS=',hex(m.read(0x34))); print('FAULT=',hex(m.read(0x64))); print('DROPS=',m.read(0x68))"
+STATUS= 0x14000
+FAULT= 0x40
+DROPS= 0
+xilinx@pynq:~/SoundSight_PYNQ$ 
+

@@ -1,0 +1,135 @@
+# 在已打开的 PL+PS 工程中 source 本文件。复制源码、刷新 BD 并生成输出文件。
+# 不启动综合/实现/下载，不改 DDR/MIO、时钟、复位、XDC 或执行器配置。
+namespace eval ss_volume_update {
+    variable root [file normalize [file join [file dirname [info script]] ../..]]
+    variable names {ss_preprocess.sv ss_fft_frontend.sv f1a_frame_store.sv
+        ss_pair_engine.sv ss_clean_compute.sv ss_dual_compute.sv bd_clean_compute.v
+        ss_ps_control_regs.sv ss_ps_link.sv bd_ps_link.v}
+    proc one {objects label} {
+        if {[llength $objects] != 1} {error "STOP: expected one $label; found $objects"}
+        return [lindex $objects 0]
+    }
+    proc inside {path base} {
+        set p [file split [file normalize $path]]
+        set b [file split [file normalize $base]]
+        return [expr {[llength $p]>[llength $b] &&
+            [string equal -nocase [lrange $p 0 [expr {[llength $b]-1}]] $b]}]
+    }
+    proc refs {name} {
+        set result {}
+        foreach f [get_files -quiet -of_objects [get_filesets sources_1]] {
+            if {[string equal -nocase [file tail [get_property NAME $f]] $name]} {lappend result $f}
+        }
+        return $result
+    }
+    proc bytes {path} {
+        set f [open $path rb]
+        try {return [read $f]} finally {close $f}
+    }
+    proc run {} {
+        variable root; variable names
+        set project [one [get_projects -quiet] project]
+        set dir [file normalize [get_property DIRECTORY $project]]
+        if {[string equal -nocase $dir $root] || [inside $dir $root]} {
+            error {STOP: open your external working project, not the repository project}
+        }
+        if {[get_property PART $project] ne {xc7z020clg400-2}} {error {STOP: wrong part}}
+        foreach r [get_runs -quiet] {
+            if {[regexp -nocase {running|queued|launching} [get_property STATUS $r]]} {
+                error "STOP: active run $r; wait for it to finish"
+            }
+        }
+        set bd [current_bd_design -quiet]
+        if {$bd eq {}} {error {STOP: open the PL+PS block design first}}
+        current_bd_instance /
+        if {[llength [get_bd_cells -quiet link]]} {error {STOP: STM32 link present; wrong target}}
+        foreach {cell module} {compute bd_clean_compute ps_link bd_ps_link} {
+            set c [one [get_bd_cells -quiet $cell] $cell]
+            if {[get_property VLNV $c] ne "xilinx.com:module_ref:${module}:1.0"} {
+                error "STOP: unexpected $cell module"
+            }
+        }
+        set bdobj [one [get_files -quiet */${bd}.bd] {current BD source}]
+        set bdpath [file normalize [get_property NAME $bdobj]]
+        if {![inside $bdpath $dir]} {error {STOP: BD must be copied inside the working project}}
+        set fs [get_filesets sources_1]
+        # No boundary port changes: keep the existing wrapper and its top setting.
+        if {[get_property TOP $fs] ne "${bd}_wrapper"} {error {STOP: unexpected top; preserve it for inspection}}
+        set xpr [file join $dir [get_property NAME $project].xpr]
+        if {![file isfile $xpr]} {error {STOP: project file missing}}
+        set helper [file join $root project bd enable_ps_level.tcl]
+        if {![file isfile $helper]} {error {STOP: missing BD connection helper}}
+
+        # Resolve every source before changing anything. Existing local imports
+        # keep their location; external references are relocated into the project.
+        set plan {}
+        foreach name $names {
+            set src [file join $root project rtl $name]
+            if {![file isfile $src]} {error "STOP: missing package source $src"}
+            set f [one [refs $name] "registered source $name"]
+            set old [file normalize [get_property NAME $f]]
+            if {![file isfile $old]} {error "STOP: missing registered file $old"}
+            set target $old
+            if {![inside $old $dir]} {set target [file join $dir ps_volume_sources $name]}
+            if {![inside $target $dir] || [inside $target $root]} {error "STOP: invalid copy target $target"}
+            set props {}
+            foreach prop {FILE_TYPE LIBRARY USED_IN_SYNTHESIS USED_IN_SIMULATION} {
+                lappend props $prop [get_property $prop $f]
+            }
+            lappend plan [list $src $old $target $f $props]
+        }
+
+        set backup [file join $dir handoff before_ps_volume_[clock format [clock seconds] -format %Y%m%d_%H%M%S]_[clock clicks]]
+        file mkdir $backup
+        save_bd_design
+        file copy $bdpath [file join $backup before.bd]
+        file copy $xpr [file join $backup before.xpr]
+        set receipt [open [file join $backup sources.tsv] {WRONLY CREAT EXCL}]
+        try {
+            puts $receipt "package_source\tprevious_registration\tinstalled_path"
+            foreach entry $plan {
+                lassign $entry src old target f props
+                set name [file tail $src]
+                file copy $old [file join $backup $name]
+                if {![string equal -nocase $old $target] && [file exists $target]} {
+                    file copy $target [file join $backup previous_target_$name]
+                }
+                puts $receipt "$src\t$old\t$target"
+            }
+        } finally {close $receipt}
+        puts "PS_VOLUME_BACKUP=$backup"
+        # Remove/re-add the same registered source to force rereading the RTL.
+        # Tcl list arguments preserve paths containing spaces.
+        foreach entry $plan {
+            lassign $entry src old target f props
+            file mkdir [file dirname $target]
+            file copy -force $src $target
+            if {[bytes $src] ne [bytes $target]} {error "STOP: copy differs: $target"}
+            remove_files [list $f]
+            add_files -norecurse -fileset sources_1 [list $target]
+            set installed [one [refs [file tail $src]] {installed source}]
+            set_property -dict $props $installed
+            puts "PS_VOLUME_COPIED=$target"
+        }
+        update_compile_order -fileset sources_1
+        update_module_reference {compute ps_link}
+        source $helper
+        # Global BD generation creates HDL/output products without launching OOC
+        # synthesis here. The user's Generate Bitstream runs the physical flow.
+        set_property synth_checkpoint_mode None $bdobj
+        generate_target all [list $bdobj]
+        update_compile_order -fileset sources_1
+        foreach entry $plan {
+            lassign $entry src old target f props
+            set actual [get_property NAME [one [refs [file tail $src]] {final registration}]]
+            if {![string equal -nocase [file normalize $actual] [file normalize $target]] ||
+                ![inside $actual $dir] || [bytes $actual] ne [bytes $src]} {
+                error "STOP: final source registration/copy mismatch: $src"
+            }
+        }
+        puts {PS_VOLUME_READY_FOR_GENERATE_BITSTREAM}
+        puts {Copied 10 RTL files into working project; BD validated; output products generated.}
+        puts {No synthesis, implementation, bitstream generation or programming launched by this script.}
+    }
+}
+ss_volume_update::run

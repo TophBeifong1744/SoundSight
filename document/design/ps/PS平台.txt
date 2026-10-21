@@ -1,8 +1,10 @@
 无STM32 PL+PS版：BD、平台和软件
 
+已有STM32工程副本且已加入ps_link时，使用document/manual-ps-bd-completion.md的补齐入口project/bd/complete_manual_ps.tcl；不要在已有BD上执行下面的新建配方。
+
 所有路径相对SoundSight根目录。入口：project/script/run.bat prepare ps；已有工程用open ps；仅生成输出用outputs ps。工程位于variants/pl_ps/project/par/SoundSight_PS.xpr，顶层soundsight_ps_bd_wrapper。
 
-用户已明确自行配置DDR、真实PS板级参数和PYNQ镜像。这里提供片内接合与软件，当前目标器件统一为xc7z020clg400-2。
+2026-10-21已接回SoundSight_PS_Volume的实际BD和PS7 DDR/MIO配置；正式prepare ps入口包含该板配置，详见document/ps-handoff.md。其他板仍需用户核对并调整DDR/MIO/PYNQ镜像。当前目标器件统一为xc7z020clg400-2。
 迁移阶段曾在Vivado2025.2独立目录实际Validate、生成wrapper及官方IP输出；这些记录对应当时配置。本次统一器件后未重新Validate或生成IP输出，synth_1、impl_1均未启动。
 
 时钟和复位

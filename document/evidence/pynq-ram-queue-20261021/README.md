@@ -31,4 +31,16 @@ python -E -s -B -X utf8 software/tests/test_application.py
 
 交接自测将现有`soundsight_pynq.zip`解压到仓库内临时测试目录，再叠加本次增量，从解压位置运行新增自测；结果见`package-check.log`及`PACKAGE-RESULT.json`。临时解压目录检查路径范围后清理，不保留第二套产品源。
 
-板上新增入口、100帧复验、高水位实板行为：**NOT_RUN**。没有启动XSim/综合/实现/下载/复位或执行器。现有板测失败保存在相邻`pynq-board-20261021`，不因本机自测通过而删除。此处是作者自测，不自称独立复核或整机验收。
+软件交付时，板上新增入口、100帧复验、高水位实板行为均为**NOT_RUN**；本目录RESULT.json保留该次自测原始状态，不倒改为板测结果。该次没有启动XSim/综合/实现/下载/复位或执行器。现有板测失败保存在相邻`pynq-board-20261021`，不因本机自测通过而删除。此处是作者自测，不自称独立复核或整机验收。
+
+后续用户已在板端运行16项自测、通过BIST及100帧无动作实采：程序报告100帧落盘、DROPS=0，无高水位提前停止。真实回传及边界见[板测接续](../pynq-board-20261021/README.md#ram队列实板接续)。高水位实板行为、长期稳定性与整机闭环仍未完成。
+
+## 启动等待修复接续
+
+002轮未ready即超时且输出文件为空。板端CPU1独立测得PYNQ导入4.589秒、C库加载0.005秒，初版5秒总启动上界余量不足。只在`run_buffered.py`独立采用20秒启动等待，增加导入前/身份读取前阶段提示及未ready超时说明；不修改旧run_smp入口、ready后750ms消息等待、250ms取帧/ACK/STOP、数值、硬件或运动行为。
+
+新增3项定向自测：模拟6秒启动在旧5秒预算下失败、新预算下通过；永不ready仍在20秒终止等待；ready后继续使用750ms失联检测。原16项继续通过，总计19项，见`startup-fix-tests.log`。原上传包用`python -c`单次覆盖START_TIMEOUT=20的路径也已验证：真实spawn的假worker延迟5.2秒，正常结束；见`startup-wrapper-test.log`。均为PC假硬件结果，不代表已复验实际ARM启动。
+
+正式增量入口仍为`release/output/soundsight_ram_queue_update.zip`，已更新为含19项测试的版本，原包与更新包叠加解压后自测通过，见`startup-package-test.log`与`STARTUP-RESULT.json`。先前的`PACKAGE-RESULT.json`和16项日志保持原文，对应的初版小型ZIP保存在`before-startup-fix.zip`（约16KiB），用于复现本次启动边界失败和已有板测软件；不是另一套维护源码。未留下临时解压目录或`.next.zip`。
+
+板上当前仍可使用初版文件，通过操作说明中的单次命令先验证20秒启动等待；该命令不永久改板端源码，也不会带来新增WORKER_STAGE提示。当前完整修复文件和后续正式上传包一致，不能把临时启动覆盖说成已更新了板端全部文件。

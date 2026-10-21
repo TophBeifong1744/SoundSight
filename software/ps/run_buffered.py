@@ -1,7 +1,8 @@
 """无动作双核采集：完整记录进入RAM后释放PL槽，CPU0独立写SD。
 
 此入口显式采用断电可能丢RAM记录的策略。旧run_smp.py的逐帧耐久确认不变。
-不加载bit，不复位；不修改ABI、C求解器、硬件采集周期或运动协议。
+不加载bit，不复位；普通模式保持原ABI。音量选项要求PS专用扩展ABI，
+不修改C求解器、硬件采集周期或运动协议。
 """
 import multiprocessing as mp
 import os
@@ -11,8 +12,12 @@ import time
 from ps_client import Client, Solver, FAULT, STATUS
 from ram_queue import RamQueue, create_ram_directory
 from run_capture import address_from_hwh, argument_parser, durable_sink, prepare_args, single_owner
-from run_smp import (HOST_TIMEOUT, START_TIMEOUT, POLL_INTERVAL,
+from run_smp import (HOST_TIMEOUT, POLL_INTERVAL,
                      SavedBeforeConsume, pinned, validate_cpus, finish_worker)
+
+# 板端CPU1仅导入PYNQ已测4.589s，旧5s总启动等待余量不足。
+# 只为进程/库初始化留20s；ready之后仍用原750ms，取帧/ACK/STOP仍为250ms。
+START_TIMEOUT = 20.0
 
 
 class QueuedBeforeConsume(SavedBeforeConsume):
@@ -89,8 +94,14 @@ def buffered_session(connection, abort, stop_new, client, options, info):
 def worker_main(connection, abort, stop_new, options, base, size):
     try:
         with pinned(options.worker_cpu), single_owner(options.lock_file):
+            print('WORKER_STAGE=IMPORT_PYNQ', flush=True)
             from pynq import MMIO
-            client = Client(MMIO(base, size), Solver(options.library))
+            print('WORKER_STAGE=MMIO_SOLVER_ID', flush=True)
+            if getattr(options, 'measure_level', False) or getattr(options, 'min_level', None) is not None:
+                from volume_gate import VolumeClient
+                client = VolumeClient(MMIO(base, size), Solver(options.library), options.min_level)
+            else:
+                client = Client(MMIO(base, size), Solver(options.library))
             client.identify()  # 不向身份错误的设备写STOP。
             info = dict(worker_pid=os.getpid(), worker_cpu=options.worker_cpu,
                         worker_affinity=sorted(os.sched_getaffinity(0)))
@@ -115,6 +126,8 @@ def collect(connection, stop_new, queue, high_water, host_info):
                 stop_new.set()
             if not connection.poll(POLL_INTERVAL):
                 if time.monotonic() >= deadline:
+                    if not ready:
+                        raise TimeoutError('PYNQ启动等待超时；未收到ready，查看WORKER_STAGE')
                     raise TimeoutError('算法进程失联；请求STOP，RAM文件保留')
                 continue
             message = connection.recv()
@@ -154,10 +167,15 @@ def main(argv=None):
     parser.add_argument('--queue-capacity', type=int, default=64)
     parser.add_argument('--high-water', type=int, default=48)
     parser.add_argument('--flush-timeout', type=float, default=5.0)
+    volume = parser.add_mutually_exclusive_group()
+    volume.add_argument('--measure-level', action='store_true', help='仅测量真实音量，不输出应用方向；要求PS音量扩展bit')
+    volume.add_argument('--min-level', type=int, help='启用固定音量门限，单位为去直流PCM平均绝对幅度计数；要求扩展bit')
     args = parser.parse_args(argv)
     prepare_args(args, parser)
     if args.horizontal_motion:
         parser.error('RAM入口不支持动作；动作仍使用run_smp.py逐帧落盘确认')
+    if args.min_level is not None and not 1 <= args.min_level <= 0xffffff:
+        parser.error('--min-level须为1..16777215的整数，不能把0当成已标定门限')
     if not 1 <= args.high_water <= args.queue_capacity - 4 or args.queue_capacity > 4096:
         parser.error('队列至少预留4条（在途/双槽尾帧/结束记录），容量不超过4096')
     if not 0 < args.flush_timeout <= 60:

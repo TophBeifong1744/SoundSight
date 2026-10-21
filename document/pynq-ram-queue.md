@@ -18,6 +18,8 @@ RAM队列用Linux `/dev/shm` 的tmpfs文件保存。它是内存存储，不是�
 
 SD报错立即请求STOP；满盘时不丢弃已有RAM项，也不覆盖旧项。结束后默认最多等5秒写盘，超过则报错并保留RAM文件。这个5秒只用于停止采集后的文件排空，不延长采集服务预算。若算法进程卡死而被强制终止，明确报告硬件STOP未确认，不能把它当作正常停止。
 
+启动等待修复：CPU1实际仅导入PYNQ就用了4.589秒，初版5秒总启动等待余量不足。当前新入口独立采用20秒启动等待，打印`WORKER_STAGE=IMPORT_PYNQ`与`WORKER_STAGE=MMIO_SOLVER_ID`；超时会区分未ready和运行失联。进入ready之后仍是原750ms消息等待，取帧、ACK、STOP排空各250ms不变。20秒不是连续采集服务预算，也不是对ARM启动时间的保证。
+
 ## 从SD卡安装增量
 
 以下命令均为板端串口命令，每条单独发送，行尾选择LF。不要把多条拼成一行。板上工作目录为 `~/SoundSight_PYNQ`。
@@ -54,7 +56,7 @@ cd ~/SoundSight_PYNQ
 python3 -B software/tests/test_buffered.py -v
 ```
 
-这一步是假硬件离线自测，不访问PL，不需要sudo。通过后才继续。
+这一步是假硬件离线自测，不访问PL，不需要sudo。当前启动修复版应显示19项通过；初版16项通过仅对应修复前文件。通过后才继续。
 
 ## 重启后的加载与首次复验
 
@@ -114,6 +116,18 @@ sudo /usr/local/share/pynq-venv/bin/python3 software/ps/recover_ram.py --directo
 
 若程序报告未收到RAM确认，锁帧可能仍在PL；不要重新下载或复位。原 `run_smp.py --drain-existing` 仍可用于停机后恢复硬件槽，不会启动新采集。若底层驱动卡死或STOP未确认，先回传错误，不能假称全部已排出。
 
+## 已安装初版时，不换卡验证启动等待修复
+
+仅适用于这次已确认002输出为空、CPU1导入PYNQ为4.589秒的现场；保持当前位流和既有日志。初版板端文件可以用下列命令只覆盖本次父进程的启动等待，其他等待及硬件服务参数不变。这个命令不永久更新板上源码，也不会新增WORKER_STAGE输出；仓库当前文件/新增量包才包含完整启动提示修复。
+
+声源先持续播放并固定音量，使用未用过的003输出文件：
+
+```sh
+sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 -c "import sys; sys.path.insert(0,'software/ps'); import run_buffered as r; r.START_TIMEOUT=20.0; raise SystemExit(r.main(['--hwh','soundsight.hwh','--output','ram-real-100-003.jsonl','--mode','real','--frames','100','--clear-faults','0x40']))"
+```
+
+若仍报错，保留输出，不不断延长等待或删除旧文件重试。用后续板测结果判断这项调整是否解决启动问题，不把一次独立导入耗时测量冒充原失败时的完整进程追踪。
+
 ## 验证边界
 
-PC自测采用真实spawn/IPC、写盘线程和假MMIO，覆盖慢盘、高水位、双槽排尾、RAM/SD写失败、恢复、超时、错误ACK和中断。未改RTL、ABI及C算法，不重复运行XSim/综合/实现。新RAM入口的ARM性能、100帧连续运行和高水位板测尚待上述复验，不能拿旧20帧成功冒充新版通过。
+PC自测采用真实spawn/IPC、写盘线程和假MMIO，覆盖慢盘、高水位、双槽排尾、RAM/SD写失败、恢复、超时、错误ACK和中断。未改RTL、ABI及C算法，不重复运行XSim/综合/实现。后续用户已完成新RAM入口001和003两轮各100帧板测，均回传序号连续、帧内fault/drop为0；003方向有效98/100，结束后槽空、FAULT=0x40、DROPS=0。003使用上述临时20秒启动覆盖，完整修复文件尚未确认安装。原始串口与统计见[evidence/pynq-board-20261021](evidence/pynq-board-20261021/README.md)。长期运行、高水位实板停止和角度精度仍待验证；完整板端JSONL尚未接回。

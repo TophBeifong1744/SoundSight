@@ -1,0 +1,12 @@
+USER MESSAGE UTC 2026-10-21T09:58:50.989Z
+---- 已发送 utf8 编码消息: "wc -lc ram-real-100-002.jsonl\n" ----
+wc -lc ram-real-100-002.jsonl
+0 0 ram-real-100-002.jsonl
+xilinx@pynq:~/SoundSight_PYNQ$ sudo env XILINX_XRT=/usr timeout 20s /usr/local/share/pynq-venv/bin/python3 -c "import os,time,sys; os.sched_setaffinity(0,{1}); t=time.monotonic(); print('IMPORT_BEGIN',flush=True); from pynq import MMIO; print('PYNQ_IMPORT_SECONDS=',round(time.monotonic()-t,3),flush=True); t=time.monot
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr timeout 20s /usr/local/share/pynq-venv/bin/python3 -c \"import os,time,sys; os.sched_setaffinity(0,{1}); t=time.monotonic(); print('IMPORT_BEGIN',flush=True); from pynq import MMIO; print('PYNQ_IMPORT_SECONDS=',round(time.monotonic()-t,3),flush=True); t=time.monotonic(); sys.path.insert(0,'software/ps'); from ps_client import Solver; solver=Solver('software/ps/libss_solver.so'); print('SOLVER_LOAD_SECONDS=',round(time.monotonic()-t,3),flush=True)\"\n" ----
+onic(); sys.path.insert(0,'software/ps'); from ps_client import Solver; solver=Solver('software/ps/libss_solver.so'); print('SOLVER_LOAD_SECONDS=',round(time.monotonic()-t,3),flush=True)"
+IMPORT_BEGIN
+PYNQ_IMPORT_SECONDS= 4.589
+SOLVER_LOAD_SECONDS= 0.005
+xilinx@pynq:~/SoundSight_PYNQ$ 
+

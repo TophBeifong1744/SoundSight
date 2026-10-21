@@ -7,6 +7,9 @@
 /release/output/*
 # Small reviewed competition deliverable; other generated releases remain ignored.
 !/release/output/soundsight-competition-skills.zip
+# Small matched PS Volume reproduction and SD delivery, explicitly published.
+!/release/output/soundsight_ps_volume_handoff.zip
+!/release/output/soundsight_pynq_volume.zip
 /codex_out/
 # Kept physically inside SoundSight, but not pushed as new active source/history.
 /local_archive/

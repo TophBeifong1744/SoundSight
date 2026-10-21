@@ -8,7 +8,7 @@
 // 一帧只分配一个32位帧号。保留原8个FFT单元（两域×四路）和各自真实status。
 // 域0仍计算并检查，不把原本可能出现的数值错误藏掉；仅域1半谱送六对引擎。
 // STOP后不启动下一个单元，已提交配置的FFT继续收满1024点并排空output/status。
-module ss_fft_frontend #(parameter HANN_FILE="hann-u18f17.mem")(
+module ss_fft_frontend #(parameter integer LEVEL_ENABLE=0, parameter HANN_FILE="hann-u18f17.mem")(
  input wire clk,rst_n,enable,input wire source_bad,
  input wire window_valid,output wire window_ready,input wire [31:0] window_frame,
  output wire release_window,output wire read_enable,output wire [9:0] read_index,
@@ -21,6 +21,7 @@ module ss_fft_frontend #(parameter HANN_FILE="hann-u18f17.mem")(
  output wire end_cancelled,output wire [7:0] end_error,
  input wire backend_busy,output wire busy,
  output wire [3:0] debug_state,
+ output wire [31:0] frame_level, output wire frame_level_valid,
  output wire audit_valid,output wire audit_domain,output wire [1:0] audit_channel,
  output wire [9:0] audit_bin,output wire signed [28:0] audit_real,audit_imag
 );
@@ -46,12 +47,13 @@ module ss_fft_frontend #(parameter HANN_FILE="hann-u18f17.mem")(
  assign end_error=error_code;
  wire np_ready,np_done,np_valid,np_out_ready,np_last,np_numeric_error;
  wire signed [28:0] np_real;
- ss_preprocess #(.HANN_FILE(HANN_FILE)) preprocess(
+ ss_preprocess #(.LEVEL_ENABLE(LEVEL_ENABLE),.HANN_FILE(HANN_FILE)) preprocess(
    .clk(clk),.rst_n(rst_n),.frame_start(accepting),.read_enable(read_enable),.read_index(read_index),
    .read_valid(read_valid),.read_pcm(read_pcm),.copy_done(release_window),
    .unit_start(state==UNIT && np_ready && !cancelled && enable && !source_bad && error_code==0),
    .domain(unit_index[2]),.channel(unit_index[1:0]),.unit_ready(np_ready),.unit_done(np_done),
-   .out_valid(np_valid),.out_ready(np_out_ready),.out_real(np_real),.out_last(np_last),.numeric_error(np_numeric_error));
+   .out_valid(np_valid),.out_ready(np_out_ready),.out_real(np_real),.out_last(np_last),.numeric_error(np_numeric_error),
+   .frame_level(frame_level),.frame_level_valid(frame_level_valid));
  wire cfg_ready,fft_in_ready,fft_valid,fft_ready,fft_last,status_valid;
  wire signed [28:0] fft_real,fft_imag;
  wire [9:0] fft_index;

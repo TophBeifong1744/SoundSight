@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FILES = (
     'software/ps/ram_queue.py',
     'software/ps/run_buffered.py',
+    'software/ps/volume_gate.py',
     'software/ps/recover_ram.py',
     'software/tests/test_buffered.py',
     'document/pynq-ram-queue.md',

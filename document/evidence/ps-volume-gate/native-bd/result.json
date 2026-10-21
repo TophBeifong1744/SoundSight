@@ -1,0 +1,101 @@
+{
+  "result": "PASS_PREPARATION_ONLY",
+  "vivado": "2025.2",
+  "initial_level_parameter_present": false,
+  "rtl_copies": 10,
+  "constraint_copies": 2,
+  "new_internal_nets": [
+    "compute_feature_level",
+    "compute_feature_level_valid"
+  ],
+  "old_nets_and_external_ports_unchanged": true,
+  "addressing_unchanged": {
+    "/ps7": {
+      "address_spaces": {
+        "Data": {
+          "segments": {
+            "SEG_ps_link_reg0": {
+              "address_block": "/ps_link/S_AXI/reg0",
+              "offset": "0x40000000",
+              "range": "4K"
+            }
+          }
+        }
+      }
+    }
+  },
+  "unrelated_bd_components_unchanged": true,
+  "ps7_parameter_count": 878,
+  "ps7_disabled_debug_value_normalization": {
+    "PCW_FTM_CTI_IN2": {
+      "before": [
+        "DISABLED"
+      ],
+      "after": [
+        "<Select>"
+      ]
+    },
+    "PCW_FTM_CTI_IN3": {
+      "before": [
+        "DISABLED"
+      ],
+      "after": [
+        "<Select>"
+      ]
+    },
+    "PCW_FTM_CTI_OUT0": {
+      "before": [
+        "DISABLED"
+      ],
+      "after": [
+        "<Select>"
+      ]
+    },
+    "PCW_FTM_CTI_OUT3": {
+      "before": [
+        "DISABLED"
+      ],
+      "after": [
+        "<Select>"
+      ]
+    },
+    "PCW_FTM_CTI_IN1": {
+      "before": [
+        "DISABLED"
+      ],
+      "after": [
+        "<Select>"
+      ]
+    },
+    "PCW_FTM_CTI_OUT1": {
+      "before": [
+        "DISABLED"
+      ],
+      "after": [
+        "<Select>"
+      ]
+    },
+    "PCW_FTM_CTI_IN0": {
+      "before": [
+        "DISABLED"
+      ],
+      "after": [
+        "<Select>"
+      ]
+    },
+    "PCW_FTM_CTI_OUT2": {
+      "before": [
+        "DISABLED"
+      ],
+      "after": [
+        "<Select>"
+      ]
+    }
+  },
+  "ps7_cross_trigger_and_coresight_enabled": false,
+  "generated_module_wrappers_level_enable": 1,
+  "synthesis": "NOT_RUN",
+  "implementation": "NOT_RUN",
+  "hardware": "NOT_RUN",
+  "warnings": "TclStore local catalog; module port-change upgrade warnings. See original log."
+}

@@ -5,7 +5,7 @@ from tool_config import vivado_root, simulation_tools
 
 ROOT = Path(__file__).resolve().parents[1]
 CASES = ('pair','preprocess','capture','clean','dual','cdc','samplecdc','link','stm32',
-         'pdm','frontstop','queue','spi','actuator','clock','axi','ps','pscdc','platform')
+         'pdm','frontstop','queue','spi','actuator','clock','axi','ps','pscdc','platform','level','levelstore','pslevel','duallevel')
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
@@ -22,7 +22,7 @@ def main():
     out=ROOT/'simulation/work'/(case+'_'+time.strftime('%Y%m%d_%H%M%S'))
     out.mkdir(parents=True,exist_ok=False)
     source_dir=out/'sources';source_dir.mkdir()
-    ps=case in ('axi','ps','pscdc')
+    ps=case in ('axi','ps','pscdc','pslevel')
     tb=ROOT/'simulation/tb'/('ps' if ps else 'stm32')
     rtl=ROOT/'project/rtl'
     ip=ROOT/'project/ip/reference'/('ps' if ps else 'stm32')
@@ -30,8 +30,8 @@ def main():
              if line.strip() and not line.startswith('#')]
     if case=='pair':sources=[p for p in sources if p.name!='ifft25_official.sv']
     vhdl=[]
-    official=case in ('clean','dual','stm32','pdm','frontstop','ps','pscdc')
-    glbl=case in ('clean','dual','cdc','samplecdc','stm32','pdm','frontstop','clock','ps','pscdc','platform')
+    official=case in ('clean','dual','duallevel','stm32','pdm','frontstop','ps','pscdc')
+    glbl=case in ('clean','dual','cdc','samplecdc','stm32','pdm','frontstop','clock','ps','pscdc','platform','duallevel')
     libs=['xpm']
     if official:
         vhdl=[ip/n/'sim'/(n+'.vhd') for n in ('ss_fft29','ss_ifft25')];libs+=['xfft_v9_1_15']

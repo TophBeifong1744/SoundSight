@@ -305,6 +305,53 @@ class SpawnTests(unittest.TestCase):
             config.write_text('[0,1,-100,100,0,180,180]')
             app.main(args + ['--horizontal-motion', '--servo-config', str(config), '--watchdog-ticks', '1000'])
 
+    def startup_connection(self, ready_at, done_after=None):
+        # 模拟时钟让测试不真等20秒；时间点来自独立启动/运行要求。
+        class Connection:
+            now = 0.0
+            sent_ready = False
+            def poll(self, timeout):
+                self.now += timeout
+                if self.now < ready_at:
+                    return False
+                return not self.sent_ready or (done_after is not None and self.now >= ready_at+done_after)
+            def recv(self):
+                if not self.sent_ready:
+                    self.sent_ready = True
+                    return ('ready', {'backend': 'startup-clock-fixture'})
+                return ('done', {'stats': {'consumed': 0, 'drained': 0}})
+        return Connection()
+
+    def test_six_second_startup_fails_old_budget_but_passes_new(self):
+        q = RamQueue(self.ram, 8, lambda r: None)
+        old = self.startup_connection(6.0, .01)
+        with patch.object(app, 'START_TIMEOUT', 5.0), patch.object(app.time, 'monotonic', lambda: old.now):
+            with self.assertRaisesRegex(TimeoutError, '启动等待超时'):
+                app.collect(old, threading.Event(), q, 4, {})
+        new = self.startup_connection(6.0, .01)
+        with patch.object(app.time, 'monotonic', lambda: new.now):
+            kind, result = app.collect(new, threading.Event(), q, 4, {})
+        self.assertEqual(kind, 'done')
+        self.assertIsNone(result['host_stop_reason'])
+
+    def test_startup_remains_bounded(self):
+        q = RamQueue(self.ram, 8, lambda r: None)
+        connection = self.startup_connection(30.0)
+        with patch.object(app.time, 'monotonic', lambda: connection.now):
+            with self.assertRaisesRegex(TimeoutError, '启动等待超时'):
+                app.collect(connection, threading.Event(), q, 4, {})
+        self.assertGreaterEqual(connection.now, 20.0)
+        self.assertLess(connection.now, 20.02)
+
+    def test_ready_restores_short_runtime_timeout(self):
+        q = RamQueue(self.ram, 8, lambda r: None)
+        connection = self.startup_connection(6.0)
+        with patch.object(app.time, 'monotonic', lambda: connection.now):
+            with self.assertRaisesRegex(TimeoutError, '算法进程失联'):
+                app.collect(connection, threading.Event(), q, 4, {})
+        self.assertGreaterEqual(connection.now, 6.75)
+        self.assertLess(connection.now, 6.78)
+
 
 
 if __name__ == '__main__':

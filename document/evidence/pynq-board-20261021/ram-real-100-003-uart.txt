@@ -1,0 +1,7 @@
+USER MESSAGE UTC 2026-10-21T10:06:13.820Z
+RAM_QUEUE_SWAP_ACTIVE= True
+RAM_RECOVERY_DIR= /dev/shm/soundsight-_jjp6gjd
+PYNQ双核已启动： {'host_pid': 716, 'host_cpu': 0, 'host_affinity': [0], 'worker_pid': 718, 'worker_cpu': 1, 'worker_affinity': [1]}
+DURABLE_FRAMES= 100 QUEUE_PEAK= 5 RESULT= {'error': None, 'stats': {'consumed': 100, 'drained': 0, 'max_service_ns': 29732478}, 'stop_reason': 'requested_frames', 'requested_frames': 100, 'host_stop_reason': None, 'queue_peak': 4}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+

@@ -1,0 +1,10 @@
+{
+  "result": "PASS_STATIC_ONLY",
+  "bd_events": 80,
+  "fft_parameters": 54,
+  "run_settings": 77,
+  "live_source_and_constraint_matches": 28,
+  "portable_dependencies": 41,
+  "native_rebuild": "NOT_RUN",
+  "board": "NOT_RUN"
+}

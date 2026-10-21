@@ -16,7 +16,7 @@ module tb_dual;
  wire [11:0] source_faults;
  wire [3:0] debug_frontend;
  wire [4:0] debug_backend;
- ss_dual_compute #(.WARMUP_SAMPLES(16)) dut(.*);
+ ss_dual_compute #(.WARMUP_SAMPLES(16)) dut(.feature_level(),.feature_level_valid(),.*);
  reg fixture_valid=0;
  reg [95:0] fixture_pcm=0;
  reg [31:0] random_state=32'h1765ca19;

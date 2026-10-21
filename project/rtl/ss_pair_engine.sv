@@ -7,7 +7,7 @@
 `default_nettype none
 // 六对数值引擎：唯一在途帧，32位真实帧号；没有票据、cookie或宽身份包。
 // 正常数据依次为4通道×513个半谱点；取消仍等前端/已启动IFFT排空。
-module ss_pair_engine (
+module ss_pair_engine #(parameter integer LEVEL_ENABLE=0) (
  input wire clk,rst_n,
  input wire begin_valid,output wire begin_ready,input wire [31:0] begin_frame,
  input wire s_valid,output wire s_ready,input wire [31:0] s_frame,
@@ -16,6 +16,8 @@ module ss_pair_engine (
  input wire end_valid,output wire end_ready,input wire [31:0] end_frame,
  input wire end_cancelled,input wire [7:0] end_error,
  input wire cancel,
+ input wire [31:0] frame_level,input wire frame_level_valid,
+ output wire [31:0] feature_level,output wire feature_level_valid,
  output wire busy,output wire ip_obligation,
  output wire feature_valid,input wire feature_ready,
  output wire [31:0] feature_frame_id,feature_frame_flags,
@@ -153,10 +155,12 @@ module ss_pair_engine (
         end
         raw_words[0+:32]=raw_word;
     end
-    f1a_frame_store feature_store(
+    f1a_frame_store #(.LEVEL_ENABLE(LEVEL_ENABLE)) feature_store(
         .clk(clk),.cold_rst_n(cold_rst_n),.frame_start(begin_valid && begin_ready),.frame_start_bist(1'b0),
         .pair_event(state==NEXT_PAIR),.pair_index(pair_id),.pair_words(raw_words),
         .frame_finish(state==REPORT),
+        .frame_level(frame_level),.frame_level_valid(frame_level_valid),
+        .feature_level(feature_level),.feature_level_valid(feature_level_valid),
         .frame_cancelled(killed),.first_error(first_error_code),
         .phat_stages(backend_stage_state[23:0]),.ifft_stages(backend_stage_state[47:24]),
         .accepting(feature_accepting),.feature_valid(feature_valid),.feature_ready(feature_ready),
