@@ -1,0 +1,17 @@
+Command: D:/Python/python.exe -E -s -B -X utf8 software/tetra3d/tests/test_package_3d.py
+Environment: SS_GCC and SS_BASH supplied by caller.
+Captured tool output (chunks a5b6b7 and 53db79):
+test_archive_dependencies_and_ascii_command_bounds (__main__.PackageTests.test_archive_dependencies_and_ascii_command_bounds) ... ok
+test_canary_bad_archive_cannot_claim_transport_success (__main__.PackageTests.test_canary_bad_archive_cannot_claim_transport_success) ... ok
+test_serial_existing_destination_is_preserved (__main__.PackageTests.test_serial_existing_destination_is_preserved) ... ok
+test_serial_missing_or_corrupt_chunk_rejects_extraction (__main__.PackageTests.test_serial_missing_or_corrupt_chunk_rejects_extraction) ... ok
+test_serial_stdin_roundtrip_and_chunk_retry (__main__.PackageTests.test_serial_stdin_roundtrip_and_chunk_retry) ... ok
+test_space_path_extract_build_and_offline_entrypoints (__main__.PackageTests.test_space_path_extract_build_and_offline_entrypoints) ... FAIL
+AssertionError: 'REJECTED reason=5' not found in replay stdout.
+Observed final frame: 3D frame=100 REJECTED reason=1
+Observed completion: CAPTURE_REPLAY_3D_COMPLETE frames=6 motion=DISABLED
+----------------------------------------------------------------------
+Ran 6 tests in 21.073s
+
+FAILED (failures=1)
+Disposition: TESTBENCH_FAIL: expected legacy BIST but the supplied final example has mask_count=11 and correctly rejects with reason=1. Corrected test asserts all six pair mask counts are 11 and reason=1. Named rerun is in package-space-rerun.log.

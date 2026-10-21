@@ -5,6 +5,7 @@
 /software/build/
 /software/ps/build/
 /release/output/*
+!/release/output/soundsight-tetra3d-serial.zip
 # Small reviewed competition deliverable; other generated releases remain ignored.
 !/release/output/soundsight-competition-skills.zip
 # Small matched PS Volume reproduction and SD delivery, explicitly published.
@@ -23,6 +24,8 @@
 **/.Xil/
 **/.DS_Store
 /software/ps/libss_solver.so
+/software/tetra3d/linux/libss_solver_3d.so
+/software/tetra3d/linux/*.dll
 /software/ps/*.dll
 /software/stm32/build/
 # Deliberately no global *.log/*.json/*.csv ignore: retained evidence is source-managed.

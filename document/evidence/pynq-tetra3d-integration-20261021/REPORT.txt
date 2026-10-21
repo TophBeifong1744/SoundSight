@@ -1,0 +1,58 @@
+SoundSight C：三维求解接合到双核PYNQ（2026-10-21）
+
+范围与来源
+用户授权接合PR #20三维算法。B准确候选592bea7abac5629af884e237bb8b679a4e7fe529；
+主线977cfbd284a35b2483dc2ec5c4bf785f4dab5a97通过合并a75da312e8434279589ab0bd2566dc6385541460接入。
+合并状态说明冲突时同时保留B三维说明与主线现场进展。C产品与测试位于本报告同一Git交付。
+没有修改B数学、桥、Solver3D、几何或原测试；software/ps、software/common、software/tests、tools及PL与主线一致。
+
+交付行为
+software/tetra3d/linux/runtime_3d.py适配共享Client签名，保存完整原帧、三维结果、几何和独立有效位。
+run_buffered_3d.py复用主线buffered_session/collect/RamQueue：CPU1唯一MMIO+C求解，CPU0有界RAM接收和后台SD写入。
+入RAM完整记录后queued确认，再消费硬件槽；断电可能丢未落盘RAM。SD的write/flush/fsync成功才删对应RAM记录。
+复用高水位STOP、预留双槽排尾、旧槽/历史故障保护、20秒初始化；采集/确认仍250ms，运行失联仍750ms。
+默认不逐帧同步显示，防止终端阻塞SD线程。结果文件或离线回放可查看角度。
+run_smp_3d.py保留逐帧耐久saved确认入口及可选显示/quiet；仍用共享旧5秒初始化，不作为推荐连续采集入口。
+--measure-level显式选择主线音量ABI0x10001并检查能力位；无该参数只接受旧0x10000。
+仅记录音量，不引入门限；direction_output.valid=false/raw_solver_only。arm/command/动作配置始终拒绝。
+replay_capture_3d.py支持裸帧与原包装JSONL，按本次显式几何重算，不核验历史几何来源；标记EXPLICIT_RECOMPUTE。
+正常算法拒绝保存后继续，API错保存后停止；无效方位不当作有效0度。NOMINAL不转写MEASURED。
+package_serial_3d.py生成独立串口ZIP，传输命令<3800 ASCII字节，可重发且拒绝覆盖原目标；不连接COM。
+ZIP不含bit/HWH/ARM二进制，现场使用A匹配位流及实际四面体坐标；原二维安装单独做BIST。
+
+实际PC验证
+环境：Windows AMD64，Python3.13.5，GCC8.3.0 MinGW。所有实际C编译均为本机PE动态库，不是ARM ELF。
+B原回归2110/2378/92270断言，154组Python/C与原PC基准对照、17桥非法输入、15几何检查通过。
+主线只读复用回归：test_buffered.py 19项、test_volume_gate.py 15项通过。
+新增test_runtime_3d.py 13项通过：真实C+spawn/IPC、write→flush→fsync→saved→consume事件序，负向canary、
+写/flush/fsync失败保帧、错ACK、取消、正常拒绝、桥错误、极点/几何/CLI与回放。
+新增test_buffered_3d.py 7项通过：真实C+spawn+RamQueue，入RAM→queued→consume及提前消费canary，
+高水位STOP/两尾槽、失败RAM留存/恢复、坏ID/ABI/能力位零控制写、旧槽拒绝启动、记录<16KiB。
+新增test_package_3d.py共6项：5项真实Bash stdin传输、重发、缺块/损坏、旧目录保护等初轮通过；
+空格路径解包/构建/六帧回放在修正示例预期后定向复验通过。不是实际串口或ARM执行。
+包新增两份只读测试依赖后，从空格路径实际提取的RAM 7项及解包/构建/回放定向1项均通过。
+19个随包Python文件通过3.8语法检查；最终源/包逐文件一致，记录见仓库本证据目录FINAL-PACKAGE.json。
+
+运行方法（仓库根）
+设置SS_GCC为本机GCC，SS_BASH为本机Bash（或通过PATH发现），不在公共代码中硬编码个人安装路径。
+python -B software/tetra3d/tests/test_solver_3d_migration.py --golden document/evidence/ps-tetra3d-migration-20261021/PC-RESULT.json --output PC-RESULT.json
+python -B software/tetra3d/tests/test_runtime_3d.py
+python -B software/tetra3d/tests/test_buffered_3d.py
+python -B software/tetra3d/tests/test_package_3d.py
+python -B software/tetra3d/linux/package_serial_3d.py
+板端命令、输出、下一步见software/tetra3d/linux/三维接合步骤.txt，先ARM离线对照，再由A接入真实PL。
+
+已发现问题及处置
+初轮runtime的Windows affinity mock遗漏、非法几何构造后的测试DLL回收遗漏，属于TESTBENCH_FAIL；修后13项通过。
+默认沙箱GCC WinError623导致RAM零测试，属于TOOL_ENV_FAIL；同工具升级执行后7项通过。
+示例第六帧status0x11、mask11为少对reason1，原测试/步骤误预期旧BIST reason5；未改原fixture或算法，已修文字/预期。
+原包遗漏RAM测试导入的两份主线测试，属于SCRIPT_PATH_FAIL；最终包补入原样test_buffered.py/test_smp.py并定向验证。
+只读审查T3D-REV-001：已区分RAM服务耗时（入RAM确认+消费）与耐久入口（SD确认+消费），不能混报。
+T3D-REV-002：示例预期修正见上。以上不构成A/B成员批准；复核仍交实际非作者。
+临时编译/解包目录均按本任务用途清理，仅保留正式证据；不删除他人改动或历史失败事实。
+
+未测与接续
+目标ARM库/运行及耗时、真实双核亲和性/MMIO/tmpfs/串口、真实PL三维采集、声学精度、持续运行和现场STOP未测。
+标称40mm四面体坐标不是实测阵列；不能用平面四麦实录证明俯仰。A核通道/符号/窗口并提供配套bit/HWH，B分析ARM/实录数值。
+当前只接方向；双轴设备ABI、机构标定及机械动作未接合。原二维现场成功不转写为本三维通过。
+本次不运行Vivado综合/实现、下载、复位、供电或动作，不自动合并PR或关闭板测任务。

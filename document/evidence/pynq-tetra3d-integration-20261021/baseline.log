@@ -1,0 +1,6 @@
+Windows AMD64 GCC8.3.0; native PC C only; no ARM/board.
+RESULT,PASS,profile=0,checks=2110,failures=0,SYNTHETIC_FEATURES_ONLY
+RESULT,PASS,profile=1,checks=2378,failures=0,SYNTHETIC_FEATURES_ONLY
+D4_RESULT,PASS,checks=92270,failures=0
+MIGRATION_3D_PASS equivalence=154 bridge_negative=17 geometry=15 motion=DISABLED
+HOST_CALL_NS {'min': 18900, 'median': 19200.0, 'max': 63000} AMD64
