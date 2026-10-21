@@ -60,11 +60,13 @@ def main():
         "software/tests/test_solver_migration.py",
         "software/tests/solver_migration_reference.c",
         "software/tests/test_smp.py",
+        "software/tests/test_buffered.py",
         "software/tests/test_application.py",
         "document/evidence/ps-solver-migration-20261020/PC-RESULT.json",
         "document/evidence/inherited/ps/bd_preparation/interface.hwh",
         "tools/pynq_preflight.py",
         "tools/tool_config.py",
+        "document/pynq-ram-queue.md",
         "LICENSE",
     ]:
         entries[name] = ROOT / name

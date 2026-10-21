@@ -1,12 +1,20 @@
-# 当前状态 — 2026-10-20
+# 当前状态 — 2026-10-21
 
 目标：四麦二维定位、连续测量、转台闭环。FPGA+STM32为主方案，PL+PS为独立实验目标。
+
+## PYNQ现场进展与RAM队列修复
+
+用户已在旧PYNQ 2.7镜像上确认双核Linux、ARM编译及数值对照通过（ARM结果原文件尚待回传）；完成overlay加载、FCLK0分频修正、ID/ABI读取、双BIST及真实采集。原双进程的20帧实采完成，19帧方向有效，音乐来自长条音响，用户观察方向相符；这不是声学精度标定。
+
+100帧连续测试未通过：逐帧fsync阻塞槽位释放，出现0x48（溢出+STOP）且DROPS从1增至2；锁定37帧及排队38帧已由用户恢复。相关串口原文与分析补归档于[evidence/pynq-board-20261021](evidence/pynq-board-20261021/README.md)，完整板端JSONL及ARM-RESULT仍需从SD复制。此前这些最新串口证据主要留在聊天，没有全部进入仓库。
+
+用户已同意断电可能丢失未落盘RAM记录。新无动作入口`software/ps/run_buffered.py`采用有界RAM队列、独立SD写入、高水位STOP及双槽排尾；旧动作/耐久确认入口不变。新版自测证据见[evidence/pynq-ram-queue-20261021](evidence/pynq-ram-queue-20261021/README.md)，更新及操作见[pynq-ram-queue.md](pynq-ram-queue.md)。新入口的ARM与实采复验尚未执行，旧100帧失败事实保留，不记为已修复验收通过。
 
 ## PS双核软件接合与首次上传包
 
 已接合检查并合并B的PR #15（61e7303）与C的PR #16（0d38858）；main合入点为6482d52。组合实跑通过原S1 4705项、桥接/客户端9项、157组数值对照、6组非法桥输入、双进程17项与应用8项。检查者未参与这两个PR的实现，本次没有改写生产算法或双进程程序。范围仅为离线软件接合，非ARM、板上或双轴批准。
 
-A的外部PS工程已生成bit；读取其布线后报告WNS +0.278 ns、WHS +0.036 ns、setup/hold失败端点为0，DRC仍有警告。本次bit/HWH与A导出的XSA内容一致。用户确认匹配PYNQ已启动，但实际双核affinity、ARM共享库数值对照、PL复位/寄存器/BIST和真实采集仍待现场验证。ACTUATOR_BOUND=0，双轴接口仍未交付。
+A的外部PS工程已生成bit；读取其布线后报告WNS +0.278 ns、WHS +0.036 ns、setup/hold失败端点为0，DRC仍有警告。本次bit/HWH与A导出的XSA内容一致。10月20日打包时板测未执行，10月21日现场增量见上节，不能用打包状态覆盖现场结果。ACTUATOR_BOUND=0，双轴接口仍未交付。
 
 上传包入口为release/output/soundsight_pynq.zip（本地产物，不提交缓存或Windows DLL）；重打包工具tools/package_pynq.py，步骤见[pynq-first-run.md](pynq-first-run.md)，证据见[evidence/pynq-integration-20261020](evidence/pynq-integration-20261020/README.md)。第一步只检查环境和HWH，不访问MMIO、不加载位流、不复位。
 
@@ -43,11 +51,11 @@ A的外部PS工程已生成bit；读取其布线后报告WNS +0.278 ns、WHS +0.
 
 | 项目 | 当前边界/责任 |
 |---|---|
-| 实际PS7 DDR/MIO与启动 | STM32版已接回A的真实配置；PS初始化/DDR启动和PYNQ仍未实测，独立PS版继续由A配置 |
+| 实际PS7 DDR/MIO与启动 | STM32版已接回A的真实配置；独立PS版已用旧PYNQ启动并执行双核程序，启动镜像与HWH时钟差异需按现场修正处理 |
 | 当前100MHz组合综合/实现/STA/CDC/RDC | 外部STM32工程已有正裕量报告；整理后的配方未重建，CDC/RDC及约束语义专项复核未在本批执行 |
 | STM32 S2及外设工程 | 按收到的B侧v2仍未实施；不能由目录迁移宣称完成 |
 | 实际SPI/IRQ/接线电平 | 已有ID/ABI及部分BIST/IRQ板测；首次CS异常已捕获，根因及稳定性复验未完成 |
-| PS版ARM/PYNQ执行与调度预算 | PC测试完成不等于ARM运行 |
+| PS版ARM/PYNQ执行与调度预算 | 已有双BIST及20帧实采；100帧旧版失败，新RAM入口尚待板测；不宣称持续零丢帧 |
 | 声学精度与通道/几何标定 | 合成PDM链路不能代替真实声源试验 |
 | 舵机机械标定与闭环 | ACTUATOR_BOUND默认0，不默认启用输出 |
 | PS↔STM32遥测/展示 | 未冻结；主方案PS不抢STM32快照所有权 |
