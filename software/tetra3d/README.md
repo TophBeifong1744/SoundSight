@@ -1,6 +1,17 @@
-# 四麦正四面体三维算法
+# 独立三维模块（二维主线之外）
 
-三维纯 C99 数学代码从原 STM32 成果移入，算法内容未改；没有 HAL、SPI、Keil 或板级时钟依赖。二维 `../s1` 与原 PS 二维入口保持不变。Linux 使用独立共享库，见 [ARM Linux 接合说明](PS-MIGRATION.md)。
+本目录只在明确选择三维时使用，默认不接入二维采集、构建或发布包。
+
+- `core/`：三维算法、几何配置及双轴软件映射。
+- `linux/`：独立共享库构建、Python调用与离线回放。
+- `tests/`：三维专用测试。
+- [接合步骤](PS-MIGRATION.md)：给C的编译和验证入口。
+
+仅只读复用 `../common/s1` 的公共类型及角度映射函数；不复制或修改二维实现。当前二维 `software/ps`、`software/tests` 与 `tools/package_pynq.py` 保持基线版本。现有二维发布包不会自动包含本目录。
+
+# 算法说明
+
+三维纯 C99 数学代码从原 STM32 成果移入，算法内容未改；没有 HAL、SPI、Keil 或板级时钟依赖。二维 `../common/s1` 与原 PS 二维入口保持不变。Linux 使用独立共享库，见 [ARM Linux 接合说明](PS-MIGRATION.md)。
 
 已有模块：
 

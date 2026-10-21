@@ -48,4 +48,4 @@ Vivado 和 PL 接口由 A 负责，C 求解库由 B 负责，Python 和 PYNQ 软
 
 2026-10-21按用户要求保留二维，并迁入原三维纯C算法、几何检查与双轴软件映射；提供独立Linux共享库源码、Python方向接口及JSONL回放。原算法内容未改，PC回归与接口数值对照已通过。目标ARM执行/耗时与三维实物验证未完成；现有二维PYNQ运行程序保持原入口。
 
-B给C的入口：[三维ARM接合说明](../../../software/common/s1_3d/PS-MIGRATION.md)。C先做目标板离线测试，再显式适配三维日志/显示；A核对六对顺序、lag符号、采样率与窗口，实物成员补声孔坐标与独立声源方向。现有水平轴动作ABI不能直接承载双轴动作，不因三维解算成功就开启运动。报告：[PC迁移结果](../../evidence/ps-tetra3d-migration-20261021/REPORT.md)。
+B给C的入口：[三维ARM接合说明](../../../software/tetra3d/PS-MIGRATION.md)。C先做目标板离线测试，再显式适配三维日志/显示；A核对六对顺序、lag符号、采样率与窗口，实物成员补声孔坐标与独立声源方向。现有水平轴动作ABI不能直接承载双轴动作，不因三维解算成功就开启运动。报告：[PC迁移结果](../../evidence/ps-tetra3d-migration-20261021/REPORT.md)。

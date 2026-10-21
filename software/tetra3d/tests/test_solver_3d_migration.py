@@ -18,8 +18,8 @@ import sys
 import tempfile
 import time
 
-ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / 'software/ps'))
+ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(ROOT / 'software/tetra3d/linux'))
 from solver_3d import Solver3D, INFO, VALUES, PAIR, read_json
 
 PAIRS = [(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
@@ -124,11 +124,12 @@ def main():
     cc = shutil.which(args.cc)
     if not cc: raise RuntimeError('C99 compiler not found: ' + args.cc)
     common = ROOT/'software/common'
-    tests = ROOT/'software/tests'
-    sources = [common/'s1/doa_solver.c'] + [common/'s1_3d'/n for n in
+    tests = ROOT/'software/tetra3d/tests'
+    core = ROOT/'software/tetra3d/core'
+    sources = [common/'s1/doa_solver.c'] + [core/n for n in
                ('doa_solver_3d.c', 'doa_geometry.c', 'doa_target_3d.c', 'doa_dispatch.c')]
     opts = [cc, '-std=c99', '-O2', '-Wall', '-Wextra', '-Wconversion', '-Wshadow', '-Werror', '-pedantic']
-    opts += ['-I'+str(p) for p in (common, common/'s1', common/'s1_3d')]
+    opts += ['-I'+str(p) for p in (common, common/'s1', core)]
     if os.name == 'nt': opts += ['-D__USE_MINGW_ANSI_STDIO=1']
     else: opts += ['-fPIC']
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -148,10 +149,10 @@ def main():
             print(output.splitlines()[-1])
         library = args.library or tmp/('solver.dll' if os.name == 'nt' else 'solver.so')
         if not args.library:
-            run(opts + ['-shared', *sources, ROOT/'software/ps/ss_solver_3d_bridge.c', '-lm', '-o', library])
+            run(opts + ['-shared', *sources, ROOT/'software/tetra3d/linux/ss_solver_3d_bridge.c', '-lm', '-o', library])
         refpath = tmp/('ref.dll' if os.name == 'nt' else 'ref.so')
         run(opts + ['-shared', *sources, tests/'solver_3d_reference.c', '-lm', '-o', refpath])
-        geometry = read_json((common/'s1_3d/tetra40-nominal.json').read_text(encoding='utf-8'))
+        geometry = read_json((core/'tetra40-nominal.json').read_text(encoding='utf-8'))
         solver = Solver3D(library, geometry)
         stack.callback(close_lib, solver.lib)
         ref = C.CDLL(str(refpath)); stack.callback(close_lib, ref)
@@ -252,8 +253,8 @@ def main():
         sample = [records[0]['frame'], records[132]['frame'],
                   next(r['frame'] for r in records if r['name'] == 'mask11')]
         replay_input.write_text(''.join(json.dumps(f)+'\n' for f in sample), encoding='utf-8')
-        cli = [sys.executable, str(ROOT/'software/ps/solver_3d.py'), '--library', str(library),
-               '--geometry', str(common/'s1_3d/tetra40-nominal.json'),
+        cli = [sys.executable, str(ROOT/'software/tetra3d/linux/solver_3d.py'), '--library', str(library),
+               '--geometry', str(core/'tetra40-nominal.json'),
                '--input', str(replay_input), '--output', str(replay_output)]
         assert 'frames=3' in run(cli)
         lines = [read_json(line) for line in replay_output.read_text(encoding='utf-8').splitlines()]

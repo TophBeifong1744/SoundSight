@@ -4,10 +4,10 @@
 
 ## 改了什么
 
-- `software/common/s1_3d`：从旧STM32工作树HEAD `2e83d4b` 迁入8份原C/H，内容逐字节一致。包括三维解算、几何、编译选择、双轴数学映射；旧工作树及用户Keil修改保留。
-- `software/ps/ss_solver_3d_bridge.c/h`：独立平坦数组ctypes接口，解包相同六对字，几何预检、逐对诊断及独立az/el有效性。原2D桥接、公共冻结ABI和RTL未改。
-- `software/ps/solver_3d.py`、`build_solver_3d.sh`：显式几何配置、版本检查、范围校验、JSONL回放及Linux构建入口。没有MMIO、快照消费、清错或动作提交。Python输出servo_cmd_valid固定0。
-- `software/tests`：复用两份原C测试，新增直接语义输入oracle及迁移测试。新增库输出加入gitignore；未打包Windows二进制冒充ARM库。
+- `software/tetra3d/core`：从旧STM32工作树HEAD `2e83d4b` 迁入8份原C/H，内容逐字节一致。包括三维解算、几何、编译选择、双轴数学映射；旧工作树及用户Keil修改保留。
+- `software/tetra3d/linux/ss_solver_3d_bridge.c/h`：独立平坦数组ctypes接口，解包相同六对字，几何预检、逐对诊断及独立az/el有效性。原2D桥接、公共冻结ABI和RTL未改。
+- `software/tetra3d/linux/solver_3d.py`、`build_solver_3d.sh`：显式几何配置、版本检查、范围校验、JSONL回放及Linux构建入口。没有MMIO、快照消费、清错或动作提交。Python输出servo_cmd_valid固定0。
+- `software/tetra3d/tests`：复用两份原C测试，新增直接语义输入oracle及迁移测试。新增库输出加入gitignore；未打包Windows二进制冒充ARM库。
 
 本批保留原三维算法的double LS/atan2与RNE规则，无阈值更改。仅远场方向，不计算声源距离。几何默认40mm标称四面体，未标为实测。双轴C软件映射保留并编译，但Python方向接口及现有硬件动作合同未接通双轴。
 
@@ -40,10 +40,16 @@
 
 ## 重现与未测
 
-主机测试：`python software/tests/test_solver_3d_migration.py --cc gcc`。已有库/跨平台基准及回放命令见[交接入口](../../../software/common/s1_3d/PS-MIGRATION.md)。本机二维测试使用既有SS_GCC配置，命令为 `python software/tests/test_solver_migration.py`。
+主机测试：`python software/tetra3d/tests/test_solver_3d_migration.py --cc gcc`。已有库/跨平台基准及回放命令见[交接入口](../../../software/tetra3d/PS-MIGRATION.md)。本机二维测试使用既有SS_GCC配置，命令为 `python software/tests/test_solver_migration.py`。
 
 一次二维测试误加不支持的 `--cc` 参数，由argparse拒绝，按既有SS_GCC配置重跑通过，未改产品。一次检出因缺省网络无法获取部分克隆对象失败，经既有代理完成；代码状态核对无遗留。没有发现测试引起的算法失败。当前无可用WSL/Linux编译环境，未安装新环境或更改授权；Linux脚本只准备源和构建命令，目标编译/运行待PYNQ。
 
 尚缺：目标ARM .so与实际Python调用/耗时、A确认真实通道/lag符号/窗口、实物四面体坐标及同步录音与独立参考角、C三维结果接入、双轴设备接口和机械闭环。当前任务无需改动二维系统或等待实物即可完成算法源码交接，但不能标记三维整机完成。
 
 没有创建codex_out或新工程副本。编译可执行文件/测试DLL在TemporaryDirectory中用后清理；必要报告归本目录，既定software/build中保留本次测试JSON。无FPGA构建、下载、复位或硬件动作。
+
+## 按用户要求集中隔离目录
+
+后续确认要求不影响正在推进的二维。三维核心、Linux入口、测试全部集中在 `software/tetra3d/{core,linux,tests}`，文档入口同目录。二维 `software/common`、`software/ps`、`software/tests` 和 `tools` 相对基线76bcc15无差异；当前package_pynq.py不选择software/tetra3d，因此二维打包集合保持原样。公共类型及映射函数仅作为只读编译依赖。
+
+目录迁移后重新运行三维原回归2110/2378/92270，154组跨接口及原PC基准对照、17组非法输入、15组几何及4类CLI检查全部通过；二维原S1 4705/接口157/非法6通过。Linux脚本bash -n通过。PC-RESULT.json保留首次生产源集合验证基准；迁移后结果与其对照通过，隔离重跑结果在既定software/build/tetra3d-migration/ISOLATED-RESULT.json。未修改算法数值或实际二维入口。

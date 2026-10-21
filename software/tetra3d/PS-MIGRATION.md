@@ -1,5 +1,7 @@
 # B → C：三维算法的 ARM Linux 接口
 
+三维专用源码、入口和测试集中在 `software/tetra3d/`，现有二维发布包不自动包含它。
+
 二维主线保持原库 `libss_solver.so`、`Solver` 与原运行脚本。新增三维库 `libss_solver_3d.so`、`Solver3D`；**不能只替换二维库文件名就运行三维**。六对输入线格式可复用，结果新增Z、俯仰及独立有效位，C须显式接入这些字段。当前 `run_capture.py/run_smp.py` 仍走二维，未在本批改成三维。
 
 ## 1. 在目标 PYNQ 编译和离线验收
@@ -7,9 +9,9 @@
 从仓库根目录执行，Python≥3.8、GCC C99、libm。不依赖STM32、PYNQ导入或PL就绪，不触碰MMIO/复位/动作：
 
 ```sh
-sh software/ps/build_solver_3d.sh
-python3 software/tests/test_solver_3d_migration.py \
-  --library software/ps/libss_solver_3d.so \
+sh software/tetra3d/linux/build_solver_3d.sh
+python3 software/tetra3d/tests/test_solver_3d_migration.py \
+  --library software/tetra3d/linux/libss_solver_3d.so \
   --golden document/evidence/ps-tetra3d-migration-20261021/PC-RESULT.json \
   --output software/build/tetra3d-migration/ARM-RESULT.json
 ```
@@ -23,11 +25,11 @@ PC基准和目标结果逐对RNE整数、margin64、资格/原因/有效性必�
 ```python
 import sys
 from pathlib import Path
-sys.path.insert(0, 'software/ps')
+sys.path.insert(0, 'software/tetra3d/linux')
 from solver_3d import Solver3D, read_json
 
-geometry = read_json(Path('software/common/s1_3d/tetra40-nominal.json').read_text())
-solver = Solver3D('software/ps/libss_solver_3d.so', geometry)
+geometry = read_json(Path('software/tetra3d/core/tetra40-nominal.json').read_text())
+solver = Solver3D('software/tetra3d/linux/libss_solver_3d.so', geometry)
 # frame来自C已验证的单一所有者acquire，或离线快照JSONL。
 # frame = {'sequence': 非零uint32, 'status': LOCKED快照状态, 'words': 30个uint32}
 result = solver.solve(frame)
@@ -39,14 +41,14 @@ result = solver.solve(frame)
 
 输出含ux/uy/uz、norm、residual_rms_samples、normal_condition、azimuth/elevation的deg与q8、每对delta/tau/margin64/qualified/reason、几何版本与来源。`servo_cmd_valid`固定0。库不消费快照、不提交动作、不自动清错；由C继续负责记录成功后的消费、故障停止与所有权。现有二维应用使用不同的result字段，C需适配日志/显示和拒绝判断后才能接入。
 
-原生平坦数组API详见 `software/ps/ss_solver_3d_bridge.h`，版本0x00010000，仅为进程内ctypes协议，不改PL寄存器ABI。源结构体未直接作为Python布局；32位ARM/64位PC均使用明确的uint32/int32/int64/float类型。输出缓冲由调用者提供，必须满足头文件尺寸，不重叠。
+原生平坦数组API详见 `software/tetra3d/linux/ss_solver_3d_bridge.h`，版本0x00010000，仅为进程内ctypes协议，不改PL寄存器ABI。源结构体未直接作为Python布局；32位ARM/64位PC均使用明确的uint32/int32/int64/float类型。输出缓冲由调用者提供，必须满足头文件尺寸，不重叠。
 
 ## 3. 离线回放
 
 ```sh
-python3 software/ps/solver_3d.py \
-  --library software/ps/libss_solver_3d.so \
-  --geometry software/common/s1_3d/tetra40-nominal.json \
+python3 software/tetra3d/linux/solver_3d.py \
+  --library software/tetra3d/linux/libss_solver_3d.so \
+  --geometry software/tetra3d/core/tetra40-nominal.json \
   --input document/evidence/ps-tetra3d-migration-20261021/EXAMPLE-FRAMES.jsonl \
   --output software/build/tetra3d-migration/replay.jsonl
 ```
