@@ -7,6 +7,12 @@
 - `tests/`：三维专用测试。
 - [接合步骤](PS-MIGRATION.md)：给C的编译和验证入口。
 
+## C的双核PYNQ应用接合
+
+入口和串口步骤见[三维接合步骤](linux/三维接合步骤.txt)。CPU1唯一取帧并调用三维C库，CPU0保存完整结果。
+`linux/run_buffered_3d.py`复用主线RAM队列及音量ABI检查；`linux/run_smp_3d.py`保留逐帧耐久确认；`linux/replay_capture_3d.py`兼容原始帧与现有采集日志。
+三维方向为原始求解结果，不启用音量门限或动作。PC接合验证与ARM/实板状态见[本批证据](../../document/evidence/pynq-tetra3d-integration-20261021/REPORT.txt)。
+
 仅只读复用 `../common/s1` 的公共类型及角度映射函数；不复制或修改二维实现。当前二维 `software/ps`、`software/tests` 与 `tools/package_pynq.py` 保持基线版本。现有二维发布包不会自动包含本目录。
 
 # 算法说明

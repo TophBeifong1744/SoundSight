@@ -1,0 +1,60 @@
+{
+  "status": "PC_CHECKS_COMPLETED_AUTHOR_EVIDENCE_REQUIRES_NONAUTHOR_REVIEW",
+  "runtime": {
+    "unique_tests": 13,
+    "passed": 13,
+    "completion_log": "runtime-completion.log"
+  },
+  "buffered": {
+    "unique_tests": 7,
+    "passed": 7,
+    "raw_log": "buffered-3d.log"
+  },
+  "package": {
+    "unique_tests": 6,
+    "first_run_passed": 5,
+    "first_run_failed": 1,
+    "named_rerun_passed": 1,
+    "logs": [
+      "package-first-run.log",
+      "package-space-rerun.log"
+    ]
+  },
+  "failures": [
+    {
+      "classification": "TESTBENCH_FAIL",
+      "detail": "Initial runtime affinity mock and rejected-geometry DLL cleanup; fixed and all 13 rerun OK."
+    },
+    {
+      "classification": "TOOL_ENV_FAIL",
+      "detail": "Default sandbox GCC CreateProcess WinError623; zero RAM tests executed. Elevated retry 7 OK."
+    },
+    {
+      "classification": "TESTBENCH_FAIL",
+      "detail": "Package example is mask11 rejection reason1, not legacy BIST reason5; named rerun OK."
+    },
+    {
+      "classification": "SCRIPT_PATH_FAIL",
+      "detail": "Final package must include unchanged software/tests/test_buffered.py and test_smp.py for the new RAM test fixture; reported to product writer, final ZIP dependency rerun assigned to root."
+    }
+  ],
+  "limits": [
+    "Windows native C library only, including the PE file named .so from build_solver_3d.sh; not ARM ELF.",
+    "Real spawn/IPC and fake MMIO only; no real MMIO, serial hardware, affinity binding, tmpfs or board STOP result.",
+    "ARM/PYNQ/real PL/acoustic accuracy/continuous scheduling/mechanical/CDC/RDC/STA NOT_RUN.",
+    "Package negative/existing-destination/corrupt/missing/retry tests ran once; only corrected space-path test rerun.",
+    "No B full migration or main buffered/volume suite duplicated."
+  ],
+  "seeds": "deterministic analytic angles and injected fault modes; no random seed",
+  "sha256": {
+    "software/tetra3d/tests/test_runtime_3d.py": "ef8b441bc97360c22924ff4c95edec2afa827572109a1a46c4cf6253fe4befcb",
+    "software/tetra3d/tests/test_buffered_3d.py": "446836611b7d694acd4872d36ec54c34d23f0d373f34a4d03e2ffc423d8888cb",
+    "software/tetra3d/tests/test_package_3d.py": "ac0689547ff8be3adf92077a799297fccacf3326d86f4d69801803cf7fd32dd5",
+    "software/tetra3d/linux/runtime_3d.py": "e6da5fa812f5f903a281676cfe01e7fd3e4d7e9dc609fbef247837b4bf2a49c7",
+    "software/tetra3d/linux/run_smp_3d.py": "5373220133387b9e3710f4c1daa3fbdd5625c367915575d9d759cc81f4884ac7",
+    "software/tetra3d/linux/run_buffered_3d.py": "152f7edfe651f4fb63d8d39e1688dd8d1562c7296346b4e11def4e8d61f4e78e",
+    "software/tetra3d/linux/replay_capture_3d.py": "4d2d4bd066a6ab511996ec1afe7536385f031a2c2dd5d8b198a334c7651535ca",
+    "software/tetra3d/linux/package_serial_3d.py": "728d12addb716337c010f5271fef62219146ac3242c5662c931774984f97690d"
+  },
+  "hash_scope": "Historical test-writer checkpoint before final package dependency/report additions. Hashes record that local working copy (including original line endings), not the final Git candidate. See FINAL-PACKAGE.json for final artifact and package generator."
+}

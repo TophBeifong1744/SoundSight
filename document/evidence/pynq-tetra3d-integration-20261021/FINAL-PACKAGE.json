@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "scope": "Windows AMD64 PC only; no ARM/real hardware",
+  "python38_ast_files": 19,
+  "payload_files": 47,
+  "serial_steps": 77,
+  "max_command_bytes": 2114,
+  "tests": [
+    {
+      "name": "extracted_ram_tests",
+      "exit_code": 0
+    },
+    {
+      "name": "extracted_replay_package_test",
+      "exit_code": 0
+    }
+  ],
+  "zip_bytes": 226134,
+  "zip_sha256": "1e33549557dddc6bd8af9f758776d1f889f76f7c984c514e6be56e05799ca650",
+  "payload_bytes": 108235,
+  "post_test_changes": "REPORT.txt result wording only; rebuilt archive and checked every source byte. Runtime, tests and package generator unchanged.",
+  "source_package_consistency": "PASS",
+  "package_generator_sha256": "556c70813cc1982ea9862e3c80e212c08378aa084dc672832cc6633c9d06e2c6",
+  "metadata_review": "T3D-REV-003: RESULTS.json hashes explicitly labeled historical test-writer checkpoint; final package generator recorded here."
+}

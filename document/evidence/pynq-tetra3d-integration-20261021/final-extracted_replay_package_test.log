@@ -1,0 +1,8 @@
+test_space_path_extract_build_and_offline_entrypoints (__main__.PackageTests.test_space_path_extract_build_and_offline_entrypoints) ... C:\Users\hsc\AppData\Local\Temp\ss3-final package dipeubhc\extract with spaces\software\tetra3d\tests\test_package_3d.py:117: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  archive.extractall(destination)  # checked regular relative files; Python 3.8 compatible
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.068s
+
+OK

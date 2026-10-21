@@ -1,0 +1,16 @@
+test_buffered_cli_limits_startup_and_service_budgets (__main__.Buffered3DTests.test_buffered_cli_limits_startup_and_service_budgets) ... ok
+PYNQ双核已启动： {'profile': 'TETRA40_3D', 'geometry': {'schema': 1, 'revision': 1, 'provenance': 'NOMINAL', 'source_id': 'tetra40-nominal-v1', 'sample_rate_hz': 48000, 'sound_speed_m_s': 343, 'position_error_mm': -1, 'microphones': [{'channel': 0, 'xyz_mm': [23.094010767585033, 0, -8.16496580927726]}, {'channel': 1, 'xyz_mm': [-11.547005383792516, 20, -8.16496580927726]}, {'channel': 2, 'xyz_mm': [-11.547005383792516, -20, -8.16496580927726]}, {'channel': 3, 'xyz_mm': [0, 0, 24.49489742783178]}]}, 'motion': 'DISABLED', 'worker_pid': 29924}
+test_disk_failure_preserves_full_3d_ram_records_for_recovery (__main__.Buffered3DTests.test_disk_failure_preserves_full_3d_ram_records_for_recovery) ... ok
+PYNQ双核已启动： {'profile': 'TETRA40_3D', 'geometry': {'schema': 1, 'revision': 1, 'provenance': 'NOMINAL', 'source_id': 'tetra40-nominal-v1', 'sample_rate_hz': 48000, 'sound_speed_m_s': 343, 'position_error_mm': -1, 'microphones': [{'channel': 0, 'xyz_mm': [23.094010767585033, 0, -8.16496580927726]}, {'channel': 1, 'xyz_mm': [-11.547005383792516, 20, -8.16496580927726]}, {'channel': 2, 'xyz_mm': [-11.547005383792516, -20, -8.16496580927726]}, {'channel': 3, 'xyz_mm': [0, 0, 24.49489742783178]}]}, 'motion': 'DISABLED', 'worker_pid': 48468}
+test_failed_start_does_not_drain_old_slots (__main__.Buffered3DTests.test_failed_start_does_not_drain_old_slots) ... ok
+PYNQ双核已启动： {'profile': 'TETRA40_3D', 'geometry': {'schema': 1, 'revision': 1, 'provenance': 'NOMINAL', 'source_id': 'tetra40-nominal-v1', 'sample_rate_hz': 48000, 'sound_speed_m_s': 343, 'position_error_mm': -1, 'microphones': [{'channel': 0, 'xyz_mm': [23.094010767585033, 0, -8.16496580927726]}, {'channel': 1, 'xyz_mm': [-11.547005383792516, 20, -8.16496580927726]}, {'channel': 2, 'xyz_mm': [-11.547005383792516, -20, -8.16496580927726]}, {'channel': 3, 'xyz_mm': [0, 0, 24.49489742783178]}]}, 'motion': 'DISABLED', 'worker_pid': 53100}
+test_high_water_stops_and_drains_two_complete_3d_tail_frames (__main__.Buffered3DTests.test_high_water_stops_and_drains_two_complete_3d_tail_frames) ... ok
+test_measure_level_bad_identity_never_writes_controls (__main__.Buffered3DTests.test_measure_level_bad_identity_never_writes_controls) ... ok
+test_ram_order_checker_negative_canary (__main__.Buffered3DTests.test_ram_order_checker_negative_canary) ... ok
+PYNQ双核已启动： {'profile': 'TETRA40_3D', 'geometry': {'schema': 1, 'revision': 1, 'provenance': 'NOMINAL', 'source_id': 'tetra40-nominal-v1', 'sample_rate_hz': 48000, 'sound_speed_m_s': 343, 'position_error_mm': -1, 'microphones': [{'channel': 0, 'xyz_mm': [23.094010767585033, 0, -8.16496580927726]}, {'channel': 1, 'xyz_mm': [-11.547005383792516, 20, -8.16496580927726]}, {'channel': 2, 'xyz_mm': [-11.547005383792516, -20, -8.16496580927726]}, {'channel': 3, 'xyz_mm': [0, 0, 24.49489742783178]}]}, 'motion': 'DISABLED', 'worker_pid': 42676}
+test_real_c_ram_acceptance_and_volume_remains_raw (__main__.Buffered3DTests.test_real_c_ram_acceptance_and_volume_remains_raw) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 3.108s
+
+OK

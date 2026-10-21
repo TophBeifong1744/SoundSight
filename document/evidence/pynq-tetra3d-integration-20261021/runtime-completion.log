@@ -1,0 +1,7 @@
+Command: D:/Python/python.exe -E -s -B -X utf8 software/tetra3d/tests/test_runtime_3d.py
+Environment: SS_GCC supplied by caller; Windows AMD64, GCC 8.3.0
+Raw completion excerpt (tool chunk 31f0f5):
+----------------------------------------------------------------------
+Ran 13 tests in 4.792s
+
+OK

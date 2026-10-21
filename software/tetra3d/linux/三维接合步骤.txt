@@ -1,0 +1,110 @@
+SoundSight：独立三维无动作接合（2026-10-21）
+
+一、这次接通什么
+同一Linux/PYNQ两个核：CPU1唯一取帧并调用B的Solver3D/C库，CPU0落盘和显示。
+现成主线RAM管线已接入：run_buffered_3d.py完整记录入RAM后释放硬件槽，后台写SD。
+RAM策略与主线相同：断电可能丢失未落盘记录；SD出错不删除待写RAM文件，保留恢复入口。
+新增三维方向日志、现有日志回放及独立串口包；原二维入口、算法和包继续按原用途使用。
+本入口没有动作参数，直接arm/command也拒绝。当前只输出方向，不估距离。
+核心来自PR #20准确候选592bea7；PC验证、ARM运行和真实声学/机械效果分别记录。
+
+二、电脑端拿包与串口传输
+固定包：release/output/soundsight-tetra3d-serial.zip。
+从源码在仓库根重建：python software/tetra3d/linux/package_serial_3d.py
+解压外层ZIP得到三维接合步骤.txt、copy_serial_step.ps1、serial_commands.txt、payload.tar.gz和清单。
+包中包含三维核心/Linux应用/测试、PC基准和只读共用的PS取帧/STOP/RAM/音量及S1类型/映射依赖。
+不包含实际bit/HWH、ARM.so、PC DLL、CPU1裸机ELF。编译发生在目标ARM Linux。
+
+继续用此前可登录Linux的SSCOM串口，115200/8N1，COM号以本机为准，关闭HEX发送。
+确保在Linux $或#提示符，不能在Python >>>或U-Boot里发这些命令。
+在电脑解压目录的PowerShell运行：
+powershell -NoProfile -ExecutionPolicy Bypass -File .\copy_serial_step.ps1
+显示总步数；接着逐条复制：
+powershell -NoProfile -ExecutionPolicy Bypass -File .\copy_serial_step.ps1 -Step 1
+看到COPIED=YES后粘贴SSCOM普通发送框，发送一次并带回车/LF，等提示符返回再发下一步。
+一直做到总步数，不能整份命令一次高速发送；每条小于3800 ASCII字节。
+块可重复发送且不重复追加；出现未闭合引号的>时先Ctrl+C回shell，再重发该块。
+最后应依次看到PAYLOAD_3D_OK和UNPACK_3D_OK。任一失败先处理，不继续。
+默认暂存$HOME/soundsight-tetra3d-inbox，目标$HOME/soundsight-tetra3d。
+若目标已存在，会拒绝覆盖；把ss3_dest改成新的Linux目录后重发最后解包步骤，保留旧结果。
+重新登录需先重发设置ss3_stage、ss3_dest的头两步。SSCOM“打开文件”不等于板上收到文件。
+
+三、板上先做离线编译/数值对照，不要求PL就绪
+cd "$ss3_dest"
+mkdir -p results
+uname -m
+getconf LONG_BIT
+gcc --version
+cat /sys/devices/system/cpu/online
+cat /proc/cmdline
+ss_py=/usr/local/share/pynq-venv/bin/python3
+test -x "$ss_py" && "$ss_py" --version
+这是此前能用的PYNQ解释器路径；若本机不同，先指定实际Python>=3.8，不盲目换解释器。
+sh software/tetra3d/linux/build_solver_3d.sh
+"$ss_py" software/tetra3d/tests/test_solver_3d_migration.py --library software/tetra3d/linux/libss_solver_3d.so --golden document/evidence/ps-tetra3d-migration-20261021/PC-RESULT.json --output results/ARM-RESULT.json
+预期：原回归2110/2378/92270项，以及MIGRATION_3D_PASS equivalence=154 bridge_negative=17 geometry=15 motion=DISABLED。
+回传ARM-RESULT.json和完整环境/编译/测试输出。该步只检算法，不操作MMIO或动作；不要加-ffast-math。
+若只有一个Linux核/maxcpus=1，离线算法仍可测；双核采集前由A处理启动配置，不加载CPU1裸机ELF。
+
+四、先用合成输入验证新回放/显示
+"$ss_py" software/tetra3d/linux/replay_capture_3d.py --geometry software/tetra3d/core/tetra40-nominal.json --input document/evidence/ps-tetra3d-migration-20261021/EXAMPLE-FRAMES.jsonl --output results/synthetic-3d.jsonl
+默认加载同目录libss_solver_3d.so。预期处理6帧，显示方位/俯仰、极点方位UNOBSERVABLE及有效对不足拒绝reason=1。
+这是合成数据，不是声学实测。原始frame、三维字段、完整几何和调用耗时都保存。
+输出文件须尚不存在；失败保留已有内容，不自动覆盖。
+回放已保存的二维采集日志时只改--input；自动取完整frame并跳过startup/finished/动作记录。
+回放始终按本次--geometry重算，geometry_binding=EXPLICIT_RECOMPUTE；不会核验旧日志的几何来源。
+原始阵列必须与显式geometry一致；不能把平面实录配成四面体标称坐标就声称得到真实俯仰。
+API/输入错误先记录再停止；正常算法拒绝只记录原因，不作为进程错误，也不复用旧角度。
+
+五、真实三维无动作采集前与A核对
+四个声孔非共面、通道顺序01/02/03/12/13/23、lag符号、48kHz、峰值搜索范围/邻点。
+tetra40-nominal.json是40mm边长的标称正四面体，+X前/+Y左/+Z上，mic3在顶部，未声称实测。
+实物坐标/误差到齐后，用新JSON显式记录来源、revision和四个channel的xyz_mm。
+MEASURED仅是调用者的来源声明，不是程序已经证明量过；日志每帧保存完整配置。
+实际阵列未完成时先停在离线回放，不用软件替代实物几何验证。
+
+A现场先在既有完整二维安装目录做传输/BIST检查并退出，再cd回"$ss3_dest"运行本包。
+本包没有二维libss_solver.so及其编译材料，不能直接在新三维目录调用二维BIST入口。
+A准备当前PL+PS bit/HWH及必要复位/实现证据。
+二维BIST是传输检查，在三维会返回reason=5旧BIST拒绝；不能把它当三维通过向量。
+本包不加载或复位PL，HWH从A同次生成的配套产物取得，放hardware/current.hwh或用实际路径。
+先确认双核affinity与PYNQ：
+sudo /usr/bin/env XILINX_XRT=/usr "$ss_py" -c 'import os,pynq; print(pynq.__version__,sorted(os.sched_getaffinity(0))); assert {0,1} <= os.sched_getaffinity(0)'
+
+六、显式启用三维真实采集（仍不动作）
+当前音量bit的ABI为0x10001，显式加--measure-level；旧ABI0x10000则去掉此参数。
+不匹配的ABI/缺少音量能力位会在控制写入前拒绝，不为通过而忽略身份检查。
+sudo /usr/bin/env XILINX_XRT=/usr "$ss_py" software/tetra3d/linux/run_buffered_3d.py --hwh hardware/current.hwh --geometry 实际几何.json --output results/live-3d.jsonl --mode real --frames 10 --measure-level
+如采用标称几何做开发检查，--geometry可指tetra40-nominal.json，结果始终标NOMINAL，不写成校准精度。
+启动日志含两进程PID/affinity、三维profile及完整几何；进程/库启动等20秒，服务等待仍250ms。
+RAM入口完整记录入有界队列后queued确认，CPU1才消费；不能称为逐帧已耐久落盘。
+CPU0后台完成write/flush/fsync才删对应RAM文件；退出DURABLE_FRAMES和结束记录核查最终保存。
+高水位停止新增并保留双槽排尾空间；无法落盘时不要断电，先用software/ps/recover_ram.py --help查看恢复。
+默认不逐帧显示；JSONL保存完整结果，可用离线回放入口查看。终端显示不阻塞RAM写盘线程。
+每帧包含30原字、三维全部结果/六对诊断/64位margin、几何、fault/drops及取数/求解时间。
+--measure-level仅附真实音量计数，不启用音量门限；方向为RAW_SOLVER，direction_output.valid固定false。
+方位与俯仰分别看valid；声源正上/下方时方位不可观测，显示UNOBSERVABLE而不是有效0度。
+默认与二维程序共用/tmp/soundsight-ps-owner.lock，不同时运行其它快照/MMIO所有者。
+run_smp_3d.py保留逐帧write/flush/fsync后saved确认入口，可显示原始方向或加--quiet。
+它仍复用旧5秒启动等待，且SD逐帧fsync在既有二维板测曾溢出；不要用它代替推荐RAM入口做连续采集。
+PC自测不证明板上持续吞吐；真实服务耗时须由同候选板测日志判断。
+
+若仅有已核实的正常STOP历史位且旧槽已处理，后续新会话显式加--clear-faults 0x40。
+其它故障先查原因，不用0xfff清光；不靠扩大250ms等待上界凑通过。
+输出每次选新文件；不能跨PL冷复位只凭帧号去重。记录保存后未消费的帧恢复中可能重复。
+
+七、STOP/异常恢复
+Ctrl+C要求STOP；不要把关闭SSCOM等同程序退出。C库/驱动失联时会报告STOP未确认，由A核现场。
+保持原位流/时钟/缓存，显式排空（不启动、不清错、不动作）：
+sudo /usr/bin/env XILINX_XRT=/usr "$ss_py" software/tetra3d/linux/run_buffered_3d.py --hwh hardware/current.hwh --geometry 实际几何.json --output results/recovery-3d.jsonl --drain-existing --measure-level
+RAM未成功接收、ACK错误/断连/超时、桥接错误或设备故障请求STOP并保留失败帧；已入RAM的失败记录依队列留存。
+磁盘满则STOP并保留待写RAM记录；故障记录排尾仍保存，不重放旧动作。
+RAM入口finished/failed的max_service_ns是已消费帧从取帧到入RAM确认及消费的观测最大值，不含后台SD落盘。
+逐帧耐久入口的同名统计包含saved落盘确认及消费。两者都不是最坏实时保证，不可混用。
+
+八、当前交付与后续
+回传环境/ARM-RESULT.json、synthetic-3d.jsonl、live-3d.jsonl及有则recovery-3d.jsonl和终端原文。
+CPU1仍只执行一份C求解，CPU0只保存/显示；算法没有复制成第二套Python数学实现。
+Python三维方向API的servo_cmd_valid固定0；现有设备ABI只支持水平轴。
+双轴软件映射已在B的C库中，双轴设备提交要等A/B接口与机构标定再接合，本入口拒绝动作。
+没有目标板记录时，ARM、双核实绑定、真实PL、声学精度、STOP现场效果和机械均NOT_RUN。
