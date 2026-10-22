@@ -1,3 +1,8 @@
+# Python 数值模型
+
+- [STM32 主方案四麦水平角数学移植](stm32-angle-math.md)：六对已解码特征到整数 Q8 方位角，不包含 SPI、帧协议或舵机命令。
+- 下文的六麦浮点声学审查是独立研究，不是 STM32 S1 的替代实现。
+
 # Six-microphone floating acoustic baseline
 
 `six_mic_acoustic_review.py` implements the user-authorized six-microphone-only software pre-review. It does not run four-microphone comparisons, modify the existing MATLAB baseline, or implement FPGA/PS logic.
