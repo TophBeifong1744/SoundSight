@@ -182,20 +182,49 @@ def main():
             else: assert not actual['direction_valid'], case['name']
             records.append(dict(name=case['name'], frame=frame, result=actual))
 
+        # Bit18 describes a PS hardware capability, not a solver input or an
+        # actuator permission. It must leave every success/rejection unchanged.
+        # Use the literal wire bit independently of the bridge's private mask.
+        ps_capability_cases = 0
+        for record in records:
+            ps_frame = copy.deepcopy(record['frame'])
+            ps_frame['status'] |= 0x00040000
+            result = solver.solve(ps_frame)
+            assert result == record['result'], ('ps_manual_capability', record['name'], result)
+            ps_capability_cases += 1
+
+        # This status combination was captured from the current PS hardware.
+        # Features remain synthetic: the case tests transport, not board angles.
+        frame = wire(synthetic(45, 30))
+        ps_frame = copy.deepcopy(frame)
+        ps_frame['status'] = 0x000f7f31
+        assert solver.solve(ps_frame) == solver.solve(frame), 'current PS status combination'
+        ps_capability_cases += 1
+
         # Direct C entry rejects malformed transport and clears stale success.
         frame = wire(synthetic(45, 30))
         negatives = 0
-        for kind, code in [('zero_seq', -1), ('reserved_status', -2), ('unlocked', -3),
-                           ('pair_echo', -4), ('reserved_feature', -4)]:
-            f = copy.deepcopy(frame)
-            if kind == 'zero_seq': f['sequence'] = 0
-            elif kind == 'reserved_status': f['status'] |= 0x40
-            elif kind == 'unlocked': f['status'] &= ~1
-            elif kind == 'pair_echo': f['words'][5] &= ~0x700
-            elif kind == 'reserved_feature': f['words'][0] |= 0x800000
-            result = solver.solve(f)
-            assert result['bridge_status'] == code and not result['direction_valid'], (kind, result)
-            negatives += 1
+        # All remaining reserved STATUS bits, plus lock and word-format checks,
+        # must reject with the capability absent AND present. First solve a good
+        # frame so rejection cannot pass by returning stale successful output.
+        bad_status = {'reserved_status_6': 1 << 6, 'reserved_status_21': 1 << 21,
+                      'reserved_status_22': 1 << 22, 'reserved_status_23': 1 << 23}
+        checks = [('zero_seq', -1), ('unlocked', -3), ('pair_echo', -4),
+                  ('reserved_feature', -4)] + [(name, -2) for name in bad_status]
+        for capability in (0, 0x00040000):
+            for kind, code in checks:
+                f = copy.deepcopy(frame)
+                f['status'] |= capability
+                assert solver.solve(f)['direction_valid'] == 1
+                if kind == 'zero_seq': f['sequence'] = 0
+                elif kind in bad_status: f['status'] |= bad_status[kind]
+                elif kind == 'unlocked': f['status'] &= ~1
+                elif kind == 'pair_echo': f['words'][5] &= ~0x700
+                elif kind == 'reserved_feature': f['words'][0] |= 0x800000
+                result = solver.solve(f)
+                assert result['bridge_status'] == code and not result['direction_valid'], (kind, capability, result)
+                assert not result['servo_cmd_valid']
+                negatives += 1
         # The wrapper must not silently wrap Python ints to uint32.
         for value in (-1, 2**32, True, 1.5):
             for field in ('word', 'sequence', 'status'):
@@ -286,6 +315,7 @@ def main():
         report = dict(schema=1, platform=platform.platform(), machine=platform.machine(),
                       python=platform.python_version(), compiler=run([cc, '--version']).splitlines()[0],
                       geometry=geometry, cases=records, bridge_negatives=negatives,
+                      ps_capability_cases=ps_capability_cases,
                       geometry_cases=geometry_cases, motion='DISABLED',
                       replay_checks=4,
                       timing_scope='Python+ctypes+C geometry validation+solve; not acquisition or deadline proof',
@@ -294,6 +324,7 @@ def main():
         args.output.write_text(json.dumps(report, indent=2, allow_nan=False)+'\n', encoding='utf-8')
         print('MIGRATION_3D_PASS equivalence=%d bridge_negative=%d geometry=%d motion=DISABLED' % (
             len(records), negatives, geometry_cases))
+        print('PS_CAPABILITY_PASS equivalence=%d reserved_bits_checked=6,21,22,23' % ps_capability_cases)
         print('HOST_CALL_NS', report['call_ns'], platform.machine())
 
 

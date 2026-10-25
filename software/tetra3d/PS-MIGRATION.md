@@ -2,6 +2,8 @@
 
 三维专用源码、入口和测试集中在 `software/tetra3d/`，现有二维发布包不自动包含它。
 
+实施顺序以[当前接合方案](../../document/tetra3d-integration-plan.md)为准：先完成声纹识别，之后再安排三维接合。下文编译/板端接续步骤是后续参考，本次不执行，不改变当前Vivado工程或板端程序。
+
 2026-10-25 新增独立[三维 DAS 定向拾音](das/README.md)：几何延时、Solver3D 结果接合、连续 PCM 分块及离线 WAV 导出，16 个 PC 测试通过。需要连续四路 PCM；本页六对定位特征不能直接用作音频输入。尚未接入 PYNQ 在线应用或完成 ARM/实物声学验证。
 
 二维主线保持原库 `libss_solver.so`、`Solver` 与原运行脚本。新增三维库 `libss_solver_3d.so`、`Solver3D`；**不能只替换二维库文件名就运行三维**。六对输入线格式可复用，结果新增Z、俯仰及独立有效位，C须显式接入这些字段。当前 `run_capture.py/run_smp.py` 仍走二维，未在本批改成三维。
@@ -18,7 +20,9 @@ python3 software/tetra3d/tests/test_solver_3d_migration.py \
   --output software/build/tetra3d-migration/ARM-RESULT.json
 ```
 
-测试返回原二维选择2110项、三维选择2378项、双轴软件映射92270项通过，以及 `MIGRATION_3D_PASS equivalence=154 bridge_negative=17 geometry=15 motion=DISABLED`。不要加 `-ffast-math`；使用本机GCC即可，不需要AC5授权。Windows生成的DLL不能复制成ARM .so。
+测试返回原二维选择2110项、三维选择2378项、双轴软件映射92270项通过，以及 `MIGRATION_3D_PASS equivalence=154 bridge_negative=28 geometry=15 motion=DISABLED` 和 `PS_CAPABILITY_PASS equivalence=155 reserved_bits_checked=6,21,22,23`。不要加 `-ffast-math`；使用本机GCC即可，不需要AC5授权。Windows生成的DLL不能复制成ARM .so。
+
+2026-10-25本地修复：PS专用C桥接受STATUS bit18（`0x00040000`）所表示的手动接口能力。这不是动作许可，不进入算法帧标志；冻结STM32/SPI头不变。其余保留位、LOCKED、配对次序与数值检查继续生效。新增测试用同一帧对比能力位有无，覆盖成功、算法拒绝、取消及旧BIST；另覆盖实际PS状态位组合`0xf7f31`。本机测试已通过，但尚未执行本次ARM/实板组合。详见[本地修复记录](../../document/evidence/tetra3d-review-20261025/local-fix/README.md)。
 
 PC基准和目标结果逐对RNE整数、margin64、资格/原因/有效性必须一致；浮点容差为abs 1e-5或rel 2e-6，Q8角允许1 LSB。它验证数值可移植性，不是声学误差标准。结果含平台、编译器、输入、输出、原生测试日志、200次调用耗时；耗时包括Python/ctypes/几何预检/求解，非采集端到端延时，不是Linux最坏调度保证。请回传ARM-RESULT.json以及 `uname -m`、`getconf LONG_BIT` 和Python版本。
 

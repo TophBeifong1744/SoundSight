@@ -2,12 +2,20 @@
 
 本目录只在明确选择三维时使用，默认不接入二维采集、构建或发布包。
 
+2026-10-25本地接收B的`codex/tetra3d-das`固定提交
+`3347989eb03488a33c88c241c75eed517d3a30f0`，并修正三维PS桥对手动能力位
+bit18的兼容。公共冻结头、S1、三维数值算法和DAS算法不变。
+当前主线仍是尚未完成的声纹识别；本目录没有接入当前板端程序或SD包。
+用户已确定声纹识别跑通后再接三维，见[暂缓实施的接合方案](../../document/tetra3d-integration-plan.md)。当前Vivado工程和板端程序保持现状。
+本地修复及真实复测见[验证记录](../../document/evidence/tetra3d-review-20261025/local-fix/README.md)。
+
 - `core/`：三维算法、几何配置及双轴软件映射。
 - `linux/`：独立共享库构建、Python调用与离线回放。
+- `das/`：四路PCM的定向叠加参考实现与测试，尚未验证ARM实时吞吐。
 - `tests/`：三维专用测试。
 - [接合步骤](PS-MIGRATION.md)：给C的编译和验证入口。
 
-仅只读复用 `../common/s1` 的公共类型及角度映射函数；不复制或修改二维实现。当前二维 `software/ps`、`software/tests` 与 `tools/package_pynq.py` 保持基线版本。现有二维发布包不会自动包含本目录。
+仅只读复用 `../common/s1` 的公共类型及角度映射函数；不复制或修改二维实现。本次接收和修复没有修改 `software/ps`、`software/tests` 与 `tools/package_pynq.py`，其现有未提交工作保留。现有二维发布包不会自动包含本目录。
 
 # 算法说明
 

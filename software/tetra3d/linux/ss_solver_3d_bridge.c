@@ -1,6 +1,12 @@
 #include "ss_solver_3d_bridge.h"
 #include "doa_geometry.h"
 #include <string.h>
+/* PS-only capability advertised by ss_ps_control_regs. This says the manual
+ * interface exists; it neither grants motion nor contributes to frame flags.
+ * Keep the frozen STM32/SPI status mask unchanged and reject other reserved bits.
+ */
+#define SS3D_PS_MANUAL_CAPABILITY UINT32_C(0x00040000)
+#define SS3D_PS_STATUS_DEFINED_MASK (SNAP_STATUS_DEFINED_MASK | SS3D_PS_MANUAL_CAPABILITY)
 uint32_t ss3d_bridge_version(void) { return SS3D_BRIDGE_VERSION; }
 int ss3d_solve_words(uint32_t sequence,uint32_t status,
     const uint32_t words[30],const float geo[15],const uint32_t meta[7],
@@ -19,7 +25,7 @@ int ss3d_solve_words(uint32_t sequence,uint32_t status,
     if(pairs) memset(pairs,0,SS3D_PAIR_VALUE_COUNT*sizeof *pairs);
     if(!info || !values || !pairs || !words || !geo || !meta || !source || !sequence) return -1;
     info[11]=255;info[13]=255;
-    if(status & ~SNAP_STATUS_DEFINED_MASK) return -2;
+    if(status & ~SS3D_PS_STATUS_DEFINED_MASK) return -2;
     if(!(status & SNAP_STATUS_LOCKED)) return -3;
     memset(&frame,0,sizeof frame);
     frame.frame_id=sequence;frame.flags=SNAP_STATUS_GET_FRAME_FLAGS(status);
