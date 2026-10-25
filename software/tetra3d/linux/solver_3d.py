@@ -10,12 +10,49 @@ import json
 import math
 from pathlib import Path
 import time
+import threading
+import weakref
 
 INFO = ('api_status direction_valid reason azimuth_valid elevation_valid '
         'azimuth_q8 elevation_q8 valid_pairs valid_pair_mask coordinates_measured '
         'first_error bad_pair geometry_status geometry_bad_pair').split()
 VALUES = 'ux uy uz norm residual_rms_samples normal_condition azimuth_deg elevation_deg'.split()
 PAIR = 'delta_q12 tau_q12 margin_q15 qualified reason'.split()
+
+
+# Additive local configuration; never changes the frozen hardware ABI.
+OPTION_DEFAULTS = dict(schema=1, quality_weighting=False, quality_weight_floor=0.25,
+                       channel_delay_samples=[0.0]*4, max_normal_condition=100.0,
+                       max_residual_rms_samples=0.5, norm_min=0.85, norm_max=1.15,
+                       tau_slack_samples=0.125, min_pairs=4)
+OPTION_FLOATS = ('max_normal_condition', 'max_residual_rms_samples', 'norm_min',
+                 'norm_max', 'tau_slack_samples', 'quality_weight_floor')
+
+
+def _options(options):
+    result = copy.deepcopy(OPTION_DEFAULTS)
+    if options is not None:
+        if not isinstance(options, dict) or set(options)-set(result):
+            raise ValueError('unknown solver option or non-dictionary options')
+        result.update(copy.deepcopy(options))
+    if type(result['schema']) is not int or result['schema'] != 1:
+        raise ValueError('solver options schema must be 1')
+    if type(result['quality_weighting']) is not bool:
+        raise ValueError('quality_weighting must be bool')
+    if type(result['min_pairs']) is not int or not 4 <= result['min_pairs'] <= 6:
+        raise ValueError('min_pairs must be 4..6')
+    limits = [(1, 10000), (0, 2), (0.01, 1), (1, 2), (0, 0.5), (0.05, 1)]
+    for name, (low, high) in zip(OPTION_FLOATS, limits):
+        v = _number(result[name])
+        if not low <= v <= high:
+            raise ValueError(name + ' out of range')
+    delays = result['channel_delay_samples']
+    if not isinstance(delays, (list, tuple)) or len(delays) != 4:
+        raise ValueError('channel_delay_samples must contain four wire-channel values')
+    if any(not -1 <= _number(v) <= 1 for v in delays):
+        raise ValueError('channel delay calibration must be within +/-1 sample')
+    result['channel_delay_samples'] = list(delays)
+    return result
 
 
 def _uint(value, name):
@@ -44,7 +81,12 @@ def read_json(text):
 
 
 class Solver3D:
-    def __init__(self, library, geometry):
+    def __init__(self, library, geometry, options=None):
+        self._lock = threading.RLock()
+        self._closed = False
+        self._context = None
+        self._finalizer = None
+        self._options = _options(options)
         if set(geometry) != {'schema', 'revision', 'provenance', 'source_id',
                              'sample_rate_hz', 'sound_speed_m_s',
                              'position_error_mm', 'microphones'}:
@@ -80,13 +122,72 @@ class Solver3D:
                               C.POINTER(C.c_float), C.POINTER(C.c_uint32),
                               C.POINTER(C.c_char), C.POINTER(C.c_int32),
                               C.POINTER(C.c_float), C.POINTER(C.c_int64)]
-        # Validate geometry through the production C validator, no fake result
-        # is published. This all-zero feature frame is only a preflight call.
-        check = self.solve(dict(sequence=1, status=0x11,
-                                words=[v for i in range(6) for v in (i << 8, 0, 0, 0, 0)]))
-        if check['bridge_status'] < 0:
-            raise ValueError('geometry rejected: status=%d pair=%d' % (
-                check['geometry_status'], check['geometry_bad_pair']))
+        if hasattr(self.lib, 'ss3d_context_create'):
+            create = self.lib.ss3d_context_create
+            create.restype = C.c_int
+            create.argtypes = [C.POINTER(C.c_float), C.POINTER(C.c_uint32),
+                               C.POINTER(C.c_char), C.POINTER(C.c_uint32),
+                               C.POINTER(C.c_float), C.POINTER(C.c_int32),
+                               C.POINTER(C.c_void_p)]
+            self._context_call = self.lib.ss3d_context_solve
+            self._context_call.restype = C.c_int
+            self._context_call.argtypes = [C.c_void_p, C.c_uint32, C.c_uint32,
+                                          C.POINTER(C.c_uint32), C.POINTER(C.c_int32),
+                                          C.POINTER(C.c_float), C.POINTER(C.c_int64)]
+            self._destroy = self.lib.ss3d_context_destroy
+            self._destroy.restype = None
+            self._destroy.argtypes = [C.c_void_p]
+            option_meta = (C.c_uint32*3)(1, int(self._options['quality_weighting']),
+                                       self._options['min_pairs'])
+            option_values = (C.c_float*10)(*[self._options[n] for n in OPTION_FLOATS],
+                                           *self._options['channel_delay_samples'])
+            info, handle = (C.c_int32*14)(), C.c_void_p()
+            rc = create(self._geo, self._meta, self._source, option_meta,
+                        option_values, info, C.byref(handle))
+            if rc:
+                self._closed = True
+                raise ValueError('solver context rejected: bridge=%d geometry=%d pair=%d' %
+                                 (rc, info[12], info[13]))
+            self._context = handle
+            # The ctypes function keeps its library alive. Capture neither self
+            # nor a bound method: old construct/use/drop callers must release
+            # the C context on GC without forming a finalizer reference cycle.
+            self._finalizer = weakref.finalize(self, self._destroy, handle)
+        else:
+            # An old shared library remains usable with the old default API.
+            # Options require the additive context API; never silently ignore them.
+            if options is not None:
+                raise ValueError('solver options require a library with context API')
+            check = self.solve(dict(sequence=1, status=0x11,
+                                    words=[v for i in range(6) for v in (i << 8, 0, 0, 0, 0)]))
+            if check['bridge_status'] < 0:
+                raise ValueError('geometry rejected: status=%d pair=%d' % (
+                    check['geometry_status'], check['geometry_bad_pair']))
+
+    def close(self):
+        """Release this instance before unloading its library. Idempotent.
+
+        A with block/explicit close releases promptly; GC is the compatibility
+        fallback for old callers. Call close BEFORE any manual FreeLibrary.
+        """
+        with self._lock:
+            if self._finalizer is not None:
+                self._finalizer()
+            self._context = None
+            self._closed = True
+
+    def __enter__(self):
+        if self._closed:
+            raise RuntimeError('solver is closed')
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.close()
+
+    @property
+    def options(self):
+        """Copy of effective local options; record alongside result/geometry."""
+        return copy.deepcopy(self._options)
 
     @property
     def geometry(self):
@@ -99,8 +200,14 @@ class Solver3D:
             raise ValueError('six complete pairs (30 uint32 words) required')
         words = (C.c_uint32 * 30)(*[_uint(w, 'word') for w in frame['words']])
         info, values, pairs = (C.c_int32 * 14)(), (C.c_float * 8)(), (C.c_int64 * 30)()
-        rc = self.call(sequence, status, words, self._geo, self._meta, self._source,
-                       info, values, pairs)
+        with self._lock:
+            if self._closed:
+                raise RuntimeError('solver is closed')
+            if self._context is not None:
+                rc = self._context_call(self._context, sequence, status, words, info, values, pairs)
+            else:
+                rc = self.call(sequence, status, words, self._geo, self._meta, self._source,
+                               info, values, pairs)
         result = dict(zip(INFO, info))
         result.update(zip(VALUES, values))
         result.update(bridge_status=rc, sequence=sequence, profile='TETRA40_3D',
@@ -115,19 +222,23 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--library', required=True)
     ap.add_argument('--geometry', required=True)
+    ap.add_argument('--options', help='optional schema-1 solver options JSON')
     ap.add_argument('--input', required=True, help='JSONL: one locked frame dictionary per line')
     ap.add_argument('--output', required=True, help='new JSONL file, will not overwrite')
     args = ap.parse_args()
-    solver = Solver3D(args.library, read_json(Path(args.geometry).read_text(encoding='utf-8')))
+    options = read_json(Path(args.options).read_text(encoding='utf-8')) if args.options else None
+    solver = Solver3D(args.library, read_json(Path(args.geometry).read_text(encoding='utf-8')), options)
     count = 0
-    with open(args.input, encoding='utf-8') as source, open(args.output, 'x', encoding='utf-8') as sink:
+    with solver, open(args.input, encoding='utf-8') as source, open(args.output, 'x', encoding='utf-8') as sink:
         for line in source:
             frame = read_json(line)
             start = time.perf_counter_ns()
             result = solver.solve(frame)
             elapsed = time.perf_counter_ns() - start
-            sink.write(json.dumps(dict(frame=frame, result=result, geometry=solver.geometry,
-                                       call_ns=elapsed), allow_nan=False) + '\n')
+            record = dict(frame=frame, result=result, geometry=solver.geometry, call_ns=elapsed)
+            if args.options:
+                record['solver_options'] = solver.options
+            sink.write(json.dumps(record, allow_nan=False) + '\n')
             count += 1
             if result['bridge_status']:
                 raise RuntimeError('invalid input/API result saved; stopped at frame %d' % count)

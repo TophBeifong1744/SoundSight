@@ -12,9 +12,9 @@ import wave
 import numpy as np
 
 if __package__:
-    from .dynamic_das import DynamicDAS, Q, integer
+    from .dynamic_das import DynamicDAS, Q, integer, checked_pcm
 else:
-    from dynamic_das import DynamicDAS, Q, integer
+    from dynamic_das import DynamicDAS, Q, integer, checked_pcm
 
 
 def finite_vector(value):
@@ -64,7 +64,7 @@ class Geometry:
             raise ValueError('geometry/rate exceeds DAS +/-8 sample capacity')
         self.source_id, self.revision = config['source_id'], config['revision']
 
-    def delays(self, direction):
+    def _delays_samples(self, direction):
         v = finite_vector(direction)
         # Scale first, avoiding overflow from an otherwise finite fitted vector.
         scale = float(np.max(np.abs(v)))
@@ -72,8 +72,78 @@ class Geometry:
             raise ValueError('zero direction')
         v = v / scale
         unit = v / np.linalg.norm(v)
-        delays = self._offsets @ unit * self.sample_rate / self.speed
+        return self._offsets @ unit * self.sample_rate / self.speed
+
+    def delays(self, direction):
+        return tuple(int(round(float(d) * Q)) for d in self._delays_samples(direction))
+
+
+class ChannelCalibration:
+    """Optional measured corrections; geometry schema and legacy default stay intact.
+
+    Positive channel_delay_samples means the measured PCM arrives late. Keeping
+    CH0 as the time reference, corrected d_i = geometric_d_i - (bias_i-bias_0).
+    channel_gain is the multiplicative correction applied BEFORE interpolation,
+    including the CH0 fallback. Gains must be in (0,8]; delay biases in [-1,1]
+    samples, matching the solver's optional calibration contract.
+    Whole-block overflow is rejected before consuming any PCM, never clipped.
+    These limits bound numeric processing, not guaranteed acoustic accuracy.
+    """
+    def __init__(self, config, geometry):
+        if config is None:
+            config = {'schema': 1}
+        if not isinstance(config, dict) or type(config.get('schema')) is not int or config['schema'] != 1:
+            raise ValueError('calibration schema 1 required')
+        if set(config) - {'schema', 'channel_delay_samples', 'channel_gain'}:
+            raise ValueError('unknown calibration field')
+
+        def four_values(name, default):
+            values = config.get(name, default)
+            if (not isinstance(values, (list, tuple, np.ndarray)) or
+                    isinstance(values, np.ndarray) and values.ndim != 1 or len(values) != 4):
+                raise ValueError(name + ' requires four finite numbers')
+            if any(isinstance(v, (bool, np.bool_)) or not isinstance(v, (int, float, np.integer, np.floating)) for v in values):
+                raise ValueError(name + ' requires four finite numbers')
+            try:
+                array = np.array(values, dtype=np.float64, copy=True)
+            except (ValueError, OverflowError) as exc:
+                raise ValueError(name + ' requires four finite numbers') from exc
+            if array.shape != (4,) or not np.all(np.isfinite(array)):
+                raise ValueError(name + ' requires four finite numbers')
+            return array
+
+        biases = four_values('channel_delay_samples', (0, 0, 0, 0))
+        gains = four_values('channel_gain', (1, 1, 1, 1))
+        if np.any(np.abs(biases) > 1):
+            raise ValueError('channel delay biases must be within +/-1 sample')
+        if np.any(gains <= 0) or np.any(gains > 8):
+            raise ValueError('channel gains must be in (0,8]')
+        self.channel_delay_samples = tuple(map(float, biases))
+        self.channel_gain = tuple(map(float, gains))
+        self._relative_bias = biases - biases[0]
+        # sup over all unit directions |a_i.u - b_i| = norm(a_i)+abs(b_i).
+        bounds = (np.linalg.norm(geometry._offsets, axis=1) * geometry.sample_rate / geometry.speed
+                  + np.abs(self._relative_bias))
+        self.max_delay_samples = float(np.max(bounds))
+        if not math.isfinite(self.max_delay_samples) or self.max_delay_samples > 8:
+            raise ValueError('geometry plus calibration exceeds DAS +/-8 sample capacity')
+        self._gain_array = gains[:, None]
+        self._identity_gain = bool(np.all(gains == 1))
+
+    def delays(self, geometry, direction):
+        delays = geometry._delays_samples(direction) - self._relative_bias
         return tuple(int(round(float(d) * Q)) for d in delays)
+
+    def apply_pcm(self, pcm):
+        x = checked_pcm(pcm)
+        if self._identity_gain:
+            return x
+        # S24 inputs and bounded gains fit exactly-sized float64 integers after
+        # nearest-even rounding. No changes to stream state precede this check.
+        scaled = np.rint(x.astype(np.float64) * self._gain_array)
+        if np.any(scaled < -2**23) or np.any(scaled >= 2**23):
+            raise ValueError('calibrated PCM exceeds S24; reduce input level or correction gain')
+        return scaled.astype(np.int64)
 
 
 class TetraDAS:
@@ -83,8 +153,9 @@ class TetraDAS:
     Malformed controls raise ValueError: caller must stop processing or explicitly
     call fallback; they never silently extend the previous target's TTL.
     """
-    def __init__(self, geometry, fade_samples=480):
+    def __init__(self, geometry, fade_samples=480, *, calibration=None):
         self.geometry = Geometry(geometry)
+        self.calibration = ChannelCalibration(calibration, self.geometry)
         self._core = DynamicDAS(fade_samples)
 
     @property
@@ -93,7 +164,7 @@ class TetraDAS:
 
     def steer(self, direction, *, valid_through):
         """Manual/synthetic direction, expiry in physical PCM sample time."""
-        delays = self.geometry.delays(direction)
+        delays = self.calibration.delays(self.geometry, direction)
         self._core.control(state='LOCKED', delays=delays, valid_through=valid_through)
         return delays
 
@@ -131,7 +202,8 @@ class TetraDAS:
     def push(self, pcm, *, start_sample, final=False):
         if not integer(start_sample) or start_sample != self.next_sample:
             raise ValueError('PCM gap/reorder: start a new session')
-        output, _ = self._core.push(pcm, final=final)
+        calibrated = self.calibration.apply_pcm(pcm)
+        output, _ = self._core.push(calibrated, final=final, trace=False)
         # Reference core diagnostics are per-call, not a lifetime-growing log.
         self._core.events.clear()
         return output
@@ -144,19 +216,20 @@ def main():
     parser.add_argument('--output', type=Path, required=True, help='new mono 24-bit WAV')
     parser.add_argument('--direction', type=float, nargs=3, required=True, metavar=('X', 'Y', 'Z'))
     parser.add_argument('--chunk', type=int, default=1024)
+    parser.add_argument('--calibration', type=Path, help='optional schema 1 channel delay/gain JSON')
     args = parser.parse_args()
     if args.chunk < 1:
         parser.error('--chunk must be positive')
     geometry = json.loads(args.geometry.read_text(encoding='utf-8'))
-    das = TetraDAS(geometry)
+    calibration = json.loads(args.calibration.read_text(encoding='utf-8')) if args.calibration else None
+    das = TetraDAS(geometry, calibration=calibration)
     pcm = np.load(args.input, mmap_mode='r', allow_pickle=False)
     if pcm.ndim != 2 or pcm.shape[0] != 4 or pcm.shape[1] == 0 or not np.issubdtype(pcm.dtype, np.integer):
         raise ValueError('nonempty (4,N) integer PCM required')
     # Validate before creating output. Large recordings are checked in chunks.
     for start in range(0, pcm.shape[1], args.chunk):
         block = pcm[:, start:start+args.chunk]
-        if np.any(block < -2**23) or np.any(block >= 2**23):
-            raise ValueError('PCM exceeds signed 24-bit range')
+        das.calibration.apply_pcm(block)
     delay = das.steer(args.direction, valid_through=pcm.shape[1]+7)
     # Keep the 8-sample startup latency and EOF tail, matching streaming time.
     with args.output.open('xb') as destination:

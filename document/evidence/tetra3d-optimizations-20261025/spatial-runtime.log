@@ -1,0 +1,35 @@
+test_configuration_rejects_reflection_nonrotation_and_unsafe_ranges (__main__.AxisTests.test_configuration_rejects_reflection_nonrotation_and_unsafe_ranges) ... ok
+test_context_change_retains_known_pose_not_old_pole (__main__.AxisTests.test_context_change_retains_known_pose_not_old_pole) ... ok
+test_disabled_by_default_and_explicit_initial_pose (__main__.AxisTests.test_disabled_by_default_and_explicit_initial_pose) ... ok
+test_limits_and_no_shortcut_through_mechanical_stop (__main__.AxisTests.test_limits_and_no_shortcut_through_mechanical_stop) ... ok
+test_mount_rotation (__main__.AxisTests.test_mount_rotation) ... ok
+test_no_motion_budget_accumulates_while_invalid (__main__.AxisTests.test_no_motion_budget_accumulates_while_invalid) ... ok
+test_poles_hold_known_yaw_and_hysteretic_observable_reentry (__main__.AxisTests.test_poles_hold_known_yaw_and_hysteretic_observable_reentry) ... ok
+test_reproducible_chain_filter_to_axis_with_expiry (__main__.AxisTests.test_reproducible_chain_filter_to_axis_with_expiry) ... ok
+test_same_observation_vector_is_immutable_during_hold (__main__.AxisTests.test_same_observation_vector_is_immutable_during_hold) ... ok
+test_source_time_and_hold_expiry_cannot_go_back_or_extend (__main__.AxisTests.test_source_time_and_hold_expiry_cannot_go_back_or_extend) ... ok
+test_stale_invalid_future_and_scheduling_gap_stop (__main__.AxisTests.test_stale_invalid_future_and_scheduling_gap_stop) ... ok
+test_true_dt_velocity_limits (__main__.AxisTests.test_true_dt_velocity_limits) ... ok
+test_acquisition_needs_consecutive_consensus (__main__.DirectionTests.test_acquisition_needs_consecutive_consensus) ... ok
+test_antipodal_step_can_reacquire (__main__.DirectionTests.test_antipodal_step_can_reacquire) ... ok
+test_bad_point_or_gap_breaks_candidate_streak (__main__.DirectionTests.test_bad_point_or_gap_breaks_candidate_streak) ... ok
+test_bad_vectors_and_solver_failures_rejected (__main__.DirectionTests.test_bad_vectors_and_solver_failures_rejected) ... ok
+test_candidate_and_expired_history_cannot_create_output_on_poll (__main__.DirectionTests.test_candidate_and_expired_history_cannot_create_output_on_poll) ... ok
+test_clock_reversal_breaks_candidate_streak_without_rewinding_clock (__main__.DirectionTests.test_clock_reversal_breaks_candidate_streak_without_rewinding_clock) ... ok
+test_configuration_and_metadata_validation (__main__.DirectionTests.test_configuration_and_metadata_validation) ... ok
+test_context_change_clears_old_target_and_allows_sequence_restart (__main__.DirectionTests.test_context_change_clears_old_target_and_allows_sequence_restart) ... ok
+test_cross_180_and_both_poles (__main__.DirectionTests.test_cross_180_and_both_poles) ... ok
+test_deadband_and_true_step_reacquisition (__main__.DirectionTests.test_deadband_and_true_step_reacquisition) ... ok
+test_delayed_consecutive_frames_can_still_acquire (__main__.DirectionTests.test_delayed_consecutive_frames_can_still_acquire) ... ok
+test_future_stale_out_of_order_and_clock_reversal (__main__.DirectionTests.test_future_stale_out_of_order_and_clock_reversal) ... ok
+test_invalid_hold_has_fixed_expiry_then_no_vector (__main__.DirectionTests.test_invalid_hold_has_fixed_expiry_then_no_vector) ... ok
+test_single_outlier_not_accepted_or_refreshing_expiry (__main__.DirectionTests.test_single_outlier_not_accepted_or_refreshing_expiry) ... ok
+test_snapshot_sequence_must_match_input_envelope (__main__.DirectionTests.test_snapshot_sequence_must_match_input_envelope) ... ok
+test_solver_vector_normalization_and_raw_preservation (__main__.DirectionTests.test_solver_vector_normalization_and_raw_preservation) ... ok
+test_stale_new_context_cannot_republish_previous_target (__main__.DirectionTests.test_stale_new_context_cannot_republish_previous_target) ... ok
+test_stationary_noise_smoothed_in_vector_space (__main__.DirectionTests.test_stationary_noise_smoothed_in_vector_space) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.013s
+
+OK

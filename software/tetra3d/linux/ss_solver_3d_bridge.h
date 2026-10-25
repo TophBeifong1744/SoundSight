@@ -24,4 +24,30 @@ int ss3d_solve_words(uint32_t sequence, uint32_t status,
     const uint32_t words[30], const float geo[15], const uint32_t meta[7],
     const char source[64], int32_t info[SS3D_INFO_COUNT],
     float values[SS3D_VALUE_COUNT], int64_t pairs[SS3D_PAIR_VALUE_COUNT]);
+/* Additive context API. The legacy symbol/version and output arrays above are
+ * unchanged. Each context owns immutable geometry and mask caches; destroy only
+ * when no caller is solving. No global shared cache, I/O, or fault clearing.
+ * options_meta: schema(1), quality_weighting(0/1), min_pairs(4..6).
+ * options: max_condition, residual_limit, norm_min, norm_max, tau_slack,
+ *          quality_weight_floor, channel_delay_samples[0..3].
+ * max_condition controls the frame fit only. The existing geometry builder
+ * still applies its original full-geometry condition limit of 100 at create;
+ * this option does not relax geometry acceptance.
+ * NULL options_meta AND options select legacy defaults. Supplying only one is
+ * invalid. Calibration sign/bounds follow doa_solver_3d.h. Raw pair tau fields
+ * remain raw; residual and direction use corrected tau. Residual remains the
+ * unweighted RMS over ALL qualified pairs, even when weighting is enabled.
+ * create writes an opaque pointer on success, NULL otherwise: -5 geometry,
+ * -6 options, -7 allocation; info contains geometry diagnostics as above.
+ * Explicitly destroy the handle before unloading the dynamic library. */
+#define SS3D_OPTIONS_SCHEMA UINT32_C(1)
+#define SS3D_OPTIONS_META_COUNT 3
+#define SS3D_OPTIONS_VALUE_COUNT 10
+int ss3d_context_create(const float geo[15],const uint32_t meta[7],
+    const char source[64],const uint32_t options_meta[3],const float options[10],
+    int32_t info[SS3D_INFO_COUNT],void **context);
+int ss3d_context_solve(const void *context,uint32_t sequence,uint32_t status,
+    const uint32_t words[30],int32_t info[SS3D_INFO_COUNT],
+    float values[SS3D_VALUE_COUNT],int64_t pairs[SS3D_PAIR_VALUE_COUNT]);
+void ss3d_context_destroy(void *context);
 #endif

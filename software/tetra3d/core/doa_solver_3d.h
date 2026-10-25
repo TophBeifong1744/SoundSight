@@ -31,6 +31,35 @@ typedef struct {
     float azimuth_deg, elevation_deg;
     int32_t azimuth_q8, elevation_q8;
 } doa3d_output_t;
+/* Additive optional processing. Original config/output structs are unchanged.
+ * Delays are indexed by wire channel, not physical geometry row order.
+ * Positive delay means captured audio arrives later than ideal; corrected
+ * tau_ab = measured_tau_ab - (delay[a] - delay[b]). Values are samples. */
+#define DOA3D_OPTIONS_VERSION UINT32_C(1)
+typedef struct {
+    uint32_t version;
+    uint8_t quality_weighting;
+    float quality_weight_floor; /* bounded margin weight, NOT probability */
+    float channel_delay_samples[4]; /* finite [-1,1], zero means no calibration */
+} doa3d_options_t;
+/* Instance-owned immutable after init. No global mutable cache. Equal-weight
+ * inverse matrices are indexed by all 64 possible qualified-pair masks.
+ * Weighted fitting must build its matrix for that frame. */
+typedef struct {
+    doa3d_config_t config;
+    doa3d_options_t options;
+    double rows[6][3], bound[6];
+    double inverse_by_mask[64][3][3], condition_by_mask[64];
+    uint8_t invertible_by_mask[64];
+    uint32_t ready;
+} doa3d_prepared_t;
+void doa3d_default_options(doa3d_options_t *options);
+doa_status_t doa3d_prepare(const doa3d_config_t *config,
+                         const doa3d_options_t *options,
+                         doa3d_prepared_t *prepared);
+doa_status_t doa3d_solve_prepared(const doa_frame_input_t *frame,
+                                const doa3d_prepared_t *prepared,
+                                doa3d_output_t *output);
 /* Nominal regular 40 mm tetrahedron; centre at centroid, apex channel 3. */
 void doa3d_default_config(doa3d_config_t *config);
 /* DOA_OK can carry an algorithm rejection. Always inspect direction_valid.

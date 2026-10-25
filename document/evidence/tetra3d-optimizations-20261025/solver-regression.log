@@ -1,0 +1,5 @@
+RESULT,PASS,profile=0,checks=2110,failures=0,SYNTHETIC_FEATURES_ONLY
+RESULT,PASS,profile=1,checks=2378,failures=0,SYNTHETIC_FEATURES_ONLY
+D4_RESULT,PASS,checks=92270,failures=0
+MIGRATION_3D_PASS equivalence=154 bridge_negative=17 geometry=15 motion=DISABLED
+HOST_CALL_NS {'min': 10700, 'median': 17850.0, 'max': 118300} AMD64

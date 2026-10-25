@@ -155,6 +155,7 @@ def main():
         geometry = read_json((core/'tetra40-nominal.json').read_text(encoding='utf-8'))
         solver = Solver3D(library, geometry)
         stack.callback(close_lib, solver.lib)
+        stack.callback(solver.close)
         ref = C.CDLL(str(refpath)); stack.callback(close_lib, ref)
         ref.reference3d.argtypes = [C.c_uint32, C.c_uint32, C.POINTER(C.c_int64),
                                     C.POINTER(C.c_int32), C.POINTER(C.c_float), C.POINTER(C.c_int64)]
@@ -233,14 +234,17 @@ def main():
             except ValueError: geometry_cases += 1
             else: raise AssertionError('accepted ' + kind)
             finally:
+                obj.close()
                 if hasattr(obj, 'lib'): close_lib(obj.lib)
         g = copy.deepcopy(geometry)
         g['microphones'].reverse()  # physical row order, not wire channel order
         permuted = Solver3D(library, g); stack.callback(close_lib, permuted.lib)
+        stack.callback(permuted.close)
         compare(permuted.solve(frame), solver.solve(frame))
         geometry_cases += 1
         g.update(provenance='MEASURED', position_error_mm=0.5, revision=2)
         measured = Solver3D(library, g); stack.callback(close_lib, measured.lib)
+        stack.callback(measured.close)
         assert measured.solve(frame)['coordinates_measured'] == 1
         geometry_cases += 1  # declared provenance only, no physical measurement here
         try: read_json('{"schema":1,"schema":1}')

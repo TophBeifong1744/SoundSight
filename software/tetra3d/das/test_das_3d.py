@@ -186,6 +186,7 @@ class Tests(unittest.TestCase):
                         y = das.push(pcm, start_sample=0)
                         self.assertLess(np.sqrt(np.mean((y[40:4000]-pcm[0, 32:3992])**2))/1000000, 0.002)
             finally:
+                solver.close()
                 close_lib(solver.lib)
 
     def test_solver_mismatch(self):
