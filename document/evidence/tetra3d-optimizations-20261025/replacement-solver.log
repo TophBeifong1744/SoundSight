@@ -1,0 +1,19 @@
+test_all_64_pair_masks_and_no_stale_cache (__main__.SolverOptionsTest.test_all_64_pair_masks_and_no_stale_cache) ... ok
+test_calibration_is_indexed_by_channel_not_geometry_row (__main__.SolverOptionsTest.test_calibration_is_indexed_by_channel_not_geometry_row) ... ok
+test_close_then_gc_finalizes_exactly_once (__main__.SolverOptionsTest.test_close_then_gc_finalizes_exactly_once) ... ok
+test_closed_configuration_endpoints (__main__.SolverOptionsTest.test_closed_configuration_endpoints) ... ok
+test_default_legacy_exact_equivalence (__main__.SolverOptionsTest.test_default_legacy_exact_equivalence) ... ok
+test_direct_c_options_validation (__main__.SolverOptionsTest.test_direct_c_options_validation) ... ok
+test_gc_finalizes_context_without_explicit_close (__main__.SolverOptionsTest.test_gc_finalizes_context_without_explicit_close) ... ok
+test_known_channel_bias_correction_and_raw_tau_retained (__main__.SolverOptionsTest.test_known_channel_bias_correction_and_raw_tau_retained) ... ok
+test_low_quality_bad_pair_weight_improves_synthetic_direction (__main__.SolverOptionsTest.test_low_quality_bad_pair_weight_improves_synthetic_direction) ... ok
+test_min_pairs_option (__main__.SolverOptionsTest.test_min_pairs_option) ... ok
+test_option_copy_context_close_and_schema_unchanged (__main__.SolverOptionsTest.test_option_copy_context_close_and_schema_unchanged) ... ok
+test_options_reject_invalid_values (__main__.SolverOptionsTest.test_options_reject_invalid_values) ... ok
+test_strict_residual_and_source_guards_remain (__main__.SolverOptionsTest.test_strict_residual_and_source_guards_remain) ... ok
+test_weighted_result_does_not_reuse_other_frame_matrix (__main__.SolverOptionsTest.test_weighted_result_does_not_reuse_other_frame_matrix) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.668s
+
+OK

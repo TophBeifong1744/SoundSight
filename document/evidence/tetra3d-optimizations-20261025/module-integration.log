@@ -1,0 +1,18 @@
+test_configuration_is_strict_idempotent_and_defensively_copied (__main__.PipelineTests.test_configuration_is_strict_idempotent_and_defensively_copied) ... ok
+test_default_solver_filter_and_independent_raw_records (__main__.PipelineTests.test_default_solver_filter_and_independent_raw_records) ... ok
+test_delayed_source_expires_from_capture_not_delivery (__main__.PipelineTests.test_delayed_source_expires_from_capture_not_delivery) ... ok
+test_disabled_das_has_no_numpy_import_and_namespace_import_works (__main__.PipelineTests.test_disabled_das_has_no_numpy_import_and_namespace_import_works) ... ok
+test_duplicate_or_reordered_features_latch_session (__main__.PipelineTests.test_duplicate_or_reordered_features_latch_session) ... ok
+test_fault_bist_cancel_and_stop_remove_old_direction (__main__.PipelineTests.test_fault_bist_cancel_and_stop_remove_old_direction) ... ok
+test_gain_overflow_rejects_entire_block_before_any_control (__main__.PipelineTests.test_gain_overflow_rejects_entire_block_before_any_control) ... ok
+test_pcm_gap_and_future_control_latch_session (__main__.PipelineTests.test_pcm_gap_and_future_control_latch_session) ... ok
+test_shared_calibration_c_solver_to_continuous_das (__main__.PipelineTests.test_shared_calibration_c_solver_to_continuous_das) ... ok
+test_software_axes_explicit_only (__main__.PipelineTests.test_software_axes_explicit_only) ... ok
+test_stale_frame_cannot_restore_old_hold_on_poll_or_push (__main__.PipelineTests.test_stale_frame_cannot_restore_old_hold_on_poll_or_push) ... ok
+test_ttl_expires_inside_block_without_feature_or_poll (__main__.PipelineTests.test_ttl_expires_inside_block_without_feature_or_poll) ... ok
+test_zero_final_closes_and_releases_context (__main__.PipelineTests.test_zero_final_closes_and_releases_context) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.953s
+
+OK

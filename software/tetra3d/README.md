@@ -6,12 +6,13 @@
 - `linux/`：独立共享库构建、Python调用与离线回放。
 - `tests/`：三维专用测试。
 - [接合步骤](PS-MIGRATION.md)：给C的编译和验证入口。
+- [模块接合与替换](INTEGRATION.md)：保持3347989旧调用，或通过可导入的TetraPipeline统一调用优化模块；不新增运行入口。
 
 仅只读复用 `../common/s1` 的公共类型及角度映射函数；不复制或修改二维实现。当前二维 `software/ps`、`software/tests` 与 `tools/package_pynq.py` 保持基线版本。现有二维发布包不会自动包含本目录。
 
 # 算法说明
 
-三维纯 C99 数学代码从原 STM32 成果移入，算法内容未改；没有 HAL、SPI、Keil 或板级时钟依赖。二维 `../common/s1` 与原 PS 二维入口保持不变。Linux 使用独立共享库，见 [ARM Linux 接合说明](PS-MIGRATION.md)。
+三维纯 C99 数学代码从原 STM32 成果移入；后续兼容优化保留默认数学结果，增加缓存和显式可选加权/校准。没有 HAL、SPI、Keil 或板级时钟依赖。二维 `../common/s1` 与原 PS 二维入口保持不变。Linux 使用独立共享库，见 [ARM Linux 接合说明](PS-MIGRATION.md)。
 
 已有模块：
 

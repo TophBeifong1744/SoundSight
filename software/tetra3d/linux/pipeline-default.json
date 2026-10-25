@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "calibration_source": "UNCALIBRATED",
+  "calibration": {
+    "schema": 1,
+    "channel_delay_samples": [0, 0, 0, 0],
+    "channel_gain": [1, 1, 1, 1]
+  },
+  "solver_options": {"schema": 1, "quality_weighting": false},
+  "direction_filter": {
+    "smoothing_tau_s": 0.1,
+    "hold_s": 0.25,
+    "max_age_s": 0.15,
+    "gate_deg": 35.0,
+    "candidate_radius_deg": 15.0,
+    "confirm_frames": 3,
+    "candidate_max_gap_s": 0.15,
+    "deadband_deg": 3.0
+  },
+  "das": {"enabled": false, "fade_samples": 480},
+  "axes": null
+}
