@@ -1,16 +1,16 @@
 # 给B：SoundSight PS声纹后续工作交接
 
-交接日期：2026-10-26，授权修订v2。拓芙明确：
+交接日期：2026-10-26，全链路诊断修订v3（沿用v2全权授权）。拓芙明确：
 
 > B后续工作不用经过我了，全权给他，我们只是给一些提醒给他
 
-B全权负责本条声纹工作的技术决策、实施、验证、硬件测试组织及发布，无需再把方案、接口、PL修改或转台测试逐项报拓芙审批。下文顺序与技术注意事项是建议和质量要求，不是审批关卡。此最新授权取代历史交接/操作文档中“由用户决定”“硬件只能由用户操作”“须另行获得动作授权”等旧分工；已验证板端ZIP作为原件保留，其中的旧职责措辞不恢复旧审批要求。用户已更新SD卡文件；新诊断命令是否已在板上解压执行尚未确认，也尚未收到最新实麦CPU诊断结果。不要重复刷SD、重做旧测速或把“包已更新”当成“新板测通过”。
+B全权负责本条声纹工作的技术决策、实施、验证、硬件测试组织及发布，无需再把方案、接口、PL修改或转台测试逐项报拓芙审批。下文顺序与技术注意事项是建议和质量要求，不是审批关卡。此最新授权取代历史交接/操作文档中“由用户决定”“硬件只能由用户操作”“须另行获得动作授权”等旧分工；已验证板端ZIP作为原件保留，其中的旧职责措辞不恢复旧审批要求。用户此前更新过旧live_profile包；本次full_profile新包刚交付，尚未复制/解压/板测确认，也尚未收到新的实麦诊断结果。不要重复刷SD、重做旧测速或把“包已更新”当成“新板测通过”。
 
 ## 交付入口
 
-- 远端：<https://github.com/TophBeifong1744/SoundSight/releases/tag/speaker-b-handoff-20261026-v2>。仅公开源码快照、交接说明和提示词；源码资产名`soundsight_b_speaker_source_20261026_v2.zip`。
-- 完整私有交接：`soundsight_b_speaker_handoff_private_20261026_v2.zip`，由拓芙亲自发给B，不能提交公开GitHub。含同一源码包、最新完整板端ZIP、12段旧授权录音/分组、epoch26原件、固定参考与必要FP32对照模型；不含个人电脑工具链/虚拟环境、旧临时工程。
-- 板端已交付的准确候选：`soundsight_pynq_speaker_live_profile.zip`，SHA256 `59ddc8fd3a5968946c5681221a8e9e96b23759f4b51afac5da986fac00300f87`。私有交接中的这个文件逐字节保留，不重新生成bit或篡改验证记录。
+- 远端：<https://github.com/TophBeifong1744/SoundSight/releases/tag/speaker-b-handoff-20261026-v3>。仅公开源码快照、交接说明和提示词；源码资产名`soundsight_b_speaker_source_20261026_v3.zip`。
+- 完整私有交接：`soundsight_b_speaker_handoff_private_20261026_v3.zip`，由拓芙亲自发给B，不能提交公开GitHub。含同一源码包、最新完整板端ZIP、12段旧授权录音/分组、epoch26原件、固定参考与必要FP32对照模型；不含个人电脑工具链/虚拟环境、旧临时工程。
+- 板端已交付的准确候选：`soundsight_pynq_speaker_full_profile.zip`，SHA256 `714f8026079838e70240893c6bfc6712dbe8119bfd27acc2849987e4399e4452`。私有交接嵌入这个确切新候选；bit/HWH、模型和模板逐字节保持旧候选，不重新生成bit或篡改历史验证记录。
 - 远端交接分支`codex/b-speaker-handoff-20261026`只登记本交接；最新运行源码以Release里的源码快照和上述板端包为准，不能直接把GitHub main或Release自动生成的Source code当作最新声纹版本。
 
 公开源码包从已验证板端ZIP提取源码，并补充明确列出的复现/检查脚本；不把本机整个脏工作区、其他3D阵列工作的在途修改、F盘Vivado工程或本地工具缓存混入交接。包内SOURCE-MANIFEST.json逐文件登记来源和校验值。
@@ -40,20 +40,29 @@ PL仍承担四麦采集、定位相关计算、连续PCM导出、寄存器和执
 
 ## B首先做什么
 
-先读本文件、源码包中的实麦诊断操作说明、最新诊断证据README/review/package-check，以及迭代记录。自行核对当前板端目录是否有`speaker-live-profile.sh`；卡内文件已经更新，不强迫再次搬包。若还没解压，再按新操作说明更新既有目录，保留所有logs和*.local.json。
+先读本文件、源码包中的实麦诊断操作说明、最新诊断证据README/review/package-check，以及迭代记录。先阅读document/pynq-speaker-full-profile.md及speaker-pl-offload-preanalysis.md；核对当前板端目录是否有`speaker-full-profile.sh`并执行check。旧SD更新不表示这个新包已经安装；必要时只更新此新ZIP，保留所有logs和*.local.json。先bench做同输入开/关对照，再live。
 
 由B自行执行或组织现场人员执行。建议首轮保持目标本人、正常音量、原位置，看到CAPTURE_START后说话约10秒；若缺少现场设备或新增目标语音，应协调具体输入，而非请求技术方案审批：
 
 ```sh
 cd /home/xilinx/SoundSight_PYNQ_Speaker_Live
-ls -l speaker-live-profile.sh
+sudo sh speaker-full-profile.sh check
+sudo sh speaker-full-profile.sh bench
 sudo sh soundsight.sh pcm-check
-sudo sh speaker-live-profile.sh 1
+sudo sh speaker-full-profile.sh live 1
 ```
 
 尚未加载同版overlay时沿用原prepare；遇到另一overlay注册保护先排查并由B安排必要的重启，不强行覆盖。默认不开转台。收完整SPEAKER_RESULT、SPEAKER_SESSION、CAPTURE_CPU_PROFILE、PCM_TIMING、PCM_FIRST_FAULT（若有）、PCM_RESULT；必要时收新result.json和录音，记录这轮是否本人及换人情况。
 
 新诊断记录声纹J墙钟/CPU及同期前端、协调解释器、采集进程CPU。采集端还记录快照获取/消费、DMA取包/提交、IPC提交；空轮询、包校验等仍归剩余CPU。接收循环不运行方向求解器。计数采样有开销、边界略宽于J调用，且纳入原过期判断，不能拿细小差额做精确阶段分解。
+
+## v3新增观测与PL事前分析
+
+新增显式speaker-full-profile.sh check/bench/live入口。完整链路包含启动、收包/快照/IPC、FIR及FFT/Mel、VAD、CMN、纯声纹Run、比较、发布年龄、停止和保存。CAM++与Silero分别输出原始ORT trace及逐运行节点/算子/模块汇总；不能可靠对应原始模块的融合节点标UNMAPPED_OR_FUSED。诊断只测优化后的运行图，不虚构原始层耗时。
+
+先bench比较同输入开关开销，再live观察真实竞争。无样本、截断、强杀、漏run节点或落盘失败不报完整；不把嵌套计时或跨线程CPU直接相加。完整命令见document/pynq-speaker-full-profile.md。
+
+PL下放想法和事前资源/带宽/精度/接口分析已写入document/speaker-pl-offload-preanalysis.md。优先按ARM实际热点选择连续卷积/矩阵乘块；FIR可作为配套，当前不优先FFT/Mel，VAD先留PS。复用分块计算阵列，权重放DDR分块读；现有音频DMA不具备MM2S读通路，需单独预算。上述是候选建议，B依据新测量自主选择；本次没有实施PL或改变公共接口。
 
 ## 后续推进顺序
 
@@ -67,7 +76,7 @@ sudo sh speaker-live-profile.sh 1
 
 正式PS入口：`software/ps/run_pcm.py`、`pcm_capture.py`、`speaker_process.py`、`live_speaker.py`、`live_cpu_profile.py`、`speaker_scheduling.py`、`speaker_settings.py`；C前端/后端在`software/ps/speaker_core/pipeline_backend.c`和`stream_frontend.h`。新shell为`speaker-live-profile.sh`，既有soundsight.sh/离线speaker-profile.sh继续保留。
 
-最新诊断候选已通过：9项定向、154项默认软件回归、开关各5种模拟生命周期、两段各938包/26次真实C推理的定时模拟DMA回放、独立只读复核、最终ZIP独立解压检查。模型/位流未改，不重做旧ARM数值模拟冒充新实板验证。
+最新全链路候选已通过：13项定向、154项默认软件回归、开关各5种模拟生命周期、实际ORT零调用/强杀/超限/落盘失败、新shell与假下游live入口、两段各938包/26次真实C推理的定时模拟DMA回放；主机1/1.5/2秒开关输出一致，实际ARM二进制开关及旧版对照逐位一致。独立只读复核修复FPR-R1后通过，最终ZIP独立解压check通过。均不代表新实板测速通过。
 
 历史复现脚本使用相对仓库定位，但依赖Linux本机ORT开发库、研究venv或旧包基线。交接不带个人工具链缓存，不承诺解压就能重建所有历史实验；当前板端执行依赖已在完整SD包中。B若重建测试环境，应按脚本实际依赖准备并记录版本，不能把原作者电脑路径写成公共运行依赖。
 
