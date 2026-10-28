@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "machine": "AMD64",
+  "python": "3.13.0",
+  "compiler": "gcc.exe (x86_64-win32-sjlj-rev0, Built by MinGW-W64 project) 8.1.0",
+  "bridge_negatives": 17,
+  "geometry_cases": 15,
+  "motion": "DISABLED",
+  "replay_checks": 4,
+  "timing_scope": "Python+ctypes+C geometry validation+solve; not acquisition or deadline proof",
+  "call_ns": {
+    "min": 10700,
+    "median": 11000.0,
+    "max": 40500
+  },
+  "golden_checked": true,
+  "scope": "PC_SYNTHETIC_TETRA3D_MIGRATION",
+  "numeric_cases": 154,
+  "native_logs": [
+    "",
+    "MIC,0,x=23.094011,y=0.000000,z=-8.164966,mm\nMIC,1,x=-11.547006,y=20.000000,z=-8.164966,mm\nMIC,2,x=-11.547006,y=-20.000000,z=-8.164966,mm\nMIC,3,x=0.000000,y=0.000000,z=24.494898,mm\nDIRECTION,expected_az=0.0,expected_el=0.0,actual_az=0.000000,actual_el=0.000000,az_valid=1,el_valid=1,rms=0.00007048,norm=0.99999893\nDIRECTION,expected_az=90.0,expected_el=0.0,actual_az=90.000000,actual_el=0.000000,az_valid=1,el_valid=1,rms=0.00000000,norm=0.99999797\nDIRECTION,expected_az=-90.0,expected_el=0.0,actual_az=-90.000000,actual_el=0.000000,az_valid=1,el_valid=1,rms=0.00000000,norm=0.99999797\nDIRECTION,expected_az=45.0,expected_el=30.0,actual_az=45.000854,actual_el=29.999487,az_valid=1,el_valid=1,rms=0.00000000,norm=1.00001526\nDIRECTION,expected_az=-45.0,expected_el=-30.0,actual_az=-45.000050,actual_el=-29.999580,az_valid=1,el_valid=1,rms=0.00007048,norm=1.00001240\nDIRECTION,expected_az=0.0,expected_el=90.0,actual_az=0.000000,actual_el=90.000000,az_valid=0,el_valid=1,rms=0.00000000,norm=1.00001752\nDIRECTION,expected_az=0.0,expected_el=-90.0,actual_az=0.000000,actual_el=-90.000000,az_valid=0,el_valid=1,rms=0.00000000,norm=1.00001752\nREJECT,mask_below12,status=0,reason=1\nREJECT,only_base_triangle,status=0,reason=1\nREJECT,coplanar,status=0,reason=2\nREJECT,flattened_geometry,status=0,reason=9\nREJECT,exceeds_PL_window,status=1,reason=8\nREJECT,NaN_geometry,status=1,reason=8\nREJECT,wrong_samplerate,status=1,reason=8\nREJECT,zero_norm,status=0,reason=4\nREJECT,inconsistent_pair,status=0,reason=3\nREJECT,cancel,status=0,reason=6\nREJECT,source_numeric,status=0,reason=7\nREJECT,S25_range,status=2,reason=7\nREJECT,S6_range,status=2,reason=7\nREJECT,incomplete,status=4,reason=7\nREJECT,reserved_flags,status=3,reason=7\nREJECT,legacy_BIST_not_3D,status=0,reason=5\nSUBSETS,64,minimum_pairs=4,all_expected\nRESULT,PASS,profile=0,checks=2110,failures=0,SYNTHETIC_FEATURES_ONLY\n",
+    "",
+    "MIC,0,x=23.094011,y=0.000000,z=-8.164966,mm\nMIC,1,x=-11.547006,y=20.000000,z=-8.164966,mm\nMIC,2,x=-11.547006,y=-20.000000,z=-8.164966,mm\nMIC,3,x=0.000000,y=0.000000,z=24.494898,mm\nDIRECTION,expected_az=0.0,expected_el=0.0,actual_az=0.000000,actual_el=0.000000,az_valid=1,el_valid=1,rms=0.00007048,norm=0.99999893\nDIRECTION,expected_az=90.0,expected_el=0.0,actual_az=90.000000,actual_el=0.000000,az_valid=1,el_valid=1,rms=0.00000000,norm=0.99999797\nDIRECTION,expected_az=-90.0,expected_el=0.0,actual_az=-90.000000,actual_el=0.000000,az_valid=1,el_valid=1,rms=0.00000000,norm=0.99999797\nDIRECTION,expected_az=45.0,expected_el=30.0,actual_az=45.000854,actual_el=29.999487,az_valid=1,el_valid=1,rms=0.00000000,norm=1.00001526\nDIRECTION,expected_az=-45.0,expected_el=-30.0,actual_az=-45.000050,actual_el=-29.999580,az_valid=1,el_valid=1,rms=0.00007048,norm=1.00001240\nDIRECTION,expected_az=0.0,expected_el=90.0,actual_az=0.000000,actual_el=90.000000,az_valid=0,el_valid=1,rms=0.00000000,norm=1.00001752\nDIRECTION,expected_az=0.0,expected_el=-90.0,actual_az=0.000000,actual_el=-90.000000,az_valid=0,el_valid=1,rms=0.00000000,norm=1.00001752\nREJECT,mask_below12,status=0,reason=1\nREJECT,only_base_triangle,status=0,reason=1\nREJECT,coplanar,status=0,reason=2\nREJECT,flattened_geometry,status=0,reason=9\nREJECT,exceeds_PL_window,status=1,reason=8\nREJECT,NaN_geometry,status=1,reason=8\nREJECT,wrong_samplerate,status=1,reason=8\nREJECT,zero_norm,status=0,reason=4\nREJECT,inconsistent_pair,status=0,reason=3\nREJECT,cancel,status=0,reason=6\nREJECT,source_numeric,status=0,reason=7\nREJECT,S25_range,status=2,reason=7\nREJECT,S6_range,status=2,reason=7\nREJECT,incomplete,status=4,reason=7\nREJECT,reserved_flags,status=3,reason=7\nREJECT,legacy_BIST_not_3D,status=0,reason=5\nSUBSETS,64,minimum_pairs=4,all_expected\nRESULT,PASS,profile=1,checks=2378,failures=0,SYNTHETIC_FEATURES_ONLY\n",
+    "",
+    "D4_MAP,az=45,el=30,h=135,v=120,SOFTWARE_ONLY\nD4_MAP,az=-45,el=-30,h=45,v=60,SOFTWARE_ONLY\nD4_MAP,reverse_both=1,vertical_zero=80,h=45,v=110,revision=7\nD4_BOUNDARIES,PASS,RNE,domain,pre_round_limits,no_wrap,no_clamp\nD4_REJECTIONS,PASS,16_bad_configs,invalid_sources,clear_previous_target\nD4_SWEEP,PASS,92162_Q8_sign_combinations\nD4_CHAIN,az=45,el=30,status=0,valid=1,h=135,v=120\nD4_CHAIN,az=-45,el=-30,status=0,valid=1,h=45,v=60\nD4_CHAIN,az=120,el=15,status=8,valid=0,h=0,v=0\nD4_CHAIN,az=0,el=90,status=6,valid=0,h=0,v=0\nD4_CHAIN,az=0,el=-90,status=6,valid=0,h=0,v=0\nD4_RESULT,PASS,checks=92270,failures=0\n",
+    "",
+    "REPLAY_3D_COMPLETE frames=3 motion=DISABLED\n",
+    "gcc.exe (x86_64-win32-sjlj-rev0, Built by MinGW-W64 project) 8.1.0\nCopyright (C) 2018 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n"
+  ]
+}

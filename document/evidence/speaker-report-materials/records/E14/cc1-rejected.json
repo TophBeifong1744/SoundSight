@@ -1,0 +1,48 @@
+{
+  "status": "FAIL",
+  "scope": "PC_X86_ONNX_NUMERIC_AND_COMPUTE",
+  "ort": "1.17.3",
+  "tolerances": {
+    "raw_relative_l2": 1e-05,
+    "normalized_max_abs": 1e-05,
+    "score_abs": 1e-05
+  },
+  "model_sha256": {
+    "shipped": "e14405d2580db61c1359808102c7f7f8ac73623303c2076087d2a9efd7ebc4f4",
+    "general": "65ba2580d776b779430297b90bb2f4337586c65ccf191aa7e12cd2ff7749a9b4",
+    "short98": "99c47a0002b1d8b431c8fb3c77d5b0c211095dfc10d581d9666a09acaa33e531"
+  },
+  "error": "ValueError: MODEL_NUMERIC_DRIFT: general/window-16320",
+  "cases": [
+    {
+      "case": "window-144320",
+      "frames": 98,
+      "variant": "general",
+      "passed": true,
+      "bit_exact": false,
+      "raw_relative_l2": 8.289668137159546e-06,
+      "normalized_max_abs": 1.958103604211836e-06,
+      "score_abs": 9.034885219035005e-07
+    },
+    {
+      "case": "window-144320",
+      "frames": 98,
+      "variant": "short98",
+      "passed": true,
+      "bit_exact": false,
+      "raw_relative_l2": 8.289668137159546e-06,
+      "normalized_max_abs": 1.958103604211836e-06,
+      "score_abs": 9.034885219035005e-07
+    },
+    {
+      "case": "window-16320",
+      "frames": 98,
+      "variant": "general",
+      "passed": false,
+      "bit_exact": false,
+      "raw_relative_l2": 1.5167532037901327e-05,
+      "normalized_max_abs": 3.5852538049219174e-06,
+      "score_abs": 1.1810681617343416e-06
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "status": "PASS_PC_ONLY",
+  "scope": "PC_VAD_NUMERIC_AND_TIMING_NOT_ARM_NOT_FULL_PIPELINE",
+  "ort": "1.17.3",
+  "tolerances": {
+    "state_relative_l2": 1e-05,
+    "probability_abs": 1e-05,
+    "state_max_abs": 1e-05
+  },
+  "model_sha256": {
+    "original": "597d30b3ec076608d059477bb14cfeffdf951bf5cae370d38f65d33bbfe82004",
+    "vf1": "2f9baaee7df0ff223225b6fcb176ad0ae33542c7ae83015d7f87351c5c32d84c"
+  },
+  "timed": [
+    {
+      "round": 1,
+      "variant": "original",
+      "wall_seconds": 0.03366669999923033
+    },
+    {
+      "round": 1,
+      "variant": "vf1",
+      "wall_seconds": 0.026288000000931788
+    },
+    {
+      "round": 2,
+      "variant": "vf1",
+      "wall_seconds": 0.026187699999354663
+    },
+    {
+      "round": 2,
+      "variant": "original",
+      "wall_seconds": 0.03341529999852355
+    },
+    {
+      "round": 3,
+      "variant": "original",
+      "wall_seconds": 0.03318730000137293
+    },
+    {
+      "round": 3,
+      "variant": "vf1",
+      "wall_seconds": 0.02596799999992072
+    },
+    {
+      "round": 4,
+      "variant": "vf1",
+      "wall_seconds": 0.025940800000171294
+    },
+    {
+      "round": 4,
+      "variant": "original",
+      "wall_seconds": 0.03368159999990894
+    },
+    {
+      "round": 5,
+      "variant": "original",
+      "wall_seconds": 0.03317510000124457
+    },
+    {
+      "round": 5,
+      "variant": "vf1",
+      "wall_seconds": 0.026014799999757088
+    },
+    {
+      "round": 6,
+      "variant": "vf1",
+      "wall_seconds": 0.025993900000685244
+    },
+    {
+      "round": 6,
+      "variant": "original",
+      "wall_seconds": 0.03326550000019779
+    },
+    {
+      "round": 7,
+      "variant": "original",
+      "wall_seconds": 0.03309160000026168
+    },
+    {
+      "round": 7,
+      "variant": "vf1",
+      "wall_seconds": 0.026221700001769932
+    },
+    {
+      "round": 8,
+      "variant": "vf1",
+      "wall_seconds": 0.026237599999149097
+    },
+    {
+      "round": 8,
+      "variant": "original",
+      "wall_seconds": 0.033755200000086916
+    }
+  ],
+  "median_wall_seconds": {
+    "original": 0.03326550000019779,
+    "vf1": 0.026014799999757088
+  },
+  "wall_reduction": 0.21796455788722824,
+  "per_round_reductions": [
+    0.2162961278063713,
+    0.21753200776060588,
+    0.22982281126070536,
+    0.21583356195516712,
+    0.2185928364061659,
+    0.20760253352625502,
+    0.22270938998786738
+  ],
+  "all_bit_exact": true,
+  "all_vad_decisions_equal": true,
+  "worst_numeric": {
+    "state_relative_l2": 0.0,
+    "probability_abs": 0.0,
+    "state_max_abs": 0.0
+  },
+  "blocks_checked": 568,
+  "timed_blocks": 312
+}
