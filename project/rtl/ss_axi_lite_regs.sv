@@ -8,7 +8,7 @@
 // 片内AXI4-Lite到单次寄存器操作。每个方向最多一个在途事务。
 // AW和W各自保存，先后顺序任意；B/R在对端背压时保持不变。
 // 仅接收0x000..0x07f中的4字节对齐、全字写入；其他事务SLVERR且不触发寄存器副作用。
-module ss_axi_lite_regs (
+module ss_axi_lite_regs #(parameter integer ADDRESS_BITS=7) (
  input wire clk, aresetn,
  input wire [11:0] s_axi_awaddr,input wire [2:0] s_axi_awprot,
  input wire s_axi_awvalid,output wire s_axi_awready,
@@ -19,7 +19,7 @@ module ss_axi_lite_regs (
  input wire s_axi_arvalid,output wire s_axi_arready,
  output reg [31:0] s_axi_rdata,output reg [1:0] s_axi_rresp,
  output reg s_axi_rvalid,input wire s_axi_rready,
- output wire [6:0] address,output wire commit,write_access,format_error,
+ output wire [ADDRESS_BITS-1:0] address,output wire commit,write_access,format_error,
  output wire [31:0] write_data,input wire [31:0] read_data
 );
  reg aw_full,w_full,ar_full,cooldown;
@@ -31,9 +31,9 @@ module ss_axi_lite_regs (
  assign s_axi_arready=aresetn && !ar_full && !s_axi_rvalid;
  wire execute_write=aresetn && aw_full && w_full && !s_axi_bvalid && !cooldown;
  wire execute_read=aresetn && ar_full && !s_axi_rvalid && !execute_write && !cooldown;
- wire write_ok=aw[11:7]==0 && aw[1:0]==0 && ws==4'hf;
- wire read_ok=ar[11:7]==0 && ar[1:0]==0;
- assign address=execute_write?aw[6:0]:ar[6:0];
+ wire write_ok=(aw >> ADDRESS_BITS)==0 && aw[1:0]==0 && ws==4'hf;
+ wire read_ok=(ar >> ADDRESS_BITS)==0 && ar[1:0]==0;
+ assign address=execute_write?aw[ADDRESS_BITS-1:0]:ar[ADDRESS_BITS-1:0];
  assign write_data=wd;
  assign write_access=execute_write;
  assign commit=(execute_write && write_ok) || (execute_read && read_ok);

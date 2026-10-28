@@ -20,7 +20,7 @@ def gate_record(record, threshold):
     if 'frame' not in record or 'result' not in record:
         return record
     if threshold is not None and (type(threshold) is not int or not 1 <= threshold <= 0xffffff):
-        raise ValueError('音量门限须为1..16777215的整数采样计数')
+        raise ValueError('Level threshold must be an integer sample count in 1..16777215')
     frame, solver = record['frame'], record['result']
     status = frame['status']
     measured = bool(status & LEVEL_VALID) and bool(status & LEVEL_CAP) and not bool(status & 8)
@@ -49,28 +49,44 @@ def gate_record(record, threshold):
 
 
 class VolumeClient(Client):
-    def __init__(self, ip, solver, threshold=None):
+    def __init__(self, ip, solver, threshold=None, angle_filter=False,
+                 window_frames=20, min_valid=12):
         super().__init__(ip, solver)
         self.threshold = threshold
+        if angle_filter and threshold is None:
+            raise ValueError('Multi-frame filtering requires an explicit level threshold')
+        from angle_filter import OnlineAngleFilter
+        self.angle_filter = OnlineAngleFilter(window_frames, min_valid) if angle_filter else None
+
+    def stop_direction_output(self):
+        """停止/排尾仍保存原始帧，但不发布新的方向。"""
+        if self.angle_filter is not None:
+            self.angle_filter.stop()
 
     def identify(self):
         # Reject old bitstreams before any write; zero in the old ENERGY field
         # must never be silently interpreted as silence.
         if self.read(MAGIC) != 0x5a5a2026 or self.read(ABI) != LEVEL_ABI:
-            raise RuntimeError('需要PL+PS音量扩展ABI 0x00010001；旧bit不能测量真实音量')
+            raise RuntimeError('PL+PS volume ABI 0x00010001 required; old bitstream cannot measure real level')
         if not self.read(STATUS) & LEVEL_CAP:
-            raise RuntimeError('硬件没有真实音量能力标志')
+            raise RuntimeError('Hardware real-level capability flag is missing')
 
     def record_one(self, sink, config=None, motion=False, allow_fault=False):
         if motion:
-            raise ValueError('音量扩展当前仅测量/记录，不驱动舵机')
+            raise ValueError('Volume extension is measurement/logging only; no servo motion')
+        saved = []
         def gated_sink(record):
-            sink(gate_record(record, self.threshold))
-        raw = super().record_one(gated_sink, config, False, allow_fault)
-        return gate_record(raw, self.threshold)
+            output = gate_record(record, self.threshold)
+            if self.angle_filter is not None:
+                output = self.angle_filter.apply(output)
+            sink(output)
+            saved.append(output)
+        super().record_one(gated_sink, config, False, allow_fault)
+        # Stateful filter runs once, before RAM acknowledgement and CONSUME.
+        return saved[0]
 
     def arm(self, watchdog_ticks):
-        raise ValueError('音量扩展当前不授予动作许可')
+        raise ValueError('Volume extension does not grant motion permission')
 
     def command(self, frame, result):
-        raise ValueError('音量扩展当前不提交舵机动作')
+        raise ValueError('Volume extension does not submit servo commands')

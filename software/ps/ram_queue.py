@@ -9,16 +9,26 @@ import os
 from pathlib import Path
 import tempfile
 import threading
+import time
 
 
 MAX_RECORD_BYTES = 16384
+
+
+def durable_batch_sink(handle):
+    """One barrier per bounded batch. Caller retains every RAM copy on failure."""
+    def save(records):
+        handle.write(''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in records))
+        handle.flush()
+        os.fsync(handle.fileno())
+    return save
 
 
 def create_ram_directory():
     """只接受Linux已挂载的/dev/shm tmpfs，避免把临时目录误放回SD。"""
     mounts = Path('/proc/mounts').read_text().splitlines()
     if not any(row.split()[1:3] == ['/dev/shm', 'tmpfs'] for row in mounts):
-        raise RuntimeError('/dev/shm不是已确认的tmpfs；不启动采集')
+        raise RuntimeError('/dev/shm is not a verified tmpfs; capture not started')
     # tmpfs在内存压力下可能换出。记录平台事实，不擅自修改系统swap配置。
     swap_active = len(Path('/proc/swaps').read_text().strip().splitlines()) > 1
     print('RAM_QUEUE_SWAP_ACTIVE=', swap_active, flush=True)
@@ -26,15 +36,25 @@ def create_ram_directory():
 
 
 class RamQueue:
-    def __init__(self, directory, capacity, save):
+    def __init__(self, directory, capacity, save, *, batch_size=1,
+                 batch_wait=0.0, save_batch=None):
+        if not 1 <= batch_size <= min(capacity, 64) or not 0 <= batch_wait <= 0.1:
+            raise ValueError('invalid bounded SD batch configuration')
+        if save_batch is None and (save is None or batch_size != 1):
+            raise ValueError('batch sink required for batch_size > 1')
         self.directory = Path(directory)
         self.capacity = capacity
         self.save = save
+        self.save_batch = save_batch
+        self.batch_size = batch_size
+        self.batch_wait = batch_wait
         self.pending = deque()
         self.condition = threading.Condition()
         self.closing = False
         self.error = None
         self.accepted = self.durable = self.durable_frames = self.peak = 0
+        self.storage = dict(batches=0, records=0, max_batch=0,
+                            total_save_ns=0, max_save_ns=0)
         # 若底层fsync挂死，主程序仍能STOP；待写文件保留在tmpfs中。
         self.writer = threading.Thread(target=self._write, name='soundsight-sd', daemon=True)
 
@@ -49,10 +69,10 @@ class RamQueue:
     def put(self, record):
         data = (json.dumps(record, ensure_ascii=False) + '\n').encode('utf-8')
         if len(data) > MAX_RECORD_BYTES:
-            raise ValueError('记录超过RAM队列单条上限；未确认消费')
+            raise ValueError('Record exceeds RAM queue size limit; consume not acknowledged')
         with self.condition:
             if self.closing or len(self.pending) >= self.capacity:
-                raise RuntimeError('RAM队列已关闭或已满；未确认消费')
+                raise RuntimeError('RAM queue closed or full; consume not acknowledged')
             ticket = self.accepted + 1
             path = self.directory / ('%08d.jsonl' % ticket)
             # close前写完完整JSON；不需要对RAM执行SD式耐久同步。
@@ -74,14 +94,30 @@ class RamQueue:
                     self.condition.wait_for(lambda: self.pending or self.closing)
                     if not self.pending:
                         return
-                    path = self.pending[0]
-                record = json.loads(path.read_text(encoding='utf-8'))
-                self.save(record)
+                    # Wait at most once per batch; new arrivals cannot extend
+                    # the deadline. STOP/finish bypasses this coalescing delay.
+                    self.condition.wait_for(
+                        lambda: len(self.pending) >= self.batch_size or self.closing,
+                        timeout=self.batch_wait)
+                    paths = list(self.pending)[:self.batch_size]
+                records = [json.loads(p.read_text(encoding='utf-8')) for p in paths]
+                began = time.monotonic_ns()
+                if self.save_batch is None:
+                    self.save(records[0])
+                else:
+                    self.save_batch(records)
+                elapsed = time.monotonic_ns() - began
                 with self.condition:
-                    path.unlink()  # fsync之后才撤销RAM保管；失败时允许重复，不能丢。
-                    self.pending.popleft()
-                    self.durable += 1
-                    self.durable_frames += int('frame' in record)
+                    self.storage['batches'] += 1
+                    self.storage['records'] += len(records)
+                    self.storage['max_batch'] = max(self.storage['max_batch'], len(records))
+                    self.storage['total_save_ns'] += elapsed
+                    self.storage['max_save_ns'] = max(self.storage['max_save_ns'], elapsed)
+                    for path, record in zip(paths, records):
+                        path.unlink()  # fsync之后才撤销RAM保管；失败时允许重复，不能丢。
+                        self.pending.popleft()
+                        self.durable += 1
+                        self.durable_frames += int('frame' in record)
                     self.condition.notify_all()
         except BaseException as exc:
             with self.condition:
@@ -94,6 +130,6 @@ class RamQueue:
             self.condition.notify_all()
         self.writer.join(timeout)
         if self.writer.is_alive() or self.error is not None or self.depth:
-            raise RuntimeError('SD写入失败或超时；未落盘记录保留于 %s；不要断电。原因=%s'
+            raise RuntimeError('SD write failed or timed out; unsaved records remain in %s; keep power on. Cause=%s'
                                % (self.directory, self.error or 'writer timeout'))
         self.directory.rmdir()

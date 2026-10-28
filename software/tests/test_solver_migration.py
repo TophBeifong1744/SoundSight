@@ -213,6 +213,11 @@ def main():
             for key, value in fixed.get(case["name"], {}).items():
                 if actual[key] != value:
                     raise AssertionError((case["name"], key, value, actual[key]))
+            # Bit18 is PS hardware capability metadata, never an algorithm flag.
+            extended = copy.deepcopy(frame)
+            extended['status'] |= 0x40000
+            if solver.solve(extended, config) != expected:
+                raise AssertionError(('PS_MANUAL_CAPABILITY', case['name']))
             records.append(dict(name=case["name"], frame=frame, config=config,
                                 expected=expected, actual=actual))
         bad_results = []
@@ -235,6 +240,34 @@ def main():
         if actual["bridge_status"] != -5:
             raise AssertionError(("NEGATIVE_MECHANICAL_LIMIT", actual))
         bad_results.append(dict(name="NEGATIVE_MECHANICAL_LIMIT", expected=-5, actual=-5))
+        # Every other reserved status bit must still fail, with capability set.
+        reserved_bits = [6, 21, 22, 23]
+        for bit in reserved_bits:
+            frame = wire_frame(cases()[1])
+            frame['status'] |= 0x40000 | (1 << bit)
+            if solver.solve(frame)['bridge_status'] != -2:
+                raise AssertionError(('RESERVED_WITH_MANUAL_CAP', bit))
+        board_frame = dict(sequence=1, status=1015601, words=[
+            287193089,457423,447296,450240,425879,
+            286865664,352047,351933,345519,345420,
+            287128317,394319,387567,388574,371791,
+            286997503,421050,419936,409546,406018,
+            287063295,327189,327031,325150,324835,
+            287063296,374120,373370,365909,364258])
+        # Real user failure replay. The reference receives independently decoded
+        # semantic fields and no PS capability bits; it bypasses the wire bridge.
+        semantic = []
+        for i in range(6):
+            w, peak, left, right, second = board_frame['words'][5*i:5*i+5]
+            lag = w & 255
+            if lag >= 128: lag -= 256
+            semantic.extend([lag, peak, left, right, second, (w >> 16) & 127, w & 0xff00f800])
+        out = (C.c_int32 * 12)()
+        rc = ref(1, 0x10, (C.c_int32 * 42)(*semantic), None, out)
+        board_expected = dict(zip(KEYS, out)); board_expected['bridge_status'] = rc
+        board_actual = solver.solve(board_frame)
+        if rc != 0 or board_actual != board_expected:
+            raise AssertionError(('REAL_BOARD_FRAME', board_expected, board_actual))
         if args.golden:
             golden = json.loads(args.golden.read_text(encoding="utf-8"))
             compare = lambda items: [(x["name"], x["frame"], x["config"], x["expected"]) for x in items]
@@ -244,6 +277,8 @@ def main():
                       python=platform.python_version(), compiler=run([gcc, "--version"]).splitlines()[0],
                       original_s1_assertions=4705, equivalence_cases=len(records),
                       bridge_negative_cases=bad_results, cases=records,
+                      manual_capability_equivalence=len(records), reserved_with_capability=reserved_bits,
+                      real_board_replay=dict(frame=board_frame, expected=board_expected, actual=board_actual),
                       golden_compared=bool(args.golden),
                       scope="OFFLINE_NO_MMIO_NO_MOTION", commands=logs)
         args.output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n",

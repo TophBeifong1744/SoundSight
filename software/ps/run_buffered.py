@@ -1,17 +1,13 @@
-"""无动作双核采集：完整记录进入RAM后释放PL槽，CPU0独立写SD。
-
-此入口显式采用断电可能丢RAM记录的策略。旧run_smp.py的逐帧耐久确认不变。
-不加载bit，不复位；普通模式保持原ABI。音量选项要求PS专用扩展ABI，
-不修改C求解器、硬件采集周期或运动协议。
-"""
+'No-motion SMP capture. Accept records in RAM before consuming PL slots; batch writes to SD.'
 import multiprocessing as mp
 import os
 import sys
 import time
 
 from ps_client import Client, Solver, FAULT, STATUS
-from ram_queue import RamQueue, create_ram_directory
-from run_capture import address_from_hwh, argument_parser, durable_sink, prepare_args, single_owner
+from angle_filter import validate_window
+from ram_queue import RamQueue, create_ram_directory, durable_batch_sink
+from run_capture import address_from_hwh, argument_parser, prepare_args, single_owner
 from run_smp import (HOST_TIMEOUT, POLL_INTERVAL,
                      SavedBeforeConsume, pinned, validate_cpus, finish_worker)
 
@@ -29,14 +25,14 @@ class QueuedBeforeConsume(SavedBeforeConsume):
         while not self.cancel.is_set():
             remaining = deadline - time.monotonic()
             if remaining <= 0:
-                raise TimeoutError('RAM接收确认超时；保留硬件锁帧')
+                raise TimeoutError('RAM acceptance ACK timed out; retain hardware locked frame')
             if self.connection.poll(min(POLL_INTERVAL, remaining)):
                 if self.connection.recv() != ('queued', self.ticket):
-                    raise RuntimeError('RAM接收确认不匹配；保留硬件锁帧')
+                    raise RuntimeError('RAM acceptance ACK mismatch; retain hardware locked frame')
                 if time.monotonic() >= deadline or self.cancel.is_set():
-                    raise TimeoutError('RAM接收确认过期或父进程失联；保留硬件锁帧')
+                    raise TimeoutError('RAM acceptance ACK expired or parent lost; retain hardware locked frame')
                 return
-        raise RuntimeError('父进程取消；保留硬件锁帧')
+        raise RuntimeError('Parent cancelled; retain hardware locked frame')
 
 
 def buffered_session(connection, abort, stop_new, client, options, info):
@@ -47,10 +43,15 @@ def buffered_session(connection, abort, stop_new, client, options, info):
     reason = 'requested_frames'
     started = False
     try:
+        if options.drain_existing and hasattr(client, 'stop_direction_output'):
+            client.stop_direction_output()
         connection.send(('ready', info))
         sink(dict(event='startup', fault_before=client.read(FAULT),
                   requested_clear_faults=options.clear_faults,
-                  retention='ram_before_consume', **info))
+                  retention='ram_before_consume',
+                  window_frames=getattr(options, 'window_frames', 20),
+                  min_valid=getattr(options, 'min_valid', 12),
+                  online_angle_filter=getattr(options, 'angle_filter', False), **info))
         if not options.drain_existing and not stop_new.is_set():
             client.start(bist={'bist-reject': 0, 'bist-pass': 1, 'real': None}[options.mode],
                          clear_faults=options.clear_faults)
@@ -72,15 +73,17 @@ def buffered_session(connection, abort, stop_new, client, options, info):
     # STOP并等待PL终结后，双槽最多还留两帧。预留容量用于这些尾帧。
     # 未成功启动（如历史故障/旧槽拒绝启动）时不擅自消费旧会话。
     try:
+        if hasattr(client, 'stop_direction_output'):
+            client.stop_direction_output()
         client.disable()
         if (started or options.drain_existing) and not abort.is_set():
             while client.read(STATUS) & 3:
                 if stats['drained'] >= 2:
-                    raise RuntimeError('STOP后超过双槽上限；保留硬件现场')
+                    raise RuntimeError('More than two tail frames after STOP; preserve hardware state')
                 client.record_one(sink, allow_fault=True)
                 stats['drained'] += 1
     except BaseException as exc:
-        failure = (failure + '; ' if failure else '') + 'STOP/排尾: ' + str(exc)
+        failure = (failure + '; ' if failure else '') + 'STOP/drain: ' + str(exc)
     try:
         connection.send(('error' if failure else 'done',
                          dict(error=failure, stats=stats, stop_reason=reason,
@@ -99,7 +102,9 @@ def worker_main(connection, abort, stop_new, options, base, size):
             print('WORKER_STAGE=MMIO_SOLVER_ID', flush=True)
             if getattr(options, 'measure_level', False) or getattr(options, 'min_level', None) is not None:
                 from volume_gate import VolumeClient
-                client = VolumeClient(MMIO(base, size), Solver(options.library), options.min_level)
+                client = VolumeClient(MMIO(base, size), Solver(options.library), options.min_level,
+                                      angle_filter=options.angle_filter,
+                                      window_frames=options.window_frames, min_valid=options.min_valid)
             else:
                 client = Client(MMIO(base, size), Solver(options.library))
             client.identify()  # 不向身份错误的设备写STOP。
@@ -127,15 +132,15 @@ def collect(connection, stop_new, queue, high_water, host_info):
             if not connection.poll(POLL_INTERVAL):
                 if time.monotonic() >= deadline:
                     if not ready:
-                        raise TimeoutError('PYNQ启动等待超时；未收到ready，查看WORKER_STAGE')
-                    raise TimeoutError('算法进程失联；请求STOP，RAM文件保留')
+                        raise TimeoutError('PYNQ startup timed out before ready; inspect WORKER_STAGE')
+                    raise TimeoutError('Solver worker lost; request STOP and retain RAM files')
                 continue
             message = connection.recv()
             deadline = time.monotonic() + HOST_TIMEOUT
             kind = message[0]
             if kind == 'ready':
                 ready = True
-                print('PYNQ双核已启动：', dict(host_info, **message[1]), flush=True)
+                print('PYNQ_SMP_READY=', dict(host_info, **message[1]), flush=True)
             elif kind == 'record' and ready:
                 _, ticket, record = message
                 # 唯一恢复键是本次队列目录+ticket；帧序号仍沿用硬件ABI。
@@ -151,12 +156,12 @@ def collect(connection, stop_new, queue, high_water, host_info):
                                retention='ram_before_consume', **host_info, **result))
                 return kind, result
             else:
-                raise RuntimeError('未知进程消息')
+                raise RuntimeError('Unknown process message')
         except KeyboardInterrupt:
             # 第一次Ctrl+C让所有者STOP并排尾，不能立即杀掉已接收记录。
             stop_reason = 'keyboard_interrupt'
             stop_new.set()
-            print('已请求STOP；正在排尾和保存RAM记录，请等待。', flush=True)
+            print('STOP requested; draining and saving RAM records, please wait.', flush=True)
 
 
 def main(argv=None):
@@ -167,19 +172,35 @@ def main(argv=None):
     parser.add_argument('--queue-capacity', type=int, default=64)
     parser.add_argument('--high-water', type=int, default=48)
     parser.add_argument('--flush-timeout', type=float, default=5.0)
+    parser.add_argument('--sd-batch-size', type=int, default=8,
+                        help='maximum records per SD sync (1..64; capped by high-water)')
+    parser.add_argument('--sd-batch-wait-ms', type=float, default=50.0,
+                        help='maximum batch collection wait, 0..100 ms')
     volume = parser.add_mutually_exclusive_group()
-    volume.add_argument('--measure-level', action='store_true', help='仅测量真实音量，不输出应用方向；要求PS音量扩展bit')
-    volume.add_argument('--min-level', type=int, help='启用固定音量门限，单位为去直流PCM平均绝对幅度计数；要求扩展bit')
+    volume.add_argument('--measure-level', action='store_true', help='Measure real level only, no direction output; requires PS volume bitstream')
+    volume.add_argument('--min-level', type=int, help='Fixed level threshold in mean absolute DC-removed PCM counts; requires volume bitstream')
+    parser.add_argument('--angle-filter', action='store_true',
+                        help='Apply multi-frame filtering, circular mean and 3-deg deadband after level gate; no motion')
+    parser.add_argument('--window-frames', type=int, default=20)
+    parser.add_argument('--min-valid', type=int, default=12)
     args = parser.parse_args(argv)
+    try:
+        validate_window(args.window_frames, args.min_valid)
+    except ValueError as exc:
+        parser.error(str(exc))
     prepare_args(args, parser)
     if args.horizontal_motion:
-        parser.error('RAM入口不支持动作；动作仍使用run_smp.py逐帧落盘确认')
+        parser.error('RAM entry does not support motion; legacy motion uses run_smp.py durable confirmation')
     if args.min_level is not None and not 1 <= args.min_level <= 0xffffff:
-        parser.error('--min-level须为1..16777215的整数，不能把0当成已标定门限')
+        parser.error('--min-level must be an integer in 1..16777215; zero is not a calibrated threshold')
+    if args.angle_filter and args.min_level is None:
+        parser.error('--angle-filter requires --min-level; measure-only mode has no direction output')
     if not 1 <= args.high_water <= args.queue_capacity - 4 or args.queue_capacity > 4096:
-        parser.error('队列至少预留4条（在途/双槽尾帧/结束记录），容量不超过4096')
+        parser.error('Reserve at least 4 queue entries for in-flight/tail/end records; capacity must not exceed 4096')
     if not 0 < args.flush_timeout <= 60:
-        parser.error('--flush-timeout须在0..60秒内')
+        parser.error('--flush-timeout must be greater than 0 and at most 60 seconds')
+    if not 1 <= args.sd_batch_size <= 64 or not 0 <= args.sd_batch_wait_ms <= 100:
+        parser.error('SD batch size must be 1..64; wait must be 0..100 ms')
     validate_cpus(args.host_cpu, args.worker_cpu)
     base, size = address_from_hwh(args.hwh, args.ip)
     directory = create_ram_directory()
@@ -196,7 +217,12 @@ def main(argv=None):
     worker = context.Process(target=worker_main,
                              args=(child, abort, stop_new, args, base, size),
                              name='soundsight-c-solver')
-    queue = RamQueue(directory, args.queue_capacity, durable_sink(handle))
+    batch_size = min(args.sd_batch_size, args.high_water)
+    queue = RamQueue(directory, args.queue_capacity, None,
+                     batch_size=batch_size, batch_wait=args.sd_batch_wait_ms / 1000.0,
+                     save_batch=durable_batch_sink(handle))
+    print('STORAGE_DIAG=SD_BATCH_V1', 'BATCH_SIZE=', batch_size,
+          'BATCH_WAIT_MS=', args.sd_batch_wait_ms, 'HIGH_WATER=', args.high_water, flush=True)
     cleanup_error = None
     try:
         worker.start()
@@ -230,8 +256,12 @@ def main(argv=None):
         raise cleanup_error
     print('DURABLE_FRAMES=', queue.durable_frames, 'QUEUE_PEAK=', queue.peak,
           'RESULT=', result, flush=True)
+    print('STORAGE_STATS=', queue.storage, flush=True)
     if kind == 'error' or result.get('host_stop_reason') == 'storage_error':
-        raise RuntimeError(result.get('error') or 'SD写入失败')
+        raise RuntimeError(result.get('error') or 'SD write failed')
+    if result.get('host_stop_reason') == 'queue_high_water':
+        print('CAPTURE_INCOMPLETE=queue_high_water', flush=True)
+        return 2
     return 0
 
 

@@ -1,0 +1,28 @@
+{
+  "hardware_actions": false,
+  "board_runtime": "NOT_RUN",
+  "tests": [
+    {
+      "name": "test_manual_servo.py",
+      "returncode": 0
+    },
+    {
+      "name": "test_board_tools.py",
+      "returncode": 0
+    },
+    {
+      "name": "test_horizontal_motion.py",
+      "returncode": 0
+    },
+    {
+      "name": "test_normal.py",
+      "returncode": 0
+    }
+  ],
+  "zip_crc": true,
+  "python38_syntax": true,
+  "ps_python_matches_tested_update": true,
+  "c_and_shell_match_previous_package": true,
+  "personal_config_not_overwritten": true,
+  "files": 61
+}

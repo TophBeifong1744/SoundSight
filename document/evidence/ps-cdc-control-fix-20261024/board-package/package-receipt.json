@@ -1,0 +1,22 @@
+{
+  "package": "release\\output\\soundsight_pynq_pcm_cdc.zip",
+  "sha256": "64cda8a993ac4aa56ee8fc5d33765527071cd0e346239647277bbe3c0fe2f07a",
+  "files": 78,
+  "payload_hashes_checked": 76,
+  "unchanged_software_files": 43,
+  "python38_syntax": "PASS",
+  "board": "NOT_RUN",
+  "independent_review": "NOT_RUN",
+  "old_packages_preserved": true,
+  "offline_tests": {
+    "test_pcm_capture.py": 19,
+    "test_board_tools.py": 15,
+    "test_serial_english.py": 3,
+    "test_manual_servo.py": 8,
+    "test_filter_controls.py": 13,
+    "test_normal.py": 17,
+    "test_volume_gate.py": 15
+  },
+  "offline_tests_passed": 90,
+  "offline_groups_passed": 7
+}

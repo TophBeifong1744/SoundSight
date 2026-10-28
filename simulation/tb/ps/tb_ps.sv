@@ -9,7 +9,7 @@ module tb_ps;
  wire feature_ready,run_enable,irq,servo_pwm;
  wire [31:0] fault_status;
  `include "axi_tasks.svh"
- ss_ps_link dut(.feature_level(32'b0),.feature_level_valid(1'b0),.*);
+ ss_ps_link dut(.servo_vertical_pwm(),.feature_meta(129'b0),.feature_level(32'b0),.feature_level_valid(1'b0),.*);
  reg [31:0] value,status,seq;
  integer fd,which;
  task publish(input integer peak);
@@ -21,7 +21,9 @@ module tb_ps;
    expect_read(0,32'h5a5a2026);expect_read('h6c,32'h10000);expect_read(4,8);
    for(which=0;which<2;which=which+1)begin
      put('h2c,which);put(4,11);put('h38,1);rd('h34,status,0);rd(8,seq,0);
-     check((status&32'hff1f7fff)==32'h17f39 && seq==which+1,"BIST status/sequence");
+     // 已发布手动扩展的STATUS bit18恒为1；BIST帧字段不变。
+     check((status&32'hff1f7fff)==32'h57f39 && seq==which+1,
+           $sformatf("BIST status/sequence status=%08x seq=%08x",status,seq));
      fd=$fopen(which?"ps_bist_pass.txt":"ps_bist_reject.txt","w");$fdisplay(fd,"%08x %08x",seq,status);
      for(integer p=0;p<6;p=p+1)begin
        put('h1c,p);

@@ -1,0 +1,67 @@
+{
+  "result": "PASS",
+  "scope": "saved BD, HWH parameters and copied RTL only",
+  "migrated_control_nets": 2,
+  "added_ips": 0,
+  "repeat_identical": true,
+  "other_bd_fields_preserved": true,
+  "explicit_ps_parameters_preserved": 78,
+  "effective_ps_parameters_equal": 929,
+  "disabled_cross_trigger_selector_normalization": {
+    "PCW_FTM_CTI_IN1": [
+      "DISABLED",
+      "<Select>"
+    ],
+    "PCW_FTM_CTI_OUT2": [
+      "DISABLED",
+      "<Select>"
+    ],
+    "PCW_FTM_CTI_OUT0": [
+      "DISABLED",
+      "<Select>"
+    ],
+    "PCW_FTM_CTI_OUT3": [
+      "DISABLED",
+      "<Select>"
+    ],
+    "PCW_FTM_CTI_IN2": [
+      "DISABLED",
+      "<Select>"
+    ],
+    "PCW_FTM_CTI_IN3": [
+      "DISABLED",
+      "<Select>"
+    ],
+    "PCW_FTM_CTI_IN0": [
+      "DISABLED",
+      "<Select>"
+    ],
+    "PCW_FTM_CTI_OUT1": [
+      "DISABLED",
+      "<Select>"
+    ]
+  },
+  "candidate_files": {
+    "project/bd/update_ps_reliaze.tcl": "977eb13db3eb65f83243555bc0ab9e4c9c6f9478ae15a23aa70e1f6437b4181f",
+    "project/rtl/ss_manual_servo.sv": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675",
+    "project/rtl/ss_ps_control_regs.sv": "b3b0d802cca994dc66569777d72c3af8b87c4d3dd619340d824e5a3e185472eb",
+    "project/rtl/ss_ps_link.sv": "7240ba3336b6f2d927b007e300b6108aaea383ecc0e3759d2b4b75dd6321e9f0",
+    "project/rtl/bd_ps_link.v": "21251a1067337e328d0f6b625afce2ad958bb7c91d3ea45658a228088c73ea01",
+    "project/rtl/ss_axi_lite_regs.sv": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e",
+    "project/rtl/ss_snapshot_queue.sv": "5e2b408c8ccf7e0600e8a8a52d0e84e417a7b4520fc472cd0b4e9f466710d1c3",
+    "project/rtl/f1a_frame_store.sv": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d",
+    "project/rtl/ss_pair_engine.sv": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409",
+    "project/rtl/ss_pcm_windows.sv": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41",
+    "project/rtl/ss_clean_compute.sv": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669",
+    "project/rtl/ss_dual_compute.sv": "4015f2fdccbd2f13bea78a31995f03de45b861cbb95f75dbfccd70c185d8204a",
+    "project/rtl/bd_clean_compute.v": "d65b00a1d311d12bf36e60a10e38a6b78a6aba254557843149e4da63abf3310c",
+    "project/rtl/ss_pcm_time_cdc.sv": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c",
+    "project/rtl/ss_audio_fifo.sv": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56",
+    "project/rtl/ss_audio_capture.sv": "2dee1ef0725936d6a5f96709813c29aecbc1701a6186bf4f0ad39288ed825e04",
+    "project/rtl/bd_audio_capture.v": "25c52e8d59014e42600b0a11693e9d563f7245a1ec01d8244272101b9a9a0498"
+  },
+  "synthesis": "NOT_RUN",
+  "implementation": "NOT_RUN",
+  "routed_cdc": "NOT_RUN",
+  "board": "NOT_RUN"
+}

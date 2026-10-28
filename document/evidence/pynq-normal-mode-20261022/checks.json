@@ -1,0 +1,36 @@
+{
+  "zip_crc": true,
+  "package_source_match": true,
+  "install_copy_match": true,
+  "hardware_library_logs_preserved": true,
+  "python38_syntax_files": 19,
+  "groups": [
+    {
+      "test": "test_normal.py",
+      "exit_code": 0
+    },
+    {
+      "test": "test_normal_update.py",
+      "exit_code": 0
+    },
+    {
+      "test": "test_sd_batch.py",
+      "exit_code": 0
+    },
+    {
+      "test": "test_buffered.py",
+      "exit_code": 0
+    },
+    {
+      "test": "test_online_angle_filter.py",
+      "exit_code": 0
+    },
+    {
+      "test": "test_volume_gate.py",
+      "exit_code": 0
+    }
+  ],
+  "arm_board": "NOT_RUN",
+  "vivado": "NOT_RUN",
+  "motion": false
+}

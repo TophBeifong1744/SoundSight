@@ -12,50 +12,11 @@ from pathlib import Path
 from statistics import mean, median
 from zipfile import ZipFile
 
-WINDOW = 20
-MIN_VALID = 12
-RADIUS_DEG = 10.0
-CONSENSUS = 2 / 3
-DEADBAND_DEG = 3.0
-
-
-def difference(a, b):
-    """Signed shortest angular displacement, in [-180, 180)."""
-    return (a - b + 180) % 360 - 180
-
-
-def circular_mean(angles):
-    x = sum(math.cos(math.radians(a)) for a in angles)
-    y = sum(math.sin(math.radians(a)) for a in angles)
-    # Opposing directions have no meaningful mean, not a valid zero angle.
-    if not angles or math.hypot(x, y) <= 1e-12 * len(angles):
-        return None
-    return difference(math.degrees(math.atan2(y, x)), 0)
-
-
-def estimate(angles, min_valid=MIN_VALID, radius=RADIUS_DEG):
-    """A circular L1 medoid locates the current window's majority direction.
-
-    Keep samples within a fixed radius; require 12 retained samples AND at least
-    two thirds of all valid samples. Parameters are experimental, not calibrated.
-    The previous target is deliberately absent: genuine new directions can pass.
-    """
-    result = dict(valid_count=len(angles), arithmetic=None, circular_unfiltered=None,
-                  center=None, inlier_count=0, filtered=None, decision='insufficient_valid')
-    if len(angles) < min_valid:
-        return result
-    result['arithmetic'] = mean(angles)
-    result['circular_unfiltered'] = circular_mean(angles)
-    # Deterministic tie-break only; split populations are rejected by consensus.
-    center = min(sorted(angles), key=lambda a: sum(abs(difference(b, a)) for b in angles))
-    kept = [a for a in angles if abs(difference(a, center)) <= radius]
-    result.update(center=center, inlier_count=len(kept))
-    if len(kept) < min_valid or len(kept) / len(angles) < CONSENSUS:
-        result['decision'] = 'insufficient_consensus'
-        return result
-    result['filtered'] = circular_mean(kept)
-    result['decision'] = 'accepted' if result['filtered'] is not None else 'undefined_mean'
-    return result
+# Offline and online use the same estimator, without pulling plotting onto PYNQ.
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'software/ps'))
+from angle_filter import (WINDOW, MIN_VALID, RADIUS_DEG, CONSENSUS, DEADBAND_DEG,
+                          difference, circular_mean, estimate)
 
 
 def replay(frames, window=WINDOW):

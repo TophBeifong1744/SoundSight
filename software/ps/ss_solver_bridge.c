@@ -17,7 +17,7 @@ int ss_solve_words(uint32_t sequence, uint32_t status,
     if (!words || !out || !sequence) return -1;
     memset(&frame,0,sizeof frame);memset(&servo,0,sizeof servo);
     memset(out,0,12*sizeof *out);
-    if (status & ~SNAP_STATUS_DEFINED_MASK) return -2;
+    if (status & ~(SNAP_STATUS_DEFINED_MASK | UINT32_C(0x00040000))) return -2; /* PS manual capability */
     if (!(status & SNAP_STATUS_LOCKED)) return -3;
     frame.frame_id=sequence;frame.flags=SNAP_STATUS_GET_FRAME_FLAGS(status);
     for(p=0;p<6;p++) {

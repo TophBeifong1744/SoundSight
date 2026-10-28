@@ -1,0 +1,26 @@
+PCM_CHECK= {"audio": {"armed": false, "dma_reset_released": true, "epoch": 0, "errors": 0, "idle": true, "partial_tail": false, "pending": false, "published": 0, "raw": 24, "ready": false, "rejected": 0}, "channels": 4, "dma_status": 1, "motion": false, "packet_bytes": 8224, "ps": {"fault": 0}, "sample_rate": 48000}
+PCM_INTERFACE_OK=1 NO_CAPTURE=1 SERVO=OFF
+test_all_failures_stop_and_preserve_reason (__main__.PCMTests.test_all_failures_stop_and_preserve_reason) ... ok
+test_corrupt_headers_rejected (__main__.PCMTests.test_corrupt_headers_rejected) ... ok
+test_counter_crosses_32bit_sample_boundary (__main__.PCMTests.test_counter_crosses_32bit_sample_boundary) ... ok
+test_direction_slots_consumed_and_time_checked (__main__.PCMTests.test_direction_slots_consumed_and_time_checked) ... ok
+test_dma_error_and_wrong_actual_length (__main__.PCMTests.test_dma_error_and_wrong_actual_length) ... ok
+test_dma_reset_timeout_preserves_ownership (__main__.PCMTests.test_dma_reset_timeout_preserves_ownership) ... ok
+test_epoch_persists_and_skips_hardware_value (__main__.PCMTests.test_epoch_persists_and_skips_hardware_value) ... ok
+test_error_bits_are_15_to_8 (__main__.PCMTests.test_error_bits_are_15_to_8) ... ok
+test_hwh_rejects_old_or_incompatible_hardware (__main__.PCMTests.test_hwh_rejects_old_or_incompatible_hardware) ... ok
+test_invalid_count_no_writes (__main__.PCMTests.test_invalid_count_no_writes) ... ok
+test_no_premature_dma_read_or_free (__main__.PCMTests.test_no_premature_dma_read_or_free) ... ok
+test_old_frames_and_faults_preserved_before_first_write (__main__.PCMTests.test_old_frames_and_faults_preserved_before_first_write) ... ok
+test_pcm_check_is_read_only_and_does_not_allocate (__main__.PCMTests.test_pcm_check_is_read_only_and_does_not_allocate) ... ok
+test_reused_epoch_refused (__main__.PCMTests.test_reused_epoch_refused) ... ok
+test_short_and_long_packet (__main__.PCMTests.test_short_and_long_packet) ... ok
+test_signed_extremes_and_channels (__main__.PCMTests.test_signed_extremes_and_channels) ... ok
+test_success_bounded_stop_and_partial_tail (__main__.PCMTests.test_success_bounded_stop_and_partial_tail) ... ok
+test_unknown_flag_and_bad_sign_extension (__main__.PCMTests.test_unknown_flag_and_bad_sign_extension) ... ok
+test_wav_keeps_24bit_channel_order (__main__.PCMTests.test_wav_keeps_24bit_channel_order) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.045s
+
+OK

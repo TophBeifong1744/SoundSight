@@ -13,7 +13,7 @@ module tb_clean;
  wire [11:0] source_faults;
  wire [3:0] debug_frontend;
  wire [4:0] debug_backend;
- ss_clean_compute #(.WARMUP_SAMPLES(16)) dut(.feature_level(),.feature_level_valid(),.acq_clk(clk),.acq_rst_n(rst_n),.acq_enable(enable),.active(),.*);
+ ss_clean_compute #(.WARMUP_SAMPLES(16)) dut(.audio_epoch(32'b0),.audio_active(1'b0),.audio_valid(),.audio_clip(),.audio_source_fault(),.audio_pcm(),.audio_sample_index(),.feature_meta(),.feature_level(),.feature_level_valid(),.acq_clk(clk),.acq_rst_n(rst_n),.acq_enable(enable),.active(),.*);
  reg fixture_valid=0;
  reg [95:0] fixture_pcm=0;
  reg [31:0] random_state=32'h1765ca19;

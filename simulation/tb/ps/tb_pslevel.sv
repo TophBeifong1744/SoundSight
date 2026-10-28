@@ -8,7 +8,7 @@ module tb_pslevel;
  reg [11:0] source_faults=0;
  wire feature_ready,run_enable,irq,servo_pwm;wire [31:0] fault_status;
  `include "axi_tasks.svh"
- ss_ps_link #(.LEVEL_ENABLE(1)) dut(.*);
+ ss_ps_link #(.LEVEL_ENABLE(1)) dut(.feature_meta(129'b0),.servo_vertical_pwm(),.*);
  reg [31:0] value;
  task publish(input integer level,input bit valid);
   tick();feature_level=level;feature_level_valid=valid;

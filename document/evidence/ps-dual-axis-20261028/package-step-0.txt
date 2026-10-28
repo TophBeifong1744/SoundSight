@@ -1,0 +1,2 @@
+BACKUP=E:\Users\Toph Beifong\Documents\GitHub\SoundSight\software\build\three-d-package-zna4ukks\receiver with spaces\backup_3d_20261028_131455_513196
+THREE_D_SOFTWARE_INSTALLED FILES=30 HARDWARE_ACTIONS=0 BIT_HWH_INCLUDED=0

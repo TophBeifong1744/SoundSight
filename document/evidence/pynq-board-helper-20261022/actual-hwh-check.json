@@ -1,0 +1,8 @@
+{
+  "source": "release/output/soundsight_pynq_volume.zip",
+  "address": "0x40000000",
+  "size": 4096,
+  "volume_hwh_check": "PASS",
+  "bit_unchanged": true,
+  "hardware_access": false
+}

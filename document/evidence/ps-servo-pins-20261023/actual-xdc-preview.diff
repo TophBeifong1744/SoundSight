@@ -1,0 +1,22 @@
+--- F:\AMD\work\SoundSight_PS_Servo\horizontal_constraints\01\board_pins.xdc
++++ planned/board_pins.xdc
+@@ -1,7 +1,7 @@
+ # PL+PS目标的外部PL引脚配置；无STM32 SPI/IRQ端口。
+ # 2026-10-17双方确认分配；装入前检查实际Bank13供电、LVCMOS33和排针方向。
+ # 外部PL引脚在本文件；时钟来自PS FCLK和Clocking Wizard；配套接口约束见interface_timing.xdc及其预算说明。
+-set_property PACKAGE_PIN V7 [get_ports servo_pwm]
++set_property PACKAGE_PIN T15 [get_ports servo_pwm]
+ set_property PACKAGE_PIN V11 [get_ports {pdm_clocks[0]}]
+ set_property PACKAGE_PIN Y13 [get_ports {pdm_clocks[1]}]
+ set_property PACKAGE_PIN U14 [get_ports {pdm_clocks[2]}]
+--- F:\AMD\work\SoundSight_PS_Servo\horizontal_constraints\horizontal_reserved.xdc
++++ planned/horizontal_reserved.xdc
+@@ -1,7 +1,7 @@
+ # Only the explicit horizontal preparation recipe adds this constraint file.
+ # J4 pin 6 = U7, Bank 13. RTL ties the reserved vertical output LOW.
+ # Horizontal J4 pin 5 = V7 is set in the copied project's board_pins.xdc.
+-set_property PACKAGE_PIN U7 [get_ports servo_vertical_pwm]
++set_property PACKAGE_PIN W15 [get_ports servo_vertical_pwm]
+ set_property IOSTANDARD LVCMOS33 [get_ports servo_vertical_pwm]
+ set_property DRIVE 4 [get_ports servo_vertical_pwm]
+ set_property SLEW SLOW [get_ports servo_vertical_pwm]

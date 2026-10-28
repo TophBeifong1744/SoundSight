@@ -1,0 +1,90 @@
+[
+  {
+    "test": "test_pcm_capture.py",
+    "scope": "extracted delivery package",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-cdc-package-check\\SoundSight_PYNQ_PCM_CDC\\software\\tests\\test_pcm_capture.py",
+      "-v"
+    ],
+    "returncode": 0
+  },
+  {
+    "test": "test_board_tools.py",
+    "scope": "extracted delivery package",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-cdc-package-check\\SoundSight_PYNQ_PCM_CDC\\software\\tests\\test_board_tools.py",
+      "-v"
+    ],
+    "returncode": 0
+  },
+  {
+    "test": "test_serial_english.py",
+    "scope": "extracted delivery package",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-cdc-package-check\\SoundSight_PYNQ_PCM_CDC\\software\\tests\\test_serial_english.py",
+      "-v"
+    ],
+    "returncode": 0
+  },
+  {
+    "test": "test_manual_servo.py",
+    "scope": "extracted delivery package",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-cdc-package-check\\SoundSight_PYNQ_PCM_CDC\\software\\tests\\test_manual_servo.py",
+      "-v"
+    ],
+    "returncode": 0
+  },
+  {
+    "test": "test_filter_controls.py",
+    "scope": "extracted delivery package",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-cdc-package-check\\SoundSight_PYNQ_PCM_CDC\\software\\tests\\test_filter_controls.py",
+      "-v"
+    ],
+    "returncode": 0
+  },
+  {
+    "test": "test_normal_mode.py",
+    "scope": "extracted delivery package",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-cdc-package-check\\SoundSight_PYNQ_PCM_CDC\\software\\tests\\test_normal_mode.py",
+      "-v"
+    ],
+    "returncode": 2
+  },
+  {
+    "test": "test_normal.py",
+    "scope": "extracted delivery package",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-cdc-package-check\\SoundSight_PYNQ_PCM_CDC\\software\\tests\\test_normal.py",
+      "-v"
+    ],
+    "returncode": 0
+  },
+  {
+    "test": "test_volume_gate.py",
+    "scope": "extracted delivery package",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-cdc-package-check\\SoundSight_PYNQ_PCM_CDC\\software\\tests\\test_volume_gate.py",
+      "-v"
+    ],
+    "returncode": 0
+  }
+]

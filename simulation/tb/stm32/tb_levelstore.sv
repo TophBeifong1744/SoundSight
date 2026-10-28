@@ -8,7 +8,7 @@ module tb_levelstore;
  reg [31:0] frame_level=0;reg frame_level_valid=1,feature_ready=0;
  wire accepting,feature_valid,drop_pulse,gap,counter_exhausted,source_protocol_error,feature_level_valid;
  wire [31:0] feature_frame_id,feature_frame_flags,drop_count,feature_level;wire [959:0] feature_pairs;
- f1a_frame_store #(.LEVEL_ENABLE(1)) dut(.*);
+ f1a_frame_store #(.LEVEL_ENABLE(1)) dut(.frame_meta(129'b0),.feature_meta(),.*);
  task tick;@(negedge clk);endtask
  task publish(input integer value,input bit cancelled);
   tick();frame_level=value;frame_cancelled=cancelled;frame_start=1;tick();frame_start=0;

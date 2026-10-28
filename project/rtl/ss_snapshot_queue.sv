@@ -7,9 +7,10 @@
 `default_nettype none
 // 两槽各存整帧；序号在发布尝试时分配，满时只丢新帧。读者只看 LOCKED。
 // 同拍先消费，再写新帧，因此恰好释放的槽可以立即使用，不制造假溢出。
-module ss_snapshot_queue (
+module ss_snapshot_queue #(parameter integer META_ENABLE=0) (
     input wire clk, rst_n,
     input wire frame_valid,
+    input wire [128:0] frame_meta,output wire [128:0] locked_meta,
     input wire [959:0] frame_pairs,
     input wire [31:0] frame_flags, frame_energy,
     input wire frame_energy_valid,
@@ -24,7 +25,7 @@ module ss_snapshot_queue (
 );
     localparam [1:0] FREE=0, READY=1, LOCKED=2;
     reg [1:0] state[0:1], next_state[0:1];
-    reg [959:0] pairs[0:1];
+    reg [959:0] pairs[0:1];reg [128:0] meta[0:1];
     reg [31:0] flags[0:1], energy[0:1], seq[0:1];
     reg energy_valid[0:1];
     reg [31:0] sequence_count;
@@ -34,6 +35,7 @@ module ss_snapshot_queue (
     assign locked=(state[0]==LOCKED || state[1]==LOCKED);
     assign queued=(state[0]==READY || state[1]==READY);
     assign occupied=locked || queued;
+    assign locked_meta=locked && META_ENABLE ? meta[lock_index] : 129'b0;
     assign locked_pairs=locked ? pairs[lock_index] : 960'b0;
     assign locked_flags=locked ? flags[lock_index] : 32'b0;
     assign locked_energy=locked ? energy[lock_index] : 32'b0;
@@ -64,7 +66,7 @@ module ss_snapshot_queue (
     always @(posedge clk) begin
         if(!rst_n) begin
             for(i=0;i<2;i=i+1) begin
-                state[i]<=FREE;pairs[i]<=0;flags[i]<=0;energy[i]<=0;seq[i]<=0;energy_valid[i]<=0;
+                state[i]<=FREE;pairs[i]<=0;meta[i]<=0;flags[i]<=0;energy[i]<=0;seq[i]<=0;energy_valid[i]<=0;
             end
             sequence_count<=0;drop_count<=0;gap<=0;exhausted<=0;
             snapshot_error<=0;overflow_pulse<=0;counter_error<=0;
@@ -78,6 +80,7 @@ module ss_snapshot_queue (
                     if(sequence_count==32'hfffffffe) begin exhausted<=1;counter_error<=1;end
                     if(wr_slot>=0) begin
                         pairs[wr_slot]<=frame_pairs;flags[wr_slot]<=frame_flags;
+                        meta[wr_slot]<=META_ENABLE ? frame_meta : 129'b0;
                         energy[wr_slot]<=frame_energy;energy_valid[wr_slot]<=frame_energy_valid;
                         seq[wr_slot]<=sequence_count+1'b1;
                     end else begin

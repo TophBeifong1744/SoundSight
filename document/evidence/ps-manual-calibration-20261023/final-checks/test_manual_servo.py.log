@@ -1,0 +1,13 @@
+test_capture_queue_drain_or_other_manual_refused (__main__.Tests.test_capture_queue_drain_or_other_manual_refused) ... ok
+test_ctrl_c_stops (__main__.Tests.test_ctrl_c_stops) ... ok
+test_delayed_process_does_not_rearm (__main__.Tests.test_delayed_process_does_not_rearm) ... ok
+test_no_audio_and_renewal_and_stop (__main__.Tests.test_no_audio_and_renewal_and_stop) ... ok
+test_old_bit_never_reads_extension_or_writes (__main__.Tests.test_old_bit_never_reads_extension_or_writes) ... ok
+test_out_of_bounds_and_invalid_duration_no_write (__main__.Tests.test_out_of_bounds_and_invalid_duration_no_write) ... ok
+test_stop_marker_only_can_be_cleared (__main__.Tests.test_stop_marker_only_can_be_cleared) ... ok
+test_write_failure_still_requests_stop (__main__.Tests.test_write_failure_still_requests_stop) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

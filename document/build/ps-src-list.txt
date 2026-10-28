@@ -11,6 +11,8 @@ project/rtl/ifft25_official.sv
 project/rtl/motor_drive.v
 project/rtl/pdm_cic3.v
 project/rtl/ss_actuator_control.sv
+project/rtl/ss_manual_servo.sv
+project/rtl/ss_dual_axis_control.sv
 project/rtl/ss_async_word.sv
 project/rtl/ss_axi_lite_regs.sv
 project/rtl/ss_bist_source.sv
@@ -25,3 +27,8 @@ project/rtl/ss_ps_control_regs.sv
 project/rtl/ss_ps_link.sv
 project/rtl/ss_snapshot_queue.sv
 project/rtl/hann-u18f17.mem
+
+project/rtl/ss_pcm_time_cdc.sv
+project/rtl/ss_audio_fifo.sv
+project/rtl/ss_audio_capture.sv
+project/rtl/bd_audio_capture.v

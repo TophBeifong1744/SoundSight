@@ -1,5 +1,5 @@
 # PL+PS目标的外部PL引脚配置；无STM32 SPI/IRQ端口。
-# 2026-10-17双方确认分配；装入前检查实际Bank13供电、LVCMOS33和排针方向。
+# 装入前按各引脚所属Bank检查供电、LVCMOS33和连接器针脚方向；不能统一当成Bank13。
 # 外部PL引脚在本文件；时钟来自PS FCLK和Clocking Wizard；配套接口约束见interface_timing.xdc及其预算说明。
 set_property PACKAGE_PIN T15 [get_ports servo_pwm]
 set_property PACKAGE_PIN V11 [get_ports {pdm_clocks[0]}]

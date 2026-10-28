@@ -1,0 +1,23 @@
+SYNTHETIC_INDEPENDENT_NOISE_GAIN_DB=7.2745 (not acoustic acceptance)
+ANALYTIC_70_DIRECTIONS_MAX_RMS_OVER_PEAK=0.00106672
+test_actual_c_solver_to_das (__main__.Tests.test_actual_c_solver_to_das) ... ok
+test_channel_order_and_translation (__main__.Tests.test_channel_order_and_translation) ... ok
+test_chunk_equivalence_and_dynamic_fallback (__main__.Tests.test_chunk_equivalence_and_dynamic_fallback) ... ok
+test_cli_wav_and_no_overwrite (__main__.Tests.test_cli_wav_and_no_overwrite) ... ok
+test_expired_and_duplicate_control (__main__.Tests.test_expired_and_duplicate_control) ... ok
+test_full_scale_and_end_of_stream (__main__.Tests.test_full_scale_and_end_of_stream) ... ok
+test_gap_reorder_and_pcm_range (__main__.Tests.test_gap_reorder_and_pcm_range) ... ok
+test_geometry_rejections (__main__.Tests.test_geometry_rejections) ... ok
+test_independent_noise_reduction (__main__.Tests.test_independent_noise_reduction) ... ok
+test_invalid_solver_clears_target (__main__.Tests.test_invalid_solver_clears_target) ... ok
+test_nominal_capacity_and_vertical_polarity (__main__.Tests.test_nominal_capacity_and_vertical_polarity) ... ok
+test_solver_mismatch (__main__.Tests.test_solver_mismatch) ... ok
+test_solver_pole_and_fitted_vector (__main__.Tests.test_solver_pole_and_fitted_vector) ... ok
+test_sphere_against_analytic_audio (__main__.Tests.test_sphere_against_analytic_audio) ... ok
+test_vector_rejections (__main__.Tests.test_vector_rejections) ... ok
+test_wrong_vertical_steer_is_detectable (__main__.Tests.test_wrong_vertical_steer_is_detectable) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 3.703s
+
+OK

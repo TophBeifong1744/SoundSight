@@ -1,7 +1,4 @@
-"""同一Linux/PYNQ的双核入口：CPU1取帧/调用C/提交，CPU0控制/落盘/显示。
-
-不加载bit、不复位PS。默认BIST且不运动。当前公共ABI仅支持水平轴。
-"""
+'PYNQ SMP capture: CPU1 solves; CPU0 saves. Motion requires explicit calibration.'
 import contextlib
 import multiprocessing as mp
 import os
@@ -24,15 +21,15 @@ class Cancelled(RuntimeError):
 
 
 def check_cancel(cancel):
-    if cancel.is_set():raise Cancelled('主进程要求停止；保留未消费帧')
+    if cancel.is_set():raise Cancelled('Parent requested STOP; retain unconsumed frame')
 
 
 def validate_cpus(host_cpu, worker_cpu):
     if not hasattr(os,'sched_getaffinity') or not hasattr(os,'sched_setaffinity'):
-        raise RuntimeError('需要Linux CPU affinity；Windows不能代替目标PYNQ运行')
+        raise RuntimeError('Linux CPU affinity required; Windows is not a PYNQ runtime')
     available=os.sched_getaffinity(0)
     if host_cpu==worker_cpu or not {host_cpu,worker_cpu}<=available:
-        raise RuntimeError('需要两个可用Linux核；当前允许CPU：'+str(sorted(available)))
+        raise RuntimeError('Two available Linux CPU cores required; allowed CPUs: '+str(sorted(available)))
     return available
 
 
@@ -41,7 +38,7 @@ def pinned(cpu):
     previous=os.sched_getaffinity(0)
     os.sched_setaffinity(0,{cpu})
     try:
-        if os.sched_getaffinity(0)!={cpu}:raise RuntimeError('CPU affinity未生效')
+        if os.sched_getaffinity(0)!={cpu}:raise RuntimeError('CPU affinity was not applied')
         yield
     finally:os.sched_setaffinity(0,previous)
 
@@ -58,11 +55,11 @@ class SavedBeforeConsume:
         while True:
             check_cancel(self.cancel)
             remaining=deadline-time.monotonic()
-            if remaining<=0:raise TimeoutError('等待落盘确认超时；保留锁帧')
+            if remaining<=0:raise TimeoutError('Durable-save ACK timed out; retain locked frame')
             if self.connection.poll(min(POLL_INTERVAL,remaining)):
                 reply=self.connection.recv()
-                if time.monotonic()>=deadline:raise TimeoutError('落盘确认超过等待上界；保留锁帧')
-                if reply!=('saved',self.ticket):raise RuntimeError('落盘确认与当前记录不一致')
+                if time.monotonic()>=deadline:raise TimeoutError('Durable-save ACK exceeded timeout; retain locked frame')
+                if reply!=('saved',self.ticket):raise RuntimeError('Durable-save ACK does not match current record')
                 check_cancel(self.cancel)
                 return
 
@@ -101,7 +98,7 @@ def worker_session(connection,cancel,client,options,config,info):
         # 启动记录阶段也可能失败；此时尚未进入capture的finally。
         try:client.disable()
         except Exception as cleanup:
-            print('worker停用未确认：'+str(cleanup),file=sys.stderr)
+            print('Worker disable not confirmed: '+str(cleanup),file=sys.stderr)
         try:connection.send(('error',dict(error=type(exc).__name__+': '+str(exc),stats=stats)))
         except (EOFError,OSError):pass
     finally:connection.close()
@@ -131,11 +128,11 @@ def collect(connection,worker,cancel,sink,host_info):
         while True:
             timeout=HOST_TIMEOUT if ready else START_TIMEOUT
             if not connection.poll(timeout):
-                raise TimeoutError('算法进程未响应；已请求停止')
+                raise TimeoutError('Solver worker unresponsive; STOP requested')
             message=connection.recv();kind=message[0]
             if kind=='ready':
                 ready=True
-                print('PYNQ双核已启动：',dict(host_info,**message[1]),flush=True)
+                print('PYNQ_SMP_READY=',dict(host_info,**message[1]),flush=True)
             elif kind=='record':
                 _,ticket,record=message
                 sink(record)  # 必须write/flush/fsync成功后才回ACK。
@@ -145,8 +142,8 @@ def collect(connection,worker,cancel,sink,host_info):
                 return message[1]
             elif kind=='error':
                 sink(dict(event='failed',**host_info,**message[1]))
-                raise RuntimeError('算法进程失败：'+message[1]['error'])
-            else:raise RuntimeError('未知进程消息')
+                raise RuntimeError('Solver worker failed: '+message[1]['error'])
+            else:raise RuntimeError('Unknown process message')
     finally:
         cancel.set()
 
@@ -156,7 +153,7 @@ def finish_worker(worker,cancel):
     if worker.is_alive():
         # C库或驱动挂死时Python不能保证STOP；不能伪称已停止执行器。
         worker.terminate();worker.join(HOST_TIMEOUT)
-        raise RuntimeError('算法进程无响应而被终止；硬件STOP未经确认，须由A检查现场/看门狗')
+        raise RuntimeError('Unresponsive solver worker terminated; hardware STOP unconfirmed, inspect board/watchdog')
 
 
 def main(argv=None):
@@ -184,7 +181,7 @@ def main(argv=None):
             except Exception as exc:
                 if original is None:raise
                 print(str(exc),file=sys.stderr)
-    print('已消费帧数：',result['saved'],'；水平动作启用：',args.horizontal_motion)
+    print('CONSUMED_FRAMES=',result['saved'],'HORIZONTAL_MOTION=',args.horizontal_motion)
     return 0
 
 

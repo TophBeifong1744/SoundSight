@@ -1,0 +1,21 @@
+SERVO_PIN_BACKUP=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/ss pin test j9znuo0k/handoff/before_servo_pins_20261023_163850_46528302405
+SERVO_PINS_UPDATED: horizontal=T15 vertical=W15 LVCMOS33; vertical remains LOW
+OLD_BIT_IS_UNCHANGED: rebuild implementation/bitstream manually before using the new pins
+NO_SYNTHESIS_IMPLEMENTATION_OR_HARDWARE_ACTIONS_STARTED
+SERVO_PIN_BACKUP=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/ss pin test j9znuo0k/handoff/before_servo_pins_20261023_163850_46528351268
+SERVO_PINS_UPDATED: horizontal=T15 vertical=W15 LVCMOS33; vertical remains LOW
+OLD_BIT_IS_UNCHANGED: rebuild implementation/bitstream manually before using the new pins
+NO_SYNTHESIS_IMPLEMENTATION_OR_HARDWARE_ACTIONS_STARTED
+
+test_busy_original_wrong_part_refused (__main__.PinTests.test_busy_original_wrong_part_refused) ... ok
+test_comments_braces_and_crlf_preserved (__main__.PinTests.test_comments_braces_and_crlf_preserved) ... ok
+test_duplicate_or_unknown_assignment_refused (__main__.PinTests.test_duplicate_or_unknown_assignment_refused) ... ok
+test_external_constraint_refused (__main__.PinTests.test_external_constraint_refused) ... ok
+test_missing_vertical_refused (__main__.PinTests.test_missing_vertical_refused) ... ok
+test_pin_conflicts_refused_before_either_write (__main__.PinTests.test_pin_conflicts_refused_before_either_write) ... ok
+test_rewrites_only_two_pins_with_backup_and_is_repeatable (__main__.PinTests.test_rewrites_only_two_pins_with_backup_and_is_repeatable) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.083s
+
+OK

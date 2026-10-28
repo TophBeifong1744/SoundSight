@@ -8,9 +8,10 @@
 // 2048组环形采样RAM，1024点窗、512点步进。一次只借出一个窗口。
 // 借出的base/frame保持到release；读方先拷走窗口再做FFT，因此处理期间不占采样RAM。
 // 过慢导致待交窗口拥塞或写指针追上借出窗时，报告故障并停止新增，不默默改旧数据。
-module ss_pcm_windows (
+module ss_pcm_windows #(parameter integer TIMING_ENABLE=0) (
  input wire clk,rst_n,enable,sample_valid,input wire [95:0] sample_pcm,
  input wire sample_clipped,
+ input wire [63:0] sample_index,output reg [63:0] window_sample_start,
  output wire window_valid,input wire window_ready,output reg [31:0] window_frame,
  input wire release_window,
  input wire read_enable,input wire [9:0] read_index,
@@ -32,7 +33,7 @@ module ss_pcm_windows (
    if(sample_fire)ring[write_index]<=sample_pcm;
    if(!rst_n)begin
      write_index<=0;base<=0;fill<=0;hop<=0;complete_first<=0;
-     pending<=0;owned<=0;window_frame<=0;sequence_count<=0;
+     pending<=0;owned<=0;window_frame<=0;sequence_count<=0;window_sample_start<=0;
      overflow<=0;numeric_error<=0;counter_exhausted<=0;read_valid<=0;read_pcm<=0;
    end else begin
      if(release_window)owned<=0;
@@ -55,6 +56,7 @@ module ss_pcm_windows (
          else begin
            sequence_count<=sequence_count+1'b1;window_frame<=sequence_count+1'b1;
            base<=write_index-11'd1023;pending<=1;
+           window_sample_start<=TIMING_ENABLE ? sample_index-64'd1023 : 64'b0;
          end
        end
      end

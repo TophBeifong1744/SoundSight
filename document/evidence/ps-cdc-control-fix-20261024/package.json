@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "path": "release\\output\\soundsight_reliaze_cdc_update.zip",
+  "sha256": "6f83f446b4c0530c5780cf4e72979b04cb624c9f57b1fb49f6b307f671a335ee",
+  "files": 23,
+  "verified_payload_hashes": 22,
+  "bytes": 52967
+}

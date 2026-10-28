@@ -1,0 +1,14 @@
+{
+  "reviewer": "/root/remote_scope_review",
+  "role": "independent read-only reviewer; no product or test edits",
+  "result": "SCOPED_SOURCE_SYNC_PASS",
+  "reviewed_staged_files": 737,
+  "findings": [
+    {"id": "SYNC-01", "severity": "HIGH", "issue": "Legacy automatic horizontal entry accepted dual-axis HWH without speaker gate", "status": "CLOSED", "evidence": "Independent same-HWH readiness PASS, old automatic helper/direct CLI/legacy prepare REJECT; legacy single-axis zero/absent compatible"},
+    {"id": "SYNC-02", "severity": "MEDIUM", "issue": "Small update payload omitted guard dependencies", "status": "CLOSED", "evidence": "selected includes run_capture, horizontal_motion, board_tools, speaker_permission; generated 41-entry ZIP byte check PASS"},
+    {"id": "SYNC-03", "severity": "LOW", "issue": "Private combined runtime/test scope unclear in B interface note", "status": "CLOSED"}
+  ],
+  "public_scope": "No B inference engine, private recording/model/template/local setting, or ZIP in staged diff. Existing speaker-report-materials unchanged. No deletion.",
+  "whitespace": "Full diff check reports original EDA trailing whitespace and inherited blank EOF; source/helper scoped check with blank-at-eof excluded PASS. Original reports not rewritten.",
+  "limitations": ["No new FPGA build or board/motion operation", "ARM joint load, channels, mechanical and recognition thresholds unverified", "Application permission is not a hardware identity-security boundary"]
+}

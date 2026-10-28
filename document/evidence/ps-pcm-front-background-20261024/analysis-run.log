@@ -1,0 +1,261 @@
+{
+  "scope": "User-provided recordings; no live board actions or product changes",
+  "input_sha256": "b40e88e10a4249cd58748e37260d3e3535033ac5dade7870457f83d7d6a14d26",
+  "recording_labels": "Assigned from user commands: epoch4 quiet background; epoch5 fixed approximate front at requested ~1m, continuous speech",
+  "filter_assumption": {
+    "level": 7000,
+    "window": 20,
+    "min_valid": 12,
+    "radius_deg": 10,
+    "consensus": "2/3",
+    "deadband_deg": 3,
+    "note": "Offline default diagnostic only; actual saved user settings and mechanical front calibration were not supplied"
+  },
+  "background": {
+    "epoch": 4,
+    "packets": 256,
+    "samples_per_channel": 131072,
+    "seconds": 2.7306666666666666,
+    "continuity": "PASS",
+    "wav_matches_packets": true,
+    "hardware_matches": true,
+    "frames": 255,
+    "final_ps": {
+      "status": 999424,
+      "fault": 64,
+      "drops": 0
+    },
+    "final_audio": {
+      "raw": 28,
+      "errors": 0,
+      "armed": false,
+      "pending": false,
+      "partial_tail": true,
+      "idle": true,
+      "dma_reset_released": true,
+      "ready": false,
+      "rejected": 0,
+      "published": 256,
+      "epoch": 4
+    },
+    "clipped_packets": 0,
+    "full_scale_samples": 0,
+    "pcm_ac_rms": [
+      7568.690060964583,
+      7607.212327976364,
+      7852.256234339571,
+      7418.344200048609
+    ],
+    "pcm_mean_abs": [
+      6146.52880859375,
+      6164.51318359375,
+      6376.173828125,
+      6024.27978515625
+    ],
+    "pcm_peak_percent_full_scale": [
+      0.311279296875,
+      0.30517578125,
+      0.333404541015625,
+      0.337982177734375
+    ],
+    "dc_mean": [
+      -50.93603515625,
+      -28.27880859375,
+      -16.4990234375,
+      9.46630859375
+    ],
+    "identical_channel_pairs": [],
+    "level_min_p10_p50_p90_p99_max": [
+      1851.0,
+      2843.8,
+      4177.0,
+      6585.4,
+      8881.920000000002,
+      11578.0
+    ],
+    "level_ge_7000": 19,
+    "solver_valid": 167,
+    "solver_reasons": {
+      "0": 167,
+      "3": 36,
+      "1": 13,
+      "4": 39
+    },
+    "solver_reasons_above_gate": {
+      "1": 1,
+      "0": 16,
+      "4": 1,
+      "3": 1
+    },
+    "valid_above_gate": 16,
+    "gated_angle_circular_mean_deg": -84.40619312715448,
+    "gated_angle_offset_from_mean_p10_p50_p90": [
+      -80.7207599978455,
+      -9.031306872845505,
+      82.1796306271545
+    ],
+    "filtered_complete_windows": 0,
+    "filtered_accepted_windows": 0,
+    "filtered_angles": [],
+    "filtered_reasons": {
+      "below_volume_threshold": 236,
+      "collecting_window": 19
+    },
+    "strongest_frequency_hz": [
+      23.4375,
+      23.4375,
+      23.4375,
+      23.4375
+    ],
+    "power_fraction_below_300Hz": [
+      0.9359653415023761,
+      0.931294518032977,
+      0.933230055608124,
+      0.9366978458064938
+    ]
+  },
+  "speech": {
+    "epoch": 5,
+    "packets": 1024,
+    "samples_per_channel": 524288,
+    "seconds": 10.922666666666666,
+    "continuity": "PASS",
+    "wav_matches_packets": true,
+    "hardware_matches": true,
+    "frames": 1023,
+    "final_ps": {
+      "status": 999424,
+      "fault": 64,
+      "drops": 0
+    },
+    "final_audio": {
+      "raw": 28,
+      "errors": 0,
+      "armed": false,
+      "pending": false,
+      "partial_tail": true,
+      "idle": true,
+      "dma_reset_released": true,
+      "ready": false,
+      "rejected": 0,
+      "published": 1024,
+      "epoch": 5
+    },
+    "clipped_packets": 0,
+    "full_scale_samples": 0,
+    "pcm_ac_rms": [
+      16147.947848083633,
+      17534.675839605552,
+      17886.109040222233,
+      16023.877628094986
+    ],
+    "pcm_mean_abs": [
+      11922.8251953125,
+      12784.423095703125,
+      13070.20166015625,
+      11841.934326171875
+    ],
+    "pcm_peak_percent_full_scale": [
+      1.42364501953125,
+      1.708984375,
+      1.752471923828125,
+      1.374053955078125
+    ],
+    "dc_mean": [
+      7.943115234375,
+      25.939453125,
+      25.985107421875,
+      22.221435546875
+    ],
+    "identical_channel_pairs": [],
+    "level_min_p10_p50_p90_p99_max": [
+      1883.0,
+      3927.0,
+      10121.0,
+      20950.4,
+      27575.399999999998,
+      33388.0
+    ],
+    "level_ge_7000": 695,
+    "solver_valid": 814,
+    "solver_reasons": {
+      "0": 814,
+      "4": 24,
+      "1": 94,
+      "3": 91
+    },
+    "solver_reasons_above_gate": {
+      "0": 580,
+      "4": 4,
+      "1": 80,
+      "3": 31
+    },
+    "valid_above_gate": 580,
+    "gated_angle_circular_mean_deg": -9.435906166186754,
+    "gated_angle_offset_from_mean_p10_p50_p90": [
+      -6.350031333813245,
+      2.1937186661867543,
+      7.501140541186755
+    ],
+    "filtered_complete_windows": 16,
+    "filtered_accepted_windows": 16,
+    "filtered_angles": [
+      -3.8597902909423283,
+      -5.1162643503394065,
+      -8.754786809767353,
+      -5.761215481663555,
+      -6.667503639433249,
+      -11.19532057647345,
+      -7.605497654330264,
+      -8.353255381428482,
+      -7.390441239244609,
+      -7.390441239244609,
+      -2.7988849844907406,
+      -8.046670991364891,
+      -5.913516552889263,
+      -6.470080599048202,
+      -2.636022222074672,
+      -6.553529451099649
+    ],
+    "filtered_reasons": {
+      "collecting_window": 679,
+      "target_updated": 15,
+      "below_volume_threshold": 328,
+      "within_deadband": 1
+    },
+    "strongest_frequency_hz": [
+      117.1875,
+      117.1875,
+      117.1875,
+      117.1875
+    ],
+    "power_fraction_below_300Hz": [
+      0.7500983382621744,
+      0.7313425091629263,
+      0.7408190905823038,
+      0.755424334338304
+    ],
+    "filtered_mean_deg": -6.53207634148967,
+    "filtered_std_deg": 2.1532514840646093,
+    "filtered_range_deg": [
+      -11.19532057647345,
+      -2.636022222074672
+    ]
+  },
+  "speech_to_background_total_power_db": [
+    6.581932339095165,
+    7.253444067498837,
+    7.150428220230167,
+    6.6892127916935005
+  ],
+  "caveat": "Power contrast is not a calibrated speech-only SNR. No measured reference angle or subjective listening.",
+  "source_hashes": {
+    "software\\common\\s1\\doa_solver.c": "1f790b115a95e744222507bce4e30fac4f44114ad0f94ac459acfbc3525215a8",
+    "software\\common\\s1\\doa_solver.h": "b8196afea3499ba1d0d6c4be4593404b1c0767400f58b091949028739e30fe4c",
+    "software\\common\\fpga_stm32_abi_frozen.h": "1b7ac7b6327db9ce8402605c10f86b8a2e11d580217832751ff97f6cad65d117",
+    "software\\ps\\ss_solver_bridge.c": "711287b352a2392c1d2be1dd8b9d31d28c00615080e78feaebe4006c8f22fc88",
+    "software\\ps\\volume_gate.py": "8905c4573954dec252523c7b30b8da02084ea891c7f4b365aada19cfc18cd48a",
+    "software\\ps\\angle_filter.py": "adf7b0ad7bac3cca8c3c2080f818862fb93216599c9fac09a17c7136f706bfdf"
+  },
+  "replay_sources_match_delivered_package": true
+}

@@ -1,0 +1,128 @@
+{
+  "hardware": {
+    "bit": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.runs\\impl_1\\soundsight_stm32_bd_wrapper.bit",
+      "sha256": "b45b0f2be5572665f761b11e5d7160f3b8520803c65012850734519c3f505380",
+      "bytes": 4045703,
+      "mtime": 1792817277.2810287,
+      "xsa_match": true
+    },
+    "hwh": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.gen\\sources_1\\bd\\soundsight_stm32_bd\\hw_handoff\\soundsight_stm32_bd.hwh",
+      "sha256": "4383b94604e7626a1dbd7e2da8f856213144fecb8cf7021f8a535c9212f16914",
+      "bytes": 433321,
+      "mtime": 1792816772.726455,
+      "xsa_match": true
+    },
+    "xsa": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\pl_ps_reliaze.xsa",
+      "sha256": "97017343e2cd6191184c15099b3e2a72f013cec7436d90eb7355f955cec096ff",
+      "bytes": 934895,
+      "mtime": 1792817331.085818
+    },
+    "routed_dcp": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.runs\\impl_1\\soundsight_stm32_bd_wrapper_routed.dcp",
+      "sha256": "898f7082e8823da05509ae4995034384919385fe21bfa58a99a6121f04edc67c",
+      "bytes": 16803509,
+      "mtime": 1792817263.55923
+    }
+  },
+  "sources": {
+    "project/rtl/ss_manual_servo.sv": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_manual_servo.sv",
+      "sha256": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675",
+      "expected": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675",
+      "match": true
+    },
+    "project/rtl/ss_ps_control_regs.sv": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_ps_control_regs.sv",
+      "sha256": "b3b0d802cca994dc66569777d72c3af8b87c4d3dd619340d824e5a3e185472eb",
+      "expected": "b3b0d802cca994dc66569777d72c3af8b87c4d3dd619340d824e5a3e185472eb",
+      "match": true
+    },
+    "project/rtl/ss_ps_link.sv": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_ps_link.sv",
+      "sha256": "7240ba3336b6f2d927b007e300b6108aaea383ecc0e3759d2b4b75dd6321e9f0",
+      "expected": "7240ba3336b6f2d927b007e300b6108aaea383ecc0e3759d2b4b75dd6321e9f0",
+      "match": true
+    },
+    "project/rtl/bd_ps_link.v": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\bd_ps_link.v",
+      "sha256": "21251a1067337e328d0f6b625afce2ad958bb7c91d3ea45658a228088c73ea01",
+      "expected": "21251a1067337e328d0f6b625afce2ad958bb7c91d3ea45658a228088c73ea01",
+      "match": true
+    },
+    "project/rtl/ss_axi_lite_regs.sv": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_axi_lite_regs.sv",
+      "sha256": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e",
+      "expected": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e",
+      "match": true
+    },
+    "project/rtl/ss_snapshot_queue.sv": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_snapshot_queue.sv",
+      "sha256": "5e2b408c8ccf7e0600e8a8a52d0e84e417a7b4520fc472cd0b4e9f466710d1c3",
+      "expected": "5e2b408c8ccf7e0600e8a8a52d0e84e417a7b4520fc472cd0b4e9f466710d1c3",
+      "match": true
+    },
+    "project/rtl/f1a_frame_store.sv": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\f1a_frame_store.sv",
+      "sha256": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d",
+      "expected": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d",
+      "match": true
+    },
+    "project/rtl/ss_pair_engine.sv": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_pair_engine.sv",
+      "sha256": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409",
+      "expected": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409",
+      "match": true
+    },
+    "project/rtl/ss_pcm_windows.sv": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_pcm_windows.sv",
+      "sha256": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41",
+      "expected": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41",
+      "match": true
+    },
+    "project/rtl/ss_clean_compute.sv": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_clean_compute.sv",
+      "sha256": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669",
+      "expected": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669",
+      "match": true
+    },
+    "project/rtl/ss_dual_compute.sv": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_dual_compute.sv",
+      "sha256": "4015f2fdccbd2f13bea78a31995f03de45b861cbb95f75dbfccd70c185d8204a",
+      "expected": "4015f2fdccbd2f13bea78a31995f03de45b861cbb95f75dbfccd70c185d8204a",
+      "match": true
+    },
+    "project/rtl/bd_clean_compute.v": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\bd_clean_compute.v",
+      "sha256": "d65b00a1d311d12bf36e60a10e38a6b78a6aba254557843149e4da63abf3310c",
+      "expected": "d65b00a1d311d12bf36e60a10e38a6b78a6aba254557843149e4da63abf3310c",
+      "match": true
+    },
+    "project/rtl/ss_pcm_time_cdc.sv": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_pcm_time_cdc.sv",
+      "sha256": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c",
+      "expected": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c",
+      "match": true
+    },
+    "project/rtl/ss_audio_fifo.sv": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_audio_fifo.sv",
+      "sha256": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56",
+      "expected": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56",
+      "match": true
+    },
+    "project/rtl/ss_audio_capture.sv": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_audio_capture.sv",
+      "sha256": "2dee1ef0725936d6a5f96709813c29aecbc1701a6186bf4f0ad39288ed825e04",
+      "expected": "2dee1ef0725936d6a5f96709813c29aecbc1701a6186bf4f0ad39288ed825e04",
+      "match": true
+    },
+    "project/rtl/bd_audio_capture.v": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\bd_audio_capture.v",
+      "sha256": "25c52e8d59014e42600b0a11693e9d563f7245a1ec01d8244272101b9a9a0498",
+      "expected": "25c52e8d59014e42600b0a11693e9d563f7245a1ec01d8244272101b9a9a0498",
+      "match": true
+    }
+  }
+}

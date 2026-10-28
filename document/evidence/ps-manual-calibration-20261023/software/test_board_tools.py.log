@@ -1,0 +1,38 @@
+DOWNLOAD_BEGIN
+LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 72, "status": 212992, "sys": 8}
+DOWNLOAD_BEGIN
+LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 64, "status": 212992, "sys": 8}
+MIN_LEVEL= 4300 APPLIES_TO=NEXT_RUN
+OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 64, "status": 212995, "sys": 8}
+OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 64, "status": 212992, "sys": 8}
+MIN_LEVEL= 4500 APPLIES_TO=NEXT_RUN
+DOWNLOAD_BEGIN
+
+test_active_device_refuses_ready (__main__.BoardToolsTests.test_active_device_refuses_ready) ... ok
+test_bad_clock_reference_pll_or_source_stops_before_download_and_pl_read (__main__.BoardToolsTests.test_bad_clock_reference_pll_or_source_stops_before_download_and_pl_read) ... ok
+test_corrupt_settings_fail_instead_of_silent_fallback (__main__.BoardToolsTests.test_corrupt_settings_fail_instead_of_silent_fallback) ... ok
+test_faults_other_than_stop_are_not_cleared (__main__.BoardToolsTests.test_faults_other_than_stop_are_not_cleared) ... ok
+test_hwh_rejects_non_volume_or_incomplete_actuator_configuration (__main__.BoardToolsTests.test_hwh_rejects_non_volume_or_incomplete_actuator_configuration) ... ok
+test_initial_prepare_loads_then_checks_expected_clock_and_abi (__main__.BoardToolsTests.test_initial_prepare_loads_then_checks_expected_clock_and_abi) ... ok
+test_invalid_run_and_bist_frame_counts (__main__.BoardToolsTests.test_invalid_run_and_bist_frame_counts) ... ok
+test_level_save_show_and_bounds (__main__.BoardToolsTests.test_level_save_show_and_bounds) ... ok
+test_loaded_wrong_clock_or_reset_does_not_read_pl (__main__.BoardToolsTests.test_loaded_wrong_clock_or_reset_does_not_read_pl) ... ok
+test_old_slots_preserved_and_drain_instruction (__main__.BoardToolsTests.test_old_slots_preserved_and_drain_instruction) ... ok
+test_prepare_cli_failure_never_reports_ready (__main__.BoardToolsTests.test_prepare_cli_failure_never_reports_ready) ... ok
+test_repeat_prepare_never_redownloads_or_resets (__main__.BoardToolsTests.test_repeat_prepare_never_redownloads_or_resets) ... ok
+test_run_defaults_override_and_unique_paths (__main__.BoardToolsTests.test_run_defaults_override_and_unique_paths) ... ok
+test_unknown_overlay_and_failed_download_do_not_touch_pl (__main__.BoardToolsTests.test_unknown_overlay_and_failed_download_do_not_touch_pl) ... ok
+test_wrong_id_abi_or_capability (__main__.BoardToolsTests.test_wrong_id_abi_or_capability) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.285s
+
+OK
