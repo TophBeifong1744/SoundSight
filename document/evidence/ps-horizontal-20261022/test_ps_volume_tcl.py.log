@@ -1,0 +1,13 @@
+
+test_active_run_makes_no_copies (__main__.TclUpdateTests.test_active_run_makes_no_copies) ... ok
+test_copy_backup_refresh_outputs_and_repeat (__main__.TclUpdateTests.test_copy_backup_refresh_outputs_and_repeat) ... ok
+test_duplicate_registration_stops_before_backup (__main__.TclUpdateTests.test_duplicate_registration_stops_before_backup) ... ok
+test_external_source_is_copied_without_overwriting_original (__main__.TclUpdateTests.test_external_source_is_copied_without_overwriting_original) ... ok
+test_resume_refresh_failure_without_recopies_or_new_backup (__main__.TclUpdateTests.test_resume_refresh_failure_without_recopies_or_new_backup) ... ok
+test_resume_rejects_sources_not_copied (__main__.TclUpdateTests.test_resume_rejects_sources_not_copied) ... ok
+test_validate_failure_has_backup_but_no_outputs_or_success (__main__.TclUpdateTests.test_validate_failure_has_backup_but_no_outputs_or_success) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.530s
+
+OK

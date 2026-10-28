@@ -161,12 +161,12 @@ class SMPTests(unittest.TestCase):
         self.assertFalse(self.marker('consumed'));self.assertTrue(self.marker('stopped'))
     def test_bridge_failure_saved_but_retained(self):
         worker,cancel,parent=self.start(solver_failure='bridge')
-        with self.assertRaisesRegex(RuntimeError,'C桥报错'):self.collect(worker,cancel,parent)
+        with self.assertRaisesRegex(RuntimeError,'C bridge error'):self.collect(worker,cancel,parent)
         self.assertIn('"bridge_status": -4',self.output.read_text(encoding='utf-8'))
         self.assertFalse(self.marker('consumed'))
     def test_historical_fault_requires_explicit_clear(self):
         worker,cancel,parent=self.start(initial_fault=2)
-        with self.assertRaisesRegex(RuntimeError,'历史故障0x2'):self.collect(worker,cancel,parent)
+        with self.assertRaisesRegex(RuntimeError,'Existing fault 0x2'):self.collect(worker,cancel,parent)
         self.assertFalse(self.marker('consumed'))
     def test_explicit_fault_clear(self):
         worker,cancel,parent=self.start(initial_fault=2,clear_faults=2)
@@ -198,12 +198,12 @@ class SMPTests(unittest.TestCase):
         device=Device(self.output);device.queued=True
         client=hw.Client(device,Solver())
         def save_then_fault(record):device.fault=2
-        with self.assertRaisesRegex(RuntimeError,'新增故障'):client.record_one(save_then_fault)
+        with self.assertRaisesRegex(RuntimeError,'New device fault'):client.record_one(save_then_fault)
         self.assertFalse(self.marker('consumed'));self.assertTrue(device.locked)
     def test_fault_frame_requires_explicit_drain(self):
         device=Device(self.output,fault=2);device.queued=True
         client=hw.Client(device,Solver())
-        with self.assertRaisesRegex(RuntimeError,'锁帧时发现故障'):client.record_one(lambda r:None)
+        with self.assertRaisesRegex(RuntimeError,'while locking frame'):client.record_one(lambda r:None)
         self.assertTrue(device.locked);self.assertFalse(self.marker('consumed'))
         with self.output.open('a',encoding='utf-8') as handle:
             self.assertEqual(app.capture(client,app.durable_sink(handle),'real',1,True),1)

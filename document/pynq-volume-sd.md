@@ -16,6 +16,12 @@
 ls -lh /boot/soundsight_pynq_volume.zip
 ```
 
+如果已安装上一版音量包，请先在板端保留整个旧目录，再执行下面的解压命令（备份名已存在会报错，不覆盖）：
+
+```sh
+python3 -c "from pathlib import Path; p=Path('/home/xilinx/SoundSight_PYNQ_Volume'); b=p.with_name('SoundSight_PYNQ_Volume_before_filter'); assert p.is_dir() and not b.exists(),'检查原目录和备份目录'; p.rename(b)"
+```
+
 首次解压（已有同名目录时主动报错，不覆盖旧实验）：
 
 ```sh
@@ -52,7 +58,13 @@ python3 -B software/tests/test_volume_gate.py -v
 python3 -B software/tests/test_buffered.py -v
 ```
 
-当前主机测试分别为15项、19项；新目录里的ARM编译和这些板端测试仍需实际执行。需要数值对照时，包内保留原基准和测试入口：
+新增在线筛选测试：
+
+```sh
+python3 -B software/tests/test_online_angle_filter.py -v
+```
+
+当前主机测试分别为15项、21项、19项；新目录里的ARM编译和这些板端测试仍需实际执行。需要数值对照时，包内保留原基准和测试入口：
 
 ```sh
 python3 software/tests/test_solver_migration.py --library software/ps/libss_solver.so --golden document/evidence/ps-solver-migration-20261020/PC-RESULT.json --output software/build/solver-migration/ARM-RESULT.json
@@ -60,11 +72,23 @@ python3 software/tests/test_solver_migration.py --library software/ps/libss_solv
 
 ## 接下来才加载和测音量
 
-把软件检查结果回传后，再按当前板状态加载本目录同名`soundsight.bit`与`soundsight.hwh`。不要直接套用普通Overlay自动下载命令：这张旧镜像曾出现sudo丢失XILINX_XRT及33.333333MHz参考被按50MHz计算的问题；加载仍需沿已验证的时钟流程确认，不能仅凭新文件存在就认定时钟正确。
+软件检查通过后，从当前目录加载本包同名`soundsight.bit`与`soundsight.hwh`。不要直接套用普通Overlay自动下载命令：这张旧镜像曾出现sudo丢失XILINX_XRT及33.333333MHz参考被按50MHz计算的问题；加载仍需沿已验证的时钟流程确认，不能仅凭新文件存在就认定时钟正确。
+
+当前这块板的加载命令如下（请先确认没有采集程序运行；会加载PL，由用户执行）：
+
+```sh
+sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 -c "from pathlib import Path; from pynq import Overlay, Clocks, MMIO; ref=int.from_bytes(Path('/proc/device-tree/amba/slcr@f8000000/clkc@100/ps-clk-frequency').read_bytes(),'big')/1e6; m=MMIO(0xF8000000,0x300); assert abs(ref-33.333333)<0.001,'STOP: reference changed'; assert m.read(0x108)==0x30000,'STOP: PLL changed'; assert ((m.read(0x170)>>4)&3) in (0,1),'STOP: clock source changed'; Clocks._instance._ref_clk_mhz=ref; ol=Overlay('soundsight.bit',download=False); assert ol.ip_dict['ps_link']['parameters']['ACTUATOR_BOUND']=='0','STOP: actuator bound'; ol.clock_dict[0].update(enable=1,divisor0=4,divisor1=4); m.write(0x008,0xDF0D); print('DOWNLOAD_BEGIN',flush=True); ol.download(); print('LOADED=',ol.is_loaded()); print('FCLK0_CTRL=',hex(m.read(0x170))); print('FCLK0_MHz=',Clocks.fclk0_mhz); print('FPGA_RST_CTRL=',hex(m.read(0x240)))"
+```
+
+预期LOADED=True、FCLK0_CTRL=0x400400、FCLK0_MHz约100、FPGA_RST_CTRL=0x0。任一断言失败就停下，不删检查强行运行。再只读核对：
+
+```sh
+sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 -c "from pynq import MMIO; m=MMIO(0x40000000,4096); print('ID=',hex(m.read(0))); print('ABI=',hex(m.read(0x6c))); print('STATUS=',hex(m.read(0x34))); print('FAULT=',hex(m.read(0x64))); print('DROPS=',m.read(0x68))"
+```
 
 新硬件预期ID为0x5a5a2026、ABI为0x00010001；旧ABI0x00010000不属于本音量版。完成加载/寄存器确认后，使用`software/ps/run_buffered.py`，必须显式带`--measure-level`（仅量测）或`--min-level 1000`（初始假设门限）。1000不是标定结论，需要比较安静与发声的真实幅度后调整。
 
-应用使用`direction_output`作为音量筛选后的结果；`result`是保留的原始求解结果。多帧筛选和3°死区目前仍是离线回放成果，未接入在线运行，本包不驱动舵机。
+在线多帧功能已加入：同时指定`--min-level 1000 --angle-filter`，按20帧、至少12个有效角、±10°与2/3一致筛选，再算圆周平均并应用3°死区。低音量清空窗口，STOP尾帧仅保存。最终结果读取`direction_output`；原始C结果保留在`result`，单帧门限结果在`frame_direction`。本包不驱动舵机，运行命令和日志解释见[在线筛选说明](document/pynq-online-angle-filter.md)（仓库位置为同级pynq-online-angle-filter.md）。
 
 ## 文件组成
 

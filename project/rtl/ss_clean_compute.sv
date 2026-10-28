@@ -7,11 +7,15 @@
 `default_nettype none
 // 精简计算总接合：采集→窗口→预处理/FFT→六对特征。
 // 内部只有一帧在计算，跨模块携带真实window_frame，不再复制725位身份和数千位诊断包。
-module ss_clean_compute #(parameter integer WARMUP_SAMPLES=4096,DUAL_CLOCK=0,LEVEL_ENABLE=0,parameter HANN_FILE="hann-u18f17.mem")(
+module ss_clean_compute #(parameter integer WARMUP_SAMPLES=4096,AUDIO_ENABLE=0,DUAL_CLOCK=0,LEVEL_ENABLE=0,parameter HANN_FILE="hann-u18f17.mem")(
  input wire clk,rst_n,enable,input wire [3:0] pdm_data,
  // DUAL_CLOCK=1: 采集61.44MHz，计算100MHz；0保留单域算法复现入口。
  input wire acq_clk,acq_rst_n,acq_enable,
  output wire [3:0] pdm_clocks,
+ input wire [31:0] audio_epoch,input wire audio_active,
+ output wire audio_valid,audio_clip,audio_source_fault,
+ output wire [95:0] audio_pcm,output wire [63:0] audio_sample_index,
+ output wire [128:0] feature_meta,
  output wire feature_valid,input wire feature_ready,
  output wire [959:0] feature_pairs,output wire [31:0] feature_flags,
  output wire [31:0] feature_level,output wire feature_level_valid,
@@ -27,7 +31,17 @@ module ss_clean_compute #(parameter integer WARMUP_SAMPLES=4096,DUAL_CLOCK=0,LEV
  ss_pdm_capture #(.WARMUP_SAMPLES(WARMUP_SAMPLES)) acquisition(
    .clk(capture_clk),.rst_n(capture_rst_n),.pdm_data(pdm_data),.pdm_clocks(pdm_clocks),
    .sample_valid(raw_valid),.pcm(raw_pcm),.sample_clipped(raw_clip),.warm(warm),.channel_fault(raw_channel_fault));
- generate if(DUAL_CLOCK)begin: sample_crossing
+ wire [63:0] sample_index;
+ assign audio_valid=AUDIO_ENABLE && sample_valid;
+ assign audio_pcm=sample_pcm;assign audio_clip=sample_clipped;
+ assign audio_sample_index=sample_index;assign audio_source_fault=channel_fault;
+ generate if(AUDIO_ENABLE && DUAL_CLOCK)begin: timed_crossing
+ ss_pcm_time_cdc samples(.src_clk(acq_clk),.src_rst_n(acq_rst_n),.enable(acq_enable),
+ .raw_valid(raw_valid),.raw_pcm(raw_pcm),.raw_clip(raw_clip),.raw_fault(raw_channel_fault),
+ .clk(clk),.rst_n(rst_n),.sample_valid(sample_valid),.sample_pcm(sample_pcm),
+ .sample_clip(sample_clipped),.sample_index(sample_index),.fault(channel_fault));
+ end else if(DUAL_CLOCK)begin: sample_crossing
+ assign sample_index=0;
    wire ready;
    reg acquisition_error=0;
    // 四路PCM和削顶标记一起写入。读端持续排空；STOP只停止窗口/新任务。
@@ -41,6 +55,7 @@ module ss_clean_compute #(parameter integer WARMUP_SAMPLES=4096,DUAL_CLOCK=0,LEV
    xpm_cdc_single #(.DEST_SYNC_FF(2),.SRC_INPUT_REG(0),.INIT_SYNC_FF(1)) error_sync(
     .src_clk(acq_clk),.src_in(acquisition_error),.dest_clk(clk),.dest_out(channel_fault));
  end else begin: single_clock
+   assign sample_index=0;
    assign sample_valid=raw_valid;
    assign sample_pcm=raw_pcm;
    assign sample_clipped=raw_clip;
@@ -56,7 +71,9 @@ module ss_clean_compute #(parameter integer WARMUP_SAMPLES=4096,DUAL_CLOCK=0,LEV
  wire frame_drop,frame_gap,feature_exhausted,feature_protocol;
  wire [31:0] local_sequence,local_drop_count;
  wire capture_enable=enable && !(|faults) && !feature_exhausted;
- ss_pcm_windows windows(
+ wire [63:0] window_start;
+ ss_pcm_windows #(.TIMING_ENABLE(AUDIO_ENABLE)) windows(
+   .sample_index(sample_index),.window_sample_start(window_start),
    .clk(clk),.rst_n(rst_n),.enable(capture_enable),.sample_valid(sample_valid),.sample_pcm(sample_pcm),
    .sample_clipped(sample_clipped),.window_valid(window_valid),.window_ready(window_ready),.window_frame(window_frame),
    .release_window(release_window),.read_enable(read_enable),.read_index(read_index),.read_valid(read_valid),.read_pcm(read_pcm),
@@ -79,7 +96,8 @@ module ss_clean_compute #(parameter integer WARMUP_SAMPLES=4096,DUAL_CLOCK=0,LEV
    .frame_level(frame_level),.frame_level_valid(frame_level_valid),
    .backend_busy(backend_busy),.busy(front_busy),.debug_state(debug_frontend),
    .audit_valid(),.audit_domain(),.audit_channel(),.audit_bin(),.audit_real(),.audit_imag());
- ss_pair_engine #(.LEVEL_ENABLE(LEVEL_ENABLE)) backend(
+ ss_pair_engine #(.LEVEL_ENABLE(LEVEL_ENABLE),.META_ENABLE(AUDIO_ENABLE)) backend(
+   .frame_meta({audio_active,audio_epoch,window_start,window_frame}),.feature_meta(feature_meta),
    .clk(clk),.rst_n(rst_n),.begin_valid(begin_valid),.begin_ready(begin_ready),.begin_frame(begin_frame),
    .s_valid(s_valid),.s_ready(s_ready),.s_frame(s_frame),.s_channel(s_channel),.s_bin(s_bin),
    .s_real(s_real),.s_imag(s_imag),.s_numeric_valid(s_numeric_valid),

@@ -7,8 +7,9 @@
 `default_nettype none
 // 六对数值引擎：唯一在途帧，32位真实帧号；没有票据、cookie或宽身份包。
 // 正常数据依次为4通道×513个半谱点；取消仍等前端/已启动IFFT排空。
-module ss_pair_engine #(parameter integer LEVEL_ENABLE=0) (
+module ss_pair_engine #(parameter integer LEVEL_ENABLE=0,META_ENABLE=0) (
  input wire clk,rst_n,
+ input wire [128:0] frame_meta,output wire [128:0] feature_meta,
  input wire begin_valid,output wire begin_ready,input wire [31:0] begin_frame,
  input wire s_valid,output wire s_ready,input wire [31:0] s_frame,
  input wire [1:0] s_channel,input wire [9:0] s_bin,
@@ -155,7 +156,8 @@ module ss_pair_engine #(parameter integer LEVEL_ENABLE=0) (
         end
         raw_words[0+:32]=raw_word;
     end
-    f1a_frame_store #(.LEVEL_ENABLE(LEVEL_ENABLE)) feature_store(
+    f1a_frame_store #(.LEVEL_ENABLE(LEVEL_ENABLE),.META_ENABLE(META_ENABLE)) feature_store(
+        .frame_meta(frame_meta),.feature_meta(feature_meta),
         .clk(clk),.cold_rst_n(cold_rst_n),.frame_start(begin_valid && begin_ready),.frame_start_bist(1'b0),
         .pair_event(state==NEXT_PAIR),.pair_index(pair_id),.pair_words(raw_words),
         .frame_finish(state==REPORT),

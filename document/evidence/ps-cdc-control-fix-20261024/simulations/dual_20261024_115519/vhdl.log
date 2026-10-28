@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261024_115519/sources/ss_fft29.vhd" into library work
+INFO: [VRFC 10-3107] analyzing entity 'ss_fft29'
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261024_115519/sources/ss_ifft25.vhd" into library work
+INFO: [VRFC 10-3107] analyzing entity 'ss_ifft25'

@@ -1,0 +1,72 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sat Oct 24 12:50:33 2026
+# Process ID         : 21948
+# Current directory  : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/cdc-receipt
+# Command line       : vivado.exe -mode batch -nojournal -notrace -source E:/Users/Toph Beifong/Documents/GitHub/SoundSight/document/evidence/ps-cdc-control-fix-20261024/board-package/report_existing.tcl -log E:/Users/Toph Beifong/Documents/GitHub/SoundSight/document/evidence/ps-cdc-control-fix-20261024/board-package/report-existing.log -tclargs F:/AMD/work/SoundSight_PS_Reliaze/SoundSight_PS_Reliaze.runs/impl_1/soundsight_stm32_bd_wrapper_routed.dcp E:/Users/Toph Beifong/Documents/GitHub/SoundSight/document/evidence/ps-cdc-control-fix-20261024/board-package/reports
+# Log file           : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/document/evidence/ps-cdc-control-fix-20261024/board-package/report-existing.log
+# Journal file       : 
+# Running On         : Toph
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 16890 MB
+# Swap memory        : 23622 MB
+# Total Virtual      : 40512 MB
+# Available Virtual  : 18381 MB
+#-----------------------------------------------------------
+CRITICAL WARNING: [Common 17-1297] User repo 'C:/Users/Toph Beifong/AppData/Roaming/Xilinx/Vivado/2025.2/XilinxTclStore' catalog file is corrupted. XilinxTclStore has been reverted to the installation area and Tcl Store changes will not be saved. To use local Tcl Store, please run tclapp::reset_tclstore and reinstall the apps.
+source {E:/Users/Toph Beifong/Documents/GitHub/SoundSight/document/evidence/ps-cdc-control-fix-20261024/board-package/report_existing.tcl} -notrace
+Command: open_checkpoint F:/AMD/work/SoundSight_PS_Reliaze/SoundSight_PS_Reliaze.runs/impl_1/soundsight_stm32_bd_wrapper_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 328.109 ; gain = 6.855
+WARNING: [Common 17-1509] Migration of commands.paini file failed with error : boost::filesystem::directory_iterator::construct: ¾Ü¾ø·ÃÎÊ¡£: "C:\Users\Toph Beifong\AppData\Roaming/Xilinx/Vivado/2025.2/commands"
+INFO: [Device 21-403] Loading part xc7z020clg400-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.390 . Memory (MB): peak = 842.535 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1827 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.082 . Memory (MB): peak = 992.977 ; gain = 13.301
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 1660.609 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1660.609 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1660.609 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.619 . Memory (MB): peak = 1675.641 ; gain = 15.031
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1675.641 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.263 . Memory (MB): peak = 1701.543 ; gain = 25.902
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.943 . Memory (MB): peak = 1701.543 ; gain = 40.934
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.983 . Memory (MB): peak = 1701.543 ; gain = 49.457
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1733.988 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 252 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 245 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 7 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1742.055 ; gain = 1427.816
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-314] The report_cdc command only analyzes and reports clock domain crossing paths where clocks have been defined on both source and destination sides. Ports with no input delay constraint are skipped. Please run check_timing to verify there are no missing clock definitions in your design, nor any unconstrained input port.
+report_cdc: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 1857.238 ; gain = 115.184
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+CDC_REBUILD_REPORTS_COMPLETE
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 24 12:51:06 2026...

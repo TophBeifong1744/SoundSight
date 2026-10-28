@@ -1,0 +1,22 @@
+{
+  "package": "release\\output\\soundsight_pynq_pcm.zip",
+  "files": 73,
+  "hashes_checked": 71,
+  "package_sha256": "76d06181106e062b5f7452a4c3071a77c0f932fdfb47357c5cf0749023257555",
+  "old_servo_sha256": "3cd72b198ea4f392d2accd7105db180520b61f792e4c7b82f234d184f9dd5f8e",
+  "old_servo_bytes": 795482,
+  "hardware": {
+    "bit_sha256": "550d8803f7bfb5200069cc40f030efe41c14cb753324e282e9a2d68133801878",
+    "hwh_sha256": "97df023d20550b1a9edc49520c9708c609916f293c243eb08a38b19644190ec3",
+    "xsa_sha256": "0e75300d58463257af373c451a40060678a007375f4c83d69687965f2fda161e"
+  },
+  "source_match_count": 16,
+  "tool": "Vivado 2025.2",
+  "routed_wns_ns": 0.165,
+  "routed_whs_ns": 0.036,
+  "routed_wpws_ns": 2.208,
+  "cdc_critical": 3,
+  "cdc_warning": 1252,
+  "board": "NOT_RUN",
+  "independent_review": "NOT_RUN"
+}

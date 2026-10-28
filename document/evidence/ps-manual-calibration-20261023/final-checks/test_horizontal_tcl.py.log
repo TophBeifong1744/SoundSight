@@ -1,0 +1,9 @@
+test_active_run_refused (__main__.GuardTests.test_active_run_refused) ... ok
+test_idle_copy_reaches_bd_without_creating_project (__main__.GuardTests.test_idle_copy_reaches_bd_without_creating_project) ... ok
+test_original_volume_refused_before_touching_files (__main__.GuardTests.test_original_volume_refused_before_touching_files) ... ok
+test_wrong_part_refused (__main__.GuardTests.test_wrong_part_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.029s
+
+OK

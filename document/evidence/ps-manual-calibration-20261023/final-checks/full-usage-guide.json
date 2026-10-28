@@ -1,0 +1,20 @@
+{
+  "shell_syntax": "PASS (bash -n; commands not executed)",
+  "cli_commands_parsed": 24,
+  "local_links": "PASS",
+  "updated_docs": {
+    "soundsight_pynq_servo.zip": [
+      "SoundSight_PYNQ_Servo/README.md",
+      "SoundSight_PYNQ_Servo/document/ps-manual-calibration.md",
+      "SoundSight_PYNQ_Servo/document/pynq-horizontal-sd.md"
+    ],
+    "soundsight_manual_update.zip": [
+      "soundsight_normal_update/payload/document/ps-manual-calibration.md"
+    ],
+    "soundsight_horizontal_project_update.zip": [
+      "document/ps-manual-calibration.md"
+    ]
+  },
+  "all_non_document_bytes_unchanged": true,
+  "hardware_actions": false
+}

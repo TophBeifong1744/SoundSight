@@ -1,0 +1,34 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Wed Oct 28 13:05:22 2026
+# Process ID         : 25508
+# Current directory  : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dualaxis_20261028_130518
+# Command line       : xsim.exe -log simulate.log -mode tcl -source {xsim.dir/dualaxis/xsim_script.tcl}
+# Log file           : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dualaxis_20261028_130518/simulate.log
+# Journal file       : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dualaxis_20261028_130518\xsim.jou
+# Running On         : Toph
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 16890 MB
+# Swap memory        : 23622 MB
+# Total Virtual      : 40512 MB
+# Available Virtual  : 21009 MB
+#-----------------------------------------------------------
+source xsim.dir/dualaxis/xsim_script.tcl
+# xsim {dualaxis} -maxdeltaid 1000 -autoloadwcfg -tclbatch {run.tcl} -onerror quit
+Time resolution is 1 ps
+source run.tcl
+## run all
+Fatal: DUALAXIS_FAIL timeout
+Time: 5 s  Iteration: 0  Process: /tb_dualaxis/Initial179_58  Scope: tb_dualaxis  File: E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dualaxis_20261028_130518/sources/tb_dualaxis.sv Line: 179
+$finish called at time : 5 s
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 205.773 ; gain = 0.000
+## quit
+INFO: [Common 17-206] Exiting xsim at Wed Oct 28 13:05:29 2026...

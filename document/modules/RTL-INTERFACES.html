@@ -314,7 +314,7 @@
  output reg s_axi_rvalid,input wire s_axi_rready,
  output wire [6:0] address,output wire commit,write_access,format_error,
  output wire [31:0] write_data,input wire [31:0] read_data
-);</pre></article><article><h2>project/rtl/ss_ps_control_regs.sv</h2><p>PS独有：PS版寄存器层；与SPI版相同公开字段，增加host_stop保留快照的停用入口。</p><p>host_stop来自同步总线复位；冷rst_n才清队列。普通PS复位清使能、角度影子和看门狗，不能自动恢复动作。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。</p><a href="../../project/rtl/ss_ps_control_regs.sv">打开源码</a><pre>module ss_ps_control_regs #(
+);</pre></article><article><h2>project/rtl/ss_ps_control_regs.sv</h2><p>PS独有：PS版寄存器层；与SPI版相同公开字段，增加host_stop保留快照的停用入口。</p><p>host_stop来自同步总线复位；冷rst_n才清队列。普通PS复位清使能、角度影子和看门狗，不能自动恢复动作。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。 PS手动标定扩展0x70～0x7c；STATUS bit18为能力标志；采集与手动互斥，保留限位/停止/超时。</p><a href="../../project/rtl/ss_ps_control_regs.sv">打开源码</a><pre>module ss_ps_control_regs #(
     parameter integer ACTUATOR_BOUND=0,LEVEL_ENABLE=0, CLK_FREQ_HZ=61440000,
     parameter integer SERVO_MAX=180, MECHANICAL_MIN=0, MECHANICAL_MAX=180
 )(
@@ -353,7 +353,7 @@
  input wire [31:0] feature_level,input wire feature_level_valid,
  input wire compute_draining,input wire [11:0] source_faults,output wire run_enable,
  output wire irq,servo_pwm,output wire [31:0] fault_status
-);</pre></article><article><h2>project/rtl/bd_ps_link.v</h2><p>PS版BD端口适配：可加入BD的PS寄存器薄封装。</p><p>寄存器端61.44MHz；上游100MHz经官方AXI Clock Converter，rst_n冷复位与aresetn总线复位分开。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。</p><a href="../../project/rtl/bd_ps_link.v">打开源码</a><pre>module bd_ps_link #(
+);</pre></article><article><h2>project/rtl/bd_ps_link.v</h2><p>PS版BD端口适配：可加入BD的PS寄存器薄封装。</p><p>寄存器端61.44MHz；上游100MHz经官方AXI Clock Converter，rst_n冷复位与aresetn总线复位分开。 音量扩展由LEVEL_ENABLE控制，默认0；PL+PS配方启用1，保持STM32冻结协议。新增32位幅度及有效位与同帧特征一起传递/保存，接口端口以以下源码声明为准。 水平更新配方将servo_pwm接J4-5/V7，新增servo_vertical_pwm固定低并可接J4-6/U7；仅显式PYNQ命令启用水平轴。</p><a href="../../project/rtl/bd_ps_link.v">打开源码</a><pre>module bd_ps_link #(
  parameter integer ACTUATOR_BOUND=0,LEVEL_ENABLE=0,CLK_FREQ_HZ=61440000,
  parameter integer SERVO_MAX=180,MECHANICAL_MIN=0,MECHANICAL_MAX=180
 )(
@@ -372,5 +372,19 @@
  input wire compute_draining,input wire [11:0] source_faults,output wire run_enable,
  (* X_INTERFACE_INFO=&quot;xilinx.com:signal:interrupt:1.0 irq INTERRUPT&quot; *)
  (* X_INTERFACE_PARAMETER=&quot;SENSITIVITY LEVEL_HIGH&quot; *) output wire irq,
- output wire servo_pwm,output wire [31:0] fault_status
+ output wire servo_pwm,
+ // 本批只驱动水平轴；垂直引脚可接线但保持低，不承诺机械保持。
+ // 独立输出避免把水平PWM并接到两只舵机。STM32接口不受影响。
+ output wire servo_vertical_pwm,output wire [31:0] fault_status
+);</pre></article><article><h2>project/rtl/ss_manual_servo.sv</h2><p>PS手动标定：独立于声音的水平PWM标定控制器；不作为BD顶层添加，由PS寄存器模块实例化。</p><p>同61.44MHz控制域。idle_allowed/fault/stop限定许可；ARM/COMMIT及角度、有效限位输入；输出许可、拒绝、750ms超时、PWM和排尾状态。没有声帧输入。T15水平，W15预留保持LOW。</p><a href="../../project/rtl/ss_manual_servo.sv">打开源码</a><pre>module ss_manual_servo #(
+    parameter integer ACTUATOR_BOUND=0, CLK_FREQ_HZ=61440000,
+    parameter integer SERVO_MAX=360, MECHANICAL_MIN=0, MECHANICAL_MAX=360
+)(
+    input wire clk, rst_n, idle_allowed, fault, stop,
+    input wire command_write,
+    input wire [31:0] command,
+    input wire [8:0] angle, limit_min, limit_max,
+    input wire limits_valid,
+    output reg active, rejected, watchdog_expired,
+    output wire pwm, draining
 );</pre></article>

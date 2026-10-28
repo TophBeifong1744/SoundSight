@@ -136,8 +136,10 @@ class TclUpdateTests(unittest.TestCase):
         self.entry = scripts/'update_ps_volume.tcl'
         self.t = tkinter.Tcl()
         self.t.eval(MOCK)
-        # Load definitions, suppress only the final automatic call.
-        self.t.eval(self.entry.read_text(encoding='utf-8').split('\nif {[info exists ::ss_volume_update::resume_once]')[0])
+        # Use the supported definition-only mode, not a fragile text split.
+        self.t.eval('namespace eval ss_volume_update {variable library_only 1}')
+        self.t.call('source', self.entry.as_posix())
+        self.t.setvar('ss_volume_update::library_only', 0)
         self.t.setvar('ss_volume_update::root',self.repo.as_posix())
         self.names = self.t.splitlist(self.t.getvar('ss_volume_update::names'))
         self.paths = []
@@ -173,10 +175,19 @@ class TclUpdateTests(unittest.TestCase):
             self.assertEqual((backup/name).read_text(), 'old '+name)
             self.assertEqual((self.proj/'imported RTL'/name).read_bytes(),(self.repo/'project/rtl'/name).read_bytes())
         self.run_script()
-        self.assertEqual(len(self.t.splitlist(self.t.getvar('files'))),10)
+        self.assertEqual(len(self.t.splitlist(self.t.getvar('files'))),len(self.names))
         self.assertEqual(int(self.t.eval('dict size $nets')),2)
         for name in ('board_pins.xdc','interface_timing.xdc'):
             self.assertEqual((self.proj/'ps_constraints'/name).read_bytes(),(self.base/name).read_bytes())
+
+    def test_missing_new_manual_dependency_is_added_once(self):
+        paths = [p for p in self.paths if Path(p).name != 'ss_manual_servo.sv']
+        self.t.setvar('files',tuple(paths))
+        self.run_script()
+        target = self.proj/'ps_volume_sources/ss_manual_servo.sv'
+        self.assertEqual(target.read_bytes(),(self.repo/'project/rtl/ss_manual_servo.sv').read_bytes())
+        self.run_script()
+        self.assertEqual(len(self.t.splitlist(self.t.getvar('files'))),len(self.names))
 
     def test_external_source_is_copied_without_overwriting_original(self):
         external = self.base/'external source.sv'

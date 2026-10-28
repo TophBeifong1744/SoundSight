@@ -29,3 +29,12 @@
 
 # Private machine tool locations; copy the tracked example for a new machine.
 /tools.local.env
+/settings.local.json
+/horizontal.local.json
+/servo3d.local.json
+/speaker-follow.local.json
+/speaker-target.local.json
+/speaker-profiles/
+/software/tetra3d/linux/libss_solver_3d.so
+/pcm_epoch.local.json
+/logs/

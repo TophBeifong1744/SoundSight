@@ -1,0 +1,25 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Wed Oct 28 14:21:03 2026
+| Host         : Toph running 64-bit major release  (build 9200)
+| Command      : report_exceptions -ignored -file {E:/Users/Toph Beifong/Documents/GitHub/SoundSight/project/reports/ps_3d/supplemental/exceptions_ignored.rpt}
+| Design       : soundsight_stm32_bd_wrapper
+| Device       : 7z020-clg400
+| Speed File   : -2  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Exceptions Report
+
+Position  From            Through         To                                  Setup           Hold            Status           
+--------  --------------  --------------  ----------------------------------  --------------  --------------  -----------------
+40        *               *               [get_cells {syncstages_ff_reg[0]}]  false           false           Non-existent path
+41        *               *               [get_cells {syncstages_ff_reg[0]}]  false           false           Non-existent path
+42        *               *               [get_cells {syncstages_ff_reg[0]}]  false           false           Non-existent path
+43        *               *               [get_cells {syncstages_ff_reg[0]}]  false           false           Non-existent path
+44        *               *               [get_cells {syncstages_ff_reg[0]}]  false           false           Non-existent path
+45        *               *               [get_cells {syncstages_ff_reg[0]}]  false           false           Non-existent path
+46        *               *               [get_cells {syncstages_ff_reg[0]}]  false           false           Non-existent path
+47        *               *               [get_cells {syncstages_ff_reg[0]}]  false           false           Non-existent path
+

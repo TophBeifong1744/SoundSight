@@ -1,0 +1,9 @@
+{
+  "baseline": "7c8f48a",
+  "frames": 4000,
+  "identical_outputs": true,
+  "accepted_windows": 153,
+  "reset_events": 116,
+  "ignored_new_field": "angle_filter.reset_reason",
+  "board": false
+}

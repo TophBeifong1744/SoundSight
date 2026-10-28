@@ -1,0 +1,374 @@
+{
+  "dualaxis": {
+    "command": "python -B tools/run_sim.py dualaxis",
+    "run": "simulation\\work\\dualaxis_20261028_130548",
+    "stages": [
+      {
+        "stage": "compile",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 0.6673000999999203,
+        "errors": []
+      },
+      {
+        "stage": "elaborate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 2.0057895999998436,
+        "errors": []
+      },
+      {
+        "stage": "simulate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 8.183654799999204,
+        "errors": []
+      }
+    ],
+    "warnings": [],
+    "markers": [
+      "DUALAXIS_PASS checks=319254 AXI=1 manual_no_audio=1 follow_4pairs=1 atomic=1 masks=1 pulse_tail=1 lease=1 replay=1 bus_reset_retains=1 STOP_wins=1"
+    ]
+  },
+  "manual": {
+    "command": "python -B tools/run_sim.py manual",
+    "run": "simulation\\work\\manual_20261028_130239",
+    "stages": [
+      {
+        "stage": "compile",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 0.6781092000001081,
+        "errors": []
+      },
+      {
+        "stage": "elaborate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 2.9066743000003044,
+        "errors": []
+      },
+      {
+        "stage": "simulate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 3.683865099999821,
+        "errors": []
+      }
+    ],
+    "warnings": [],
+    "markers": [
+      "MANUAL_PASS checks=84694 audio_frames=0 manual_without_audio=1 range=1 watchdog=1 stop=1 mode_mutex=1"
+    ]
+  },
+  "horizontal": {
+    "command": "python -B tools/run_sim.py horizontal",
+    "run": "simulation\\work\\horizontal_20261028_125858",
+    "stages": [
+      {
+        "stage": "compile",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 0.6735123000016756,
+        "errors": []
+      },
+      {
+        "stage": "elaborate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 2.8445812000009028,
+        "errors": []
+      },
+      {
+        "stage": "simulate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 12.121006999999736,
+        "errors": []
+      }
+    ],
+    "warnings": [],
+    "markers": [
+      "HORIZONTAL_PASS real_AXI=1 clock=61440000 widths_us=500,1000,1500,2000,2500 STOP=full_pulse reset=retain watchdog=checked vertical=LOW checks=1300368"
+    ]
+  },
+  "audiometa": {
+    "command": "python -B tools/run_sim.py audiometa",
+    "run": "simulation\\work\\audiometa_20261028_125913",
+    "stages": [
+      {
+        "stage": "compile",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 0.6881857000007585,
+        "errors": []
+      },
+      {
+        "stage": "elaborate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 2.739225899998928,
+        "errors": []
+      },
+      {
+        "stage": "simulate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 2.559830599999259,
+        "errors": []
+      }
+    ],
+    "warnings": [],
+    "markers": [
+      "AUDIOMETA_PASS ABI=00010001 slots=2 reset_retains=1 BIST=100000"
+    ]
+  },
+  "pslevel": {
+    "command": "python -B tools/run_sim.py pslevel",
+    "run": "simulation\\work\\pslevel_20261028_125919",
+    "stages": [
+      {
+        "stage": "compile",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 0.6836673000016162,
+        "errors": []
+      },
+      {
+        "stage": "elaborate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 2.715969500000938,
+        "errors": []
+      },
+      {
+        "stage": "simulate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 2.545943499999339,
+        "errors": []
+      }
+    ],
+    "warnings": [],
+    "markers": [
+      "PSLEVEL_PASS ABI=00010001 slots=2 reset_retains=1 BIST=100000"
+    ]
+  },
+  "ps": {
+    "command": "python -B tools/run_sim.py ps",
+    "run": "simulation\\work\\ps_20261028_130011",
+    "stages": [
+      {
+        "stage": "vhdl",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 0.512128099999245,
+        "errors": []
+      },
+      {
+        "stage": "compile",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 0.6743889999997918,
+        "errors": []
+      },
+      {
+        "stage": "elaborate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 2.8170955999994476,
+        "errors": []
+      },
+      {
+        "stage": "simulate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 2.430460999999923,
+        "errors": []
+      }
+    ],
+    "warnings": [],
+    "markers": [
+      "PS_PASS checks=852 dual_bist=1 host_reset_preserves_two_slots=1"
+    ]
+  },
+  "pscdc": {
+    "command": "python -B tools/run_sim.py pscdc",
+    "run": "simulation\\work\\pscdc_20261028_130017",
+    "stages": [
+      {
+        "stage": "vhdl",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 0.5087165999993886,
+        "errors": []
+      },
+      {
+        "stage": "compile",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 0.6980495999996492,
+        "errors": []
+      },
+      {
+        "stage": "elaborate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 3.5749942999991617,
+        "errors": []
+      },
+      {
+        "stage": "simulate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 2.409251299999596,
+        "errors": []
+      }
+    ],
+    "warnings": [],
+    "markers": [
+      "PSCDC_PASS checks=852 master_hz=100000000 endpoint_hz=61440000 official_clock_converter=1 dual_bist=1 host_reset_preserves_two_slots=1"
+    ]
+  },
+  "ps_old_expectation_failure": {
+    "command": "python -B tools/run_sim.py ps",
+    "run": "simulation\\work\\ps_20261028_125925",
+    "stages": [
+      {
+        "stage": "vhdl",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 1.4052198999997927,
+        "errors": []
+      },
+      {
+        "stage": "compile",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 0.7103251000007731,
+        "errors": []
+      },
+      {
+        "stage": "elaborate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 2.8631122000006144,
+        "errors": []
+      },
+      {
+        "stage": "simulate",
+        "exit": 0,
+        "pass": false,
+        "timeout": false,
+        "seconds": 2.5371673999998166,
+        "errors": [
+          "Fatal: AXI_FAIL BIST status/sequence",
+          "Fatal: AXI_FAIL BIST status/sequence"
+        ]
+      }
+    ],
+    "warnings": [],
+    "markers": [
+      "        \"Fatal: AXI_FAIL BIST status/sequence\",",
+      "        \"Fatal: AXI_FAIL BIST status/sequence\"",
+      "Fatal: AXI_FAIL BIST status/sequence"
+    ]
+  },
+  "dualaxis_before_DA001": {
+    "command": "python -B tools/run_sim.py dualaxis",
+    "run": "simulation\\work\\dualaxis_20261028_130108",
+    "stages": [
+      {
+        "stage": "compile",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 0.7328034000001935,
+        "errors": []
+      },
+      {
+        "stage": "elaborate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 1.983469700000569,
+        "errors": []
+      },
+      {
+        "stage": "simulate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 4.883689000000231,
+        "errors": []
+      }
+    ],
+    "warnings": [],
+    "markers": [
+      "DUALAXIS_PASS checks=319184 AXI=1 manual_no_audio=1 follow_4pairs=1 atomic=1 masks=1 pulse_tail=1 lease=1 replay=1 bus_reset_retains=1 STOP_wins=1"
+    ]
+  },
+  "dualaxis_test_timeout": {
+    "command": "python -B tools/run_sim.py dualaxis",
+    "run": "simulation\\work\\dualaxis_20261028_130518",
+    "stages": [
+      {
+        "stage": "compile",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 0.6651597000000038,
+        "errors": []
+      },
+      {
+        "stage": "elaborate",
+        "exit": 0,
+        "pass": true,
+        "timeout": false,
+        "seconds": 2.02353949999997,
+        "errors": []
+      },
+      {
+        "stage": "simulate",
+        "exit": 0,
+        "pass": false,
+        "timeout": false,
+        "seconds": 7.763215000000855,
+        "errors": [
+          "Fatal: DUALAXIS_FAIL timeout",
+          "Fatal: DUALAXIS_FAIL timeout"
+        ]
+      }
+    ],
+    "warnings": [],
+    "markers": [
+      "Fatal: DUALAXIS_FAIL timeout"
+    ]
+  }
+}

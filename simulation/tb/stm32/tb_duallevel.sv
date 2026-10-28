@@ -16,7 +16,7 @@ module tb_duallevel;
  wire [11:0] source_faults;
  wire [3:0] debug_frontend;
  wire [4:0] debug_backend;
- ss_dual_compute #(.WARMUP_SAMPLES(16),.LEVEL_ENABLE(1)) dut(.*);
+ ss_dual_compute #(.WARMUP_SAMPLES(16),.LEVEL_ENABLE(1)) dut(.audio_run(),.audio_draining(),.audio_epoch(32'b0),.audio_active(1'b0),.audio_valid(),.audio_clip(),.audio_source_fault(),.audio_pcm(),.audio_sample_index(),.feature_meta(),.*);
  reg fixture_valid=0;
  reg [95:0] fixture_pcm=0;
  reg [31:0] random_state=32'h1765ca19;

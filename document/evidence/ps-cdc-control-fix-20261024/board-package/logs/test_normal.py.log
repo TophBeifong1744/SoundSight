@@ -1,0 +1,42 @@
+test_blocked_console_keeps_one_line_and_never_waits (__main__.NormalTests.test_blocked_console_keeps_one_line_and_never_waits) ... ok
+test_cli_continuous_and_bounded (__main__.NormalTests.test_cli_continuous_and_bounded) ... usage: test_normal.py [-h] --hwh HWH [--ip IP] --output OUTPUT
+                      [--library LIBRARY]
+                      [--mode {real,bist-pass,bist-reject}] [--frames FRAMES]
+                      --min-level MIN_LEVEL [--window-frames WINDOW_FRAMES]
+                      [--min-valid MIN_VALID] [--clear-faults CLEAR_FAULTS]
+                      [--host-cpu HOST_CPU] [--worker-cpu WORKER_CPU]
+                      [--lock-file LOCK_FILE] [--horizontal-motion]
+                      [--motion-config MOTION_CONFIG]
+                      [--manual-angle MANUAL_ANGLE]
+test_normal.py: error: Real mode requires frames>=0; BIST requires frames=1
+usage: test_normal.py [-h] --hwh HWH [--ip IP] --output OUTPUT
+                      [--library LIBRARY]
+                      [--mode {real,bist-pass,bist-reject}] [--frames FRAMES]
+                      --min-level MIN_LEVEL [--window-frames WINDOW_FRAMES]
+                      [--min-valid MIN_VALID] [--clear-faults CLEAR_FAULTS]
+                      [--host-cpu HOST_CPU] [--worker-cpu WORKER_CPU]
+                      [--lock-file LOCK_FILE] [--horizontal-motion]
+                      [--motion-config MOTION_CONFIG]
+                      [--manual-angle MANUAL_ANGLE]
+test_normal.py: error: Horizontal motion requires real mode and --motion-config
+ok
+test_collecting_reports_last_window_as_history_only (__main__.NormalTests.test_collecting_reports_last_window_as_history_only) ... ok
+test_compute_consume_stop_tail_and_no_motion (__main__.NormalTests.test_compute_consume_stop_tail_and_no_motion) ... ok
+test_continuous_mode_stops_on_event (__main__.NormalTests.test_continuous_mode_stops_on_event) ... ok
+test_display_invalid_is_not_zero_or_stale_angle (__main__.NormalTests.test_display_invalid_is_not_zero_or_stale_angle) ... ok
+test_display_scheduler_half_second_even_without_frames (__main__.NormalTests.test_display_scheduler_half_second_even_without_frames) ... ok
+test_failure_stops_without_consuming_locked_frame (__main__.NormalTests.test_failure_stops_without_consuming_locked_frame) ... ok
+test_host_loss_stops (__main__.NormalTests.test_host_loss_stops) ... ok
+test_low_volume_and_bad_window_clear_last_display_target (__main__.NormalTests.test_low_volume_and_bad_window_clear_last_display_target) ... ok
+test_mailbox_overwrites_and_lock_does_not_block (__main__.NormalTests.test_mailbox_overwrites_and_lock_does_not_block) ... ok
+test_modes_dispatch_preserves_debug_arguments (__main__.NormalTests.test_modes_dispatch_preserves_debug_arguments) ... ok
+test_partial_console_write_preserves_line (__main__.NormalTests.test_partial_console_write_preserves_line) ... ok
+test_quiet_still_consumes_without_output (__main__.NormalTests.test_quiet_still_consumes_without_output) ... ok
+test_spawn_actual_shared_memory_and_collect (__main__.NormalTests.test_spawn_actual_shared_memory_and_collect) ... ok
+test_state_memory_does_not_grow_with_frame_count (__main__.NormalTests.test_state_memory_does_not_grow_with_frame_count) ... ok
+test_stats_applied_before_consume_and_release_failure_retains_record (__main__.NormalTests.test_stats_applied_before_consume_and_release_failure_retains_record) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.572s
+
+OK

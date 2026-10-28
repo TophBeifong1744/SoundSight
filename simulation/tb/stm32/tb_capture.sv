@@ -8,7 +8,7 @@ module tb_capture;
  wire [31:0] window_frame;
  reg [9:0] read_index=0;
  wire [95:0] read_pcm;
- ss_pcm_windows dut(.*);
+ ss_pcm_windows dut(.sample_index(64'b0),.window_sample_start(),.*);
  integer n,checks=0,base=0,received=0;
  reg reading=0;
  function automatic [95:0] sample(input integer index);

@@ -1,0 +1,81 @@
+{
+  "purpose": "read-only review snapshot; not a runtime identity check",
+  "files": [
+    {
+      "path": "project/rtl/ss_dual_axis_control.sv",
+      "sha256": "347f4987f7a03486cca7837dd65d2ff81ad01f7579190531538ae22284a2570e"
+    },
+    {
+      "path": "project/rtl/ss_ps_control_regs.sv",
+      "sha256": "d119787848255692c4c5aadb7727a31214c2995fe886439c13534df9fb85d3c3"
+    },
+    {
+      "path": "project/rtl/ss_ps_link.sv",
+      "sha256": "f2d56f97cccb55089caf40ca53a3f1af1b8fa3470fb3bad93bc5ae6497072265"
+    },
+    {
+      "path": "project/rtl/bd_ps_link.v",
+      "sha256": "ae17152cb965e1aee142e17c396de93f0b87b6aed3e66782b1e17d2e73041f3b"
+    },
+    {
+      "path": "project/rtl/motor_drive.v",
+      "sha256": "4b899a4ebe5a96dab8919b0f63a8a46eff4c1d3678ce67d32d693642c817cf60"
+    },
+    {
+      "path": "project/rtl/i17_turntable_pwm_guard.sv",
+      "sha256": "c9785a61b03cb24727f14c092073c4fc6fc4854c70eacb2b11f3fb97993a8453"
+    },
+    {
+      "path": "project/bd/update_ps_dual_axis.tcl",
+      "sha256": "f74c27f101ad33a5f2141a4de27d111bc9ce9cc6967a586fd29159bfd938281e"
+    },
+    {
+      "path": "document/ps-dual-axis-interface.md",
+      "sha256": "83bf5173eb22d71d5fa6c78328fae8f6820d44107876e9ce0b5fd1c59ebc66dd"
+    },
+    {
+      "path": "document/build/ps-src-list.txt",
+      "sha256": "fb97ae58b820d7c0638e3bb8d509a2c295f099d7cf0518de8fb2ba740cdc4cf4"
+    },
+    {
+      "path": "simulation/script/src_list.txt",
+      "sha256": "5ef398b51164d7f8799e5ad298f059c4655bc0c568307d6d81e2060aeb5ce42d"
+    },
+    {
+      "path": "simulation/tb/ps/tb_dualaxis.sv",
+      "sha256": "d2d585447dd9c33a10d37c0182c1d0b2f762c6d1e2e85cf17dacb9b159927589"
+    },
+    {
+      "path": "simulation/tb/ps/tb_manual.sv",
+      "sha256": "caf0b135f2d2ae64d28ae2ea6d8d435655fcfc510c7ebd119b1bff7e6e43f26f"
+    },
+    {
+      "path": "simulation/tb/ps/tb_horizontal.sv",
+      "sha256": "101e39c0b836a3cf78b72988fb5f95c19d22b107e2e75ec2676b0f46e5bedd5b"
+    },
+    {
+      "path": "simulation/tb/ps/tb_audiometa.sv",
+      "sha256": "67221fdcb53bc38a35eda91790d1f210b0ec7c06326142b803bebf4cbc9095a4"
+    },
+    {
+      "path": "simulation/tb/ps/tb_pslevel.sv",
+      "sha256": "14c246d71c36329a61fe8b0a47ec7574211bc5d227904dcb969f2389aa1a006c"
+    },
+    {
+      "path": "simulation/tb/ps/tb_ps.sv",
+      "sha256": "55a405b7f9be3c9196743a75620af9da66c15139bdf1bfb0953d91b82d4338b9"
+    },
+    {
+      "path": "simulation/tb/ps/tb_pscdc.sv",
+      "sha256": "95cb612e0e8ded128fd917613f372afdedc8204a74779b2fe7ce5541032cee75"
+    },
+    {
+      "path": "software/tests/test_dual_axis_tcl.py",
+      "sha256": "e11c8468d9d5f0f5058bd971ccd1362a60a7ec8a108af7bcc69b324cfda47985"
+    },
+    {
+      "path": "tools/run_sim.py",
+      "sha256": "d1dcf88111711031a844485f05425694982489b48baaf818128bd01994c10a67"
+    }
+  ]
+}

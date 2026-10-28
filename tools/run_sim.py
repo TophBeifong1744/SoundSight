@@ -5,7 +5,7 @@ from tool_config import vivado_root, simulation_tools
 
 ROOT = Path(__file__).resolve().parents[1]
 CASES = ('pair','preprocess','capture','clean','dual','cdc','samplecdc','link','stm32',
-         'pdm','frontstop','queue','spi','actuator','clock','axi','ps','pscdc','platform','level','levelstore','pslevel','duallevel')
+         'pdm','frontstop','queue','spi','actuator','clock','axi','ps','pscdc','platform','level','levelstore','pslevel','duallevel','horizontal','manual','dualaxis','audio','audiometa','audiostore','dualaudio','audiotime','audioctrl')
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
@@ -22,16 +22,18 @@ def main():
     out=ROOT/'simulation/work'/(case+'_'+time.strftime('%Y%m%d_%H%M%S'))
     out.mkdir(parents=True,exist_ok=False)
     source_dir=out/'sources';source_dir.mkdir()
-    ps=case in ('axi','ps','pscdc','pslevel')
+    ps=case in ('axi','ps','pscdc','pslevel','horizontal','manual','dualaxis','audio','audiometa','audioctrl')
     tb=ROOT/'simulation/tb'/('ps' if ps else 'stm32')
     rtl=ROOT/'project/rtl'
     ip=ROOT/'project/ip/reference'/('ps' if ps else 'stm32')
     sources=[ROOT/line.strip() for line in (ROOT/'simulation/script/src_list.txt').read_text('utf-8').splitlines()
              if line.strip() and not line.startswith('#')]
+    # 旧二维脚本不会复制双轴模块；此回归刻意不编译它，证明关闭扩展时无新依赖。
+    if case=='manual':sources=[p for p in sources if p.name!='ss_dual_axis_control.sv']
     if case=='pair':sources=[p for p in sources if p.name!='ifft25_official.sv']
     vhdl=[]
-    official=case in ('clean','dual','duallevel','stm32','pdm','frontstop','ps','pscdc')
-    glbl=case in ('clean','dual','cdc','samplecdc','stm32','pdm','frontstop','clock','ps','pscdc','platform','duallevel')
+    official=case in ('clean','dual','duallevel','stm32','pdm','frontstop','ps','pscdc','dualaudio','audioctrl')
+    glbl=case in ('clean','dual','cdc','samplecdc','stm32','pdm','frontstop','clock','ps','pscdc','platform','duallevel','audio','dualaudio','audiotime','audioctrl')
     libs=['xpm']
     if official:
         vhdl=[ip/n/'sim'/(n+'.vhd') for n in ('ss_fft29','ss_ifft25')];libs+=['xfft_v9_1_15']

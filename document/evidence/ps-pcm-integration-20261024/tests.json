@@ -1,0 +1,47 @@
+{
+  "manual": {
+    "result": "PASS",
+    "source_run": "manual_20261023_235348",
+    "command": "python tools/run_sim.py manual"
+  },
+  "duallevel": {
+    "result": "PASS",
+    "source_run": "duallevel_20261023_235348",
+    "command": "python tools/run_sim.py duallevel"
+  },
+  "dualaudio": {
+    "result": "PASS",
+    "source_run": "dualaudio_20261023_235845",
+    "command": "python tools/run_sim.py dualaudio"
+  },
+  "audio": {
+    "result": "PASS",
+    "source_run": "audio_20261024_000530",
+    "command": "python tools/run_sim.py audio"
+  },
+  "audiometa": {
+    "result": "PASS",
+    "source_run": "audiometa_20261023_235633",
+    "command": "python tools/run_sim.py audiometa"
+  },
+  "audiostore": {
+    "result": "PASS",
+    "source_run": "audiostore_20261023_235647",
+    "command": "python tools/run_sim.py audiostore"
+  },
+  "audiotime": {
+    "result": "PASS",
+    "source_run": "audiotime_20261024_000446",
+    "command": "python tools/run_sim.py audiotime"
+  },
+  "tcl_guards": {
+    "result": "PASS",
+    "tests": 5,
+    "command": "python -m unittest discover -s software/tests -p test_reliaze_tcl.py -v"
+  },
+  "numerical_comparison": {
+    "result": "PASS",
+    "normal_six_pair_records_byte_equal": true,
+    "lines": 12
+  }
+}

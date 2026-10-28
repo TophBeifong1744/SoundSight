@@ -1,0 +1,15 @@
+{
+  "vhdl": {
+    "exit": 0
+  },
+  "compile": {
+    "exit": 0
+  },
+  "elaborate": {
+    "exit": 0
+  },
+  "simulate": {
+    "exit": 0
+  },
+  "result": "EXPECTED_FAILURE_DETECTED"
+}

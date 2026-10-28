@@ -1,0 +1,18 @@
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Oct 23 22:26:54 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/manual/xsim_script.tcl
+# xsim {manual} -maxdeltaid 1000 -autoloadwcfg -tclbatch {run.tcl} -onerror quit
+Time resolution is 1 ps
+source run.tcl
+## run all
+MANUAL_PASS checks=84694 audio_frames=0 manual_without_audio=1 range=1 watchdog=1 stop=1 mode_mutex=1
+$finish called at time : 2012292001 ns : File "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/manual_20261023_222650/sources/tb_manual.sv" Line 75
+## quit
+INFO: [Common 17-206] Exiting xsim at Fri Oct 23 22:26:57 2026...

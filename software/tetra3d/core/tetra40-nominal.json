@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "revision": 1,
+  "provenance": "NOMINAL",
+  "source_id": "tetra40-nominal-v1",
+  "sample_rate_hz": 48000,
+  "sound_speed_m_s": 343,
+  "position_error_mm": -1,
+  "microphones": [
+    {
+      "channel": 0,
+      "xyz_mm": [
+        23.094010767585033,
+        0,
+        -8.16496580927726
+      ]
+    },
+    {
+      "channel": 1,
+      "xyz_mm": [
+        -11.547005383792516,
+        20,
+        -8.16496580927726
+      ]
+    },
+    {
+      "channel": 2,
+      "xyz_mm": [
+        -11.547005383792516,
+        -20,
+        -8.16496580927726
+      ]
+    },
+    {
+      "channel": 3,
+      "xyz_mm": [
+        0,
+        0,
+        24.49489742783178
+      ]
+    }
+  ]
+}
+

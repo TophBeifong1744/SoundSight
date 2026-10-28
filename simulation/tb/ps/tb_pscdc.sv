@@ -73,7 +73,7 @@ module tb_pscdc;
   .m_axi_rvalid(m_axi_rvalid),
   .m_axi_rready(m_axi_rready)
  );
- ss_ps_link dut(.feature_level(32'b0),.feature_level_valid(1'b0),.clk(io_clk),.s_axi_awaddr(m_axi_awaddr),.s_axi_awprot(m_axi_awprot),.s_axi_awvalid(m_axi_awvalid),.s_axi_awready(m_axi_awready),.s_axi_wdata(m_axi_wdata),.s_axi_wstrb(m_axi_wstrb),.s_axi_wvalid(m_axi_wvalid),.s_axi_wready(m_axi_wready),.s_axi_bresp(m_axi_bresp),.s_axi_bvalid(m_axi_bvalid),.s_axi_bready(m_axi_bready),.s_axi_araddr(m_axi_araddr),.s_axi_arprot(m_axi_arprot),.s_axi_arvalid(m_axi_arvalid),.s_axi_arready(m_axi_arready),.s_axi_rdata(m_axi_rdata),.s_axi_rresp(m_axi_rresp),.s_axi_rvalid(m_axi_rvalid),.s_axi_rready(m_axi_rready),.*);
+ ss_ps_link dut(.servo_vertical_pwm(),.feature_meta(129'b0),.feature_level(32'b0),.feature_level_valid(1'b0),.clk(io_clk),.s_axi_awaddr(m_axi_awaddr),.s_axi_awprot(m_axi_awprot),.s_axi_awvalid(m_axi_awvalid),.s_axi_awready(m_axi_awready),.s_axi_wdata(m_axi_wdata),.s_axi_wstrb(m_axi_wstrb),.s_axi_wvalid(m_axi_wvalid),.s_axi_wready(m_axi_wready),.s_axi_bresp(m_axi_bresp),.s_axi_bvalid(m_axi_bvalid),.s_axi_bready(m_axi_bready),.s_axi_araddr(m_axi_araddr),.s_axi_arprot(m_axi_arprot),.s_axi_arvalid(m_axi_arvalid),.s_axi_arready(m_axi_arready),.s_axi_rdata(m_axi_rdata),.s_axi_rresp(m_axi_rresp),.s_axi_rvalid(m_axi_rvalid),.s_axi_rready(m_axi_rready),.*);
  reg [31:0] value,status,seq;
  integer fd,which;
  task publish(input integer peak);
@@ -85,7 +85,9 @@ module tb_pscdc;
    expect_read(0,32'h5a5a2026);expect_read('h6c,32'h10000);expect_read(4,8);
    for(which=0;which<2;which=which+1)begin
      put('h2c,which);put(4,11);put('h38,1);rd('h34,status,0);rd(8,seq,0);
-     check((status&32'hff1f7fff)==32'h17f39 && seq==which+1,"BIST status/sequence");
+     // 已发布手动扩展的STATUS bit18恒为1；BIST帧字段不变。
+     check((status&32'hff1f7fff)==32'h57f39 && seq==which+1,
+           $sformatf("BIST status/sequence status=%08x seq=%08x",status,seq));
      fd=$fopen(which?"ps_bist_pass.txt":"ps_bist_reject.txt","w");$fdisplay(fd,"%08x %08x",seq,status);
      for(integer p=0;p<6;p=p+1)begin
        put('h1c,p);

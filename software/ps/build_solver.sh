@@ -7,4 +7,4 @@ common_dir=$(CDPATH= cd -- "$script_dir/../common" && pwd)
   -fPIC -shared -I"$common_dir" -I"$common_dir/s1" \
   "$script_dir/ss_solver_bridge.c" "$common_dir/s1/doa_solver.c" \
   -lm -o "$script_dir/libss_solver.so"
-printf '%s\n' "ARM求解库生成：$script_dir/libss_solver.so"
+printf '%s\n' "Solver library built for selected compiler: $script_dir/libss_solver.so"

@@ -1,0 +1,43 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sat Oct 24 00:04:29 2026
+# Process ID         : 46248
+# Current directory  : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/audiotime_20261024_000426
+# Command line       : xsim.exe -log simulate.log -mode tcl -source {xsim.dir/audiotime/xsim_script.tcl}
+# Log file           : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/audiotime_20261024_000426/simulate.log
+# Journal file       : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/audiotime_20261024_000426\xsim.jou
+# Running On         : Toph
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 16890 MB
+# Swap memory        : 23622 MB
+# Total Virtual      : 40512 MB
+# Available Virtual  : 10096 MB
+#-----------------------------------------------------------
+source xsim.dir/audiotime/xsim_script.tcl
+# xsim {audiotime} -maxdeltaid 1000 -autoloadwcfg -tclbatch {run.tcl} -onerror quit
+Time resolution is 1 ps
+source run.tcl
+## run all
+Warning: SIM_ASSERT_CHK (1) specifies simulation message reporting, messages related to potential misuse will be reported.
+Time: 1 ps  Iteration: 0  Process: /tb_audiotime/dut/crossing/fifo/gnuram_async_fifo.xpm_fifo_base_inst/Initial1559_104  Scope: tb_audiotime.dut.crossing.fifo.gnuram_async_fifo.xpm_fifo_base_inst  File: F:\AMD\2025.2\Vivado\data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv Line: 1566
+CDC_DEBUG ready=0 busy=1 full=0 count= 0 pending=0 failed=0 rst=1
+CDC_DEBUG ready=1 busy=0 full=0 count= 0 pending=0 failed=1 rst=1
+CDC_DEBUG ready=1 busy=0 full=0 count= 0 pending=0 failed=1 rst=1
+CDC_DEBUG ready=1 busy=0 full=0 count= 0 pending=0 failed=1 rst=1
+CDC_DEBUG ready=1 busy=0 full=0 count= 0 pending=0 failed=1 rst=1
+CDC_DEBUG ready=1 busy=0 full=0 count= 0 pending=0 failed=1 rst=1
+CDC_DEBUG ready=1 busy=0 full=0 count= 0 pending=0 failed=1 rst=1
+TIME_DEBUG received=0 source=0000000100000002 fault=1 base=0000000000000000 offset=  0
+Fatal: AUDIOTIME_FAIL timeout received=0 src=0000000100000002 fault=1 rdclk=1
+Time: 1 ms  Iteration: 0  Process: /tb_audiotime/Initial40_126  Scope: tb_audiotime  File: E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/audiotime_20261024_000426/sources/tb_audiotime.sv Line: 40
+$finish called at time : 1 ms
+## quit
+INFO: [Common 17-206] Exiting xsim at Sat Oct 24 00:04:31 2026...

@@ -13,7 +13,7 @@ reg feature_ready=0;
 wire [31:0] feature_frame_id,feature_frame_flags,feature_drop_count;
 wire [959:0] feature_pairs;
 wire [4:0] debug_state;
-ss_pair_engine dut(.frame_level(32'b0),.frame_level_valid(1'b0),.feature_level(),.feature_level_valid(),.*);
+ss_pair_engine dut(.frame_meta(129'b0),.feature_meta(),.frame_level(32'b0),.frame_level_valid(1'b0),.feature_level(),.feature_level_valid(),.*);
 
 integer cycle=0,checks=0,frames=0,drops=0,handshakes=0,pair_events=0;
 integer mi=0,mo=0,mp=-1,mode=0,n,p,lane,bin,token=0,fd;

@@ -1,0 +1,1355 @@
+{
+  "project": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.xpr",
+  "scope": "read-only saved XPR/BD/HWH/source inspection; no Vivado launch or hardware action",
+  "decision": "Use Reliaze as source of the user-created 3D copy",
+  "files": [
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\hann-u18f17.mem",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/hann-u18f17.mem"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1791706404"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "487c7f988ab00fc0428dc3fbe1705e933eac96ef4f54519727bf9fb0d11dc1bf",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\ip\\ss_ifft25\\ss_ifft25.xci",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_Sbb/SoundSight_STM32.srcs/sources_1/ip/ss_ifft25/ss_ifft25.xci"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792256531"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "6e6e33e4a4dd4e1d17d90a276fb229b880c3e755c2f996033af267ed7c2665c4"
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\ip\\ss_fft29\\ss_fft29.xci",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_Sbb/SoundSight_STM32.srcs/sources_1/ip/ss_fft29/ss_fft29.xci"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792256396"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "a0e08b68cdff0d76a7f1c23c9618f3e318824094bf1e8f9e8d62a1465f755831"
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\pdm_cic3.v",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/pdm_cic3.v"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792240645"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "6bf88142124546eaa11d2a31cf00bfeb313a61032b1540867e1d788742d1da13",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\doa_math_pkg.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/doa_math_pkg.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792240645"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "70f9a28d343914fa115b40ed8875ae294db69390937155ef862de9374d7cb509",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\doa_math_serial.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/doa_math_serial.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792305077"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "f9c7e6dd052ba25e755303f9e28264f08919f4f7878f7ad6dd70e627d04ba2de",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\doa_phat_client.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/doa_phat_client.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792240645"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "e679a854f8174b11719ceea587b3d1606b8fd6e223b0ddcf5c55784d84123f7d",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\f1a_frame_store.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/f1a_frame_store.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792579693"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\fft29_official.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/fft29_official.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792240645"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "1d7492e77711c5e507aeb48f9651621f8056ac97d3c05c3451f61ddc0b5ab92d",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ifft25_official.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ifft25_official.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792240645"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "5f8d4af7839f97b71fb4b33fec71ac64c6f8f3c80def1983430e8a4a0bae3479",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_async_word.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ss_async_word.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792240645"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "ad8457a2f3421b3b2a3df69438f15acf148018f154e7969bc37e8e7902d04ebd",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_clean_compute.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ss_clean_compute.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792579693"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_dual_compute.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ss_dual_compute.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792579693"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "4015f2fdccbd2f13bea78a31995f03de45b861cbb95f75dbfccd70c185d8204a",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_fft_frontend.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ss_fft_frontend.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792579693"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "efd263ffd477ccb2f7e35837d5459b8d8d842571f3f8b4a97440cbf19d13bb9b",
+      "repo_byte_equal": false,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_pair_engine.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ss_pair_engine.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792579693"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_pcm_time_cdc.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_pcm_windows.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ss_pcm_windows.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792240645"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_pdm_capture.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ss_pdm_capture.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792303241"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "f2a600c5f3ac6ebd44668c526bd40fb0dfc1e0f434e5350cf1e00733ef3b59fa",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_preprocess.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ss_preprocess.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792579693"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "b8ee9fe24350b447d2b41f6cca6f8a55ee7916f1ef5b84e3fe154eb9316f0108",
+      "repo_byte_equal": false,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\bd_clean_compute.v",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/bd_clean_compute.v"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792579693"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "d65b00a1d311d12bf36e60a10e38a6b78a6aba254557843149e4da63abf3310c",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\motor_drive.v",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/motor_drive.v"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792240645"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "4b899a4ebe5a96dab8919b0f63a8a46eff4c1d3678ce67d32d693642c817cf60",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\i17_turntable_pwm_guard.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/i17_turntable_pwm_guard.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792240645"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "c9785a61b03cb24727f14c092073c4fc6fc4854c70eacb2b11f3fb97993a8453",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_actuator_control.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ss_actuator_control.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792240645"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "67cf3c39cce559a5f3a4cff170cfcc54020ab55a5e6b8106f70d878753d3b979",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_axi_lite_regs.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ss_axi_lite_regs.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792240645"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_bist_source.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ss_bist_source.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792240645"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "e578bee07453a57e22909c8773e011064c9532275a0a67fe4f9f9310b8ab262b",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_manual_servo.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_ps_control_regs.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ss_ps_control_regs.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792584480"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "b3b0d802cca994dc66569777d72c3af8b87c4d3dd619340d824e5a3e185472eb",
+      "repo_byte_equal": false,
+      "repo_text_equal": false
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_ps_link.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ss_ps_link.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792584480"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "7240ba3336b6f2d927b007e300b6108aaea383ecc0e3759d2b4b75dd6321e9f0",
+      "repo_byte_equal": false,
+      "repo_text_equal": false
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_snapshot_queue.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/ss_snapshot_queue.sv"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792240645"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "5e2b408c8ccf7e0600e8a8a52d0e84e417a7b4520fc472cd0b4e9f466710d1c3",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\bd_ps_link.v",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_sources/bd_ps_link.v"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792675617"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "21251a1067337e328d0f6b625afce2ad958bb7c91d3ea45658a228088c73ea01",
+      "repo_byte_equal": false,
+      "repo_text_equal": false
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_audio_capture.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "2dee1ef0725936d6a5f96709813c29aecbc1701a6186bf4f0ad39288ed825e04",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_audio_fifo.sv",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\bd_audio_capture.v",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "25c52e8d59014e42600b0a11693e9d563f7245a1ec01d8244272101b9a9a0498",
+      "repo_byte_equal": true,
+      "repo_text_equal": true
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\bd\\soundsight_stm32_bd\\soundsight_stm32_bd.bd",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "acd287cbaa91add0536bdb6780b88ff25ced040579da7119ae1421b97d5a0a01"
+    },
+    {
+      "fileset": "sources_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.gen\\sources_1\\bd\\soundsight_stm32_bd\\hdl\\soundsight_stm32_bd_wrapper.v",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "sha256": "791698589e01aaaf6e39176c27bb0c300e71ecae469f113c6aa68a0ecfdb47ed"
+    },
+    {
+      "fileset": "constrs_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Servo\\horizontal_constraints\\00\\spi_ila_debug.xdc",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "UserDisabled",
+          "Val": "1"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "ProcessingOrder",
+          "Val": "LATE"
+        }
+      ],
+      "sha256": "bbb89dcf639ed12d899b385e25a2897aaf63b4b6e3874c42d036b60c8f75f64f"
+    },
+    {
+      "fileset": "constrs_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\constrs_1\\imports\\horizontal_constraints\\01\\board_pins.xdc",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_constraints/01/board_pins.xdc"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792678136"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        }
+      ],
+      "sha256": "76c1f5e3dc44804f23da08166a4d380cb1197900ae0fd28a00fcc5de863c8dce"
+    },
+    {
+      "fileset": "constrs_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\constrs_1\\imports\\horizontal_constraints\\02\\interface_timing.xdc",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_constraints/02/interface_timing.xdc"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792678136"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        }
+      ],
+      "sha256": "6e984160ad1c7e52ec2148785e8469ee641825a80c79d5ed83167d884f08edf8"
+    },
+    {
+      "fileset": "constrs_1",
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\constrs_1\\imports\\horizontal_constraints\\horizontal_reserved.xdc",
+      "exists": true,
+      "attributes": [
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_PS_Servo/horizontal_constraints/horizontal_reserved.xdc"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792675786"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        }
+      ],
+      "sha256": "32647a98942514964ba6cf2954df62268d8a60284e10b7176beda394a8ce4959"
+    }
+  ],
+  "components": [
+    "ps7",
+    "clk_main",
+    "clk_audio",
+    "core_reset",
+    "io_reset",
+    "core_reset_gate",
+    "io_reset_gate",
+    "core_release",
+    "io_release",
+    "zero",
+    "one",
+    "compute",
+    "ps_link",
+    "control_bus",
+    "control_cdc",
+    "bus_reset",
+    "bus_io_reset",
+    "irq_concat",
+    "irq_zero",
+    "audio_capture",
+    "axi_dma_audio",
+    "audio_mem_bus"
+  ],
+  "parameters": {
+    "ps_link": {
+      "ACTUATOR_BOUND": {
+        "value": "1"
+      },
+      "AUDIO_ENABLE": {
+        "value": "1"
+      },
+      "CLK_FREQ_HZ": {
+        "value": "61440000"
+      },
+      "LEVEL_ENABLE": {
+        "value": "1"
+      },
+      "MECHANICAL_MAX": {
+        "value": "360"
+      },
+      "MECHANICAL_MIN": {
+        "value": "0"
+      },
+      "SERVO_MAX": {
+        "value": "360"
+      }
+    },
+    "compute": {
+      "AUDIO_ENABLE": {
+        "value": "1"
+      },
+      "LEVEL_ENABLE": {
+        "value": "1"
+      }
+    },
+    "axi_dma_audio": {
+      "c_include_mm2s": {
+        "value": "0"
+      },
+      "c_include_s2mm": {
+        "value": "1"
+      },
+      "c_include_s2mm_dre": {
+        "value": "0"
+      },
+      "c_include_sg": {
+        "value": "0"
+      },
+      "c_m_axi_s2mm_data_width": {
+        "value": "64"
+      },
+      "c_micro_dma": {
+        "value": "0"
+      },
+      "c_s2mm_burst_size": {
+        "value": "16"
+      },
+      "c_s_axis_s2mm_tdata_width": {
+        "value": "32"
+      },
+      "c_sg_length_width": {
+        "value": "16"
+      }
+    }
+  },
+  "verified_control_nets": {
+    "compute_audio_run": {
+      "ports": [
+        "compute/audio_run",
+        "audio_capture/run_enable"
+      ]
+    },
+    "compute_audio_draining": {
+      "ports": [
+        "compute/audio_draining",
+        "audio_capture/compute_draining"
+      ]
+    }
+  },
+  "interfaces": {
+    "audio_capture_M_AXIS": {
+      "interface_ports": [
+        "audio_capture/M_AXIS",
+        "axi_dma_audio/S_AXIS_S2MM"
+      ]
+    },
+    "audio_mem_bus_M00_AXI": {
+      "interface_ports": [
+        "audio_mem_bus/M00_AXI",
+        "ps7/S_AXI_HP0"
+      ]
+    },
+    "axi_dma_audio_M_AXI_S2MM": {
+      "interface_ports": [
+        "axi_dma_audio/M_AXI_S2MM",
+        "audio_mem_bus/S00_AXI"
+      ]
+    },
+    "control_bus_M00_AXI": {
+      "interface_ports": [
+        "control_bus/M00_AXI",
+        "control_cdc/S_AXI"
+      ]
+    },
+    "control_bus_M01_AXI": {
+      "interface_ports": [
+        "control_bus/M01_AXI",
+        "axi_dma_audio/S_AXI_LITE"
+      ]
+    },
+    "control_bus_M02_AXI": {
+      "interface_ports": [
+        "control_bus/M02_AXI",
+        "audio_capture/S_AXI"
+      ]
+    },
+    "control_cdc_M_AXI": {
+      "interface_ports": [
+        "control_cdc/M_AXI",
+        "ps_link/S_AXI"
+      ]
+    },
+    "processing_system7_0_DDR": {
+      "interface_ports": [
+        "DDR",
+        "ps7/DDR"
+      ]
+    },
+    "processing_system7_0_FIXED_IO": {
+      "interface_ports": [
+        "FIXED_IO",
+        "ps7/FIXED_IO"
+      ]
+    },
+    "ps7_M_AXI_GP0": {
+      "interface_ports": [
+        "ps7/M_AXI_GP0",
+        "control_bus/S00_AXI"
+      ]
+    }
+  },
+  "changed_repo_rtl": [
+    "ss_ps_control_regs.sv",
+    "ss_ps_link.sv",
+    "bd_ps_link.v"
+  ],
+  "addition": "ss_dual_axis_control.sv",
+  "retained_compute_pcm_rtl": true,
+  "base_timing": "Not rerun; prior 2026-10-24 routed evidence is not new dual-axis timing"
+}

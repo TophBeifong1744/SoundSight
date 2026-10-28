@@ -1,0 +1,49 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Wed Oct 28 14:20:49 2026
+| Host         : Toph running 64-bit major release  (build 9200)
+| Command      : report_timing -from servo_pwm -to servo_pwm -delay_type max -max_paths 1 -path_type full_clock_expanded -warn_on_violation -file {E:/Users/Toph Beifong/Documents/GitHub/SoundSight/project/reports/ps_3d/supplemental/servo_pwm_dual_guard_max.rpt}
+| Design       : soundsight_stm32_bd_wrapper
+| Device       : 7z020-clg400
+| Speed File   : -2  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             11.188ns  (required time - arrival time)
+  Source:                 soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/h_guard/pwm_o_reg/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_soundsight_stm32_bd_clk_wiz_0_1  {rise@0.000ns fall@8.138ns period=16.276ns})
+  Destination:            servo_pwm
+  Path Group:             **default**
+  Path Type:              Max at Slow Process Corner
+  Requirement:            20.000ns  (MaxDelay Path 20.000ns)
+  Data Path Delay:        8.812ns  (logic 4.527ns (51.375%)  route 4.285ns (48.625%))
+  Logic Levels:           2  (LUT3=1 OBUF=1)
+  Output Delay:           0.000ns
+  Timing Exception:       MaxDelay Path 20.000ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X47Y54                                      0.000     0.000 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/h_guard/pwm_o_reg/C
+    SLICE_X47Y54         FDCE (Prop_fdce_C_Q)         0.379     0.379 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/h_guard/pwm_o_reg/Q
+                         net (fo=3, routed)           0.694     1.073    soundsight_stm32_bd_i/ps_link/inst/u_core/regs/dual_pwm_h
+    SLICE_X48Y53         LUT3 (Prop_lut3_I2_O)        0.105     1.178 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/O
+                         net (fo=1, routed)           3.590     4.769    servo_pwm_OBUF
+    T15                  OBUF (Prop_obuf_I_O)         4.043     8.812 r  servo_pwm_OBUF_inst/O
+                         net (fo=0)                   0.000     8.812    servo_pwm
+    T15                                                               r  servo_pwm (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   20.000    20.000    
+                         output delay                -0.000    20.000    
+  -------------------------------------------------------------------
+                         required time                         20.000    
+                         arrival time                          -8.812    
+  -------------------------------------------------------------------
+                         slack                                 11.188    
+
+
+
+

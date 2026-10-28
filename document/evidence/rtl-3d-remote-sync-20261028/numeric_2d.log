@@ -1,0 +1,3 @@
+usage: test_solver_migration.py [-h] [--library LIBRARY] [--golden GOLDEN]
+                                [--output OUTPUT]
+test_solver_migration.py: error: unrecognized arguments: --cc F:/Program/env/mingw64/bin/gcc.exe

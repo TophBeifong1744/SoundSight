@@ -1,0 +1,1177 @@
+{
+  "scope": "Read-only receipt of user-run Oct28 build. Original bit and routed checkpoint preserved. No AI synthesis, implementation, hardware access.",
+  "project": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.xpr",
+  "result": "CONSTRAINED_STA_PASS_VERTICAL_COVERAGE_OPEN",
+  "timing": {
+    "wns_ns": 0.311,
+    "whs_ns": 0.036,
+    "wpws_ns": 2.208,
+    "setup_failing_endpoints": 0,
+    "hold_failing_endpoints": 0,
+    "unconstrained_internal_endpoints": 0,
+    "unconstrained_output": "servo_vertical_pwm",
+    "bus_skew_constraints_met": 12
+  },
+  "resources": {
+    "lut": 18006,
+    "ff": 19753,
+    "bram_tiles": 32,
+    "dsp": 41
+  },
+  "servo_io": {
+    "horizontal": "T15 Bank34 LVCMOS33 DRIVE4 SLOW",
+    "vertical": "W15 Bank34 LVCMOS33 DRIVE4 SLOW"
+  },
+  "artifacts": {
+    "bit": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.runs\\impl_1\\soundsight_stm32_bd_wrapper.bit",
+      "bytes": 4045703,
+      "mtime_ns": 1793165895620027100,
+      "sha256": "40d19dfcb77ee87e7f92f479c11300c45d789d6699beb7a6945c13ea8273725f"
+    },
+    "hwh": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.gen\\sources_1\\bd\\soundsight_stm32_bd\\hw_handoff\\soundsight_stm32_bd.hwh",
+      "bytes": 433376,
+      "mtime_ns": 1793165371030185700,
+      "sha256": "de42bdb325d202a27161f9be7e4197701f1d0c644d8bb8d80d4d547efdf2ab3f"
+    },
+    "routed_dcp": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.runs\\impl_1\\soundsight_stm32_bd_wrapper_routed.dcp",
+      "bytes": 17139594,
+      "mtime_ns": 1793165882182951400,
+      "sha256": "500c29d9276b92c91bb71d429b077f9e2630ab86114195e431620e912b426dd8"
+    },
+    "bd": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.srcs\\sources_1\\bd\\soundsight_stm32_bd\\soundsight_stm32_bd.bd",
+      "bytes": 99328,
+      "mtime_ns": 1793165369070226000,
+      "sha256": "297bbab6ae075772292ffe59e977f73979629f0abe7743870bdd8f97bfe21a7e"
+    },
+    "xpr": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.xpr",
+      "bytes": 24984,
+      "mtime_ns": 1793165882904724500,
+      "sha256": "78d6f2f1c08947e44a727836ad959802f50f10f2d34b0794b4d660857d18a783"
+    }
+  },
+  "reports": [
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.runs\\impl_1\\soundsight_stm32_bd_wrapper_bus_skew_routed.rpt",
+      "bytes": 247848,
+      "mtime_ns": 1793165879704008000,
+      "sha256": "2a9fa916e74c630d38315e6ec8e0ea1ce32263f669ba8b0c468be2f92cfdde36"
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.runs\\impl_1\\soundsight_stm32_bd_wrapper_drc_routed.rpt",
+      "bytes": 74908,
+      "mtime_ns": 1793165860138882800,
+      "sha256": "710a3f4e97a6683ccea868d176a7486f81f784be857c3d288adf10def113513d"
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.runs\\impl_1\\soundsight_stm32_bd_wrapper_io_placed.rpt",
+      "bytes": 125066,
+      "mtime_ns": 1793165794382498000,
+      "sha256": "e952a52c26b2e711fed4ab54c0c0dd1812fdc5247070d95bb5dcc96708eb57fe"
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.runs\\impl_1\\soundsight_stm32_bd_wrapper_methodology_drc_routed.rpt",
+      "bytes": 12392,
+      "mtime_ns": 1793165869751792000,
+      "sha256": "a4621269c7753a6e64bb828264f31cc1464ee3fffe8563b630b265848ac00c17"
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.runs\\impl_1\\soundsight_stm32_bd_wrapper_route_status.rpt",
+      "bytes": 651,
+      "mtime_ns": 1793165873620131000,
+      "sha256": "5327dc4efc0c9a31e436cbe5a05b10c1b06d34a79d69d625184861599fa8773c"
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.runs\\impl_1\\soundsight_stm32_bd_wrapper_timing_summary_routed.rpt",
+      "bytes": 1447346,
+      "mtime_ns": 1793165873463873500,
+      "sha256": "37b1df79ae032e62c8d694886cbd95dfc4db97c87895503e1d8a98e3f20471b2"
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.runs\\impl_1\\soundsight_stm32_bd_wrapper_utilization_placed.rpt",
+      "bytes": 12142,
+      "mtime_ns": 1793165794596087800,
+      "sha256": "21f5bb38311a34d92c57472869641efac0ed49a9ca00e36b0a899f909c6da0f1"
+    }
+  ],
+  "registered_files": [
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\hann-u18f17.mem",
+      "bytes": 6144,
+      "mtime_ns": 1791706404000000000,
+      "sha256": "487c7f988ab00fc0428dc3fbe1705e933eac96ef4f54519727bf9fb0d11dc1bf",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.srcs\\sources_1\\ip\\ss_ifft25\\ss_ifft25.xci",
+      "bytes": 28259,
+      "mtime_ns": 1793165293770967600,
+      "sha256": "9d878e4e8c539e6b6c9a6dc0988ae183007f37a61d35d45b800b0d70da909120",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_Sbb/SoundSight_STM32.srcs/sources_1/ip/ss_ifft25/ss_ifft25.xci"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792256531"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ]
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.srcs\\sources_1\\ip\\ss_fft29\\ss_fft29.xci",
+      "bytes": 28255,
+      "mtime_ns": 1793165293837199600,
+      "sha256": "0bf45a44b0c4cf6857702909656101498a7f0bf3e5763e97ddf69df9f4c039a0",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "ImportPath",
+          "Val": "$PPRDIR/../SoundSight_Sbb/SoundSight_STM32.srcs/sources_1/ip/ss_fft29/ss_fft29.xci"
+        },
+        {
+          "Name": "ImportTime",
+          "Val": "1792256396"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ]
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\pdm_cic3.v",
+      "bytes": 1495,
+      "mtime_ns": 1792240645000000000,
+      "sha256": "6bf88142124546eaa11d2a31cf00bfeb313a61032b1540867e1d788742d1da13",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\doa_math_pkg.sv",
+      "bytes": 10478,
+      "mtime_ns": 1792240645000000000,
+      "sha256": "70f9a28d343914fa115b40ed8875ae294db69390937155ef862de9374d7cb509",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\doa_math_serial.sv",
+      "bytes": 5907,
+      "mtime_ns": 1792305077000000000,
+      "sha256": "f9c7e6dd052ba25e755303f9e28264f08919f4f7878f7ad6dd70e627d04ba2de",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\doa_phat_client.sv",
+      "bytes": 3980,
+      "mtime_ns": 1792240645000000000,
+      "sha256": "e679a854f8174b11719ceea587b3d1606b8fd6e223b0ddcf5c55784d84123f7d",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\f1a_frame_store.sv",
+      "bytes": 5210,
+      "mtime_ns": 1792770222000000000,
+      "sha256": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\fft29_official.sv",
+      "bytes": 2133,
+      "mtime_ns": 1792240645000000000,
+      "sha256": "1d7492e77711c5e507aeb48f9651621f8056ac97d3c05c3451f61ddc0b5ab92d",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ifft25_official.sv",
+      "bytes": 2004,
+      "mtime_ns": 1792240645000000000,
+      "sha256": "5f8d4af7839f97b71fb4b33fec71ac64c6f8f3c80def1983430e8a4a0bae3479",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_async_word.sv",
+      "bytes": 2027,
+      "mtime_ns": 1792240645000000000,
+      "sha256": "ad8457a2f3421b3b2a3df69438f15acf148018f154e7969bc37e8e7902d04ebd",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_clean_compute.sv",
+      "bytes": 8056,
+      "mtime_ns": 1792770222000000000,
+      "sha256": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_dual_compute.sv",
+      "bytes": 5139,
+      "mtime_ns": 1792813390000000000,
+      "sha256": "4015f2fdccbd2f13bea78a31995f03de45b861cbb95f75dbfccd70c185d8204a",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_fft_frontend.sv",
+      "bytes": 7206,
+      "mtime_ns": 1792579693000000000,
+      "sha256": "efd263ffd477ccb2f7e35837d5459b8d8d842571f3f8b4a97440cbf19d13bb9b",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_pair_engine.sv",
+      "bytes": 25145,
+      "mtime_ns": 1792770222000000000,
+      "sha256": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_pcm_time_cdc.sv",
+      "bytes": 2280,
+      "mtime_ns": 1792770154000000000,
+      "sha256": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_pcm_windows.sv",
+      "bytes": 3361,
+      "mtime_ns": 1792770222000000000,
+      "sha256": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_pdm_capture.sv",
+      "bytes": 2037,
+      "mtime_ns": 1792303241000000000,
+      "sha256": "f2a600c5f3ac6ebd44668c526bd40fb0dfc1e0f434e5350cf1e00733ef3b59fa",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_preprocess.sv",
+      "bytes": 5956,
+      "mtime_ns": 1792579693000000000,
+      "sha256": "b8ee9fe24350b447d2b41f6cca6f8a55ee7916f1ef5b84e3fe154eb9316f0108",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\bd_clean_compute.v",
+      "bytes": 2587,
+      "mtime_ns": 1792813391000000000,
+      "sha256": "d65b00a1d311d12bf36e60a10e38a6b78a6aba254557843149e4da63abf3310c",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\motor_drive.v",
+      "bytes": 6503,
+      "mtime_ns": 1792240645488750000,
+      "sha256": "4b899a4ebe5a96dab8919b0f63a8a46eff4c1d3678ce67d32d693642c817cf60",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\i17_turntable_pwm_guard.sv",
+      "bytes": 2603,
+      "mtime_ns": 1792240645488750000,
+      "sha256": "c9785a61b03cb24727f14c092073c4fc6fc4854c70eacb2b11f3fb97993a8453",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_actuator_control.sv",
+      "bytes": 3742,
+      "mtime_ns": 1792240645000000000,
+      "sha256": "67cf3c39cce559a5f3a4cff170cfcc54020ab55a5e6b8106f70d878753d3b979",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_axi_lite_regs.sv",
+      "bytes": 3507,
+      "mtime_ns": 1792770222000000000,
+      "sha256": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_bist_source.sv",
+      "bytes": 1348,
+      "mtime_ns": 1792240645000000000,
+      "sha256": "e578bee07453a57e22909c8773e011064c9532275a0a67fe4f9f9310b8ab262b",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_dual_axis_control.sv",
+      "bytes": 9393,
+      "mtime_ns": 1793163916241004000,
+      "sha256": "e913324fe0d9071355900e9fd092182e3ebcae52d24431d8b61435955c3f1bfb",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_manual_servo.sv",
+      "bytes": 2700,
+      "mtime_ns": 1792765298000000000,
+      "sha256": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_ps_control_regs.sv",
+      "bytes": 17540,
+      "mtime_ns": 1793163495230551000,
+      "sha256": "d119787848255692c4c5aadb7727a31214c2995fe886439c13534df9fb85d3c3",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_ps_link.sv",
+      "bytes": 4570,
+      "mtime_ns": 1793163093643265300,
+      "sha256": "f2d56f97cccb55089caf40ca53a3f1af1b8fa3470fb3bad93bc5ae6497072265",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_snapshot_queue.sv",
+      "bytes": 4506,
+      "mtime_ns": 1792770222000000000,
+      "sha256": "5e2b408c8ccf7e0600e8a8a52d0e84e417a7b4520fc472cd0b4e9f466710d1c3",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\bd_ps_link.v",
+      "bytes": 5119,
+      "mtime_ns": 1793163093643265300,
+      "sha256": "ae17152cb965e1aee142e17c396de93f0b87b6aed3e66782b1e17d2e73041f3b",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_audio_capture.sv",
+      "bytes": 6440,
+      "mtime_ns": 1792813392000000000,
+      "sha256": "2dee1ef0725936d6a5f96709813c29aecbc1701a6186bf4f0ad39288ed825e04",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\ss_audio_fifo.sv",
+      "bytes": 1197,
+      "mtime_ns": 1792770335000000000,
+      "sha256": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_sources\\bd_audio_capture.v",
+      "bytes": 4719,
+      "mtime_ns": 1792813393000000000,
+      "sha256": "25c52e8d59014e42600b0a11693e9d563f7245a1ec01d8244272101b9a9a0498",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "Library",
+          "Val": "xil_defaultlib"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ],
+      "repository_text_equal": true
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.srcs\\sources_1\\bd\\soundsight_stm32_bd\\soundsight_stm32_bd.bd",
+      "bytes": 99328,
+      "mtime_ns": 1793165369070226000,
+      "sha256": "297bbab6ae075772292ffe59e977f73979629f0abe7743870bdd8f97bfe21a7e",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ]
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.gen\\sources_1\\bd\\soundsight_stm32_bd\\hdl\\soundsight_stm32_bd_wrapper.v",
+      "bytes": 3068,
+      "mtime_ns": 1793165370537972500,
+      "sha256": "a94411e0aec64e0d1eeb18a5fa3d7ef585830762f0ab3b40107576402f0119a8",
+      "fileset": "sources_1",
+      "attributes": [
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "simulation"
+        }
+      ]
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_constraints\\01\\spi_ila_debug.xdc",
+      "bytes": 19101,
+      "mtime_ns": 1792678136344436000,
+      "sha256": "bbb89dcf639ed12d899b385e25a2897aaf63b4b6e3874c42d036b60c8f75f64f",
+      "fileset": "constrs_1",
+      "attributes": [
+        {
+          "Name": "UserDisabled",
+          "Val": "1"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "ProcessingOrder",
+          "Val": "LATE"
+        }
+      ]
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_constraints\\02\\board_pins.xdc",
+      "bytes": 1242,
+      "mtime_ns": 1792744900000000000,
+      "sha256": "76c1f5e3dc44804f23da08166a4d380cb1197900ae0fd28a00fcc5de863c8dce",
+      "fileset": "constrs_1",
+      "attributes": [
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        }
+      ]
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_constraints\\03\\interface_timing.xdc",
+      "bytes": 1376,
+      "mtime_ns": 1792678136000000000,
+      "sha256": "6e984160ad1c7e52ec2148785e8469ee641825a80c79d5ed83167d884f08edf8",
+      "fileset": "constrs_1",
+      "attributes": [
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        }
+      ]
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\dual_axis_constraints\\04\\horizontal_reserved.xdc",
+      "bytes": 450,
+      "mtime_ns": 1792744900000000000,
+      "sha256": "32647a98942514964ba6cf2954df62268d8a60284e10b7176beda394a8ce4959",
+      "fileset": "constrs_1",
+      "attributes": [
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        }
+      ]
+    },
+    {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.srcs\\utils_1\\imports\\synth_1\\soundsight_stm32_bd_wrapper.dcp",
+      "bytes": 24983098,
+      "mtime_ns": 1792298952000000000,
+      "sha256": "c9e727b81fd84c098a8f92e1b899b7792364ed3f54c27446b481fcd71e02aa34",
+      "fileset": "utils_1",
+      "attributes": [
+        {
+          "Name": "UsedIn",
+          "Val": "synthesis"
+        },
+        {
+          "Name": "UsedIn",
+          "Val": "implementation"
+        },
+        {
+          "Name": "AutoDcp",
+          "Val": "1"
+        }
+      ]
+    }
+  ],
+  "ps_parameters": {
+    "compute": {
+      "AUDIO_ENABLE": "1",
+      "HANN_FILE": "hann-u18f17.mem",
+      "LEVEL_ENABLE": "1",
+      "WARMUP_SAMPLES": "4096",
+      "Component_Name": "soundsight_stm32_bd_bd_clean_compute_0_0",
+      "EDK_IPTYPE": "PERIPHERAL"
+    },
+    "ps_link": {
+      "ACTUATOR_BOUND": "1",
+      "AUDIO_ENABLE": "1",
+      "CLK_FREQ_HZ": "61440000",
+      "DUAL_AXIS_ENABLE": "1",
+      "LEVEL_ENABLE": "1",
+      "MECHANICAL_MAX": "360",
+      "MECHANICAL_MIN": "0",
+      "SERVO_MAX": "360",
+      "Component_Name": "soundsight_stm32_bd_bd_ps_link_0_0",
+      "EDK_IPTYPE": "PERIPHERAL",
+      "C_BASEADDR": "0x40000000",
+      "C_HIGHADDR": "0x40000FFF",
+      "ADDR_WIDTH": "12",
+      "ARUSER_WIDTH": "0",
+      "AWUSER_WIDTH": "0",
+      "BUSER_WIDTH": "0",
+      "CLK_DOMAIN": "soundsight_stm32_bd_processing_system7_0_0_FCLK_CLK0",
+      "DATA_WIDTH": "32",
+      "FREQ_HZ": "61440000",
+      "HAS_BRESP": "1",
+      "HAS_BURST": "0",
+      "HAS_CACHE": "0",
+      "HAS_LOCK": "0",
+      "HAS_PROT": "1",
+      "HAS_QOS": "0",
+      "HAS_REGION": "0",
+      "HAS_RRESP": "1",
+      "HAS_WSTRB": "1",
+      "ID_WIDTH": "0",
+      "INSERT_VIP": "0",
+      "MAX_BURST_LENGTH": "1",
+      "NUM_READ_OUTSTANDING": "1",
+      "NUM_READ_THREADS": "4",
+      "NUM_WRITE_OUTSTANDING": "1",
+      "NUM_WRITE_THREADS": "4",
+      "PHASE": "0.0",
+      "PROTOCOL": "AXI4LITE",
+      "READ_WRITE_MODE": "READ_WRITE",
+      "RUSER_BITS_PER_BYTE": "0",
+      "RUSER_WIDTH": "0",
+      "SUPPORTS_NARROW_BURST": "0",
+      "WUSER_BITS_PER_BYTE": "0",
+      "WUSER_WIDTH": "0"
+    }
+  },
+  "board": "NOT_RUN",
+  "motion": "NOT_RUN"
+}

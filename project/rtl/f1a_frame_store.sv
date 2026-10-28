@@ -6,8 +6,9 @@
 `timescale 1ns/1ps
 // 中文用途：六个工作槽串行采入；独立保持一份完整输出，满时丢新帧而不阻塞采集。
 // 这是 F1a 工作集和交接寄存器，不是 F2 的 FREE/READY/LOCKED 两槽队列。
-module f1a_frame_store #(parameter integer LEVEL_ENABLE=0) (
+module f1a_frame_store #(parameter integer LEVEL_ENABLE=0,META_ENABLE=0) (
     input wire clk, cold_rst_n,
+    input wire [128:0] frame_meta,output reg [128:0] feature_meta,
     input wire frame_start, frame_start_bist,
     input wire pair_event, input wire [2:0] pair_index,
     input wire [159:0] pair_words,
@@ -24,7 +25,7 @@ module f1a_frame_store #(parameter integer LEVEL_ENABLE=0) (
     output reg gap, counter_exhausted,
     output reg source_protocol_error
 );
-    reg [959:0] work_pairs;
+    reg [959:0] work_pairs;reg [128:0] work_meta;
     reg [5:0] seen;
     reg [2:0] expected_pair;
     reg active, local_error, work_bist;
@@ -55,13 +56,14 @@ module f1a_frame_store #(parameter integer LEVEL_ENABLE=0) (
     always @(posedge clk) begin
         if(!cold_rst_n) begin
             work_pairs<=0;seen<=0;expected_pair<=0;active<=0;local_error<=0;work_bist<=0;
-            sequence_count<=0;feature_valid<=0;feature_frame_id<=0;
+            sequence_count<=0;feature_valid<=0;feature_frame_id<=0;work_meta<=0;feature_meta<=0;
             feature_frame_flags<=0;feature_pairs<=0;drop_pulse<=0;feature_level<=0;feature_level_valid<=0;
             drop_count<=0;gap<=0;counter_exhausted<=0;source_protocol_error<=0;
         end else begin
             drop_pulse<=0;
             if(feature_valid && feature_ready) feature_valid<=0;
             if(frame_start && accepting) begin
+                work_meta<=META_ENABLE ? frame_meta : 129'b0;
                 work_pairs<=0;seen<=0;expected_pair<=0;active<=1;local_error<=0;work_bist<=frame_start_bist;
                 if(active) begin local_error<=1;source_protocol_error<=1;end
             end
@@ -80,6 +82,7 @@ module f1a_frame_store #(parameter integer LEVEL_ENABLE=0) (
                     if(sequence_count==32'hfffffffe) counter_exhausted<=1;
                     if(!feature_valid || feature_ready) begin
                         feature_valid<=1;feature_frame_id<=sequence_count+1;
+                        feature_meta<=META_ENABLE ? {work_meta[128] && !frame_cancelled && first_error==0 && !local_error,work_meta[127:0]} : 129'b0;
                         feature_frame_flags<=sealed_flags;feature_pairs<=sealed_pairs;
                         // 与六对在同一发布分支锁存；满时保留旧音量，不被下一帧覆盖。
                         feature_level<=LEVEL_ENABLE ? frame_level : 0;

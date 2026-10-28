@@ -1,0 +1,29 @@
+Solver library built for selected compiler: /e/Users/Toph Beifong/Documents/GitHub/SoundSight/software/build/three-d-board-94pchctr/SoundSight_PYNQ_3D/software/ps/libss_solver.so
+Built for the selected compiler target: /e/Users/Toph Beifong/Documents/GitHub/SoundSight/software/build/three-d-board-94pchctr/SoundSight_PYNQ_3D/software/tetra3d/linux/libss_solver_3d.so
+THREE_D_OFFLINE_OK=1 HARDWARE_ACTIONS=0
+test_axis_mapping_ranges_pole_and_translation (__main__.OnlineTests.test_axis_mapping_ranges_pole_and_translation) ... ok
+test_bounded_summary_and_debug_capacity (__main__.OnlineTests.test_bounded_summary_and_debug_capacity) ... ok
+test_cli_defaults_explicit_manual_and_bounded_debug (__main__.OnlineTests.test_cli_defaults_explicit_manual_and_bounded_debug) ... ok
+test_config_rejects_invalid_and_has_no_hardware_effect (__main__.OnlineTests.test_config_rejects_invalid_and_has_no_hardware_effect) ... ok
+test_final_extension_failure_still_attempts_legacy_stop (__main__.OnlineTests.test_final_extension_failure_still_attempts_legacy_stop) ... ok
+test_follow_atomic_write_and_fresh_sequence (__main__.OnlineTests.test_follow_atomic_write_and_fresh_sequence) ... ok
+test_follow_session_commits_only_after_group_and_stops (__main__.OnlineTests.test_follow_session_commits_only_after_group_and_stops) ... ok
+test_hardware_fault_prevents_consume_and_motion_restart (__main__.OnlineTests.test_hardware_fault_prevents_consume_and_motion_restart) ... ok
+test_hwh_rejects_old_before_mmio (__main__.OnlineTests.test_hwh_rejects_old_before_mmio) ... ok
+test_invalid_and_history_display (__main__.OnlineTests.test_invalid_and_history_display) ... ok
+test_local_calibration_roundtrip_does_not_change_shared_settings (__main__.OnlineTests.test_local_calibration_roundtrip_does_not_change_shared_settings) ... ok
+test_manual_both_no_audio_and_revoke_on_error (__main__.OnlineTests.test_manual_both_no_audio_and_revoke_on_error) ... ok
+test_manual_extension_revoke_error_attempts_legacy_stop (__main__.OnlineTests.test_manual_extension_revoke_error_attempts_legacy_stop) ... ok
+test_manual_rejects_capture_and_unconfigured_range (__main__.OnlineTests.test_manual_rejects_capture_and_unconfigured_range) ... ok
+test_normal_session_off_consumes_and_keeps_debug_after_stop (__main__.OnlineTests.test_normal_session_off_consumes_and_keeps_debug_after_stop) ... ok
+test_outliers_rejection_and_minimum (__main__.OnlineTests.test_outliers_rejection_and_minimum) ... ok
+test_quiet_and_target_expiry_revoke (__main__.OnlineTests.test_quiet_and_target_expiry_revoke) ... ok
+test_quiet_fault_gap_and_stop_clear_target (__main__.OnlineTests.test_quiet_fault_gap_and_stop_clear_target) ... ok
+test_sink_failure_and_solver_exception_stop_retain_snapshot (__main__.OnlineTests.test_sink_failure_and_solver_exception_stop_retain_snapshot) ... ok
+test_spatial_wrap_poles_and_deadband (__main__.OnlineTests.test_spatial_wrap_poles_and_deadband) ... ok
+test_vector_storage_is_bounded (__main__.OnlineTests.test_vector_storage_is_bounded) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.148s
+
+OK

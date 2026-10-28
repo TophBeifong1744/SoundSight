@@ -1,0 +1,268 @@
+{
+  "wns_ns": 0.371,
+  "setup_failing": 0,
+  "whs_ns": 0.036,
+  "hold_failing": 0,
+  "wpws_ns": 2.208,
+  "pulse_failing": 0,
+  "manual_hierarchy_in_routed_report": true,
+  "clock_coverage": [
+    [
+      "no_clock",
+      "0"
+    ],
+    [
+      "constant_clock",
+      "0"
+    ],
+    [
+      "pulse_width_clock",
+      "0"
+    ],
+    [
+      "unconstrained_internal_endpoints",
+      "0"
+    ],
+    [
+      "no_input_delay",
+      "0"
+    ],
+    [
+      "no_output_delay",
+      "0"
+    ],
+    [
+      "multiple_clock",
+      "0"
+    ],
+    [
+      "generated_clocks",
+      "0"
+    ],
+    [
+      "loops",
+      "0"
+    ],
+    [
+      "partial_input_delay",
+      "0"
+    ],
+    [
+      "partial_output_delay",
+      "0"
+    ],
+    [
+      "latch_loops",
+      "0"
+    ]
+  ],
+  "sources": [
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/pdm_cic3.v",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\pdm_cic3.v",
+      "repo": "project/rtl/pdm_cic3.v",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/doa_math_pkg.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\doa_math_pkg.sv",
+      "repo": "project/rtl/doa_math_pkg.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/doa_math_serial.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\doa_math_serial.sv",
+      "repo": "project/rtl/doa_math_serial.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/doa_phat_client.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\doa_phat_client.sv",
+      "repo": "project/rtl/doa_phat_client.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/f1a_frame_store.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\f1a_frame_store.sv",
+      "repo": "project/rtl/f1a_frame_store.sv",
+      "byte_equal": false,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/fft29_official.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\fft29_official.sv",
+      "repo": "project/rtl/fft29_official.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ifft25_official.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ifft25_official.sv",
+      "repo": "project/rtl/ifft25_official.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_async_word.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_async_word.sv",
+      "repo": "project/rtl/ss_async_word.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_clean_compute.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_clean_compute.sv",
+      "repo": "project/rtl/ss_clean_compute.sv",
+      "byte_equal": false,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_dual_compute.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_dual_compute.sv",
+      "repo": "project/rtl/ss_dual_compute.sv",
+      "byte_equal": false,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_fft_frontend.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_fft_frontend.sv",
+      "repo": "project/rtl/ss_fft_frontend.sv",
+      "byte_equal": false,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_pair_engine.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_pair_engine.sv",
+      "repo": "project/rtl/ss_pair_engine.sv",
+      "byte_equal": false,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_pcm_windows.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_pcm_windows.sv",
+      "repo": "project/rtl/ss_pcm_windows.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_pdm_capture.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_pdm_capture.sv",
+      "repo": "project/rtl/ss_pdm_capture.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_preprocess.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_preprocess.sv",
+      "repo": "project/rtl/ss_preprocess.sv",
+      "byte_equal": false,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/bd_clean_compute.v",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\bd_clean_compute.v",
+      "repo": "project/rtl/bd_clean_compute.v",
+      "byte_equal": false,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/motor_drive.v",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\motor_drive.v",
+      "repo": "project/rtl/motor_drive.v",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/i17_turntable_pwm_guard.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\i17_turntable_pwm_guard.sv",
+      "repo": "project/rtl/i17_turntable_pwm_guard.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_actuator_control.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_actuator_control.sv",
+      "repo": "project/rtl/ss_actuator_control.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_axi_lite_regs.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_axi_lite_regs.sv",
+      "repo": "project/rtl/ss_axi_lite_regs.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_bist_source.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_bist_source.sv",
+      "repo": "project/rtl/ss_bist_source.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_manual_servo.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_manual_servo.sv",
+      "repo": "project/rtl/ss_manual_servo.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_ps_control_regs.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_ps_control_regs.sv",
+      "repo": "project/rtl/ss_ps_control_regs.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_ps_link.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_ps_link.sv",
+      "repo": "project/rtl/ss_ps_link.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/ss_snapshot_queue.sv",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\ss_snapshot_queue.sv",
+      "repo": "project/rtl/ss_snapshot_queue.sv",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/imports/horizontal_sources/bd_ps_link.v",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\imports\\horizontal_sources\\bd_ps_link.v",
+      "repo": "project/rtl/bd_ps_link.v",
+      "byte_equal": true,
+      "text_equal": true
+    },
+    {
+      "registered": "$PSRCDIR/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.bd",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\sources_1\\bd\\soundsight_stm32_bd\\soundsight_stm32_bd.bd"
+    },
+    {
+      "registered": "$PGENDIR/sources_1/bd/soundsight_stm32_bd/hdl/soundsight_stm32_bd_wrapper.v",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.gen\\sources_1\\bd\\soundsight_stm32_bd\\hdl\\soundsight_stm32_bd_wrapper.v"
+    },
+    {
+      "registered": "$PPRDIR/horizontal_constraints/00/spi_ila_debug.xdc",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\horizontal_constraints\\00\\spi_ila_debug.xdc"
+    },
+    {
+      "registered": "$PSRCDIR/constrs_1/imports/horizontal_constraints/01/board_pins.xdc",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\constrs_1\\imports\\horizontal_constraints\\01\\board_pins.xdc"
+    },
+    {
+      "registered": "$PSRCDIR/constrs_1/imports/horizontal_constraints/02/interface_timing.xdc",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\constrs_1\\imports\\horizontal_constraints\\02\\interface_timing.xdc"
+    },
+    {
+      "registered": "$PSRCDIR/constrs_1/imports/horizontal_constraints/horizontal_reserved.xdc",
+      "actual": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs\\constrs_1\\imports\\horizontal_constraints\\horizontal_reserved.xdc"
+    }
+  ],
+  "scope": "User-built implementation; read-only receipt; no new synthesis/implementation/programming/motion"
+}

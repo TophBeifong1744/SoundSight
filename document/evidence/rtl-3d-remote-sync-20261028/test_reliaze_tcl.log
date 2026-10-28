@@ -1,0 +1,15 @@
+test_active_run_rejected (__main__.ReliazeTclTests.test_active_run_rejected) ... ok
+test_bd_open_cannot_clobber_validated_paths (__main__.ReliazeTclTests.test_bd_open_cannot_clobber_validated_paths) ... ok
+test_loaded_complete_script (__main__.ReliazeTclTests.test_loaded_complete_script) ... ok
+test_mixed_or_missing_ports_rejected (__main__.ReliazeTclTests.test_mixed_or_missing_ports_rejected) ... ok
+test_old_audio_control_migration_is_read_only (__main__.ReliazeTclTests.test_old_audio_control_migration_is_read_only) ... ok
+test_original_servo_rejected (__main__.ReliazeTclTests.test_original_servo_rejected) ... ok
+test_repeat_control_update_needs_no_disconnect (__main__.ReliazeTclTests.test_repeat_control_update_needs_no_disconnect) ... ok
+test_repository_project_rejected (__main__.ReliazeTclTests.test_repository_project_rejected) ... ok
+test_wrong_control_source_rejected (__main__.ReliazeTclTests.test_wrong_control_source_rejected) ... ok
+test_wrong_part_rejected (__main__.ReliazeTclTests.test_wrong_part_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.047s
+
+OK
