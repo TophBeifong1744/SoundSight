@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "archive_sha256": "714f8026079838e70240893c6bfc6712dbe8119bfd27acc2849987e4399e4452",
+  "files": 198,
+  "exact_reviewed_source": true,
+  "actual_relocated_shell_check": true,
+  "arm32_binary": true,
+  "old_models_templates_bit_hwh_controls_unchanged": true,
+  "changed_existing_files": [
+    "FILES.sha256.json",
+    "README.md",
+    "SOURCE.json",
+    "software/ps/live_speaker.py",
+    "software/ps/run_pcm.py",
+    "software/ps/speaker_core/live-assets.json",
+    "software/ps/speaker_core/pipeline_backend",
+    "software/ps/speaker_core/pipeline_bench.py",
+    "software/ps/speaker_core/profile-assets.json",
+    "software/ps/speaker_core/source/pipeline_backend.c",
+    "software/ps/speaker_core/source/stream_frontend.h"
+  ],
+  "scope": "FINAL_ZIP_IDENTITY_AND_CHECK_NO_HARDWARE"
+}

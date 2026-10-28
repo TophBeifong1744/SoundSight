@@ -1,0 +1,34 @@
+{
+  "scope": "PACKAGE_AND_HOST_INTERFACE_TESTS_NO_BOARD_NO_INSTALL",
+  "archive_name": "soundsight_A_speaker_integration_private_20261028.zip",
+  "archive_bytes": 70876933,
+  "archive_sha256": "a0d3c00cd6c7decc5e3a067cd584d816eee5c093d5e2e4e1ad00f129f29e7417",
+  "tests": [
+    {
+      "name": "test_pcm_hotpath.py",
+      "exit_code": 0,
+      "log": "test_pcm_hotpath.py.log"
+    },
+    {
+      "name": "test_capture_mmio.py",
+      "exit_code": 0,
+      "log": "test_capture_mmio.py.log"
+    },
+    {
+      "name": "test_speaker_targets.py",
+      "exit_code": 1,
+      "log": "test_speaker_targets.py.log"
+    }
+  ],
+  "manifest_files_checked": 147,
+  "manifest_mismatches": [],
+  "zip_crc_bad_member": null,
+  "python38_syntax_files": 75,
+  "temporary_source_removed": true,
+  "target_test_with_bundled_installer": {
+    "exit_code": 0,
+    "adjustment": "In temporary test tree only, copied inner P02 ZIP __main__.py unmodified to tools/install_speaker_target.py; original source and ZIP unchanged",
+    "log": "test_speaker_targets.with-bundled-installer.log"
+  },
+  "tetra3d_remote_head": "98e1887fa5481db6d2e6ec29acc1422938271a88"
+}

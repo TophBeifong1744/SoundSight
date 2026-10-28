@@ -1,0 +1,206 @@
+{
+  "source": "User-pasted serial output; original board logs not retrieved",
+  "board_logs": [
+    "logs/short-bench-fp32-BHbbOC",
+    "logs/short-full-int8-KaWWAz"
+  ],
+  "status": "BOARD_OFFLINE_NUMERICAL_PASS_RECOGNITION_NOT_QUALIFIED_REALTIME_NOT_ESTABLISHED",
+  "short_fp32_model_load": {
+    "embedding_load_seconds": 9.270223,
+    "vad_load_seconds": 2.096659,
+    "ort": "1.17.3"
+  },
+  "full_int8_model_load": {
+    "embedding_load_seconds": 7.8138,
+    "vad_load_seconds": 2.080815,
+    "ort": "1.17.3"
+  },
+  "checks": {
+    "pcm_bit_exact_comparisons": 4,
+    "short_fp32_reference_passes": 16,
+    "unique_short_windows": 8,
+    "full_int8_reference_passes": 4,
+    "full_scores_equal_previous_board": true,
+    "short_max_score_error": 9.244073333747327e-07,
+    "motion_commands": 0,
+    "live_capture": false
+  },
+  "pcm_means": {
+    "python_read_convert_seconds": 4.507323256749999,
+    "c_read_convert_seconds": 0.1663711755000037
+  },
+  "short_comparison": {
+    "0.5": {
+      "total_seconds": 0.8415249832500002,
+      "embedding_seconds": 0.6291706132499932,
+      "vad_seconds": 0.1576461652500072,
+      "fbank_seconds": 0.03779750649999869,
+      "rtf_window": 1.6830499665000005,
+      "wait_then_compute_seconds": 1.3415249832500002,
+      "int8_mean_total_seconds": 0.8072747469999975,
+      "int8_time_reduction_fraction": 0.04070020133891583,
+      "per_recording": {
+        "P01_C01": {
+          "score": 0.6081119581197988,
+          "state": "non_target",
+          "raw_state": "non_target",
+          "vad_coverage": 0.936
+        },
+        "P02_T01": {
+          "score": 0.2300637274064735,
+          "state": "insufficient",
+          "raw_state": "non_target",
+          "vad_coverage": 0.0
+        }
+      },
+      "same_states_as_int8": true
+    },
+    "1.0": {
+      "total_seconds": 1.5941212307500052,
+      "embedding_seconds": 1.1714852954999984,
+      "vad_seconds": 0.31483176950000313,
+      "fbank_seconds": 0.07655323775000156,
+      "rtf_window": 1.5941212307500052,
+      "wait_then_compute_seconds": 2.5941212307500052,
+      "int8_mean_total_seconds": 1.4829860799999963,
+      "int8_time_reduction_fraction": 0.06971562049752122,
+      "per_recording": {
+        "P01_C01": {
+          "score": 0.6939880904828657,
+          "state": "target",
+          "raw_state": "target",
+          "vad_coverage": 0.968
+        },
+        "P02_T01": {
+          "score": 0.2646778087748593,
+          "state": "insufficient",
+          "raw_state": "non_target",
+          "vad_coverage": 0.456
+        }
+      },
+      "same_states_as_int8": true
+    },
+    "1.5": {
+      "total_seconds": 2.193203196000013,
+      "embedding_seconds": 1.5665090552500018,
+      "vad_seconds": 0.46315679299999957,
+      "fbank_seconds": 0.11545814499999807,
+      "rtf_window": 1.4621354640000086,
+      "wait_then_compute_seconds": 3.693203196000013,
+      "int8_mean_total_seconds": 2.001610619499992,
+      "int8_time_reduction_fraction": 0.08735742171516514,
+      "per_recording": {
+        "P01_C01": {
+          "score": 0.7819548262769812,
+          "state": "target",
+          "raw_state": "target",
+          "vad_coverage": 0.9786666666666667
+        },
+        "P02_T01": {
+          "score": 0.36188123942546857,
+          "state": "non_target",
+          "raw_state": "non_target",
+          "vad_coverage": 0.6373333333333333
+        }
+      },
+      "same_states_as_int8": true
+    },
+    "2.0": {
+      "total_seconds": 3.0086047467500023,
+      "embedding_seconds": 2.1704986952499965,
+      "vad_seconds": 0.6189408474999922,
+      "fbank_seconds": 0.15462424375000694,
+      "rtf_window": 1.5043023733750012,
+      "wait_then_compute_seconds": 5.008604746750002,
+      "int8_mean_total_seconds": 2.7317896922500005,
+      "int8_time_reduction_fraction": 0.09200778360767625,
+      "per_recording": {
+        "P01_C01": {
+          "score": 0.8390098041945022,
+          "state": "target",
+          "raw_state": "target",
+          "vad_coverage": 0.736
+        },
+        "P02_T01": {
+          "score": 0.37840431175316064,
+          "state": "non_target",
+          "raw_state": "non_target",
+          "vad_coverage": 0.728
+        }
+      },
+      "same_states_as_int8": true
+    }
+  },
+  "full_comparison": {
+    "P01_C01": {
+      "input_seconds": 10.922666666666666,
+      "speech_seconds": 8.928,
+      "decode_seconds": 0.16903752900000768,
+      "resample_seconds": 0.20632104549999042,
+      "vad_seconds": 3.368326123000003,
+      "fbank_seconds": 0.7004154439999866,
+      "embedding_seconds": 8.122826483500006,
+      "other_seconds": 0.013534606500002155,
+      "total_seconds": 12.580461231499996,
+      "rtf_file": 1.1517756254425047,
+      "rtf_speech": 1.4091018404457878,
+      "score": 0.91097643945164,
+      "state": "target",
+      "chunks": 3,
+      "spans": [
+        [
+          14336,
+          99840
+        ],
+        [
+          107520,
+          139776
+        ],
+        [
+          143872,
+          168960
+        ]
+      ],
+      "old_total_seconds": 16.823633502000007,
+      "time_saved_seconds": 4.243172270500011,
+      "time_reduction_fraction": 0.2522149730612938
+    },
+    "P02_T01": {
+      "input_seconds": 10.922666666666666,
+      "speech_seconds": 7.072,
+      "decode_seconds": 0.166606514999998,
+      "resample_seconds": 0.20632813599999622,
+      "vad_seconds": 3.3645462070000036,
+      "fbank_seconds": 0.5540801834999911,
+      "embedding_seconds": 6.469245532999977,
+      "other_seconds": 0.01164738750001959,
+      "total_seconds": 10.772453961999986,
+      "rtf_file": 0.9862476161499011,
+      "rtf_speech": 1.5232542367081428,
+      "score": 0.41371311022727697,
+      "state": "non_target",
+      "chunks": 2,
+      "spans": [
+        [
+          43520,
+          47616
+        ],
+        [
+          51712,
+          87040
+        ],
+        [
+          97792,
+          171520
+        ]
+      ],
+      "old_total_seconds": 15.082289144499981,
+      "time_saved_seconds": 4.309835182499995,
+      "time_reduction_fraction": 0.2857547114505261
+    }
+  },
+  "serial_sha256": "2830d175b0a6c90dfc8d594264b7019ebbb6c1b49773e89d98e156c18b6979b2",
+  "delivered_package_sha256": "84ed32224c0ae31f95c1c5dcc09d65f8dce4ae923f1dc2895ece2a32d171d1b2",
+  "board_zip_sha256": "NOT_SEPARATELY_RECEIVED",
+  "scope": "Two recordings and eight selected windows; repeated runs are timing repeats, not independent accuracy trials. Cross-run timing comparison is descriptive, not randomized. No PL, code, threshold or package changes."
+}

@@ -1,0 +1,44 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "reviewer": "independent full_profile_review context",
+  "issues": [
+    {
+      "id": "FPR-R1",
+      "status": "CLOSED",
+      "repair_count": 1,
+      "finding": "Missing nodes per run or nodes outside all runs could previously pass completeness",
+      "fix": "Per-run coverage, unique run containment, overlap checks and negative tests"
+    }
+  ],
+  "independently_executed": [
+    "two negative completeness counterexamples",
+    "reparse 8 real C trace files"
+  ],
+  "reviewed_author_evidence": [
+    "13 unit tests",
+    "154 regression tests",
+    "10 mock lifecycles",
+    "native recordings parity",
+    "ARM old/new/profile parity",
+    "negative and CLI entry tests",
+    "2x938 packet timed mock DMA replay"
+  ],
+  "source_sha256_lf": {
+    "software/ps/speaker_core/pipeline_backend.c": "1c34b9b8f585b460f62cb543f4c6037e2e74726c0fd3d0a5f536747aea180fb3",
+    "software/ps/speaker_core/detail_profile.h": "34f95d8776550a0ac6fe41fbeb994493701eb3cd2566bedad008cf0855c753ee",
+    "software/ps/speaker_core/stream_frontend.h": "7c424821dde0d22eab3568a0218bf2e010097eafb7e15ce9d2b10866060c7f9e",
+    "software/ps/speaker_core/pipeline_bench.py": "d1e8e0b5f2f93710d00ea2a59d84bae274de46ecbfffa3c3194b8ab0053f1a1e",
+    "software/ps/speaker_core/network_profile.py": "7966bae9b845d418ae72a7d5e6175673c9960bac929de2afed9d1df35a1837be",
+    "software/ps/speaker_core/full_profile.py": "a7b50112216ef15d5f2b9276065bfdeefd8235977fa88ac2f252ad727fa6f598",
+    "software/ps/live_speaker.py": "e6f7bc6648194843f19c576a03266fff6d22e7f1c669436575303ca95eea0997",
+    "software/ps/run_pcm.py": "d48f7198a3bc94bf381be20802ddd22566c5c2bb02e01756d57d829c7bcb9617",
+    "speaker-full-profile.sh": "75455164345653a542d2a302bbf5dcf0f17fadbc92a8135c2037ff0e0aefc675"
+  },
+  "excluded": [
+    "final ZIP and public-v3 verification pending",
+    "PYNQ board tests",
+    "performance acceptance",
+    "identity quality",
+    "PL implementation"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "args": [
+        "check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "wrong"
+      ],
+      "exit_code": 2
+    },
+    {
+      "args": [
+        "live",
+        "0.5"
+      ],
+      "exit_code": 2
+    },
+    {
+      "args": [
+        "bench",
+        "1",
+        "extra"
+      ],
+      "exit_code": 2
+    },
+    {
+      "fake_live_window": 1.0,
+      "exit_code": 0,
+      "status": "COMPLETE"
+    },
+    {
+      "fake_live_window": 2.0,
+      "exit_code": 2,
+      "status": "PARTIAL"
+    }
+  ],
+  "reparsed_real_traces": [
+    {
+      "folder": "native-profile/profile_on",
+      "status": "COMPLETE",
+      "counts": {
+        "embedding": 6,
+        "vad": 312
+      }
+    },
+    {
+      "folder": "arm-profile/on",
+      "status": "COMPLETE",
+      "counts": {
+        "embedding": 3,
+        "vad": 4
+      }
+    },
+    {
+      "folder": "live-trace-0",
+      "status": "COMPLETE",
+      "counts": {
+        "embedding": 16,
+        "vad": 312
+      }
+    },
+    {
+      "folder": "live-trace-1",
+      "status": "COMPLETE",
+      "counts": {
+        "embedding": 10,
+        "vad": 312
+      }
+    }
+  ],
+  "scope": "FAKE_DOWNSTREAM_COMMAND_NO_HARDWARE"
+}

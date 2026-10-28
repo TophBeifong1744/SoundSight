@@ -1,0 +1,171 @@
+{
+  "date": "2026-10-28",
+  "scope": "REPORT_MATERIALS_NOT_RUNTIME",
+  "frozen_source_archive": "soundsight_b_speaker_source_20261026_v3.zip",
+  "frozen_source_archive_sha256": "014080abe511789197d1dbe374d589d9f99b64874e8789c7bbe1874bf8d732c8",
+  "release": "https://github.com/TophBeifong1744/SoundSight/releases/tag/speaker-b-handoff-20261026-v3",
+  "evidence": {
+    "records/E01/serial-user.log": {
+      "source": "document/evidence/ps-speaker-core-board-20261024/serial-user.log",
+      "source_sha256": "ed526d8e31b13fc6bd2b88c9852fca2251e9b5e0c4b283e9ca4daa946bef9433",
+      "copy_note": "byte-identical"
+    },
+    "records/E02/serial-user-threads1.log": {
+      "source": "document/evidence/ps-campplus-core-board-20261024/serial-user-threads1.log",
+      "source_sha256": "503af9533d5fecfdd5aba4d9f0a7dc7039e8cb57b826a0d37ab16f270ebff75d",
+      "copy_note": "byte-identical"
+    },
+    "records/E02/serial-user-threads2.log": {
+      "source": "document/evidence/ps-campplus-core-board-20261024/serial-user-threads2.log",
+      "source_sha256": "29ba8adf4f0ae0035b130c1505f3ebd1408cb77d492e735cc8657f9614c5c3ba",
+      "copy_note": "byte-identical"
+    },
+    "records/E03/serial-user.log": {
+      "source": "document/evidence/ps-campplus-opt-board-20261025/serial-user.log",
+      "source_sha256": "177ba1e56c7acfd99ca8e06d5a04d95cb48a5a4e4aa4180063e5f5b0777c358e",
+      "copy_note": "byte-identical"
+    },
+    "records/E04/summary.json": {
+      "source": "document/evidence/ps-campplus-short-board-20261025/summary.json",
+      "source_sha256": "d59ce75e3663911711ee2a1f985a92c186eaf1b4c74f39e59e12d50d53b3c0b1",
+      "copy_note": "byte-identical"
+    },
+    "records/E04/summary-fp32-full.json": {
+      "source": "document/evidence/ps-campplus-short-board-20261025/summary-fp32-full.json",
+      "source_sha256": "f3125fb85ed77a298e4494de1a26070c49521bc9da16ad6c423ae5577085de56",
+      "copy_note": "byte-identical"
+    },
+    "records/E05/board-opt1-bench.json": {
+      "source": "document/evidence/ps-speaker-live-opt-20261025/board-opt1-bench.json",
+      "source_sha256": "10c44077cf73ff2bc4db34d34391d4b20104c3722374b5c6f20ab846f7e12219",
+      "copy_note": "byte-identical"
+    },
+    "records/E06/board-epoch26.json": {
+      "source": "document/evidence/ps-speaker-live-opt-20261025/board-epoch26.json",
+      "source_sha256": "c6d7bf2d4628728c750e905bcd2dffc247b8b244b8e3e9c6ffa4f40d00a45de0",
+      "copy_note": "public copy normalized GB18030 to UTF-8; original unchanged"
+    },
+    "records/E06/native-replay.json": {
+      "source": "document/evidence/ps-speaker-epoch26-analysis-20261025/native-replay.json",
+      "source_sha256": "e77985791319bf3d6dd84676e6aeeff1ccbbf222f44e4be774cb73745d723245",
+      "copy_note": "byte-identical"
+    },
+    "records/E06/input-audit.json": {
+      "source": "document/evidence/ps-speaker-epoch26-analysis-20261025/input-audit.json",
+      "source_sha256": "f73ce3f83d7cfe380f1e3cb17b1f0a258874259359e7e5e8f18ae6e9e81ea088",
+      "copy_note": "byte-identical"
+    },
+    "records/E07/board-profile.json": {
+      "source": "document/evidence/ps-speaker-profile-20261025/board-profile.json",
+      "source_sha256": "36eb149c186e6322414859ef5b42b3d553fc605fb197a819e5a6ad6b06d23468",
+      "copy_note": "byte-identical"
+    },
+    "records/E08/tests.json": {
+      "source": "document/evidence/ps-speaker-full-profile-20261026/tests.json",
+      "source_sha256": "d998a376f63843fc97f76fe9091abfeee04326b6f4dc43f8b3c8f4cdf8cc69db",
+      "copy_note": "byte-identical"
+    },
+    "records/E08/arm.json": {
+      "source": "document/evidence/ps-speaker-full-profile-20261026/arm.json",
+      "source_sha256": "87c0dc860b2bbfd6357a2c7f8821c901d409c355926491f186d50b0b6046edad",
+      "copy_note": "byte-identical"
+    },
+    "records/E08/entry.json": {
+      "source": "document/evidence/ps-speaker-full-profile-20261026/entry.json",
+      "source_sha256": "8aa0697d28671f64753a1c3610b0f7a63988e8b5284c022bb157dc2b33246aad",
+      "copy_note": "byte-identical"
+    },
+    "records/E08/review.json": {
+      "source": "document/evidence/ps-speaker-full-profile-20261026/review.json",
+      "source_sha256": "26dac8675abc50e72ebea5a57afa2a03d69eea17ca808de580466aa099506d5b",
+      "copy_note": "byte-identical"
+    },
+    "records/E08/package-check.json": {
+      "source": "document/evidence/ps-speaker-full-profile-20261026/package-check.json",
+      "source_sha256": "0d262f0420bcd2fa12e73414800ea754e7f88e78291aa528de147e95ea31e593",
+      "copy_note": "byte-identical"
+    },
+    "records/E09/REVIEW.json": {
+      "source": "document/evidence/speaker-return-review-20261028/REVIEW.json",
+      "source_sha256": "bc4b8931ca72274408bf5cbd7f9cdb504fd8ec9c740ac17a6d5859e4d6112bcf",
+      "copy_note": "byte-identical"
+    },
+    "records/E10/validation.json": {
+      "source": "document/evidence/speaker-3d-gate-20261028/validation.json",
+      "source_sha256": "5315f877253bbb8c3947f74e97ee871c220f845dca8c499c10c5d8153d442d9f",
+      "copy_note": "byte-identical"
+    },
+    "records/E10/native-models.json": {
+      "source": "document/evidence/speaker-3d-gate-20261028/native-models.json",
+      "source_sha256": "2aaffb17ade373352a6d0f454de16e2f4f48eb471fc5129da0621e006c1e6595",
+      "copy_note": "byte-identical"
+    },
+    "records/E10/independent-review.json": {
+      "source": "document/evidence/speaker-3d-gate-20261028/independent-review.json",
+      "source_sha256": "a79bee117eaeb34f0d903b284e37d535580c596dbbb106be9000d1ff89464d71",
+      "copy_note": "byte-identical"
+    },
+    "records/E11/pc-evaluation.json": {
+      "source": "document/evidence/ps-campplus-opt-armhf-20261024/pc-evaluation.json",
+      "source_sha256": "f150cf1ea417b3cc4ba9133505bafcde481c9dfc45a0682645ca3fd3efb7c48c",
+      "copy_note": "byte-identical; PC quantization evaluation, not ARM speed"
+    },
+    "records/E09/intake-excerpt.md": {
+      "source": "document/evidence/speaker-return-review-20261028/README.md",
+      "source_sha256": "4abd4e91a4d774e97b404c3d7893034ba6d704cf5d37e62c1ae9218277a27a4b",
+      "copy_note": "exact progress-section excerpt; surrounding links and private-package intake instructions omitted",
+      "start_line": 13,
+      "end_line": 25
+    }
+  },
+  "code_excerpts": [
+    {
+      "id": "S01",
+      "source": "software/ps/speaker_core/pipeline_backend.c",
+      "start_line": 89,
+      "end_line": 112,
+      "source_sha256": "1c34b9b8f585b460f62cb543f4c6037e2e74726c0fd3d0a5f536747aea180fb3",
+      "excerpt_sha256": "a87849fe4209a2700ed3fe1a5b8cad44c0d79db162318e2777a0a632bede349e"
+    },
+    {
+      "id": "S02",
+      "source": "software/ps/speaker_core/stream_frontend.h",
+      "start_line": 10,
+      "end_line": 37,
+      "source_sha256": "7c424821dde0d22eab3568a0218bf2e010097eafb7e15ce9d2b10866060c7f9e",
+      "excerpt_sha256": "283827f08d91486761447a330dffb8580ca5045a81b1e8e0105d6bee6c3a7eae"
+    },
+    {
+      "id": "S03",
+      "source": "software/ps/speaker_process.py",
+      "start_line": 83,
+      "end_line": 94,
+      "source_sha256": "ce2ac807578dbffc883953488ffc2ddec98922fd856be679975c04fff7d315e3",
+      "excerpt_sha256": "3f0a54cf6d535ade459a95752a35aef4e51509c96e79411cb53f576e1fce5d88"
+    },
+    {
+      "id": "S04",
+      "source": "software/ps/speaker_core/stream_bench.py",
+      "start_line": 94,
+      "end_line": 101,
+      "source_sha256": "445996c2515861b3219cdaa9a95ac942a6ae85837443bc996a657f9097139e59",
+      "excerpt_sha256": "8788d305187d546100b5c4b6dd5ed4a4082183924ae45eb58de678170f665755"
+    },
+    {
+      "id": "S05",
+      "source": "software/ps/speaker_core/stream_bench.py",
+      "start_line": 119,
+      "end_line": 127,
+      "source_sha256": "445996c2515861b3219cdaa9a95ac942a6ae85837443bc996a657f9097139e59",
+      "excerpt_sha256": "56c472ffaa84d206719525cb19efe849b9eb59ed770ae21327c44cfc09a36334"
+    },
+    {
+      "id": "S06",
+      "source": "software/ps/speaker_core/network_profile.py",
+      "start_line": 66,
+      "end_line": 77,
+      "source_sha256": "7966bae9b845d418ae72a7d5e6175673c9960bac929de2afed9d1df35a1837be",
+      "excerpt_sha256": "6443c0bb5951fe64c57b5b74326eeba85fcfb53af83e1af07636822baae26905"
+    }
+  ]
+}

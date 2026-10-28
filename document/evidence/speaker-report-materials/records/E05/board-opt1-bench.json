@@ -1,0 +1,277 @@
+{
+  "status": "BOARD_OFFLINE_BENCH_PASS_LIVE_CAPTURE_NOT_TESTED",
+  "provenance": "User-pasted board console; no AI hardware operation; board result.json and package hash not independently retrieved",
+  "console_sha256": "3dc23f4518f24fe214198f287c1be56dbad4788a8e730bc167baaa6bd003ae61",
+  "command": "sudo sh speaker-opt.sh bench",
+  "board_log_directory": "logs/opt1-etZyAo",
+  "window_seconds": 1,
+  "rows": [
+    {
+      "recording": "P01_C01",
+      "variant": "baseline",
+      "phase": "frontend",
+      "seconds": 7.28737353999999,
+      "blocks": 341,
+      "input_seconds": 10.912,
+      "load": {
+        "embedding_load_seconds": 0.142933,
+        "vad_load_seconds": 1.930662,
+        "ort": "1.17.3"
+      },
+      "peak_rss_mib": 23.2265625
+    },
+    {
+      "recording": "P01_C01",
+      "variant": "opt1",
+      "phase": "frontend",
+      "seconds": 4.383342905999996,
+      "blocks": 341,
+      "input_seconds": 10.912,
+      "load": {
+        "embedding_load_seconds": 0.143631,
+        "vad_load_seconds": 1.972915,
+        "ort": "1.17.3",
+        "live_opt_revision": 1
+      },
+      "peak_rss_mib": 23.64453125,
+      "c_wall_timing": {
+        "decode_seconds": 0.03359255400010852,
+        "frontend_seconds": 3.7949861460000847,
+        "mel_seconds": 0.22081151799972076,
+        "vad_seconds": 3.3559836659998297,
+        "cmn_seconds": 0.0,
+        "embedding_seconds": 0.0,
+        "frontend_blocks": 341.0,
+        "embedding_calls": 0.0
+      }
+    },
+    {
+      "recording": "P01_C01",
+      "variant": "baseline",
+      "phase": "embedding",
+      "run": 1,
+      "window": 1.0,
+      "seconds": 1.086232702000018,
+      "score": 0.7375277613556683,
+      "reference_pass": true,
+      "load": {
+        "embedding_load_seconds": 7.788217,
+        "vad_load_seconds": 3e-06,
+        "ort": "1.17.3"
+      },
+      "peak_rss_mib": 46.02734375
+    },
+    {
+      "recording": "P01_C01",
+      "variant": "baseline",
+      "phase": "embedding",
+      "run": 2,
+      "window": 1.0,
+      "seconds": 1.0846881399999972,
+      "score": 0.7375277613556683,
+      "reference_pass": true,
+      "load": {
+        "embedding_load_seconds": 7.788217,
+        "vad_load_seconds": 3e-06,
+        "ort": "1.17.3"
+      },
+      "peak_rss_mib": 46.37890625
+    },
+    {
+      "recording": "P01_C01",
+      "variant": "opt1",
+      "phase": "embedding",
+      "run": 1,
+      "window": 1.0,
+      "seconds": 1.0812387189999981,
+      "score": 0.7375277613556683,
+      "reference_pass": true,
+      "load": {
+        "embedding_load_seconds": 7.742965,
+        "vad_load_seconds": 3e-06,
+        "ort": "1.17.3",
+        "live_opt_revision": 1
+      },
+      "peak_rss_mib": 46.31640625,
+      "c_wall_timing": {
+        "decode_seconds": 0.0,
+        "frontend_seconds": 0.0,
+        "mel_seconds": 0.0,
+        "vad_seconds": 0.0,
+        "cmn_seconds": 0.0001728089999915028,
+        "embedding_seconds": 1.0800831540000218,
+        "frontend_blocks": 0.0,
+        "embedding_calls": 1.0
+      }
+    },
+    {
+      "recording": "P01_C01",
+      "variant": "opt1",
+      "phase": "embedding",
+      "run": 2,
+      "window": 1.0,
+      "seconds": 1.0806540629999972,
+      "score": 0.7375277613556683,
+      "reference_pass": true,
+      "load": {
+        "embedding_load_seconds": 7.742965,
+        "vad_load_seconds": 3e-06,
+        "ort": "1.17.3",
+        "live_opt_revision": 1
+      },
+      "peak_rss_mib": 46.57421875,
+      "c_wall_timing": {
+        "decode_seconds": 0.0,
+        "frontend_seconds": 0.0,
+        "mel_seconds": 0.0,
+        "vad_seconds": 0.0,
+        "cmn_seconds": 0.00034584900001277674,
+        "embedding_seconds": 2.15942568600002,
+        "frontend_blocks": 0.0,
+        "embedding_calls": 2.0
+      }
+    },
+    {
+      "recording": "P02_T01",
+      "variant": "baseline",
+      "phase": "frontend",
+      "seconds": 7.378783526999996,
+      "blocks": 341,
+      "input_seconds": 10.912,
+      "load": {
+        "embedding_load_seconds": 0.143837,
+        "vad_load_seconds": 1.97295,
+        "ort": "1.17.3"
+      },
+      "peak_rss_mib": 23.03125
+    },
+    {
+      "recording": "P02_T01",
+      "variant": "opt1",
+      "phase": "frontend",
+      "seconds": 4.3359175010000115,
+      "blocks": 341,
+      "input_seconds": 10.912,
+      "load": {
+        "embedding_load_seconds": 0.140357,
+        "vad_load_seconds": 1.924676,
+        "ort": "1.17.3",
+        "live_opt_revision": 1
+      },
+      "peak_rss_mib": 23.5625,
+      "c_wall_timing": {
+        "decode_seconds": 0.03165474400012158,
+        "frontend_seconds": 3.6974670099997695,
+        "mel_seconds": 0.2178433489994802,
+        "vad_seconds": 3.262234856000049,
+        "cmn_seconds": 0.0,
+        "embedding_seconds": 0.0,
+        "frontend_blocks": 341.0,
+        "embedding_calls": 0.0
+      }
+    },
+    {
+      "recording": "P02_T01",
+      "variant": "baseline",
+      "phase": "embedding",
+      "run": 1,
+      "window": 1.0,
+      "seconds": 1.0839025989999982,
+      "score": 0.3917633268098097,
+      "reference_pass": true,
+      "load": {
+        "embedding_load_seconds": 7.756521,
+        "vad_load_seconds": 3e-06,
+        "ort": "1.17.3"
+      },
+      "peak_rss_mib": 45.9765625
+    },
+    {
+      "recording": "P02_T01",
+      "variant": "baseline",
+      "phase": "embedding",
+      "run": 2,
+      "window": 1.0,
+      "seconds": 1.0841414790000101,
+      "score": 0.3917633268098097,
+      "reference_pass": true,
+      "load": {
+        "embedding_load_seconds": 7.756521,
+        "vad_load_seconds": 3e-06,
+        "ort": "1.17.3"
+      },
+      "peak_rss_mib": 46.2578125
+    },
+    {
+      "recording": "P02_T01",
+      "variant": "opt1",
+      "phase": "embedding",
+      "run": 1,
+      "window": 1.0,
+      "seconds": 1.086658304999986,
+      "score": 0.3917633268098097,
+      "reference_pass": true,
+      "load": {
+        "embedding_load_seconds": 7.751359,
+        "vad_load_seconds": 3e-06,
+        "ort": "1.17.3",
+        "live_opt_revision": 1
+      },
+      "peak_rss_mib": 46.0625,
+      "c_wall_timing": {
+        "decode_seconds": 0.0,
+        "frontend_seconds": 0.0,
+        "mel_seconds": 0.0,
+        "vad_seconds": 0.0,
+        "cmn_seconds": 0.00017219699998349824,
+        "embedding_seconds": 1.0855023599999924,
+        "frontend_blocks": 0.0,
+        "embedding_calls": 1.0
+      }
+    },
+    {
+      "recording": "P02_T01",
+      "variant": "opt1",
+      "phase": "embedding",
+      "run": 2,
+      "window": 1.0,
+      "seconds": 1.0833270760000175,
+      "score": 0.3917633268098097,
+      "reference_pass": true,
+      "load": {
+        "embedding_load_seconds": 7.751359,
+        "vad_load_seconds": 3e-06,
+        "ort": "1.17.3",
+        "live_opt_revision": 1
+      },
+      "peak_rss_mib": 46.29296875,
+      "c_wall_timing": {
+        "decode_seconds": 0.0,
+        "frontend_seconds": 0.0,
+        "mel_seconds": 0.0,
+        "vad_seconds": 0.0,
+        "cmn_seconds": 0.00034451999997031635,
+        "embedding_seconds": 2.1674949849999905,
+        "frontend_blocks": 0.0,
+        "embedding_calls": 2.0
+      }
+    }
+  ],
+  "summary": {
+    "frontend": {
+      "baseline_mean_seconds": 7.333078533499993,
+      "opt1_mean_seconds": 4.359630203500004,
+      "reduction_percent": 40.54843155458199
+    },
+    "embedding": {
+      "baseline_mean_seconds": 1.0847412300000059,
+      "opt1_mean_seconds": 1.0829695407499997,
+      "reduction_percent": 0.16332828521749
+    },
+    "opt1_vad_mean_seconds": 3.3091092609999393,
+    "opt1_mel_mean_seconds": 0.2193274334996005
+  },
+  "scope": "Two reused recordings, sequential old/new phases, two embedding runs per recording per variant. Loading excluded. Not simultaneous capture/frontend/inference, not new identity accuracy validation.",
+  "interpretation": "Frontend wall time reduced 40.55%; embedding difference 0.16% is negligible with this small fixed-order sample. Scores identical; VAD dominates remaining frontend wall time. True microphone overflow and result deadlines require live retest.",
+  "motion_commands": 0
+}
