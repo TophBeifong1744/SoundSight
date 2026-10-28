@@ -1,0 +1,8 @@
+sh campplus-core.sh bench
+CORE_PACKAGE_OK=1 MODEL=CAMPPLUS ARCH=armv7l BITS=32 GLIBC=glibc 2.31 NO_HARDWARE_ACCESS=1
+CORE_BENCH_BEGIN=1 MODEL=CAMPPLUS INPUT_SECONDS=3.104 FRAMES=308 THREADS=2 OUTPUT=logs/campplus-hjN6nv
+CORE_ONLY=1 MOTION_COMMANDS=0 ORT=1.17.3 THREADS=2 LOAD_SECONDS=10.225326
+{"run":1,"frames":308,"seconds":3.169477,"max_abs_error":5.23328781e-05,"cosine":1,"peak_rss_mib":49.668,"pass":true}
+{"run":2,"frames":308,"seconds":3.159851,"max_abs_error":5.23328781e-05,"cosine":1,"peak_rss_mib":51.102,"pass":true}
+CORE_BENCH=PASS NOT_END_TO_END=1 MOTION_COMMANDS=0
+xilinx@pynq:~/SoundSight_CAMPlus_Core_ARMHF$

@@ -1,0 +1,18 @@
+id,comparison_group,scope,variant,input_seconds,window_seconds,threads,n,value,unit,timing_boundary,evidence
+M01,core-model-thread,BOARD_CORE,ECAPA,3.104,NA,2,2,9.063816500000001,seconds,network core; precomputed model-specific features; load excluded,records/E01/serial-user.log
+M02,core-model-thread,BOARD_CORE,CAM++,3.104,NA,2,2,3.164664,seconds,network core; precomputed model-specific features; load excluded,records/E02/serial-user-threads2.log
+M03,core-model-thread,BOARD_CORE,CAM++,3.104,NA,1,2,5.8305275000000005,seconds,network core; precomputed model-specific features; load excluded,records/E02/serial-user-threads1.log
+M04,campplus-variant,BOARD_CORE,fp32-opt,3.104,NA,2,2,3.204435,seconds,network core 308 frames; load excluded,records/E03/serial-user.log
+M05,campplus-variant,BOARD_CORE,fp32-fixed,3.104,NA,2,2,3.060105,seconds,network core 308 frames; load excluded,records/E03/serial-user.log
+M06,campplus-variant,BOARD_CORE,int8-head,3.104,NA,2,2,2.796945,seconds,network core 308 frames; load excluded,records/E03/serial-user.log
+M07,opt1-frontend,BOARD_OFFLINE,baseline,10.912,NA,embed2/vad1,2,7.333078533499993,seconds,frontend including VAD and Mel,records/E05/board-opt1-bench.json
+M08,opt1-frontend,BOARD_OFFLINE,opt1,10.912,NA,embed2/vad1,2,4.359630203500004,seconds,frontend including VAD and Mel,records/E05/board-opt1-bench.json
+M09,opt1-embedding,BOARD_OFFLINE,baseline,NA,1,embed2/vad1,4,1.0847412300000059,seconds,J CMN+network+IPC; scoring and load excluded,records/E05/board-opt1-bench.json
+M10,opt1-embedding,BOARD_OFFLINE,opt1,NA,1,embed2/vad1,4,1.0829695407499997,seconds,J CMN+network+IPC; scoring and load excluded,records/E05/board-opt1-bench.json
+CPU-isolated_before,same-input-cpu,BOARD_OFFLINE,isolated_before,NA,1,2,6,1.0856656538333358,seconds,J CMN+network+IPC; not microphone-to-decision,records/E07/board-profile.json
+CPU-paced_frontend,same-input-cpu,BOARD_OFFLINE,paced_frontend,NA,1,2,6,1.5969408378333323,seconds,J CMN+network+IPC; not microphone-to-decision,records/E07/board-profile.json
+CPU-isolated_after,same-input-cpu,BOARD_OFFLINE,isolated_after,NA,1,2,6,1.0923562136666665,seconds,J CMN+network+IPC; not microphone-to-decision,records/E07/board-profile.json
+SHORT-INT8-0.5,int8-short-window,BOARD_OFFLINE,int8-head,0.5,0.5,embed2/vad1,4,0.8072747469999975,seconds,warm file pipeline; two recordings repeated twice; not live acquisition,records/E04/summary.json
+SHORT-INT8-1.0,int8-short-window,BOARD_OFFLINE,int8-head,1.0,1.0,embed2/vad1,4,1.4829860799999963,seconds,warm file pipeline; two recordings repeated twice; not live acquisition,records/E04/summary.json
+SHORT-INT8-1.5,int8-short-window,BOARD_OFFLINE,int8-head,1.5,1.5,embed2/vad1,4,2.001610619499992,seconds,warm file pipeline; two recordings repeated twice; not live acquisition,records/E04/summary.json
+SHORT-INT8-2.0,int8-short-window,BOARD_OFFLINE,int8-head,2.0,2.0,embed2/vad1,4,2.7317896922500005,seconds,warm file pipeline; two recordings repeated twice; not live acquisition,records/E04/summary.json

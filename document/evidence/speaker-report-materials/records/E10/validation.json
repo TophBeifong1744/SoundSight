@@ -1,0 +1,29 @@
+{
+  "status": "SCOPED_SOFTWARE_PASS",
+  "tests": {
+    "test_board_tools.log": 15,
+    "test_manual_servo.log": 8,
+    "test_normal.log": 17,
+    "test_online_3d.log": 21,
+    "test_pcm_capture.log": 19,
+    "test_speaker_follow.log": 23,
+    "test_speaker_live.log": 7,
+    "test_speaker_process.log": 9,
+    "test_volume_gate.log": 15
+  },
+  "total_tests": 134,
+  "native_models": "PASS: 96 frontend blocks, reset, 3 embeddings bit exact",
+  "live_ipc": "PASS: 564 actual PCM packets on host with original native backend and CP1/VF1",
+  "package": "PASS: separate extracted directory native builds, CLI and P02 synthetic structural fixture import",
+  "review": "SG-01 closed; no outstanding findings",
+  "commands": [
+    "sh software/tests/check_speaker_follow.sh",
+    "sh software/tests/run_stream_python.sh -B software/tests/test_speaker_follow_native.py",
+    "sh software/tests/run_stream_python.sh -B software/tests/test_speaker_follow_package.py"
+  ],
+  "arm_joint_board": "NOT_RUN",
+  "vivado_actions": 0,
+  "board_actions": 0,
+  "actuator_actions": 0,
+  "recognition_qualified": false
+}

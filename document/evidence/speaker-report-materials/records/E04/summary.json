@@ -1,0 +1,164 @@
+{
+  "source": "User-pasted serial output; original board result.json and console.log not retrieved",
+  "board_log": "logs/short-bench-int8-58Ydef",
+  "command": "sh campplus-short.sh bench",
+  "status": "BOARD_OFFLINE_NUMERICAL_PASS_REALTIME_NOT_MET_RECOGNITION_NOT_QUALIFIED",
+  "model": "int8-head",
+  "embedding_threads": 2,
+  "vad_threads": 1,
+  "model_load": {
+    "embedding_load_seconds": 7.691667,
+    "vad_load_seconds": 2.043812,
+    "ort": "1.17.3"
+  },
+  "sum_model_load_seconds": 9.735479,
+  "startup_seconds": "NOT_PROVIDED",
+  "memory": "NOT_PROVIDED",
+  "checks": {
+    "pcm_comparisons": 4,
+    "short_runs": 16,
+    "unique_windows": 8,
+    "unique_recordings": 2,
+    "all_reference_pass": true,
+    "max_score_error_to_packaged_reference": 5.373774372707807e-07,
+    "recognition_qualified": false,
+    "live_capture": false,
+    "motion_commands": 0
+  },
+  "pcm": {
+    "input_seconds": 10.922666666666666,
+    "python_mean_seconds": 4.483487436499999,
+    "c_mean_seconds": 0.16143256300000175,
+    "speedup_ratio": 27.77312924468622,
+    "time_reduction_fraction": 0.9639939744927616,
+    "mean_saved_seconds": 4.322054873499997,
+    "all_bit_exact_reported": true
+  },
+  "window_means": {
+    "0.5": {
+      "read_seconds": 0.0022489447499971504,
+      "pcm_convert_seconds": 0.00480948075000498,
+      "resample_seconds": 0.00860258899999522,
+      "vad_seconds": 0.15874797999999757,
+      "fbank_seconds": 0.037970718250004865,
+      "embedding_seconds": 0.5942357910000027,
+      "total_seconds": 0.8072747469999975,
+      "rtf_window": 1.614549493999995,
+      "wait_then_compute_seconds": 1.3072747469999975,
+      "per_recording": {
+        "P01_C01": {
+          "state": "non_target",
+          "raw_state": "non_target",
+          "score": 0.6121592154120472,
+          "vad_coverage": 0.936,
+          "mean_total_seconds": 0.8075359839999976
+        },
+        "P02_T01": {
+          "state": "insufficient",
+          "raw_state": "non_target",
+          "score": 0.2312740712675365,
+          "vad_coverage": 0.0,
+          "mean_total_seconds": 0.8070135099999973
+        }
+      },
+      "embedding_share": 0.7361010525949284,
+      "vad_share": 0.19664678052910536
+    },
+    "1.0": {
+      "read_seconds": 0.003366757500003814,
+      "pcm_convert_seconds": 0.009972228999998833,
+      "resample_seconds": 0.01723634499999349,
+      "vad_seconds": 0.31650712999999797,
+      "fbank_seconds": 0.07700726775000177,
+      "embedding_seconds": 1.0582718797500021,
+      "total_seconds": 1.4829860799999963,
+      "rtf_window": 1.4829860799999963,
+      "wait_then_compute_seconds": 2.4829860799999963,
+      "per_recording": {
+        "P01_C01": {
+          "state": "target",
+          "raw_state": "target",
+          "score": 0.7000999291589303,
+          "vad_coverage": 0.968,
+          "mean_total_seconds": 1.4835138239999992
+        },
+        "P02_T01": {
+          "state": "insufficient",
+          "raw_state": "non_target",
+          "score": 0.2636583232284238,
+          "vad_coverage": 0.456,
+          "mean_total_seconds": 1.4824583359999934
+        }
+      },
+      "embedding_share": 0.7136087749050246,
+      "vad_share": 0.21342555690070858
+    },
+    "1.5": {
+      "read_seconds": 0.005062918499994851,
+      "pcm_convert_seconds": 0.015198107499994506,
+      "resample_seconds": 0.02649257700000618,
+      "vad_seconds": 0.46504810724999857,
+      "fbank_seconds": 0.1161698505000004,
+      "embedding_seconds": 1.3730129137499958,
+      "total_seconds": 2.001610619499992,
+      "rtf_window": 1.3344070796666614,
+      "wait_then_compute_seconds": 3.501610619499992,
+      "per_recording": {
+        "P01_C01": {
+          "state": "target",
+          "raw_state": "target",
+          "score": 0.7892235509795851,
+          "vad_coverage": 0.9786666666666667,
+          "mean_total_seconds": 2.0070270999999877
+        },
+        "P02_T01": {
+          "state": "non_target",
+          "raw_state": "non_target",
+          "score": 0.36033780886782446,
+          "vad_coverage": 0.6373333333333333,
+          "mean_total_seconds": 1.9961941389999964
+        }
+      },
+      "embedding_share": 0.6859540513893647,
+      "vad_share": 0.2323369504135469
+    },
+    "2.0": {
+      "read_seconds": 0.006372551249992142,
+      "pcm_convert_seconds": 0.020178887750009977,
+      "resample_seconds": 0.034974348500000474,
+      "vad_seconds": 0.6181802712499938,
+      "fbank_seconds": 0.15371714400000513,
+      "embedding_seconds": 1.8977433497499945,
+      "total_seconds": 2.7317896922500005,
+      "rtf_window": 1.3658948461250002,
+      "wait_then_compute_seconds": 4.7317896922500005,
+      "per_recording": {
+        "P01_C01": {
+          "state": "target",
+          "raw_state": "target",
+          "score": 0.8431527872178376,
+          "vad_coverage": 0.736,
+          "mean_total_seconds": 2.7250550505000106
+        },
+        "P02_T01": {
+          "state": "non_target",
+          "raw_state": "non_target",
+          "score": 0.38340579848372724,
+          "vad_coverage": 0.728,
+          "mean_total_seconds": 2.7385243339999903
+        }
+      },
+      "embedding_share": 0.6946886706300384,
+      "vad_share": 0.2262913111517154
+    }
+  },
+  "serial_sha256": "aa320837fd20e1ab6abf4c7849700651e3d1a4d6441a539042411c8a5e3d02d2",
+  "delivered_package_sha256": "84ed32224c0ae31f95c1c5dcc09d65f8dce4ae923f1dc2895ece2a32d171d1b2",
+  "board_zip_sha256": "NOT_SEPARATELY_RECEIVED",
+  "timing_boundary": "Warm file-only processing; acquisition time plus compute is arithmetic serial budget, not measured live latency. All mean RTF > 1.",
+  "recognition_boundary": "Numerical reference pass is not correct identity. Only two selected anchors, each repeated twice. Frozen original thresholds unchanged; no new target holdout.",
+  "next_commands": [
+    "sh campplus-short.sh bench fp32",
+    "sh campplus-short.sh full"
+  ]
+}

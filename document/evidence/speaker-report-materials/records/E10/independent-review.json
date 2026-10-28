@@ -1,0 +1,35 @@
+{
+  "status": "SCOPED_SOFTWARE_PASS",
+  "reviewer": "/root/speaker_gate_review",
+  "read_only": true,
+  "hardware_actions": 0,
+  "findings": [
+    {
+      "id": "SG-01",
+      "initial_severity": "HIGH",
+      "status": "CLOSED",
+      "description": "Permission could expire between initial check and ARM/COMMIT",
+      "fix": "Re-poll latest IPC and revalidate permit, STOP and direction freshness immediately before command MMIO",
+      "independent_checks": [
+        "expiry after ARM",
+        "expiry after TARGET",
+        "expiry after FRAME",
+        "new failed score",
+        "silence",
+        "worker loss",
+        "12 raw-source qualification boundaries"
+      ]
+    }
+  ],
+  "entry_alias_review": "run with horizontal/vertical/both routes to speaker; off and manual unchanged",
+  "unverified": [
+    "ARM joint live load",
+    "microphone channel order and acoustic accuracy",
+    "mechanical motion",
+    "hard-killed DMA-owner recovery"
+  ],
+  "residuals": [
+    "Delayed score does not prove current angle belongs to same person",
+    "Linux check and MMIO are not a hard-realtime atomic transaction; PL 750ms lease retained"
+  ]
+}
