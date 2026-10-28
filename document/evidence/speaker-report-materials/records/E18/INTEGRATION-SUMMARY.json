@@ -1,0 +1,20 @@
+[
+  {
+    "label": "module-integration",
+    "script": "software/tetra3d/tests/test_pipeline_3d.py",
+    "exit_code": 0,
+    "elapsed_s": 1.332
+  },
+  {
+    "label": "replacement-solver",
+    "script": "software/tetra3d/tests/test_solver_3d_options.py",
+    "exit_code": 0,
+    "elapsed_s": 0.857
+  },
+  {
+    "label": "replacement-das",
+    "script": "software/tetra3d/das/test_das_optimized.py",
+    "exit_code": 0,
+    "elapsed_s": 0.842
+  }
+]

@@ -1,0 +1,100 @@
+{
+  "scope": "BOARD_LIVE_DIAGNOSTIC_NOT_PAIRED",
+  "session": {
+    "status": "PASS",
+    "epoch": 33,
+    "input_packets": 938,
+    "front_blocks": 312,
+    "window_seconds": 1.0,
+    "eligible_results": 0,
+    "score_only": true,
+    "recognition_qualified": false,
+    "scheduling": {
+      "revision": "rx3",
+      "capture_cpus": [
+        0
+      ],
+      "frontend_cpus": [
+        1
+      ],
+      "ps_optimization": "opt1",
+      "algorithm_process_cpus": [
+        1
+      ],
+      "capture_gil_shared": false,
+      "embedding_cpus": [
+        0,
+        1
+      ],
+      "embedding_threads": 2,
+      "embedding_nice_increment": 10,
+      "policy": "capture_interpreter_isolated_algorithms_on_other_cpu_embedding_lower_priority",
+      "realtime_scheduler": false
+    }
+  },
+  "results": [
+    {
+      "end_sample16": 16320,
+      "compute_seconds": 3.804769116999978,
+      "result_age_seconds": 3.8303728540000566,
+      "publish_elapsed_seconds": 4.85039318500003,
+      "reason": "expired",
+      "eligible": false,
+      "inference_executed": true
+    },
+    {
+      "end_sample16": 72160,
+      "compute_seconds": 5.956799998330098e-05,
+      "result_age_seconds": 0.3409769760000838,
+      "publish_elapsed_seconds": 4.850988099999995,
+      "reason": "stale_before_start",
+      "eligible": false,
+      "inference_executed": false
+    },
+    {
+      "end_sample16": 80320,
+      "compute_seconds": 6.498599998394639e-05,
+      "result_age_seconds": 0.02609679999998704,
+      "publish_elapsed_seconds": 5.046108002000096,
+      "reason": "insufficient_speech",
+      "eligible": false,
+      "inference_executed": false
+    },
+    {
+      "end_sample16": 88000,
+      "compute_seconds": 3.852760988,
+      "result_age_seconds": 3.878652561000081,
+      "publish_elapsed_seconds": 9.37866516400004,
+      "reason": "expired",
+      "eligible": false,
+      "inference_executed": true
+    },
+    {
+      "end_sample16": 144320,
+      "compute_seconds": 6.108000002313929e-05,
+      "result_age_seconds": 0.3592140530000556,
+      "publish_elapsed_seconds": 9.379224523000062,
+      "reason": "stale_before_start",
+      "eligible": false,
+      "inference_executed": false
+    },
+    {
+      "end_sample16": 152000,
+      "compute_seconds": 1.4591245969999136,
+      "result_age_seconds": 1.485452197000086,
+      "publish_elapsed_seconds": 10.985463828000093,
+      "reason": "threshold_not_calibrated",
+      "eligible": false,
+      "inference_executed": true
+    }
+  ],
+  "receiver_timing": {
+    "max_poll_gap_seconds": 0.020657493999920007,
+    "max_rearm_seconds": 0.0007247279999091916,
+    "max_frame_service_seconds": 0.0028548149999778616,
+    "max_decode_seconds": 0.016875210999955925,
+    "max_sink_seconds": 0.001734140999928968,
+    "early_rearms": 937
+  },
+  "note": "不同录音不能严格配对；reference最后一次包含采集结束后计算，不混入持续并发速度"
+}

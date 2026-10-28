@@ -24,3 +24,9 @@
 公开源码摘录固定取自[v3公开源码快照](https://github.com/TophBeifong1744/SoundSight/releases/tag/speaker-b-handoff-20261026-v3)，而不是把当前在途源码冒充旧实验候选。原完整私有包中的录音、模板、特征、模型、bit/HWH均不进入本目录。第三方模型和算法归原作者，项目贡献是软硬件分工、实现优化、调度和验证，不声称原创CAM++或Silero。
 
 本次仅将报告材料合入main；不会让main成为最新声纹上板版本，也不会合入全部B交接分支或其他3D在途代码。
+
+## B补充材料（2026-10-28归档）
+
+新增[三维与B算法贡献索引](06-b-algorithms.md)、[RX4](batches/2026-10-27-rx4-board.md)、[MP1](batches/2026-10-27-mp1-board.md)、[FS1/CC1](batches/2026-10-28-fs1-cc1-board.md)、[CP1](batches/2026-10-28-cp1-board.md)、[VF1/CP2](batches/2026-10-28-vf1-cp2-board.md)批次，证据续编号E12～E19，源码摘录S07～S13，绘图值以B-开头。覆盖有效优化、无收益和数值失败，不能仅挑收益项。
+
+本次B核查记录见[verification-b.json](verification-b.json)。原verification.json保留为A当批检查快照，不代表后来追加文件。完整产品源码沿用既有公开提交/私下交接，本目录不另放可运行源码或ZIP。

@@ -37,3 +37,20 @@
 - FPR-R1发现“总Run数相符但某Run无节点仍COMPLETE”的统计漏洞；修正逐Run节点覆盖与归属，修复一次，见[E08复核](records/E08/review.json)。这属于测量质量改进，不是模型提速。
 
 第三方模型研究及全量历史技术说明可追溯[v3公开源码包](https://github.com/TophBeifong1744/SoundSight/releases/tag/speaker-b-handoff-20261026-v3)，本目录只选写报告需要强调的材料。更晚进度见[后续与限制](05-scope-and-followup.md)。
+
+## B补充：独立候选与三维算法（2026-10-21～28）
+
+以下保留各自实验条件，不能把跨轮改善相乘或相加。
+
+| 批次 | 修改 | 结果与边界 |
+|---|---|---|
+| [RX4采集CPU优化](batches/2026-10-27-rx4-board.md) | 符号扩展字节校验、空轮询4读降1读、经布局验证的uint32标量读取；模型/窗/原调度保持。 | 校验CPU减少95.71%；RX4实麦938包完整但三次推理2.951～3.044秒均过期，不能称整体提速95.7%。 [E12](records/E12/README.md) |
+| [MP1运行时内存模式](batches/2026-10-27-mp1-board.md) | 仅EnableMemPattern；同编译器rebuild与原shipped双基线；其他配置保持。 | 一秒窗1.083055→1.075881秒约0.66%，CPU均1.89秒；不足以解释/解决实麦延迟。 [E13](records/E13/README.md) |
+| [FS1固定窗与CC1失败](batches/2026-10-28-fs1-cc1-board.md) | CC1段上下文改写失败后只固定FS1输入98帧，原节点/权重保留。 | CC1相对L2=1.516753e-5失败；FS1逐位一致，独立约0.0077%改善，并发约慢2.04%，未采用。 [E14](records/E14/README.md) |
+| [CP1布局与CAM门控优化](batches/2026-10-28-cp1-board.md) | 55处1×1投影转常量右矩阵MatMul，52处CAM gate tile8；固定98帧，权重值保持。 | 向量/P02分数逐位一致；独立降14.81%，并发降15.84%，未达原20%门限。 [E15](records/E15/README.md) |
+| [VF1前端与CP2失败](batches/2026-10-28-vf1-cp2-board.md) | CP2局部卷积改写被数值门限拒绝；VF1仅展开固定16k/形状决定的7个If。 | ARM状态与向量逐位一致；前端快5.14%，组合快18.12%，比CP1增量2.01%；PC VAD快21.80%。CP2 zero-98相对L2=1.129958e-5失败。 [E16](records/E16/README.md) |
+| [正四面体三维算法迁移](batches/2026-10-21-tetra-migration.md) | 三维独立目录、几何校验、六对特征桥接、ctypes/JSONL；原C规则保持。 | 154数值/17非法/15几何/4CLI通过，原2110/2378/92270断言；PC调用中位11微秒。 [E17](records/E17/README.md) |
+| [三维DAS与六项兼容优化/模块接合](batches/2026-10-25-tetra-das-optimization.md) | 向量筛选平滑/可选质量加权/17槽DAS/延迟增益校准/几何掩码缓存/纯软件双轴；TetraPipeline统一时基。 | 86项不同Python测试；DAS0.176659→0.113945秒约35.50%，块分配峰值降约96.18%；不是ARM或实物降噪。 [E18](records/E18/README.md) |
+| [P02登记与开发对照](batches/2026-10-26-target-development.md) | 原C/ARM后端登记三段本人录音，保留原目标；score-only，不自动标定门限。 | 历史开发范围存在间隔，但无独立留出/真实场景门限验收。 [E19](records/E19/README.md) |
+
+绘图新增建议：RX4纯内存CPU/墙时分图；MP1/FS1保留无收益；CP1独立/并发分图；VF1 ARM三组合、PC VAD分别画；DAS PC耗时与块分配各一图。`n`是计时重复数，不是识别独立样本数；RSS是进程峰值而tracemalloc是块分配，两者不合并。
