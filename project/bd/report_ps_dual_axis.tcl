@@ -44,7 +44,7 @@ namespace eval ss_dual_axis_report {
             set launch [all_registers -clock_pins]
             if {![llength $launch]} {error {STOP: no register clock pins}}
             set ports {};set previous_clock {}
-            foreach {port package axis} {servo_pwm T15 h servo_vertical_pwm W15 v} {
+            foreach {port package axis} {servo_pwm T15 h servo_vertical_pwm W16 v} {
                 set object [one [get_ports -quiet $port] $port]
                 if {[get_property DIRECTION $object] ne {OUT} || [get_property PACKAGE_PIN $object] ne $package ||
                     [get_property IOSTANDARD $object] ne {LVCMOS33}} {error "STOP: unexpected direction/pin/IOSTANDARD for $port"}

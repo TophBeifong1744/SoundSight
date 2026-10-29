@@ -1,3 +1,7 @@
+# 最新：W16用户实现
+
+2026-10-29新候选见 [w16/README.md](w16/README.md)。下面10月28日W15报告保留历史范围。
+
 # SoundSight_PS_3D 实现与补查报告
 
 `original/`是用户2026-10-28生成位流时的原始实现报告；`supplemental/`是助手使用Vivado2025.2读取同一个routed DCP后补出的报告。原bit、HWH、DCP、BD、XPR逐字节未改，不曾重新综合/布局/布线或访问硬件。

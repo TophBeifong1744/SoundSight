@@ -57,7 +57,7 @@ def audit(output, work):
                    unchanged_components=len(before['components'])-1,
                    axi_address_interfaces_unchanged=True, existing_ports_unchanged=True,
                    horizontal_rtl_byte_match=len(names), new_vertical_port=True,
-                   copied_xdc_pins='T15/W15', generated_hwh_parameters_match=True,
+                   copied_xdc_pins='T15/W16', generated_hwh_parameters_match=True,
                    synthesis=False, implementation=False, hardware_actions=False)
     (output/'audit.json').write_text(json.dumps(summary, indent=2)+'\n', encoding='utf-8')
     return summary

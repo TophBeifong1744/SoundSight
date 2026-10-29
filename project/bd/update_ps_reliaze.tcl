@@ -94,7 +94,7 @@ namespace eval ss_reliaze_update {
         foreach {p v} {ACTUATOR_BOUND 1 LEVEL_ENABLE 1 SERVO_MAX 360 CLK_FREQ_HZ 61440000} {
             if {[get_property CONFIG.$p [get_bd_cells ps_link]]!=$v} {error "STOP: unexpected ps_link $p"}
         }
-        foreach {f port package_pin} {board_pins.xdc servo_pwm T15 horizontal_reserved.xdc servo_vertical_pwm W15} {
+        foreach {f port package_pin} {board_pins.xdc servo_pwm T15 horizontal_reserved.xdc servo_vertical_pwm W16} {
             set obj [one [get_files -quiet -of_objects [get_filesets constrs_1] */$f] $f]
             set path [get_property NAME $obj]
             if {![inside $path $dir]} {error "STOP: active constraint outside copy: $path"}
@@ -220,7 +220,7 @@ namespace eval ss_reliaze_update {
         generate_target all [list $bdobj]
         update_compile_order -fileset sources_1
         puts "RELIAZE_BACKUP=$backup"
-        puts {RELIAZE_PREPARED: manual + timed PCM; DMA=0x40400000 audio=0x43C00000; T15/W15 unchanged}
+        puts {RELIAZE_PREPARED: manual + timed PCM; DMA=0x40400000 audio=0x43C00000; T15/W16 unchanged}
         puts {RELIAZE_CDC_CONTROL_V2: source-registered controls; shared compute/audio run; rebuild bit/HWH required}
         puts {NO_SYNTHESIS_IMPLEMENTATION_BITSTREAM_OR_HARDWARE_ACTIONS_STARTED}
     }

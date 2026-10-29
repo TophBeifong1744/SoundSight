@@ -1,5 +1,7 @@
 # 水平舵机版完整SD包
 
+> 2026-10-29 引脚更正：当前双轴方案为水平 T15、垂直 W16。本文旧 W15 位流及板测描述仅对应历史版本，不能作为新接线依据；现行操作见 [三维双轴说明](pynq-three-d-dual-axis.md)。仓库现行脚本按 W16 检查，旧工程需先更正约束并重新实现。
+
 **PS兼容修复已接入：** 新手动状态位不会再被C桥误拒绝；安装后务必执行build_solver.sh重编库。在线遇到C bridge -2可按`document/pynq-manual-status-fix.md`处理，不必重载FPGA。
 
 从SD备份/安装到日常开机、调参和动作切换的完整步骤，统一见`document/ps-manual-calibration.md`；其中第0节覆盖本次完整包安装。

@@ -15,6 +15,7 @@ def selected():
              'software/ps/build_solver.sh', 'software/ps/ss_solver_bridge.c',
              'document/pynq-three-d-dual-axis.md', 'document/ps-dual-axis-interface.md',
              'document/pynq-three-d-sd.md',
+             'document/follow-sound-af1.md', 'document/total-handoff-20261029.md',
              'software/common/fpga_stm32_abi_frozen.h',
              'software/common/s1/doa_solver.h', 'software/common/s1/doa_solver.c']
     for folder in ('software/tetra3d/core', 'software/tetra3d/linux', 'software/tetra3d/tests'):

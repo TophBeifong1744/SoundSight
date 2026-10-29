@@ -1,5 +1,7 @@
 # PL+PS云台接入准备
 
+> 2026-10-29 引脚更正：当前双轴方案为水平 T15、垂直 W16。本文旧 W15 位流及板测描述仅对应历史版本，不能作为新接线依据；现行操作见 [三维双轴说明](pynq-three-d-dual-axis.md)。仓库现行脚本按 W16 检查，旧工程需先更正约束并重新实现。
+
 本准备记录已落实为本批候选：操作入口与PYNQ配置见[pynq-horizontal.md](pynq-horizontal.md)，
 验证见[evidence/ps-horizontal-20261022](evidence/ps-horizontal-20261022/README.md)。
 2026-10-23用户指定最终水平T15、垂直W15；准备脚本已更正，原V7/U7位流待用户重建。当前入口见[pynq-horizontal.md](pynq-horizontal.md)。

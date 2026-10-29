@@ -80,7 +80,7 @@ class Tests(unittest.TestCase):
                     IOSTANDARD {return LVCMOS33}
                     PACKAGE_PIN {
                         if {$object eq $::wrong_pin} {return W14}
-                        if {$object eq {servo_pwm}} {return T15};return W15
+                        if {$object eq {servo_pwm}} {return T15};return W16
                     }
                     PERIOD {return 16.276}
                     SLACK {

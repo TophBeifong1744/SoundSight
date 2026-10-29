@@ -1,0 +1,47 @@
+{
+  "package": "E:\\Program\\Wechat\\xwechat_files\\wxid_hoobcdkud28y22_880a\\msg\\file\\2026-10\\soundsight_B_to_A_vertical_no_motion_20261029.zip",
+  "sha256": "6992feed19bf52fb965c870691db5ba4d450ad230e819f7749efe378962535b6",
+  "zip_crc": "PASS",
+  "payload_hashes": "PASS",
+  "integrated": [
+    "software/tetra3d/linux/board_3d.py",
+    "software/tetra3d/tests/test_follow_sound.py",
+    "document/follow-sound-af1.md"
+  ],
+  "dependency_comparison": [
+    {
+      "path": "software/tetra3d/linux/board_3d.py",
+      "matches_B_base": false
+    },
+    {
+      "path": "software/tetra3d/linux/runtime_3d.py",
+      "matches_B_base": true
+    },
+    {
+      "path": "software/tetra3d/linux/client_3d.py",
+      "matches_B_base": true
+    },
+    {
+      "path": "software/tetra3d/linux/motion_3d.py",
+      "matches_B_base": true
+    },
+    {
+      "path": "software/ps/run_normal.py",
+      "matches_B_base": true
+    },
+    {
+      "path": "software/ps/run_capture.py",
+      "matches_B_base": false
+    },
+    {
+      "path": "software/ps/ps_client.py",
+      "matches_B_base": true
+    },
+    {
+      "path": "soundsight-3d.sh",
+      "matches_B_base": true
+    }
+  ],
+  "motion_source_equal": true,
+  "hardware_actions": 0
+}

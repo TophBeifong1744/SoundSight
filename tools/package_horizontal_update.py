@@ -22,8 +22,8 @@ def main():
                    'Update an existing PL+PS Volume project COPY created by the user.\n'
                    'Name the external project *_Servo. Open that copy in Vivado.\n'
                    'Source project/bd/update_ps_horizontal.tcl from this extracted package.\n'
-                   'Already prepared Servo project: use project/bd/update_ps_servo_pins.tcl for pins only (T15/W15).\n'
-                   'Audio-independent calibration update for existing T15/W15 Servo: source project/bd/update_ps_manual.tcl.\n'
+                   'Already prepared Servo project: use project/bd/update_ps_servo_pins.tcl for pins only (T15/W16).\n'
+                   'Audio-independent calibration update for existing T15/W16 Servo: source project/bd/update_ps_manual.tcl.\n'
                    'No project creation, synthesis, implementation or hardware actions.\n'
                    'See document/pynq-horizontal.md. PS software is a separate SD update.\n')
     with ZipFile(args.output) as z:

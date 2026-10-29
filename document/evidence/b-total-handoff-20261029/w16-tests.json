@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-29",
+  "scope": "Offline Tcl fixtures only; no Vivado, hardware or new bitstream",
+  "tests": [
+    {
+      "test": "test_servo_pin_update.py",
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "953fae",
+          "wall_time_seconds": 0.1007715,
+          "exit_code": 0,
+          "original_token_count": 319,
+          "output": "......SERVO_PIN_BACKUP=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/ss pin test 6dtwr1qq/handoff/before_servo_pins_20261029_163124_104532000239\r\nSERVO_PINS_UPDATED: horizontal=T15 vertical=W16 LVCMOS33; vertical remains LOW\r\nOLD_BIT_IS_UNCHANGED: rebuild implementation/bitstream manually before using the new pins\r\nNO_SYNTHESIS_IMPLEMENTATION_OR_HARDWARE_ACTIONS_STARTED\r\n.SERVO_PIN_BACKUP=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/ss pin test a3wywikb/handoff/before_servo_pins_20261029_163124_104532383820\r\nSERVO_PINS_UPDATED: horizontal=T15 vertical=W16 LVCMOS33; vertical remains LOW\r\nOLD_BIT_IS_UNCHANGED: rebuild implementation/bitstream manually before using the new pins\r\nNO_SYNTHESIS_IMPLEMENTATION_OR_HARDWARE_ACTIONS_STARTED\r\nSERVO_PIN_BACKUP=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/ss pin test a3wywikb/handoff/before_servo_pins_20261029_163124_104532443682\r\nSERVO_PINS_UPDATED: horizontal=T15 vertical=W16 LVCMOS33; vertical remains LOW\r\nOLD_BIT_IS_UNCHANGED: rebuild implementation/bitstream manually before using the new pins\r\nNO_SYNTHESIS_IMPLEMENTATION_OR_HARDWARE_ACTIONS_STARTED\r\n.\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.198s\r\n\r\nOK\r\n"
+        }
+      }
+    },
+    {
+      "test": "test_dual_axis_tcl.py",
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "ce608b",
+          "wall_time_seconds": 0.2476844,
+          "exit_code": 0,
+          "original_token_count": 871,
+          "output": ".....DUAL_AXIS_BACKUP=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/handoff/before_dual_axis_20261029_163124_104532776356\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/bd_ps_link.v\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/ss_ps_link.sv\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/ss_ps_control_regs.sv\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/motor_drive.v\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/i17_turntable_pwm_guard.sv\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/user_extra.sv\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/user table.mem\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/ss_dual_axis_control.sv\r\nDUAL_AXIS_PREPARED: H=T15 0..360deg V=W16 0..220deg PWM=20ms/500..2500us\r\nPYNQ_EXPLICIT_ARM_COMMIT_REQUIRED; BOOT_AND_MEASURE_ONLY_OUTPUTS_OFF\r\nNO_SYNTHESIS_IMPLEMENTATION_BITSTREAM_OR_HARDWARE_ACTIONS_STARTED\r\nDUAL_AXIS_BACKUP=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/handoff/before_dual_axis_20261029_163124_104533212899\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/bd_ps_link.v\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/ss_ps_link.sv\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/ss_ps_control_regs.sv\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/motor_drive.v\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/i17_turntable_pwm_guard.sv\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/user_extra.sv\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/user table.mem\r\nDUAL_AXIS_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis Tcl 01up_p4y/user external copy/dual_axis_sources/ss_dual_axis_control.sv\r\nDUAL_AXIS_PREPARED: H=T15 0..360deg V=W16 0..220deg PWM=20ms/500..2500us\r\nPYNQ_EXPLICIT_ARM_COMMIT_REQUIRED; BOOT_AND_MEASURE_ONLY_OUTPUTS_OFF\r\nNO_SYNTHESIS_IMPLEMENTATION_BITSTREAM_OR_HARDWARE_ACTIONS_STARTED\r\n..\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.348s\r\n\r\nOK\r\n"
+        }
+      }
+    },
+    {
+      "test": "test_dual_axis_report_tcl.py",
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "30f010",
+          "wall_time_seconds": 0.2734186,
+          "exit_code": 0,
+          "original_token_count": 685,
+          "output": "DUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports 56ca0uog/user external project/handoff/dual_axis_reports STATUS=REPORTS_COMPLETE\r\nDUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports 56ca0uog/user external project/handoff/dual_axis_reports STATUS=REPORTS_COMPLETE\r\n.DUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports ywsm_i__/user external project/handoff/dual_axis_reports STATUS=ERROR\r\n.DUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports ivrguq6n/user external project/handoff/dual_axis_reports STATUS=ERROR\r\nDUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports ivrguq6n/user external project/handoff/dual_axis_reports STATUS=ERROR\r\nDUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports ivrguq6n/user external project/handoff/dual_axis_reports STATUS=ERROR\r\nDUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports ivrguq6n/user external project/handoff/dual_axis_reports STATUS=ERROR\r\nDUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports ivrguq6n/user external project/handoff/dual_axis_reports STATUS=ERROR\r\nDUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports ivrguq6n/user external project/handoff/dual_axis_reports STATUS=ERROR\r\n...DUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports r8xk0os0/user external project/handoff/dual_axis_reports STATUS=REPORTS_COMPLETE\r\n.DUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports wu7x2aat/user external project/handoff/dual_axis_reports STATUS=ERROR\r\nDUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports wu7x2aat/user external project/handoff/dual_axis_reports STATUS=ERROR\r\nDUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports wu7x2aat/user external project/handoff/dual_axis_reports STATUS=ERROR\r\nDUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports wu7x2aat/user external project/handoff/dual_axis_reports STATUS=ERROR\r\nDUAL_AXIS_REPORTS=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual axis reports wu7x2aat/user external project/handoff/dual_axis_reports STATUS=ERROR\r\n.\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.367s\r\n\r\nOK\r\n"
+        }
+      }
+    },
+    {
+      "test": "test_horizontal_tcl.py",
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "351aef",
+          "wall_time_seconds": 0.2432984,
+          "exit_code": 0,
+          "original_token_count": 27,
+          "output": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.042s\r\n\r\nOK\r\n"
+        }
+      }
+    },
+    {
+      "test": "test_reliaze_tcl.py",
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "8b5478",
+          "wall_time_seconds": 0.2771341,
+          "exit_code": 0,
+          "original_token_count": 29,
+          "output": "..........\r\n----------------------------------------------------------------------\r\nRan 10 tests in 0.035s\r\n\r\nOK\r\n"
+        }
+      }
+    }
+  ]
+}

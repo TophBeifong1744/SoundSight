@@ -1,0 +1,17 @@
+REPORTS_COMPLETE
+Vivado=2025.2
+Expected_top=soundsight_stm32_bd_wrapper
+Existing routing; vertical max=20ns added only in memory. PWM min paths are report-only; HOLD_N_A (datapath_only).
+No bit/checkpoint/project saved. CDC/DRC/coverage still require review.
+servo_pwm: pin=T15 clock=clk_out1_soundsight_stm32_bd_clk_wiz_0_1 period_ns=16.276 launch=soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/h_guard/pwm_o_reg/C
+servo_vertical_pwm: pin=W16 clock=clk_out1_soundsight_stm32_bd_clk_wiz_0_1 period_ns=16.276 launch=soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/v_guard/pwm_o_reg/C
+servo_pwm max: requirement_ns=20.000 slack_ns=10.182 data_path_ns=9.818 start=soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/h_guard/pwm_o_reg/C end=servo_pwm
+servo_pwm min: HOLD_N_A (datapath_only), data_path_ns=5.324 start=soundsight_stm32_bd_i/ps_link/inst/u_core/regs/actuator/guard/pwm_o_reg/C end=servo_pwm
+servo_pwm dual guard max: requirement_ns=20.000 slack_ns=10.182
+servo_vertical_pwm max: requirement_ns=20.000 slack_ns=11.935 data_path_ns=8.065 start=soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/v_guard/pwm_o_reg/C end=servo_vertical_pwm
+servo_vertical_pwm min: HOLD_N_A (datapath_only), data_path_ns=4.743 start=soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/v_guard/pwm_o_reg/C end=servo_vertical_pwm
+servo_vertical_pwm dual guard max: requirement_ns=20.000 slack_ns=11.935
+global max: worst_slack_ns=0.047
+global min: worst_slack_ns=0.036
+Generated_this_attempt=route_status.rpt, check_timing_before.rpt, check_timing.rpt, servo_pwm_max.rpt, servo_pwm_min.rpt, servo_pwm_dual_guard_max.rpt, servo_vertical_pwm_max.rpt, servo_vertical_pwm_min.rpt, servo_vertical_pwm_dual_guard_max.rpt, timing_summary.rpt, bus_skew.rpt, cdc.rpt, clock_interaction.rpt, exceptions_coverage.rpt, exceptions_ignored.rpt, drc.rpt, io.rpt, utilization.rpt
+

@@ -102,7 +102,7 @@ namespace eval ss_horizontal {
             # than silently taking a microphone/LCD/other signal's pin.
             foreach line [split $content \n] {
                 if {[regexp {^\s*#} $line]} {continue}
-                if {[regexp {PACKAGE_PIN\s+(T15|W15)\M} $line] &&
+                if {[regexp {PACKAGE_PIN\s+(T15|W16)\M} $line] &&
                     ![regexp {get_ports\s+\{?servo_pwm\}?\]} $line]} {error "STOP: servo pin collision: $line"}
             }
             set props {}
@@ -178,7 +178,7 @@ namespace eval ss_horizontal {
         add_files -norecurse -fileset sources_1 $wrappers
         set_property TOP ${bd}_wrapper [get_filesets sources_1]
         update_compile_order -fileset sources_1
-        puts {HORIZONTAL_PREPARED: T15 horizontal 360deg; W15 vertical reserved LOW; LVCMOS33}
+        puts {HORIZONTAL_PREPARED: T15 horizontal 360deg; W16 vertical reserved LOW; LVCMOS33}
         puts {SOFTWARE_DEFAULT_OFF: mechanical calibration is configured on PYNQ}
         puts {NO_SYNTHESIS_IMPLEMENTATION_BITSTREAM_OR_HARDWARE_ACTIONS_STARTED}
     }
