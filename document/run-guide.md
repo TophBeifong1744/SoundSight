@@ -4,7 +4,9 @@
 
 ## 当前手工开发方式
 
-用户先在仓库外创建并编辑Vivado工程，按[手工搭建步骤](manual-stm32-build.md)添加复制后的源码和IP。阶段验证后导出最新配置并接回仓库。空目录重建仅是这次的测试安排，不是以后每次交接的固定要求。下方BAT用于仓库配方重建，其目标仍为仓库内par；不要用它创建本次外部手工工程。无参数运行BAT会尝试prepare stm32，不会自动接管你的外部工程。
+当前唯一主方案为Zynq-7020 PL+PS/PYNQ；STM32已弃用。用户继续在仓库外编辑自己的Vivado工作副本，源码复制导入，验证后导出并接回仓库。最新三维/PCM/双轴与W16入口见[当前架构](main-architecture.md)，不要照旧STM32手工搭建说明创建当前工程。
+
+下方BAT是早期PS音量版基础配方入口，不能单独代表最新三维＋声纹硬件。必须显式指定 `ps`；无参数仍会尝试历史 `prepare stm32`，本次未改脚本行为，不要无参数双击。它也不会接管外部工作工程。
 
 ## 配置工具位置
 
@@ -28,27 +30,24 @@
 
 ```powershell
 # 首次生成独立项目：没有已有工程才执行。
-.\project\script\run.bat prepare stm32
 .\project\script\run.bat prepare ps
 
 # 已存在时打开；不要重复prepare。
-.\project\script\run.bat open stm32
 .\project\script\run.bat open ps
 
 # 生成官方IP/BD输出，不启动综合/实现。
-.\project\script\run.bat outputs stm32
 .\project\script\run.bat outputs ps
 ```
 
-原生入口分别是`project/par/SoundSight.xpr`和`variants/pl_ps/project/par/SoundSight_PS.xpr`。两版共用`project/rtl`，不把一版复制到另一版后各自修改。
+PS基础配方入口为`variants/pl_ps/project/par/SoundSight_PS.xpr`，使用唯一`project/rtl`。旧`project/par/SoundSight.xpr`属于弃用的STM32路线。
 
-在已打开Vivado的Tcl Console，也可source `project/script/vivado.tcl`后调用`ss_project::prepare stm32|ps`、`ss_project::outputs`。准备前必须关闭当前工程，脚本不会接管用户已打开的其他项目。
+在已打开Vivado的Tcl Console，也可source `project/script/vivado.tcl`后调用`ss_project::prepare ps`、`ss_project::outputs`。准备前必须关闭当前工程，脚本不会接管用户已打开的其他项目。
 
-实际STM32配置已从2026-10-18用户导出接回，文件与参数见[交接说明](stm32-handoff.md)。旧的已有par工程不会被自动更新；prepare只用于新的输出目录。
+STM32导出保留于[历史交接说明](stm32-handoff.md)，不作为当前主线。旧的已有par工程不会被自动更新；prepare只用于新的输出目录。
 
 ## 用户手动配置与构建
 
-1. STM32版已带用户导出的PS7配置，仍需核对接收方板卡与启动方式；独立PS版DDR/MIO及PYNQ仍由用户配置。保留FCLK0=100MHz、RESET0与RESET1的用途。
+1. 当前Zynq-7020板级DDR/MIO及PYNQ由用户配置，使用实际三维候选的PS7配置，核对接收方板卡与启动方式。保留FCLK0=100MHz、RESET0与RESET1的用途。
 2. Validate Design并生成输出后，由用户点击Run Synthesis，再按报告决定是否Run Implementation。
 3. 完成run后source `tools/export_reports.tcl`，调用`ss_reports::save synth`或`ss_reports::save impl`。
 4. 报告写入该项目par内的reports；导出命令不会启动下一阶段。
@@ -73,4 +72,4 @@
 
 双击仿真BAT默认打开link的XSim GUI，不自动声称通过；`batch`才执行`run all`并检查实际结束标记、Fatal/ERROR及退出状态。正式输出在simulation/work，软件输出在software/build。
 
-PS实机程序位于software/ps，先在ARM Linux编译共享求解库，再使用实际HWH寻址。它不会加载bit或替用户下载硬件。STM32 S2与真实Keil外设工程尚未收到，见software/stm32/README.md。
+PS业务程序位于software/ps及software/tetra3d，ARM Linux编译共享求解库，使用匹配HWH寻址。板端prepare入口经用户执行会加载位流；本次资料维护没有运行该入口。STM32旧缺件不再是当前待办。

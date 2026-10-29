@@ -1,5 +1,7 @@
 # 独立项目迁移记录
 
+【历史资料，2026-10-29状态更新】STM32路线已弃用；当前唯一主方案是Zynq-7020的PL＋PS/PYNQ。下文保留当时的设计、命令、分工及验证范围，不再作为当前派工或验收要求。当前入口以仓库README.md和document/main-architecture.md为准。
+
 日期：2026-10-17。目标目录：`E:/Users/Toph Beifong/Documents/GitHub/SoundSight`。
 
 ## 本次迁移范围

@@ -40,6 +40,6 @@ python -B release/check_competition_skills.py --skills-root research/competition
 
 包内附使用说明、源码、测试、数值/接口合同、MIT 许可证、来源说明、当前失败及修复后结果、[可见 AI 纠错记录](competition-skills-ai-corrections.md)。导出文件来源由 source-map.json 说明，仅用于文件管理，不增加 RTL 身份链或运行哈希门槛。没有宣称 AI 效率提升百分比或比赛固定加分。
 
-PYNQ 实板待办：真实板卡/镜像、Overlay 驱动、寄存器、DMA 完成/取消/缓存/中断/TLAST、失败恢复及实测性能。当前 FPGA＋STM32/SPI 主方案、PS 裸机初始化、综合实现或包验证均不替代这些工作。比赛提交平台及最新规则由参赛者最终核对；本次不代表已经向赛事提交。
+PYNQ 实板待办：真实板卡/镜像、Overlay 驱动、寄存器、DMA 完成/取消/缓存/中断/TLAST、失败恢复及实测性能。历史 FPGA＋STM32/SPI 方案已弃用；当前主方案为 Zynq-7020 PL+PS/PYNQ。历史 PS 裸机初始化、综合实现或包验证均不替代这里所列 Skills 实板验证。比赛提交平台及最新规则由参赛者最终核对；本次不代表已经向赛事提交。
 
 原始仿真数据库只用于本次工作，必要输入/日志已归档；测试结束后清理本次可再生缓存与解压副本，保留正式源码、交付 ZIP 和证据。release/output 仅此固定比赛 ZIP 随 Git 提交，其余生成物继续忽略，不按日期堆包。

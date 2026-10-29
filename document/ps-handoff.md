@@ -1,5 +1,7 @@
 # PL+PS 音量版工程复现交接
 
+本页是PS音量版基础配方交接记录。当前唯一主方案为Zynq-7020 PL+PS/PYNQ，最新三维/PCM/双轴入口见[当前架构](main-architecture.md)；STM32已弃用。不要将本页基础配方直接当成最新三维位流。
+
 这次把用户SoundSight_PS_Volume的最新实际导出接回原有PS入口。继续使用`project/script/run.bat prepare ps`，不再使用仅配置通用PS时钟的旧简化配方。STM32目标的BD和板级配置保持独立。
 
 ## 正式文件在哪里

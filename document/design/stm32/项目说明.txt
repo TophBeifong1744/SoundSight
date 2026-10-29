@@ -1,5 +1,7 @@
 路径约定：以下路径相对SoundSight根目录；当前模块总表为document/modules/RTL-INTERFACES.html。
 
+【历史资料，2026-10-29状态更新】STM32路线已弃用；当前唯一主方案是Zynq-7020的PL＋PS/PYNQ。下文保留当时的设计、命令、分工及验证范围，不再作为当前派工或验收要求。当前入口以仓库README.md和document/main-architecture.md为准。
+
 项目现在在哪里
 
 目标仍是四麦二维定位和转台闭环。新的主方案把计算分成两段：FPGA处理大量连续样本，STM32处理每帧只有六对的较小结果。PS/PYNQ保留加载和展示职责。旧纯FPGA时序返修已停止，旧失败报告保留；新架构不能沿用旧综合通过结论。
