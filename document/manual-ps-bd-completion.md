@@ -47,4 +47,4 @@ PS_BD_NO_BUILD: no synthesis, implementation, bitstream or hardware action.
 
 `ACTUATOR_BOUND` 设置为 0；软件调用 C、PYNQ 镜像启动、真实采集及机械闭环不属于本脚本的验证范围。既有 IRQ 连线也不代表 Linux 中断驱动已经完成。
 
-逐线说明见 [PS平台.txt](design/ps/PS平台.txt)，本次核查记录见 [验证记录](evidence/ps-bd-completion-20261020/README.md)。
+逐线说明见 [PS平台.txt](design/ps/ps-platform.txt)，本次核查记录见 [验证记录](evidence/ps-bd-completion-20261020/README.md)。

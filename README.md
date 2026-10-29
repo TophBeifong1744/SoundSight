@@ -1,5 +1,35 @@
 # SoundSight
 
+## 比赛资料目录与复现入口
+
+按用户提供的2026 AMD选题指南§3.3.5.4整理。指南说明推荐结构非强制，其他组织方式须在README给出映射；本仓库使用下表保留工程已验证的相对路径，新增分类入口不复制产品源码。
+
+```text
+SoundSight/
+  README.md
+  src/README.md
+  sim/README.md
+  build/README.md
+  board/README.md
+  data/README.md
+  skill/README.md
+  report/README.md
+```
+
+| 推荐目录 | 本仓库对应内容 |
+|---|---|
+| [src](src/README.md) | `project/rtl`、BD/IP/XDC与`software`中的PS/C/Python源码 |
+| [sim](sim/README.md) | `simulation`、`software/tests`中的仿真/离线测试与参考结果 |
+| [build](build/README.md) | PR #30最新Vivado复现步骤、`project/script`/`tools`脚本与实现报告 |
+| [board](board/README.md) | 上板/SD安装说明、`hardware`资料与真实运行证据 |
+| [data](data/README.md) | 夹具、参考结果、匿名原始实验与B指标表 |
+| [skill](skill/README.md) | `research/competition-skills`及已归档独立技能包 |
+| [report](report/README.md) | `document`中的设计说明、B贡献、AI纠错选编和缺项 |
+
+从零开始复现见[build/README.md](build/README.md)。完整仓库ZIP同时包含PR #30配方与源码；源资料包不等于包含私人模型、配置及配套位流的SD运行镜像。
+
+18个含中文/空格的归档文件名已改为英文，原件内容保持，见[旧新路径表](document/submission-path-map.json)。新增普通路径用小写英文、数字、下划线或连字符；README按指南示例保留。已有工具入口、厂商文件和历史证据中的大小写名称仍有保留，内部ZIP不重写；这次检查不宣称全仓每个历史名称都符合严格小写提交要求。最终提交的命名边界见[目录说明](document/directory-guide.md)。
+
 当前程序维护：[最新SD包源码补齐与91项离线验证](document/evidence/sd-program-source-sync-20261029/README.md)；比赛材料：[B的10月29日报告补充](document/evidence/b-report-supplement-20261029/README.md)。双轴手动已确认可转，长稳重启仍在排查。
 
 

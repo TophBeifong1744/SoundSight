@@ -88,7 +88,7 @@ BD名称soundsight_stm32_bd。加入两个Module Reference：bd_clean_compute实
 | XPM CDC Generator | 2 | core_release、io_release |
 | Constant | 2 | zero、one |
 
-共13个BD单元。不要照PS版添加AXI总线/寄存器链。时钟经PS FCLK100→clk_main输出96与100→clk_audio输出61.44；复位极性与失锁保护逐项按document/design/stm32/时钟复位.txt配置。完整线表见document/design/stm32/BD连线.txt。实际DDR/MIO已从用户2026-10-18导出接回project/ip/ps7_stm32.tcl；重新手工配置时按该文件核对。实际BD、Global模式与交接清单见document/stm32-handoff.md。
+共13个BD单元。不要照PS版添加AXI总线/寄存器链。时钟经PS FCLK100→clk_main输出96与100→clk_audio输出61.44；复位极性与失锁保护逐项按document/design/stm32/clock-reset.txt配置。完整线表见document/design/stm32/bd-connections.txt。实际DDR/MIO已从用户2026-10-18导出接回project/ip/ps7_stm32.tcl；重新手工配置时按该文件核对。实际BD、Global模式与交接清单见document/stm32-handoff.md。
 
 先完成源码和两个FFT IP，再逐步配置BD；添加单元不代表连线或配置已完成。约束从project/sdc/stm32复制进工作工程，外部端口名与XDC一致；最终顶层是BD生成的wrapper。后续接回与交付按AGENTS.md和git-workflow.md执行。
 

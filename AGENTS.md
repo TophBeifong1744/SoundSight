@@ -22,6 +22,8 @@ AI可按任务编辑源码、文档、测试和独立BD配方，执行必要定�
 
 ## Git与目录
 
+比赛资料按根README中的`src/sim/build/board/data/skill/report`映射维护，分类README只导航到唯一正式源码/报告。新普通路径用小写英文、数字、下划线或连字符；README及工具必需入口按契约保留。18个历史中文文件名的现位置见document/submission-path-map.json，原日志/来源身份及ZIP不倒改。本轮目录整理不授权运行历史任务；命名保留项与严格提交边界见document/directory-guide.md。
+
 采用当前fpga-team-workflow的Git管理和run-fpga-workflow的目录管理思路；项目适配见document/git-workflow.md与directory-guide.md。main为集成基线，短任务分支使用codex/<slug>；不设置永久develop。main不代表整机已经通过。
 
 本机工具安装路径只写入被Git忽略的tools.local.env；公共脚本按环境变量、本地配置、PATH查找工具，仓库只保留tools.local.env.example空模板。不得把个人盘符写回公共默认值；历史证据中的原路径保留。

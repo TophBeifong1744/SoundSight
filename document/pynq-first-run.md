@@ -64,7 +64,7 @@ MIGRATION_PASS original_s1=4705 equivalence=157 bridge_negative=6
 
 前两步完成后，再指导加载同名 `soundsight.bit` 和 `soundsight.hwh`，确认 100/61.44 MHz 时钟、冷复位释放和寄存器 ID/ABI。当前两路复位有不同用途，不能为了能读寄存器就把两路合并或盲写复位寄存器。
 
-硬件核对完成后的正式入口为 `software/ps/run_smp.py`，单进程 `run_capture.py` 留作诊断；不要同时启动两个取数程序。先拒绝 BIST、通过 BIST，再真实音频取数和保存。BIST 一次仅一帧，不请求运动。运行命令和恢复方法见 `software/ps/运行说明.txt`。
+硬件核对完成后的正式入口为 `software/ps/run_smp.py`，单进程 `run_capture.py` 留作诊断；不要同时启动两个取数程序。先拒绝 BIST、通过 BIST，再真实音频取数和保存。BIST 一次仅一帧，不请求运动。运行命令和恢复方法见 `software/ps/run-notes.txt`。
 
 只读查看硬件描述可在前两步期间执行：
 

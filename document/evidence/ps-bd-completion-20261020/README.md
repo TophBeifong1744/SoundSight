@@ -29,7 +29,7 @@ vivado -mode batch -notrace -source <测试工作目录>/check.tcl -log <测试�
 
 - 原生 Validate 与 Wrapper 生成通过；同一脚本连续执行两次通过，均为 19 个 BD 单元。
 - 386 项 PS DDR/MIO/外设使能及分组参数保持不变。
-- 新脚本连接结果与既有 `document/design/ps/PS平台.txt` 的 37 行网络/接口表一致。外部 DDR/FIXED_IO 保留用户命名，没有强制添加 `_0`。
+- 新脚本连接结果与既有 `document/design/ps/ps-platform.txt` 的 37 行网络/接口表一致。外部 DDR/FIXED_IO 保留用户命名，没有强制添加 `_0`。
 - 以故意连接 `ps_link/rst_n` 与 `aresetn` 为负例，脚本拒绝合并两个不同网络。
 - 工程约束只登记 PS 两份 XDC；原 STM32 约束文件和备份保留。
 - 工具本次分配地址 `0x40000000`、范围 4 KiB；该地址不是新冻结合同。

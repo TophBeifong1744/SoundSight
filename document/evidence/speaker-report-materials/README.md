@@ -1,5 +1,7 @@
 # 声纹识别报告资料
 
+2026-10-29最新增量：已接入[官方分类报告入口](../../../report/README.md)、[PR #30完整Vivado复现](../../vivado-ps-3d-rebuild.md)及[A后续录入板测](../speaker-enrollment-20261029/board-result.md)，见[贡献总览首节](07-b-contribution-and-gaps-20261029.md)。这些A侧成果与B历史贡献分列；原ZIP、证据和指标保持。
+
 **当前阅读入口：** [B工作与最新仓库状态](07-b-contribution-and-gaps-20261029.md)。主方案PL+PS、A全面接管、W16手动可转及长稳重启事实以该页为准；以下28日批次保持历史含义。
 
 2026-10-29补充：[B成员贡献、已有证据与比赛缺项原件](https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/evidence/b-report-supplement-20261029/README.md)。完整ZIP保留194份历史引用；W16修复和长稳重启状态见收件说明。

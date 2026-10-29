@@ -333,17 +333,17 @@ I/O约束中的路径预算是设计要求，不是实测结果。本次没有�
 以下链接相对于本文位置；和仓库目录一起移动时可继续使用。
 
 - [当前STM32主方案说明](../README.md)
-- [架构、算法、数值及阶段语义](design/stm32/项目说明.txt)
-- [主方案BD连线](design/stm32/BD连线.txt)
-- [时钟、复位与跨域详细说明](design/stm32/时钟复位.txt)
+- [架构、算法、数值及阶段语义](design/stm32/project-notes.txt)
+- [主方案BD连线](design/stm32/bd-connections.txt)
+- [时钟、复位与跨域详细说明](design/stm32/clock-reset.txt)
 - [全部模块参数与端口](design/stm32/RTL-INTERFACES.html)
 - [六对计算引擎源码](../project/rtl/ss_pair_engine.sv)
 - [双时钟计算封装源码](../project/rtl/ss_dual_compute.sv)
 - [双槽快照源码](../project/rtl/ss_snapshot_queue.sv)
 - [动作保护源码](../project/rtl/ss_actuator_control.sv)
 - [冻结寄存器合同](../software/common/FROZEN_SSOT_ABI.md)
-- [无STM32的PS接合说明](design/ps/PS平台.txt)
+- [无STM32的PS接合说明](design/ps/ps-platform.txt)
 - [I/O预算与使用条件](../hardware/stm32/interface_timing.txt)
-- [当前验证索引](evidence/inherited/stm32/验证索引.txt)
-- [现有40页工程与接口Word手册](manuals/SoundSight_100MHz_工程架构模块接口与接合手册.docx)
+- [当前验证索引](evidence/inherited/stm32/verification-index.txt)
+- [现有40页工程与接口Word手册](manuals/soundsight-100mhz-architecture-manual.docx)
 
