@@ -16,10 +16,10 @@
 
 ## 实际使用哪份工程与说明
 
-- 当前三维硬件由用户在外部Vivado工作副本生成，继承PCM/声纹工程并加入双轴。源码唯一维护于仓库；实际BD导出在`project/bd/ps_3d_export.tcl`，匹配实现和W16证据见[当前实现](../project/reports/ps_3d/w16/README.md)。该BD导出不是独立完整重建入口。
+- 当前三维硬件由用户在外部Vivado工作副本生成，继承PCM/声纹工程并加入双轴。源码唯一维护于仓库；实际BD导出在`project/bd/ps_3d_export.tcl`，匹配实现和W16证据见[当前实现](../project/reports/ps_3d/w16/README.md)。该BD导出由[完整重建入口](vivado-ps-3d-rebuild.md)调用，入口补齐源码、FFT配置、约束和初始化数据。
 - 三维更新与连接：[双轴工程及PYNQ说明](pynq-three-d-dual-axis.md)；安装和复测：[W16更新说明](pynq-w16-update.md)；联合运行：[三维＋声纹说明](pynq-speaker-3d.md)。
 - `project/script/run.bat prepare ps`仍是早期PS音量版基础配方，不能单独代表最新PCM、三维和双轴候选。`variants/pl_ps`保留现有目录名，主方案变更不要求搬动文件或重新生成位流。
-- 旧BAT无参数仍选择`prepare stm32`，本轮未改其实现。不要以无参数双击作为当前入口，也不要恢复旧STM32安装/接线任务。
+- 无参数`run.bat`已切到最新三维双轴准备，默认`project/par`；推荐`rebuild_ps_3d.bat --output "..\My SoundSight Work"`在仓库外建工作副本。显式历史路由仍保留，不恢复STM32任务。
 - `follow-sound`明确选择纯声源跟随；`speaker`及`run --axes`需要声纹许可。默认不开轴，手动标定独立于声音/身份；STOP、限位、租约及默认关闭不因路线决定取消。
 
 ## 历史材料如何处理
