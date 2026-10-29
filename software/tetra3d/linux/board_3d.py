@@ -79,6 +79,12 @@ def parser():
     sub.add_parser('status', help='Read state of already prepared hardware')
     sub.add_parser('drain', help='STOP and save existing raw frames with the legacy recovery helper; no 3D/motion')
     sub.add_parser('speaker-check', help='Validate models, selected enrollment and trial settings; no hardware')
+    sub.add_parser('speaker-list', help='List saved voice profiles; no hardware')
+    select = sub.add_parser('speaker-select', help='Select a saved target and clear the old score threshold')
+    select.add_argument('target')
+    enroll = sub.add_parser('speaker-enroll', help='Record one short clip and save a new voice profile; axes always off')
+    enroll.add_argument('target')
+    enroll.add_argument('--seconds', type=float, default=3., help='2..10 seconds, default 3')
     speaker_cfg = sub.add_parser('speaker-config', help='Trial score gate; null/missing threshold denies permission')
     speaker_cfg.add_argument('threshold', nargs='?', type=float)
     speaker_cfg.add_argument('--ttl', type=float)
@@ -148,6 +154,18 @@ def run_options(args, root=ROOT):
 def main(argv=None):
     args = parser().parse_args(argv)
     try:
+        if args.command == 'speaker-enroll':
+            from speaker_enrollment import run
+            print('SPEAKER_ENROLLMENT='+json.dumps(run(ROOT, args.target, args.seconds)), flush=True)
+            return 0
+        if args.command in ('speaker-list', 'speaker-select'):
+            from speaker_targets import list_targets, select
+            with single_owner(LOCK):
+                result = list_targets(ROOT) if args.command == 'speaker-list' else select(ROOT, args.target)
+            print('SPEAKER_TARGET='+json.dumps(result)+' HARDWARE_ACTIONS=0', flush=True)
+            if args.command == 'speaker-select':
+                print('THRESHOLD_CLEARED=1 NEXT_STEP=score_only_test_then_speaker-config', flush=True)
+            return 0
         if args.command in ('speaker-config', 'speaker-import', 'speaker-check'):
             from speaker_follow_setup import configure, import_profile, check
             with single_owner(LOCK):

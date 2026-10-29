@@ -47,14 +47,16 @@ def contents(b_package):
         for model in ('cp1/fixed98.onnx', 'vf1/vad16_fixed.onnx'):
             files[CORE+'models/'+model] = archive.read('SoundSight_A_Speaker_CP1_VF1/models/'+model)
     modules = ('live_speaker live_speaker_follow speaker_models speaker_permission speaker_follow_setup '
-               'speaker_process speaker_scheduling speaker_settings speaker_targets live_cpu_profile').split()
+               'speaker_process speaker_scheduling speaker_settings speaker_targets speaker_enrollment live_cpu_profile').split()
     for name in modules:
         files['software/ps/'+name+'.py'] = (ROOT/'software/ps'/(name+'.py')).read_bytes()
     for name in ('pipeline_bench', 'stream_bench', 'short_bench', 'cpu_profile_bench'):
         files[CORE+name+'.py'] = (ROOT/CORE/(name+'.py')).read_bytes()
     for name in ('pipeline_backend.c', 'stream_frontend.h', 'detail_profile.h', 'core_bench.c'):
         files[CORE+'source/'+name] = (ROOT/CORE/name).read_bytes()
-    for n in ('software/tests/test_speaker_follow.py', 'document/pynq-speaker-3d.md',
+    for n in ('software/tests/test_speaker_follow.py', 'software/tests/test_speaker_enrollment.py',
+              'document/pynq-speaker-enrollment.md', 'document/pynq-speaker-3d.md',
+              'document/evidence/speaker-enrollment-20261029/board-result.md',
               'document/pynq-w16-update.md',
               'document/b-speaker-3d-interface.md'):
         files[n] = (ROOT/n).read_bytes()
@@ -63,9 +65,10 @@ def contents(b_package):
         policy='delayed_permission_v1', recognition_qualified=False), indent=2)+'\n').encode()
     files['SOURCE.json'] = (json.dumps(dict(hardware=source['artifacts'], model_selection='cp1_vf1',
         policy='delayed_permission_v1', default_motion=False, threshold_configured=False,
-        private=True, board_joint_test='W16_NOT_RUN', recognition_qualified=False,
+        private=True, board_joint_test='SPEAKER_GATED_DUAL_AXIS_NOT_VERIFIED', recognition_qualified=False,
         servo_pins={'horizontal': 'T15', 'vertical': 'W16'},
-        enrollment='Import original board selector/profile; no P02 replacement or re-enrollment'), indent=2)+'\n').encode()
+        enrollment='speaker-enroll ID: one short private CP1/VF1 clip; preserve existing P01/P02 and user settings',
+        board_enrollment_test='USER_REPORTED_SINGLE_5S_AND_SELF_SCORE_ONLY'), indent=2)+'\n').encode()
     for n, raw in files.items():
         if n.endswith('.py'):
             ast.parse(raw.decode('utf-8-sig'), feature_version=(3, 8))

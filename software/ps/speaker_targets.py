@@ -7,6 +7,7 @@ import hashlib
 import json
 import math
 import os
+import re
 from pathlib import Path
 import shutil
 import sys
@@ -18,6 +19,58 @@ SELECTOR = 'speaker-target.local.json'
 ENROLL = ['P02_C%02d' % n for n in (1, 2, 3)]
 POSITIVE = ['P02_T%02d' % n for n in (1, 2, 3)]
 NEGATIVE = ['P01_C%02d' % n for n in (1, 2, 3)]
+
+
+def target_name(value):
+    """Simple portable IDs; never interpret a target name as a user-supplied path."""
+    if not isinstance(value, str) or not re.fullmatch(r'[A-Za-z][A-Za-z0-9_-]{0,31}', value):
+        raise ValueError('TARGET_ID: use 1..32 ASCII letters/digits/_/-; start with a letter')
+    if value.upper() in ('CON', 'PRN', 'AUX', 'NUL') or re.fullmatch(r'(COM|LPT)[0-9]', value.upper()):
+        raise ValueError('RESERVED_TARGET_ID')
+    return value
+
+
+def profile_path(root, target):
+    target_name(target)
+    return Path(root)/(PROFILE if target == 'P02' else 'speaker-profiles/'+target+'/profile.json')
+
+
+def load_profile(root, target, assets):
+    path = profile_path(root, target)
+    if path.stat().st_size > 65536:
+        raise ValueError('PROFILE_TOO_LARGE')
+    profile = json.loads(path.read_text(encoding='utf-8'))
+    if target == 'P02':
+        return validate_profile(profile, assets)
+    from speaker_models import MODELS
+    if (profile.get('schema') != 2 or profile.get('target_id') != target or
+            profile.get('assets') != assets or profile.get('candidate_models') != MODELS or
+            profile.get('score_only') is not True or profile.get('recognition_qualified') is not False or
+            profile.get('low') is not None or profile.get('high') is not None):
+        raise ValueError('PROFILE_SCHEMA_OR_MODEL_MISMATCH')
+    normalize(profile['template'])
+    if abs(sum(v*v for v in profile['template'])-1) > 1e-4:
+        raise ValueError('PROFILE_NORM')
+    return profile
+
+
+def list_targets(root):
+    """List valid profiles and explicitly report broken ones, without changing selection."""
+    from speaker_settings import verify_assets
+    root = Path(root); core = root/'software/ps/speaker_core'
+    verify_assets(core, use_selected=False)
+    assets = json.loads((core/'live-assets.json').read_text())['sha256']
+    active = json.loads((root/SELECTOR).read_text()).get('target_id') if (root/SELECTOR).exists() else None
+    rows = [dict(target_id='P01', selected=active == 'P01', source='original', valid=True)]
+    for path in sorted((root/'speaker-profiles').glob('*/profile.json')):
+        target = 'P02' if path.parent.name == 'P02-v1' else path.parent.name
+        try:
+            cfg = load_profile(root, target, assets)
+            rows.append(dict(target_id=target, selected=target == active, valid=True,
+                             source=cfg.get('enrollment_method', 'legacy_P02')))
+        except (ValueError, KeyError, OSError) as exc:
+            rows.append(dict(target_id=target, selected=target == active, valid=False, error=str(exc)))
+    return dict(active_target=active, targets=rows)
 
 
 def digest(path):
@@ -94,25 +147,29 @@ def selected_config(core, original, assets):
     cfg = json.loads(selector.read_text(encoding='utf-8'))
     if cfg == {'schema': 1, 'target_id': 'P01'}:
         return dict(original, target_id='P01', score_only=False)
-    if set(cfg) != {'schema', 'target_id', 'profile_sha256'} or cfg['schema'] != 1 or cfg['target_id'] != 'P02':
+    if set(cfg) != {'schema', 'target_id', 'profile_sha256'} or cfg['schema'] != 1:
         raise ValueError('INVALID_TARGET_SELECTOR')
-    if digest(root/PROFILE) != cfg['profile_sha256']:
+    if digest(profile_path(root, cfg['target_id'])) != cfg['profile_sha256']:
         raise ValueError('PROFILE_HASH_MISMATCH')
-    return load_p02(core, assets)
+    return load_profile(root, cfg['target_id'], assets)
 
 
 def select(root, target):
     from speaker_settings import verify_assets
     root = Path(root)
+    target_name(target)
     core = root/'software/ps/speaker_core'
     verify_assets(core, use_selected=False)
     cfg = {'schema': 1, 'target_id': target}
-    if target == 'P02':
+    if target != 'P01':
         assets = json.loads((core/'live-assets.json').read_text())['sha256']
-        load_p02(core, assets)
-        cfg['profile_sha256'] = digest(root/PROFILE)
-    elif target != 'P01':
-        raise ValueError('UNKNOWN_TARGET')
+        load_profile(root, target, assets)
+        cfg['profile_sha256'] = digest(profile_path(root, target))
+    # Caller holds the owner lock. Clear permission BEFORE changing the target;
+    # a storage failure can disable the old target, never enable a new one with
+    # somebody else's threshold. No in-flight session may survive this change.
+    from speaker_follow_setup import configure
+    configure(root, disable=True)
     atomic_json(root/SELECTOR, cfg)
     return cfg
 
@@ -246,7 +303,7 @@ def enroll(root, factory=NativeExtractor, emit=print):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=('status', 'enroll', 'select'))
-    parser.add_argument('target', nargs='?', choices=('P01', 'P02'))
+    parser.add_argument('target', nargs='?')
     args = parser.parse_args(argv)
     root = Path(__file__).resolve().parents[2]
     if (args.command == 'select') != (args.target is not None):
@@ -257,7 +314,9 @@ def main(argv=None):
     if args.command == 'enroll':
         enroll(root)
     elif args.command == 'select':
-        print(json.dumps(select(root, args.target)), flush=True)
+        from run_capture import single_owner
+        with single_owner('/tmp/soundsight-ps-owner.lock'):
+            print(json.dumps(select(root, args.target)), flush=True)
         print('APPLIES_TO_NEXT_SESSION=1 MOTION_COMMANDS=0', flush=True)
     else:
         from speaker_settings import verify_assets

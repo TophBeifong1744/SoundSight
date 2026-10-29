@@ -40,7 +40,10 @@ def retain_until_halted(dma):
             print('BUFFER_RETAINED: power off the board; do not kill this process.', flush=True)
 
 
-def main(check_only=False, blocks=1, root=None, processor_factory=None):
+def main(check_only=False, blocks=1, root=None, processor_factory=None,
+         owner_context=None, capture_guard=None, recording_callback=None):
+    # Enrollment holds the owner lock across the recording and model extraction.
+    # It passes a null context here; normal callers still acquire the same lock.
     entry_begin=time.monotonic()
     detail_dir=os.environ.get('SS_ORT_PROFILE_DIR')
     chain={}
@@ -50,7 +53,7 @@ def main(check_only=False, blocks=1, root=None, processor_factory=None):
         raise ValueError('PCM blocks must be 1..1024')
     layout = check_hwh(root/'soundsight.hwh')  # Reject old package before extension MMIO.
     base, size = board.hwh_check(root)
-    with single_owner(board.LOCK):
+    with single_owner(board.LOCK) if owner_context is None else owner_context:
         overlay, slcr, clocks, mmio, ref = board.load_api(root)
         if not overlay.is_loaded():
             raise RuntimeError('Run prepare from this package first')
@@ -70,9 +73,11 @@ def main(check_only=False, blocks=1, root=None, processor_factory=None):
             print('PCM_INTERFACE_OK=1 NO_CAPTURE=1 SERVO=OFF', flush=True)
             return 0
         board.require_idle(state)
+        if capture_guard is not None:
+            capture_guard(ps)
         from pynq import allocate
         folder = root/'logs'/('pcm-'+datetime.now().strftime('%Y%m%d-%H%M%S-%f'))
-        folder.mkdir(parents=True, exist_ok=False)
+        folder.mkdir(mode=0o700, parents=True, exist_ok=False)
         epoch = next_epoch(root, audio_status['epoch'])
         processor = None
         buffer = dma = None
@@ -129,6 +134,8 @@ def main(check_only=False, blocks=1, root=None, processor_factory=None):
                   (report['result'], len(report['packets']), folder), flush=True)
             if report['error']:
                 print('PCM_ERROR=', report['error'], flush=True)
+            if recording_callback is not None:
+                recording_callback(folder, report)
             return 0 if report['result'] == 'PASS' else 1
         finally:
             # Also protects against a storage exception after capture returned.

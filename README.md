@@ -30,6 +30,7 @@ SoundSight 当前唯一主方案是 **Zynq-7020（PL＋PS/PYNQ）**：四麦三�
 16. [三维测角与双轴跟随候选：Vivado副本更新、PYNQ操作](document/pynq-three-d-dual-axis.md)
 17. [三维完整SD包：安装与首次运行](document/pynq-three-d-sd.md)
 18. [三维＋声纹许可：安装、评分门限和双轴跟随](document/pynq-speaker-3d.md)
+19. [板端单段短录入、多用户保存/切换、评分与声纹双轴跟随](document/pynq-speaker-enrollment.md)
 
 ## 当前操作入口
 
