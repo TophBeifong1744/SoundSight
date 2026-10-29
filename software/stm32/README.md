@@ -1,5 +1,7 @@
 # STM32组入口
 
+【历史资料，2026-10-29状态更新】STM32路线已弃用；当前唯一主方案是Zynq-7020的PL＋PS/PYNQ。下文保留当时的设计、命令、分工及验证范围，不再作为当前派工或验收要求。当前入口以仓库README.md和document/main-architecture.md为准。
+
 已收到探索者V3.5 / STM32F407ZGT6、Keil uVision5+DAP可下载的确认，以及v2接线和三方分工。
 
 - 冻结合同和共享头：`../common/FROZEN_SSOT_ABI.md`、`../common/fpga_stm32_abi_frozen.h`。

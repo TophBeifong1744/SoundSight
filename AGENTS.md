@@ -9,10 +9,10 @@
 
 - 本目录是新的独立项目；不依赖旧 Competition_fpga 仓库或旧F盘工程。
 - 先读 README.md、document/current-status.md 和当前任务必要接口，不从旧历史重新派工。
-- FPGA+STM32为主方案；PL+PS是独立目标。两版公共RTL只有project/rtl一份，S1及冻结头只有software/common一份。
+- 2026-10-29用户确认：唯一主方案为Zynq-7020的PL+PS/PYNQ；FPGA+STM32方案已弃用，不再安排其S2、跨板SPI或整机验收。历史代码、合同和实验保留；公共RTL仍只有project/rtl一份，S1及冻结头仍在software/common，不因路线改变复制或改写协议。
 - 器件xc7z020clg400-2、Vivado2025.2。PS FCLK经Clocking Wizard生成100MHz计算域、61.44MHz采集/控制域。复位使用官方IP，普通总线复位与冷复位分开。
 - 公共合同在software/common/FROZEN_SSOT_ABI.md及fpga_stm32_abi_frozen.h；数值、SPI字段、停止语义不能单方修改。
-- 真实PS板级DDR/MIO/PYNQ由用户配置。STM32 S2/板级驱动由STM32组接续，不把占位目录说成已完成软件。
+- 真实PS板级DDR/MIO/PYNQ由用户配置；业务在同一双核Linux/PYNQ中运行，Python调用C求解器。STM32旧任务和分工不再作为当前推进依据。
 
 ## 操作边界
 
@@ -38,7 +38,7 @@ Vitis交接包也必须可搬移：工程内部引用使用相对路径，工具
 - 验证到本批要求后，对比并接回有效源码，导出最新工程/BD Tcl、PS与IP配置，放回project对应正式目录；使用项目相对路径，补齐全部依赖。BAT仅为入口，单独交BAT/Tcl不算完整重建包。GUI修改不会自动更新仓库配方。
 - 完成当批必要验证后，经任务分支/PR集成。Validate、输出生成、仿真、综合、实现和板测分别记录，实际EDA操作仍按用户权限执行。
 - 日常共享源码与重建配方；需要解压打开的交接时使用Vivado Archive Project，可排除运行结果，另补未登记的外部软件/脚本/数据。发布包放release/output，按交付需要附同候选bit/HWH/LTX及必要报告，不把整个缓存数据库提交Git。
-- 已有仓库内准备工程保留，当前BAT仍按既定par目录重建，无参数默认为prepare stm32；它不是当前外部手工工程的启动或导出入口。未经明确任务不自动创建、覆盖、移动或删除外部工作工程。
+- 已有仓库内准备工程保留，当前BAT仍按既定par目录重建，历史无参数行为仍为prepare stm32，属于弃用路线，不作为当前入口；PS基础配方须显式使用prepare ps，最新三维候选按document/main-architecture.md接续；它不是当前外部手工工程的启动或导出入口。未经明确任务不自动创建、覆盖、移动或删除外部工作工程。
 
 ### 临时文件必须随任务收尾
 

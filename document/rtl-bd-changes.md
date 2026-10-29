@@ -1,5 +1,7 @@
 # SoundSight：本次 FPGA RTL、模块与 BD 改动总结
 
+【历史资料，2026-10-29状态更新】STM32路线已弃用；当前唯一主方案是Zynq-7020的PL＋PS/PYNQ。下文保留当时的设计、命令、分工及验证范围，不再作为当前派工或验收要求。当前入口以仓库README.md和document/main-architecture.md为准。
+
 迁移说明：本文回顾10月17日RTL改动；正文旧目录名为历史位置。当前路径以本项目README及directory-guide.md为准。
 
 日期：2026-10-17。对应当前名称含 `100MHz` 的迁移版本。

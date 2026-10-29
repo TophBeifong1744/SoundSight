@@ -1,5 +1,7 @@
 STM32主方案BD连接
 
+【历史资料，2026-10-29状态更新】STM32路线已弃用；当前唯一主方案是Zynq-7020的PL＋PS/PYNQ。下文保留当时的设计、命令、分工及验证范围，不再作为当前派工或验收要求。当前入口以仓库README.md和document/main-architecture.md为准。
+
 路径约定：本文件所有路径均相对SoundSight根目录。
 从根目录执行 project/script/run.bat prepare stm32，建立 project/par/SoundSight.xpr；它注册源清单、生成FFT IP，建BD、Validate并生成顶层wrapper。已有工程时用 project/script/run.bat open stm32，不重复prepare。
 project/bd/stm32.tcl是由正式入口调用的连线配方，依赖已注册源码及ss_root，不能在任意空工程中单独source。

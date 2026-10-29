@@ -1,5 +1,7 @@
 时钟、复位和跨域连接（2026-10-17核对新工程）
 
+【历史资料，2026-10-29状态更新】STM32路线已弃用；当前唯一主方案是Zynq-7020的PL＋PS/PYNQ。下文保留当时的设计、命令、分工及验证范围，不再作为当前派工或验收要求。当前入口以仓库README.md和document/main-architecture.md为准。
+
 路径均相对SoundSight根目录；STM32实际导出配方见project/bd/stm32.tcl及project/ip/ps7_stm32.tcl。project/ip/create_platform_clock.tcl现由独立PS版使用，PS附加总线配置见project/bd/ps.tcl。2026-10-18接回说明见document/stm32-handoff.md。
 
 主方案与独立PS版都从BD中的PS7取时钟，不再接外部PL sys_clk/U18。

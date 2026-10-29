@@ -1,5 +1,7 @@
 # STM32 主方案的 PS 裸机软件交接
 
+【历史资料，2026-10-29状态更新】STM32路线已弃用；当前唯一主方案是Zynq-7020的PL＋PS/PYNQ。下文保留当时的设计、命令、分工及验证范围，不再作为当前派工或验收要求。当前入口以仓库README.md和document/main-architecture.md为准。
+
 本目录交接用户已经完成的 Vitis 平台与 application，不需要打开 Vivado。它为 FPGA+STM32 主方案提供 PS 侧启动基础，不是 `software/ps` 中的 PYNQ 定位业务程序。
 
 ## 发给别人哪些文件

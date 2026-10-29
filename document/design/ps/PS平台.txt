@@ -1,5 +1,7 @@
 无STM32 PL+PS版：BD、平台和软件
 
+2026-10-29：PL+PS现为Zynq-7020唯一主方案，STM32已弃用。本页为早期PS基础BD说明，最新三维、PCM DMA和双轴配置按document/main-architecture.md接续。
+
 已有STM32工程副本且已加入ps_link时，使用document/manual-ps-bd-completion.md的补齐入口project/bd/complete_manual_ps.tcl；不要在已有BD上执行下面的新建配方。
 
 所有路径相对SoundSight根目录。入口：project/script/run.bat prepare ps；已有工程用open ps；仅生成输出用outputs ps。工程位于variants/pl_ps/project/par/SoundSight_PS.xpr，顶层soundsight_ps_bd_wrapper。

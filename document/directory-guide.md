@@ -1,6 +1,6 @@
 # 新项目目录
 
-正式维护内容集中在SoundSight总目录；两个FPGA目标共用源代码。当前用户在仓库外手工开发，验证后将源码与导出配置接回；下列par是仓库配方的重建输出位置，不限定外部工作目录。
+正式维护内容集中在SoundSight总目录；当前唯一主方案是Zynq-7020 PL+PS；STM32为已弃用历史路线，保留共用源码。当前用户在仓库外手工开发，验证后将源码与导出配置接回；下列par是仓库配方的重建输出位置，不限定外部工作目录。
 
 ```text
 SoundSight/
@@ -9,14 +9,14 @@ SoundSight/
   tools.local.env          本机工具路径，被Git忽略
   project/
     rtl/                  唯一公共RTL、薄BD封装、Hann系数
-    bd/                   stm32.tcl、ps.tcl连接配方
+    bd/                   PS基础/三维配方；stm32.tcl仅供历史参考
     ip/                   FFT/时钟配方；reference中是原官方配置与仿真模型
-    sdc/stm32, ps/        两目标引脚与外部接口XDC
+    sdc/stm32, ps/        当前PS约束；stm32为历史约束
     script/               run.bat、setting.bat、src_list.txt、vivado.tcl
-    reports/stm32/       用户实现时序/资源报告和布局布线图（进入Git）
-    par/SoundSight.xpr    STM32主方案原生入口；同级为其数据库和报告
+    reports/stm32/       历史STM32实现报告（当前三维见reports/ps_3d）
+    par/SoundSight.xpr    已弃用STM32原生入口；同级为其数据库和报告
   variants/pl_ps/
-    project/par/SoundSight_PS.xpr  无STM32版原生入口，不复制公共RTL
+    project/par/SoundSight_PS.xpr  PS基础配方输出入口，不复制公共RTL
   simulation/
     tb/stm32, ps/         原定向测试、输入向量、预期结果
     models/               独立整数参考生成脚本
@@ -24,9 +24,10 @@ SoundSight/
     work/                 编译/展开/仿真数据库及本次结果
   software/
     common/               冻结ABI、共享头、原S1求解器及原测试
-    stm32/                STM32板级交接和后续S2入口
-    ps/                   AXI客户程序、PYNQ应用、C求解桥
+    stm32/                已弃用STM32代码和历史板级交接
+    ps/                   当前PS采集/控制、PYNQ应用与声纹程序
     vitis/stm32/          小型裸机XSA与platform/application交接包，不展开第二份main
+    tetra3d/              当前三维C求解、筛选与双轴PS控制
     tests/                PC验证
     build/                软件测试/编译输出
   hardware/               板卡、麦克风、电气资料、照片、接线
@@ -35,7 +36,7 @@ SoundSight/
     evidence/migration/   新目录中实际重建/复现的记录
     history/              有用旧技术说明，日期和状态可能过时
   models/, data/          既有模型与夹具；旧模型单列适用范围
-  research/               六麦、声纹、比赛Skills独立研究，不进入当前板顶
+  research/               六麦与声纹研究/历史实验、比赛Skills；在线声纹代码在software/ps
   tools/                  入口复用的Python/Tcl助手
   release/output/         后续正式可搬移交付包
   local_archive/          旧录音/报告/源码等本地参考ZIP，不参与构建、不进新Git
@@ -50,7 +51,7 @@ SoundSight/
 
 采用已安装fpga-team-workflow 0.3.1、run-fpga-workflow本地0.5.0中的Git/目录原则。当前项目已有有效XSim验证，因此继续使用XSim；`vsim.do`存放它接受的Tcl仿真命令，不声称运行了ModelSim/Questa。
 
-用户明确综合/实现自己点击，所以项目BAT默认是准备工程，不采用通用模板的自动compile默认动作。无STM32目标有自己的规范`project/par`，由同一个正式入口选择，不为两版复制一套公共源码。
+用户明确综合/实现自己点击，所以项目BAT默认是准备工程，不采用通用模板的自动compile默认动作。当前PS目标沿用已有规范`project/par`，由同一个正式入口选择，不为两版复制一套公共源码。
 
 当前没有配置独立HDL linter，不创建一个空壳“lint通过”。结构检查由`tools/check_project.py`明确报告自己的有限范围。
 
@@ -58,7 +59,7 @@ SoundSight/
 
 - `project/rtl`是唯一正式维护的RTL；外部工程允许有本批工作副本，验证后对比接回。旧单域tile/clock参考文件仍在其中供原用例编译，正式两目标源清单明确排除。
 - `project/ip/reference`是固定版本官方模型/配置参考，保留生成时的器件元数据，不手改厂商输出。当前目标统一为`xc7z020clg400-2`；不能把参考中的旧生成目录直接注册进新工程，准备脚本在新par内按当前目标正式重建IP。参考模型用于仿真不构成当前目标的IP生成或时序证据。
-- `document/design`和Word使用当前SoundSight路径与操作入口；两版逐线连接分别见`document/design/stm32/BD连线.txt`和`document/design/ps/PS平台.txt`。完整当前源码链接集中在`document/modules/RTL-INTERFACES.html`。历史原始日志仍保留原路径，不作为新操作入口。
+- `document/design`和Word使用当前SoundSight路径与操作入口；旧基础连接只供版本参考，STM32已弃用：`document/design/stm32/BD连线.txt`和`document/design/ps/PS平台.txt`。完整当前源码链接集中在`document/modules/RTL-INTERFACES.html`。历史原始日志仍保留原路径，不作为新操作入口。
 - `software/common`只维护一份冻结合同与S1。两版同时引用，避免两边各自改出不同协议。
 - `local_archive`保留历史原件，旧脚本不作为新运行入口。旧Git提交图没有搬入新Git。
 
