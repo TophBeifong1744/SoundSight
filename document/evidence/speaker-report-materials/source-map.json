@@ -866,5 +866,38 @@
       }
     ],
     "current_contribution_page": "07-b-contribution-and-gaps-20261029.md"
+  },
+  "repository_alignment_pr30": {
+    "reference_commit": "4adfc48086e889951806102a782d5f804e390d97",
+    "scope": "DIRECTORY_AND_DOCUMENTATION_ONLY_NO_NEW_EXPERIMENT",
+    "evidence_ids_added": [],
+    "metrics_rows_added": 0,
+    "references": [
+      {
+        "path": "document/vivado-ps-3d-rebuild.md",
+        "git_blob": "d9bff3cffeb91a58cdc6984487526e8806bd453b",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/4adfc48086e889951806102a782d5f804e390d97/document/vivado-ps-3d-rebuild.md"
+      },
+      {
+        "path": "document/evidence/portable-vivado-20261029/README.md",
+        "git_blob": "2452768b54dad97fca5ac68b4b57db9c4afbbe9e",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/4adfc48086e889951806102a782d5f804e390d97/document/evidence/portable-vivado-20261029/README.md"
+      },
+      {
+        "path": "document/evidence/speaker-enrollment-20261029/README.md",
+        "git_blob": "98fe3f3c837b3a8270a1430d18db28ec7ce3c787",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/4adfc48086e889951806102a782d5f804e390d97/document/evidence/speaker-enrollment-20261029/README.md"
+      },
+      {
+        "path": "document/evidence/speaker-enrollment-20261029/board-result.md",
+        "git_blob": "7a45b0f4a4eedeca0e434f8ae08910be31bd3073",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/4adfc48086e889951806102a782d5f804e390d97/document/evidence/speaker-enrollment-20261029/board-result.md"
+      },
+      {
+        "path": "document/current-status.md",
+        "git_blob": "be4023d3257f74324bd442802e8bb2acb0d12a36",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/4adfc48086e889951806102a782d5f804e390d97/document/current-status.md"
+      }
+    ]
   }
 }

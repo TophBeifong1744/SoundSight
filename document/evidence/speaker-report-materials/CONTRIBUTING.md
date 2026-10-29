@@ -1,6 +1,6 @@
 # B如何继续补充
 
-固定入口为 `document/evidence/speaker-report-materials/README.md`。在这个目录接着补，不另建report2、工程副本或新的长期报告目录。B已获声纹工作后续全权授权，这里是资料组织方式，不新增审批关卡。
+固定入口为 `document/evidence/speaker-report-materials/README.md`。在这个目录接着补，不另建report2、工程副本或新的长期报告目录。2026-10-29起A全面接手总工程及声纹，B的历史贡献与证据继续在这里维护；此前声纹独立维护授权仅属历史。根目录`report/README.md`是官方分类导航，不是第二份报告。这里是资料组织方式，不新增审批关卡。
 
 ## 每批的最小更新
 

@@ -1,0 +1,26 @@
+{
+  "base_commit": "4adfc48086e889951806102a782d5f804e390d97",
+  "scope": "DOCUMENTATION_AND_PATH_CHECK_ONLY",
+  "recommended_entries": 7,
+  "renamed_files_same_git_blob": 18,
+  "checked_relative_links": 173,
+  "new_broken_links": [],
+  "preexisting_broken_links_in_changed_pages": [],
+  "non_ascii_or_space_paths": [],
+  "protected_paths_unchanged": 745,
+  "historical_source_fields_preserved": true,
+  "eda": "NOT_RUN",
+  "hardware": "NOT_RUN",
+  "checks": {
+    "pr30_offline_tests": {
+      "passed": 3,
+      "failed": 0
+    },
+    "vivado_source_package": {
+      "files": 50,
+      "crc": "PASS",
+      "machine_paths": 0
+    },
+    "naming_scope": "No non-ASCII or space paths in tracked tree; existing case-sensitive tool/vendor/historical names and nested archives retained, not a strict lowercase submission certification."
+  }
+}
