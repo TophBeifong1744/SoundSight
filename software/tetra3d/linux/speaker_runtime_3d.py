@@ -32,10 +32,6 @@ def display(state):
 
 def run(args, root):
     core = root/'software/ps/speaker_core'
-    check_speaker(root)
-    profile = verify_assets(core)
-    models = verify_candidates(core)
-    gate_config = load_settings(root)
     layout = audio_hwh(root/'soundsight.hwh')
     base, size = check_hwh(root/'soundsight.hwh')
     output = root/'logs'/('speaker-3d-'+datetime.now().strftime('%Y%m%d-%H%M%S-%f')+'.json')
@@ -43,6 +39,13 @@ def run(args, root):
     report = dict(result='FAIL', error='Not started', hardware_actions=0)
     processor = dma = buffer = console = None
     with single_owner(args.lock_file), CaptureScheduling() as scheduling:
+        # Selection, score threshold and the worker's template must come from
+        # one locked session. A concurrent speaker-select cannot splice a new
+        # person's template into the previous person's configured permission.
+        check_speaker(root)
+        profile = verify_assets(core)
+        models = verify_candidates(core)
+        gate_config = load_settings(root)
         try:
             overlay, slcr, clocks, mmio, ref = board_tools.load_api(root)
             if not overlay.is_loaded():

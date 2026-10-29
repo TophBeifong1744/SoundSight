@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 from speaker_permission import CONFIG_NAME, settings, load_settings
-from speaker_targets import atomic_json, PROFILE, SELECTOR, selected_config
+from speaker_targets import atomic_json, PROFILE, SELECTOR, selected_config, profile_path
 from speaker_settings import verify_assets
 from speaker_models import verify_candidates
 
@@ -34,8 +34,8 @@ def import_profile(root, source):
     if manifest != source_manifest:
         raise ValueError('Enrollment baseline differs; do not overwrite or silently rebind the profile')
     names = [SELECTOR]
-    if selected['target_id'] == 'P02':
-        names.append(PROFILE)
+    if selected['target_id'] != 'P01':
+        names.append(str(profile_path(source, selected['target_id']).relative_to(source)))
     # User calibration/window settings remain local; import only if compatible
     # and absent or byte-identical, never merge silently.
     names += [n for n in ('settings.local.json', 'servo3d.local.json') if (source/n).is_file()]
@@ -48,6 +48,10 @@ def import_profile(root, source):
         if path.exists() and path.read_bytes() != data:
             raise ValueError('Existing local file preserved: '+name)
         planned.append((path, data))
+    if not (root/SELECTOR).exists():
+        # A directory can contain an old gate setting without a selector.
+        # Importing a different person's template must never inherit it.
+        configure(root, disable=True)
     for path, data in planned:
         if not path.exists():
             path.parent.mkdir(parents=True, exist_ok=True)
@@ -63,6 +67,7 @@ def check(root):
         raise ValueError('Import/select the real target first; implicit P01 fallback is disabled here')
     target = verify_assets(core)
     models = verify_candidates(core)
+    models['enrollment_model'] = ('cp1/fixed98.onnx' if target.get('schema') == 2 else 'int8-head.onnx')
     # python -m zipfile does not restore Unix executable mode. Content is
     # verified above before enabling this local, non-hardware CPU executable.
     if os.name == 'posix':
