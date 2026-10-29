@@ -43,7 +43,7 @@ SoundSight 当前唯一主方案是 **Zynq-7020（PL＋PS/PYNQ）**：四麦三�
 # 已存在该基础工程时才使用 open ps；不覆盖当前三维外部工程。
 ```
 
-旧BAT无参数仍指向历史STM32目标，当前不要无参数双击重建。此轮只更新资料，不改变脚本默认值、位流或板端程序。综合、实现及硬件操作仍由用户执行。
+最新完整重建入口是 `project/script/rebuild_ps_3d.bat --output "..\My SoundSight Work"`；无参数 `run.bat` 同样准备最新三维双轴，默认 `project/par`。源码复制进新工程，旧工程不覆盖。见[完整复现说明](document/vivado-ps-3d-rebuild.md)。综合、实现及硬件操作仍由用户执行。
 
 源代码、模型、约束、IP/BD配方、测试与小型必要结果进入Git。生成工程、仿真数据库、模型权重和旧技术原件本地档案按用途保留，默认不随 `git add .` 推送。
 
