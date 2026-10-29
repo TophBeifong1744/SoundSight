@@ -1,6 +1,8 @@
 # 声纹识别报告资料
 
-2026-10-29补充：[B成员贡献、已有证据与比赛缺项原件](../b-report-supplement-20261029/README.md)。完整ZIP保留194份历史引用；W16修复和长稳重启状态见收件说明。
+**当前阅读入口：** [B工作与最新仓库状态](07-b-contribution-and-gaps-20261029.md)。主方案PL+PS、A全面接管、W16手动可转及长稳重启事实以该页为准；以下28日批次保持历史含义。
+
+2026-10-29补充：[B成员贡献、已有证据与比赛缺项原件](https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/evidence/b-report-supplement-20261029/README.md)。完整ZIP保留194份历史引用；W16修复和长稳重启状态见收件说明。
 
 整理日期：2026-10-28。这里是报告素材与证据归档，按项目规则集中放在 document/evidence。不是上板工程、运行入口或第二套产品源码；本目录没有安装、烧录或控制执行器的程序。
 
