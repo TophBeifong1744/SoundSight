@@ -795,5 +795,76 @@
       "records/E18/INTEGRATION-SUMMARY.json",
       "records/E19/development-score-ranges.json"
     ]
+  },
+  "repository_alignment_20261029": {
+    "reference_commit": "2f8bddc0e1da58ac52b077fbd36e01a15083fec9",
+    "scope": "DOCUMENTATION_ALIGNMENT_NO_NEW_EXPERIMENT",
+    "original_bundle_sha256": "422d33b43c79bbdbd6fe50a915dda308beb395196204e0d63bac4dcdf420554d",
+    "evidence_ids_added": [],
+    "metrics_rows_added": 0,
+    "read_method": "GitHub connector fixed-ref file and tree reads",
+    "references": [
+      {
+        "path": "AGENTS.md",
+        "git_blob": "ec8848458e8f9c7d20cd9beb21b7b6e76959e114",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/AGENTS.md"
+      },
+      {
+        "path": "document/directory-guide.md",
+        "git_blob": "1f4938b73556093944c9029d7424aa668f4e3a23",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/directory-guide.md"
+      },
+      {
+        "path": "document/git-workflow.md",
+        "git_blob": "f83a25cb26b00428b12b93eb0cfa9d37c09b3888",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/git-workflow.md"
+      },
+      {
+        "path": "document/main-architecture.md",
+        "git_blob": "bf6f3c996846d23d40984ffbd77c742628c5c940",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/main-architecture.md"
+      },
+      {
+        "path": "document/current-status.md",
+        "git_blob": "5ca36dd35550bafd94faf6cc6051a96d2611ec71",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/current-status.md"
+      },
+      {
+        "path": "document/requirements/acceptance.md",
+        "git_blob": "c93c3813184f51d553c268b611a6ed010e36d9c2",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/requirements/acceptance.md"
+      },
+      {
+        "path": "document/evidence/b-report-supplement-20261029/README.md",
+        "git_blob": "1e27d12891df61112315a91f751267d11c91f5bb",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/evidence/b-report-supplement-20261029/README.md"
+      },
+      {
+        "path": "document/evidence/b-report-supplement-20261029/intake.json",
+        "git_blob": "2a59f0ecb5cd2941dd8bf0d4c64c1953bca4ea0c",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/evidence/b-report-supplement-20261029/intake.json"
+      },
+      {
+        "path": "document/evidence/sd-program-source-sync-20261029/README.md",
+        "git_blob": "4d0457e8e2ae4e894dbc90a506338b7e7928c57a",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/evidence/sd-program-source-sync-20261029/README.md"
+      },
+      {
+        "path": "project/reports/ps_3d/w16/board-manual-result.md",
+        "git_blob": "4a59f5865cc5ffaa1bb2c75f021d5aa4249489d7",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/project/reports/ps_3d/w16/board-manual-result.md"
+      },
+      {
+        "path": "project/reports/ps_3d/w16/board-unexpected-reboot.md",
+        "git_blob": "8fe1c512fa4e2453466ac935eeac632934532334",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/project/reports/ps_3d/w16/board-unexpected-reboot.md"
+      },
+      {
+        "path": "document/evidence/speaker-report-materials/CONTRIBUTING.md",
+        "git_blob": "f6c0500307e41653ee6193f1de60aee8cad1fd3f",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/evidence/speaker-report-materials/CONTRIBUTING.md"
+      }
+    ],
+    "current_contribution_page": "07-b-contribution-and-gaps-20261029.md"
   }
 }
