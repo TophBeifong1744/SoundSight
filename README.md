@@ -1,5 +1,8 @@
 # SoundSight
 
+当前程序维护：[最新SD包源码补齐与91项离线验证](document/evidence/sd-program-source-sync-20261029/README.md)；比赛材料：[B的10月29日报告补充](document/evidence/b-report-supplement-20261029/README.md)。双轴手动已确认可转，长稳重启仍在排查。
+
+
 四麦二维声音定位与转台控制。新项目独立管理，旧仓库不再是编译或运行依赖。
 
 当前包含两种目标，共用一份 PL RTL 和 S1 算法：

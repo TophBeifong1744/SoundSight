@@ -1,0 +1,10 @@
+{
+  "programs_matched": 73,
+  "missing_after": 0,
+  "python38_syntax_files": 39,
+  "local_c_includes_missing": [],
+  "c_syntax_check": "PASS: gcc -fsyntax-only -std=c99 -O2 -Wall -Wextra -ffp-contract=off -DSS_MIN_CHUNK_SAMPLES=8000 -DSS_STREAMING -I <pinned ORT headers> software/ps/speaker_core/pipeline_backend.c",
+  "sd_zip_unchanged": true,
+  "hardware_actions": 0,
+  "check_correction": "Initial comparison mixed normalized file bytes with raw ZIP hash. Corrected to verify raw ZIP hash, then compare CRLF-normalized content; all 73 match."
+}
