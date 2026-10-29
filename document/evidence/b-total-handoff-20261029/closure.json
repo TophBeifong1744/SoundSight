@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "source_files": 42,
+  "python_compatibility": "3.8 AST",
+  "af1_test_and_guide_included": true,
+  "zip_regenerated": false,
+  "hardware_actions": 0
+}

@@ -31,9 +31,9 @@ def horizontal_pins(report):
                 raise ValueError('Duplicate servo port in I/O report')
             found[cols[2]] = dict(pin=cols[1], standard=cols[6], bank=cols[7])
     expected = {'servo_pwm': dict(pin='T15', standard='LVCMOS33', bank='34'),
-                'servo_vertical_pwm': dict(pin='W15', standard='LVCMOS33', bank='34')}
+                'servo_vertical_pwm': dict(pin='W16', standard='LVCMOS33', bank='34')}
     if found != expected:
-        raise ValueError('Placed servo pins do not match T15/W15: '+str(found))
+        raise ValueError('Placed servo pins do not match T15/W16: '+str(found))
     return found
 
 

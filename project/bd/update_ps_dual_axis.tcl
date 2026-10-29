@@ -89,7 +89,7 @@ namespace eval ss_dual_axis_update {
             set content [bytes $old]
             foreach line [split $content \n] {
                 if {[regexp {^\s*#} $line]} {continue}
-                foreach {port pin} {servo_pwm T15 servo_vertical_pwm W15} {
+                foreach {port pin} {servo_pwm T15 servo_vertical_pwm W16} {
                     set pattern [format {set_property\s+PACKAGE_PIN\s+\{?%s\}?\s+\[get_ports\s+\{?%s\}?\]} $pin $port]
                     if {[regexp $pattern $line]} {dict incr counts $port}
                     if {[regexp [format {PACKAGE_PIN\s+\{?%s\}?\s} $pin] $line] && ![regexp $pattern $line]} {
@@ -171,7 +171,7 @@ namespace eval ss_dual_axis_update {
         add_files -norecurse -fileset sources_1 $wrappers
         set_property TOP ${bdname}_wrapper [get_filesets sources_1]
         update_compile_order -fileset sources_1
-        puts {DUAL_AXIS_PREPARED: H=T15 0..360deg V=W15 0..220deg PWM=20ms/500..2500us}
+        puts {DUAL_AXIS_PREPARED: H=T15 0..360deg V=W16 0..220deg PWM=20ms/500..2500us}
         puts {PYNQ_EXPLICIT_ARM_COMMIT_REQUIRED; BOOT_AND_MEASURE_ONLY_OUTPUTS_OFF}
         puts {NO_SYNTHESIS_IMPLEMENTATION_BITSTREAM_OR_HARDWARE_ACTIONS_STARTED}
     }

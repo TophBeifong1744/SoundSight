@@ -35,7 +35,7 @@ class Tests(unittest.TestCase):
         (self.copy / 'SoundSight_PS_3D.xpr').write_text('USER XPR')
         self.xdc = self.copy / 'board pins.xdc'
         self.xdc.write_text('set_property PACKAGE_PIN T15 [get_ports {servo_pwm}]\n'
-                            'set_property PACKAGE_PIN W15 [get_ports {servo_vertical_pwm}]\n'
+                            'set_property PACKAGE_PIN W16 [get_ports {servo_vertical_pwm}]\n'
                             '# preserved user clock constraint\n')
         self.t = tkinter.Tcl()
         self.t.eval('namespace eval ss_dual_axis_update {variable library_only 1}')
@@ -186,7 +186,7 @@ class Tests(unittest.TestCase):
                 self.run_script()
 
     def test_pin_conflict_refused_before_copy(self):
-        self.xdc.write_text(self.xdc.read_text().replace('W15', 'W14'))
+        self.xdc.write_text(self.xdc.read_text().replace('W16', 'W14'))
         with self.assertRaisesRegex(tkinter.TclError, 'unexpected servo pin'):
             self.run_script()
         self.assertFalse((self.copy / 'handoff').exists())

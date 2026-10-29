@@ -1,0 +1,221 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Thu Oct 29 16:42:18 2026
+| Host         : Toph running 64-bit major release  (build 9200)
+| Command      : report_timing -from [all_registers -clock_pins] -to servo_pwm -delay_type min -max_paths 4 -nworst 4 -user_ignored -path_type full_clock_expanded -input_pins -warn_on_violation -file {E:/Users/Toph Beifong/Documents/GitHub/SoundSight/project/reports/ps_3d/w16/supplemental/servo_pwm_min.rpt}
+| Design       : soundsight_stm32_bd_wrapper
+| Device       : 7z020-clg400
+| Speed File   : -2  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack:                    inf
+  Source:                 soundsight_stm32_bd_i/ps_link/inst/u_core/regs/actuator/guard/pwm_o_reg/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_soundsight_stm32_bd_clk_wiz_0_1  {rise@0.000ns fall@8.138ns period=16.276ns})
+  Destination:            servo_pwm
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        5.324ns  (logic 3.169ns (59.515%)  route 2.156ns (40.485%))
+  Logic Levels:           2  (LUT3=1 OBUF=1)
+  Clock Uncertainty:      0.467ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Discrete Jitter          (DJ):    0.294ns
+    Phase Error              (PE):    0.318ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_soundsight_stm32_bd_clk_wiz_0_1 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  soundsight_stm32_bd_i/ps7/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    soundsight_stm32_bd_i/ps7/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16                                                    r  soundsight_stm32_bd_i/ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  soundsight_stm32_bd_i/ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=1, routed)           0.597     0.933    soundsight_stm32_bd_i/clk_main/inst/clk_in1
+    MMCME2_ADV_X1Y0                                                   r  soundsight_stm32_bd_i/clk_main/inst/mmcm_adv_inst/CLKIN1
+    MMCME2_ADV_X1Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -1.150    -0.217 r  soundsight_stm32_bd_i/clk_main/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.529     0.312    soundsight_stm32_bd_i/clk_main/inst/clk_out1_soundsight_stm32_bd_clk_wiz_0_0
+    BUFGCTRL_X0Y4                                                     r  soundsight_stm32_bd_i/clk_main/inst/clkout1_buf/I
+    BUFGCTRL_X0Y4        BUFG (Prop_bufg_I_O)         0.026     0.338 r  soundsight_stm32_bd_i/clk_main/inst/clkout1_buf/O
+                         net (fo=1, routed)           0.578     0.916    soundsight_stm32_bd_i/clk_audio/inst/clk_in1
+    MMCME2_ADV_X0Y0                                                   r  soundsight_stm32_bd_i/clk_audio/inst/mmcm_adv_inst/CLKIN1
+    MMCME2_ADV_X0Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -1.122    -0.206 r  soundsight_stm32_bd_i/clk_audio/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.518     0.312    soundsight_stm32_bd_i/clk_audio/inst/clk_out1_soundsight_stm32_bd_clk_wiz_0_1
+    BUFGCTRL_X0Y1                                                     r  soundsight_stm32_bd_i/clk_audio/inst/clkout1_buf/I
+    BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.026     0.338 r  soundsight_stm32_bd_i/clk_audio/inst/clkout1_buf/O
+                         net (fo=7153, routed)        0.556     0.894    soundsight_stm32_bd_i/ps_link/inst/u_core/regs/actuator/guard/clk
+    SLICE_X41Y34         FDCE                                         r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/actuator/guard/pwm_o_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y34         FDCE (Prop_fdce_C_Q)         0.141     1.035 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/actuator/guard/pwm_o_reg/Q
+                         net (fo=3, routed)           0.204     1.239    soundsight_stm32_bd_i/ps_link/inst/u_core/regs/sound_pwm
+    SLICE_X38Y35                                                      r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/I0
+    SLICE_X38Y35         LUT3 (Prop_lut3_I0_O)        0.045     1.284 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/O
+                         net (fo=1, routed)           1.951     3.235    servo_pwm_OBUF
+    T15                                                               r  servo_pwm_OBUF_inst/I
+    T15                  OBUF (Prop_obuf_I_O)         2.983     6.218 r  servo_pwm_OBUF_inst/O
+                         net (fo=0)                   0.000     6.218    servo_pwm
+    T15                                                               r  servo_pwm (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 soundsight_stm32_bd_i/ps_link/inst/u_core/regs/actuator/guard/pwm_o_reg/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_soundsight_stm32_bd_clk_wiz_0_1  {rise@0.000ns fall@8.138ns period=16.276ns})
+  Destination:            servo_pwm
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        5.324ns  (logic 3.169ns (59.515%)  route 2.156ns (40.485%))
+  Logic Levels:           2  (LUT3=1 OBUF=1)
+  Clock Uncertainty:      0.467ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Discrete Jitter          (DJ):    0.294ns
+    Phase Error              (PE):    0.318ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_soundsight_stm32_bd_clk_wiz_0_1 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  soundsight_stm32_bd_i/ps7/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    soundsight_stm32_bd_i/ps7/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16                                                    r  soundsight_stm32_bd_i/ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  soundsight_stm32_bd_i/ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=1, routed)           0.597     0.933    soundsight_stm32_bd_i/clk_main/inst/clk_in1
+    MMCME2_ADV_X1Y0                                                   r  soundsight_stm32_bd_i/clk_main/inst/mmcm_adv_inst/CLKIN1
+    MMCME2_ADV_X1Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -1.150    -0.217 r  soundsight_stm32_bd_i/clk_main/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.529     0.312    soundsight_stm32_bd_i/clk_main/inst/clk_out1_soundsight_stm32_bd_clk_wiz_0_0
+    BUFGCTRL_X0Y4                                                     r  soundsight_stm32_bd_i/clk_main/inst/clkout1_buf/I
+    BUFGCTRL_X0Y4        BUFG (Prop_bufg_I_O)         0.026     0.338 r  soundsight_stm32_bd_i/clk_main/inst/clkout1_buf/O
+                         net (fo=1, routed)           0.578     0.916    soundsight_stm32_bd_i/clk_audio/inst/clk_in1
+    MMCME2_ADV_X0Y0                                                   r  soundsight_stm32_bd_i/clk_audio/inst/mmcm_adv_inst/CLKIN1
+    MMCME2_ADV_X0Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -1.122    -0.206 r  soundsight_stm32_bd_i/clk_audio/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.518     0.312    soundsight_stm32_bd_i/clk_audio/inst/clk_out1_soundsight_stm32_bd_clk_wiz_0_1
+    BUFGCTRL_X0Y1                                                     r  soundsight_stm32_bd_i/clk_audio/inst/clkout1_buf/I
+    BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.026     0.338 r  soundsight_stm32_bd_i/clk_audio/inst/clkout1_buf/O
+                         net (fo=7153, routed)        0.556     0.894    soundsight_stm32_bd_i/ps_link/inst/u_core/regs/actuator/guard/clk
+    SLICE_X41Y34         FDCE                                         r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/actuator/guard/pwm_o_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y34         FDCE (Prop_fdce_C_Q)         0.141     1.035 f  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/actuator/guard/pwm_o_reg/Q
+                         net (fo=3, routed)           0.204     1.239    soundsight_stm32_bd_i/ps_link/inst/u_core/regs/sound_pwm
+    SLICE_X38Y35                                                      f  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/I0
+    SLICE_X38Y35         LUT3 (Prop_lut3_I0_O)        0.045     1.284 f  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/O
+                         net (fo=1, routed)           1.951     3.235    servo_pwm_OBUF
+    T15                                                               f  servo_pwm_OBUF_inst/I
+    T15                  OBUF (Prop_obuf_I_O)         2.983     6.218 f  servo_pwm_OBUF_inst/O
+                         net (fo=0)                   0.000     6.218    servo_pwm
+    T15                                                               f  servo_pwm (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual/guard/pwm_o_reg/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_soundsight_stm32_bd_clk_wiz_0_1  {rise@0.000ns fall@8.138ns period=16.276ns})
+  Destination:            servo_pwm
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        5.358ns  (logic 3.192ns (59.567%)  route 2.167ns (40.433%))
+  Logic Levels:           2  (LUT3=1 OBUF=1)
+  Clock Uncertainty:      0.467ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Discrete Jitter          (DJ):    0.294ns
+    Phase Error              (PE):    0.318ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_soundsight_stm32_bd_clk_wiz_0_1 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  soundsight_stm32_bd_i/ps7/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    soundsight_stm32_bd_i/ps7/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16                                                    r  soundsight_stm32_bd_i/ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  soundsight_stm32_bd_i/ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=1, routed)           0.597     0.933    soundsight_stm32_bd_i/clk_main/inst/clk_in1
+    MMCME2_ADV_X1Y0                                                   r  soundsight_stm32_bd_i/clk_main/inst/mmcm_adv_inst/CLKIN1
+    MMCME2_ADV_X1Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -1.150    -0.217 r  soundsight_stm32_bd_i/clk_main/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.529     0.312    soundsight_stm32_bd_i/clk_main/inst/clk_out1_soundsight_stm32_bd_clk_wiz_0_0
+    BUFGCTRL_X0Y4                                                     r  soundsight_stm32_bd_i/clk_main/inst/clkout1_buf/I
+    BUFGCTRL_X0Y4        BUFG (Prop_bufg_I_O)         0.026     0.338 r  soundsight_stm32_bd_i/clk_main/inst/clkout1_buf/O
+                         net (fo=1, routed)           0.578     0.916    soundsight_stm32_bd_i/clk_audio/inst/clk_in1
+    MMCME2_ADV_X0Y0                                                   r  soundsight_stm32_bd_i/clk_audio/inst/mmcm_adv_inst/CLKIN1
+    MMCME2_ADV_X0Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -1.122    -0.206 r  soundsight_stm32_bd_i/clk_audio/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.518     0.312    soundsight_stm32_bd_i/clk_audio/inst/clk_out1_soundsight_stm32_bd_clk_wiz_0_1
+    BUFGCTRL_X0Y1                                                     r  soundsight_stm32_bd_i/clk_audio/inst/clkout1_buf/I
+    BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.026     0.338 r  soundsight_stm32_bd_i/clk_audio/inst/clkout1_buf/O
+                         net (fo=7153, routed)        0.556     0.894    soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual/guard/clk
+    SLICE_X38Y35         FDCE                                         r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual/guard/pwm_o_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X38Y35         FDCE (Prop_fdce_C_Q)         0.164     1.058 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual/guard/pwm_o_reg/Q
+                         net (fo=3, routed)           0.215     1.273    soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual_pwm
+    SLICE_X38Y35                                                      r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/I1
+    SLICE_X38Y35         LUT3 (Prop_lut3_I1_O)        0.045     1.318 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/O
+                         net (fo=1, routed)           1.951     3.269    servo_pwm_OBUF
+    T15                                                               r  servo_pwm_OBUF_inst/I
+    T15                  OBUF (Prop_obuf_I_O)         2.983     6.252 r  servo_pwm_OBUF_inst/O
+                         net (fo=0)                   0.000     6.252    servo_pwm
+    T15                                                               r  servo_pwm (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual/guard/pwm_o_reg/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_soundsight_stm32_bd_clk_wiz_0_1  {rise@0.000ns fall@8.138ns period=16.276ns})
+  Destination:            servo_pwm
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        5.358ns  (logic 3.192ns (59.567%)  route 2.167ns (40.433%))
+  Logic Levels:           2  (LUT3=1 OBUF=1)
+  Clock Uncertainty:      0.467ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Discrete Jitter          (DJ):    0.294ns
+    Phase Error              (PE):    0.318ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_soundsight_stm32_bd_clk_wiz_0_1 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  soundsight_stm32_bd_i/ps7/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    soundsight_stm32_bd_i/ps7/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16                                                    r  soundsight_stm32_bd_i/ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  soundsight_stm32_bd_i/ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=1, routed)           0.597     0.933    soundsight_stm32_bd_i/clk_main/inst/clk_in1
+    MMCME2_ADV_X1Y0                                                   r  soundsight_stm32_bd_i/clk_main/inst/mmcm_adv_inst/CLKIN1
+    MMCME2_ADV_X1Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -1.150    -0.217 r  soundsight_stm32_bd_i/clk_main/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.529     0.312    soundsight_stm32_bd_i/clk_main/inst/clk_out1_soundsight_stm32_bd_clk_wiz_0_0
+    BUFGCTRL_X0Y4                                                     r  soundsight_stm32_bd_i/clk_main/inst/clkout1_buf/I
+    BUFGCTRL_X0Y4        BUFG (Prop_bufg_I_O)         0.026     0.338 r  soundsight_stm32_bd_i/clk_main/inst/clkout1_buf/O
+                         net (fo=1, routed)           0.578     0.916    soundsight_stm32_bd_i/clk_audio/inst/clk_in1
+    MMCME2_ADV_X0Y0                                                   r  soundsight_stm32_bd_i/clk_audio/inst/mmcm_adv_inst/CLKIN1
+    MMCME2_ADV_X0Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -1.122    -0.206 r  soundsight_stm32_bd_i/clk_audio/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.518     0.312    soundsight_stm32_bd_i/clk_audio/inst/clk_out1_soundsight_stm32_bd_clk_wiz_0_1
+    BUFGCTRL_X0Y1                                                     r  soundsight_stm32_bd_i/clk_audio/inst/clkout1_buf/I
+    BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.026     0.338 r  soundsight_stm32_bd_i/clk_audio/inst/clkout1_buf/O
+                         net (fo=7153, routed)        0.556     0.894    soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual/guard/clk
+    SLICE_X38Y35         FDCE                                         r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual/guard/pwm_o_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X38Y35         FDCE (Prop_fdce_C_Q)         0.164     1.058 f  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual/guard/pwm_o_reg/Q
+                         net (fo=3, routed)           0.215     1.273    soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual_pwm
+    SLICE_X38Y35                                                      f  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/I1
+    SLICE_X38Y35         LUT3 (Prop_lut3_I1_O)        0.045     1.318 f  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/O
+                         net (fo=1, routed)           1.951     3.269    servo_pwm_OBUF
+    T15                                                               f  servo_pwm_OBUF_inst/I
+    T15                  OBUF (Prop_obuf_I_O)         2.983     6.252 f  servo_pwm_OBUF_inst/O
+                         net (fo=0)                   0.000     6.252    servo_pwm
+    T15                                                               f  servo_pwm (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+

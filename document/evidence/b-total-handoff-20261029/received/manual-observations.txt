@@ -1,0 +1,15 @@
+Source: user chat messages, transcribed 2026-10-29. Not a continuous raw UART log.
+
+COMMAND: sudo sh soundsight-3d.sh manual --vertical 110 --seconds 3
+MANUAL_RESULT={"commits": 30, "axes": 2, "targets": {"vertical": 110}, "audio_started": false, "mechanical_arrival": "UNVERIFIED", "stop_confirmed": true}
+USER_OBSERVATION: 没有移动，就对着正前方
+
+COMMAND: sudo sh soundsight-3d.sh manual --vertical 115 --seconds 3
+MANUAL_RESULT={"commits": 30, "axes": 2, "targets": {"vertical": 115}, "audio_started": false, "mechanical_arrival": "UNVERIFIED", "stop_confirmed": true}
+USER_OBSERVATION: 还是没有移动
+
+COMMAND: sudo sh soundsight-3d.sh status
+DEVICE_STATE={"status": 983040, "fault": 0, "drops": 0, "sys": 8, "actuator": 0, "dual_axis": 512}
+USER_OBSERVATION: 已经供电，确定好问题后交回给A修复，其他信息都是A测的，我不清楚
+
+Each command first reported a stale python3.8 interpreter without pynq, then automatically selected /usr/local/share/pynq-venv/bin/python3 and printed PYNQ_IMPORT_OK=1. Final successful results are quoted above. No PWM waveform or connector measurement has been provided for these runs.

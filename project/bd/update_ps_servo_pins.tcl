@@ -15,8 +15,8 @@ namespace eval ss_servo_pins {
             set pattern {set_property\s+PACKAGE_PIN\s+(T15|V7)\s+\[get_ports\s+\{?servo_pwm\}?\]}
             set replacement {set_property PACKAGE_PIN T15 [get_ports servo_pwm]}
         } elseif {$kind eq {vertical}} {
-            set pattern {set_property\s+PACKAGE_PIN\s+(W15|U7)\s+\[get_ports\s+\{?servo_vertical_pwm\}?\]}
-            set replacement {set_property PACKAGE_PIN W15 [get_ports servo_vertical_pwm]}
+            set pattern {set_property\s+PACKAGE_PIN\s+(W16|W15|U7)\s+\[get_ports\s+\{?servo_vertical_pwm\}?\]}
+            set replacement {set_property PACKAGE_PIN W16 [get_ports servo_vertical_pwm]}
         } else {error {STOP: unknown servo constraint kind}}
         # Only count/replace active lines, never commented historical examples.
         set count 0; set lines {}
@@ -32,7 +32,7 @@ namespace eval ss_servo_pins {
     proc check_collision {content} {
         foreach line [split $content \n] {
             if {[regexp {^\s*#} $line]} {continue}
-            foreach {pin port} {T15 servo_pwm W15 servo_vertical_pwm} {
+            foreach {pin port} {T15 servo_pwm W16 servo_vertical_pwm} {
                 if {[regexp "PACKAGE_PIN\\s+${pin}\\M" $line] &&
                     ![regexp [format {get_ports\s+\{?%s\}?\]} $port] $line]} {
                     error "STOP: requested servo pin collision: $line"
@@ -89,7 +89,7 @@ namespace eval ss_servo_pins {
             set h [open $path wb]; try {puts -nonewline $h $content} finally {close $h}
         }
         puts "SERVO_PIN_BACKUP=$backup"
-        puts {SERVO_PINS_UPDATED: horizontal=T15 vertical=W15 LVCMOS33; vertical remains LOW}
+        puts {SERVO_PINS_UPDATED: horizontal=T15 vertical=W16 LVCMOS33; vertical remains LOW}
         puts {OLD_BIT_IS_UNCHANGED: rebuild implementation/bitstream manually before using the new pins}
         puts {NO_SYNTHESIS_IMPLEMENTATION_OR_HARDWARE_ACTIONS_STARTED}
     }

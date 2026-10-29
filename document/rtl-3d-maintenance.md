@@ -1,5 +1,7 @@
 # RTL、三维与转台维护入口
 
+> 2026-10-29更新：拓芙（A）已全面接手，包括声纹；新增用户明确选择的纯声源follow-sound模式。以下2026-10-28分工是历史同步边界，当前入口见[总工程接管](total-handoff-20261029.md)。
+
 2026-10-28：A 维护 FPGA RTL、BD/约束、三维求解、采集与转台 PS 控制；B 维护声纹识别。远端 main 是源码集成基线，不代表三维实阵列、身份识别或机械闭环已经验收。
 
 ## 到哪里修改
@@ -8,7 +10,7 @@
 |---|---|
 | 唯一公共 RTL | `project/rtl` |
 | 用户自建副本的双轴更新与报告脚本 | `project/bd/update_ps_dual_axis.tcl`、`report_ps_dual_axis.tcl` |
-| 实物引脚与双轴输出时序约束 | `project/sdc/ps`；水平 T15，垂直 W15 |
+| 实物引脚与双轴输出时序约束 | `project/sdc/ps`；水平 T15，垂直 W16 |
 | 当前实现报告 | `project/reports/ps_3d` |
 | 三维 C 求解器、几何及数值测试 | `software/tetra3d/core`、`software/tetra3d/tests` |
 | 三维多帧筛选、双轴标定与提交 | `software/tetra3d/linux` |

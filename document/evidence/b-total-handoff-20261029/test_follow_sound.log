@@ -1,0 +1,12 @@
+test_axes_default_off (__main__.FollowSoundTests.test_axes_default_off) ... ok
+test_bad_limits_and_invalid_frames_rejected (__main__.FollowSoundTests.test_bad_limits_and_invalid_frames_rejected) ... ok
+test_existing_run_axes_still_speaker_gated (__main__.FollowSoundTests.test_existing_run_axes_still_speaker_gated) ... ok
+test_explicit_axes_keep_acoustic_route (__main__.FollowSoundTests.test_explicit_axes_keep_acoustic_route) ... ok
+test_main_uses_existing_runtime_and_status_preflight (__main__.FollowSoundTests.test_main_uses_existing_runtime_and_status_preflight) ... ok
+test_missing_calibration_blocks_motion (__main__.FollowSoundTests.test_missing_calibration_blocks_motion) ... ok
+test_real_client_still_requires_filtered_direction_and_stops (__main__.FollowSoundTests.test_real_client_still_requires_filtered_direction_and_stops) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.040s
+
+OK

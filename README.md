@@ -15,7 +15,7 @@
 2. [迁移了什么、还缺什么](document/migration-report.md)
 3. [实际操作入口](document/run-guide.md)
 4. [当前状态和下一步](document/current-status.md)
-5. [全部33个RTL文件的模块与端口](document/modules/RTL-INTERFACES.html)
+5. [全部RTL文件的模块与端口](document/modules/RTL-INTERFACES.html)
 6. [这次RTL和BD改动总结](document/rtl-bd-changes.md)
 7. [Git与日常协作](document/git-workflow.md)
 8. [删除旧项目之前](document/delete-old-project.md)
@@ -24,6 +24,10 @@
 11. [两个比赛Skills的交付包与复现](document/competition-skills-delivery.md)
 12. [PYNQ双核上传包与第一次运行](document/pynq-first-run.md)
 13. [最新PL+PS音量版工程复现与交接](document/ps-handoff.md)
+14. [PYNQ三种模式完整操作命令](document/ps-manual-calibration.md)
+16. [三维测角与双轴跟随候选：Vivado副本更新、PYNQ操作](document/pynq-three-d-dual-axis.md)
+17. [三维完整SD包：安装与首次运行](document/pynq-three-d-sd.md)
+18. [三维＋声纹许可：安装、评分门限和双轴跟随](document/pynq-speaker-3d.md)
 
 2026-10-19已将外部STM32工程的SPI末沿检查修正接回唯一公共RTL，并核对最新BD/PS/IP/运行配置，详见[交接说明](document/stm32-handoff.md)。用户最新布线后报告为WNS +0.379 ns、WHS +0.036 ns；本次仅同步与静态核查，没有重新构建仓库配方。板测已发现CS短脉冲导致SPI_FORMAT，根因仍未解决；声学精度、机械闭环及独立PS目标仍未验收。STM32诊断固件属于B侧工作，本次未合入其软件分支。
 
@@ -43,3 +47,5 @@
 原仓库许可证保留在 [LICENSE](LICENSE)；厂商和外部资料的原许可证/声明继续有效，见 [第三方资料说明](THIRD_PARTY.md)。
 
 当前 RTL、三维与舵机维护及 B 声纹分工见 [维护入口](document/rtl-3d-maintenance.md)。
+
+2026-10-29 总工程由 A 全面接手：[当前模式与垂直轴问题](document/total-handoff-20261029.md)。

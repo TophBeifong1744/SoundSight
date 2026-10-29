@@ -25,7 +25,7 @@ namespace eval ss_manual_update {
             if {[get_property CONFIG.$p $link] != $value} {error "STOP: unexpected $p"}
         }
         # Use the REGISTERED XDC files, not old import-source copies nearby.
-        foreach {name port pin} {board_pins.xdc servo_pwm T15 horizontal_reserved.xdc servo_vertical_pwm W15} {
+        foreach {name port pin} {board_pins.xdc servo_pwm T15 horizontal_reserved.xdc servo_vertical_pwm W16} {
             set f [ss_volume_update::one [get_files -quiet -of_objects [get_filesets constrs_1] */$name] $name]
             set text [ss_volume_update::bytes [get_property NAME $f]]
             set pattern [format {set_property\s+PACKAGE_PIN\s+%s\s+\[get_ports\s+\{?%s\}?\]} $pin $port]
@@ -67,7 +67,7 @@ namespace eval ss_manual_update {
         generate_target all [list $bdobj]
         update_compile_order -fileset sources_1
         puts "MANUAL_BACKUP=$backup"
-        puts {MANUAL_PREPARED: audio-independent calibration; horizontal=T15 vertical=W15 unchanged}
+        puts {MANUAL_PREPARED: audio-independent calibration; horizontal=T15 vertical=W16 unchanged}
         puts {NO_SYNTHESIS_IMPLEMENTATION_BITSTREAM_OR_HARDWARE_ACTIONS_STARTED}
     }
 }

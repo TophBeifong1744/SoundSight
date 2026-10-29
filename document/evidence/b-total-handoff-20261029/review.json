@@ -1,0 +1,16 @@
+{
+  "reviewer": "/root/remote_scope_review",
+  "scope": "Read-only AF1 integration; user explicitly authorized separate acoustic-only following",
+  "result": "SCOPED_PASS",
+  "independent_tests": "7 AF1 tests PASS; inspected 96 regression results",
+  "checks": [
+    "Only explicit follow-sound routes to acoustic-only runtime; default axes off",
+    "run with axes and speaker retain speaker permission; no fallback",
+    "Manual, limits, STOP, same-frame commands and 750ms lease unchanged",
+    "Delivered motion_3d.py matches current source byte for byte"
+  ],
+  "documentation_correction": "AF1 guide now distinguishes ARM installation/offline tests from unperformed actual capture and motion",
+  "open_blocker_high_medium": 0,
+  "vertical_no_motion": "UNRESOLVED: commands accepted, no physical waveform evidence or observed movement",
+  "hardware_actions": 0
+}

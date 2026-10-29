@@ -14,7 +14,7 @@ from package_three_d_update import selected
 
 ROOT = Path(__file__).resolve().parents[1]
 BOARD = 'SoundSight_PYNQ_3D'
-EVIDENCE = ROOT/'document/evidence/ps-dual-axis-20261028'
+EVIDENCE = ROOT/'project/reports/ps_3d/w16'
 
 
 def payload():
@@ -31,7 +31,8 @@ def payload():
     names.update('software/tests/'+n+'.py' for n in tests)
     names.update(['software/ps/build_solver.sh', 'software/ps/ss_solver_bridge.c',
                   'tools/install_normal_update.py', 'soundsight.sh', 'LICENSE',
-                  'document/pynq-three-d-sd.md', 'document/pynq-board-helper.md'])
+                  'document/pynq-three-d-sd.md', 'document/pynq-board-helper.md',
+                  'document/pynq-w16-update.md'])
     return {n: ROOT/n for n in sorted(names)}
 
 
@@ -53,7 +54,7 @@ def main():
     files['reports/hardware-review.json'] = EVIDENCE/'hardware-review.json'
     for name in ('audit_status.txt', 'timing_summary.rpt', 'cdc.rpt',
                  'servo_pwm_max.rpt', 'servo_vertical_pwm_max.rpt'):
-        files['reports/'+name] = ROOT/'project/reports/ps_3d/supplemental'/name
+        files['reports/'+name] = EVIDENCE/'supplemental'/name
     for name, path in files.items():
         if not path.is_file():
             raise FileNotFoundError(path)

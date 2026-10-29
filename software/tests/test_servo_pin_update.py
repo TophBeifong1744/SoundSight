@@ -58,7 +58,7 @@ class PinTests(unittest.TestCase):
         old_h,old_v,other = self.h.read_bytes(),self.v.read_bytes(),self.extra.read_bytes()
         self.t.call('ss_servo_pins::run')
         self.assertEqual(self.h.read_bytes(),old_h.replace(b'PACKAGE_PIN V7',b'PACKAGE_PIN T15'))
-        self.assertEqual(self.v.read_bytes(),old_v.replace(b'PACKAGE_PIN U7',b'PACKAGE_PIN W15'))
+        self.assertEqual(self.v.read_bytes(),old_v.replace(b'PACKAGE_PIN U7',b'PACKAGE_PIN W16'))
         self.assertEqual(self.extra.read_bytes(),other)
         backup = next((self.root/'handoff').iterdir())
         self.assertEqual((backup/self.h.name).read_bytes(),old_h)
@@ -80,7 +80,7 @@ class PinTests(unittest.TestCase):
             self.t.setvar(key,bad); self.refused(reason); self.t.setvar(key,good)
 
     def test_pin_conflicts_refused_before_either_write(self):
-        for pin in ('T15','W15'):
+        for pin in ('T15','W16'):
             self.extra.write_text('set_property PACKAGE_PIN '+pin+' [get_ports other]\n')
             self.refused('collision')
 
@@ -99,6 +99,14 @@ class PinTests(unittest.TestCase):
             p=Path(temp)/self.v.name; p.write_bytes(self.v.read_bytes())
             self.t.setvar('files',(self.h.as_posix(),p.as_posix()))
             self.refused('outside your project')
+
+    def test_previous_w15_migrates_to_w16(self):
+        self.v.write_bytes(self.v.read_bytes().replace(b'PACKAGE_PIN U7', b'PACKAGE_PIN W15'))
+        old = self.v.read_bytes()
+        self.t.call('ss_servo_pins::run')
+        self.assertEqual(self.v.read_bytes(), old.replace(b'PACKAGE_PIN W15', b'PACKAGE_PIN W16'))
+        backup = next((self.root/'handoff').iterdir())
+        self.assertEqual((backup/self.v.name).read_bytes(), old)
 
     def test_comments_braces_and_crlf_preserved(self):
         text='# set_property PACKAGE_PIN V7 [get_ports servo_pwm]\r\nset_property PACKAGE_PIN V7 [get_ports {servo_pwm}]\r\n'

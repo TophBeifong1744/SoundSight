@@ -27,7 +27,7 @@ module bd_ps_link #(
  (* X_INTERFACE_PARAMETER="SENSITIVITY LEVEL_HIGH" *) output wire irq,
  output wire servo_pwm,
  // 两轴分别输出；DUAL_AXIS_ENABLE默认0，PYNQ显式ARM/COMMIT后才允许动作。
- // 垂直W15映射0..220度，水平T15映射0..360度；STM32接口不受影响。
+ // 垂直W16映射0..220度，水平T15映射0..360度；STM32接口不受影响。
  output wire servo_vertical_pwm,output wire [31:0] fault_status
 );
  ss_ps_link #(

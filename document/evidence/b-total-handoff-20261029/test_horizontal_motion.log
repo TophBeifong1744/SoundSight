@@ -1,0 +1,48 @@
+test_bist_rejected_and_stale_console_is_not_current_servo_target (__main__.MotionTests.test_bist_rejected_and_stale_console_is_not_current_servo_target) ... ok
+test_calibration_save_has_no_hardware_action_or_implicit_enable (__main__.MotionTests.test_calibration_save_has_no_hardware_action_or_implicit_enable) ... ok
+test_deadband_refresh_is_not_target_movement (__main__.MotionTests.test_deadband_refresh_is_not_target_movement) ... ok
+test_default_volume_client_cannot_arm (__main__.MotionTests.test_default_volume_client_cannot_arm) ... ok
+test_drain_wait_does_not_block_frame_release (__main__.MotionTests.test_drain_wait_does_not_block_frame_release) ... ok
+test_fault_or_sink_failure_retains_lock_and_stops (__main__.MotionTests.test_fault_or_sink_failure_retains_lock_and_stops) ... ok
+test_gap_drops_existing_target (__main__.MotionTests.test_gap_drops_existing_target) ... ok
+test_geometry_actual_session_corrects_and_singular_target_revokes (__main__.MotionTests.test_geometry_actual_session_corrects_and_singular_target_revokes) ... ok
+test_geometry_cli_preserves_calibration_and_no_hardware (__main__.MotionTests.test_geometry_cli_preserves_calibration_and_no_hardware) ... STOP: Source range must be positive or null
+HELP: see document/pynq-board-helper.md; preserve logs on unexpected faults.
+ok
+test_geometry_direction_only_preserves_every_q8_angle (__main__.MotionTests.test_geometry_direction_only_preserves_every_q8_angle) ... ok
+test_geometry_known_right_triangle_and_reverse_direction (__main__.MotionTests.test_geometry_known_right_triangle_and_reverse_direction) ... ok
+test_geometry_rejects_bad_settings (__main__.MotionTests.test_geometry_rejects_bad_settings) ... ok
+test_geometry_zero_offset_and_limits_and_singularity (__main__.MotionTests.test_geometry_zero_offset_and_limits_and_singularity) ... ok
+test_hwh_and_explicit_cli_motion_only (__main__.MotionTests.test_hwh_and_explicit_cli_motion_only) ... usage: test_horizontal_motion.py [-h] --hwh HWH [--ip IP] --output OUTPUT
+                                 [--library LIBRARY]
+                                 [--mode {real,bist-pass,bist-reject}]
+                                 [--frames FRAMES] --min-level MIN_LEVEL
+                                 [--window-frames WINDOW_FRAMES]
+                                 [--min-valid MIN_VALID]
+                                 [--clear-faults CLEAR_FAULTS]
+                                 [--host-cpu HOST_CPU]
+                                 [--worker-cpu WORKER_CPU]
+                                 [--lock-file LOCK_FILE] [--horizontal-motion]
+                                 [--motion-config MOTION_CONFIG]
+                                 [--manual-angle MANUAL_ANGLE]
+test_horizontal_motion.py: error: Dual-axis hardware requires soundsight-3d.sh speaker --axes; legacy automatic motion is disabled
+ok
+test_isolated_rejected_sample_never_refreshes_watchdog (__main__.MotionTests.test_isolated_rejected_sample_never_refreshes_watchdog) ... ok
+test_manual_servo_angle_does_not_apply_source_geometry (__main__.MotionTests.test_manual_servo_angle_does_not_apply_source_geometry) ... ok
+test_manual_still_needs_loud_real_fresh_frame (__main__.MotionTests.test_manual_still_needs_loud_real_fresh_frame) ... ok
+test_mapping_boundaries_sign_and_nearest_even (__main__.MotionTests.test_mapping_boundaries_sign_and_nearest_even) ... ok
+test_normal_session_counts_and_stops_motion (__main__.MotionTests.test_normal_session_counts_and_stops_motion) ... ok
+test_outside_mechanics_rejects_without_clamp (__main__.MotionTests.test_outside_mechanics_rejects_without_clamp) ... ok
+test_quiet_revokes_and_requires_a_new_window (__main__.MotionTests.test_quiet_revokes_and_requires_a_new_window) ... ok
+test_raw_hardware_disqualification_prevents_command (__main__.MotionTests.test_raw_hardware_disqualification_prevents_command) ... ok
+test_raw_rejection_on_good_window_does_not_commit (__main__.MotionTests.test_raw_rejection_on_good_window_does_not_commit) ... ok
+test_rejected_window_revokes (__main__.MotionTests.test_rejected_window_revokes) ... ok
+test_stop_tail_cannot_move (__main__.MotionTests.test_stop_tail_cannot_move) ... ok
+test_unbound_refused_before_write (__main__.MotionTests.test_unbound_refused_before_write) ... ok
+test_user_stop_arrives_during_acquire_prevents_new_commit (__main__.MotionTests.test_user_stop_arrives_during_acquire_prevents_new_commit) ... ok
+test_window_then_refresh_same_target_before_consume (__main__.MotionTests.test_window_then_refresh_same_target_before_consume) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.118s
+
+OK
