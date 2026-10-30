@@ -1,0 +1,523 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sat Oct 24 00:06:39 2026
+# Process ID         : 55428
+# Current directory  : E:/Users/Toph Beifong/Documents/GitHub/SoundSight
+# Command line       : vivado.exe -mode batch -source codex_out/pcm-integration/final.tcl -log codex_out/pcm-integration/final.log -nojournal
+# Log file           : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/final.log
+# Journal file       : 
+# Running On         : Toph
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 16890 MB
+# Swap memory        : 23622 MB
+# Total Virtual      : 40512 MB
+# Available Virtual  : 10766 MB
+#-----------------------------------------------------------
+CRITICAL WARNING: [Common 17-1297] User repo 'C:/Users/Toph Beifong/AppData/Roaming/Xilinx/Vivado/2025.2/XilinxTclStore' catalog file is corrupted. XilinxTclStore has been reverted to the installation area and Tcl Store changes will not be saved. To use local Tcl Store, please run tclapp::reset_tclstore and reinstall the apps.
+source codex_out/pcm-integration/final.tcl
+# lappend auto_path {F:/AMD/2025.2/Vivado/data/XilinxTclStore/support} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/support/appinit} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/support/args} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/aldec} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/aldec/activehdl} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/aldec/activehdl/common} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/aldec/riviera} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/aldec/riviera/common} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/bluepearl} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/bluepearl/bpsvvs} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/icl} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/icl/protoip} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/mycompany} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/mycompany/myapp} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/mycompany/myapp6} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/mycompany/template} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/octavo} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/octavo/osdzu3} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/siemens} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/siemens/questa_ds} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/synopsys} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/synopsys/spyglass} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/topic} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/topic/dyplo} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/debugutils} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/designutils} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/diff} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/ies} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/incrcompile} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/junit} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/modelsim} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/pcbutils} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/profiler} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/projutils} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/questa} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/tk_tunnel} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/tk_tunnel/test} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/ultrafast} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/vcs} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/xcelium} {F:/AMD/2025.2/Vivado/data/XilinxTclStore/tclapp/xilinx/xsim}
+# open_project {E:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.xpr}
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'E:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project'
+Scanning sources...
+Finished scanning sources
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:emb-plus-vpr-4616:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\emb-plus-vpr-4616\1.0\board.xml as part xcve2302-sfva784-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:emb-plus-vpr-4616:part0:1.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\emb-plus-vpr-4616\1.1\board.xml as part xcve2302-sfva784-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24c:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24c\1.0\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24c:part0:1.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24c\1.1\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24i:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24i\1.0\board.xml as part xck24-ubva530-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.2 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.2\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.3 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.3\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.4 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.4\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.2 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.2\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.3 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.3\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.4 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.4\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.6 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kc705\1.6\board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.7 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kc705\1.7\board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.6 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu105\1.6\board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.7 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu105\1.7\board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.4 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu116\1.4\board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.5 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu116\1.5\board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu1500:part0:1.2 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu1500\1.2\board.xml as part xcku115-flvb2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kd240_som:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kd240_som\1.0\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kd240_som:part0:1.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kd240_som\1.1\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kr260_som:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kr260_som\1.0\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kr260_som:part0:1.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kr260_som\1.1\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.2 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kv260_som\1.2\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.3 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kv260_som\1.3\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.4 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kv260_som\1.4\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:scu35:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\scu35\1.0\board.xml as part xcsu35p-sbvb625-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:v80:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\v80\1.0\board.xml as part xcv80-lsva4737-2mhp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.4 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vc707\1.4\board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.5 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vc707\1.5\board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc709:part0:1.8 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vc709\1.8\board.xml as part xc7vx690tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:2.2 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\2.2\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.0\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.1\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.2 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.2\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.3 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.3\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.4 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.4\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190_newl\production\1.0\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190_newl\production\1.1\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.2 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190_newl\production\1.2\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.3 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190_newl\production\1.3\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.6 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu108\1.6\board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.7 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu108\1.7\board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu110:part0:1.4 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu110\1.4\board.xml as part xcvu190-flgc2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu118\2.0\board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.3 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu118\2.3\board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.4 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu118\2.4\board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu128:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu128\production\1.0\board.xml as part xcvu37p-fsvh2892-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu129:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu129\production\1.0\board.xml as part xcvu29p-fsga2577-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu1525:part0:1.3 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu1525\1.3\board.xml as part xcvu9p-fsgd2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.0\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.1\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.2 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.2\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek385:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek385\1.0\board.xml as part xc2ve3858-ssva2112-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek385:part0:1.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek385\1.1\board.xml as part xc2ve3858-ssva2112-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek385_1:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek385_2\1.0\board.xml as part xc2ve3858-ssva2112-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_mpsoc:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vermeo_t1_mpsoc\1.0\board.xml as part xczu19eg-ffvd1760-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vermeo_t1_rfsoc\1.0\board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.0\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.1\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.2 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.2\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.2 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\2.2\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\3.0\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\3.1\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.2 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\3.2\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.3 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\3.3\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180_newl\production\1.0\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180_newl\production\1.1\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk120\production\1.0\board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk120\production\1.1\board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.2 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk120\production\1.2\board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.0\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.1\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.2 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.2\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vrk160:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vrk160\1.0\board.xml as part xcvr1602-vsva2488-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vrk160:part0:1.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vrk160\1.1\board.xml as part xcvr1602-vsva2488-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zc706:part0:1.4 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zc706\1.4\board.xml as part xc7z045ffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zc706:part0:1.5 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zc706\1.5\board.xml as part xc7z045ffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.3 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu102\3.3\board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.4 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu102\3.4\board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu104:part0:1.1 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu104\1.1\board.xml as part xczu7ev-ffvc1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu106:part0:2.4 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu106\2.4\board.xml as part xczu7ev-ffvc1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu106:part0:2.5 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu106\2.5\board.xml as part xczu7ev-ffvc1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu106:part0:2.6 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu106\2.6\board.xml as part xczu7ev-ffvc1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.2 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu111\1.2\board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.3 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu111\1.3\board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.4 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu111\1.4\board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu1275\1.0\board.xml as part xczu29dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu1285\1.0\board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu208\production\2.0\board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu208ld\production\2.0\board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu216\production\2.0\board.xml as part xczu49dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu216ld\production\2.0\board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu670\2.0\board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at F:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu670ld\1.0\board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Project 1-5713] Board part '' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/AMD/2025.2/Vivado/data/ip'.
+INFO: [Project 1-5698] Found the below utility IPs instantiated in block design E:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.srcs/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.bd which have equivalent inline hdl with improved performance and reduced diskspace.
+It is recommended to migrate these utility IPs to inline hdl  using the command upgrade_project -migrate_to_inline_hdl.  The utility IPs may be deprecated in future releases.
+More information on inline hdl is available in UG994.
+Utility IP Component Instances:
+ soundsight_stm32_bd_util_vector_logic_0_0
+soundsight_stm32_bd_util_vector_logic_0_1
+soundsight_stm32_bd_xlconstant_0_0
+soundsight_stm32_bd_xlconstant_0_1
+soundsight_stm32_bd_irq_concat_0
+soundsight_stm32_bd_irq_zero_0
+WARNING: [Common 17-1509] Migration of commands.paini file failed with error : boost::filesystem::directory_iterator::construct: ¾Ü¾ø·ÃÎÊ¡£: "C:\Users\Toph Beifong\AppData\Roaming/Xilinx/Vivado/2025.2/commands"
+open_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 643.332 ; gain = 324.930
+# open_bd_design [get_files -quiet *.bd]
+Reading block design file <E:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.srcs/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.bd>...
+Adding component instance block -- xilinx.com:ip:processing_system7:5.5 - ps7
+Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_main
+Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_audio
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - core_reset
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - io_reset
+Adding component instance block -- xilinx.com:ip:util_vector_logic:2.0 - core_reset_gate
+Adding component instance block -- xilinx.com:ip:util_vector_logic:2.0 - io_reset_gate
+Adding component instance block -- xilinx.com:ip:xpm_cdc_gen:1.0 - core_release
+Adding component instance block -- xilinx.com:ip:xpm_cdc_gen:1.0 - io_release
+Adding component instance block -- xilinx.com:ip:xlconstant:1.1 - zero
+Adding component instance block -- xilinx.com:ip:xlconstant:1.1 - one
+Adding component instance block -- xilinx.com:module_ref:bd_clean_compute:1.0 - compute
+Adding component instance block -- xilinx.com:module_ref:bd_ps_link:1.0 - ps_link
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - control_bus
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:axi_clock_converter:2.1 - control_cdc
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - bus_reset
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - bus_io_reset
+Adding component instance block -- xilinx.com:ip:xlconcat:2.1 - irq_concat
+Adding component instance block -- xilinx.com:ip:xlconstant:1.1 - irq_zero
+Adding component instance block -- xilinx.com:module_ref:bd_audio_capture:1.0 - audio_capture
+Adding component instance block -- xilinx.com:ip:axi_dma:7.1 - axi_dma_audio
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - audio_mem_bus
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Successfully read diagram <soundsight_stm32_bd> from block design file <E:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.srcs/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.bd>
+# source {E:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/package/project/bd/update_ps_reliaze.tcl}
+## namespace eval ss_reliaze_update {
+##     variable root [file normalize [file join [file dirname [info script]] ../..]]
+##     variable names {ss_manual_servo.sv ss_ps_control_regs.sv ss_ps_link.sv bd_ps_link.v
+##         ss_axi_lite_regs.sv ss_snapshot_queue.sv f1a_frame_store.sv ss_pair_engine.sv
+##         ss_pcm_windows.sv ss_clean_compute.sv ss_dual_compute.sv bd_clean_compute.v
+##         ss_pcm_time_cdc.sv ss_audio_fifo.sv ss_audio_capture.sv bd_audio_capture.v}
+##     proc one {xs label} {
+##         if {[llength $xs]!=1} {error "STOP: expected one $label, got $xs"}
+##         return [lindex $xs 0]
+##     }
+##     proc inside {path base} {
+##         set p [file split [file normalize $path]];set b [file split [file normalize $base]]
+##         return [expr {[llength $p]>[llength $b] && [string equal -nocase [lrange $p 0 [expr {[llength $b]-1}]] $b]}]
+##     }
+##     proc bytes {path} {set f [open $path rb];try {return [read $f]} finally {close $f}}
+##     proc refs {name} {
+##         set out {}
+##         foreach f [get_files -quiet -of_objects [get_filesets sources_1]] {
+##             if {[string equal -nocase [file tail [get_property NAME $f]] $name]} {lappend out $f}
+##         }
+##         return $out
+##     }
+##     proc pin {p} {return [one [get_bd_pins -quiet $p] $p]}
+##     proc net {source sinks} {
+##         set a [pin $source];set n [get_bd_nets -quiet -of_objects $a]
+##         foreach s $sinks {
+##             set b [pin $s];set bn [get_bd_nets -quiet -of_objects $b]
+##             if {[llength $bn]} {
+##                 if {$n ne $bn} {error "STOP: conflicting net at $s"}
+##             } elseif {[llength $n]} {connect_bd_net -net $n $b
+##             } else {connect_bd_net $a $b;set n [get_bd_nets -quiet -of_objects $a]}
+##         }
+##     }
+##     proc intf {source sink} {
+##         set a [one [get_bd_intf_pins -quiet $source] $source]
+##         set b [one [get_bd_intf_pins -quiet $sink] $sink]
+##         set an [get_bd_intf_nets -quiet -of_objects $a];set bn [get_bd_intf_nets -quiet -of_objects $b]
+##         if {[llength $an] || [llength $bn]} {
+##             if {$an ne $bn} {error "STOP: conflicting interface $source -> $sink"}
+##         } else {connect_bd_intf_net $a $b}
+##     }
+##     proc run {} {
+##         variable root;variable names
+##         set project [one [get_projects -quiet] project]
+##         set name [get_property NAME $project];set dir [file normalize [get_property DIRECTORY $project]]
+##         if {![string equal -nocase $name SoundSight_PS_Reliaze] || [inside $dir $root] || $dir eq $root} {
+##             error {STOP: open the external SoundSight_PS_Reliaze copy, not Servo or the repository}
+##         }
+##         if {[get_property PART $project] ne {xc7z020clg400-2}} {error {STOP: wrong part}}
+##         foreach r [get_runs -quiet] {
+##             if {[regexp -nocase {running|queued|launching} [get_property STATUS $r]]} {error "STOP: active run $r"}
+##         }
+##         if {[current_bd_design -quiet] eq {}} {open_bd_design [one [get_files -quiet *.bd] BD]}
+##         current_bd_instance /
+##         set bd [current_bd_design];set bdobj [one [get_files -quiet */${bd}.bd] BD]
+##         set bdpath [get_property NAME $bdobj]
+##         if {![inside $bdpath $dir]} {error {STOP: BD is outside the copy}}
+##         if {[get_property TOP [get_filesets sources_1]] ne "${bd}_wrapper"} {error {STOP: unexpected top}}
+##         foreach {c v} {compute xilinx.com:module_ref:bd_clean_compute:1.0 ps_link xilinx.com:module_ref:bd_ps_link:1.0 ps7 xilinx.com:ip:processing_system7:5.5} {
+##             if {[get_property VLNV [one [get_bd_cells -quiet $c] $c]] ne $v} {error "STOP: wrong $c"}
+##         }
+##         foreach {p v} {ACTUATOR_BOUND 1 LEVEL_ENABLE 1 SERVO_MAX 360 CLK_FREQ_HZ 61440000} {
+##             if {[get_property CONFIG.$p [get_bd_cells ps_link]]!=$v} {error "STOP: unexpected ps_link $p"}
+##         }
+##         foreach {f port package_pin} {board_pins.xdc servo_pwm T15 horizontal_reserved.xdc servo_vertical_pwm W15} {
+##             set obj [one [get_files -quiet -of_objects [get_filesets constrs_1] */$f] $f]
+##             set path [get_property NAME $obj]
+##             if {![inside $path $dir]} {error "STOP: active constraint outside copy: $path"}
+##             set pattern [format {set_property\s+PACKAGE_PIN\s+%s\s+\[get_ports\s+\{?%s\}?\]} $package_pin $port]
+##             if {![regexp $pattern [bytes $path]]} {error "STOP: expected $port on $package_pin"}
+##         }
+##         # All paths and collisions are checked before copying or editing the BD.
+##         set existing [refs ss_clean_compute.sv]
+##         set source_dir [file dirname [get_property NAME [one $existing compute_source]]]
+##         if {![inside $source_dir $dir]} {error {STOP: RTL is not local to the copy}}
+##         set plan {}
+##         foreach f $names {
+##             set src [file join $root project rtl $f]
+##             if {![file isfile $src]} {error "STOP: missing package dependency $src"}
+##             set matches [refs $f]
+##             if {[llength $matches]>1} {error "STOP: duplicate source $f"}
+##             set dest [file join $source_dir $f]
+##             if {[llength $matches]} {
+##                 set dest [file normalize [get_property NAME [lindex $matches 0]]]
+##                 if {![inside $dest $dir]} {error "STOP: external reference $dest"}
+##             } elseif {[file exists $dest]} {error "STOP: unregistered local file $dest"}
+##             lappend plan [list $src $dest [llength $matches]]
+##         }
+##         set present 0
+##         foreach {c v} {audio_capture xilinx.com:module_ref:bd_audio_capture:1.0 axi_dma_audio xilinx.com:ip:axi_dma:7.1 audio_mem_bus xilinx.com:ip:axi_interconnect:2.1} {
+##             set obj [get_bd_cells -quiet $c]
+##             if {[llength $obj]} {
+##                 incr present
+##                 if {[get_property VLNV $obj] ne $v} {error "STOP: name collision $c"}
+##             }
+##         }
+##         if {$present!=0 && $present!=3} {error {STOP: partially installed audio BD; inspect the saved backup}}
+##         if {$present==0 && [get_property CONFIG.NUM_MI [get_bd_cells control_bus]]!=1} {error {STOP: unexpected control bus}}
+##         if {$present==0 && [llength [get_bd_intf_nets -quiet -of_objects [get_bd_intf_pins -quiet ps7/S_AXI_HP0]]]} {
+##             error {STOP: HP0 is already connected}
+##         }
+##         foreach seg [get_bd_addr_segs -quiet -of_objects [get_bd_addr_spaces ps7/Data]] {
+##             set lo [get_property OFFSET $seg];set size [get_property RANGE $seg]
+##             if {$lo eq {} || $size eq {}} {continue}
+##             foreach base {0x40400000 0x43C00000} {
+##                 if {$lo < $base+0x10000 && $lo+$size > $base &&
+##                     !($present==3 && ($lo==0x40400000 || $lo==0x43C00000))} {
+##                     error "STOP: audio address overlaps $seg"
+##                 }
+##             }
+##         }
+##         set backup [file join $dir handoff before_pcm_[clock format [clock seconds] -format %Y%m%d_%H%M%S]_[clock clicks]]
+##         file mkdir $backup
+##         save_bd_design
+##         file copy $bdpath [file join $backup before.bd]
+##         file copy [file join $dir ${name}.xpr] [file join $backup before.xpr]
+##         set manifest [open [file join $backup replaced_paths.txt] w]
+##         try {
+##             foreach row $plan {
+##                 lassign $row src dest registered
+##                 puts $manifest "$registered\t$dest"
+##                 if {[file exists $dest]} {file copy $dest [file join $backup [file tail $dest]]}
+##                 file copy -force $src $dest
+##                 if {[bytes $src] ne [bytes $dest]} {error "STOP: copy mismatch $dest"}
+##                 if {!$registered} {add_files -norecurse -fileset sources_1 [list $dest]}
+##             }
+##         } finally {close $manifest}
+##         update_compile_order -fileset sources_1
+##         foreach module {bd_clean_compute bd_ps_link} {
+##             set ip [one [get_ips -all -filter "IPDEF == xilinx.com:module_ref:${module}:1.0" "${bd}_*"] $module]
+##             update_module_reference -verbose $ip
+##         }
+##         set_property CONFIG.AUDIO_ENABLE 1 [get_bd_cells compute]
+##         set_property CONFIG.AUDIO_ENABLE 1 [get_bd_cells ps_link]
+##         if {$present==0} {
+##             create_bd_cell -type module -reference bd_audio_capture audio_capture
+##             create_bd_cell -type ip -vlnv xilinx.com:ip:axi_dma:7.1 axi_dma_audio
+##             create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 audio_mem_bus
+##         } else {
+##             update_module_reference -verbose [one [get_ips -all -filter {IPDEF == xilinx.com:module_ref:bd_audio_capture:1.0} "${bd}_*"] audio_capture_ip]
+##         }
+##         set_property -dict [list CONFIG.c_include_sg 0 CONFIG.c_include_mm2s 0 CONFIG.c_include_s2mm 1 \
+##             CONFIG.c_micro_dma 0 CONFIG.c_include_s2mm_dre 0 CONFIG.c_s_axis_s2mm_tdata_width 32 \
+##             CONFIG.c_m_axi_s2mm_data_width 64 CONFIG.c_sg_length_width 16 \
+##             CONFIG.c_s2mm_burst_size 16] [get_bd_cells axi_dma_audio]
+##         set_property -dict [list CONFIG.NUM_SI 1 CONFIG.NUM_MI 1] [get_bd_cells audio_mem_bus]
+##         set_property -dict [list CONFIG.PCW_USE_S_AXI_HP0 1 CONFIG.PCW_S_AXI_HP0_DATA_WIDTH 64] [get_bd_cells ps7]
+##         set_property CONFIG.NUM_MI 3 [get_bd_cells control_bus]
+##         intf control_bus/M01_AXI axi_dma_audio/S_AXI_LITE
+##         intf control_bus/M02_AXI audio_capture/S_AXI
+##         intf audio_capture/M_AXIS axi_dma_audio/S_AXIS_S2MM
+##         intf axi_dma_audio/M_AXI_S2MM audio_mem_bus/S00_AXI
+##         intf audio_mem_bus/M00_AXI ps7/S_AXI_HP0
+##         net clk_main/clk_out2 {control_bus/M01_ACLK control_bus/M02_ACLK audio_capture/clk
+##             axi_dma_audio/s_axi_lite_aclk axi_dma_audio/m_axi_s2mm_aclk
+##             audio_mem_bus/ACLK audio_mem_bus/S00_ACLK audio_mem_bus/M00_ACLK ps7/S_AXI_HP0_ACLK}
+##         net bus_reset/peripheral_aresetn {control_bus/M01_ARESETN control_bus/M02_ARESETN
+##             audio_capture/aresetn axi_dma_audio/axi_resetn audio_mem_bus/S00_ARESETN audio_mem_bus/M00_ARESETN}
+##         net bus_reset/interconnect_aresetn {audio_mem_bus/ARESETN}
+##         net core_release/dest_arst {audio_capture/rst_n}
+##         net axi_dma_audio/s2mm_prmry_reset_out_n {audio_capture/dma_resetn}
+##         net ps_link/run_enable {audio_capture/run_enable_async}
+##         net compute/draining {audio_capture/compute_draining_async}
+##         foreach {a b} {audio_valid pcm_valid audio_clip pcm_clip audio_source_fault pcm_fault audio_pcm pcm audio_sample_index sample_index} {
+##             net compute/$a [list audio_capture/$b]
+##         }
+##         net audio_capture/epoch {compute/audio_epoch}
+##         net audio_capture/active {compute/audio_active}
+##         net compute/feature_meta {ps_link/feature_meta}
+##         if {$present==0} {
+##             set old [get_bd_nets -quiet -of_objects [pin irq_concat/In1]]
+##             if {[llength $old]} {disconnect_bd_net $old [pin irq_concat/In1]}
+##         }
+##         set_property -dict [list CONFIG.NUM_PORTS 3 CONFIG.IN0_WIDTH 1 CONFIG.IN1_WIDTH 1 CONFIG.IN2_WIDTH 14] [get_bd_cells irq_concat]
+##         set_property CONFIG.CONST_WIDTH 14 [get_bd_cells irq_zero]
+##         net axi_dma_audio/s2mm_introut {irq_concat/In1}
+##         net irq_zero/dout {irq_concat/In2}
+##         assign_bd_address -offset 0x40400000 -range 0x00010000 -target_address_space [get_bd_addr_spaces ps7/Data] [get_bd_addr_segs axi_dma_audio/S_AXI_LITE/Reg] -force
+##         assign_bd_address -offset 0x43C00000 -range 0x00001000 -target_address_space [get_bd_addr_spaces ps7/Data] [get_bd_addr_segs audio_capture/S_AXI/reg0] -force
+##         assign_bd_address -target_address_space [get_bd_addr_spaces axi_dma_audio/Data_S2MM] [get_bd_addr_segs ps7/S_AXI_HP0/HP0_DDR_LOWOCM]
+##         validate_bd_design
+##         save_bd_design
+##         generate_target all [list $bdobj]
+##         update_compile_order -fileset sources_1
+##         puts "RELIAZE_BACKUP=$backup"
+##         puts {RELIAZE_PREPARED: manual + timed PCM; DMA=0x40400000 audio=0x43C00000; T15/W15 unchanged}
+##         puts {NO_SYNTHESIS_IMPLEMENTATION_BITSTREAM_OR_HARDWARE_ACTIONS_STARTED}
+##     }
+## }
+## if {![info exists ::ss_reliaze_library_only] || !$::ss_reliaze_library_only} {ss_reliaze_update::run}
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'io_clk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'io_clk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'io_rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'io_rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'io_clk': Added interface parameter 'ASSOCIATED_RESET' with value 'io_rst_n'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'FREQ_HZ' with value '100000000'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst_n'.
+INFO: [IP_Flow 19-4728] Bus Interface 'io_clk': Added interface parameter 'FREQ_HZ' with value '61440000'.
+INFO: [IP_Flow 19-7067] Note that bus interface 'clk' has a fixed FREQ_HZ of '100000000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-7067] Note that bus interface 'io_clk' has a fixed FREQ_HZ of '61440000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+WARNING: [IP_Flow 19-5661] Bus Interface 'io_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'io_clk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'io_clk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'io_rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'io_rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'io_clk': Added interface parameter 'ASSOCIATED_RESET' with value 'io_rst_n'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'FREQ_HZ' with value '100000000'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst_n'.
+INFO: [IP_Flow 19-4728] Bus Interface 'io_clk': Added interface parameter 'FREQ_HZ' with value '61440000'.
+INFO: [IP_Flow 19-7067] Note that bus interface 'clk' has a fixed FREQ_HZ of '100000000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-7067] Note that bus interface 'io_clk' has a fixed FREQ_HZ of '61440000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+WARNING: [IP_Flow 19-5661] Bus Interface 'io_clk' does not have any bus interfaces associated with it.
+Upgrading 'E:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.srcs/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.bd'
+INFO: [IP_Flow 19-3420] Updated soundsight_stm32_bd_bd_clean_compute_0_0 to use current project options
+Wrote  : <E:\Users\Toph Beifong\Documents\GitHub\SoundSight\codex_out\pcm-integration\project\SoundSight_PS_Reliaze.srcs\sources_1\bd\soundsight_stm32_bd\soundsight_stm32_bd.bd> 
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'irq' of definition 'xilinx.com:signal:interrupt:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'irq' of definition 'xilinx.com:signal:interrupt:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'S_AXI'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'FREQ_HZ' with value '61440000'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'PROTOCOL' with value 'AXI4LITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'DATA_WIDTH' with value '32'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'ADDR_WIDTH' with value '12'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'READ_WRITE_MODE' with value 'READ_WRITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_READ_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_WRITE_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'irq': Added interface parameter 'SENSITIVITY' with value 'LEVEL_HIGH'.
+INFO: [IP_Flow 19-7067] Note that bus interface 'clk' has a fixed FREQ_HZ of '61440000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'irq' of definition 'xilinx.com:signal:interrupt:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'irq' of definition 'xilinx.com:signal:interrupt:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'S_AXI'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'FREQ_HZ' with value '61440000'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'PROTOCOL' with value 'AXI4LITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'DATA_WIDTH' with value '32'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'ADDR_WIDTH' with value '12'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'READ_WRITE_MODE' with value 'READ_WRITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_READ_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_WRITE_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'irq': Added interface parameter 'SENSITIVITY' with value 'LEVEL_HIGH'.
+INFO: [IP_Flow 19-7067] Note that bus interface 'clk' has a fixed FREQ_HZ of '61440000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+Upgrading 'E:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.srcs/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.bd'
+INFO: [IP_Flow 19-3420] Updated soundsight_stm32_bd_bd_ps_link_0_0 to use current project options
+Wrote  : <E:\Users\Toph Beifong\Documents\GitHub\SoundSight\codex_out\pcm-integration\project\SoundSight_PS_Reliaze.srcs\sources_1\bd\soundsight_stm32_bd\soundsight_stm32_bd.bd> 
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXIS' of definition 'xilinx.com:interface:axis:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXIS' of definition 'xilinx.com:interface:axis:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'dma_resetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'dma_resetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'S_AXI'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'FREQ_HZ' with value '100000000'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'PROTOCOL' with value 'AXI4LITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'DATA_WIDTH' with value '32'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'ADDR_WIDTH' with value '12'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'READ_WRITE_MODE' with value 'READ_WRITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_READ_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_WRITE_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-7067] Note that bus interface 'clk' has a fixed FREQ_HZ of '100000000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXIS' of definition 'xilinx.com:interface:axis:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXIS' of definition 'xilinx.com:interface:axis:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'dma_resetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'dma_resetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'S_AXI'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'FREQ_HZ' with value '100000000'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'PROTOCOL' with value 'AXI4LITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'DATA_WIDTH' with value '32'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'ADDR_WIDTH' with value '12'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'READ_WRITE_MODE' with value 'READ_WRITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_READ_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_WRITE_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-7067] Note that bus interface 'clk' has a fixed FREQ_HZ of '100000000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+Upgrading 'E:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.srcs/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.bd'
+INFO: [IP_Flow 19-3420] Updated soundsight_stm32_bd_audio_capture_0 to use current project options
+Wrote  : <E:\Users\Toph Beifong\Documents\GitHub\SoundSight\codex_out\pcm-integration\project\SoundSight_PS_Reliaze.srcs\sources_1\bd\soundsight_stm32_bd\soundsight_stm32_bd.bd> 
+clk_domain: soundsight_stm32_bd_processing_system7_0_0_FCLK_CLK0, clk_domain_1: soundsight_stm32_bd_processing_system7_0_0_FCLK_CLK0, clkDomainValSrc_1: PROPAGATED, clk_domain_ctrl: 0
+clk_domain: soundsight_stm32_bd_processing_system7_0_0_FCLK_CLK0, clk_domain_1: soundsight_stm32_bd_processing_system7_0_0_FCLK_CLK0, clkDomainValSrc_1: PROPAGATED, clk_domain_ctrl: 0
+WARNING: [BD 41-702] Propagation TCL tries to overwrite USER strength parameter C_M_AXI_S2MM_DATA_WIDTH(64) on '/axi_dma_audio' with propagated value(32). Command ignored
+clk_domain: soundsight_stm32_bd_processing_system7_0_0_FCLK_CLK0, clk_domain_1: soundsight_stm32_bd_processing_system7_0_0_FCLK_CLK0, clkDomainValSrc_1: PROPAGATED, clk_domain_ctrl: 0
+clk_domain: soundsight_stm32_bd_processing_system7_0_0_FCLK_CLK0, clk_domain_1: soundsight_stm32_bd_processing_system7_0_0_FCLK_CLK0, clkDomainValSrc_1: PROPAGATED, clk_domain_ctrl: 0
+clk_domain: soundsight_stm32_bd_processing_system7_0_0_FCLK_CLK0, clk_domain_1: soundsight_stm32_bd_processing_system7_0_0_FCLK_CLK0, clkDomainValSrc_1: PROPAGATED, clk_domain_ctrl: 0
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_audio clk_wiz propagate
+INFO: [xilinx.com:ip:util_vector_logic:2.0-10] /core_reset_gate IP set output pin Res type to "rst" when Input pin Op1 type is "rst" and Input pin Op2 type is "undef".
+INFO: [xilinx.com:ip:util_vector_logic:2.0-10] /io_reset_gate IP set output pin Res type to "rst" when Input pin Op1 type is "rst" and Input pin Op2 type is "undef".
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_main clk_wiz propagate
+Wrote  : <E:\Users\Toph Beifong\Documents\GitHub\SoundSight\codex_out\pcm-integration\project\SoundSight_PS_Reliaze.srcs\sources_1\bd\soundsight_stm32_bd\soundsight_stm32_bd.bd> 
+INFO: [BD 41-1662] The design 'soundsight_stm32_bd.bd' is already validated. Therefore parameter propagation will not be re-run.
+Verilog Output written to : e:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.gen/sources_1/bd/soundsight_stm32_bd/synth/soundsight_stm32_bd.v
+Verilog Output written to : e:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.gen/sources_1/bd/soundsight_stm32_bd/sim/soundsight_stm32_bd.v
+Verilog Output written to : e:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.gen/sources_1/bd/soundsight_stm32_bd/hdl/soundsight_stm32_bd_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block compute .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps_link .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block audio_capture .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block control_bus/s00_couplers/auto_pc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block audio_mem_bus/s00_couplers/auto_pc .
+Exporting to file e:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.gen/sources_1/bd/soundsight_stm32_bd/hw_handoff/soundsight_stm32_bd.hwh
+Generated Hardware Definition File e:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.gen/sources_1/bd/soundsight_stm32_bd/synth/soundsight_stm32_bd.hwdef
+INFO: [BD 41-3262] Generated VHDL Instantiation Template file e:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.gen/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.vho
+INFO: [BD 41-3262] Generated Verilog Instantiation Template file e:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.gen/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.veo
+INFO: [BD 41-3262] Generated System Verilog Instantiation Template file e:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/SoundSight_PS_Reliaze.gen/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd_sv.sveo
+RELIAZE_BACKUP=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project/handoff/before_pcm_20261024_000652_315353088317
+RELIAZE_PREPARED: manual + timed PCM; DMA=0x40400000 audio=0x43C00000; T15/W15 unchanged
+NO_SYNTHESIS_IMPLEMENTATION_BITSTREAM_OR_HARDWARE_ACTIONS_STARTED
+# puts {FINAL_CANDIDATE_BD_PASS}
+FINAL_CANDIDATE_BD_PASS
+# close_project
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 24 00:06:59 2026...

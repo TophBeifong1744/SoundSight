@@ -1,0 +1,7 @@
+USER MESSAGE UTC 2026-10-21T09:36:29.899Z
+---- 已发送 utf8 编码消息: "python3 -c \"import json; from collections import Counter; r=[json.loads(s) for s in open('ram-real-100-001.jsonl') if s.strip()]; f=[x for x in r if 'frame' in x and x['result']['reason']==1]; print('REJECT1_SEQUENCES=',[x['frame']['sequence'] for x in f]); print('MASK_COUNTS=',dict(Counter(tuple((x['frame']['words'][5*i]>>16)&127 for i in range(6)) for x in f)))\"\n" ----
+frame']['sequence'] for x in f]); print('MASK_COUNTS=',dict(Counter(tuple((x['frame']['words'][5*i]>>16)&127 for i in range(6)) for x in f)))"
+REJECT1_SEQUENCES= [56, 58, 61, 62, 63, 64, 65, 66, 67, 70, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 93, 94, 95, 96, 99]
+MASK_COUNTS= {(0, 0, 0, 0, 0, 0): 30}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+

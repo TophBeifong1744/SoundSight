@@ -1,0 +1,62 @@
+{
+  "status": "REJECTED_NUMERIC_OR_RUNTIME_FAILURE",
+  "scope": "PC_X86_ORT1173_NUMERIC_ONLY_NO_BENCHMARK",
+  "ort": "1.17.3",
+  "original_sha256": "e14405d2580db61c1359808102c7f7f8ac73623303c2076087d2a9efd7ebc4f4",
+  "cp1_sha256": "5012f8f3afd594943d37384524a8b596b1fc860c5f371058b783c396411396ac",
+  "candidate_sha256": "d0a99d2332db6c26e166a769582956f642199a8bd71b5fa9a27bdb9af26fee50",
+  "tolerances": {
+    "raw_relative_l2": 1e-05,
+    "normalized_max_abs": 1e-05,
+    "score_abs": 1e-05
+  },
+  "error": "ValueError: CP2_NUMERIC_GATE_FAILED: zero-98",
+  "worst_numeric": {
+    "raw_relative_l2": 1.1299583340959463e-05,
+    "normalized_max_abs": 2.3667802622751033e-06,
+    "score_abs": 6.806204974150326e-07
+  },
+  "wrong_shapes_rejected": [
+    48,
+    97,
+    99,
+    148,
+    198,
+    201,
+    398
+  ],
+  "cases": [
+    {
+      "case": "window-144320",
+      "passed": true,
+      "bit_exact": false,
+      "raw_relative_l2": 1.1202790224801385e-06,
+      "normalized_max_abs": 2.3029937737395478e-07,
+      "score_abs": 6.544037742077513e-08
+    },
+    {
+      "case": "window-16320",
+      "passed": true,
+      "bit_exact": false,
+      "raw_relative_l2": 7.538283734339062e-06,
+      "normalized_max_abs": 1.7629447819633715e-06,
+      "score_abs": 6.806204974150326e-07
+    },
+    {
+      "case": "window-80320",
+      "passed": true,
+      "bit_exact": false,
+      "raw_relative_l2": 1.0287941278762316e-06,
+      "normalized_max_abs": 2.1749427632500318e-07,
+      "score_abs": 1.7997686194669293e-08
+    },
+    {
+      "case": "zero-98",
+      "passed": false,
+      "bit_exact": false,
+      "raw_relative_l2": 1.1299583340959463e-05,
+      "normalized_max_abs": 2.3667802622751033e-06,
+      "score_abs": 2.6326883552363345e-07
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+BARRIER_WORKLOAD= {'produced': 240, 'high_water': False, 'barriers': 59, 'peak': 12}
+ORIGINAL_BARRIER_WORKLOAD= {'produced': 60, 'high_water': True, 'barriers': 60, 'peak': 48}
+
+test_arrivals_during_sd_barriers_finish_without_high_water (__main__.BacklogTests.test_arrivals_during_sd_barriers_finish_without_high_water) ... ok
+test_blocked_sync_keeps_inflight_capacity_and_partial_tail_flushes (__main__.BacklogTests.test_blocked_sync_keeps_inflight_capacity_and_partial_tail_flushes) ... ok
+test_invalid_batch_configuration (__main__.BacklogTests.test_invalid_batch_configuration) ... ok
+test_original_per_record_sync_reaches_high_water (__main__.BacklogTests.test_original_per_record_sync_reaches_high_water) ... ok
+test_partial_live_batch_has_bounded_wait_without_finish (__main__.BacklogTests.test_partial_live_batch_has_bounded_wait_without_finish) ... ok
+test_write_flush_and_sync_failure_keep_entire_batch (__main__.BacklogTests.test_write_flush_and_sync_failure_keep_entire_batch) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.627s
+
+OK

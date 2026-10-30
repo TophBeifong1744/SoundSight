@@ -1,0 +1,24 @@
+SPEAKER_3D_STOPPED RESULT=FAIL OUTPUT=/tmp/tmpff8fc24a/logs/speaker-3d-20261029-213042-151912.json ERROR=RuntimeError: mock stops before hardware
+test_axes_revoke_only_and_drain_failure_aborts (__main__.EnrollmentTests.test_axes_revoke_only_and_drain_failure_aborts) ... ok
+test_cancel_or_silence_preserves_old_selected_profile_and_recording (__main__.EnrollmentTests.test_cancel_or_silence_preserves_old_selected_profile_and_recording) ... ok
+test_capture_failure_and_guard_wiring (__main__.EnrollmentTests.test_capture_failure_and_guard_wiring) ... ok
+test_cli_defaults_and_no_axes_option (__main__.EnrollmentTests.test_cli_defaults_and_no_axes_option) ... ok
+test_corrupted_or_different_model_profile_refused (__main__.EnrollmentTests.test_corrupted_or_different_model_profile_refused) ... ok
+test_custom_profile_import (__main__.EnrollmentTests.test_custom_profile_import) ... ok
+test_entry_owner_lock_conflict_no_recording (__main__.EnrollmentTests.test_entry_owner_lock_conflict_no_recording) ... ok
+test_existing_profile_never_overwritten (__main__.EnrollmentTests.test_existing_profile_never_overwritten) ... ok
+test_failed_capture_does_not_publish_or_call_model (__main__.EnrollmentTests.test_failed_capture_does_not_publish_or_call_model) ... ok
+test_legacy_p02_unchanged_compatibility (__main__.EnrollmentTests.test_legacy_p02_unchanged_compatibility) ... ok
+test_names_and_duration_fail_before_capture (__main__.EnrollmentTests.test_names_and_duration_fail_before_capture) ... ok
+test_one_three_second_clip_saved_not_activated (__main__.EnrollmentTests.test_one_three_second_clip_saved_not_activated) ... ok
+test_runtime_reads_target_and_threshold_only_inside_owner_lock (__main__.EnrollmentTests.test_runtime_reads_target_and_threshold_only_inside_owner_lock) ... ok
+test_select_clear_old_permission_and_runtime_load_new_template (__main__.EnrollmentTests.test_select_clear_old_permission_and_runtime_load_new_template) ... ok
+test_selector_write_failure_leaves_gate_disabled (__main__.EnrollmentTests.test_selector_write_failure_leaves_gate_disabled) ... ok
+test_two_people_coexist_and_switch (__main__.EnrollmentTests.test_two_people_coexist_and_switch) ... ok
+test_unknown_target_does_not_disable_current_settings (__main__.EnrollmentTests.test_unknown_target_does_not_disable_current_settings) ... ok
+test_uniform_windows_and_silence_rejection (__main__.ModelWindowTests.test_uniform_windows_and_silence_rejection) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 1.163s
+
+OK

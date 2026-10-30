@@ -1,0 +1,63 @@
+{
+  "package": "soundsight_pynq_servo.zip",
+  "bytes": 770644,
+  "files": 57,
+  "xsa_bit_hwh_byte_match": true,
+  "six_actuator_sources_match": [
+    "bd_ps_link.v",
+    "ss_ps_link.sv",
+    "ss_ps_control_regs.sv",
+    "ss_actuator_control.sv",
+    "motor_drive.v",
+    "i17_turntable_pwm_guard.sv"
+  ],
+  "pins": {
+    "horizontal": "V7/J4-5",
+    "vertical": "U7/J4-6"
+  },
+  "hwh_base": "0x40000000",
+  "python38_syntax": true,
+  "shell_lf": true,
+  "tests": [
+    {
+      "test": "test_normal.py",
+      "returncode": 0
+    },
+    {
+      "test": "test_volume_gate.py",
+      "returncode": 0
+    },
+    {
+      "test": "test_serial_english.py",
+      "returncode": 0
+    },
+    {
+      "test": "test_board_tools.py",
+      "returncode": 0
+    },
+    {
+      "test": "test_filter_controls.py",
+      "returncode": 0
+    },
+    {
+      "test": "test_horizontal_motion.py",
+      "returncode": 0
+    },
+    {
+      "test": "test_launcher.py",
+      "returncode": 0
+    }
+  ],
+  "hardware_actions": 0,
+  "new_package_arm_and_motion": "NOT_RUN",
+  "routed": {
+    "wns_ns": 0.278,
+    "whs_ns": 0.036,
+    "wpws_ns": 2.208,
+    "failing_endpoints": 0,
+    "drc_warnings_retained": true
+  },
+  "verification_correction": "Initial packaging checker expected scalar address; actual API returns (base, bytes). Checker corrected; no product defect.",
+  "test_count": 96,
+  "final_metadata_only_update": "Threshold description corrected to default 7000; all tested payload files unchanged."
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "soundsight-frozen-table-v1",
+  "scope": "RESEARCH_ONLY",
+  "source_path": "task-packages/PKG-B-ALG/tasks/h3-complete-20260918/source/fixed_golden.py",
+  "source_sha256": "f6bb2bc41dee3f1e2e6d93176972d92db12d687978fd3a95a47e85b28f88a74a",
+  "generator_sha256": "e4a6545cf0d6861b0b496a46b3409e1371e7c6ef15d02576940b299cacc7b305",
+  "python": "3.13.0",
+  "numpy": "2.2.0",
+  "method": "instrument fixed_golden.fixed_fft on 1024 zeros, forward29 then inverse25; capture every actual cos/sin call in stage-size ascending, j ascending order; capture imported _CORDIC_ATAN_Q16",
+  "fft": {
+    "file": "fft-q30-i32le.bin",
+    "shape": [
+      2,
+      1023,
+      2
+    ],
+    "order": "direction forward,inverse; radix2 size 2..1024; j ascending; real,imag",
+    "dtype": "little-endian signed int32",
+    "fraction_bits": 30,
+    "sha256": "ecef1157b1b089fd1f869d86480d3346423f015d13e383cfca759b732f52ad47",
+    "bytes": 16368
+  },
+  "atan": {
+    "file": "cordic-atan-q16-i32le.bin",
+    "shape": [
+      24
+    ],
+    "order": "iteration i=0..23",
+    "dtype": "little-endian signed int32",
+    "fraction_bits": 16,
+    "sha256": "c2842f0188edffcf6a33b62cfc681c34c7bc83b7f363ca2eac85cc4c00a1d09d",
+    "bytes": 96
+  }
+}

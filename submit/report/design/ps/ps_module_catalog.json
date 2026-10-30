@@ -1,0 +1,58 @@
+[
+  {
+    "path": "project/rtl/ss_axi_lite_regs.sv",
+    "group": "PS独有",
+    "purpose": "AXI4-Lite总线转换，AW/W分开保存，B/R背压保持。",
+    "interfaces": "clk、aresetn与五个AXI通道；address/commit/write_access/write_data/read_data为寄存器内接口。无效对齐/范围/字节写返回SLVERR。",
+    "lines": 64,
+    "declarations": [
+      {
+        "kind": "module",
+        "name": "ss_axi_lite_regs",
+        "declaration": "module ss_axi_lite_regs (\n input wire clk, aresetn,\n input wire [11:0] s_axi_awaddr,input wire [2:0] s_axi_awprot,\n input wire s_axi_awvalid,output wire s_axi_awready,\n input wire [31:0] s_axi_wdata,input wire [3:0] s_axi_wstrb,\n input wire s_axi_wvalid,output wire s_axi_wready,\n output reg [1:0] s_axi_bresp,output reg s_axi_bvalid,input wire s_axi_bready,\n input wire [11:0] s_axi_araddr,input wire [2:0] s_axi_arprot,\n input wire s_axi_arvalid,output wire s_axi_arready,\n output reg [31:0] s_axi_rdata,output reg [1:0] s_axi_rresp,\n output reg s_axi_rvalid,input wire s_axi_rready,\n output wire [6:0] address,output wire commit,write_access,format_error,\n output wire [31:0] write_data,input wire [31:0] read_data\n);"
+      }
+    ]
+  },
+  {
+    "path": "project/rtl/ss_ps_control_regs.sv",
+    "group": "PS独有",
+    "purpose": "PS版寄存器层；与SPI版相同公开字段，增加host_stop保留快照的停用入口。",
+    "interfaces": "host_stop来自同步总线复位；冷rst_n才清队列。普通PS复位清使能、角度影子和看门狗，不能自动恢复动作。",
+    "lines": 205,
+    "declarations": [
+      {
+        "kind": "module",
+        "name": "ss_ps_control_regs",
+        "declaration": "module ss_ps_control_regs #(\n    parameter integer ACTUATOR_BOUND=0, CLK_FREQ_HZ=61440000,\n    parameter integer SERVO_MAX=180, MECHANICAL_MIN=0, MECHANICAL_MAX=180\n)(\n    input wire clk, rst_n, host_stop,\n    input wire [6:0] address,\n    input wire commit,write_access,format_error,input wire [31:0] write_data,\n    output reg [31:0] read_data,\n    output wire irq,servo_pwm,\n    input wire feature_valid,\n    output wire feature_ready,\n    input wire [959:0] feature_pairs,\n    input wire [31:0] feature_flags,\n    input wire compute_draining,\n    input wire [11:0] source_faults,\n    output wire run_enable,\n    output reg stop_pulse,\n    output wire [31:0] fault_status,\n    output wire motion_permit,\n    output wire counter_exhausted\n);"
+      }
+    ]
+  },
+  {
+    "path": "project/rtl/ss_ps_link.sv",
+    "group": "PS独有",
+    "purpose": "片内CPU控制入口，组合AXI转换和PS寄存器层。",
+    "interfaces": "S_AXI为32位AXI4-Lite、12位局部地址；clk61.44MHz。rst_n为PL冷复位，aresetn为PS总线复位。",
+    "lines": 39,
+    "declarations": [
+      {
+        "kind": "module",
+        "name": "ss_ps_link",
+        "declaration": "module ss_ps_link #(\n parameter integer ACTUATOR_BOUND=0,CLK_FREQ_HZ=61440000,\n parameter integer SERVO_MAX=180,MECHANICAL_MIN=0,MECHANICAL_MAX=180\n)(\n (* X_INTERFACE_INFO=\"xilinx.com:signal:clock:1.0 clk CLK\" *)\n (* X_INTERFACE_PARAMETER=\"FREQ_HZ 61440000,ASSOCIATED_BUSIF S_AXI,ASSOCIATED_RESET aresetn\" *) input wire clk,\n input wire rst_n,\n (* X_INTERFACE_INFO=\"xilinx.com:signal:reset:1.0 aresetn RST\" *)\n (* X_INTERFACE_PARAMETER=\"POLARITY ACTIVE_LOW\" *) input wire aresetn,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWADDR\" *) (* X_INTERFACE_PARAMETER=\"PROTOCOL AXI4LITE,DATA_WIDTH 32,ADDR_WIDTH 12,READ_WRITE_MODE READ_WRITE,NUM_READ_OUTSTANDING 1,NUM_WRITE_OUTSTANDING 1\" *) input wire [11:0] s_axi_awaddr,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWPROT\" *) input wire [2:0] s_axi_awprot,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWVALID\" *) input wire s_axi_awvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWREADY\" *) output wire s_axi_awready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WDATA\" *) input wire [31:0] s_axi_wdata,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WSTRB\" *) input wire [3:0] s_axi_wstrb,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WVALID\" *) input wire s_axi_wvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WREADY\" *) output wire s_axi_wready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BRESP\" *) output wire [1:0] s_axi_bresp,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BVALID\" *) output wire s_axi_bvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BREADY\" *) input wire s_axi_bready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARADDR\" *) input wire [11:0] s_axi_araddr,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARPROT\" *) input wire [2:0] s_axi_arprot,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARVALID\" *) input wire s_axi_arvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARREADY\" *) output wire s_axi_arready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RDATA\" *) output wire [31:0] s_axi_rdata,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RRESP\" *) output wire [1:0] s_axi_rresp,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RVALID\" *) output wire s_axi_rvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RREADY\" *) input wire s_axi_rready,\n input wire feature_valid,output wire feature_ready,input wire [959:0] feature_pairs,input wire [31:0] feature_flags,\n input wire compute_draining,input wire [11:0] source_faults,output wire run_enable,\n output wire irq,servo_pwm,output wire [31:0] fault_status\n);"
+      }
+    ]
+  },
+  {
+    "path": "project/rtl/bd_ps_link.v",
+    "group": "PS版BD端口适配",
+    "purpose": "可加入BD的PS寄存器薄封装。",
+    "interfaces": "寄存器端61.44MHz；上游100MHz经官方AXI Clock Converter，rst_n冷复位与aresetn总线复位分开。",
+    "lines": 69,
+    "declarations": [
+      {
+        "kind": "module",
+        "name": "bd_ps_link",
+        "declaration": "module bd_ps_link #(\n parameter integer ACTUATOR_BOUND=0,CLK_FREQ_HZ=61440000,\n parameter integer SERVO_MAX=180,MECHANICAL_MIN=0,MECHANICAL_MAX=180\n)(\n (* X_INTERFACE_INFO=\"xilinx.com:signal:clock:1.0 clk CLK\" *)\n (* X_INTERFACE_PARAMETER=\"FREQ_HZ 61440000,ASSOCIATED_BUSIF S_AXI,ASSOCIATED_RESET aresetn\" *) input wire clk,\n input wire rst_n,\n (* X_INTERFACE_INFO=\"xilinx.com:signal:reset:1.0 aresetn RST\" *)\n (* X_INTERFACE_PARAMETER=\"POLARITY ACTIVE_LOW\" *) input wire aresetn,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWADDR\" *) (* X_INTERFACE_PARAMETER=\"PROTOCOL AXI4LITE,DATA_WIDTH 32,ADDR_WIDTH 12,READ_WRITE_MODE READ_WRITE,NUM_READ_OUTSTANDING 1,NUM_WRITE_OUTSTANDING 1\" *) input wire [11:0] s_axi_awaddr,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWPROT\" *) input wire [2:0] s_axi_awprot,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWVALID\" *) input wire s_axi_awvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI AWREADY\" *) output wire s_axi_awready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WDATA\" *) input wire [31:0] s_axi_wdata,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WSTRB\" *) input wire [3:0] s_axi_wstrb,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WVALID\" *) input wire s_axi_wvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI WREADY\" *) output wire s_axi_wready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BRESP\" *) output wire [1:0] s_axi_bresp,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BVALID\" *) output wire s_axi_bvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI BREADY\" *) input wire s_axi_bready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARADDR\" *) input wire [11:0] s_axi_araddr,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARPROT\" *) input wire [2:0] s_axi_arprot,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARVALID\" *) input wire s_axi_arvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI ARREADY\" *) output wire s_axi_arready,\n (* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RDATA\" *) output wire [31:0] s_axi_rdata,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RRESP\" *) output wire [1:0] s_axi_rresp,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RVALID\" *) output wire s_axi_rvalid,(* X_INTERFACE_INFO=\"xilinx.com:interface:aximm:1.0 S_AXI RREADY\" *) input wire s_axi_rready,\n input wire feature_valid,output wire feature_ready,input wire [959:0] feature_pairs,input wire [31:0] feature_flags,\n input wire compute_draining,input wire [11:0] source_faults,output wire run_enable,\n (* X_INTERFACE_INFO=\"xilinx.com:signal:interrupt:1.0 irq INTERRUPT\" *)\n (* X_INTERFACE_PARAMETER=\"SENSITIVITY LEVEL_HIGH\" *) output wire irq,\n output wire servo_pwm,output wire [31:0] fault_status\n);"
+      }
+    ]
+  }
+]

@@ -1,0 +1,625 @@
+{
+  "note": "Already absent from source repository; preserved as text, not invented files.",
+  "references": [
+    {
+      "document": "data/evidence/competition-skills-20261018/history/skills-rereview-b-2026-09-14.md",
+      "original_target": "../../results/skill-review/b-rereview-20260914/"
+    },
+    {
+      "document": "report/history/acoustic-validation-plan.md",
+      "original_target": "team-workflow.md"
+    },
+    {
+      "document": "report/history/acoustic-validation-plan.md",
+      "original_target": "project-plan.md"
+    },
+    {
+      "document": "report/history/acoustic-validation-plan.md",
+      "original_target": "three-handoff-workflow.md"
+    },
+    {
+      "document": "report/history/acoustic-validation-plan.md",
+      "original_target": "current-status.md"
+    },
+    {
+      "document": "report/history/acoustic-validation-plan.md",
+      "original_target": "project-plan.md"
+    },
+    {
+      "document": "report/history/acoustic-validation-plan.md",
+      "original_target": "work-packages.md"
+    },
+    {
+      "document": "report/history/acoustic-validation-plan.md",
+      "original_target": "../deliverables/six-mic-acoustic-review-v1/README.md"
+    },
+    {
+      "document": "report/history/acoustic-validation-plan.md",
+      "original_target": "principles-flow.md#9-从多组-tdoa-求解-doa"
+    },
+    {
+      "document": "report/history/acoustic-validation-plan.md",
+      "original_target": "skills-delivery-plan.md"
+    },
+    {
+      "document": "report/history/competition-acceptance.md",
+      "original_target": "project-plan.md"
+    },
+    {
+      "document": "report/history/competition-acceptance.md",
+      "original_target": "skills-delivery-plan.md"
+    },
+    {
+      "document": "report/history/competition-acceptance.md",
+      "original_target": "../hardware/evidence/board-2026-09-07/README.md"
+    },
+    {
+      "document": "report/history/competition-acceptance.md",
+      "original_target": "skills-delivery-plan.md"
+    },
+    {
+      "document": "report/history/competition-acceptance.md",
+      "original_target": "../docs/maintenance/skills-rereview-b-2026-09-14.md"
+    },
+    {
+      "document": "report/history/competition-acceptance.md",
+      "original_target": "skills-delivery-plan.md"
+    },
+    {
+      "document": "report/history/competition-acceptance.md",
+      "original_target": "current-status.md"
+    },
+    {
+      "document": "report/history/deferred-acquisition-risks.md",
+      "original_target": "../hardware/microphone-adapter-decision.md"
+    },
+    {
+      "document": "report/history/deferred-acquisition-risks.md",
+      "original_target": "../task-packages/PKG-A-ACQ/evidence/existing-electrical-timing-audit-2026-09-10/README.md"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/six-mic-geometry.png"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/six-mic-direction-summary.png"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/six-mic-beam-cuts.png"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/six-channel-synthetic-input.wav"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/A-single-reference.wav"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/B-manual-direction.wav"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/C-auto-static-direction.wav"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../models/python/six_mic_acoustic_review.py"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/config.json"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/direction-trials.csv"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/direction-bins.csv"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/direction-summary.csv"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/self-tests.json"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/SUMMARY.md"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/audio-demo.json"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../results/model/six-mic-acoustic-review/manifest.json"
+    },
+    {
+      "document": "report/history/six-mic-acoustic-software-review.md",
+      "original_target": "../models/python/README.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-engineering-guide.md",
+      "original_target": "team-workflow.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-engineering-guide.md",
+      "original_target": "project-plan.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-engineering-guide.md",
+      "original_target": "three-handoff-workflow.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-engineering-guide.md",
+      "original_target": "engineering-flow.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-engineering-guide.md",
+      "original_target": "architecture.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-engineering-guide.md",
+      "original_target": "pynq-integration-guide.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-engineering-guide.md",
+      "original_target": "../hardware/four-channel-sample-interface-contract.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-engineering-guide.md",
+      "original_target": "../deliverables/six-mic-acoustic-review-v1/README.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-engineering-guide.md",
+      "original_target": "current-status.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-engineering-guide.md",
+      "original_target": "work-packages.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-engineering-guide.md",
+      "original_target": "project-plan.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-engineering-guide.md",
+      "original_target": "../archive/2026-09-07-before-materials-cleanup/README-ARCHIVE.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-plan.md",
+      "original_target": "team-workflow.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-plan.md",
+      "original_target": "project-plan.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-plan.md",
+      "original_target": "work-packages.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-plan.md",
+      "original_target": "../deliverables/six-mic-acoustic-review-v1/README.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-plan.md",
+      "original_target": "work-packages.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-plan.md",
+      "original_target": "chat-start-prompts.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-plan.md",
+      "original_target": "roadmap.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-plan.md",
+      "original_target": "team-tasks.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-plan.md",
+      "original_target": "project-plan.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-plan.md",
+      "original_target": "../hardware/four-channel-sample-interface-contract.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-principles-guide.md",
+      "original_target": "team-workflow.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-principles-guide.md",
+      "original_target": "project-plan.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-principles-guide.md",
+      "original_target": "three-handoff-workflow.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-principles-guide.md",
+      "original_target": "principles-flow.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-principles-guide.md",
+      "original_target": "../deliverables/six-mic-acoustic-review-v1/README.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-principles-guide.md",
+      "original_target": "current-status.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-principles-guide.md",
+      "original_target": "project-plan.md"
+    },
+    {
+      "document": "report/history/three-dimensional-doa-principles-guide.md",
+      "original_target": "work-packages.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "pynq-speaker-live-profile.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "evidence/ps-speaker-live-profile-20261025/README.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "evidence/ps-speaker-profile-20261025/BOARD-PROFILE.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "pynq-speaker-profile.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "evidence/ps-speaker-profile-20261025/README.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "pynq-speaker-opt.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "pynq-speaker-live.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "evidence/ps-speaker-live-rx3-20261025/README.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "evidence/ps-speaker-live-rx2-20261025/README.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "pynq-speaker-live.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "evidence/ps-campplus-stream-board-20261025/README.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "pynq-speaker-live.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "evidence/ps-speaker-live-20261025/README.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "../software/ps/speaker_core/CAMPPLUS-STREAM.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "evidence/ps-campplus-stream-armhf-20261025/README.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "evidence/ps-campplus-short-board-20261025/FP32-FULL.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "../software/ps/speaker_core/CAMPPLUS-SHORT.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "evidence/ps-campplus-pipeline-board-20261025/README.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "../software/ps/speaker_core/CAMPPLUS-PIPELINE.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "speaker-light-model-assessment.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "evidence/ps-campplus-core-armhf-20261024/README.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "evidence/sd-servo-backup-20261024/README.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "../software/ps/speaker_core/CAMPPLUS.md"
+    },
+    {
+      "document": "report/pynq-latest-operations.md",
+      "original_target": "../software/ps/speaker_core/CAMPPLUS.md"
+    },
+    {
+      "document": "report/pynq-volume-sd.md",
+      "original_target": "document/pynq-online-angle-filter.md"
+    },
+    {
+      "document": "report/tetra3d-integration-plan.md",
+      "original_target": "evidence/speaker-return-review-20261028/README.md"
+    },
+    {
+      "document": "board/hardware/history/readme.md",
+      "original_target": "../document/member-c-operation-sheet.md"
+    },
+    {
+      "document": "board/hardware/history/readme.md",
+      "original_target": "../document/team-workflow.md"
+    },
+    {
+      "document": "board/hardware/history/readme.md",
+      "original_target": "../document/project-plan.md"
+    },
+    {
+      "document": "board/hardware/history/readme.md",
+      "original_target": "../document/work-packages.md"
+    },
+    {
+      "document": "board/hardware/history/readme.md",
+      "original_target": "../document/current-status.md"
+    },
+    {
+      "document": "board/hardware/history/readme.md",
+      "original_target": "../document/project-plan.md"
+    },
+    {
+      "document": "board/hardware/history/readme.md",
+      "original_target": "../document/work-packages.md"
+    },
+    {
+      "document": "board/hardware/history/readme.md",
+      "original_target": "evidence/microphone-c-2026-09-09/README.md"
+    },
+    {
+      "document": "board/hardware/history/readme.md",
+      "original_target": "../document/deferred-acquisition-risks.md#c-adapter-risks"
+    },
+    {
+      "document": "board/hardware/history/readme.md",
+      "original_target": "../document/competition-acceptance.md"
+    },
+    {
+      "document": "board/hardware/history/readme.md",
+      "original_target": "../document/six-mic-acoustic-software-review.md"
+    },
+    {
+      "document": "board/hardware/history/readme.md",
+      "original_target": "../deliverables/six-mic-acoustic-review-v1/README.md"
+    },
+    {
+      "document": "board/hardware/history/readme.md",
+      "original_target": "reference/README.md"
+    },
+    {
+      "document": "board/hardware/history/four-channel-sample-interface-contract.md",
+      "original_target": "../document/minimal-data-interface.md"
+    },
+    {
+      "document": "board/hardware/history/m0-board-interface-audit.md",
+      "original_target": "evidence/board-2026-09-07/README.md"
+    },
+    {
+      "document": "board/hardware/history/m0-board-interface-audit.md",
+      "original_target": "reference/README.md"
+    },
+    {
+      "document": "board/hardware/history/microphone-interface-selection.md",
+      "original_target": "../document/team-workflow.md"
+    },
+    {
+      "document": "board/hardware/history/microphone-interface-selection.md",
+      "original_target": "../document/project-plan.md"
+    },
+    {
+      "document": "board/hardware/history/microphone-interface-selection.md",
+      "original_target": "../document/three-handoff-workflow.md"
+    },
+    {
+      "document": "board/hardware/history/microphone-interface-selection.md",
+      "original_target": "../document/current-status.md"
+    },
+    {
+      "document": "board/hardware/history/microphone-interface-selection.md",
+      "original_target": "../document/work-packages.md"
+    },
+    {
+      "document": "board/hardware/history/microphone-interface-selection.md",
+      "original_target": "../document/six-mic-acoustic-software-review.md"
+    },
+    {
+      "document": "board/hardware/history/microphone-interface-selection.md",
+      "original_target": "../deliverables/six-mic-acoustic-review-v1/README.md"
+    },
+    {
+      "document": "board/hardware/history/microphone-recommendation-review.md",
+      "original_target": "../document/acoustic-validation-plan.md"
+    },
+    {
+      "document": "board/hardware/history/microphone-recommendation-review.md",
+      "original_target": "../document/six-mic-acoustic-software-review.md"
+    },
+    {
+      "document": "board/hardware/history/microphone-recommendation-review.md",
+      "original_target": "../deliverables/six-mic-acoustic-review-v1/README.md"
+    },
+    {
+      "document": "board/hardware/history/procurement-specifications.md",
+      "original_target": "../document/team-workflow.md"
+    },
+    {
+      "document": "board/hardware/history/procurement-specifications.md",
+      "original_target": "../document/project-plan.md"
+    },
+    {
+      "document": "board/hardware/history/procurement-specifications.md",
+      "original_target": "../document/three-handoff-workflow.md"
+    },
+    {
+      "document": "board/hardware/history/procurement-specifications.md",
+      "original_target": "../document/six-mic-acoustic-software-review.md"
+    },
+    {
+      "document": "board/hardware/history/procurement-specifications.md",
+      "original_target": "../document/current-status.md"
+    },
+    {
+      "document": "board/hardware/history/procurement-specifications.md",
+      "original_target": "../deliverables/six-mic-acoustic-review-v1/README.md"
+    },
+    {
+      "document": "board/hardware/history/procurement-specifications.md",
+      "original_target": "../document/acoustic-validation-plan.md"
+    },
+    {
+      "document": "board/hardware/history/procurement-specifications.md",
+      "original_target": "../document/competition-acceptance.md"
+    },
+    {
+      "document": "board/hardware/history/procurement-specifications.md",
+      "original_target": "reference/README.md"
+    },
+    {
+      "document": "board/hardware/history/procurement-specifications.md",
+      "original_target": "evidence/board-2026-09-07/README.md"
+    },
+    {
+      "document": "board/hardware/history/servo-camera-decision.md",
+      "original_target": "../docs/reviews/servo-b1d51d4/REVIEW.md"
+    },
+    {
+      "document": "board/hardware/history/servo-camera-decision.md",
+      "original_target": "../document/member-c-operation-sheet.md"
+    },
+    {
+      "document": "board/hardware/history/three-dimensional-array-guide.md",
+      "original_target": "../document/team-workflow.md"
+    },
+    {
+      "document": "board/hardware/history/three-dimensional-array-guide.md",
+      "original_target": "../document/project-plan.md"
+    },
+    {
+      "document": "board/hardware/history/three-dimensional-array-guide.md",
+      "original_target": "../document/three-handoff-workflow.md"
+    },
+    {
+      "document": "board/hardware/history/three-dimensional-array-guide.md",
+      "original_target": "../document/three-dimensional-doa-plan.md"
+    },
+    {
+      "document": "board/hardware/history/three-dimensional-array-guide.md",
+      "original_target": "../document/six-mic-acoustic-software-review.md"
+    },
+    {
+      "document": "board/hardware/history/three-dimensional-array-guide.md",
+      "original_target": "../deliverables/six-mic-acoustic-review-v1/README.md"
+    },
+    {
+      "document": "board/hardware/history/three-dimensional-array-guide.md",
+      "original_target": "reference/README.md"
+    },
+    {
+      "document": "board/hardware/history/three-dimensional-array-guide.md",
+      "original_target": "../document/work-packages.md"
+    },
+    {
+      "document": "board/hardware/history/three-dimensional-array-guide.md",
+      "original_target": "../document/project-plan.md"
+    },
+    {
+      "document": "board/hardware/history/three-dimensional-array-guide.md",
+      "original_target": "../document/current-status.md"
+    },
+    {
+      "document": "board/hardware/reference/readme.md",
+      "original_target": "../../docs/competition-acceptance.md"
+    },
+    {
+      "document": "board/hardware/reference/readme.md",
+      "original_target": "../procurement-specifications.md#12-pynq-通用-skill-的板卡-profile-输入"
+    },
+    {
+      "document": "sim/models/python/readme.md",
+      "original_target": "../../document/six-mic-acoustic-software-review.md"
+    },
+    {
+      "document": "skill/pynq-overlay-dma-validation/references/history/validation-status-20260913.md",
+      "original_target": "../evidence/offline-2026-09-13.json"
+    },
+    {
+      "document": "skill/pynq-overlay-dma-validation/references/history/validation-status-20260913.md",
+      "original_target": "../evidence/forward-test-2026-09-13.json"
+    },
+    {
+      "document": "skill/pynq-overlay-dma-validation/references/history/validation-status-20260913.md",
+      "original_target": "input-audit.md"
+    },
+    {
+      "document": "skill/pynq-overlay-dma-validation/references/history/validation-status-20260913.md",
+      "original_target": "hardware-runbook.md"
+    },
+    {
+      "document": "skill/pynq-overlay-dma-validation/references/history/validation-status-20260913.md",
+      "original_target": "review-handoff.md"
+    },
+    {
+      "document": "src/software/common/s1/readme.md",
+      "original_target": "F:/NUEC/stm32/FROZEN_SSOT_ABI.md"
+    },
+    {
+      "document": "src/software/common/s1/readme.md",
+      "original_target": "F:/NUEC/stm32/fpga_stm32_abi_frozen.h"
+    },
+    {
+      "document": "src/software/common/s1/readme.md",
+      "original_target": "F:/NUEC/stm32/s1/doa_solver.h"
+    },
+    {
+      "document": "src/software/common/s1/readme.md",
+      "original_target": "F:/NUEC/stm32/s1/doa_solver.c"
+    },
+    {
+      "document": "src/software/common/s1/readme.md",
+      "original_target": "F:/NUEC/stm32/s1/test_doa_solver.c"
+    },
+    {
+      "document": "src/software/common/s1/readme.md",
+      "original_target": "F:/NUEC/stm32/s1/build/compile-frozen.log"
+    },
+    {
+      "document": "src/software/common/s1/readme.md",
+      "original_target": "F:/NUEC/stm32/s1/build/run-frozen.log"
+    }
+  ]
+}

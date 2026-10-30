@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "profile_id": "b-thermal",
+  "board": {
+    "board_name": "synthetic-thermal",
+    "board_revision": "offline",
+    "device_part": "xc7z010clg400-1",
+    "pynq_image": "synthetic-not-installed",
+    "compatibility_contains": [
+      "mock,thermal"
+    ]
+  },
+  "overlay": {
+    "bit": "design.bit",
+    "hwh": "design.hwh",
+    "manifest": "manifest.json",
+    "build_id": "b-thermal",
+    "interface_version": 3,
+    "vivado_version": "2025.2",
+    "required_ip": [
+      "thermal_control",
+      "temperature_dma"
+    ]
+  },
+  "register_contract": {
+    "ip_name": "thermal_control",
+    "address_span_bytes": 256,
+    "registers": [
+      {
+        "name": "version",
+        "offset": 32,
+        "width_bits": 32,
+        "access": "ro"
+      }
+    ],
+    "identity": [
+      {
+        "register": "version",
+        "expected": 3,
+        "mask": 4294967295
+      }
+    ]
+  },
+  "dma_contract": {
+    "ip_name": "not_in_hwh",
+    "mode": "simple",
+    "mm2s_channel": "sendchannel",
+    "s2mm_channel": "recvchannel",
+    "stream_data_width_bits": 16,
+    "buffer_alignment_bytes": 64,
+    "length_granularity_bytes": 8,
+    "max_transfer_bytes": 4096,
+    "cache_policy": {
+      "tx": "flush",
+      "rx": "invalidate"
+    },
+    "tlast_required": true
+  },
+  "self_tests": [
+    {
+      "id": "fixture-loopback",
+      "kind": "loopback",
+      "length_bytes": 96,
+      "pattern": "counter8",
+      "timeout_seconds": 1,
+      "golden": "exact"
+    }
+  ],
+  "acceptance": {
+    "minimum_throughput_bytes_per_second": 0,
+    "maximum_latency_seconds": 1
+  }
+}

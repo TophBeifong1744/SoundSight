@@ -1,0 +1,24 @@
+WORKER_STAGE=IMPORT_PYNQ
+WORKER_STAGE=MMIO_SOLVER_ID
+WINDOW_FRAMES=10 MIN_VALID=6 APPLIES_TO=NEXT_RUN
+WINDOW_FRAMES=10 MIN_VALID=6 APPLIES_TO=NEXT_RUN
+MIN_LEVEL= 5000 APPLIES_TO=NEXT_RUN
+
+test_bad_cli_counts_stop_before_board_access (__main__.FilterControlTests.test_bad_cli_counts_stop_before_board_access) ... ok
+test_clear_and_gap_reasons_without_rule_changes (__main__.FilterControlTests.test_clear_and_gap_reasons_without_rule_changes) ... ok
+test_custom_minimum_applies_to_inliers_and_consensus_unchanged (__main__.FilterControlTests.test_custom_minimum_applies_to_inliers_and_consensus_unchanged) ... ok
+test_custom_size_minimum_and_wrap (__main__.FilterControlTests.test_custom_size_minimum_and_wrap) ... ok
+test_default_output_frames_and_counts_unchanged (__main__.FilterControlTests.test_default_output_frames_and_counts_unchanged) ... ok
+test_display_retains_completed_rejection_while_next_group_collects (__main__.FilterControlTests.test_display_retains_completed_rejection_while_next_group_collects) ... ok
+test_filter_command_is_locked_and_read_does_not_require_board (__main__.FilterControlTests.test_filter_command_is_locked_and_read_does_not_require_board) ... ok
+test_invalid_parameters_fail_before_use (__main__.FilterControlTests.test_invalid_parameters_fail_before_use) ... ok
+test_normal_and_debug_worker_construct_configured_real_filter (__main__.FilterControlTests.test_normal_and_debug_worker_construct_configured_real_filter) ... ok
+test_normal_debug_commands_share_saved_and_override_counts (__main__.FilterControlTests.test_normal_debug_commands_share_saved_and_override_counts) ... ok
+test_old_accepted_group_is_history_not_current_angle_after_low_volume (__main__.FilterControlTests.test_old_accepted_group_is_history_not_current_angle_after_low_volume) ... ok
+test_recent_clear_is_retained_after_recovery (__main__.FilterControlTests.test_recent_clear_is_retained_after_recovery) ... ok
+test_settings_legacy_migration_and_updates_preserve_each_other (__main__.FilterControlTests.test_settings_legacy_migration_and_updates_preserve_each_other) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.044s
+
+OK

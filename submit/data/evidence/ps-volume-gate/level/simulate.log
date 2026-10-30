@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Wed Oct 21 19:01:41 2026
+# Process ID         : 53472
+# Current directory  : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/level_20261021_190137
+# Command line       : xsim.exe -log simulate.log -mode tcl -source {xsim.dir/level/xsim_script.tcl}
+# Log file           : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/level_20261021_190137/simulate.log
+# Journal file       : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/level_20261021_190137\xsim.jou
+# Running On         : Toph
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 16890 MB
+# Swap memory        : 23622 MB
+# Total Virtual      : 40512 MB
+# Available Virtual  : 12330 MB
+#-----------------------------------------------------------
+source xsim.dir/level/xsim_script.tcl
+# xsim {level} -maxdeltaid 1000 -autoloadwcfg -tclbatch {run.tcl} -onerror quit
+Time resolution is 1 ps
+source run.tcl
+## run all
+LEVEL_PASS cases=4 unit_checks=32 units=33 backpressure=1 restart=1 legacy_cycle_equal=1
+$finish called at time : 1910060 ns : File "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/level_20261021_190137/sources/tb_level.sv" Line 68
+## quit
+INFO: [Common 17-206] Exiting xsim at Wed Oct 21 19:01:43 2026...

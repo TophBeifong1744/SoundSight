@@ -1,0 +1,5 @@
+COMMAND: F:/STUDY/IT/C/develop/mingw64/bin/gcc.exe -std=c99 -Wall -Wextra -Wconversion -Wshadow -Werror -pedantic -O2 -D__USE_MINGW_ANSI_STDIO=1 -I.. doa_solver.c test_doa_solver.c -lm -o build/test_doa_solver.exe
+EXIT: 0
+STDOUT:
+
+STDERR:

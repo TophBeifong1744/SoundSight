@@ -1,0 +1,27 @@
+part=xc7z020clg400-1 top=soundsight_ps_bd_wrapper
+run=synth_1 state=Not started
+run=impl_1 state=Not started
+net=/bus_reset_interconnect_aresetn pins=/bus_reset/interconnect_aresetn /control_bus/ARESETN ports=
+net=/bus_reset_peripheral_aresetn pins=/bus_reset/peripheral_aresetn /control_bus/S00_ARESETN /control_bus/M00_ARESETN /ps_link/aresetn ports=
+net=/clock_tree_clk pins=/clock_tree/clk /compute/clk /ps_link/clk /ps7/M_AXI_GP0_ACLK /control_bus/ACLK /control_bus/S00_ACLK /control_bus/M00_ACLK /bus_reset/slowest_sync_clk ports=
+net=/clock_tree_rst_n pins=/clock_tree/rst_n /compute/rst_n /ps_link/rst_n /bus_reset/dcm_locked ports=
+net=/compute_draining pins=/compute/draining /ps_link/compute_draining ports=
+net=/compute_feature_flags pins=/compute/feature_flags /ps_link/feature_flags ports=
+net=/compute_feature_pairs pins=/compute/feature_pairs /ps_link/feature_pairs ports=
+net=/compute_feature_valid pins=/compute/feature_valid /ps_link/feature_valid ports=
+net=/compute_pdm_clocks pins=/compute/pdm_clocks ports=/pdm_clocks
+net=/compute_source_faults pins=/compute/source_faults /ps_link/source_faults ports=
+net=/irq_concat_dout pins=/irq_concat/dout /ps7/IRQ_F2P ports=
+net=/irq_zero_dout pins=/irq_zero/dout /irq_concat/In1 ports=
+net=/one_dout pins=/one/dout /clock_tree/cold_reset_n ports=
+net=/pdm_data_1 pins=/compute/pdm_data ports=/pdm_data
+net=/ps7_FCLK_RESET0_N pins=/ps7/FCLK_RESET0_N /bus_reset/ext_reset_in ports=
+net=/ps_link_feature_ready pins=/ps_link/feature_ready /compute/feature_ready ports=
+net=/ps_link_irq pins=/ps_link/irq /irq_concat/In0 ports=
+net=/ps_link_run_enable pins=/ps_link/run_enable /compute/enable ports=
+net=/ps_link_servo_pwm pins=/ps_link/servo_pwm ports=/servo_pwm
+net=/sys_clk_1 pins=/clock_tree/sys_clk ports=/sys_clk
+net=/zero_dout pins=/zero/dout /bus_reset/aux_reset_in /bus_reset/mb_debug_sys_rst ports=
+segment=/ps7/Data/SEG_ps_link_reg0 offset=0x40000000 range=0x00001000
+RESET_POLARITY=0
+DDR_MIO_BOOT_CONFIG=USER_OWNED_NOT_BOARD_VALIDATED

@@ -1,0 +1,573 @@
+{
+  "candidate": "3347989eb03488a33c88c241c75eed517d3a30f0",
+  "scope": "PC synthetic same-frame transport check; no board or motion",
+  "interpretation": "Reproduced integration failure; candidate not repaired",
+  "compiler": "F:/Program/env/mingw64/bin/gcc.exe",
+  "cases": [
+    {
+      "name": "baseline",
+      "frame": {
+        "sequence": 100,
+        "status": 17,
+        "words": [
+          290404607,
+          100000,
+          97990,
+          93818,
+          10000,
+          290404859,
+          100000,
+          93304,
+          98504,
+          10000,
+          290404864,
+          100000,
+          93396,
+          98412,
+          10000,
+          290405373,
+          100000,
+          99410,
+          92398,
+          10000,
+          290405378,
+          100000,
+          99502,
+          92306,
+          10000,
+          290405637,
+          100000,
+          95996,
+          95812,
+          10000
+        ]
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 1,
+        "reason": 0,
+        "azimuth_valid": 1,
+        "elevation_valid": 1,
+        "azimuth_q8": 11520,
+        "elevation_q8": 7680,
+        "valid_pairs": 6,
+        "valid_pair_mask": 63,
+        "coordinates_measured": 0,
+        "first_error": 0,
+        "bad_pair": 255,
+        "geometry_status": 0,
+        "geometry_bad_pair": 255,
+        "ux": 0.612375795841217,
+        "uy": 0.6123940944671631,
+        "uz": 0.49999985098838806,
+        "norm": 1.0000152587890625,
+        "residual_rms_samples": 3.2684081817853383e-16,
+        "normal_condition": 1.0,
+        "azimuth_deg": 45.0008544921875,
+        "elevation_deg": 29.999486923217773,
+        "bridge_status": 0,
+        "sequence": 100,
+        "profile": "TETRA40_3D",
+        "geometry_revision": 1,
+        "geometry_source": "tetra40-nominal-v1",
+        "pairs": [
+          {
+            "delta_q12": -1043,
+            "tau_q12": -5139,
+            "margin_q15": 29491,
+            "qualified": 1,
+            "reason": 0
+          },
+          {
+            "delta_q12": 1300,
+            "tau_q12": -19180,
+            "margin_q15": 29491,
+            "qualified": 1,
+            "reason": 0
+          },
+          {
+            "delta_q12": 1254,
+            "tau_q12": 1254,
+            "margin_q15": 29491,
+            "qualified": 1,
+            "reason": 0
+          },
+          {
+            "delta_q12": -1753,
+            "tau_q12": -14041,
+            "margin_q15": 29491,
+            "qualified": 1,
+            "reason": 0
+          },
+          {
+            "delta_q12": -1799,
+            "tau_q12": 6393,
+            "margin_q15": 29491,
+            "qualified": 1,
+            "reason": 0
+          },
+          {
+            "delta_q12": -46,
+            "tau_q12": 20434,
+            "margin_q15": 29491,
+            "qualified": 1,
+            "reason": 0
+          }
+        ],
+        "servo_cmd_valid": 0
+      }
+    },
+    {
+      "name": "manual_capability",
+      "frame": {
+        "sequence": 100,
+        "status": 262161,
+        "words": [
+          290404607,
+          100000,
+          97990,
+          93818,
+          10000,
+          290404859,
+          100000,
+          93304,
+          98504,
+          10000,
+          290404864,
+          100000,
+          93396,
+          98412,
+          10000,
+          290405373,
+          100000,
+          99410,
+          92398,
+          10000,
+          290405378,
+          100000,
+          99502,
+          92306,
+          10000,
+          290405637,
+          100000,
+          95996,
+          95812,
+          10000
+        ]
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 0,
+        "reason": 0,
+        "azimuth_valid": 0,
+        "elevation_valid": 0,
+        "azimuth_q8": 0,
+        "elevation_q8": 0,
+        "valid_pairs": 0,
+        "valid_pair_mask": 0,
+        "coordinates_measured": 0,
+        "first_error": 0,
+        "bad_pair": 255,
+        "geometry_status": 0,
+        "geometry_bad_pair": 255,
+        "ux": 0.0,
+        "uy": 0.0,
+        "uz": 0.0,
+        "norm": 0.0,
+        "residual_rms_samples": 0.0,
+        "normal_condition": 0.0,
+        "azimuth_deg": 0.0,
+        "elevation_deg": 0.0,
+        "bridge_status": -2,
+        "sequence": 100,
+        "profile": "TETRA40_3D",
+        "geometry_revision": 1,
+        "geometry_source": "tetra40-nominal-v1",
+        "pairs": [
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          }
+        ],
+        "servo_cmd_valid": 0
+      }
+    },
+    {
+      "name": "board_status_shape",
+      "frame": {
+        "sequence": 100,
+        "status": 1015601,
+        "words": [
+          290404607,
+          100000,
+          97990,
+          93818,
+          10000,
+          290404859,
+          100000,
+          93304,
+          98504,
+          10000,
+          290404864,
+          100000,
+          93396,
+          98412,
+          10000,
+          290405373,
+          100000,
+          99410,
+          92398,
+          10000,
+          290405378,
+          100000,
+          99502,
+          92306,
+          10000,
+          290405637,
+          100000,
+          95996,
+          95812,
+          10000
+        ]
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 0,
+        "reason": 0,
+        "azimuth_valid": 0,
+        "elevation_valid": 0,
+        "azimuth_q8": 0,
+        "elevation_q8": 0,
+        "valid_pairs": 0,
+        "valid_pair_mask": 0,
+        "coordinates_measured": 0,
+        "first_error": 0,
+        "bad_pair": 255,
+        "geometry_status": 0,
+        "geometry_bad_pair": 255,
+        "ux": 0.0,
+        "uy": 0.0,
+        "uz": 0.0,
+        "norm": 0.0,
+        "residual_rms_samples": 0.0,
+        "normal_condition": 0.0,
+        "azimuth_deg": 0.0,
+        "elevation_deg": 0.0,
+        "bridge_status": -2,
+        "sequence": 100,
+        "profile": "TETRA40_3D",
+        "geometry_revision": 1,
+        "geometry_source": "tetra40-nominal-v1",
+        "pairs": [
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          }
+        ],
+        "servo_cmd_valid": 0
+      }
+    },
+    {
+      "name": "board_shape_without_capability_diagnostic_only",
+      "frame": {
+        "sequence": 100,
+        "status": 753457,
+        "words": [
+          290404607,
+          100000,
+          97990,
+          93818,
+          10000,
+          290404859,
+          100000,
+          93304,
+          98504,
+          10000,
+          290404864,
+          100000,
+          93396,
+          98412,
+          10000,
+          290405373,
+          100000,
+          99410,
+          92398,
+          10000,
+          290405378,
+          100000,
+          99502,
+          92306,
+          10000,
+          290405637,
+          100000,
+          95996,
+          95812,
+          10000
+        ]
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 1,
+        "reason": 0,
+        "azimuth_valid": 1,
+        "elevation_valid": 1,
+        "azimuth_q8": 11520,
+        "elevation_q8": 7680,
+        "valid_pairs": 6,
+        "valid_pair_mask": 63,
+        "coordinates_measured": 0,
+        "first_error": 0,
+        "bad_pair": 255,
+        "geometry_status": 0,
+        "geometry_bad_pair": 255,
+        "ux": 0.612375795841217,
+        "uy": 0.6123940944671631,
+        "uz": 0.49999985098838806,
+        "norm": 1.0000152587890625,
+        "residual_rms_samples": 3.2684081817853383e-16,
+        "normal_condition": 1.0,
+        "azimuth_deg": 45.0008544921875,
+        "elevation_deg": 29.999486923217773,
+        "bridge_status": 0,
+        "sequence": 100,
+        "profile": "TETRA40_3D",
+        "geometry_revision": 1,
+        "geometry_source": "tetra40-nominal-v1",
+        "pairs": [
+          {
+            "delta_q12": -1043,
+            "tau_q12": -5139,
+            "margin_q15": 29491,
+            "qualified": 1,
+            "reason": 0
+          },
+          {
+            "delta_q12": 1300,
+            "tau_q12": -19180,
+            "margin_q15": 29491,
+            "qualified": 1,
+            "reason": 0
+          },
+          {
+            "delta_q12": 1254,
+            "tau_q12": 1254,
+            "margin_q15": 29491,
+            "qualified": 1,
+            "reason": 0
+          },
+          {
+            "delta_q12": -1753,
+            "tau_q12": -14041,
+            "margin_q15": 29491,
+            "qualified": 1,
+            "reason": 0
+          },
+          {
+            "delta_q12": -1799,
+            "tau_q12": 6393,
+            "margin_q15": 29491,
+            "qualified": 1,
+            "reason": 0
+          },
+          {
+            "delta_q12": -46,
+            "tau_q12": 20434,
+            "margin_q15": 29491,
+            "qualified": 1,
+            "reason": 0
+          }
+        ],
+        "servo_cmd_valid": 0
+      }
+    },
+    {
+      "name": "reserved_bit_negative",
+      "frame": {
+        "sequence": 100,
+        "status": 81,
+        "words": [
+          290404607,
+          100000,
+          97990,
+          93818,
+          10000,
+          290404859,
+          100000,
+          93304,
+          98504,
+          10000,
+          290404864,
+          100000,
+          93396,
+          98412,
+          10000,
+          290405373,
+          100000,
+          99410,
+          92398,
+          10000,
+          290405378,
+          100000,
+          99502,
+          92306,
+          10000,
+          290405637,
+          100000,
+          95996,
+          95812,
+          10000
+        ]
+      },
+      "result": {
+        "api_status": 0,
+        "direction_valid": 0,
+        "reason": 0,
+        "azimuth_valid": 0,
+        "elevation_valid": 0,
+        "azimuth_q8": 0,
+        "elevation_q8": 0,
+        "valid_pairs": 0,
+        "valid_pair_mask": 0,
+        "coordinates_measured": 0,
+        "first_error": 0,
+        "bad_pair": 255,
+        "geometry_status": 0,
+        "geometry_bad_pair": 255,
+        "ux": 0.0,
+        "uy": 0.0,
+        "uz": 0.0,
+        "norm": 0.0,
+        "residual_rms_samples": 0.0,
+        "normal_condition": 0.0,
+        "azimuth_deg": 0.0,
+        "elevation_deg": 0.0,
+        "bridge_status": -2,
+        "sequence": 100,
+        "profile": "TETRA40_3D",
+        "geometry_revision": 1,
+        "geometry_source": "tetra40-nominal-v1",
+        "pairs": [
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          },
+          {
+            "delta_q12": 0,
+            "tau_q12": 0,
+            "margin_q15": 0,
+            "qualified": 0,
+            "reason": 0
+          }
+        ],
+        "servo_cmd_valid": 0
+      }
+    }
+  ]
+}

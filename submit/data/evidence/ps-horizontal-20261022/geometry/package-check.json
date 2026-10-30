@@ -1,0 +1,21 @@
+{
+  "full_package_crc": true,
+  "incremental_and_full_29_payload_files_identical": true,
+  "bit_hwh_unchanged": true,
+  "python38_syntax": true,
+  "changed_full_entries": [
+    "SoundSight_PYNQ_Servo/README.md",
+    "SoundSight_PYNQ_Servo/document/pynq-board-helper.md",
+    "SoundSight_PYNQ_Servo/document/pynq-horizontal-sd.md",
+    "SoundSight_PYNQ_Servo/document/pynq-horizontal.md",
+    "SoundSight_PYNQ_Servo/software/ps/board_tools.py",
+    "SoundSight_PYNQ_Servo/software/ps/horizontal_motion.py",
+    "SoundSight_PYNQ_Servo/software/tests/test_horizontal_motion.py",
+    "SoundSight_PYNQ_Servo/software/tests/test_launcher.py",
+    "SoundSight_PYNQ_Servo/soundsight.sh",
+    "SoundSight_PYNQ_Servo/SOURCE.json"
+  ],
+  "hardware_actions": 0,
+  "geometry_board_test": "NOT_RUN",
+  "earlier_test_checker_correction": "Expected error exit 2 in new test, but established board helper returns 1; corrected test expectation. Product error handling unchanged."
+}

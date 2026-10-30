@@ -1,0 +1,92 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sat Oct 17 20:47:22 2026
+# Process ID         : 44768
+# Current directory  : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/variants/pl_ps/project/par
+# Command line       : vivado.exe -mode batch -notrace -source E:\Users\Toph Beifong\Documents\GitHub\SoundSight\tools\vivado_cli.tcl -log E:\Users\Toph Beifong\Documents\GitHub\SoundSight\variants\pl_ps\project\par\_launcher\20261017_204721\vivado.log -journal E:\Users\Toph Beifong\Documents\GitHub\SoundSight\variants\pl_ps\project\par\_launcher\20261017_204721\vivado.jou -tclargs prepare ps
+# Log file           : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/variants/pl_ps/project/par/_launcher/20261017_204721/vivado.log
+# Journal file       : E:\Users\Toph Beifong\Documents\GitHub\SoundSight\variants\pl_ps\project\par\_launcher\20261017_204721\vivado.jou
+# Running On         : Toph
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 16890 MB
+# Swap memory        : 23622 MB
+# Total Virtual      : 40512 MB
+# Available Virtual  : 17812 MB
+#-----------------------------------------------------------
+source {E:\Users\Toph Beifong\Documents\GitHub\SoundSight\tools\vivado_cli.tcl} -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/AMD/2025.2/Vivado/data/ip'.
+Wrote  : <E:\Users\Toph Beifong\Documents\GitHub\SoundSight\variants\pl_ps\project\par\SoundSight_PS.srcs\sources_1\bd\soundsight_ps_bd\soundsight_ps_bd.bd> 
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'io_clk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'io_clk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'io_rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'io_rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'io_clk': Added interface parameter 'ASSOCIATED_RESET' with value 'io_rst_n'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'FREQ_HZ' with value '100000000'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst_n'.
+INFO: [IP_Flow 19-4728] Bus Interface 'io_clk': Added interface parameter 'FREQ_HZ' with value '61440000'.
+INFO: [IP_Flow 19-7067] Note that bus interface 'clk' has a fixed FREQ_HZ of '100000000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-7067] Note that bus interface 'io_clk' has a fixed FREQ_HZ of '61440000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+WARNING: [IP_Flow 19-5661] Bus Interface 'io_clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'irq' of definition 'xilinx.com:signal:interrupt:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'irq' of definition 'xilinx.com:signal:interrupt:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'S_AXI'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'FREQ_HZ' with value '61440000'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'PROTOCOL' with value 'AXI4LITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'DATA_WIDTH' with value '32'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'ADDR_WIDTH' with value '12'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'READ_WRITE_MODE' with value 'READ_WRITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_READ_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_WRITE_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'irq': Added interface parameter 'SENSITIVITY' with value 'LEVEL_HIGH'.
+INFO: [IP_Flow 19-7067] Note that bus interface 'clk' has a fixed FREQ_HZ of '61440000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconstant:1.0 for the IP type xilinx.com:ip:xlconstant:1.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconstant:1.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconstant:1.0 for the IP type xilinx.com:ip:xlconstant:1.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconstant:1.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilvector_logic:1.0 for the IP type xilinx.com:ip:util_vector_logic:2.0 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:util_vector_logic:2.0 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+xpm_cdc_async_rst  *****  2
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilvector_logic:1.0 for the IP type xilinx.com:ip:util_vector_logic:2.0 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:util_vector_logic:2.0 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+xpm_cdc_async_rst  *****  2
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconcat:1.0 for the IP type xilinx.com:ip:xlconcat:2.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconcat:2.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconstant:1.0 for the IP type xilinx.com:ip:xlconstant:1.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconstant:1.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+INFO: [BD 41-3093] Triggering Legacy Auto Assign Algorithm
+Slave segment '/ps_link/S_AXI/reg0' is being assigned into address space '/ps7/Data' at <0x4000_0000 [ 4K ]>.
+clk_domain: soundsight_ps_bd_ps7_0_FCLK_CLK0, clk_domain_1: soundsight_ps_bd_clk_main_0_clk_out1, clkDomainValSrc_1: DEFAULT, clk_domain_ctrl: 0
+clk_domain: soundsight_ps_bd_clk_main_0_clk_out1, clk_domain_1: soundsight_ps_bd_clk_audio_0_clk_out1, clkDomainValSrc_1: DEFAULT, clk_domain_ctrl: 0
+clk_domain: soundsight_ps_bd_ps7_0_FCLK_CLK0, clk_domain_1: soundsight_ps_bd_clk_main_0_clk_out1, clkDomainValSrc_1: PROPAGATED, clk_domain_ctrl: 0
+clk_domain: soundsight_ps_bd_ps7_0_FCLK_CLK0, clk_domain_1: soundsight_ps_bd_ps7_0_FCLK_CLK0, clkDomainValSrc_1: PROPAGATED, clk_domain_ctrl: 0
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_main clk_wiz propagate
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_audio clk_wiz propagate
+INFO: [xilinx.com:ip:util_vector_logic:2.0-10] /core_reset_gate IP set output pin Res type to "rst" when Input pin Op1 type is "rst" and Input pin Op2 type is "undef".
+INFO: [xilinx.com:ip:util_vector_logic:2.0-10] /io_reset_gate IP set output pin Res type to "rst" when Input pin Op1 type is "rst" and Input pin Op2 type is "undef".
+Wrote  : <E:\Users\Toph Beifong\Documents\GitHub\SoundSight\variants\pl_ps\project\par\SoundSight_PS.srcs\sources_1\bd\soundsight_ps_bd\soundsight_ps_bd.bd> 
+INFO: [BD 41-1662] The design 'soundsight_ps_bd.bd' is already validated. Therefore parameter propagation will not be re-run.
+Verilog Output written to : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/variants/pl_ps/project/par/SoundSight_PS.gen/sources_1/bd/soundsight_ps_bd/synth/soundsight_ps_bd.v
+Verilog Output written to : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/variants/pl_ps/project/par/SoundSight_PS.gen/sources_1/bd/soundsight_ps_bd/sim/soundsight_ps_bd.v
+Verilog Output written to : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/variants/pl_ps/project/par/SoundSight_PS.gen/sources_1/bd/soundsight_ps_bd/hdl/soundsight_ps_bd_wrapper.v
+SOUNDSIGHT_PREPARED E:/Users/Toph Beifong/Documents/GitHub/SoundSight/variants/pl_ps/project/par; no synthesis, implementation or hardware action
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 17 20:47:47 2026...

@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "board_score_matches": [
+    {
+      "start_seconds": 0.02,
+      "end_seconds": 1.02,
+      "board_score": 0.6911128831670628,
+      "native_score": 0.6911128313349036,
+      "abs_error": 5.1832159120301924e-08,
+      "raw_state": "target"
+    },
+    {
+      "start_seconds": 4.02,
+      "end_seconds": 5.02,
+      "board_score": 0.5290080995481381,
+      "native_score": 0.5290081271599688,
+      "abs_error": 2.76118307107609e-08,
+      "raw_state": "non_target"
+    },
+    {
+      "start_seconds": 8.02,
+      "end_seconds": 9.02,
+      "board_score": 0.6840127055222888,
+      "native_score": 0.6840115127539428,
+      "abs_error": 1.1927683459811433e-06,
+      "raw_state": "insufficient"
+    }
+  ],
+  "scope": "Native host B/J replay, not ARM latency"
+}

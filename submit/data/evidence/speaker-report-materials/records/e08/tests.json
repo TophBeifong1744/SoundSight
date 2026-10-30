@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "unit_tests": 13,
+  "regression_tests": 154,
+  "regression_logs": {
+    "test_board_tools.log": 15,
+    "test_filter_controls.log": 13,
+    "test_horizontal_motion.log": 28,
+    "test_launcher.log": 12,
+    "test_manual_servo.log": 8,
+    "test_normal.log": 17,
+    "test_pcm_capture.log": 19,
+    "test_serial_english.log": 3,
+    "test_speaker_live.log": 7,
+    "test_speaker_process.log": 9,
+    "test_speaker_rx.log": 8,
+    "test_volume_gate.log": 15
+  },
+  "lifecycle_modes": [
+    "off",
+    "on"
+  ],
+  "lifecycle_scenarios_per_mode": 5,
+  "scope": "NO_HARDWARE_ACCESS",
+  "negative": "negative.json",
+  "new_cli": "entry.json",
+  "live_replay": "live-replay.json"
+}

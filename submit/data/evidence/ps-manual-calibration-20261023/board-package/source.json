@@ -1,0 +1,69 @@
+{
+  "software_git": "e3a2cbc0298f28aff9348c01978059072f516c8a",
+  "pr15": "61e7303331641ec2353f89088b060aa81ffd6110",
+  "pr16": "0d388586af1dcd0355a2ab9d51360d4a9fb249cf",
+  "hardware_project_name": "SoundSight_PS_Servo",
+  "original_bit": "soundsight_stm32_bd_wrapper.bit",
+  "original_hwh": "soundsight_stm32_bd.hwh",
+  "xsa_byte_match": true,
+  "bit_bytes": 4045703,
+  "hwh_bytes": 268021,
+  "actuator_bound": 1,
+  "target_arm": "NOT_RUN",
+  "board": "NOT_RUN",
+  "software_source": "current working tree; git value is the base commit",
+  "software_worktree_status": [
+    " M software/ps/board_tools.py",
+    " M software/ps/run_device.py",
+    " M software/ps/run_normal.py",
+    " M software/tests/test_board_tools.py",
+    " M software/tests/test_launcher.py",
+    " M software/tests/test_ps_volume_tcl.py",
+    " M tools/package_pynq.py",
+    "?? software/ps/horizontal_motion.py",
+    "?? software/ps/manual_servo.py",
+    "?? software/tests/test_horizontal_motion.py",
+    "?? software/tests/test_horizontal_tcl.py",
+    "?? software/tests/test_manual_servo.py",
+    "?? software/tests/test_servo_pin_update.py"
+  ],
+  "board_directory": "SoundSight_PYNQ_Servo",
+  "level_enable": 1,
+  "expected_abi": "0x00010001",
+  "threshold": "settings.local.json or runtime default 7000; must be tuned on board",
+  "online_angle_filter": true,
+  "angle_filter_activation": "normal mode includes volume gate and angle filter",
+  "angle_filter_parameters": {
+    "window": 20,
+    "min_valid": 12,
+    "radius_deg": 10,
+    "consensus": "2/3",
+    "deadband_deg": 3
+  },
+  "servo_motion": "NOT_RUN; hardware capable, software default off",
+  "motion_default": false,
+  "motion_activation": "soundsight.sh run normal --horizontal-motion",
+  "actual_servo_io": {
+    "servo_pwm": {
+      "pin": "T15",
+      "standard": "LVCMOS33",
+      "bank": "34"
+    },
+    "servo_vertical_pwm": {
+      "pin": "W15",
+      "standard": "LVCMOS33",
+      "bank": "34"
+    }
+  },
+  "calibration": "horizontal.local.json; user must configure; not supplied",
+  "mounting": "fixed microphone array; configurable pivot XY cm; optional user-supplied horizontal range",
+  "manual_calibration": true,
+  "manual_capability": "0x4d534301",
+  "manual_activation": "soundsight.sh servo-angle DEG --seconds N",
+  "manual_audio_required": false,
+  "manual_lease_ms": 750,
+  "manual_registered_sources_match": [
+    "ss_manual_servo.sv",
+    "ss_ps_control_regs.sv"
+  ]
+}

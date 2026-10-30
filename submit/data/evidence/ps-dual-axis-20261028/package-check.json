@@ -1,0 +1,46 @@
+[
+  {
+    "step": 0,
+    "exit": 0,
+    "tail": [
+      "BACKUP=E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\software\\build\\three-d-package-zna4ukks\\receiver with spaces\\backup_3d_20261028_131455_513196",
+      "THREE_D_SOFTWARE_INSTALLED FILES=30 HARDWARE_ACTIONS=0 BIT_HWH_INCLUDED=0"
+    ]
+  },
+  {
+    "step": 1,
+    "exit": 0,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 21 tests in 0.146s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "step": 2,
+    "exit": 0,
+    "tail": [
+      "RESULT,PASS,profile=1,checks=2378,failures=0,SYNTHETIC_FEATURES_ONLY",
+      "D4_RESULT,PASS,checks=92270,failures=0",
+      "MIGRATION_3D_PASS equivalence=154 bridge_negative=28 geometry=15 motion=DISABLED",
+      "PS_CAPABILITY_PASS equivalence=155 reserved_bits_checked=6,21,22,23",
+      "HOST_CALL_NS {'min': 10800, 'median': 11600.0, 'max': 46000} AMD64"
+    ]
+  },
+  {
+    "step": 3,
+    "exit": 0,
+    "tail": [
+      "BACKUP=E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\software\\build\\three-d-package-zna4ukks\\receiver with spaces\\backup_3d_20261028_131501_286867",
+      "THREE_D_SOFTWARE_INSTALLED FILES=30 HARDWARE_ACTIONS=0 BIT_HWH_INCLUDED=0"
+    ]
+  },
+  {
+    "missing_dependencies_rejected": true,
+    "protected_files": 6,
+    "prior_source_backed_up": true,
+    "repeat_install": true
+  }
+]

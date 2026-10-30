@@ -1,0 +1,83 @@
+STM32主方案BD连接
+
+【历史资料，2026-10-29状态更新】STM32路线已弃用；当前唯一主方案是Zynq-7020的PL＋PS/PYNQ。下文保留当时的设计、命令、分工及验证范围，不再作为当前派工或验收要求。当前入口以仓库README.md和document/main-architecture.md为准。
+
+路径约定：本文件所有路径均相对SoundSight根目录。
+从根目录执行 project/script/run.bat prepare stm32，建立 project/par/SoundSight.xpr；它注册源清单、生成FFT IP，建BD、Validate并生成顶层wrapper。已有工程时用 project/script/run.bat open stm32，不重复prepare。
+project/bd/stm32.tcl是由正式入口调用的连线配方，依赖已注册源码及ss_root，不能在任意空工程中单独source。
+project/script/run.bat outputs stm32只生成IP/BD输出；综合、实现由A点击。所有入口均不使用旧工程。
+用户自行配置真实PS板级DDR/MIO/PYNQ环境；脚本里的默认PS参数不是本板可直接启动的preset。
+
+加入哪些模块
+两个Verilog Module Reference：compute=bd_clean_compute，link=bd_stm32_link。它们是薄接口，下方分别是ss_dual_compute和ss_stm32_link；不复制算法。
+官方IP：processing_system7:5.5一套；clk_wiz:6.0两套；proc_sys_reset:5.0两套；xpm_cdc_gen:1.0两套；util_vector_logic:2.0两套；xlconstant:1.1两套。加上两个Module Reference，共13个BD单元。
+FFT/IFFT在计算RTL内部实例化，不再另放一套到BD。XPM异步FIFO/单比特同步器也在RTL内部。
+ss_stm32_tile、bd_board_clock、ss_board_clock、sound_servo_clock是旧单域测试/参考入口，不加入当前BD。不能把内部tile设成物理顶层。
+
+时钟与复位
+详细配置和每根线见同目录时钟复位.txt。PS FCLK0=100MHz，经Clocking Wizard输出100MHz计算与61.44MHz采集/控制。
+clk_main/clk_out2→compute/clk；core_release/dest_arst→compute/rst_n。
+clk_audio/clk_out1→compute/io_clk、link/clk；io_release/dest_arst→compute/io_rst_n、link/rst_n。
+主方案不启用PS的GP0访问这个link。PS负责启动时钟/加载及后续展示；STM32仍是唯一快照/动作控制者。
+
+计算块与通信块之间（这些端口全部属于61.44MHz域）
+compute/feature_valid→link/feature_valid，1位；compute/feature_pairs→link/feature_pairs，960位，pair0在最低160位。
+compute/feature_flags→link/feature_flags，32位；compute/source_faults→link/source_faults，12位；compute/draining→link/compute_draining，1位。
+link/feature_ready→compute/feature_ready，1位；link/run_enable→compute/enable，1位。
+这些端口已经在compute内部完成跨域，BD外不要再重复插同步器。
+
+外部接口
+PS的DDR与FIXED_IO引出，由用户按实板配置。没有外部PL sys_clk端口。
+pdm_data[3:0]输入、pdm_clocks[3:0]输出接compute；spi_cs_n/spi_sck/spi_mosi输入、spi_miso/irq/servo_pwm输出接link。
+引脚见project/sdc/stm32/board_pins.xdc；I/O约束见project/sdc/stm32/interface_timing.xdc，预算见hardware/stm32/interface_timing.txt。
+debug_frontend[3:0]、debug_backend[4:0]属于100MHz；fault_status属于61.44MHz。ILA分别用对应采样时钟，不能把不同域未经处理凑给同一个时钟采样。
+默认ACTUATOR_BOUND=0；真实机械范围/零位/方向未标定前保持此值。
+
+后续人操作
+先阅读模块与连接，需要调整时修改这套独立设计。配置好PS板级参数后Validate Design，执行 project/script/run.bat outputs stm32（在独立命令行；先保存并关闭GUI工程），或在已打开工程的Tcl Console执行 ss_project::outputs（先source project/script/vivado.tcl），然后由A点击Run Synthesis、Run Implementation。
+完成相应run后source tools/export_reports.tcl，再调用ss_reports::save synth或ss_reports::save impl。报告含setup/hold、未约束、CDC、DRC、资源、时钟和I/O；不根据某个WNS自动进入下一步。
+本次没有运行综合/实现/板测。BD通过只说明结构可由工具生成，不说明100MHz已经物理收敛。
+
+手动新建工程时
+器件xc7z020clg400-2，Vivado2025.2。按project/script/src_list.txt注册文件，含project/rtl/hann-u18f17.mem；不要把全部回归参考模块设为顶层。
+FFT配置配方是project/ip/create_fft_ip.tcl：在已打开工程的Tcl Console先设置 destination 为本工程的输出目录，再source该文件；创建的两个IP模块名必须为ss_fft29和ss_ifft25。不要直接注册project/ip/reference中的旧XCI。
+时钟与复位的精确配置见project/ip/create_platform_clock.tcl；若手动连线，按本文件末尾逐线表核对。不要在手动已创建相同单元的BD里重复source创建配方。
+Make External得到DDR_0和FIXED_IO_0；PL外部端口名必须与XDC一致。生成wrapper后顶层为soundsight_stm32_bd_wrapper。
+未使用输出允许悬空：compute/debug_frontend、compute/debug_backend，以及link/stop_pulse、fault_status、motion_permit、counter_exhausted。不要因端口未连就自动Tie-off输入或新增外部管脚。
+默认不插ILA；如需观察，100MHz的debug和61.44MHz的控制信号分别按本域采样。所有功能输入都必须按表接好。
+
+逐线核对表（来自当前已准备BD，与正式Tcl配方对照）
+左侧为源，右侧为同一根网的全部接收端。外部输入从顶层流向模块；DDR/FIXED_IO为双向接口。
+BD单元：compute, link, ps7, zero, one, clk_main, clk_audio, core_reset, io_reset, core_reset_gate, core_release, io_reset_gate, io_release
+clk_audio/clk_out1 → io_reset/slowest_sync_clk, io_release/dest_clk, compute/io_clk, link/clk
+clk_audio/locked → core_reset/dcm_locked, io_reset/dcm_locked, core_reset_gate/Op2, io_reset_gate/Op2
+clk_main/clk_out1 → clk_audio/clk_in1
+clk_main/clk_out2 → core_reset/slowest_sync_clk, core_release/dest_clk, compute/clk
+clk_main/locked → clk_audio/resetn
+compute/draining → link/compute_draining
+compute/feature_flags → link/feature_flags
+compute/feature_pairs → link/feature_pairs
+compute/feature_valid → link/feature_valid
+compute/pdm_clocks → pdm_clocks
+compute/source_faults → link/source_faults
+core_release/dest_arst → compute/rst_n
+core_reset_gate/Res → core_release/src_arst
+core_reset/peripheral_aresetn → core_reset_gate/Op1
+io_release/dest_arst → compute/io_rst_n, link/rst_n
+io_reset_gate/Res → io_release/src_arst
+io_reset/peripheral_aresetn → io_reset_gate/Op1
+link/feature_ready → compute/feature_ready
+link/irq → irq
+link/run_enable → compute/enable
+link/servo_pwm → servo_pwm
+link/spi_miso → spi_miso
+one/dout → core_reset/aux_reset_in, io_reset/aux_reset_in
+pdm_data → compute/pdm_data
+ps7/FCLK_CLK0 → clk_main/clk_in1
+ps7/FCLK_RESET1_N → clk_main/resetn, core_reset/ext_reset_in, io_reset/ext_reset_in
+spi_cs_n → link/spi_cs_n
+spi_mosi → link/spi_mosi
+spi_sck → link/spi_sck
+zero/dout → core_reset/mb_debug_sys_rst, io_reset/mb_debug_sys_rst
+接口：DDR_0 ↔ ps7/DDR
+接口：FIXED_IO_0 ↔ ps7/FIXED_IO

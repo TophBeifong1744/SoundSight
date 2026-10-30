@@ -1,0 +1,30 @@
+usage: run_smp.py [-h] --hwh HWH [--ip IP] [--library LIBRARY] --output OUTPUT
+                  [--mode {bist-reject,bist-pass,real}] [--frames FRAMES]
+                  [--drain-existing] [--lock-file LOCK_FILE]
+                  [--clear-faults CLEAR_FAULTS] [--horizontal-motion]
+                  [--servo-config SERVO_CONFIG]
+                  [--watchdog-ticks WATCHDOG_TICKS] [--host-cpu HOST_CPU]
+                  [--worker-cpu WORKER_CPU]
+
+同一Linux/PYNQ的双核入口：CPU1取帧/调用C/提交，CPU0控制/落盘/显示。
+不加载bit、不复位PS。默认BIST且不运动。当前公共ABI仅支持水平轴。
+
+options:
+  -h, --help            show this help message and exit
+  --hwh HWH             当前已加载bit配套的实际HWH
+  --ip IP               HWH中的Module Reference实例名
+  --library LIBRARY
+  --output OUTPUT       追加写入JSONL；保存成功才消费
+  --mode {bist-reject,bist-pass,real}
+  --frames FRAMES
+  --drain-existing      停用后只保存已有帧，不启动新采集
+  --lock-file LOCK_FILE
+  --clear-faults CLEAR_FAULTS
+                        只清显式选择的历史故障位；先处理原因/已有槽
+  --horizontal-motion   显式启用当前ABI支持的水平轴动作
+  --servo-config SERVO_CONFIG
+                        实测标定的config[7] JSON数组，无默认参数
+  --watchdog-ticks WATCHDOG_TICKS
+                        已约定的61.44MHz看门狗周期数，无默认值
+  --host-cpu HOST_CPU
+  --worker-cpu WORKER_CPU

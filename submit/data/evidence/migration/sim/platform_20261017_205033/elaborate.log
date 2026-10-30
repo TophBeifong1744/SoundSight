@@ -1,0 +1,48 @@
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:/AMD/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe work.tb_platform work.glbl -L xpm -L proc_sys_reset_v5_0_17 -L xpm_cdc_gen_v1_0_5 -L unisims_ver --debug typical --relax --mt 16 -s platform --log elaborate.log 
+Using 16 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling package ieee.std_logic_arith
+Compiling package xpm.vcomponents
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=9.0,C...
+Compiling module unisims_ver.BUFG
+Compiling module work.soundsight_ps_bd_clk_main_0_clk_...
+Compiling module work.soundsight_ps_bd_clk_main_0
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=52.0,...
+Compiling module work.soundsight_ps_bd_clk_audio_0_clk...
+Compiling module work.soundsight_ps_bd_clk_audio_0
+Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
+Compiling architecture fdre_v of entity unisim.FDRE [\FDRE(init='1')\]
+Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(init="1111111111111111")...]
+Compiling architecture srl16_v of entity unisim.SRL16 [\SRL16(init="1111111111111111")(...]
+Compiling module xpm.xpm_cdc_single(DEST_SYNC_FF=4,IN...
+Compiling architecture imp of entity proc_sys_reset_v5_0_17.lpf [\lpf(c_ext_rst_width=4,c_aux_rst...]
+Compiling architecture imp of entity proc_sys_reset_v5_0_17.upcnt_n [\upcnt_n(c_size=6)\]
+Compiling architecture imp of entity proc_sys_reset_v5_0_17.sequence_psr [sequence_psr_default]
+Compiling architecture imp of entity proc_sys_reset_v5_0_17.proc_sys_reset [\proc_sys_reset(c_family="zynq",...]
+Compiling architecture soundsight_ps_bd_core_reset_0_arch of entity work.soundsight_ps_bd_core_reset_0 [soundsight_ps_bd_core_reset_0_de...]
+Compiling architecture soundsight_ps_bd_io_reset_0_arch of entity work.soundsight_ps_bd_io_reset_0 [soundsight_ps_bd_io_reset_0_defa...]
+Compiling module xpm.xpm_cdc_async_rst(DEST_SYNC_FF=3...
+Compiling module xpm_cdc_gen_v1_0_5.xpm_cdc_gen_v1_0_5(C_CDC_TYPE=2,...
+Compiling module work.soundsight_ps_bd_core_release_0
+Compiling module work.soundsight_ps_bd_io_release_0
+Compiling architecture soundsight_ps_bd_bus_reset_0_arch of entity work.soundsight_ps_bd_bus_reset_0 [soundsight_ps_bd_bus_reset_0_def...]
+Compiling architecture soundsight_ps_bd_bus_io_reset_0_arch of entity work.soundsight_ps_bd_bus_io_reset_0 [soundsight_ps_bd_bus_io_reset_0_...]
+Compiling module work.tb_platform
+Compiling module work.glbl
+Built simulation snapshot platform

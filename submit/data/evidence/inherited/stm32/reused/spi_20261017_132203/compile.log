@@ -1,0 +1,90 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/doa_math_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/ss_actuator_control.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_actuator_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/ss_bist_source.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_bist_source
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/ss_compute_pipeline.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_compute_pipeline
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/ss_diag_archive.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_diag_archive
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/ss_f1a_native.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_f1a_native
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/ss_f1a_official.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_f1a_official
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/ss_migration_tile.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_migration_tile
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/ss_snapshot_queue.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_snapshot_queue
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/ss_spi_mode0.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_spi_mode0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/ss_stm32_link.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_stm32_link
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/diag_evidence_store.sv" into library work
+INFO: [VRFC 10-311] analyzing module diag_evidence_store
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/diag_record_bank_wordview.sv" into library work
+INFO: [VRFC 10-311] analyzing module diag_record_bank_wordview
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/doa_math_serial.sv" into library work
+INFO: [VRFC 10-311] analyzing module doa_math_serial
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/doa_math_shared.sv" into library work
+INFO: [VRFC 10-311] analyzing module doa_math_shared
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/doa_phat_client.sv" into library work
+INFO: [VRFC 10-311] analyzing module doa_phat_client
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/f1a_frame_store.sv" into library work
+INFO: [VRFC 10-311] analyzing module f1a_frame_store
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/fft29_official.sv" into library work
+INFO: [VRFC 10-311] analyzing module fft29_official
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/fixed4_leaf.sv" into library work
+INFO: [VRFC 10-311] analyzing module fixed4_leaf
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/forward_window_adapter.sv" into library work
+INFO: [VRFC 10-311] analyzing module forward_window_adapter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/forward_window_manager.sv" into library work
+INFO: [VRFC 10-311] analyzing module forward_window_manager
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/four_mic_top_forward.v" into library work
+INFO: [VRFC 10-311] analyzing module four_mic_top_forward
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/i17_diag_consumer.sv" into library work
+INFO: [VRFC 10-311] analyzing module i17_diag_consumer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/i17_fast_packet_capture.sv" into library work
+INFO: [VRFC 10-311] analyzing module i17_fast_packet_capture
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/i17_turntable_pwm_guard.sv" into library work
+INFO: [VRFC 10-311] analyzing module i17_turntable_pwm_guard
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/ifft25_official.sv" into library work
+INFO: [VRFC 10-311] analyzing module ifft25_official
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/motor_drive.v" into library work
+INFO: [VRFC 10-311] analyzing module motor_drive
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/pcm4_c1_lifecycle.v" into library work
+INFO: [VRFC 10-311] analyzing module pcm4_c1_lifecycle
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/pcm4_c1_packet_framer.v" into library work
+INFO: [VRFC 10-311] analyzing module pcm4_c1_packet_framer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/pcm4_continuous_axis.v" into library work
+INFO: [VRFC 10-311] analyzing module pcm4_continuous_axis
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/pcm4_doa_f1a.sv" into library work
+INFO: [VRFC 10-311] analyzing module pcm4_doa_f1a
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/pcm4_forward_fft_entry.sv" into library work
+INFO: [VRFC 10-311] analyzing module pcm4_forward_fft_entry
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/pcm4_forward_fft_fixed4.sv" into library work
+INFO: [VRFC 10-311] analyzing module pcm4_forward_fft_fixed4
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/pcm4_live_window_handoff.v" into library work
+INFO: [VRFC 10-311] analyzing module pcm4_live_window_handoff
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/pcm4_numeric_preprocess.sv" into library work
+INFO: [VRFC 10-311] analyzing module pcm4_numeric_preprocess
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/pcm4_overlap_framer_bram.v" into library work
+INFO: [VRFC 10-311] analyzing module pcm4_overlap_framer_bram
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/pcm4_source_cancel_observer.v" into library work
+INFO: [VRFC 10-311] analyzing module pcm4_source_cancel_observer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/pcm4_window_caller.sv" into library work
+INFO: [VRFC 10-311] analyzing module pcm4_window_caller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/pcm4_window_caller_entry.v" into library work
+INFO: [VRFC 10-311] analyzing module pcm4_window_caller_entry
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/pcm4_window_consumer.sv" into library work
+INFO: [VRFC 10-311] analyzing module pcm4_window_consumer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/pdm_cic3.v" into library work
+INFO: [VRFC 10-311] analyzing module pdm_cic3
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/ss_control_case_equal.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_control_case_equal
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/ss_identity_match_register.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_identity_match_register
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/ss_timing_equal.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_timing_equal
+INFO: [VRFC 10-311] analyzing module ss_timing_and
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/spi_20261017_132203/sources/tb_spi.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_spi

@@ -1,0 +1,562 @@
+{
+  "schema_version": 1,
+  "evidence_level": "mock",
+  "board_execution": false,
+  "transaction_id": 1,
+  "mode": "receive",
+  "status": "FAIL",
+  "requested_bytes": 128,
+  "actual_bytes": null,
+  "events": [
+    "rx.allocate",
+    "rx.fill",
+    "rx.flush",
+    "rx.invalidate_before",
+    "rx.arm",
+    "status.before_abort",
+    "abort.request",
+    "buffers.retain"
+  ],
+  "errors": [
+    "poll: TimeoutError: transfer deadline exceeded",
+    "abort: TimeoutError: abort deadline exceeded"
+  ],
+  "snapshots": [
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 1,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 2,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 3,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 4,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 5,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 6,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 7,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 8,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 9,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 10,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 11,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 12,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 13,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 14,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 15,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 16,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 17,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 18,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 19,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 20,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "before_abort",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 21,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "abort",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 22,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "abort",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 23,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "abort",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 24,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "abort",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 25,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "abort",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 26,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "abort",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 27,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "abort",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 28,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "abort",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 29,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "abort",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 30,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "abort",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 31,
+          "simulated_active": true
+        }
+      }
+    }
+  ],
+  "mismatch_count": null,
+  "first_mismatch": null,
+  "transfer_elapsed_seconds": null,
+  "throughput_bytes_per_second": null,
+  "buffer_disposition": "retained",
+  "tlast_observed": null,
+  "session_blocked": true,
+  "next_run": {
+    "schema_version": 1,
+    "evidence_level": "mock",
+    "board_execution": false,
+    "transaction_id": 2,
+    "mode": "receive",
+    "status": "FAIL",
+    "requested_bytes": 128,
+    "actual_bytes": null,
+    "events": [],
+    "errors": [
+      "SESSION_BLOCKED: previous failure requires external review"
+    ],
+    "snapshots": [],
+    "mismatch_count": null,
+    "first_mismatch": null,
+    "transfer_elapsed_seconds": null,
+    "throughput_bytes_per_second": null,
+    "buffer_disposition": "retained",
+    "tlast_observed": null,
+    "session_blocked": true
+  },
+  "adapter_trace": [
+    "rx.allocate",
+    "rx.write",
+    "rx.flush",
+    "rx.invalidate",
+    "rx.arm",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "abort.request",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot",
+    "snapshot"
+  ],
+  "payload_format": "<I",
+  "golden_sha256": "b3c87588b17afe4d09f6c97a055dedd6f5fef53de648237bf488afb6111d218d",
+  "timing_source": "synthetic mock clock; not hardware throughput"
+}

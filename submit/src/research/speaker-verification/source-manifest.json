@@ -1,0 +1,91 @@
+{
+  "scope": "stage 1 runnable prototype; participant evaluation pending",
+  "engineering_reference_sha": "077884f74a2d858a1f541878e11e7ebe54ab5bfb",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 57,
+      "sha256": "05a7fcf4a997b070b9a197d3c7694a17f8190cd4ca5cc26de9792e457d723603"
+    },
+    {
+      "path": "EVIDENCE.md",
+      "bytes": 4460,
+      "sha256": "d8aad7543eac3aab1a5d45374a003ffa4429eb36ac3eca621090f57961da2a2d"
+    },
+    {
+      "path": "examples/dev-manifest.example.json",
+      "bytes": 370,
+      "sha256": "c8e4fe011453a046dae603844ae1ae3774c031a9ed0eff96fc033de9e859103f"
+    },
+    {
+      "path": "examples/test-manifest.example.json",
+      "bytes": 373,
+      "sha256": "4b030ec8d5dea1a57e8240e966b9fae9d08859cfacc5aac80225fd7de2b81b20"
+    },
+    {
+      "path": "INTEGRATION-NOTES.md",
+      "bytes": 3481,
+      "sha256": "25d78bfcfcf057c6ecc08b7d2cc225152cd8cea31543a47193e8c3dc83d38a3f"
+    },
+    {
+      "path": "MODEL-AND-METHOD.md",
+      "bytes": 5611,
+      "sha256": "7715975d0a8f3c6ea86c11b53ed7ac9011f94ed77da01e48be57be23efead430"
+    },
+    {
+      "path": "model-lock.json",
+      "bytes": 808,
+      "sha256": "ea7e33026bec84dd8dbfc91ccb8ce7b0f79f1278050ae2945c5b74c5b56c8859"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6484,
+      "sha256": "26a082e273d5f028551d07b686d28bb075560757e4ba4fc803c78c7411a1af2a"
+    },
+    {
+      "path": "RECORDING-GUIDE.md",
+      "bytes": 3864,
+      "sha256": "2d6dfe38fc18402770ce9e0ed86afe8730dc67e41922cb66319e268ebc551688"
+    },
+    {
+      "path": "requirements-lock.txt",
+      "bytes": 702,
+      "sha256": "fa90456cb8ee1efaa5e6cc0915a25a476f160cebd3cbbbe8761fbfe96084eefa"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 250,
+      "sha256": "70f5fc68243958dbc2a65bde6d544b726fc70c8c2d9192ee33f02de34bf6585b"
+    },
+    {
+      "path": "setup.ps1",
+      "bytes": 2276,
+      "sha256": "5c1553a6486500e2bd072b5a3ed204c7135aaff9fdb4cb061331c66368757163"
+    },
+    {
+      "path": "setup_models.py",
+      "bytes": 3716,
+      "sha256": "237ad4d36cdad62fbbfd27eccce31b2061f3aa66b00977c3bf7ca256e5845300"
+    },
+    {
+      "path": "smoke_cli.py",
+      "bytes": 2608,
+      "sha256": "db791ddb31ace5c1a4dd20ecd3c9007561b1e4fe8cbca902c9c502ffacbe1069"
+    },
+    {
+      "path": "speaker_verify.py",
+      "bytes": 24274,
+      "sha256": "d0a1c235d0c6498f35a0cf938be60cce6c9ba7b93c175720d05cc555e260cefc"
+    },
+    {
+      "path": "test_calibration_contract.py",
+      "bytes": 4335,
+      "sha256": "4c3bef1739cff2acd7f094f31819055feb6c9fc763dd6a96387dcf5116a4f853"
+    },
+    {
+      "path": "test_prototype.py",
+      "bytes": 11181,
+      "sha256": "f58e5d83e2be094dfceea948d259cd78473a29e82444d97240bdbf2b66359fa1"
+    }
+  ]
+}

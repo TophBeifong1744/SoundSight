@@ -1,0 +1,866 @@
+{
+  "status": "BOARD_OFFLINE_PROFILE_PASS",
+  "source_sha256": "b35b4140a9e4f9ad30b9533f088e4506081dae503740241374f4991467c6fb94",
+  "board_output": "logs/cpu-profile-C48Lvk",
+  "provenance": "User serial transcript only; full result.json not received",
+  "runs": [
+    {
+      "mode": "isolated_before",
+      "repeat": 1,
+      "window": "epoch26-16320",
+      "score": 0.6911128831670628,
+      "reference_pass": true,
+      "first_call": true,
+      "counters": {
+        "wall_seconds": 1.0861766170000067,
+        "process_cpu_seconds": 1.9,
+        "average_busy_cores": 1.7492551121637598,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.08,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.8,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.0
+    },
+    {
+      "mode": "isolated_before",
+      "repeat": 1,
+      "window": "epoch26-80320",
+      "score": 0.5290080995481381,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.0859046759999984,
+        "process_cpu_seconds": 1.9,
+        "average_busy_cores": 1.7496931747257738,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.09,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.82,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.0
+    },
+    {
+      "mode": "isolated_before",
+      "repeat": 1,
+      "window": "epoch26-144320",
+      "score": 0.6840127055222888,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.0857352870000057,
+        "process_cpu_seconds": 1.9,
+        "average_busy_cores": 1.7499661498981842,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.08,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.82,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.0
+    },
+    {
+      "mode": "isolated_before",
+      "repeat": 2,
+      "window": "epoch26-16320",
+      "score": 0.6911128831670628,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.0844204280000014,
+        "process_cpu_seconds": 1.9,
+        "average_busy_cores": 1.7520879826140618,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.09,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.82,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.0
+    },
+    {
+      "mode": "isolated_before",
+      "repeat": 2,
+      "window": "epoch26-80320",
+      "score": 0.5290080995481381,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.0868211340000045,
+        "process_cpu_seconds": 1.91,
+        "average_busy_cores": 1.7574188983336352,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.08,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.81,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.0
+    },
+    {
+      "mode": "isolated_before",
+      "repeat": 2,
+      "window": "epoch26-144320",
+      "score": 0.6840127055222888,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.0849357809999987,
+        "process_cpu_seconds": 1.9,
+        "average_busy_cores": 1.751255727088977,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.09,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.82,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.0
+    },
+    {
+      "mode": "paced_frontend",
+      "repeat": 1,
+      "window": "epoch26-16320",
+      "score": 0.6911128831670628,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.632312395999989,
+        "process_cpu_seconds": 2.32,
+        "average_busy_cores": 1.4212965641167719,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.53,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.79,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.6
+    },
+    {
+      "mode": "paced_frontend",
+      "repeat": 1,
+      "window": "epoch26-80320",
+      "score": 0.5290080995481381,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.5860604129999984,
+        "process_cpu_seconds": 2.27,
+        "average_busy_cores": 1.4312191272124022,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.47,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.79,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.58
+    },
+    {
+      "mode": "paced_frontend",
+      "repeat": 1,
+      "window": "epoch26-144320",
+      "score": 0.6840127055222888,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.5951214809999925,
+        "process_cpu_seconds": 2.28,
+        "average_busy_cores": 1.4293582195198402,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.52,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.76,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.58
+    },
+    {
+      "mode": "paced_frontend",
+      "repeat": 2,
+      "window": "epoch26-16320",
+      "score": 0.6911128831670628,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.619643066000009,
+        "process_cpu_seconds": 2.29,
+        "average_busy_cores": 1.4138917691634085,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.52,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.78,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.6
+    },
+    {
+      "mode": "paced_frontend",
+      "repeat": 2,
+      "window": "epoch26-80320",
+      "score": 0.5290080995481381,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.5599953990000017,
+        "process_cpu_seconds": 2.22,
+        "average_busy_cores": 1.4230811202539948,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.45,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.77,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.57
+    },
+    {
+      "mode": "paced_frontend",
+      "repeat": 2,
+      "window": "epoch26-144320",
+      "score": 0.6840127055222888,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.5885122720000027,
+        "process_cpu_seconds": 2.25,
+        "average_busy_cores": 1.4164196523122587,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.48,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.77,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.6
+    },
+    {
+      "mode": "isolated_after",
+      "repeat": 1,
+      "window": "epoch26-16320",
+      "score": 0.6911128831670628,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.1284573270000067,
+        "process_cpu_seconds": 1.93,
+        "average_busy_cores": 1.7102994981040949,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.12,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.82,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.0
+    },
+    {
+      "mode": "isolated_after",
+      "repeat": 1,
+      "window": "epoch26-80320",
+      "score": 0.5290080995481381,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.0845232599999974,
+        "process_cpu_seconds": 1.9,
+        "average_busy_cores": 1.7519218536631518,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.08,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.81,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.0
+    },
+    {
+      "mode": "isolated_after",
+      "repeat": 1,
+      "window": "epoch26-144320",
+      "score": 0.6840127055222888,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.0869447070000149,
+        "process_cpu_seconds": 1.91,
+        "average_busy_cores": 1.7572191001984185,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.09,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.82,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.0
+    },
+    {
+      "mode": "isolated_after",
+      "repeat": 2,
+      "window": "epoch26-16320",
+      "score": 0.6911128831670628,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.0839926849999983,
+        "process_cpu_seconds": 1.89,
+        "average_busy_cores": 1.7435542011983252,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.08,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.81,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.0
+    },
+    {
+      "mode": "isolated_after",
+      "repeat": 2,
+      "window": "epoch26-80320",
+      "score": 0.5290080995481381,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.0854124979999824,
+        "process_cpu_seconds": 1.9,
+        "average_busy_cores": 1.7504865693927458,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.09,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.82,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.0
+    },
+    {
+      "mode": "isolated_after",
+      "repeat": 2,
+      "window": "epoch26-144320",
+      "score": 0.6840127055222888,
+      "reference_pass": true,
+      "first_call": false,
+      "counters": {
+        "wall_seconds": 1.0848068049999995,
+        "process_cpu_seconds": 1.9,
+        "average_busy_cores": 1.7514639392403155,
+        "clock_tick_seconds": 0.01,
+        "stable_threads": true,
+        "threads": [
+          {
+            "tid": "602",
+            "cpu_seconds": 1.08,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          },
+          {
+            "tid": "603",
+            "cpu_seconds": 0.82,
+            "nice": 10,
+            "affinity": [
+              0,
+              1
+            ],
+            "runqueue_wait_seconds": null,
+            "scheduled_seconds": null,
+            "timeslices": null
+          }
+        ],
+        "thread_runqueue_wait_sum_seconds": null,
+        "schedstat_readable": false,
+        "interpretation": "CPU includes runtime spin; thread waits may overlap; zero waits may mean disabled kernel accounting; never subtract CPU sum from wall"
+      },
+      "frontend_cpu_seconds": 0.0
+    }
+  ],
+  "summary": [
+    {
+      "mode": "isolated_before",
+      "n": 6,
+      "wall_mean": 1.0856656538333358,
+      "wall_min": 1.0844204280000014,
+      "wall_max": 1.0868211340000045,
+      "cpu_mean": 1.9016666666666666,
+      "frontend_cpu_mean": 0.0
+    },
+    {
+      "mode": "paced_frontend",
+      "n": 6,
+      "wall_mean": 1.5969408378333323,
+      "wall_min": 1.5599953990000017,
+      "wall_max": 1.632312395999989,
+      "cpu_mean": 2.2716666666666665,
+      "frontend_cpu_mean": 0.5883333333333333
+    },
+    {
+      "mode": "isolated_after",
+      "n": 6,
+      "wall_mean": 1.0923562136666665,
+      "wall_min": 1.0839926849999983,
+      "wall_max": 1.1284573270000067,
+      "cpu_mean": 1.9049999999999998,
+      "frontend_cpu_mean": 0.0
+    }
+  ],
+  "isolated_pooled_wall": 1.0890109337500011,
+  "concurrent_wall_increase_percent": 46.641396182706664,
+  "concurrent_cpu_increase_percent": 19.35201401050788,
+  "score_max_abs_error": 0.0,
+  "schedstat": "UNAVAILABLE_ALL_18_CALLS_NOT_ZERO_WAIT",
+  "kernel_schedstats": "NOT_IN_TRANSCRIPT",
+  "frontend_lag": "NOT_IN_TRANSCRIPT",
+  "load_seconds": "NOT_IN_TRANSCRIPT",
+  "boundary": "J CMN+network+IPC wall, not microphone-to-decision latency; CPU summed across threads at 10ms tick",
+  "live_capture": false,
+  "motion_commands": 0,
+  "recognition_qualified": false,
+  "conclusions": [
+    "Paced frontend adds about 47 percent wall and 19 percent CPU cost for same inputs",
+    "Not a pure runqueue-wait measurement; cause of extra CPU cost unproven",
+    "Prior live 3.8-second calls not reproduced; DMA/snapshot/algorithm overhead and system load remain to separate",
+    "Same low score reproduced, PASS is numerical/procedure validation not correct target acceptance"
+  ],
+  "next": "Add opt-in process CPU measurement around actual live embedding and capture/frontend service; preserve capture priority, bounds and models"
+}

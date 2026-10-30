@@ -1,0 +1,35 @@
+接口约束的含义与核对方法
+
+计算域100MHz、10ns；采集/公共控制域61.44MHz、16.2760417ns。各域内部正常做单周期检查；交界仅经官方XPM及AXI Clock Converter。
+没有为了掩盖运算违例而降低频率、加多周期或整域false_path。
+I/O 的4ns/20ns是交给布局布线的设计上限，不是对板线的实测结论。
+
+PDM
+IM73D122V01数据手册v1.00表6/表8：L/R接地时下降沿开始驱动，上升沿释放；DATA最迟100ns有效。
+当前采样方式要求四块麦克风均L/R接地，每根数据线只接一块麦克风，不能换成共享双边沿模式。
+PS FCLK100→Clocking Wizard96→Clocking Wizard61.44MHz；PDM每20拍一个周期，每半周期10拍=162.760417ns。
+下降沿到CIC使用数据隔10拍；CIC用的是两级同步器前2拍捕到的数据，故捕获时点为8拍=130.208333ns。
+要求：FPGA时钟输出路径≤4ns，板上/线缆往返及相对偏差合计≤20ns，麦克风DATA有效≤100ns，FPGA数据输入到首级≤4ns。
+合计128ns，比130.208ns早2.208ns；该余量还要覆盖首级寄存器setup、抖动及模型误差。
+这个20ns外部上限是布线使用条件，不是已经测过的值。实际线长/波形不满足时应调整采样结构，不得直接放宽约束掩盖。
+首级可以在其它拍看到高阻/过渡，CIC只在指定稳定相位取数据。后级同步器时序不能切掉。
+
+SPI
+当前61.44MHz过采样，Mode0、MSB first、1MHz，40位一片选。SCK高/低各至少500ns。
+CS到首个SCK、最后下降沿到CS、两次CS之间建议各≥1us（大于实现要求8拍）。
+输入端口到首级各≤4ns；输入捕获、三拍同步和边沿检测按保守5拍=81.380ns预算。
+MISO寄存器至引脚≤20ns；外部往返及偏差暂按≤20ns使用条件。
+保守MISO响应=4+81.380+20+20=125.380ns。对500ns半周期以及STM32主机6.5ns setup仍有368.120ns预算；hold2.5ns依赖只在下降沿后更新。
+这项推导是接口设计预算，不是STA与示波器替代品。B需保持1MHz实际SCK并核对GPIO速度/电平/走线。
+MISO空闲主动0，仅用于与本STM32独占点对点连接；不要与其它从机共用MISO。
+IRQ和servo_pwm是异步电平/脉宽输出，约束内部寄存器至端口≤20ns；机械位置/扭矩不在该约束内。
+
+综合实现后
+报告检查：时钟来自PS100MHz、中间96MHz，业务域100/61.44MHz；同步器首级对象数PDM4、SPI各1；内部单周期路径和hold都要检查。
+Clocking Wizard、Processor System Reset、XPM FIFO/CDC的实例约束由官方IP提供；没有整域false_path。额外复位保护详见document/design/stm32/clock-reset.txt。
+report_cdc的异步输入需按本文件与RTL逐条审查，不能批量降低严重性。实现后的max-delay是否达标必须看真实报告。
+
+原件
+https://www.infineon.com/dgdl/Infineon-IM73D122-DataSheet-v01_00-EN.pdf?fileId=8ac78c8c83cd3081018409cafdfb46db
+https://www.st.com/resource/en/datasheet/stm32f407ig.pdf （DS8626 Rev12 表55）
+https://docs.amd.com/r/en-US/ug903-vivado-using-constraints/Constraining-Asynchronous-Signals

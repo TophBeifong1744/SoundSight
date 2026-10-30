@@ -1,0 +1,20 @@
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:/AMD/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe work.tb_pair --debug typical --relax --mt 16 -s tb_pair --log elaborate.log 
+Using 16 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/clean_pl_20261017/evidence/pair_20261017_145303/sources/doa_math_pkg.sv" Line 2. Module doa_math_pkg doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.doa_math_pkg
+Compiling module work.ifft25_official
+Compiling module work.f1a_frame_store
+Compiling module work.doa_math_serial
+Compiling module work.doa_phat_client
+Compiling module work.ss_pair_engine
+Compiling module work.tb_pair
+Built simulation snapshot tb_pair

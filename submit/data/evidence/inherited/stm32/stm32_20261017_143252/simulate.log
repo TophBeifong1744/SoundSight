@@ -1,0 +1,62 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sat Oct 17 14:33:07 2026
+# Process ID         : 11608
+# Current directory  : E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/clean_pl_20261017/evidence/stm32_20261017_143252
+# Command line       : xsim.exe -log simulate.log -mode tcl -source {xsim.dir/tb_stm32/xsim_script.tcl}
+# Log file           : E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/clean_pl_20261017/evidence/stm32_20261017_143252/simulate.log
+# Journal file       : E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/clean_pl_20261017/evidence/stm32_20261017_143252\xsim.jou
+# Running On         : Toph
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 16890 MB
+# Swap memory        : 23622 MB
+# Total Virtual      : 40512 MB
+# Available Virtual  : 17787 MB
+#-----------------------------------------------------------
+source xsim.dir/tb_stm32/xsim_script.tcl
+# xsim {tb_stm32} -maxdeltaid 1000 -autoloadwcfg -tclbatch {run.tcl} -onerror quit
+Time resolution is 1 ps
+source run.tcl
+## run all
+Note:   - SCALING_SCH: in_ptr = 1, out_ptr = 1
+Time: 0 ps  Iteration: 0  Process: /tb_stm32/dut/compute/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - C_CHANNELS  = 1
+Time: 0 ps  Iteration: 0  Process: /tb_stm32/dut/compute/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - field_width = 20
+Time: 0 ps  Iteration: 0  Process: /tb_stm32/dut/compute/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - Copying SCALE_SCH from 20 downto 1 to 20 downto 1
+Time: 0 ps  Iteration: 0  Process: /tb_stm32/dut/compute/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - SCALING_SCH: in_ptr = 1, out_ptr = 1
+Time: 0 ps  Iteration: 0  Process: /tb_stm32/dut/compute/frontend/forward/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - C_CHANNELS  = 1
+Time: 0 ps  Iteration: 0  Process: /tb_stm32/dut/compute/frontend/forward/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - field_width = 20
+Time: 0 ps  Iteration: 0  Process: /tb_stm32/dut/compute/frontend/forward/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - Copying SCALE_SCH from 20 downto 1 to 20 downto 1
+Time: 0 ps  Iteration: 0  Process: /tb_stm32/dut/compute/frontend/forward/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - SCALING_SCH: in_ptr = 1, out_ptr = 1
+Time: 0 ps  Iteration: 1  Process: /tb_stm32/dut/compute/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - C_CHANNELS  = 1
+Time: 0 ps  Iteration: 1  Process: /tb_stm32/dut/compute/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - field_width = 20
+Time: 0 ps  Iteration: 1  Process: /tb_stm32/dut/compute/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - Copying SCALE_SCH from 20 downto 1 to 20 downto 1
+Time: 0 ps  Iteration: 1  Process: /tb_stm32/dut/compute/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+STM32_PROGRESS cycle=100000 front=4 back=1
+STM32_PROGRESS cycle=200000 front=7 back=5
+STM32_PROGRESS cycle=300000 front=7 back=8
+STM32_PROGRESS cycle=400000 front=0 back=0
+STM32_PASS checks=22 cycles=495167 bist_and_real_spi=1 official_fft_ifft=1
+$finish called at time : 8059338092 ps : File "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/clean_pl_20261017/evidence/stm32_20261017_143252/sources/tb_stm32.sv" Line 71
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:03:17 . Memory (MB): peak = 204.836 ; gain = 0.004
+## quit
+INFO: xsimkernel Simulation Memory Usage: 33696 KB (Peak: 33696 KB), Simulation CPU Usage: 190671 ms
+INFO: [Common 17-206] Exiting xsim at Sat Oct 17 14:36:25 2026...

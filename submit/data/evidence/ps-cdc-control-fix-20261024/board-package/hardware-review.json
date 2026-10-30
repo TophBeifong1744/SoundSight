@@ -1,0 +1,174 @@
+{
+  "result": "PASS_WITH_SCOPE",
+  "scope": "Existing routed artifact inspection; not board or full CDC/RDC signoff",
+  "hardware": {
+    "bit": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.runs\\impl_1\\soundsight_stm32_bd_wrapper.bit",
+      "sha256": "b45b0f2be5572665f761b11e5d7160f3b8520803c65012850734519c3f505380",
+      "bytes": 4045703,
+      "mtime": 1792817277.2810287,
+      "xsa_match": true
+    },
+    "hwh": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.gen\\sources_1\\bd\\soundsight_stm32_bd\\hw_handoff\\soundsight_stm32_bd.hwh",
+      "sha256": "4383b94604e7626a1dbd7e2da8f856213144fecb8cf7021f8a535c9212f16914",
+      "bytes": 433321,
+      "mtime": 1792816772.726455,
+      "xsa_match": true
+    },
+    "xsa": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\pl_ps_reliaze.xsa",
+      "sha256": "97017343e2cd6191184c15099b3e2a72f013cec7436d90eb7355f955cec096ff",
+      "bytes": 934895,
+      "mtime": 1792817331.085818
+    },
+    "routed_dcp": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.runs\\impl_1\\soundsight_stm32_bd_wrapper_routed.dcp",
+      "sha256": "898f7082e8823da05509ae4995034384919385fe21bfa58a99a6121f04edc67c",
+      "bytes": 16803509,
+      "mtime": 1792817263.55923
+    }
+  },
+  "bit_header": {
+    "a": "soundsight_stm32_bd_wrapper;UserID=0XFFFFFFFF;Version=2025.2;SW_CRC=1fedc09d",
+    "b": "7z020clg400",
+    "c": "2026/10/24",
+    "d": "12:47:56"
+  },
+  "source_match_count": 16,
+  "cdc_critical": 0,
+  "cdc_warning": 1252,
+  "cdc_summary": [
+    [
+      "CDC-3",
+      "Info",
+      "22"
+    ],
+    [
+      "CDC-15",
+      "Warning",
+      "1252"
+    ]
+  ],
+  "control_flip_flops": 6,
+  "control_sync_flops_with_async_reg": 4,
+  "timing": {
+    "wns_ns": 0.229,
+    "whs_ns": 0.036,
+    "wpws_ns": 2.208,
+    "setup_failing": 0,
+    "hold_failing": 0,
+    "pulse_failing": 0
+  },
+  "resources": {
+    "lut": {
+      "used": 17398,
+      "available": 53200,
+      "percent": 32.7
+    },
+    "ff": {
+      "used": 19351,
+      "available": 106400,
+      "percent": 18.19
+    },
+    "bram": {
+      "used": 32,
+      "available": 140,
+      "percent": 22.86
+    },
+    "dsp": {
+      "used": 41,
+      "available": 220,
+      "percent": 18.64
+    }
+  },
+  "bus_skew_worst_slack_ns": 9.236,
+  "routing_errors": 0,
+  "drc_rules": {
+    "drc": [
+      [
+        "CHECK-3",
+        "Warning",
+        "2"
+      ],
+      [
+        "DPIP-1",
+        "Warning",
+        "16"
+      ],
+      [
+        "DPOP-1",
+        "Warning",
+        "8"
+      ],
+      [
+        "DPOP-2",
+        "Warning",
+        "19"
+      ],
+      [
+        "PDCN-1569",
+        "Warning",
+        "2"
+      ],
+      [
+        "REQP-1839",
+        "Warning",
+        "20"
+      ],
+      [
+        "REQP-1840",
+        "Warning",
+        "20"
+      ],
+      [
+        "RTSTAT-10",
+        "Warning",
+        "1"
+      ],
+      [
+        "AVAL-4",
+        "Advisory",
+        "6"
+      ],
+      [
+        "REQP-165",
+        "Advisory",
+        "1"
+      ],
+      [
+        "REQP-181",
+        "Advisory",
+        "1"
+      ]
+    ],
+    "methodology_drc": [
+      [
+        "LUTAR-1",
+        "Warning",
+        "2"
+      ],
+      [
+        "XDCB-1",
+        "Warning",
+        "4"
+      ]
+    ]
+  },
+  "report_hashes": {
+    "cdc_routed.rpt": "43f1566edf5722d43b6505802ca4217d840d0afa08f97e6c5fe4969c095b6615",
+    "control_structure.txt": "b0051c143db99f16e1f6016f73a2539480e4e307971cf69ce1a67f0f7c4d7903",
+    "soundsight_stm32_bd_wrapper_bus_skew_routed.rpt": "ac7730665e9c447cad66326045c33d448242f9c558921fec2704a4d9dd055dcc",
+    "soundsight_stm32_bd_wrapper_drc_routed.rpt": "0a5001fc4a377c2387d09bb714be37d1eb2f2b8e40b57085af5383adbd81a431",
+    "soundsight_stm32_bd_wrapper_io_placed.rpt": "5651c3151580ac0f5fc69a79805307a03b731354c43d3b305290052b5b148499",
+    "soundsight_stm32_bd_wrapper_methodology_drc_routed.rpt": "97cf8df9bfab31efadd2594f841d90414b6eb12f5233ca69ab009c9d89c59d33",
+    "soundsight_stm32_bd_wrapper_route_status.rpt": "1f16c814a95a91d915b165b013c5dd3ae55991afd419e6b60ee830ec4f2155bb",
+    "soundsight_stm32_bd_wrapper_timing_summary_routed.rpt": "ffab6bb8bd330011b0e03e5562a1223dad1d10e6b20265d9286bc04c3077d143",
+    "soundsight_stm32_bd_wrapper_utilization_placed.rpt": "251db3f13e03a62b90fbbaca500020c047bedf94e316b188da29863d759f23cd",
+    "timing_verified.rpt": "8d6d2d64b599e6d157a18ba9b62b5e0f1f0860fbc501fb350e954c325d8ef7f3",
+    "utilization_hierarchical.rpt": "cbb4ca7b41da7b3226a84d60ac5283c6042c0c71c92e2fbd46734059d1bc3f68",
+    "utilization_routed.rpt": "9d8033dcda629ff172a42c422ab08a84631c9e8e51e5f250c76ccbd48c33fa79"
+  },
+  "board": "NOT_RUN",
+  "independent_review": "NOT_RUN"
+}

@@ -1,0 +1,16 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/clean_pl_20261017/evidence/platform_20261017_172144/soundsight_ps_bd_clk_audio_0.v" into library work
+INFO: [VRFC 10-311] analyzing module soundsight_ps_bd_clk_audio_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/clean_pl_20261017/evidence/platform_20261017_172144/soundsight_ps_bd_clk_audio_0_clk_wiz.v" into library work
+INFO: [VRFC 10-311] analyzing module soundsight_ps_bd_clk_audio_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/clean_pl_20261017/evidence/platform_20261017_172144/soundsight_ps_bd_clk_main_0.v" into library work
+INFO: [VRFC 10-311] analyzing module soundsight_ps_bd_clk_main_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/clean_pl_20261017/evidence/platform_20261017_172144/soundsight_ps_bd_clk_main_0_clk_wiz.v" into library work
+INFO: [VRFC 10-311] analyzing module soundsight_ps_bd_clk_main_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/clean_pl_20261017/evidence/platform_20261017_172144/soundsight_ps_bd_core_release_0.v" into library work
+INFO: [VRFC 10-311] analyzing module soundsight_ps_bd_core_release_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/clean_pl_20261017/evidence/platform_20261017_172144/soundsight_ps_bd_io_release_0.v" into library work
+INFO: [VRFC 10-311] analyzing module soundsight_ps_bd_io_release_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/clean_pl_20261017/evidence/platform_20261017_172144/tb_platform.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_platform
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/clean_pl_20261017/evidence/platform_20261017_172144/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl

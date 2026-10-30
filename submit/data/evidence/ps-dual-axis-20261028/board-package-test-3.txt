@@ -1,0 +1,22 @@
+usage: board_3d.py [-h]
+                   {check,prepare,status,drain,level,filter,servo-config,servo-geometry,manual,run} ...
+
+PYNQ 3-D helper. Explicit modes, default no motion, one device owner.
+
+positional arguments:
+  {check,prepare,status,drain,level,filter,servo-config,servo-geometry,manual,run}
+    check               Native solver build and offline tests; no hardware
+    prepare             Offline checks, then explicit bit load and clock
+                        preparation
+    status              Read state of already prepared hardware
+    drain               STOP and save existing raw frames with the legacy
+                        recovery helper; no 3D/motion
+    servo-config        Axis FRONT DIRECTION MIN MAX; saves only, no movement
+    servo-geometry      Pivot XYZ centimetres; optional KNOWN source range
+    manual              Explicit sound-independent finite motion; Ctrl+C
+                        revokes
+    run                 Real 3-D measurement; motion OFF unless --axes is
+                        explicit
+
+options:
+  -h, --help            show this help message and exit

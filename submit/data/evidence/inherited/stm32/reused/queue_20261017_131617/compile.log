@@ -1,0 +1,16 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/queue_20261017_131617/sources/ss_actuator_control.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_actuator_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/queue_20261017_131617/sources/ss_bist_source.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_bist_source
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/queue_20261017_131617/sources/ss_snapshot_queue.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_snapshot_queue
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/queue_20261017_131617/sources/ss_spi_mode0.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_spi_mode0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/queue_20261017_131617/sources/ss_stm32_link.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_stm32_link
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/queue_20261017_131617/sources/i17_turntable_pwm_guard.sv" into library work
+INFO: [VRFC 10-311] analyzing module i17_turntable_pwm_guard
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/queue_20261017_131617/sources/motor_drive.v" into library work
+INFO: [VRFC 10-311] analyzing module motor_drive
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/stm32_fpga_20261017/evidence/queue_20261017_131617/sources/tb_queue.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_queue

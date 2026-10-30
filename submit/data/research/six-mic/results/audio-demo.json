@@ -1,0 +1,23 @@
+{
+  "status": "synthetic_noise_probe_only",
+  "speech": false,
+  "files": [
+    "A-single-reference.wav",
+    "B-manual-direction.wav",
+    "C-auto-static-direction.wav"
+  ],
+  "common_gain": 0.1462632995019082,
+  "input_file": "six-channel-synthetic-input.wav",
+  "wav_quantization": "16-bit shared scale; metrics computed before quantization",
+  "target_az": 0,
+  "target_el": 30,
+  "auto_error_deg": 4.050945597073466,
+  "auto_valid_frames": 81,
+  "auto_total_frames": 186,
+  "auto_valid_pct": 43.54838709677419,
+  "input_sir_db": 5.9905709008854995,
+  "manual_sir_db": 11.645310315570361,
+  "auto_sir_db": 11.281592246391716,
+  "manual_improvement_db": 5.654739414684862,
+  "auto_improvement_db": 5.291021345506216
+}

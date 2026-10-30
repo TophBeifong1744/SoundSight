@@ -1,0 +1,30 @@
+{
+  "actual_pins": {
+    "servo_pwm": {
+      "pin": "T15",
+      "standard": "LVCMOS33",
+      "bank": "34"
+    },
+    "servo_vertical_pwm": {
+      "pin": "W15",
+      "standard": "LVCMOS33",
+      "bank": "34"
+    }
+  },
+  "registered_xdc": {
+    "board_pins.xdc": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs/constrs_1/imports/horizontal_constraints/01/board_pins.xdc",
+    "horizontal_reserved.xdc": "F:\\AMD\\work\\SoundSight_PS_Servo\\SoundSight_PS_Servo.srcs/constrs_1/imports/horizontal_constraints/horizontal_reserved.xdc"
+  },
+  "wrong_pin_report_negative_checks": 3,
+  "wns_ns": 0.104,
+  "whs_ns": 0.036,
+  "hardware_actions": 0,
+  "xsa_bit_hwh_byte_match": true,
+  "zip_crc": true,
+  "python38_syntax": true,
+  "unchanged_software_and_test_files": 38,
+  "reused_tests": "174 offline tests from ../ps-horizontal-20261022/geometry; software and tests byte-identical",
+  "new_bit_differs_from_old": true,
+  "arm_motion": "NOT_RUN",
+  "checker_correction": "Windows default GBK could not decode Chinese XDC comments; repeated read with explicit UTF-8."
+}

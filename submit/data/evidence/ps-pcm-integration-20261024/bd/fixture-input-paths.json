@@ -1,0 +1,134 @@
+[
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\hann-u18f17.mem",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\hann-u18f17.mem"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\ip\\ss_ifft25\\ss_ifft25.xci",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\ss_ifft25\\ss_ifft25.xci"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\ip\\ss_fft29\\ss_fft29.xci",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\ss_fft29\\ss_fft29.xci"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\pdm_cic3.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\pdm_cic3.v"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\doa_math_pkg.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\doa_math_pkg.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\doa_math_serial.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\doa_math_serial.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\doa_phat_client.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\doa_phat_client.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\f1a_frame_store.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\f1a_frame_store.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\fft29_official.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\fft29_official.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ifft25_official.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ifft25_official.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_async_word.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ss_async_word.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_clean_compute.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ss_clean_compute.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_dual_compute.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ss_dual_compute.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_fft_frontend.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ss_fft_frontend.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_pair_engine.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ss_pair_engine.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_pcm_windows.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ss_pcm_windows.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_pdm_capture.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ss_pdm_capture.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_preprocess.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ss_preprocess.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\bd_clean_compute.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\bd_clean_compute.v"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\motor_drive.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\motor_drive.v"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\i17_turntable_pwm_guard.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\i17_turntable_pwm_guard.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_actuator_control.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ss_actuator_control.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_axi_lite_regs.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ss_axi_lite_regs.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_bist_source.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ss_bist_source.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_ps_control_regs.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ss_ps_control_regs.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_ps_link.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ss_ps_link.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\ss_snapshot_queue.sv",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\ss_snapshot_queue.sv"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\imports\\horizontal_sources\\bd_ps_link.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\bd_ps_link.v"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\sources_1\\bd\\soundsight_stm32_bd\\soundsight_stm32_bd.bd",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\soundsight_stm32_bd\\soundsight_stm32_bd.bd"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.gen\\sources_1\\bd\\soundsight_stm32_bd\\hdl\\soundsight_stm32_bd_wrapper.v",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\sources_1\\soundsight_stm32_bd_wrapper.v"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\constrs_1\\imports\\horizontal_constraints\\01\\board_pins.xdc",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\constrs_1\\board_pins.xdc"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\constrs_1\\imports\\horizontal_constraints\\02\\interface_timing.xdc",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\constrs_1\\interface_timing.xdc"
+  ],
+  [
+    "F:\\AMD\\work\\SoundSight_PS_Reliaze\\SoundSight_PS_Reliaze.srcs\\constrs_1\\imports\\horizontal_constraints\\horizontal_reserved.xdc",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\pcm-integration\\project\\input\\constrs_1\\horizontal_reserved.xdc"
+  ]
+]

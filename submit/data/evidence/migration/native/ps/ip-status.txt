@@ -1,0 +1,136 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Sat Oct 17 20:53:45 2026
+| Host         : Toph running 64-bit major release  (build 9200)
+| Command      : report_ip_status
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+IP Status Summary
+
+1. Project IP Status
+--------------------
+Your project uses 23 IP. Some of these IP may have undergone changes in this release of the software. Please review the recommended actions.
+
+More information on the Xilinx versioning policy is available at www.xilinx.com.
+
+Project IP Instances
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| Instance Name                      | Status                    | Recommendation      | Change    | IP Name            | IP      | New Version   | New        | Original Part        |
+|                                    |                           |                     | Log       |                    | Version |               | License    |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_bus_io_reset_0    | Up-to-date                | No changes required |  *(1)     | Processor System   | 5.0     | 5.0 (Rev. 17) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           | Reset              | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 17)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_bus_reset_0       | Up-to-date                | No changes required |  *(2)     | Processor System   | 5.0     | 5.0 (Rev. 17) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           | Reset              | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 17)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_clk_audio_0       | Up-to-date                | No changes required |  *(3)     | Clocking Wizard    | 6.0     | 6.0 (Rev. 17) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 17)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_clk_main_0        | Up-to-date                | No changes required |  *(4)     | Clocking Wizard    | 6.0     | 6.0 (Rev. 17) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 17)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_compute_0         | Up-to-date                | No changes required | Change    | bd_clean_compute_v | 1.0     | 1.0 (Rev. 1)  | Included   | xc7z020clg400-1      |
+|                                    |                           |                     | Log not   |                    | (Rev.   |               |            |                      |
+|                                    |                           |                     | available |                    | 1)      |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| ss_ifft25[Ref1]                    | Up-to-date                | No changes required |  *(5)     | Fast Fourier       | 9.1     | 9.1 (Rev. 15) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           | Transform          | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 15)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| ss_fft29[Ref1]                     | Up-to-date                | No changes required |  *(6)     | Fast Fourier       | 9.1     | 9.1 (Rev. 15) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           | Transform          | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 15)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_control_bus_0     | Up-to-date (discontinued) | No changes required |  *(7)     | AXI Interconnect   | 2.1     | 2.1 (Rev. 38) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 38)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_control_cdc_0     | Up-to-date                | No changes required |  *(8)     | AXI Clock          | 2.1     | 2.1 (Rev. 35) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           | Converter          | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 35)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_core_release_0    | Up-to-date                | No changes required |  *(9)     | xpm_cdc            | 1.0     | 1.0 (Rev. 5)  | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 5)      |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_core_reset_0      | Up-to-date                | No changes required |  *(10)    | Processor System   | 5.0     | 5.0 (Rev. 17) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           | Reset              | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 17)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_core_reset_gate_0 | Up-to-date (discontinued) | No changes required |  *(11)    | Utility Vector     | 2.0     | 2.0 (Rev. 5)  | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           | Logic              | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 5)      |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_io_release_0      | Up-to-date                | No changes required |  *(12)    | xpm_cdc            | 1.0     | 1.0 (Rev. 5)  | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 5)      |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_io_reset_0        | Up-to-date                | No changes required |  *(13)    | Processor System   | 5.0     | 5.0 (Rev. 17) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           | Reset              | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 17)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_io_reset_gate_0   | Up-to-date (discontinued) | No changes required |  *(14)    | Utility Vector     | 2.0     | 2.0 (Rev. 5)  | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           | Logic              | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 5)      |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_irq_concat_0      | Up-to-date (discontinued) | No changes required |  *(15)    | Concat             | 2.1     | 2.1 (Rev. 7)  | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 7)      |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_irq_zero_0        | Up-to-date (discontinued) | No changes required |  *(16)    | Constant           | 1.1     | 1.1 (Rev. 10) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 10)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_one_0             | Up-to-date (discontinued) | No changes required |  *(17)    | Constant           | 1.1     | 1.1 (Rev. 10) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 10)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_ps7_0             | Up-to-date                | No changes required |  *(18)    | ZYNQ7 Processing   | 5.5     | 5.5 (Rev. 8)  | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           | System             | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 8)      |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_ps_link_0         | Up-to-date                | No changes required | Change    | bd_ps_link_v1_0    | 1.0     | 1.0 (Rev. 1)  | Included   | xc7z020clg400-1      |
+|                                    |                           |                     | Log not   |                    | (Rev.   |               |            |                      |
+|                                    |                           |                     | available |                    | 1)      |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_ps_bd_zero_0            | Up-to-date (discontinued) | No changes required |  *(19)    | Constant           | 1.1     | 1.1 (Rev. 10) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 10)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| ss_fft29                           | Up-to-date                | No changes required |  *(20)    | Fast Fourier       | 9.1     | 9.1 (Rev. 15) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           | Transform          | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 15)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| ss_ifft25                          | Up-to-date                | No changes required |  *(21)    | Fast Fourier       | 9.1     | 9.1 (Rev. 15) | Included   | xc7z020clg400-1      |
+|                                    |                           |                     |           | Transform          | (Rev.   |               |            |                      |
+|                                    |                           |                     |           |                    | 15)     |               |            |                      |
++------------------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+*(1) f:/AMD/2025.2/Vivado/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(2) f:/AMD/2025.2/Vivado/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(3) f:/AMD/2025.2/Vivado/data/ip/xilinx/clk_wiz_v6_0/doc/clk_wiz_v6_0_changelog.txt
+*(4) f:/AMD/2025.2/Vivado/data/ip/xilinx/clk_wiz_v6_0/doc/clk_wiz_v6_0_changelog.txt
+*(5) f:/AMD/2025.2/Vivado/data/ip/xilinx/xfft_v9_1/doc/xfft_v9_1_changelog.txt
+*(6) f:/AMD/2025.2/Vivado/data/ip/xilinx/xfft_v9_1/doc/xfft_v9_1_changelog.txt
+*(7) f:/AMD/2025.2/Vivado/data/ip/xilinx/axi_interconnect_v2_1/doc/axi_interconnect_v2_1_changelog.txt
+*(8) f:/AMD/2025.2/Vivado/data/ip/xilinx/axi_clock_converter_v2_1/doc/axi_clock_converter_v2_1_changelog.txt
+*(9) f:/AMD/2025.2/Vivado/data/ip/xilinx/xpm_cdc_gen_v1_0/doc/xpm_cdc_gen_v1_0_changelog.txt
+*(10) f:/AMD/2025.2/Vivado/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(11) f:/AMD/2025.2/Vivado/data/ip/xilinx/util_vector_logic_v2_0/doc/util_vector_logic_v2_0_changelog.txt
+*(12) f:/AMD/2025.2/Vivado/data/ip/xilinx/xpm_cdc_gen_v1_0/doc/xpm_cdc_gen_v1_0_changelog.txt
+*(13) f:/AMD/2025.2/Vivado/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(14) f:/AMD/2025.2/Vivado/data/ip/xilinx/util_vector_logic_v2_0/doc/util_vector_logic_v2_0_changelog.txt
+*(15) f:/AMD/2025.2/Vivado/data/ip/xilinx/xlconcat_v2_1/doc/xlconcat_v2_1_changelog.txt
+*(16) f:/AMD/2025.2/Vivado/data/ip/xilinx/xlconstant_v1_1/doc/xlconstant_v1_1_changelog.txt
+*(17) f:/AMD/2025.2/Vivado/data/ip/xilinx/xlconstant_v1_1/doc/xlconstant_v1_1_changelog.txt
+*(18) f:/AMD/2025.2/Vivado/data/ip/xilinx/processing_system7_v5_5/doc/processing_system7_v5_5_changelog.txt
+*(19) f:/AMD/2025.2/Vivado/data/ip/xilinx/xlconstant_v1_1/doc/xlconstant_v1_1_changelog.txt
+*(20) f:/AMD/2025.2/Vivado/data/ip/xilinx/xfft_v9_1/doc/xfft_v9_1_changelog.txt
+*(21) f:/AMD/2025.2/Vivado/data/ip/xilinx/xfft_v9_1/doc/xfft_v9_1_changelog.txt
+
+

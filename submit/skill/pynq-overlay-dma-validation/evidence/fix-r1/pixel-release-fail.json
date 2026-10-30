@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "evidence_level": "mock",
+  "board_execution": false,
+  "transaction_id": 1,
+  "mode": "receive",
+  "status": "FAIL",
+  "requested_bytes": 128,
+  "actual_bytes": 128,
+  "events": [
+    "rx.allocate",
+    "rx.fill",
+    "rx.flush",
+    "rx.invalidate_before",
+    "rx.arm",
+    "dma.quiescent",
+    "rx.invalidate_after",
+    "rx.read"
+  ],
+  "errors": [
+    "release: RuntimeError: injected uncertain release failure"
+  ],
+  "snapshots": [
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 1,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": true,
+        "tx_completed": false,
+        "quiescent": true,
+        "actual_bytes": 128,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 2,
+          "simulated_active": false
+        }
+      }
+    }
+  ],
+  "mismatch_count": 0,
+  "first_mismatch": null,
+  "transfer_elapsed_seconds": 0.001,
+  "throughput_bytes_per_second": null,
+  "buffer_disposition": "release_indeterminate",
+  "tlast_observed": null,
+  "expected_sha256": "b3c87588b17afe4d09f6c97a055dedd6f5fef53de648237bf488afb6111d218d",
+  "output_sha256": "b3c87588b17afe4d09f6c97a055dedd6f5fef53de648237bf488afb6111d218d",
+  "session_blocked": true,
+  "next_run": {
+    "schema_version": 1,
+    "evidence_level": "mock",
+    "board_execution": false,
+    "transaction_id": 2,
+    "mode": "receive",
+    "status": "FAIL",
+    "requested_bytes": 128,
+    "actual_bytes": null,
+    "events": [],
+    "errors": [
+      "SESSION_BLOCKED: previous failure requires external review"
+    ],
+    "snapshots": [],
+    "mismatch_count": null,
+    "first_mismatch": null,
+    "transfer_elapsed_seconds": null,
+    "throughput_bytes_per_second": null,
+    "buffer_disposition": "retained",
+    "tlast_observed": null,
+    "session_blocked": true
+  },
+  "adapter_trace": [
+    "rx.allocate",
+    "rx.write",
+    "rx.flush",
+    "rx.invalidate",
+    "rx.arm",
+    "snapshot",
+    "snapshot",
+    "rx.invalidate",
+    "rx.read",
+    "rx.release"
+  ],
+  "payload_format": "<I",
+  "golden_sha256": "b3c87588b17afe4d09f6c97a055dedd6f5fef53de648237bf488afb6111d218d",
+  "timing_source": "synthetic mock clock; not hardware throughput"
+}

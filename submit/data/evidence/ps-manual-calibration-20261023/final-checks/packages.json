@@ -1,0 +1,20 @@
+{
+  "soundsight_manual_update.zip": {
+    "build_output": "NORMAL_UPDATE= release\\output\\soundsight_manual_update.next.zip PAYLOAD_FILES= 32 BIT_CHANGED=False",
+    "changes_since_full_packaged_tests": [
+      "soundsight_normal_update/payload/software/ps/board_tools.py",
+      "soundsight_normal_update/payload/software/ps/run_normal.py",
+      "soundsight_normal_update/payload/document/pynq-board-helper.md",
+      "soundsight_normal_update/payload/document/ps-manual-calibration.md"
+    ],
+    "files": 35,
+    "crc": "PASS",
+    "python38_syntax": "PASS"
+  },
+  "soundsight_horizontal_project_update.zip": {
+    "build_output": "HORIZONTAL_PROJECT_UPDATE= release\\output\\soundsight_horizontal_project_update.next.zip INPUT_FILES= 14 BIT_INCLUDED=False",
+    "files": 15,
+    "crc": "PASS",
+    "python38_syntax": "PASS"
+  }
+}

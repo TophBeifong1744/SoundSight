@@ -1,0 +1,36 @@
+{
+  "scope": "PC_ONLY",
+  "results": [
+    {
+      "name": "solver-options",
+      "returncode": 0,
+      "seconds": 0.926
+    },
+    {
+      "name": "solver-regression",
+      "returncode": 0,
+      "seconds": 5.595
+    },
+    {
+      "name": "das-regression",
+      "returncode": 0,
+      "seconds": 2.785
+    },
+    {
+      "name": "das-optimized",
+      "returncode": 0,
+      "seconds": 0.863
+    },
+    {
+      "name": "spatial-runtime",
+      "returncode": 0,
+      "seconds": 0.165
+    },
+    {
+      "name": "integrated-chain",
+      "returncode": 0,
+      "seconds": 1.138
+    }
+  ],
+  "review_fixes_applied": true
+}

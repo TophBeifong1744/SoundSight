@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "scope": "ARM_CORTEX_A9_EMULATION_NOT_BOARD",
+  "detail": {
+    "frame_prepare_seconds": 0.00011532000004876863,
+    "fft_seconds": 0.001567032000053814,
+    "power_seconds": 6.109399998877052e-05,
+    "mel_project_log_seconds": 0.00031275700007427076,
+    "fir_and_stream_bookkeeping_seconds": 0.000647517000032849,
+    "vad_ort_run_seconds": 0.1243247189999579,
+    "embedding_ort_run_seconds": 5.683727151000028,
+    "embedding_output_copy_seconds": 4.326600000581493e-05,
+    "vad_calls": 4.0,
+    "embedding_calls": 3.0,
+    "mel_frames": 11.0,
+    "stream_blocks": 4.0
+  },
+  "frontend_and_embeddings_bit_exact": true,
+  "profile_status": "COMPLETE",
+  "runs": {
+    "embedding": 3,
+    "vad": 4
+  },
+  "frozen_previous_arm_binary_bit_exact": true
+}

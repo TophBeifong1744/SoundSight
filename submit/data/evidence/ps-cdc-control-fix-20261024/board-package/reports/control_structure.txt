@@ -1,0 +1,26 @@
+PART=xc7z020clg400-2
+CELL=soundsight_stm32_bd_i/compute/inst/u_core/enable_sync REF=xpm_cdc_single__parameterized1__2
+CELL=soundsight_stm32_bd_i/compute/inst/u_core/enable_sync_i_1 REF=LUT2
+CELL=soundsight_stm32_bd_i/compute/inst/u_core/with_audio.drain_sync REF=xpm_cdc_single__parameterized1__1
+CELL=soundsight_stm32_bd_i/compute/inst/u_core/enable_sync/GND REF=GND
+CELL=soundsight_stm32_bd_i/compute/inst/u_core/enable_sync/VCC REF=VCC
+CELL=soundsight_stm32_bd_i/compute/inst/u_core/enable_sync/src_ff_reg REF=FDRE
+ CLOCK=clk_out1_soundsight_stm32_bd_clk_wiz_0_1 ASYNC_REG=
+ D_STARTPOINTS=soundsight_stm32_bd_i/io_release/inst/xarst/arststages_ff_reg[2]/C soundsight_stm32_bd_i/ps_link/inst/u_core/regs/sys_ctrl_reg[1]/C soundsight_stm32_bd_i/ps_link/inst/u_core/regs/queue/exhausted_reg/C soundsight_stm32_bd_i/bus_io_reset/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C soundsight_stm32_bd_i/ps_link/inst/u_core/regs/sys_ctrl_reg[0]/C soundsight_stm32_bd_i/ps_link/inst/u_core/regs/stop_latched_reg/C
+CELL=soundsight_stm32_bd_i/compute/inst/u_core/enable_sync/syncstages_ff_reg[0] REF=FDRE
+ CLOCK=clk_out2_soundsight_stm32_bd_clk_wiz_0_0 ASYNC_REG=1
+ D_STARTPOINTS=soundsight_stm32_bd_i/compute/inst/u_core/enable_sync/src_ff_reg/C
+CELL=soundsight_stm32_bd_i/compute/inst/u_core/enable_sync/syncstages_ff_reg[1] REF=FDRE
+ CLOCK=clk_out2_soundsight_stm32_bd_clk_wiz_0_0 ASYNC_REG=1
+ D_STARTPOINTS=soundsight_stm32_bd_i/compute/inst/u_core/enable_sync/syncstages_ff_reg[0]/C
+CELL=soundsight_stm32_bd_i/compute/inst/u_core/with_audio.drain_sync/GND REF=GND
+CELL=soundsight_stm32_bd_i/compute/inst/u_core/with_audio.drain_sync/VCC REF=VCC
+CELL=soundsight_stm32_bd_i/compute/inst/u_core/with_audio.drain_sync/src_ff_reg REF=FDRE
+ CLOCK=clk_out1_soundsight_stm32_bd_clk_wiz_0_1 ASYNC_REG=
+ D_STARTPOINTS=soundsight_stm32_bd_i/ps_link/inst/u_core/regs/sys_ctrl_reg[1]/C soundsight_stm32_bd_i/ps_link/inst/u_core/regs/queue/exhausted_reg/C soundsight_stm32_bd_i/bus_io_reset/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C soundsight_stm32_bd_i/ps_link/inst/u_core/regs/sys_ctrl_reg[0]/C soundsight_stm32_bd_i/ps_link/inst/u_core/regs/stop_latched_reg/C soundsight_stm32_bd_i/compute/inst/u_core/enable_return_sync/syncstages_ff_reg[1]/C soundsight_stm32_bd_i/compute/inst/u_core/busy_sync/syncstages_ff_reg[1]/C soundsight_stm32_bd_i/io_release/inst/xarst/arststages_ff_reg[2]/C soundsight_stm32_bd_i/compute/inst/u_core/with_audio.frames/fifo/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.fifo_rd_rst_ic_reg/C soundsight_stm32_bd_i/compute/inst/u_core/with_audio.frames/fifo/gnuram_async_fifo.xpm_fifo_base_inst/gen_fwft.empty_fwft_i_reg/C
+CELL=soundsight_stm32_bd_i/compute/inst/u_core/with_audio.drain_sync/syncstages_ff_reg[0] REF=FDRE
+ CLOCK=clk_out2_soundsight_stm32_bd_clk_wiz_0_0 ASYNC_REG=1
+ D_STARTPOINTS=soundsight_stm32_bd_i/compute/inst/u_core/with_audio.drain_sync/src_ff_reg/C
+CELL=soundsight_stm32_bd_i/compute/inst/u_core/with_audio.drain_sync/syncstages_ff_reg[1] REF=FDRE
+ CLOCK=clk_out2_soundsight_stm32_bd_clk_wiz_0_0 ASYNC_REG=1
+ D_STARTPOINTS=soundsight_stm32_bd_i/compute/inst/u_core/with_audio.drain_sync/syncstages_ff_reg[0]/C

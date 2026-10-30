@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scope": "Static configuration/dependency/source comparison only",
+  "bd_functional_events_matched": 63,
+  "bd_gui_layout": "excluded; existing layout retained",
+  "fft_explicit_parameters_matched": {
+    "ss_fft29": 27,
+    "ss_ifft25": 27
+  },
+  "unchanged_xci_sha256": {
+    "ss_fft29": "5c0bdc33182c97692d5691bca29550d4850b9c3741321dabeb197f652c9de3ea",
+    "ss_ifft25": "97f248e741a43cd3423808eb039b7ac07e013798a6b22304ea06b4845318a0f9"
+  },
+  "run_properties_matched": 77,
+  "handoff_engineering_files": 40,
+  "external_debug_xdc": "disabled; not imported into maintained recipes",
+  "live_sources_compared": [],
+  "export_sha256": {
+    "project.tcl": "cc641f120b45ef7705fd73895b32c2e4e1925705e9945f377db4d6fdd7fee7f5",
+    "soundsight_stm32_bd.tcl": "820916c0c5238edc89ab919cbb1ce43c03b63293b1aeff7c26894d9d6829de5b"
+  },
+  "vivado_started": false,
+  "rtl_simulation": "SKIPPED; existing board fix synchronized",
+  "recipe_rebuild": "NOT_RUN",
+  "new_board_test": "NOT_RUN"
+}

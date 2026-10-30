@@ -1,0 +1,435 @@
+{
+  "description": "Paths in archived Vitis metadata are relative to workspace or the receiver Vitis installation. Only unpack_local.py generates local absolute paths.",
+  "paths": [
+    {
+      "file": "pl_stm32_platform/vitis-comp.json",
+      "relative": "pl_stm32_platform/hw/pl_stm32.xsa",
+      "base": "workspace",
+      "format": "json",
+      "field": [
+        "configuration",
+        "xsa"
+      ]
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/bsp.yaml",
+      "relative": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp",
+      "base": "workspace",
+      "format": "yaml-line",
+      "prefix": "path: "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/bsp.yaml",
+      "relative": "data/embeddedsw/lib/bsp/standalone_v9_4",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/coresightps_dcc_v1_13",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/devcfg_v3_9",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/dmaps_v2_11",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/scugic_v5_6",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/qspips_v3_14",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/scutimer_v2_7",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/scuwdt_v2_6",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/uartps_v3_17",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/xadcps_v2_7",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/bsp.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xiltimer_v2_3",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/lib_list.yaml",
+      "relative": "data/embeddedsw/ThirdParty/sw_services/lwip220_v1_3",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xilffs_v5_5",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xilflash_v4_12",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xilrsa_v1_8",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xilskey_v7_8",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xiltimer_v2_3",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/bsp.yaml",
+      "relative": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp",
+      "base": "workspace",
+      "format": "yaml-line",
+      "prefix": "path: "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/bsp.yaml",
+      "relative": "data/embeddedsw/lib/bsp/standalone_v9_4",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/coresightps_dcc_v1_13",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/devcfg_v3_9",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/dmaps_v2_11",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/scugic_v5_6",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/qspips_v3_14",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/scutimer_v2_7",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/scuwdt_v2_6",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/uartps_v3_17",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/xadcps_v2_7",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/bsp.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xiltimer_v2_3",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/lib_list.yaml",
+      "relative": "data/embeddedsw/ThirdParty/sw_services/lwip220_v1_3",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xilffs_v5_5",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xilflash_v4_12",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xilrsa_v1_8",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xilskey_v7_8",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xiltimer_v2_3",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/app.yaml",
+      "relative": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp",
+      "base": "workspace",
+      "format": "yaml-line",
+      "prefix": "domain_path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/app.yaml",
+      "relative": "data/embeddedsw/lib/sw_apps/zynq_fsbl",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "app_src_dir: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+      "relative": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp",
+      "base": "workspace",
+      "format": "yaml-line",
+      "prefix": "path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+      "relative": "data/embeddedsw/lib/bsp/standalone_v9_4",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/coresightps_dcc_v1_13",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/devcfg_v3_9",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/dmaps_v2_11",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/scugic_v5_6",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/qspips_v3_14",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/scutimer_v2_7",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/scuwdt_v2_6",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/uartps_v3_17",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+      "relative": "data/embeddedsw/XilinxProcessorIPLib/drivers/xadcps_v2_7",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xiltimer_v2_3",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xilffs_v5_5",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/bsp.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xilrsa_v1_8",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "    path: "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/lib_list.yaml",
+      "relative": "data/embeddedsw/ThirdParty/sw_services/lwip220_v1_3",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xilffs_v5_5",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xilflash_v4_12",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xilrsa_v1_8",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xilskey_v7_8",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "pl_stm32_platform/zynq_fsbl/zynq_fsbl_bsp/lib_list.yaml",
+      "relative": "data/embeddedsw/lib/sw_services/xiltimer_v2_3",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "      - "
+    },
+    {
+      "file": "first/src/app.yaml",
+      "relative": "pl_stm32_platform/export/pl_stm32_platform/sw/standalone_ps7_cortexa9_0",
+      "base": "workspace",
+      "format": "yaml-line",
+      "prefix": "domain_path: "
+    },
+    {
+      "file": "first/src/app.yaml",
+      "relative": "data/embeddedsw/lib/sw_apps/empty_application",
+      "base": "vitis",
+      "format": "yaml-line",
+      "prefix": "app_src_dir: "
+    }
+  ]
+}

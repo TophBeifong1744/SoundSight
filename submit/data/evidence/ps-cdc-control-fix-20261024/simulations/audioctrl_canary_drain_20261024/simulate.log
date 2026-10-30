@@ -1,0 +1,65 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sat Oct 24 12:00:38 2026
+# Process ID         : 9848
+# Current directory  : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/audioctrl_canary_drain_20261024
+# Command line       : xsim.exe -log simulate.log -mode tcl -source {xsim.dir/audioctrl/xsim_script.tcl}
+# Log file           : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/audioctrl_canary_drain_20261024/simulate.log
+# Journal file       : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/audioctrl_canary_drain_20261024\xsim.jou
+# Running On         : Toph
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 16890 MB
+# Swap memory        : 23622 MB
+# Total Virtual      : 40512 MB
+# Available Virtual  : 14706 MB
+#-----------------------------------------------------------
+source xsim.dir/audioctrl/xsim_script.tcl
+# xsim {audioctrl} -maxdeltaid 1000 -autoloadwcfg -tclbatch {run.tcl} -onerror quit
+Time resolution is 1 ps
+source run.tcl
+## run all
+Note:   - SCALING_SCH: in_ptr = 1, out_ptr = 1
+Time: 0 ps  Iteration: 0  Process: /tb_audioctrl/compute/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - C_CHANNELS  = 1
+Time: 0 ps  Iteration: 0  Process: /tb_audioctrl/compute/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - field_width = 20
+Time: 0 ps  Iteration: 0  Process: /tb_audioctrl/compute/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - Copying SCALE_SCH from 20 downto 1 to 20 downto 1
+Time: 0 ps  Iteration: 0  Process: /tb_audioctrl/compute/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - SCALING_SCH: in_ptr = 1, out_ptr = 1
+Time: 0 ps  Iteration: 0  Process: /tb_audioctrl/compute/core/frontend/forward/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - C_CHANNELS  = 1
+Time: 0 ps  Iteration: 0  Process: /tb_audioctrl/compute/core/frontend/forward/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - field_width = 20
+Time: 0 ps  Iteration: 0  Process: /tb_audioctrl/compute/core/frontend/forward/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - Copying SCALE_SCH from 20 downto 1 to 20 downto 1
+Time: 0 ps  Iteration: 0  Process: /tb_audioctrl/compute/core/frontend/forward/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - SCALING_SCH: in_ptr = 1, out_ptr = 1
+Time: 0 ps  Iteration: 1  Process: /tb_audioctrl/compute/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - C_CHANNELS  = 1
+Time: 0 ps  Iteration: 1  Process: /tb_audioctrl/compute/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - field_width = 20
+Time: 0 ps  Iteration: 1  Process: /tb_audioctrl/compute/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - Copying SCALE_SCH from 20 downto 1 to 20 downto 1
+Time: 0 ps  Iteration: 1  Process: /tb_audioctrl/compute/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Warning: SIM_ASSERT_CHK (1) specifies simulation message reporting, messages related to potential misuse will be reported.
+Time: 1 ps  Iteration: 0  Process: /tb_audioctrl/compute/core/timed_crossing.samples/crossing/fifo/gnuram_async_fifo.xpm_fifo_base_inst/Initial1559_115  Scope: tb_audioctrl.compute.core.timed_crossing.samples.crossing.fifo.gnuram_async_fifo.xpm_fifo_base_inst  File: F:\AMD\2025.2\Vivado\data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv Line: 1566
+Warning: SIM_ASSERT_CHK (1) specifies simulation message reporting, messages related to potential misuse will be reported.
+Time: 1 ps  Iteration: 0  Process: /tb_audioctrl/compute/with_audio.frames/fifo/gnuram_async_fifo.xpm_fifo_base_inst/Initial1559_252  Scope: tb_audioctrl.compute.with_audio.frames.fifo.gnuram_async_fifo.xpm_fifo_base_inst  File: F:\AMD\2025.2\Vivado\data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv Line: 1566
+Warning: SIM_ASSERT_CHK (1) specifies simulation message reporting, messages related to potential misuse will be reported.
+Time: 1 ps  Iteration: 0  Process: /tb_audioctrl/audio/data_fifo/fifo/xpm_fifo_base_inst/Initial1559_326  Scope: tb_audioctrl.audio.data_fifo.fifo.xpm_fifo_base_inst  File: F:\AMD\2025.2\Vivado\data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv Line: 1566
+Warning: SIM_ASSERT_CHK (1) specifies simulation message reporting, messages related to potential misuse will be reported.
+Time: 1 ps  Iteration: 0  Process: /tb_audioctrl/audio/descriptors/fifo/xpm_fifo_base_inst/Initial1559_369  Scope: tb_audioctrl.audio.descriptors.fifo.xpm_fifo_base_inst  File: F:\AMD\2025.2\Vivado\data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv Line: 1566
+Fatal: AUDIOCTRL_FAIL drain glitch crossed
+Time: 9775 ns  Iteration: 0  Process: /tb_audioctrl/Always32_381  Scope: tb_audioctrl  File: E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/audioctrl_canary_drain_20261024/sources/tb_audioctrl.sv Line: 36
+$finish called at time : 9775 ns
+## quit
+INFO: [Common 17-206] Exiting xsim at Sat Oct 24 12:00:40 2026...

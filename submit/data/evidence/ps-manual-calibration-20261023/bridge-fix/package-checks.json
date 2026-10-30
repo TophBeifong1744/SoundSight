@@ -1,0 +1,16 @@
+{
+  "crc": "PASS",
+  "only_changed": [
+    "SoundSight_PYNQ_Servo/README.md",
+    "SoundSight_PYNQ_Servo/SOURCE.json",
+    "SoundSight_PYNQ_Servo/document/ps-manual-calibration.md",
+    "SoundSight_PYNQ_Servo/document/pynq-horizontal-sd.md",
+    "SoundSight_PYNQ_Servo/document/pynq-manual-status-fix.md",
+    "SoundSight_PYNQ_Servo/software/ps/ss_solver_bridge.c",
+    "SoundSight_PYNQ_Servo/software/tests/test_solver_migration.py"
+  ],
+  "bit_hwh_and_other_runtime_unchanged": true,
+  "frozen_header_s1_unchanged": true,
+  "board_test": "NOT_RUN",
+  "candidate_guard_note": "Whole-worktree packager detected unrelated in-flight AUDIO_ENABLE RTL changes; preserved them. Applied exact PS fix to existing matched package, no new RTL included."
+}

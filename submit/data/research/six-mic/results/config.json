@@ -1,0 +1,165 @@
+{
+  "evidence": "floating_point_synthetic_only",
+  "seed": 20260907,
+  "fs_hz": 48000,
+  "frame_samples": 1024,
+  "hop_candidate": 512,
+  "sound_speed_mps": 343.0,
+  "positions_m": [
+    [
+      -0.02,
+      -0.02,
+      0.0
+    ],
+    [
+      0.02,
+      -0.02,
+      0.0
+    ],
+    [
+      0.02,
+      0.02,
+      0.0
+    ],
+    [
+      -0.02,
+      0.02,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.028284271247461905
+    ],
+    [
+      0.0,
+      0.0,
+      -0.028284271247461905
+    ]
+  ],
+  "pair_order": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "band_hz": [
+    300,
+    4000
+  ],
+  "gcc": "1024 FFT/IFFT, Hann, PHAT 2% amplitude mask, parabolic sub-sample peak",
+  "estimator": "unweighted all-available-pair LS; norm and residual rejection; no tracking",
+  "valid_gate": {
+    "raw_norm": [
+      0.7,
+      1.3
+    ],
+    "residual_samples_max": 0.5,
+    "min_pairs": 5
+  },
+  "target_distance_m": 1.5,
+  "azimuths": [
+    0,
+    30,
+    60,
+    90,
+    120,
+    150,
+    180,
+    210,
+    240,
+    270,
+    300,
+    330
+  ],
+  "elevations": [
+    -60,
+    -30,
+    0,
+    30,
+    60
+  ],
+  "repeats": 5,
+  "noise_snr_definition": "direct target per-channel approximately unit RMS vs unfiltered independent sensor noise before GCC band mask",
+  "scenarios": [
+    "clean",
+    "noise20",
+    "noise10",
+    "noise0",
+    "band_noise0",
+    "reflection",
+    "interferer0",
+    "mismatch",
+    "one_channel_noise"
+  ],
+  "microphone_context": "existing IM73D122V01/PDM selection unchanged; ideal identical omni transfer functions, not measured device response",
+  "limitations": [
+    "no natural speech",
+    "no calibrated room RT60",
+    "no microphone directivity/housing/occlusion model",
+    "no PDM decimator or fixed-point RTL",
+    "no physical channel-fault detection",
+    "parameters chosen before run; exploratory not independent acceptance dataset",
+    "six microphones ONLY; no four-mic comparison"
+  ],
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "pillow": "12.3.0",
+  "script_sha256": "fef3cf3de90750f21003a7d23abd02e2b623bc71c597deb9480cf48defa6a4d1"
+}

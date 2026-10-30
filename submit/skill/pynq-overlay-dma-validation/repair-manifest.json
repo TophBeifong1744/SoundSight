@@ -1,0 +1,539 @@
+{
+  "schema_version": 1,
+  "old_candidate": "55039cf8bfab2bd6112192c8bd646d427a52a642",
+  "reviewer_commit": "0ef0355642ea8719d5e4cdde0a38c531550218d4",
+  "status": "AUTHOR_SELF_TEST_NOT_B_ACCEPTANCE",
+  "root": "skill/pynq-overlay-dma-validation",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "d052b87a4c344b024f875b0f80b52dadec73ab1a0afac6f9f52b2ccf044dd8ca",
+      "bytes": 161
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/pixel-session-input.json",
+      "sha256": "28253dba9e91008555c4cf718f31a2ec688ae4c3c0e40a7e895abca5cd4e1699",
+      "bytes": 989
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/pixel/design.bit",
+      "sha256": "34346be99fb76ac631d8ee548d6d13e92599dc414e8037bb1fa126f3c9722e7f",
+      "bytes": 30
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/pixel/design.hwh",
+      "sha256": "62104ece71c5d00d0b1b03928a1a3a10fc2cabfa5393a2f5ca9063f838781bbd",
+      "bytes": 100
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/pixel/golden.bin",
+      "sha256": "b3c87588b17afe4d09f6c97a055dedd6f5fef53de648237bf488afb6111d218d",
+      "bytes": 128
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/pixel/manifest.json",
+      "sha256": "28765657e632ae0fc4b42bef371f67ca343b32589cb8dfada7ab36b4d5722bed",
+      "bytes": 277
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/pixel/profile.json",
+      "sha256": "d10aec11ff282e966bd297ae8bbe1a86dfde43e36cf02b893de2fa0f324d667d",
+      "bytes": 1653
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/thermal-session-input.json",
+      "sha256": "63adf7dc2bd6e6ed6f35eaef174c9d6417369192e91cd4b23ad064f58e45c446",
+      "bytes": 1012
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/thermal/design.bit",
+      "sha256": "c03bb7637b9430aab4ec6a1cdd637af1d6b5f8f154ed098957ab7b44f9ce8718",
+      "bytes": 32
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/thermal/design.hwh",
+      "sha256": "1f1e05cca1113b746daed84e486d3d9b105af86c246e702fa686b9ff034feeec",
+      "bytes": 104
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/thermal/duplicate-evidence.json",
+      "sha256": "6b951cd01a018caafcfed1b966e19d7074584acfcad594df22132d77e59ade4e",
+      "bytes": 1098
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/thermal/golden.bin",
+      "sha256": "b2decedfbcf9d1ab45a1f49c0447821f2a2079063c781fba7b3c1a626bbe1dfe",
+      "bytes": 96
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/thermal/manifest.json",
+      "sha256": "03da6d52e98c646b9669d84f24030a3bef15ec0993e7b9487cd5213f6b52630f",
+      "bytes": 275
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/thermal/missing-control-ip.json",
+      "sha256": "9aa7db8e88bb14f942e0042efed1b4f3b501813bbc0b6b7a28e798999ccc0272",
+      "bytes": 1667
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/thermal/missing-dma-ip.json",
+      "sha256": "7faaf7fef557b423fc7738ea21f44bc0fbd4f1fc3623bbdfb4ea02de7b0c0423",
+      "bytes": 1667
+    },
+    {
+      "path": "evidence/fix-r1/b-inputs/thermal/profile.json",
+      "sha256": "b65eb911fecbb5e514e21f04004ca74a248a36c3b2e2d2df59a1e8302652348c",
+      "bytes": 1672
+    },
+    {
+      "path": "evidence/fix-r1/board-guard/command.json",
+      "sha256": "615491c1f8f5cae96364b1eada90d8e1a1ab635d2db414495a50ba3cd5daad9d",
+      "bytes": 624
+    },
+    {
+      "path": "evidence/fix-r1/board-guard/stderr.log",
+      "sha256": "27b249a03bc025ce2d49dc5815bef6b90dccf7043cc46155b88d9c06c7891731",
+      "bytes": 247
+    },
+    {
+      "path": "evidence/fix-r1/board-guard/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/fix-r1/duplicate-fixed.json",
+      "sha256": "53648234555a3d138ba6c14aba25958b08b235c651866d6d23b24401755175ac",
+      "bytes": 4811
+    },
+    {
+      "path": "evidence/fix-r1/duplicate-fixed/command.json",
+      "sha256": "976834e90e4efb69e516eb917519a1255353ccddee62208250c2f82ee46fce38",
+      "bytes": 1476
+    },
+    {
+      "path": "evidence/fix-r1/duplicate-fixed/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/fix-r1/duplicate-fixed/stdout.log",
+      "sha256": "53648234555a3d138ba6c14aba25958b08b235c651866d6d23b24401755175ac",
+      "bytes": 4811
+    },
+    {
+      "path": "evidence/fix-r1/duplicate-old.json",
+      "sha256": "05beec682c7f72e0ac396d7a2ac411785ad241648e875983262afd3a52932e40",
+      "bytes": 3951
+    },
+    {
+      "path": "evidence/fix-r1/duplicate-old/command.json",
+      "sha256": "8179e367a178044559583f6114402ce0b17e3ce317af6d1805a7f9f900f04339",
+      "bytes": 1494
+    },
+    {
+      "path": "evidence/fix-r1/duplicate-old/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/fix-r1/duplicate-old/stdout.log",
+      "sha256": "05beec682c7f72e0ac396d7a2ac411785ad241648e875983262afd3a52932e40",
+      "bytes": 3951
+    },
+    {
+      "path": "evidence/fix-r1/missing-control-fixed.json",
+      "sha256": "787611550db7d96226d5ca711afab54c6cf2b46731c927f103d107c90b49fc2a",
+      "bytes": 2850
+    },
+    {
+      "path": "evidence/fix-r1/missing-control-fixed/command.json",
+      "sha256": "51792a139d562a9602ddd84a5feed0a7ee25d3af862c2d7989274e569b5f27ae",
+      "bytes": 1281
+    },
+    {
+      "path": "evidence/fix-r1/missing-control-fixed/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/fix-r1/missing-control-fixed/stdout.log",
+      "sha256": "787611550db7d96226d5ca711afab54c6cf2b46731c927f103d107c90b49fc2a",
+      "bytes": 2850
+    },
+    {
+      "path": "evidence/fix-r1/missing-control-old.json",
+      "sha256": "8234e9cd2d66348a6881516a32e5be80952bfa3d75bdfba572b9bd8e0d979f2d",
+      "bytes": 2283
+    },
+    {
+      "path": "evidence/fix-r1/missing-control-old/command.json",
+      "sha256": "12fda56d5aabf3a005d3100d110002acbaae59215030dba8623a876cb16fe1ca",
+      "bytes": 1299
+    },
+    {
+      "path": "evidence/fix-r1/missing-control-old/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/fix-r1/missing-control-old/stdout.log",
+      "sha256": "8234e9cd2d66348a6881516a32e5be80952bfa3d75bdfba572b9bd8e0d979f2d",
+      "bytes": 2283
+    },
+    {
+      "path": "evidence/fix-r1/missing-dma-fixed.json",
+      "sha256": "474ae6e639d2018f265be97a5439e22a957c294064de76d72b4bef78d23477ad",
+      "bytes": 2845
+    },
+    {
+      "path": "evidence/fix-r1/missing-dma-fixed/command.json",
+      "sha256": "94095c482137e7ce0c083b46e6e5618f74eb934f7cfadc3c1c0aa02546a6273c",
+      "bytes": 1273
+    },
+    {
+      "path": "evidence/fix-r1/missing-dma-fixed/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/fix-r1/missing-dma-fixed/stdout.log",
+      "sha256": "474ae6e639d2018f265be97a5439e22a957c294064de76d72b4bef78d23477ad",
+      "bytes": 2845
+    },
+    {
+      "path": "evidence/fix-r1/missing-dma-old.json",
+      "sha256": "ae6673071b2b076a0c650e0bd26d83a03dedae427d971a27acbfbb0d3551305f",
+      "bytes": 2283
+    },
+    {
+      "path": "evidence/fix-r1/missing-dma-old/command.json",
+      "sha256": "cd334911780b0294b9aacc805a34a97dcfc9fa1834d096fe18f023f9622f56c2",
+      "bytes": 1291
+    },
+    {
+      "path": "evidence/fix-r1/missing-dma-old/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/fix-r1/missing-dma-old/stdout.log",
+      "sha256": "ae6673071b2b076a0c650e0bd26d83a03dedae427d971a27acbfbb0d3551305f",
+      "bytes": 2283
+    },
+    {
+      "path": "evidence/fix-r1/old-input/validate_profile.py",
+      "sha256": "2b6299b8c43a3fcff6d18f7f6f914180a81110b832508f648de8807812129482",
+      "bytes": 25769
+    },
+    {
+      "path": "evidence/fix-r1/pixel-cache-stale.json",
+      "sha256": "d3acc8ad88ef33f4ba78cbca88dd5c54309daa6d0c23f28db51ec3e7ea1b4418",
+      "bytes": 2596
+    },
+    {
+      "path": "evidence/fix-r1/pixel-normal.json",
+      "sha256": "945a293a09a9481fc3ab895d147d80fb0b1fc4c46e8329a0cf075e9f3a8c6a79",
+      "bytes": 1946
+    },
+    {
+      "path": "evidence/fix-r1/pixel-partial-stop-fail.json",
+      "sha256": "7ab93bdcc0c2c2071353fef4e4679c4a7729033c1d14cd924182964d8741abf5",
+      "bytes": 5750
+    },
+    {
+      "path": "evidence/fix-r1/pixel-release-fail.json",
+      "sha256": "82d6fbaa233883598776289bb23386149f098ae9051e6961d7de96621965df50",
+      "bytes": 2614
+    },
+    {
+      "path": "evidence/fix-r1/pixel-short.json",
+      "sha256": "d17e84fa7fa3d727556633a763e30c853569096cc4fe0b2911ab1787841ad13b",
+      "bytes": 2373
+    },
+    {
+      "path": "evidence/fix-r1/pixel-static.json",
+      "sha256": "dcfa83539bdfe9ea9901bf3985b50ac519a7df5bf105f3f5fb7c83cc72108537",
+      "bytes": 2646
+    },
+    {
+      "path": "evidence/fix-r1/pixel-static/command.json",
+      "sha256": "b873af31515e676bc86cd329ade7a40f4bb1d1310018059064ea165cde1790f3",
+      "bytes": 1103
+    },
+    {
+      "path": "evidence/fix-r1/pixel-static/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/fix-r1/pixel-static/stdout.log",
+      "sha256": "dcfa83539bdfe9ea9901bf3985b50ac519a7df5bf105f3f5fb7c83cc72108537",
+      "bytes": 2646
+    },
+    {
+      "path": "evidence/fix-r1/pixel-status-unreadable.json",
+      "sha256": "2a9a936f4603e89373ea427d2aa2247db4aa081c5cfba2d22d85cb6652ae1de2",
+      "bytes": 1785
+    },
+    {
+      "path": "evidence/fix-r1/pixel-timeout-stop-fail.json",
+      "sha256": "1629877ab4dbdcc656ad6ae31a546b97921396fcf764ea41c967f961c7c05174",
+      "bytes": 13139
+    },
+    {
+      "path": "evidence/fix-r1/receive.json",
+      "sha256": "d2540a37d09c082dfe4da4af2b7e0003e3bc6e92d3405926de9958eabcc4359b",
+      "bytes": 1935
+    },
+    {
+      "path": "evidence/fix-r1/receive/command.json",
+      "sha256": "2ce72c1ae339f551da26d6a805e429472c03c356206144292dd91765c1132f64",
+      "bytes": 955
+    },
+    {
+      "path": "evidence/fix-r1/receive/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/fix-r1/receive/stdout.log",
+      "sha256": "d2540a37d09c082dfe4da4af2b7e0003e3bc6e92d3405926de9958eabcc4359b",
+      "bytes": 1935
+    },
+    {
+      "path": "evidence/fix-r1/structure/command.json",
+      "sha256": "c7622dd2eb7f0a6a6ffad22b3e11016bb8890a092fb6792af05ba9739fd363e4",
+      "bytes": 738
+    },
+    {
+      "path": "evidence/fix-r1/structure/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/fix-r1/structure/stdout.log",
+      "sha256": "6cf9e7f0d34ccd36dbd28f270cd28dd04277b2e1516bd4333ce7bb501d7b18d4",
+      "bytes": 17
+    },
+    {
+      "path": "evidence/fix-r1/summary.json",
+      "sha256": "4cd5a724ff4b6b91387971b707c0a8e73434f9bf2819499d1b849e40c47aefe0",
+      "bytes": 23709
+    },
+    {
+      "path": "evidence/fix-r1/thermal-cache-stale.json",
+      "sha256": "4c636f5a64e00e8c0d851cf4d0e777ffc49948bba15f8a88608bfde5776f33e1",
+      "bytes": 2591
+    },
+    {
+      "path": "evidence/fix-r1/thermal-normal.json",
+      "sha256": "1b8293267d92b15a1a6607c6126faa5a98473c7069a4b356b18801524314b4f9",
+      "bytes": 1942
+    },
+    {
+      "path": "evidence/fix-r1/thermal-partial-stop-fail.json",
+      "sha256": "db8635fe338d1db5f55f3c4d564e8600b9fad1e8eb7542d511833d3a35e58799",
+      "bytes": 5748
+    },
+    {
+      "path": "evidence/fix-r1/thermal-release-fail.json",
+      "sha256": "2b7c2c08fe0bcd59846e10bcf76c98092194949950cd20cd2125f664ed1a33c7",
+      "bytes": 2610
+    },
+    {
+      "path": "evidence/fix-r1/thermal-short.json",
+      "sha256": "f833b75e634aa94c9c64aaa9a0ef9dbf017fe81a87bc48a6f402a44dd3d5bd4b",
+      "bytes": 2369
+    },
+    {
+      "path": "evidence/fix-r1/thermal-static.json",
+      "sha256": "f2b9baf88bdf6bb11734c426f315a0df5243efa2bf45664eb483d08e8f1881b2",
+      "bytes": 2664
+    },
+    {
+      "path": "evidence/fix-r1/thermal-static/command.json",
+      "sha256": "4fc5b4382561a48aba9c92a760f5837d56591d9c2e5535be501ec6890a76ab44",
+      "bytes": 1107
+    },
+    {
+      "path": "evidence/fix-r1/thermal-static/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/fix-r1/thermal-static/stdout.log",
+      "sha256": "f2b9baf88bdf6bb11734c426f315a0df5243efa2bf45664eb483d08e8f1881b2",
+      "bytes": 2664
+    },
+    {
+      "path": "evidence/fix-r1/thermal-status-unreadable.json",
+      "sha256": "c1a7e0273937687621c385be37b77693d3ae9b330bf1c5d9ec3f2259662e7c0e",
+      "bytes": 1783
+    },
+    {
+      "path": "evidence/fix-r1/thermal-timeout-stop-fail.json",
+      "sha256": "ae681cd4e161eb0a4c07ae511b124af3d8cda77525dff088b49c51902129f0db",
+      "bytes": 13137
+    },
+    {
+      "path": "evidence/fix-r1/timeout.json",
+      "sha256": "0f82748bca794113917e5606b003957e3da49dccfeab925ac59e9eb8d248f3af",
+      "bytes": 12562
+    },
+    {
+      "path": "evidence/fix-r1/timeout/command.json",
+      "sha256": "e2b0b74cf0dd1776c954b37aca9f8b2bd20e8e6ae506113b6abbab642789b67f",
+      "bytes": 1025
+    },
+    {
+      "path": "evidence/fix-r1/timeout/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/fix-r1/timeout/stdout.log",
+      "sha256": "0f82748bca794113917e5606b003957e3da49dccfeab925ac59e9eb8d248f3af",
+      "bytes": 12562
+    },
+    {
+      "path": "evidence/fix-r1/unit.json",
+      "sha256": "4d052748ddb6bd9948f414fbdbf48dcaf7e59c8ab4f6d1bdc9f7c63cb0354a15",
+      "bytes": 9492
+    },
+    {
+      "path": "evidence/fix-r1/unit/command.json",
+      "sha256": "b0ba0705e26314581b51df598145581f51c229f80958463a3ed88876cee421dd",
+      "bytes": 898
+    },
+    {
+      "path": "evidence/fix-r1/unit/stderr.log",
+      "sha256": "878b215799ba5a8c4302eea4fef175d25c2e6581ee498d52e52b8d8b8d5de428",
+      "bytes": 7792
+    },
+    {
+      "path": "evidence/fix-r1/unit/stdout.log",
+      "sha256": "4d052748ddb6bd9948f414fbdbf48dcaf7e59c8ab4f6d1bdc9f7c63cb0354a15",
+      "bytes": 9492
+    },
+    {
+      "path": "evidence/forward-test-2026-09-13.json",
+      "sha256": "445e17daa02bffd06a6efc61fe34945b9ea991081b702158494b928ae1c65b3e",
+      "bytes": 6375
+    },
+    {
+      "path": "evidence/offline-2026-09-13.json",
+      "sha256": "3915208d711d0e9a9f964388521537ac738de5d2fa9310da82f315b91080d1be",
+      "bytes": 8815
+    },
+    {
+      "path": "evidence/replay_d_fixes.py",
+      "sha256": "6bf5bbc73874e8b2be0b62b30656aa3d5bd170e5cd1d1b5737a2a9d576602317",
+      "bytes": 8043
+    },
+    {
+      "path": "LICENSE.txt",
+      "sha256": "1666ea3991b92ca212581cdab88223bb7978ac5294f0e09b7154dd7f4b0cad4d",
+      "bytes": 1062
+    },
+    {
+      "path": "README.md",
+      "sha256": "ac972cd7fe783e403c2697e257deebf5f120235924f432c90bb25754e6d9f80f",
+      "bytes": 8401
+    },
+    {
+      "path": "references/example-profile.json",
+      "sha256": "f9722abb54fa1ba67afc783619b2d8b96786231a06f1a0815153be09d4a30a8e",
+      "bytes": 2022
+    },
+    {
+      "path": "references/example-session.json",
+      "sha256": "a2edb87387dfa94158bcf9f7d548e28a23b0bfef56808ecf931bec04753b6e5a",
+      "bytes": 451
+    },
+    {
+      "path": "references/hardware-runbook.md",
+      "sha256": "5753f89ae29cdc95940f969c1dda3420efb76c4d96ee370e4c3b410ee3ed9f8b",
+      "bytes": 7420
+    },
+    {
+      "path": "references/input-audit.md",
+      "sha256": "25ca8fd7375f4aa8348a9e18226f2a74b3e352a3ee8b44f3069f8f5a6618112d",
+      "bytes": 6367
+    },
+    {
+      "path": "references/lifecycle-contract.md",
+      "sha256": "24bd97b22f00659658d12d4ad8948f9c28cb3041cb8a102564c5fe382d07bb15",
+      "bytes": 6481
+    },
+    {
+      "path": "references/profile-contract.md",
+      "sha256": "14c9e2d29ca5ba8946c73bee8e700c869d5378a8a59d6ecca3da8a9f3b8fcbeb",
+      "bytes": 8047
+    },
+    {
+      "path": "references/repair-d1-d3.md",
+      "sha256": "5314ff7e5fff70d4a831da9198ebbc1c487efe6d14395bdb6d912226ca20f4fd",
+      "bytes": 4540
+    },
+    {
+      "path": "references/review-handoff.md",
+      "sha256": "549d9cfe65dd24b3a3eb0a8c5c39718607ae42369f7d4f4526f6ff36e674ab5f",
+      "bytes": 5070
+    },
+    {
+      "path": "references/validation-status.md",
+      "sha256": "79915e17f9caffd66d6bd66fe664dee2cb24b727e2f81ff9722a2993884f3619",
+      "bytes": 6488
+    },
+    {
+      "path": "scripts/compare_golden.py",
+      "sha256": "7ff7883414f27ba5e94c4c3f5dde395b801efe7c43d9431605a7ef845cc71c70",
+      "bytes": 4975
+    },
+    {
+      "path": "scripts/dma_session.py",
+      "sha256": "61f8c3996973184470e4473e474793854d4e91046147fab551de848e34f1c03e",
+      "bytes": 13200
+    },
+    {
+      "path": "scripts/pynq_probe.py",
+      "sha256": "2ac2101c8dd1e5f72faa9b2ff107f3546c9c15e74a0372e6f0d567de59be1907",
+      "bytes": 1001
+    },
+    {
+      "path": "scripts/run_offline_tests.py",
+      "sha256": "b22abefb050a32f9a30fb05fe96883f5564d8215fbe52c6fb205ac849bbb7700",
+      "bytes": 3733
+    },
+    {
+      "path": "scripts/simulate_dma.py",
+      "sha256": "45afbe11746a297fb04e353b272c2483de467aec88ff2946eef3274b780e1117",
+      "bytes": 9634
+    },
+    {
+      "path": "scripts/validate_profile.py",
+      "sha256": "136ab79b7e3219dc9b9787bada5b58b2c359ac3838ba7a3840b69f0c32ed1350",
+      "bytes": 27454
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "9471b7a7f669fddba186816079d174d9e9a4a4262aaa159ed0f4a31d44e81636",
+      "bytes": 5840
+    },
+    {
+      "path": "tests/test_dma_session.py",
+      "sha256": "5b3b591fbc385c4eb84d9e70d263e1c0277a1cc9fda43cc13f7ae9ce2eeb88e8",
+      "bytes": 15925
+    },
+    {
+      "path": "tests/test_validate_profile.py",
+      "sha256": "38aef9f9df626d78df23b944795125eee6922c2789740a8c0a7b89e8b7b6155d",
+      "bytes": 17932
+    }
+  ],
+  "excludes": [
+    "repair-manifest.json",
+    "__pycache__/",
+    "reproducible simulator work caches"
+  ]
+}

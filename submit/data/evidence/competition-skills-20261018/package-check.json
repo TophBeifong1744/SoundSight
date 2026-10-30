@@ -1,0 +1,74 @@
+{
+  "status": "PASS_PACKAGE_AND_RELOCATED_TESTS",
+  "archive": "release/output/soundsight-competition-skills.zip",
+  "archive_sha256": "51ea0f89a6bd19c5069e63540f2cc6e156ed5bf781e3b8eb65eeebd2b3a4e2ab",
+  "files": 137,
+  "bytes": 168957,
+  "source_map_entries": 136,
+  "source_and_export_hashes_match": true,
+  "lowercase_ascii_paths": true,
+  "source_test_result": "source-run/summary.json",
+  "export_test_result": "final-export-run/summary.json",
+  "module_unit_tests": 7,
+  "pynq_tests": 55,
+  "pynq_subtests": 57,
+  "xsim_expected_results": [
+    {
+      "case": "pcm4",
+      "status": "PASS_SIMULATION",
+      "checks": 792,
+      "matched": true
+    },
+    {
+      "case": "elastic",
+      "status": "PASS_SIMULATION",
+      "checks": 13800,
+      "matched": true
+    },
+    {
+      "case": "bad_data",
+      "status": "FAIL_SIMULATION",
+      "checks": null,
+      "matched": true
+    },
+    {
+      "case": "bad_ready",
+      "status": "FAIL_SIMULATION",
+      "checks": null,
+      "matched": true
+    },
+    {
+      "case": "two_stage",
+      "status": "FAIL_SIMULATION",
+      "checks": null,
+      "matched": true
+    },
+    {
+      "case": "restored",
+      "status": "PASS_SIMULATION",
+      "checks": 13800,
+      "matched": true
+    }
+  ],
+  "unchanged_runtime_and_tests": [
+    "research/competition-skills/fpga-module-verification/scripts/run_examples.py",
+    "research/competition-skills/fpga-module-verification/scripts/run_xsim.py",
+    "research/competition-skills/fpga-module-verification/tests/test_runner.py",
+    "research/competition-skills/pynq-overlay-dma-validation/scripts/compare_golden.py",
+    "research/competition-skills/pynq-overlay-dma-validation/scripts/dma_session.py",
+    "research/competition-skills/pynq-overlay-dma-validation/scripts/pynq_probe.py",
+    "research/competition-skills/pynq-overlay-dma-validation/scripts/run_offline_tests.py",
+    "research/competition-skills/pynq-overlay-dma-validation/scripts/simulate_dma.py",
+    "research/competition-skills/pynq-overlay-dma-validation/scripts/validate_profile.py",
+    "research/competition-skills/pynq-overlay-dma-validation/tests/test_dma_session.py",
+    "research/competition-skills/pynq-overlay-dma-validation/tests/test_validate_profile.py"
+  ],
+  "core_mutations": 0,
+  "pynq_hardware": "NOT_RUN",
+  "synthesis_implementation": "NOT_RUN",
+  "official_contest_submission": "NOT_PERFORMED",
+  "scope": "Author migration/packaging checks and actual tests, not B/C approval or full-system acceptance",
+  "preliminary_export_test_result": "export-run/summary.json",
+  "license_line_endings": "Final package uses LF; license text and attribution unchanged. Only two license payloads and source-map differed from preliminary archive; final package fully rerun.",
+  "git_source_bytes_preserved": true
+}

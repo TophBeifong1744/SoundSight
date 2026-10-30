@@ -1,0 +1,105 @@
+{
+  "revision": "MP1",
+  "status": "NUMERIC_PASS_SPEED_REQUIRES_REVIEW",
+  "scope": "OFFLINE_SAME_INPUT_NOT_LIVE_CAPTURE",
+  "hardware_access": false,
+  "active_backend_changed": false,
+  "template_changed": false,
+  "recognition_qualified": false,
+  "realtime_qualified": false,
+  "performance": {
+    "frontend": {
+      "variants": {
+        "shipped": {
+          "samples": 6,
+          "median_wall_seconds": 4.036454405000029,
+          "median_cpu_seconds": 3.5700000000000003
+        },
+        "rebuild": {
+          "samples": 6,
+          "median_wall_seconds": 4.051692850500004,
+          "median_cpu_seconds": 3.58
+        },
+        "pattern": {
+          "samples": 6,
+          "median_wall_seconds": 4.011742830000003,
+          "median_cpu_seconds": 3.5500000000000003
+        }
+      },
+      "wall_reduction_vs_rebuild": 0.009860081199163706,
+      "cpu_reduction_vs_rebuild": 0.008379888268156388,
+      "wall_reduction_vs_shipped": 0.006122099377467438
+    },
+    "embedding_1.0s": {
+      "variants": {
+        "shipped": {
+          "samples": 24,
+          "median_wall_seconds": 1.0888594299999852,
+          "median_cpu_seconds": 1.9000000000000057
+        },
+        "rebuild": {
+          "samples": 24,
+          "median_wall_seconds": 1.083054959000009,
+          "median_cpu_seconds": 1.8900000000000006
+        },
+        "pattern": {
+          "samples": 24,
+          "median_wall_seconds": 1.0758805099999904,
+          "median_cpu_seconds": 1.8899999999999935
+        }
+      },
+      "wall_reduction_vs_rebuild": 0.006624270486368267,
+      "cpu_reduction_vs_rebuild": 3.774758283725532e-15,
+      "wall_reduction_vs_shipped": 0.011919738804112678
+    },
+    "embedding_1.5s": {
+      "variants": {
+        "shipped": {
+          "samples": 12,
+          "median_wall_seconds": 1.4251582990000315,
+          "median_cpu_seconds": 2.469999999999999
+        },
+        "rebuild": {
+          "samples": 12,
+          "median_wall_seconds": 1.4220030789999782,
+          "median_cpu_seconds": 2.469999999999999
+        },
+        "pattern": {
+          "samples": 12,
+          "median_wall_seconds": 1.4054456934999848,
+          "median_cpu_seconds": 2.450000000000003
+        }
+      },
+      "wall_reduction_vs_rebuild": 0.011643705801001047,
+      "cpu_reduction_vs_rebuild": 0.008097165991901245,
+      "wall_reduction_vs_shipped": 0.013831870827176296
+    },
+    "embedding_2.0s": {
+      "variants": {
+        "shipped": {
+          "samples": 12,
+          "median_wall_seconds": 1.9702854690000038,
+          "median_cpu_seconds": 3.469999999999999
+        },
+        "rebuild": {
+          "samples": 12,
+          "median_wall_seconds": 1.9591846349999855,
+          "median_cpu_seconds": 3.450000000000003
+        },
+        "pattern": {
+          "samples": 12,
+          "median_wall_seconds": 1.9323276114999999,
+          "median_cpu_seconds": 3.4149999999999956
+        }
+      },
+      "wall_reduction_vs_rebuild": 0.013708265683691323,
+      "cpu_reduction_vs_rebuild": 0.010144927536233972,
+      "wall_reduction_vs_shipped": 0.019265156291930152
+    }
+  },
+  "frontend_exact": true,
+  "embedding_exact": true,
+  "max_embedding_abs_diff": 0.0,
+  "max_score_difference": 0.0,
+  "cpu_clock_tick_seconds": 0.01
+}

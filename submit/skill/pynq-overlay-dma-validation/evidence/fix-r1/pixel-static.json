@@ -1,0 +1,87 @@
+{
+  "tool": "pynq-overlay-dma-validation/validate_profile.py",
+  "generated_at_utc": "2026-09-14T09:37:58.768081+00:00",
+  "mode": "offline",
+  "profile_id": "b-pixel",
+  "evidence_level": "static",
+  "status": "PASS",
+  "artifact_hashes": {
+    "bit": "34346be99fb76ac631d8ee548d6d13e92599dc414e8037bb1fa126f3c9722e7f",
+    "hwh": "62104ece71c5d00d0b1b03928a1a3a10fc2cabfa5393a2f5ca9063f838781bbd",
+    "manifest": "28765657e632ae0fc4b42bef371f67ca343b32589cb8dfada7ab36b4d5722bed"
+  },
+  "checks": [
+    {
+      "code": "OVERLAY_STEM",
+      "status": "PASS",
+      "message": ".bit and .hwh must share a basename for PYNQ"
+    },
+    {
+      "code": "OVERLAY_DIRECTORY",
+      "status": "PASS",
+      "message": ".bit and .hwh must be adjacent so PYNQ loads the validated HWH"
+    },
+    {
+      "code": "MANIFEST_BUILD_ID",
+      "status": "PASS",
+      "message": "manifest build_id must equal profile overlay build_id"
+    },
+    {
+      "code": "MANIFEST_INTERFACE_VERSION",
+      "status": "PASS",
+      "message": "manifest interface_version must equal profile overlay interface_version"
+    },
+    {
+      "code": "MANIFEST_VIVADO_VERSION",
+      "status": "PASS",
+      "message": "manifest vivado_version must equal profile overlay vivado_version"
+    },
+    {
+      "code": "MANIFEST_DEVICE_PART",
+      "status": "PASS",
+      "message": "manifest device_part must equal board.device_part"
+    },
+    {
+      "code": "BIT_HASH",
+      "status": "PASS",
+      "message": "actual bit SHA-256 must match manifest"
+    },
+    {
+      "code": "HWH_HASH",
+      "status": "PASS",
+      "message": "actual hwh SHA-256 must match manifest"
+    },
+    {
+      "code": "HWH_DEVICE_PART",
+      "status": "PASS",
+      "message": "HWH metadata must contain board.device_part"
+    },
+    {
+      "code": "HWH_IP",
+      "status": "PASS",
+      "message": "HWH must expose required IP 'pixel_control'"
+    },
+    {
+      "code": "HWH_IP",
+      "status": "PASS",
+      "message": "HWH must expose required IP 'pixel_dma'"
+    },
+    {
+      "code": "HWH_CONTRACT_IP",
+      "status": "PASS",
+      "message": "register_contract.ip_name 'pixel_control' must resolve to a MODULE instance in the validated HWH"
+    },
+    {
+      "code": "HWH_CONTRACT_IP",
+      "status": "PASS",
+      "message": "dma_contract.ip_name 'pixel_dma' must resolve to a MODULE instance in the validated HWH"
+    }
+  ],
+  "issues": [
+    {
+      "severity": "WARNING",
+      "code": "NO_RUN_EVIDENCE",
+      "message": "profile/artifacts validated without run evidence"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "tests": 91,
+  "errors": 0,
+  "failures": 0,
+  "skipped": 0,
+  "passed": true,
+  "suites": [
+    "test_speaker_follow",
+    "test_speaker_process",
+    "test_speaker_live",
+    "test_speaker_rx",
+    "test_live_cpu_profile.Tests",
+    "test_stream_scheduler",
+    "test_online_3d",
+    "test_follow_sound"
+  ],
+  "hardware_actions": 0,
+  "scope": "Linux host offline, no model inference or board actions"
+}

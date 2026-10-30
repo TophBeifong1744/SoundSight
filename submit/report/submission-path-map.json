@@ -1,0 +1,97 @@
+{
+  "base_commit": "4adfc48086e889951806102a782d5f804e390d97",
+  "scope": "Filename-only moves; original bytes and historical source identities retained.",
+  "files": [
+    {
+      "original_path": "document/design/ps/PS平台.txt",
+      "current_path": "document/design/ps/ps-platform.txt",
+      "sha256": "bed33645d52ddb342de6d9d278c6e3f8c71ec58198bf63bc8241b6c8b874aefa"
+    },
+    {
+      "original_path": "document/design/ps/时钟复位.txt",
+      "current_path": "document/design/ps/clock-reset.txt",
+      "sha256": "8beed1d426ecfc80fcf53508dd94f675667f2c5335a64f197eae65da1fe89e00"
+    },
+    {
+      "original_path": "document/design/stm32/BD连线.txt",
+      "current_path": "document/design/stm32/bd-connections.txt",
+      "sha256": "9134c772de8a205f127abaa4c7399345a23f5bcaf58654f4f1cbcbce5b0bb5ce"
+    },
+    {
+      "original_path": "document/design/stm32/时钟复位.txt",
+      "current_path": "document/design/stm32/clock-reset.txt",
+      "sha256": "f2f6e09bbfba27c2f783608ba8a96fc83a108f2cfef3669db190e5ffd4d9f9d9"
+    },
+    {
+      "original_path": "document/design/stm32/项目说明.txt",
+      "current_path": "document/design/stm32/project-notes.txt",
+      "sha256": "b8d4467e078c4975081b012328867ce419f334b739e877405c96d44f5b7e5024"
+    },
+    {
+      "original_path": "document/evidence/inherited/ps/验证索引.txt",
+      "current_path": "document/evidence/inherited/ps/verification-index.txt",
+      "sha256": "e962657003cec1760289f878599ec1550e0d528ff69a1d1dc280897e01627ced"
+    },
+    {
+      "original_path": "document/evidence/inherited/stm32/验证索引.txt",
+      "current_path": "document/evidence/inherited/stm32/verification-index.txt",
+      "sha256": "e962657003cec1760289f878599ec1550e0d528ff69a1d1dc280897e01627ced"
+    },
+    {
+      "original_path": "document/manuals/SoundSight_100MHz_工程架构模块接口与接合手册.docx",
+      "current_path": "document/manuals/soundsight-100mhz-architecture-manual.docx",
+      "sha256": "e2b5773e73e1e2f5b119ddbd875c584783b95bfa3d09d046e47c7e307ad2b8f2"
+    },
+    {
+      "original_path": "document/requirements/originals/2026年FPGA竞赛常见问题.pdf",
+      "current_path": "document/requirements/originals/fpga-competition-faq-2026.pdf",
+      "sha256": "03265e60a205a503278f0206e2f59e52e1f27703f585dea61ececbabf612c2ac"
+    },
+    {
+      "original_path": "document/requirements/originals/全国大学生嵌入式芯片与系统设计竞赛'2026FPGA赛道选题指南-AMD.pdf",
+      "current_path": "document/requirements/originals/amd-competition-guide-2026.pdf",
+      "sha256": "c6ad82acd4f7bdcd13bd412e232ed85d05f2a87dd5e2cdd04f9d219f88b569fc"
+    },
+    {
+      "original_path": "document/requirements/originals/国赛测试 (1).pdf",
+      "current_path": "document/requirements/originals/competition-test.pdf",
+      "sha256": "3b677e7270efc8721f5dccbbd542dd3c3005469774380c3ff510bec0e50241f8"
+    },
+    {
+      "original_path": "document/requirements/originals/国赛测试(1).docx",
+      "current_path": "document/requirements/originals/competition-test.docx",
+      "sha256": "f13804955c949e3efcf14bec91f6f40fd796a45f831e9e30a58be3150f194940"
+    },
+    {
+      "original_path": "document/team/pl-ps-migration/接口表.md",
+      "current_path": "document/team/pl-ps-migration/interface-table.md",
+      "sha256": "1cc6337e6f7fe4b4cdb5a986dd951760e685360f7b84e1c8108c4e43a4b6a7b1"
+    },
+    {
+      "original_path": "hardware/evidence/microphone-c-2026-09-09/image/反面.jpg",
+      "current_path": "hardware/evidence/microphone-c-2026-09-09/image/back.jpg",
+      "sha256": "f26450d28c64b495554c4bf415b8da5c23f05b1643080a1454cb9708609b6fe8"
+    },
+    {
+      "original_path": "hardware/evidence/microphone-c-2026-09-09/image/引脚分配.jpg",
+      "current_path": "hardware/evidence/microphone-c-2026-09-09/image/pin-map.jpg",
+      "sha256": "90ff6bdcd4fdfaf5e5c425319f346223fe31d246a8af20061ae1c479dc5f22e5"
+    },
+    {
+      "original_path": "hardware/evidence/microphone-c-2026-09-09/image/正面.jpg",
+      "current_path": "hardware/evidence/microphone-c-2026-09-09/image/front.jpg",
+      "sha256": "3b26371646372daeb63dac0f091707eec2e72c80ca5c1f12c732f8dc4cfaec20"
+    },
+    {
+      "original_path": "project/reports/stm32/布局布线图.png",
+      "current_path": "project/reports/stm32/implementation-layout.png",
+      "sha256": "4a31ce436b2e3ffd614b42274596fd95c73c08ac4435a8ec404a88e806271c62"
+    },
+    {
+      "original_path": "software/ps/运行说明.txt",
+      "current_path": "software/ps/run-notes.txt",
+      "sha256": "cf13750baf7eed75bf1ef8d274ab0485150c62f6bf82e67d018df014347b15df"
+    }
+  ],
+  "checksum_basis": "Git blob bytes before and after rename; checkout line endings may differ."
+}

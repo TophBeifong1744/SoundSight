@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "files_before_final_git_report": 598,
+  "total_MiB": 42.17,
+  "max_file_MiB": 4.32,
+  "all_active_source_lists_in_git": true,
+  "old_local_archive_byte_equal": true,
+  "historical_small_bit_test_fixtures_retained": [
+    "research/competition-skills/pynq-overlay-dma-validation/evidence/fix-r1/b-inputs/pixel/design.bit",
+    "research/competition-skills/pynq-overlay-dma-validation/evidence/fix-r1/b-inputs/thermal/design.bit"
+  ],
+  "remote": "not configured"
+}

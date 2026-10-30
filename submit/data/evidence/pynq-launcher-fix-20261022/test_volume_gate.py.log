@@ -1,0 +1,21 @@
+
+test_bad_measurement_range (__main__.VolumeGateTests.test_bad_measurement_range) ... ok
+test_below_equal_above (__main__.VolumeGateTests.test_below_equal_above) ... ok
+test_bist_not_real_level (__main__.VolumeGateTests.test_bist_not_real_level) ... ok
+test_fault_and_cancel (__main__.VolumeGateTests.test_fault_and_cancel) ... ok
+test_invalid_threshold (__main__.VolumeGateTests.test_invalid_threshold) ... ok
+test_low_volume_is_saved_then_consumed (__main__.VolumeGateTests.test_low_volume_is_saved_then_consumed) ... ok
+test_measurement_only_never_grants_direction (__main__.VolumeGateTests.test_measurement_only_never_grants_direction) ... ok
+test_missing_capability_rejected_without_writes (__main__.VolumeGateTests.test_missing_capability_rejected_without_writes) ... ok
+test_no_motion_calls (__main__.VolumeGateTests.test_no_motion_calls) ... ok
+test_old_bit_rejected_without_writes (__main__.VolumeGateTests.test_old_bit_rejected_without_writes) ... ok
+test_raw_record_preserved (__main__.VolumeGateTests.test_raw_record_preserved) ... ok
+test_save_failure_preserves_low_volume_frame (__main__.VolumeGateTests.test_save_failure_preserves_low_volume_frame) ... ok
+test_silence_not_zero_degree (__main__.VolumeGateTests.test_silence_not_zero_degree) ... ok
+test_solver_rejection_not_overridden (__main__.VolumeGateTests.test_solver_rejection_not_overridden) ... ok
+test_unavailable_level (__main__.VolumeGateTests.test_unavailable_level) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.015s
+
+OK

@@ -1,0 +1,206 @@
+{
+  "revision": "CP1",
+  "status": "NUMERIC_PASS_NO_ADOPTION",
+  "scope": "OFFLINE_SAME_INPUT_WITH_PACED_FRONTEND_NO_DMA",
+  "window_seconds": 1.0,
+  "specialized_frames": 98,
+  "hardware_access": false,
+  "active_backend_changed": false,
+  "template_changed": false,
+  "recognition_qualified": false,
+  "realtime_qualified": false,
+  "tolerances": {
+    "raw_relative_l2": 1e-05,
+    "normalized_max_abs": 1e-05,
+    "score_abs": 1e-05
+  },
+  "performance_gates": {
+    "min_wall_reduction": 0.2,
+    "max_cpu_regression": 0.05,
+    "rounds": 4,
+    "min_positive_paced_rounds": 3
+  },
+  "producer_runs": [
+    {
+      "round": 1,
+      "variant": "shipped",
+      "blocks": 300,
+      "cycles": 0,
+      "max_lag_seconds": 0.016704388000050585,
+      "error": null
+    },
+    {
+      "round": 1,
+      "variant": "cp1",
+      "blocks": 250,
+      "cycles": 0,
+      "max_lag_seconds": 0.019754088000013326,
+      "error": null
+    },
+    {
+      "round": 2,
+      "variant": "cp1",
+      "blocks": 253,
+      "cycles": 0,
+      "max_lag_seconds": 0.022944682000002103,
+      "error": null
+    },
+    {
+      "round": 2,
+      "variant": "shipped",
+      "blocks": 297,
+      "cycles": 0,
+      "max_lag_seconds": 0.022827294000023812,
+      "error": null
+    },
+    {
+      "round": 3,
+      "variant": "shipped",
+      "blocks": 295,
+      "cycles": 0,
+      "max_lag_seconds": 0.022789666999983638,
+      "error": null
+    },
+    {
+      "round": 3,
+      "variant": "cp1",
+      "blocks": 251,
+      "cycles": 0,
+      "max_lag_seconds": 0.02295131399995398,
+      "error": null
+    },
+    {
+      "round": 4,
+      "variant": "cp1",
+      "blocks": 248,
+      "cycles": 0,
+      "max_lag_seconds": 0.022895273999893107,
+      "error": null
+    },
+    {
+      "round": 4,
+      "variant": "shipped",
+      "blocks": 296,
+      "cycles": 0,
+      "max_lag_seconds": 0.02299226400009502,
+      "error": null
+    }
+  ],
+  "policy": {
+    "driver_cpu": 1,
+    "frontend_cpu": 1,
+    "embedding_cpus": [
+      0,
+      1
+    ],
+    "embedding_threads": 2,
+    "embedding_nice_increment": 10,
+    "memory_pattern": false
+  },
+  "candidate_sha256": "5012f8f3afd594943d37384524a8b596b1fc860c5f371058b783c396411396ac",
+  "performance": {
+    "isolated": {
+      "variants": {
+        "shipped": {
+          "samples": 36,
+          "median_wall_seconds": 1.076580035500001,
+          "median_cpu_seconds": 1.8899999999999952,
+          "max_wall_seconds": 1.1077816729999768
+        },
+        "cp1": {
+          "samples": 36,
+          "median_wall_seconds": 0.917114208000001,
+          "median_cpu_seconds": 1.5800000000000018,
+          "max_wall_seconds": 0.9517142349999972
+        }
+      },
+      "wall_reduction": 0.1481225939936166,
+      "cpu_reduction": 0.16402116402116096,
+      "cpu_timing_resolved": true,
+      "per_round": [
+        {
+          "round": 1,
+          "wall_reduction": 0.1462601238343686
+        },
+        {
+          "round": 2,
+          "wall_reduction": 0.149771651626598
+        },
+        {
+          "round": 3,
+          "wall_reduction": 0.14947663360798158
+        },
+        {
+          "round": 4,
+          "wall_reduction": 0.14876596218493188
+        }
+      ]
+    },
+    "paced_frontend": {
+      "variants": {
+        "shipped": {
+          "samples": 12,
+          "median_wall_seconds": 1.5585478744999648,
+          "median_cpu_seconds": 2.219999999999999,
+          "max_wall_seconds": 1.6106843599999934
+        },
+        "cp1": {
+          "samples": 12,
+          "median_wall_seconds": 1.3116400115000033,
+          "median_cpu_seconds": 1.8449999999999998,
+          "max_wall_seconds": 1.3694866079999883
+        }
+      },
+      "wall_reduction": 0.15842173797784553,
+      "cpu_reduction": 0.16891891891891864,
+      "cpu_timing_resolved": true,
+      "per_round": [
+        {
+          "round": 1,
+          "wall_reduction": 0.16376976094170304
+        },
+        {
+          "round": 2,
+          "wall_reduction": 0.15011087440660142
+        },
+        {
+          "round": 3,
+          "wall_reduction": 0.1462785896731732
+        },
+        {
+          "round": 4,
+          "wall_reduction": 0.16251524628882885
+        }
+      ]
+    }
+  },
+  "performance_decision": {
+    "eligible_for_future_live_trial": false,
+    "checks": {
+      "numeric_pass": true,
+      "isolated_wall_reduction_at_least_20_percent": false,
+      "isolated_cpu_within_5_percent": true,
+      "paced_frontend_wall_reduction_at_least_20_percent": false,
+      "paced_frontend_cpu_within_5_percent": true,
+      "positive_paced_rounds_at_least_3": true
+    },
+    "positive_paced_rounds": 4,
+    "required_gates": {
+      "min_wall_reduction": 0.2,
+      "max_cpu_regression": 0.05,
+      "rounds": 4,
+      "min_positive_paced_rounds": 3
+    },
+    "realtime_qualified": false,
+    "recognition_qualified": false,
+    "active_backend_changed": false,
+    "note": "Offline replay only; real DMA capture and total-engineering latency remain untested."
+  },
+  "worst_numeric": {
+    "raw_relative_l2": 0.0,
+    "normalized_max_abs": 0.0,
+    "score_abs": 0.0
+  },
+  "all_bit_exact": true,
+  "eligible_for_future_live_trial": false
+}

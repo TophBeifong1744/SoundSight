@@ -1,0 +1,193 @@
+--- before/project/rtl/ss_dual_compute.sv
++++ after/project/rtl/ss_dual_compute.sv
+@@ -10,6 +10,8 @@
+  output wire [3:0] pdm_clocks,
+  input wire [31:0] audio_epoch,input wire audio_active,
+  output wire audio_valid,audio_clip,audio_source_fault,
++ // Both control outputs belong to clk (100 MHz), not io_clk.
++ output wire audio_run,audio_draining,
+  output wire [95:0] audio_pcm,output wire [63:0] audio_sample_index,
+  output wire [128:0] feature_meta,
+  output wire feature_valid,input wire feature_ready,
+@@ -24,7 +26,9 @@
+  wire [31:0] core_level;wire core_level_valid;
+  wire [11:0] core_faults;
+  wire enable_return,busy_return;
+- xpm_cdc_single #(.DEST_SYNC_FF(2),.SRC_INPUT_REG(0),.INIT_SYNC_FF(1)) enable_sync(
++ // Register the complete source-domain expression before crossing. The same
++ // destination state controls compute and audio; do not duplicate this CDC.
++ xpm_cdc_single #(.DEST_SYNC_FF(2),.SRC_INPUT_REG(1),.INIT_SYNC_FF(1)) enable_sync(
+   .src_clk(io_clk),.src_in(enable && io_rst_n),.dest_clk(clk),.dest_out(core_enable));
+  ss_clean_compute #(.WARMUP_SAMPLES(WARMUP_SAMPLES),.AUDIO_ENABLE(AUDIO_ENABLE),.DUAL_CLOCK(1),.LEVEL_ENABLE(LEVEL_ENABLE),.HANN_FILE(HANN_FILE)) core(
+   .clk(clk),.rst_n(rst_n),.enable(core_enable),.acq_clk(io_clk),.acq_rst_n(io_rst_n),.acq_enable(enable),
+@@ -36,15 +40,20 @@
+   .active(core_active),.draining(),.source_faults(core_faults),.debug_frontend(debug_frontend),.debug_backend(debug_backend));
+  // 已发布帧即使遇到STOP也必须交到保存域。背压时整帧和标志保持稳定。
+  generate if(AUDIO_ENABLE)begin: with_audio
++ assign audio_run=core_enable;
++ xpm_cdc_single #(.DEST_SYNC_FF(2),.SRC_INPUT_REG(1),.INIT_SYNC_FF(1)) drain_sync(
++  .src_clk(io_clk),.src_in(draining),.dest_clk(clk),.dest_out(audio_draining));
+  ss_async_word #(.WIDTH(1154),.CAPACITY(1)) frames(
+   .src_clk(clk),.src_rst_n(rst_n),.src_valid(core_valid),.src_ready(core_ready),.src_data({core_meta,core_level_valid,core_level,core_flags,core_pairs}),
+   .dst_clk(io_clk),.dst_rst_n(io_rst_n),.dst_valid(feature_valid),.dst_ready(feature_ready),.dst_data({feature_meta,feature_level_valid,feature_level,feature_flags,feature_pairs}));
+  end else if(LEVEL_ENABLE)begin: with_level
++ assign audio_run=1'b0;assign audio_draining=1'b0;
+  assign feature_meta=0;
+  ss_async_word #(.WIDTH(1025),.CAPACITY(1)) frames(
+   .src_clk(clk),.src_rst_n(rst_n),.src_valid(core_valid),.src_ready(core_ready),.src_data({core_level_valid,core_level,core_flags,core_pairs}),
+   .dst_clk(io_clk),.dst_rst_n(io_rst_n),.dst_valid(feature_valid),.dst_ready(feature_ready),.dst_data({feature_level_valid,feature_level,feature_flags,feature_pairs}));
+  end else begin: legacy_frame
++ assign audio_run=1'b0;assign audio_draining=1'b0;
+  assign feature_meta=0;
+  assign feature_level=0;assign feature_level_valid=0;
+  ss_async_word #(.WIDTH(992),.CAPACITY(1)) frames(
+--- before/project/rtl/bd_clean_compute.v
++++ after/project/rtl/bd_clean_compute.v
+@@ -17,6 +17,7 @@
+  output wire [3:0] pdm_clocks,
+  input wire [31:0] audio_epoch,input wire audio_active,
+  output wire audio_valid,audio_clip,audio_source_fault,
++ output wire audio_run,audio_draining,
+  output wire [95:0] audio_pcm,output wire [63:0] audio_sample_index,
+  output wire [128:0] feature_meta,
+  output wire feature_valid,input wire feature_ready,
+@@ -37,6 +38,7 @@
+     .pdm_data(pdm_data),
+     .pdm_clocks(pdm_clocks),
+     .audio_epoch(audio_epoch),.audio_active(audio_active),.audio_valid(audio_valid),.audio_clip(audio_clip),
++    .audio_run(audio_run),.audio_draining(audio_draining),
+     .audio_source_fault(audio_source_fault),.audio_pcm(audio_pcm),.audio_sample_index(audio_sample_index),.feature_meta(feature_meta),
+     .feature_valid(feature_valid),
+     .feature_ready(feature_ready),
+--- before/project/rtl/ss_audio_capture.sv
++++ after/project/rtl/ss_audio_capture.sv
+@@ -5,7 +5,8 @@
+ // never published. A fresh epoch and idle acquisition are required to re-arm.
+ module ss_audio_capture (
+  input wire clk,rst_n,aresetn,dma_resetn,
+- input wire run_enable_async,compute_draining_async,
++ // Already synchronized by ss_dual_compute; all inputs here belong to clk.
++ input wire run_enable,compute_draining,
+  input wire pcm_valid,pcm_clip,pcm_fault,input wire [95:0] pcm,
+  input wire [63:0] sample_index,
+  input wire [6:0] address,input wire commit,write_access,format_error,
+@@ -14,11 +15,7 @@
+  output reg [31:0] m_axis_tdata,output wire [3:0] m_axis_tkeep,
+  output wire m_axis_tvalid,input wire m_axis_tready,output wire m_axis_tlast
+ );
+- wire run,compute_draining;
+- xpm_cdc_single #(.DEST_SYNC_FF(2),.SRC_INPUT_REG(0),.INIT_SYNC_FF(1)) run_sync(
+- .src_clk(1'b0),.src_in(run_enable_async),.dest_clk(clk),.dest_out(run));
+- xpm_cdc_single #(.DEST_SYNC_FF(2),.SRC_INPUT_REG(0),.INIT_SYNC_FF(1)) drain_sync(
+- .src_clk(1'b0),.src_in(compute_draining_async),.dest_clk(clk),.dest_out(compute_draining));
++ wire run=run_enable;
+  reg [31:0] configured_epoch,last_epoch,session_epoch,sequence_count,drop_count;
+  reg armed,seen_run,clipped;
+  reg [3:0] flush_count;wire flush=|flush_count;
+--- before/project/rtl/bd_audio_capture.v
++++ after/project/rtl/bd_audio_capture.v
+@@ -17,7 +17,7 @@
+  (* X_INTERFACE_INFO="xilinx.com:interface:axis:1.0 M_AXIS TVALID" *) output wire m_axis_tvalid,
+  (* X_INTERFACE_INFO="xilinx.com:interface:axis:1.0 M_AXIS TREADY" *) input wire m_axis_tready,
+  (* X_INTERFACE_INFO="xilinx.com:interface:axis:1.0 M_AXIS TLAST" *) output wire m_axis_tlast,
+- input wire dma_resetn,run_enable_async,compute_draining_async,
++ input wire dma_resetn,run_enable,compute_draining,
+  input wire pcm_valid,pcm_clip,pcm_fault,input wire [95:0] pcm,
+  input wire [63:0] sample_index,
+  output wire [31:0] epoch,output wire active
+@@ -52,8 +52,8 @@
+  .rst_n(rst_n),
+  .aresetn(aresetn),
+  .dma_resetn(dma_resetn),
+- .run_enable_async(run_enable_async),
+- .compute_draining_async(compute_draining_async),
++ .run_enable(run_enable),
++ .compute_draining(compute_draining),
+  .pcm_valid(pcm_valid),
+  .pcm_clip(pcm_clip),
+  .pcm_fault(pcm_fault),
+--- before/project/bd/update_ps_reliaze.tcl
++++ after/project/bd/update_ps_reliaze.tcl
+@@ -42,6 +42,35 @@
+             if {$an ne $bn} {error "STOP: conflicting interface $source -> $sink"}
+         } else {connect_bd_intf_net $a $b}
+     }
++    proc control_migration {} {
++        # Inspect before any copy/disconnect. Reject hand-edited or half-migrated
++        # control wiring instead of stealing a net from another source.
++        set old {};set fresh {}
++        foreach {sink source} {
++            audio_capture/run_enable_async ps_link/run_enable
++            audio_capture/compute_draining_async compute/draining
++            audio_capture/run_enable compute/audio_run
++            audio_capture/compute_draining compute/audio_draining
++        } {
++            set p [get_bd_pins -quiet $sink]
++            if {![llength $p]} {continue}
++            set n [get_bd_nets -quiet -of_objects $p]
++            set s [get_bd_pins -quiet $source]
++            if {[llength $s]!=1 || [llength $n]!=1 ||
++                $n ne [get_bd_nets -quiet -of_objects $s]} {
++                error "STOP: unexpected audio control connection at $sink"
++            }
++            if {[string match *_async $sink]} {lappend old $p} else {lappend fresh $p}
++        }
++        if {!(([llength $old]==2 && [llength $fresh]==0) ||
++              ([llength $old]==0 && [llength $fresh]==2))} {
++            error {STOP: partially migrated audio control ports}
++        }
++        return $old
++    }
++    # Vivado may source initialization Tcl in the caller scope when opening a BD.
++    # Keep those temporary variables out of run() and its validated paths.
++    proc open_design {bd_file} {open_bd_design $bd_file}
+     proc run {} {
+         variable root;variable names
+         set project [one [get_projects -quiet] project]
+@@ -53,7 +82,7 @@
+         foreach r [get_runs -quiet] {
+             if {[regexp -nocase {running|queued|launching} [get_property STATUS $r]]} {error "STOP: active run $r"}
+         }
+-        if {[current_bd_design -quiet] eq {}} {open_bd_design [one [get_files -quiet *.bd] BD]}
++        if {[current_bd_design -quiet] eq {}} {open_design [one [get_files -quiet *.bd] BD]}
+         current_bd_instance /
+         set bd [current_bd_design];set bdobj [one [get_files -quiet */${bd}.bd] BD]
+         set bdpath [get_property NAME $bdobj]
+@@ -98,6 +127,8 @@
+             }
+         }
+         if {$present!=0 && $present!=3} {error {STOP: partially installed audio BD; inspect the saved backup}}
++        set old_controls {}
++        if {$present==3} {set old_controls [control_migration]}
+         if {$present==0 && [get_property CONFIG.NUM_MI [get_bd_cells control_bus]]!=1} {error {STOP: unexpected control bus}}
+         if {$present==0 && [llength [get_bd_intf_nets -quiet -of_objects [get_bd_intf_pins -quiet ps7/S_AXI_HP0]]]} {
+             error {STOP: HP0 is already connected}
+@@ -117,6 +148,9 @@
+         save_bd_design
+         file copy $bdpath [file join $backup before.bd]
+         file copy [file join $dir ${name}.xpr] [file join $backup before.xpr]
++        # Preserve the old shared nets and every other sink, including the
++        # direct PS STOP/control path. Only remove the two obsolete audio sinks.
++        foreach p $old_controls {disconnect_bd_net [get_bd_nets -of_objects $p] $p}
+         set manifest [open [file join $backup replaced_paths.txt] w]
+         try {
+             foreach row $plan {
+@@ -162,8 +196,8 @@
+         net bus_reset/interconnect_aresetn {audio_mem_bus/ARESETN}
+         net core_release/dest_arst {audio_capture/rst_n}
+         net axi_dma_audio/s2mm_prmry_reset_out_n {audio_capture/dma_resetn}
+-        net ps_link/run_enable {audio_capture/run_enable_async}
+-        net compute/draining {audio_capture/compute_draining_async}
++        net compute/audio_run {audio_capture/run_enable}
++        net compute/audio_draining {audio_capture/compute_draining}
+         foreach {a b} {audio_valid pcm_valid audio_clip pcm_clip audio_source_fault pcm_fault audio_pcm pcm audio_sample_index sample_index} {
+             net compute/$a [list audio_capture/$b]
+         }
+@@ -187,6 +221,7 @@
+         update_compile_order -fileset sources_1
+         puts "RELIAZE_BACKUP=$backup"
+         puts {RELIAZE_PREPARED: manual + timed PCM; DMA=0x40400000 audio=0x43C00000; T15/W15 unchanged}
++        puts {RELIAZE_CDC_CONTROL_V2: source-registered controls; shared compute/audio run; rebuild bit/HWH required}
+         puts {NO_SYNTHESIS_IMPLEMENTATION_BITSTREAM_OR_HARDWARE_ACTIONS_STARTED}
+     }
+ }

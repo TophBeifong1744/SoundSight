@@ -1,0 +1,139 @@
+{
+  "pass_check": true,
+  "exit_code": 0,
+  "input_project": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.xpr",
+  "input_files": [
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\hann-u18f17.mem",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\hann-u18f17.mem"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\ip\\ss_ifft25\\ss_ifft25.xci",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\ip\\ss_ifft25\\ss_ifft25.xci"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\ip\\ss_fft29\\ss_fft29.xci",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\ip\\ss_fft29\\ss_fft29.xci"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\pdm_cic3.v",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\pdm_cic3.v"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\doa_math_pkg.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\doa_math_pkg.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\doa_math_serial.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\doa_math_serial.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\doa_phat_client.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\doa_phat_client.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\f1a_frame_store.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\f1a_frame_store.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\fft29_official.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\fft29_official.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ifft25_official.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ifft25_official.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ss_async_word.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ss_async_word.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ss_clean_compute.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ss_clean_compute.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ss_dual_compute.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ss_dual_compute.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ss_fft_frontend.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ss_fft_frontend.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ss_pair_engine.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ss_pair_engine.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ss_pcm_windows.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ss_pcm_windows.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ss_pdm_capture.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ss_pdm_capture.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ss_preprocess.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ss_preprocess.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\bd_clean_compute.v",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\bd_clean_compute.v"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\motor_drive.v",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\motor_drive.v"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\i17_turntable_pwm_guard.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\i17_turntable_pwm_guard.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ss_actuator_control.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ss_actuator_control.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ss_axi_lite_regs.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ss_axi_lite_regs.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ss_bist_source.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ss_bist_source.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ss_ps_control_regs.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ss_ps_control_regs.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ss_ps_link.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ss_ps_link.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\ss_snapshot_queue.sv",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\ss_snapshot_queue.sv"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\imports\\rtl\\bd_ps_link.v",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\imports\\bd_ps_link.v"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\sources_1\\bd\\soundsight_stm32_bd\\soundsight_stm32_bd.bd",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\sources_1\\bd\\soundsight_stm32_bd\\soundsight_stm32_bd.bd"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\constrs_1\\imports\\spi_ila_debug\\spi_ila_debug.xdc",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\constrs_1\\imports\\spi_ila_debug.xdc"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\constrs_1\\imports\\ps_constraints\\board_pins.xdc",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\constrs_1\\imports\\board_pins.xdc"
+    },
+    {
+      "source": "F:\\AMD\\work\\SoundSight_PS_Volume\\SoundSight_PS_Volume.srcs\\constrs_1\\imports\\ps_constraints\\interface_timing.xdc",
+      "copied": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji\\S_Servo\\S_Servo.srcs\\constrs_1\\imports\\interface_timing.xdc"
+    }
+  ],
+  "scratch": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\hz5supiji",
+  "synthesis": false,
+  "implementation": false,
+  "hardware_actions": false
+}

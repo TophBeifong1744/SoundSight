@@ -1,0 +1,155 @@
+sudo sh soundsight-3d.sh prepare
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'pynq'
+PYTHON_PROBE_FAILED=python3.8
+IGNORING_STALE_PYNQ_PYTHON=python3.8 AUTO_DETECT=1
+PYTHON_EXE=/usr/local/share/pynq-venv/bin/python3
+PYNQ_IMPORT_OK=1
+Solver library built for selected compiler: /home/xilinx/SoundSight_PYNQ_3D_Speaker/software/ps/libss_solver.so
+Built for the selected compiler target: /home/xilinx/SoundSight_PYNQ_3D_Speaker/software/tetra3d/linux/libss_solver_3d.so
+test_axis_mapping_ranges_pole_and_translation (__main__.OnlineTests) ... ok
+test_bounded_summary_and_debug_capacity (__main__.OnlineTests) ... ok
+test_cli_defaults_explicit_manual_and_bounded_debug (__main__.OnlineTests) ... ok
+test_config_rejects_invalid_and_has_no_hardware_effect (__main__.OnlineTests) ... ok
+test_final_extension_failure_still_attempts_legacy_stop (__main__.OnlineTests) ... ok
+test_follow_atomic_write_and_fresh_sequence (__main__.OnlineTests) ... ok
+test_follow_session_commits_only_after_group_and_stops (__main__.OnlineTests) ... ok
+test_hardware_fault_prevents_consume_and_motion_restart (__main__.OnlineTests) ... ok
+test_hwh_rejects_old_before_mmio (__main__.OnlineTests) ... ok
+test_invalid_and_history_display (__main__.OnlineTests) ... ok
+test_local_calibration_roundtrip_does_not_change_shared_settings (__main__.OnlineTests) ... ok
+test_manual_both_no_audio_and_revoke_on_error (__main__.OnlineTests) ... ok
+test_manual_extension_revoke_error_attempts_legacy_stop (__main__.OnlineTests) ... ok
+test_manual_rejects_capture_and_unconfigured_range (__main__.OnlineTests) ... ok
+test_normal_session_off_consumes_and_keeps_debug_after_stop (__main__.OnlineTests) ... ok
+test_outliers_rejection_and_minimum (__main__.OnlineTests) ... ok
+test_quiet_and_target_expiry_revoke (__main__.OnlineTests) ... ok
+test_quiet_fault_gap_and_stop_clear_target (__main__.OnlineTests) ... ok
+test_sink_failure_and_solver_exception_stop_retain_snapshot (__main__.OnlineTests) ... ok
+test_spatial_wrap_poles_and_deadband (__main__.OnlineTests) ... ok
+test_vector_storage_is_bounded (__main__.OnlineTests) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 5.161s
+
+OK
+test_axes_default_off (__main__.FollowSoundTests) ... ok
+test_bad_limits_and_invalid_frames_rejected (__main__.FollowSoundTests) ... ok
+test_existing_run_axes_still_speaker_gated (__main__.FollowSoundTests) ... ok
+test_explicit_axes_keep_acoustic_route (__main__.FollowSoundTests) ... ok
+test_main_uses_existing_runtime_and_status_preflight (__main__.FollowSoundTests) ... ok
+test_missing_calibration_blocks_motion (__main__.FollowSoundTests) ... ok
+test_real_client_still_requires_filtered_direction_and_stops (__main__.FollowSoundTests) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.240s
+
+OK
+THREE_D_OFFLINE_OK=1 HARDWARE_ACTIONS=0
+OFFLINE_TEST= test_normal.py
+.usage: test_normal.py [-h] --hwh HWH [--ip IP] --output OUTPUT
+                      [--library LIBRARY]
+                      [--mode {real,bist-pass,bist-reject}] [--frames FRAMES]
+                      --min-level MIN_LEVEL [--window-frames WINDOW_FRAMES]
+                      [--min-valid MIN_VALID] [--clear-faults CLEAR_FAULTS]
+                      [--host-cpu HOST_CPU] [--worker-cpu WORKER_CPU]
+                      [--lock-file LOCK_FILE] [--horizontal-motion]
+                      [--motion-config MOTION_CONFIG]
+                      [--manual-angle MANUAL_ANGLE]
+test_normal.py: error: Real mode requires frames>=0; BIST requires frames=1
+usage: test_normal.py [-h] --hwh HWH [--ip IP] --output OUTPUT
+                      [--library LIBRARY]
+                      [--mode {real,bist-pass,bist-reject}] [--frames FRAMES]
+                      --min-level MIN_LEVEL [--window-frames WINDOW_FRAMES]
+                      [--min-valid MIN_VALID] [--clear-faults CLEAR_FAULTS]
+                      [--host-cpu HOST_CPU] [--worker-cpu WORKER_CPU]
+                      [--lock-file LOCK_FILE] [--horizontal-motion]
+                      [--motion-config MOTION_CONFIG]
+                      [--manual-angle MANUAL_ANGLE]
+test_normal.py: error: Horizontal motion requires real mode and --motion-config
+................
+----------------------------------------------------------------------
+Ran 17 tests in 10.719s
+
+OK
+OFFLINE_TEST= test_volume_gate.py
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 0.081s
+
+OK
+OFFLINE_TEST= test_serial_english.py
+...
+----------------------------------------------------------------------
+Ran 3 tests in 6.219s
+
+OK
+OFFLINE_TEST= test_board_tools.py
+...DOWNLOAD_BEGIN
+LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 72, "status": 212992, "sys": 8}
+..DOWNLOAD_BEGIN
+LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 64, "status": 212992, "sys": 8}
+..MIN_LEVEL= 4300 APPLIES_TO=NEXT_RUN
+.OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+.OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 64, "status": 212995, "sys": 8}
+..OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 64, "status": 212992, "sys": 8}
+.MIN_LEVEL= 4500 APPLIES_TO=NEXT_RUN
+.DOWNLOAD_BEGIN
+..
+----------------------------------------------------------------------
+Ran 15 tests in 0.258s
+
+OK
+OFFLINE_TEST= test_filter_controls.py
+........WORKER_STAGE=IMPORT_PYNQ
+WORKER_STAGE=MMIO_SOLVER_ID
+.WINDOW_FRAMES=10 MIN_VALID=6 APPLIES_TO=NEXT_RUN
+...WINDOW_FRAMES=10 MIN_VALID=6 APPLIES_TO=NEXT_RUN
+MIN_LEVEL= 5000 APPLIES_TO=NEXT_RUN
+.
+----------------------------------------------------------------------
+Ran 13 tests in 0.459s
+
+OK
+OFFLINE_TEST= test_manual_servo.py
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.012s
+
+OK
+OFFLINE_TEST= test_pcm_capture.py
+............PCM_CHECK= {"audio": {"armed": false, "dma_reset_released": true, "epoch": 0, "errors": 0, "idle": true, "partial_tail": false, "pending": false, "published": 0, "raw": 24, "ready": false, "rejected": 0}, "channels": 4, "dma_status": 1, "motion": false, "packet_bytes": 8224, "ps": {"fault": 0}, "sample_rate": 48000}
+PCM_INTERFACE_OK=1 NO_CAPTURE=1 SERVO=OFF
+.......
+----------------------------------------------------------------------
+Ran 19 tests in 0.436s
+
+OK
+ARM_LIBRARY_LOADED=1
+DOWNLOAD_BEGIN
+LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 0, "status": 983040, "sys": 8}
+READY_FOR_DEBUG MIN_LEVEL=12000 SERVO=OFF
+NEXT: sudo sh soundsight.sh pcm-check
+DEVICE_STATE={"status": 983040, "fault": 0, "drops": 0, "sys": 8, "actuator": 0, "dual_axis": 0}
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ 
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ 
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ sudo sh soundsight-3d.sh status
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'pynq'
+PYTHON_PROBE_FAILED=python3.8
+IGNORING_STALE_PYNQ_PYTHON=python3.8 AUTO_DETECT=1
+PYTHON_EXE=/usr/local/share/pynq-venv/bin/python3
+PYNQ_IMPORT_OK=1
+DEVICE_STATE={"status": 983040, "fault": 0, "drops": 0, "sys": 8, "actuator": 0, "dual_axis": 0}
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ 
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ 

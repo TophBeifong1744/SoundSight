@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "name": "elastic",
+  "top": "tb_elastic",
+  "tool_version": "2025.2",
+  "contract": "contract.md",
+  "sources": ["elastic_stage.v", "tb_elastic.sv"],
+  "minimum_checks": 300
+}

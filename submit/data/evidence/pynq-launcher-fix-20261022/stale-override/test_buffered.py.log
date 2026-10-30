@@ -1,0 +1,72 @@
+PYNQ_SMP_READY= {'backend': 'fake-mmio'}
+PYNQ_SMP_READY= {'backend': 'fake-mmio'}
+PYNQ_SMP_READY= {'backend': 'fake-mmio'}
+STOP requested; draining and saving RAM records, please wait.
+PYNQ_SMP_READY= {'backend': 'fake-mmio'}
+PYNQ_SMP_READY= {'backend': 'fake-mmio'}
+PYNQ_SMP_READY= {'backend': 'fake-mmio'}
+PYNQ_SMP_READY= {'backend': 'startup-clock-fixture'}
+PYNQ_SMP_READY= {'backend': 'startup-clock-fixture'}
+PYNQ_SMP_READY= {'backend': 'fake-mmio'}
+PYNQ_SMP_READY= {'backend': 'fake-mmio'}
+PYNQ_SMP_READY= {'backend': 'fake-mmio'}
+
+test_acceptance_is_complete_and_copy_is_immutable (__main__.QueueTests.test_acceptance_is_complete_and_copy_is_immutable) ... ok
+test_disk_failure_preserves_failed_head_and_following_records (__main__.QueueTests.test_disk_failure_preserves_failed_head_and_following_records) ... ok
+test_disk_temp_rejected_before_hardware (__main__.QueueTests.test_disk_temp_rejected_before_hardware) ... ok
+test_fifo_and_durable_counts (__main__.QueueTests.test_fifo_and_durable_counts) ... ok
+test_inflight_writer_occupies_capacity_and_timeout_preserves (__main__.QueueTests.test_inflight_writer_occupies_capacity_and_timeout_preserves) ... ok
+test_ram_write_error_cannot_confirm_acceptance (__main__.QueueTests.test_ram_write_error_cannot_confirm_acceptance) ... ok
+test_record_size_bound (__main__.QueueTests.test_record_size_bound) ... ok
+test_recovery_copies_without_deleting_or_overwriting (__main__.QueueTests.test_recovery_copies_without_deleting_or_overwriting) ... ok
+test_ack_timeout_does_not_accept_record (__main__.SpawnTests.test_ack_timeout_does_not_accept_record) ... ok
+test_batched_disk_error_keeps_ram_and_stops (__main__.SpawnTests.test_batched_disk_error_keeps_ram_and_stops) ... ok
+test_batched_online_filter_complete_and_no_motion (__main__.SpawnTests.test_batched_online_filter_complete_and_no_motion) ... ok
+test_batched_slow_disk_still_stops_at_high_water (__main__.SpawnTests.test_batched_slow_disk_still_stops_at_high_water) ... ok
+test_ctrl_c_requests_graceful_stop_and_keeps_processing (__main__.SpawnTests.test_ctrl_c_requests_graceful_stop_and_keeps_processing) ... ok
+test_high_water_stops_and_preserves_two_tail_frames (__main__.SpawnTests.test_high_water_stops_and_preserves_two_tail_frames) ... ok
+test_motion_and_insufficient_reserve_rejected_before_mmio (__main__.SpawnTests.test_motion_and_insufficient_reserve_rejected_before_mmio) ... usage: test_buffered.py [-h] --hwh HWH [--ip IP] [--library LIBRARY]
+                        --output OUTPUT [--mode {bist-reject,bist-pass,real}]
+                        [--frames FRAMES] [--drain-existing]
+                        [--lock-file LOCK_FILE] [--clear-faults CLEAR_FAULTS]
+                        [--horizontal-motion] [--servo-config SERVO_CONFIG]
+                        [--watchdog-ticks WATCHDOG_TICKS]
+                        [--host-cpu HOST_CPU] [--worker-cpu WORKER_CPU]
+                        [--queue-capacity QUEUE_CAPACITY]
+                        [--high-water HIGH_WATER]
+                        [--flush-timeout FLUSH_TIMEOUT]
+                        [--sd-batch-size SD_BATCH_SIZE]
+                        [--sd-batch-wait-ms SD_BATCH_WAIT_MS]
+                        [--measure-level | --min-level MIN_LEVEL]
+                        [--angle-filter]
+test_buffered.py: error: Reserve at least 4 queue entries for in-flight/tail/end records; capacity must not exceed 4096
+usage: test_buffered.py [-h] --hwh HWH [--ip IP] [--library LIBRARY]
+                        --output OUTPUT [--mode {bist-reject,bist-pass,real}]
+                        [--frames FRAMES] [--drain-existing]
+                        [--lock-file LOCK_FILE] [--clear-faults CLEAR_FAULTS]
+                        [--horizontal-motion] [--servo-config SERVO_CONFIG]
+                        [--watchdog-ticks WATCHDOG_TICKS]
+                        [--host-cpu HOST_CPU] [--worker-cpu WORKER_CPU]
+                        [--queue-capacity QUEUE_CAPACITY]
+                        [--high-water HIGH_WATER]
+                        [--flush-timeout FLUSH_TIMEOUT]
+                        [--sd-batch-size SD_BATCH_SIZE]
+                        [--sd-batch-wait-ms SD_BATCH_WAIT_MS]
+                        [--measure-level | --min-level MIN_LEVEL]
+                        [--angle-filter]
+test_buffered.py: error: RAM entry does not support motion; legacy motion uses run_smp.py durable confirmation
+ok
+test_online_filter_high_water_keeps_records_without_target (__main__.SpawnTests.test_online_filter_high_water_keeps_records_without_target) ... ok
+test_online_filter_in_real_spawn_queue_with_slow_writer (__main__.SpawnTests.test_online_filter_in_real_spawn_queue_with_slow_writer) ... ok
+test_ready_restores_short_runtime_timeout (__main__.SpawnTests.test_ready_restores_short_runtime_timeout) ... ok
+test_six_second_startup_fails_old_budget_but_passes_new (__main__.SpawnTests.test_six_second_startup_fails_old_budget_but_passes_new) ... ok
+test_slow_sd_does_not_delay_consume_until_fsync (__main__.SpawnTests.test_slow_sd_does_not_delay_consume_until_fsync) ... ok
+test_solver_failure_is_not_success_or_consumed (__main__.SpawnTests.test_solver_failure_is_not_success_or_consumed) ... ok
+test_startup_remains_bounded (__main__.SpawnTests.test_startup_remains_bounded) ... ok
+test_write_failure_stops_and_retains_ram_tail (__main__.SpawnTests.test_write_failure_stops_and_retains_ram_tail) ... ok
+test_wrong_ack_retains_hardware_frame (__main__.SpawnTests.test_wrong_ack_retains_hardware_frame) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 6.143s
+
+OK

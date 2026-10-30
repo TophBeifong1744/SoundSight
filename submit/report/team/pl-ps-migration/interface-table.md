@@ -1,0 +1,172 @@
+# PL+PS 迁移：A/B/C/D 共用接口表
+
+2026-10-20。用途：把现有 STM32 求解算法接到 Zynq PS，供团队共用，当前由 A/B/C 按此接合，D 暂不安排任务。人员责任和推进顺序见[本轮分工](readme.md)。
+
+本表整理当前代码，不新建协议，不增加哈希、cookie、身份链或认证流程。帧号只用于避免读错帧、重复消费和重复动作。原有同帧读取、数值检查和停止保护继续保留。
+
+## 1. 分工与交接
+
+| 交接 | 交什么 | 接收方怎么用 |
+|---|---|---|
+| A → C | PYNQ 方案 Vivado 工程生成的配套 bit/HWH、PL 源码与 BD、PS7 硬件配置、时钟复位说明、实际实现报告 | C 根据 HWH 接软件 |
+| B → C | 可在目标 ARM Linux 使用的 C 求解库、源码、编译命令、测试输入与预期输出 | B 完成算法迁移自测，C 用 Python 调用 |
+| C → A/B | PYNQ 运行程序、环境依赖、启动/停止说明、记录文件 | A 配合现场操作；B 分析算法问题；C 负责软件接合与自测 |
+
+本轮 A 负责 Vivado/PS7 硬件配置，C 负责 Linux/PYNQ 软件环境和应用。独立验证暂不安排；必要自测和联调仍由各负责人完成，D 暂不安排任务。
+
+两个 ARM 核运行同一个 Linux/PYNQ 系统。只有一个程序负责读取和消费 PL 快照、提交动作；不用两个核分别抢读同一个队列。C 求解函数本身不操作硬件。
+
+## 2. A → C：PL 数据和寄存器
+
+连接：PS M_AXI_GP0 → AXI Interconnect → AXI Clock Converter → bd_ps_link。
+
+- PS 侧总线 100 MHz；寄存器、快照和 PWM 控制域 61.44 MHz。
+- AXI4-Lite，32 位数据，按 4 字节对齐访问；寄存器窗口 4 KiB。
+- 基地址从实际配套 HWH 读取，不固定写死为某次工具分配的地址。
+- 使用 MMIO 读写 32 位数值；不再套 SPI 的 40 位事务，也不照搬 SPI 字节序转换。
+- 本接口传六对特征，不传整段 PCM/频谱，不需要 DMA。
+
+### 一帧包含什么
+
+| 数据 | 内容 |
+|---|---|
+| frame_id | 32 位帧序号；从 1 开始。用于关联记录，不是身份认证 |
+| frame flags | BIST、六对是否都已终结、全帧取消、首个错误码 |
+| pair[0..5] | 每对 5 个 32 位字，共 30 字、120 字节 |
+| 运行状态 | 当前故障、丢帧计数；与随帧封存的 flags 分开保存 |
+
+固定 pair 顺序和算法几何系数：
+
+| pair | 麦克风对 (a,b) | dx | dy |
+|---:|---|---:|---:|
+| 0 | (0,1) | 1 | 0 |
+| 1 | (0,2) | 1 | 1 |
+| 2 | (0,3) | 0 | 1 |
+| 3 | (1,2) | 0 | 1 |
+| 4 | (1,3) | -1 | 1 |
+| 5 | (2,3) | -1 | 0 |
+
+每对按这个顺序读入 `words[pair*5 + 0..4]`：
+
+| 字 | 内容 | 数值规则 |
+|---:|---|---|
+| 0 | FEATURE_0：lag、pair 回显、有效/取消/错误标志、mask_count、PHAT/IFFT 阶段 | lag 在 bit[7:0] 按有符号数读取，必须在 -32～31；mask_count 在 bit[22:16]，当前范围 0～79 |
+| 1 | peak | S25 符号扩展至 S32 |
+| 2 | left / r_minus | 峰左边相邻点，S25 符号扩展至 S32 |
+| 3 | right / r_plus | 峰右边相邻点，S25 符号扩展至 S32 |
+| 4 | second_peak | S25 符号扩展至 S32；是否可用看 second_valid |
+
+S25 范围为 -16777216～16777215；越界报错，不能截断后继续计算。
+
+FEATURE_0 其余字段：bit[10:8] pair 回显；bit11 raw_valid；bit12 second_valid；bit13 IFFT 合格；bit14 取消；bit15 数值错；bit[27:24] PHAT 阶段；bit[31:28] IFFT 阶段。bit23 保留为 0。
+
+阶段码：0 未完成、1 正常、2 算法拒绝、3 数值错、4 协议错、5 取消、6 跳过。发布完整帧时不能仍有“未完成”；失败或取消也要有终态。真实合格 pair 要求 PHAT/IFFT 均正常且 IFFT 合格；BIST 使用单独诊断分支，不能获得动作资格。
+
+**lag 符号沿用现有计算方向。** 当前 RTL 跨谱为 `Xa × conj(Xb)`，虚部为 `Im(Xa)*Re(Xb) - Re(Xa)*Im(Xb)`；B/C 不交换 a、b，也不自行取反 lag。lag 是采样点数，插值后 `tau_q12 = lag*4096 + delta_q12`。A/B 在各自链路自测中用已知通道延迟的输入检查符号；实际麦克风编号、摆放及方位正方向由 A 现场核对，不能凭端口名称推断。
+
+当前算法 profile：48 kHz、1024 点窗口、512 点步进、40 mm 标称间距、声速 343 m/s、频点 7～85。迁移先保持这些值；实物标定差异单列，不在驱动里偷偷改符号或比例。
+
+### 常用寄存器
+
+以下均为基地址内的字节偏移。
+
+| 偏移 | 名称 | 必要用法 |
+|---|---|---|
+| 0x04 | SYS_CTRL | 0x08 停用真实模式；0x09 启用真实模式；0x0B 启用 BIST。切模式前停用、排空并处理旧槽 |
+| 0x08 | FRAME_CNT | 当前锁帧序号 |
+| 0x0C / 0x10 | FEATURE_0 / FEATURE_1 | 当前所选 pair 的标志/lag、peak |
+| 0x1C | FEATURE_SELECT | 写 pair 0～5 |
+| 0x20 / 0x24 / 0x28 | R_MINUS / R_PLUS / R_SECOND | 当前 pair 的左、右、次峰 |
+| 0x2C | BIST_SELECT | 0 拒绝向量，1 通过向量；只在停用、排空结束、队列空时修改 |
+| 0x34 | SNAP_STATUS | bit0 已锁、bit1 有排队帧、bit2 丢帧、bit3 BIST、bit4 六对终态、bit15 排空中、bit19 执行器已绑定 |
+| 0x38 | SNAP_CMD | 写 1 锁最老帧；写 2 解除锁但保留；写 4 消费并释放。一次只写一种命令 |
+| 0x18 | ACTUATOR_CMD | 水平整数度在 bit[8:0]，水平有效 bit18；垂直有效 bit19 保持 0。这里只暂存 |
+| 0x58 | ACT_CTRL | 写 1 请求动作许可；写 2 STOP；写 4 撤许可；写 8 提交暂存角度 |
+| 0x60 | WATCHDOG_TICKS | 单位为 61.44 MHz 周期；0 禁止运动；撤许可后配置 |
+| 0x64 | FAULT_STATUS | 故障位图；停用且原因消失后写 1 清对应位。清错不自动恢复动作 |
+| 0x68 | DROP_COUNT | 满槽丢新帧累计数 |
+
+帧取消在 SNAP_STATUS bit20，随帧首错在 bit[31:24]。其余完整位定义直接使用公共头文件，不再建立第二套宏。
+
+现有 0x00 型号标识和 0x6C 接口版本寄存器保留兼容用途；它们只是防止软件读错硬件接口，不是认证。此次不增加检查层，也不修改这些已存在的地址。
+
+## 3. C → B：Python 调用 C 求解器
+
+复用现有 `software/ps/ss_solver_bridge.c` 和 `software/ps/ps_client.py`，不另造一套结构序列化协议。
+
+```c
+int ss_solve_words(
+    uint32_t sequence,
+    uint32_t status,
+    const uint32_t words[30],
+    const int32_t config[7],  /* NULL 表示只求方向、不做舵机映射 */
+    int32_t out[12]
+);
+```
+
+Python 使用 `ctypes.CDLL`；sequence/status 用 uint32，words 用 uint32[30]，config/out 用 int32 数组。库须针对目标 ARM Linux 编译；STM32 固件和 Windows DLL 不能直接拿来加载。
+
+`config[0..6]` 固定为：offset_q8、direction（只能 ±1）、domain_min_q8、domain_max_q8、mechanical_min、mechanical_max、servo_max。其中 offset_q8、domain_min_q8、domain_max_q8 表示“角度乘 256”；direction 是方向符号；机械上下限和 servo_max 是整数度。偏置和机械范围来自实物标定，不能把示例值当实际参数。
+
+| out 下标 | 名称 | 用法 |
+|---|---|---|
+| 0 | api_status | C 算法调用状态 |
+| 1、2 | direction_valid、reason | 是否得到有效方向，以及拒绝原因 |
+| 3 | angle_q8 | 正式方位角；除以 256 得度数，范围 [-180°,180°) |
+| 4、5 | ux_q20、uy_q20 | 方向分量；除以 2^20 得实际值 |
+| 6 | valid_pairs | 参与计算的有效 pair 数 |
+| 7、8 | servo_deg、servo_cmd_valid | 水平整数度和动作有效标志 |
+| 9 | map_status | 舵机映射状态 |
+| 10、11 | first_error、bad_pair | 输入错误定位；无坏 pair 时 bad_pair 为 255 |
+
+**先检查函数返回值，再使用 out。** 返回负数表示桥接参数/格式错误，此时 out 不作为有效结果；返回正数表示算法 API 错误；返回 0 仍需检查 direction_valid。正常算法拒绝也会返回 0，不能把无效的 0° 当作目标。
+
+方向 reason：0 正常，1 有效 pair 不足，2 几何奇异，3 残差超限，4 范数超限，6 取消，7 输入/源/数值错误。
+
+B 继续维护唯一的 `software/common/s1/doa_solver.c/.h`。纯计算入口仍为 `doa_solve(&frame, &config, &result)`；保持原整数舍入和 CORDIC 输出，不用浮点 atan2 替换正式结果。
+
+## 4. C → A：一帧如何处理、角度如何下发
+
+1. ACQUIRE 锁最老完整帧，读取状态和帧号。
+2. 依次选择 pair0～5，读取全部 30 字；检查 pair 回显、数值范围和锁帧未变化。
+3. 调用 C 求解器。无效方向也记录原因，不发角度。
+4. 保存该帧输入和计算结果。现有 JSONL 程序完成 write/flush/fsync 后才认为保存成功。
+5. 启用真实闭环后，只有真实有效方向、映射有效、执行器已标定绑定、许可有效且无故障，才能写 ACTUATOR_CMD，再 COMMIT。**必须在该帧 CONSUME 之前提交。**
+6. 完成后 CONSUME，释放当前槽。动作失败先 STOP、保留故障，不盲目重试旧角度；日志区分“计算结果”和“动作是否已接收”。
+
+当前 CLI 只做第 1～4 步及消费，没有自动动作循环；C 负责把现有 arm/command 接入闭环。BIST 即使求解成功也禁止动作。
+
+STOP 在控制域停止接收新动作，并阻止后续 PWM 新脉冲；当前高脉冲完整结束后撤输出。计算链路经跨域同步后取消并排尾。恢复需要显式重新配置、使能及新有效结果，不重放旧动作。
+
+普通 AXI 总线复位撤控制权、保留已发布槽；PL 冷复位或重新下载会清槽。软件异常或保存失败优先 STOP，不用重新下载来“恢复”未保存记录。
+
+## 5. 缓冲、性能与最低验证
+
+当前硬件是两个槽：空闲、待取、已锁。已锁数据不会被后续帧覆盖；满槽时丢新帧，增加 DROP_COUNT 并置故障。**当前 RTL 不会仅因队列满就自动停止计算。** 软件发现故障后停止新增工作；Linux 长时间不调度时仍可能丢新帧，不能宣称无损。
+
+记录优先的目标不变：保住已有记录，异常停止新工作。若要求软件完全失联时硬件也自动停采，需要另做明确的 RTL 改动；本接口表不把它写成已实现功能。
+
+512/48000 = 10.667 ms 是采样窗口步进，不是已经测得的软件处理耗时。B 测目标 ARM 求解耗时；C 测取数、求解、落盘和动作提交的总耗时；A/C 联调压力情况下的队列、丢帧与停止。正常服务预算保持现有要求，不靠延长超时掩盖问题。
+
+| 验证项 | 预期 |
+|---|---|
+| BIST 拒绝向量 | lag=[5,-3,0,1,-1,2]；direction_valid=0，reason=3，不产生动作 |
+| BIST 通过向量 | lag=[4,4,0,0,-4,-4]；direction_valid=1，angle_q8=0，但 servo_cmd_valid=0 |
+| 数值迁移对比 | 原 S1 和 ARM 版对相同输入的正式整数结果一致，覆盖负 lag、边界和舍入 |
+| 同帧读取 | 六对来自同一个锁帧；新帧到来不改变已锁载荷 |
+| 慢读取/保存失败 | 已有记录保留；丢帧如实计数；异常停止，不用旧角度继续动作 |
+| STOP/恢复 | 停新工作、排尾、保记录；恢复后新结果才允许动作 |
+| 真实板上链路 | 真实四麦 → PL 特征 → C 求解 → 保存；再验证机械标定后的闭环 |
+
+本表依据当前源码整理，未新增运行验证。ARM/PYNQ 实板、实际延迟和机械闭环仍需测试。
+
+## 6. 唯一代码与说明入口
+
+- 寄存器和数值定义：`software/common/fpga_stm32_abi_frozen.h`、`software/common/FROZEN_SSOT_ABI.md`
+- C 求解器：`software/common/s1/doa_solver.h`、`doa_solver.c`
+- Python/C 桥：`software/ps/ss_solver_bridge.c`、`ps_client.py`
+- 应用入口及编译：`software/ps/run_capture.py`、`build_solver.sh`
+- PL 接口：`project/rtl/bd_ps_link.v`、`ss_ps_link.sv`、`ss_ps_control_regs.sv`
+- BD 连线：`document/design/ps/PS平台.txt`、`project/bd/ps.tcl`
+
+以上路径相对仓库根目录。沿用现有源文件，不为每个人复制一份协议或算法。

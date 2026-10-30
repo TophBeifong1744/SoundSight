@@ -1,0 +1,83 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sat Oct 24 11:47:38 2026
+# Process ID         : 16744
+# Current directory  : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dualaudio_20261024_114722
+# Command line       : xsim.exe -log simulate.log -mode tcl -source {xsim.dir/dualaudio/xsim_script.tcl}
+# Log file           : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dualaudio_20261024_114722/simulate.log
+# Journal file       : E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dualaudio_20261024_114722\xsim.jou
+# Running On         : Toph
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 16890 MB
+# Swap memory        : 23622 MB
+# Total Virtual      : 40512 MB
+# Available Virtual  : 13671 MB
+#-----------------------------------------------------------
+source xsim.dir/dualaudio/xsim_script.tcl
+# xsim {dualaudio} -maxdeltaid 1000 -autoloadwcfg -tclbatch {run.tcl} -onerror quit
+Time resolution is 1 ps
+source run.tcl
+## run all
+Note:   - SCALING_SCH: in_ptr = 1, out_ptr = 1
+Time: 0 ps  Iteration: 0  Process: /tb_dualaudio/dut/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - C_CHANNELS  = 1
+Time: 0 ps  Iteration: 0  Process: /tb_dualaudio/dut/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - field_width = 20
+Time: 0 ps  Iteration: 0  Process: /tb_dualaudio/dut/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - Copying SCALE_SCH from 20 downto 1 to 20 downto 1
+Time: 0 ps  Iteration: 0  Process: /tb_dualaudio/dut/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - SCALING_SCH: in_ptr = 1, out_ptr = 1
+Time: 0 ps  Iteration: 0  Process: /tb_dualaudio/dut/core/frontend/forward/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - C_CHANNELS  = 1
+Time: 0 ps  Iteration: 0  Process: /tb_dualaudio/dut/core/frontend/forward/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - field_width = 20
+Time: 0 ps  Iteration: 0  Process: /tb_dualaudio/dut/core/frontend/forward/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - Copying SCALE_SCH from 20 downto 1 to 20 downto 1
+Time: 0 ps  Iteration: 0  Process: /tb_dualaudio/dut/core/frontend/forward/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - SCALING_SCH: in_ptr = 1, out_ptr = 1
+Time: 0 ps  Iteration: 1  Process: /tb_dualaudio/dut/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - C_CHANNELS  = 1
+Time: 0 ps  Iteration: 1  Process: /tb_dualaudio/dut/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:     - field_width = 20
+Time: 0 ps  Iteration: 1  Process: /tb_dualaudio/dut/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Note:   - Copying SCALE_SCH from 20 downto 1 to 20 downto 1
+Time: 0 ps  Iteration: 1  Process: /tb_dualaudio/dut/core/backend/inverse/core/U0/i_synth/axi_wrapper/gen_config_fifo_in/line__94240  File: F:\AMD\2025.2\Vivado\data/ip/xilinx/xfft_v9_1/hdl/xfft_v9_1_vh_rfs.vhd
+Warning: SIM_ASSERT_CHK (1) specifies simulation message reporting, messages related to potential misuse will be reported.
+Time: 1 ps  Iteration: 0  Process: /tb_dualaudio/dut/core/timed_crossing.samples/crossing/fifo/gnuram_async_fifo.xpm_fifo_base_inst/Initial1559_115  Scope: tb_dualaudio.dut.core.timed_crossing.samples.crossing.fifo.gnuram_async_fifo.xpm_fifo_base_inst  File: F:\AMD\2025.2\Vivado\data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv Line: 1566
+Warning: SIM_ASSERT_CHK (1) specifies simulation message reporting, messages related to potential misuse will be reported.
+Time: 1 ps  Iteration: 0  Process: /tb_dualaudio/dut/with_audio.frames/fifo/gnuram_async_fifo.xpm_fifo_base_inst/Initial1559_252  Scope: tb_dualaudio.dut.with_audio.frames.fifo.gnuram_async_fifo.xpm_fifo_base_inst  File: F:\AMD\2025.2\Vivado\data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv Line: 1566
+DUALAUDIO_PROGRESS cycle=0 frontend=x backend=x frames=0 faults=000
+DUALAUDIO_PROGRESS cycle=50000 frontend=4 backend=1 frames=0 faults=000
+DUALAUDIO_PROGRESS cycle=100000 frontend=4 backend=1 frames=0 faults=000
+DUALAUDIO_PROGRESS cycle=150000 frontend=7 backend=5 frames=0 faults=000
+DUALAUDIO_PROGRESS cycle=200000 frontend=7 backend=8 frames=0 faults=000
+DUALAUDIO_PROGRESS cycle=250000 frontend=7 backend=5 frames=0 faults=000
+DUALAUDIO_PROGRESS cycle=300000 frontend=7 backend=5 frames=0 faults=000
+DUALAUDIO_PROGRESS cycle=350000 frontend=7 backend=5 frames=0 faults=000
+DUALAUDIO_FRAME n=1 cycles=375553 latency=347173 flags=00000010 faults=000
+DUALAUDIO_PROGRESS cycle=400000 frontend=4 backend=1 frames=1 faults=000
+DUALAUDIO_PROGRESS cycle=450000 frontend=4 backend=1 frames=1 faults=000
+DUALAUDIO_PROGRESS cycle=500000 frontend=7 backend=5 frames=1 faults=000
+DUALAUDIO_FRAME n=2 cycles=523134 latency=133407 flags=00100010 faults=000
+DUALAUDIO_PROGRESS cycle=550000 frontend=0 backend=0 frames=2 faults=000
+DUALAUDIO_PROGRESS cycle=600000 frontend=4 backend=1 frames=2 faults=000
+DUALAUDIO_PROGRESS cycle=650000 frontend=7 backend=5 frames=2 faults=000
+DUALAUDIO_PROGRESS cycle=700000 frontend=7 backend=5 frames=2 faults=000
+DUALAUDIO_PROGRESS cycle=750000 frontend=7 backend=5 frames=2 faults=000
+DUALAUDIO_PROGRESS cycle=800000 frontend=7 backend=8 frames=2 faults=000
+DUALAUDIO_PROGRESS cycle=850000 frontend=7 backend=5 frames=2 faults=000
+DUALAUDIO_FRAME n=3 cycles=886244 latency=334729 flags=00000010 faults=000
+DUALAUDIO_PASS frames=3 checks=12 cycles=886245 official_fft_ifft=1 pcm_fixture=1
+$finish called at time : 8862447060 ps : File "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dualaudio_20261024_114722/sources/tb_dualaudio.sv" Line 72
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:06:30 . Memory (MB): peak = 205.484 ; gain = 0.008
+## quit
+INFO: xsimkernel Simulation Memory Usage: 32800 KB (Peak: 32800 KB), Simulation CPU Usage: 383686 ms
+INFO: [Common 17-206] Exiting xsim at Sat Oct 24 11:54:11 2026...

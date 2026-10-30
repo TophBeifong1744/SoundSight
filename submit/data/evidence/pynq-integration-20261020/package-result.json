@@ -1,0 +1,19 @@
+{
+  "package-smp": {
+    "exit": 0,
+    "tail": " 40496}\r\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 41240}\r\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 51736}\r\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 3616}\r\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 56600}\r\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 45696}\r\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 52612}\r\nPYNQ双核已启动： {'backend': 'fake', 'worker_pid': 35428}\r\n.................\r\n----------------------------------------------------------------------\r\nRan 17 tests in 3.707s\r\n\r\nOK\r\n"
+  },
+  "package-application": {
+    "exit": 0,
+    "tail": "APPLICATION_PASS checks=8\r\nE:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\software\\build\\pynq-integration\\software\\build\\integration-review\\extracted\\SoundSight_PYNQ\\software\\build\\application_20261020_224503\r\n"
+  },
+  "package-migration": {
+    "exit": 0,
+    "tail": " \"api_status\": 0, \"bad_pair\": 255, \"bridge_status\": 0, \"direction_valid\": 1, \"first_error\": 0, \"map_status\": 4, \"reason\": 0, \"servo_cmd_valid\": 0, \"servo_deg\": 0, \"ux_q20\": -749295, \"uy_q20\": 0, \"valid_pairs\": 6}\r\nOFF_AXIS {\"angle_q8\": 3593, \"api_status\": 0, \"bad_pair\": 255, \"bridge_status\": 0, \"direction_valid\": 1, \"first_error\": 0, \"map_status\": 0, \"reason\": 0, \"servo_cmd_valid\": 1, \"servo_deg\": 104, \"ux_q20\": 749295, \"uy_q20\": 187324, \"valid_pairs\": 6}\r\nsoftware\\build\\PC-PACKAGE-RESULT.json\r\n"
+  },
+  "package-preflight": {
+    "exit": 1,
+    "tail": "lse,\r\n  \"compiler\": \"gcc.EXE (x86_64-win32-seh-rev1, Built by MinGW-Builds project) 16.1.0\",\r\n  \"ps_link\": {\r\n    \"base\": \"0x40000000\",\r\n    \"bytes\": 4096\r\n  },\r\n  \"actuator_bound\": \"0\",\r\n  \"errors\": [\r\n    \"Run this check on the Zynq PYNQ board (ARM Linux).\",\r\n    \"This Zynq-7000 delivery expects a 32-bit ARM userspace.\",\r\n    \"CPU 0 and CPU 1 must both be available; do not load a bare-metal CPU1 ELF.\",\r\n    \"Use the Python environment containing PYNQ.\"\r\n  ],\r\n  \"result\": \"NEEDS_ATTENTION\"\r\n}\r\n"
+  },
+  "host_preflight_rejection": "EXPECTED: Windows is not the ARM PYNQ target"
+}
