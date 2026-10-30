@@ -1,0 +1,38 @@
+# 声纹识别报告资料
+
+2026-10-29最新增量：已接入[submit实体报告目录](../../../report/README.md)、[PR #30完整Vivado复现](../../../report/vivado-ps-3d-rebuild.md)及[A后续录入板测](../../../board/results/speaker-enrollment-board-result.md)，见[贡献总览首节](07-b-contribution-and-gaps-20261029.md)。这些A侧成果与B历史贡献分列；原ZIP、证据和指标保持。
+
+**当前阅读入口：** [B工作与最新仓库状态](07-b-contribution-and-gaps-20261029.md)。主方案PL+PS、A全面接管、W16手动可转及长稳重启事实以该页为准；以下28日批次保持历史含义。
+
+2026-10-29补充：[B成员贡献、已有证据与比赛缺项原件](https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/evidence/b-report-supplement-20261029/README.md)。完整ZIP保留194份历史引用；W16修复和长稳重启状态见收件说明。
+
+整理日期：2026-10-28。这里是报告素材与证据归档，按项目规则集中放在 document/evidence。不是上板工程、运行入口或第二套产品源码；本目录没有安装、烧录或控制执行器的程序。
+
+主线覆盖2026-10-23至26日的本地声纹工作，28日的B回传与联合软件验证单列。只能据对应输入、候选和测量边界引用结果，不能把“采集成功”“数值一致”“软件接合”写成实时身份跟随验收。
+
+## 阅读顺序
+
+1. [目标、架构和设计取舍](01-design.md)：适合报告的系统方案与实现方法章节。
+2. [迭代与实验结果](02-iterations.md)：问题、改动、结果和失败事实。
+3. [绘图数据](metrics.csv)：各行带输入时长、窗口、线程、统计次数、可比组和证据路径。
+4. [关键源码摘录](03-code-highlights.md)：仅选连续特征复用、消除重复计算、有界收包/窗口、身份过期和计时完整性逻辑。
+5. [PL下放事前分析](04-pl-preanalysis.md)：候选与预算，不是已实现加速器。
+6. [结论边界与后续补充](05-scope-and-followup.md)：独立留出不足、正常音量排除规则、28日后续事实及新旧许可策略区别。
+7. [B继续补充的方法与模板](contributing.md)。
+
+## 目录与来源
+
+- records/E01…E11：精选串口原文或结构化证据；只保留支撑报告结论所需的文件。原文件中的历史路径、当时NOT_RUN和未知值不改写；后续事实在正文另列。
+- source-map.json：材料来源、原文件校验值、摘录对应源码文件/行号及固定公开源码包身份。它帮助定位证据，不是运行门槛。
+- metrics.csv：整理自这些记录；源语音时长不等于实际计入网络核心的工作范围，加载排除与并发条件按行说明。
+- verification.json：本次文档、数据与公开内容核查；不代表重新执行了历史板测。
+
+公开源码摘录固定取自[v3公开源码快照](https://github.com/TophBeifong1744/SoundSight/releases/tag/speaker-b-handoff-20261026-v3)，而不是把当前在途源码冒充旧实验候选。原完整私有包中的录音、模板、特征、模型、bit/HWH均不进入本目录。第三方模型和算法归原作者，项目贡献是软硬件分工、实现优化、调度和验证，不声称原创CAM++或Silero。
+
+本次仅将报告材料合入main；不会让main成为最新声纹上板版本，也不会合入全部B交接分支或其他3D在途代码。
+
+## B补充材料（2026-10-28归档）
+
+新增[三维与B算法贡献索引](06-b-algorithms.md)、[RX4](batches/2026-10-27-rx4-board.md)、[MP1](batches/2026-10-27-mp1-board.md)、[FS1/CC1](batches/2026-10-28-fs1-cc1-board.md)、[CP1](batches/2026-10-28-cp1-board.md)、[VF1/CP2](batches/2026-10-28-vf1-cp2-board.md)批次，证据续编号E12～E19，源码摘录S07～S13，绘图值以B-开头。覆盖有效优化、无收益和数值失败，不能仅挑收益项。
+
+本次B核查记录见[verification-b.json](verification-b.json)。原verification.json保留为A当批检查快照，不代表后来追加文件。完整产品源码沿用既有公开提交/私下交接，本目录不另放可运行源码或ZIP。

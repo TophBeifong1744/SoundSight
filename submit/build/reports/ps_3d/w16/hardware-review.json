@@ -1,0 +1,21 @@
+{
+  "result": "SCOPED_PASS",
+  "scope": "Receipt and read-only routed-report checks, not independent design sign-off or W16 board validation",
+  "horizontal_pin": "T15",
+  "vertical_pin": "W16",
+  "bank": 34,
+  "iostandard": "LVCMOS33",
+  "wns_ns": 0.047,
+  "whs_ns": 0.036,
+  "wpws_ns": 2.208,
+  "vertical_max_budget_ns": 20,
+  "vertical_slack_ns": 11.935,
+  "horizontal_slack_ns": 10.182,
+  "cdc_critical": 0,
+  "cdc_warning": 1252,
+  "original_vertical_budget_missing": true,
+  "supplemental": "Existing routed DCP, budget applied only in memory; no bit/DCP changed",
+  "w16_board_test": "NOT_RUN",
+  "rtl_simulation": "SKIPPED_PIN_ONLY_CHANGE",
+  "software_logic": "Unchanged except previously accepted AF1 acoustic-only mode"
+}

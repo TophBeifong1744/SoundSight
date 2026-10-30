@@ -1,0 +1,11 @@
+RESULT,PASS,profile=0,checks=2110,failures=0,SYNTHETIC_FEATURES_ONLY
+RESULT,PASS,profile=1,checks=2378,failures=0,SYNTHETIC_FEATURES_ONLY
+D4_RESULT,PASS,checks=92270,failures=0
+Traceback (most recent call last):
+  File "E:\Users\Toph Beifong\Documents\GitHub\SoundSight\software\tetra3d\tests\test_solver_3d_migration.py", line 332, in <module>
+    main()
+    ~~~~^^
+  File "E:\Users\Toph Beifong\Documents\GitHub\SoundSight\software\tetra3d\tests\test_solver_3d_migration.py", line 193, in main
+    assert result == record['result'], ('ps_manual_capability', record['name'], result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('ps_manual_capability', 'AZ_-180_EL_-75', {'api_status': 0, 'direction_valid': 0, 'reason': 0, 'azimuth_valid': 0, 'elevation_valid': 0, 'azimuth_q8': 0, 'elevation_q8': 0, 'valid_pairs': 0, 'valid_pair_mask': 0, 'coordinates_measured': 0, 'first_error': 0, 'bad_pair': 255, 'geometry_status': 0, 'geometry_bad_pair': 255, 'ux': 0.0, 'uy': 0.0, 'uz': 0.0, 'norm': 0.0, 'residual_rms_samples': 0.0, 'normal_condition': 0.0, 'azimuth_deg': 0.0, 'elevation_deg': 0.0, 'bridge_status': -2, 'sequence': 100, 'profile': 'TETRA40_3D', 'geometry_revision': 1, 'geometry_source': 'tetra40-nominal-v1', 'pairs': [{'delta_q12': 0, 'tau_q12': 0, 'margin_q15': 0, 'qualified': 0, 'reason': 0}, {'delta_q12': 0, 'tau_q12': 0, 'margin_q15': 0, 'qualified': 0, 'reason': 0}, {'delta_q12': 0, 'tau_q12': 0, 'margin_q15': 0, 'qualified': 0, 'reason': 0}, {'delta_q12': 0, 'tau_q12': 0, 'margin_q15': 0, 'qualified': 0, 'reason': 0}, {'delta_q12': 0, 'tau_q12': 0, 'margin_q15': 0, 'qualified': 0, 'reason': 0}, {'delta_q12': 0, 'tau_q12': 0, 'margin_q15': 0, 'qualified': 0, 'reason': 0}], 'servo_cmd_valid': 0})

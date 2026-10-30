@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "Vivado 2025.2 native BD validation, wrapper and official IP HDL output generation",
+  "synthesis": "NOT_RUN",
+  "implementation": "NOT_RUN",
+  "io_constraints": "PREPARED_NOT_PHYSICALLY_TIMED",
+  "platform": "STM32_MAIN"
+}

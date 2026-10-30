@@ -1,0 +1,8 @@
+test_all_runtime_string_literals_are_ascii (__main__.SerialEnglishTests.test_all_runtime_string_literals_are_ascii) ... ok
+test_cli_help_ascii_and_no_hardware_import (__main__.SerialEnglishTests.test_cli_help_ascii_and_no_hardware_import) ... ok
+test_every_display_reason_ascii_including_angle_unit (__main__.SerialEnglishTests.test_every_display_reason_ascii_including_angle_unit) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.687s
+
+OK

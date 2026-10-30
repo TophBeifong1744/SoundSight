@@ -1,0 +1,32 @@
+{
+  "old_bridge_actual": {
+    "api_status": 0,
+    "direction_valid": 0,
+    "reason": 0,
+    "angle_q8": 0,
+    "ux_q20": 0,
+    "uy_q20": 0,
+    "valid_pairs": 0,
+    "servo_deg": 0,
+    "servo_cmd_valid": 0,
+    "map_status": 0,
+    "first_error": 0,
+    "bad_pair": 0,
+    "bridge_status": -2
+  },
+  "compile_command": [
+    "F:\\Program\\env\\mingw64\\bin\\gcc.exe",
+    "-std=c99",
+    "-O2",
+    "-shared",
+    "-Isoftware/common",
+    "-Isoftware/common/s1",
+    "document\\evidence\\ps-manual-calibration-20261023\\bridge-fix\\ss_solver_bridge.before.c",
+    "software/common/s1/doa_solver.c",
+    "-lm",
+    "-o",
+    "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\software\\build\\bridge-before-9wk6e1hx\\old.dll"
+  ],
+  "input": "board-input.json",
+  "no_hardware": true
+}

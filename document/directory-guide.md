@@ -1,13 +1,14 @@
 # 新项目目录
 
-## 比赛推荐分类与命名
+## 比赛实体提交目录
 
-2026-10-29按用户提供的AMD指南§3.3.5.4，根目录已增加`src/sim/build/board/data/skill/report`七类阅读入口，完整映射见[根README](../README.md)。指南允许其他组织方式并要求映射；实际源码继续维护在`project/software`，仿真在`simulation`，原报告在`document`，分类入口不形成第二套源码或报告。
+2026-10-30按用户纠正，比赛交付在[submit/](../submit/README.md)中保存实际文件，结构为README.md及src、sim、build、board、data、skill、report七类。上轮根目录的六个空导航目录及data导航README已移除；原有data/fixtures等开发数据仍保留。此处不再把分类导航当作完成实体提交。
 
-- 18个含中文、空格或非英文标点的归档文件名已改为小写英文；[旧新路径表](submission-path-map.json)登记原名、现名和原件校验值，文件内容不改。
-- 历史日志、来源清单和ZIP内部原路径保持原文；查旧名时使用映射表。当前导航链接改用新路径。历史手册中的旧名也按映射查找，不改写已收件原件。
-- 新普通目录/文件名采用小写英文、数字、下划线和连字符，扩展名用点分隔；`README.md`沿用官方示例。当前已有`AGENTS.md/SKILL.md/LICENSE`、历史结果文件和厂商文件仍保留大小写契约，不盲目更名以免破坏Linux引用或来源身份。因此本轮完成的是推荐分类映射和非ASCII/空格路径清理，并未声称整个开发仓库及嵌套历史包符合严格全小写提交检查；最终比赛导出须另核对这些保留项。独立比赛Skills包已有小写导出方式。
-- PR #30的最新三维重建配方已合入，入口是`project/script/rebuild_ps_3d.bat`；详见[build](../build/README.md)。整理目录不运行EDA、固件或硬件，不新增实验编号/指标。
+`tools/export_submit.py`按来源映射生成固定提交快照，七类中均有源码、脚本、原始数据或报告。提交副本命名小写，正文允许中文；根README及skill/README遵循官方示例。包内Markdown/HTML链接转换到包内位置，原仓库已缺失的历史链接注明缺失。原日志、JSON、CSV、图片及历史ZIP内容保持，不修改开发原件。
+
+包内`build/prepare_workspace.py`不使用Git、网络或外层仓库，仅从提交实体文件恢复原源码/工具所需路径，随后按submit/README执行PR #30工程复现或离线测试。准备脚本拒绝覆盖现有工作；它不运行EDA或硬件。源目录与提交副本分工明确，不在提交副本独立开发算法。
+
+18个先前中文文件名的历史对应仍见[旧新路径表](submission-path-map.json)。本批实体路径及校验值见submit/build/file-map.json。旧目录映射检查结果仅属于PR #31历史，不作为本次提交包验收。
 
 正式维护内容集中在SoundSight总目录；当前唯一主方案是Zynq-7020 PL+PS；STM32为已弃用历史路线，保留共用源码。当前用户在仓库外手工开发，验证后将源码与导出配置接回；下列par是仓库配方的重建输出位置，不限定外部工作目录。
 

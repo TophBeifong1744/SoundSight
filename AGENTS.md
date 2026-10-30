@@ -22,7 +22,7 @@ AI可按任务编辑源码、文档、测试和独立BD配方，执行必要定�
 
 ## Git与目录
 
-比赛资料按根README中的`src/sim/build/board/data/skill/report`映射维护，分类README只导航到唯一正式源码/报告。新普通路径用小写英文、数字、下划线或连字符；README及工具必需入口按契约保留。18个历史中文文件名的现位置见document/submission-path-map.json，原日志/来源身份及ZIP不倒改。本轮目录整理不授权运行历史任务；命名保留项与严格提交边界见document/directory-guide.md。
+比赛提交统一在submit/：实际文件按src/sim/build/board/data/skill/report分类，不能用导航README代替实体文件。用户2026-10-30明确授权这一交付副本，覆盖此前“只做根目录映射”的安排。普通文件名小写英文；submit/README.md及skill/README.md按指南例保留。源码在原开发目录维护，tools/export_submit.py统一导出并记录来源；submit/build/prepare_workspace.py只用包内文件恢复原路径，不能依赖仓库外层。原日志/指标/ZIP与开发源码保留，资料任务不执行硬件。
 
 采用当前fpga-team-workflow的Git管理和run-fpga-workflow的目录管理思路；项目适配见document/git-workflow.md与directory-guide.md。main为集成基线，短任务分支使用codex/<slug>；不设置永久develop。main不代表整机已经通过。
 

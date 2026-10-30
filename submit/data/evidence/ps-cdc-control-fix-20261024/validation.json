@@ -1,0 +1,201 @@
+{
+  "result": "PASS",
+  "scope": "RTL simulation and isolated BD preparation only",
+  "rtl_simulations_passed": 6,
+  "tcl_tests_passed": 10,
+  "canary_expected_failures_detected": 2,
+  "six_pairs_identical_across_three_modes": true,
+  "candidate_files": {
+    "project/bd/update_ps_reliaze.tcl": "977eb13db3eb65f83243555bc0ab9e4c9c6f9478ae15a23aa70e1f6437b4181f",
+    "project/rtl/ss_manual_servo.sv": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675",
+    "project/rtl/ss_ps_control_regs.sv": "b3b0d802cca994dc66569777d72c3af8b87c4d3dd619340d824e5a3e185472eb",
+    "project/rtl/ss_ps_link.sv": "7240ba3336b6f2d927b007e300b6108aaea383ecc0e3759d2b4b75dd6321e9f0",
+    "project/rtl/bd_ps_link.v": "21251a1067337e328d0f6b625afce2ad958bb7c91d3ea45658a228088c73ea01",
+    "project/rtl/ss_axi_lite_regs.sv": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e",
+    "project/rtl/ss_snapshot_queue.sv": "5e2b408c8ccf7e0600e8a8a52d0e84e417a7b4520fc472cd0b4e9f466710d1c3",
+    "project/rtl/f1a_frame_store.sv": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d",
+    "project/rtl/ss_pair_engine.sv": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409",
+    "project/rtl/ss_pcm_windows.sv": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41",
+    "project/rtl/ss_clean_compute.sv": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669",
+    "project/rtl/ss_dual_compute.sv": "4015f2fdccbd2f13bea78a31995f03de45b861cbb95f75dbfccd70c185d8204a",
+    "project/rtl/bd_clean_compute.v": "d65b00a1d311d12bf36e60a10e38a6b78a6aba254557843149e4da63abf3310c",
+    "project/rtl/ss_pcm_time_cdc.sv": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c",
+    "project/rtl/ss_audio_fifo.sv": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56",
+    "project/rtl/ss_audio_capture.sv": "2dee1ef0725936d6a5f96709813c29aecbc1701a6186bf4f0ad39288ed825e04",
+    "project/rtl/bd_audio_capture.v": "25c52e8d59014e42600b0a11693e9d563f7245a1ec01d8244272101b9a9a0498"
+  },
+  "simulations": [
+    {
+      "run": "audioctrl_20261024_115736",
+      "result": "PASS",
+      "markers": [
+        "AUDIOCTRL_PASS checks=57 packets=5 shared_run=1 source_glitches=40 resets=bus_dma_cold"
+      ],
+      "source_files": {
+        "project/rtl/ss_manual_servo.sv": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675",
+        "project/rtl/ss_ps_control_regs.sv": "b3b0d802cca994dc66569777d72c3af8b87c4d3dd619340d824e5a3e185472eb",
+        "project/rtl/ss_ps_link.sv": "7240ba3336b6f2d927b007e300b6108aaea383ecc0e3759d2b4b75dd6321e9f0",
+        "project/rtl/bd_ps_link.v": "21251a1067337e328d0f6b625afce2ad958bb7c91d3ea45658a228088c73ea01",
+        "project/rtl/ss_axi_lite_regs.sv": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e",
+        "project/rtl/ss_snapshot_queue.sv": "5e2b408c8ccf7e0600e8a8a52d0e84e417a7b4520fc472cd0b4e9f466710d1c3",
+        "project/rtl/f1a_frame_store.sv": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d",
+        "project/rtl/ss_pair_engine.sv": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409",
+        "project/rtl/ss_pcm_windows.sv": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41",
+        "project/rtl/ss_clean_compute.sv": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669",
+        "project/rtl/ss_dual_compute.sv": "4015f2fdccbd2f13bea78a31995f03de45b861cbb95f75dbfccd70c185d8204a",
+        "project/rtl/bd_clean_compute.v": "d65b00a1d311d12bf36e60a10e38a6b78a6aba254557843149e4da63abf3310c",
+        "project/rtl/ss_pcm_time_cdc.sv": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c",
+        "project/rtl/ss_audio_fifo.sv": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56",
+        "project/rtl/ss_audio_capture.sv": "2dee1ef0725936d6a5f96709813c29aecbc1701a6186bf4f0ad39288ed825e04",
+        "project/rtl/bd_audio_capture.v": "25c52e8d59014e42600b0a11693e9d563f7245a1ec01d8244272101b9a9a0498",
+        "tb_audioctrl.sv": "a31b624995f87120c4d78682c8882a96fd40dd78ed263df0c849931d9996fe1c"
+      }
+    },
+    {
+      "run": "audio_20261024_114555",
+      "result": "PASS",
+      "markers": [
+        "AUDIO_PASS: sign/channel/header/TLAST/stall/window/partial/overflow/epoch/DMA-reset"
+      ],
+      "source_files": {
+        "project/rtl/ss_manual_servo.sv": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675",
+        "project/rtl/ss_ps_control_regs.sv": "b3b0d802cca994dc66569777d72c3af8b87c4d3dd619340d824e5a3e185472eb",
+        "project/rtl/ss_ps_link.sv": "7240ba3336b6f2d927b007e300b6108aaea383ecc0e3759d2b4b75dd6321e9f0",
+        "project/rtl/bd_ps_link.v": "21251a1067337e328d0f6b625afce2ad958bb7c91d3ea45658a228088c73ea01",
+        "project/rtl/ss_axi_lite_regs.sv": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e",
+        "project/rtl/ss_snapshot_queue.sv": "5e2b408c8ccf7e0600e8a8a52d0e84e417a7b4520fc472cd0b4e9f466710d1c3",
+        "project/rtl/f1a_frame_store.sv": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d",
+        "project/rtl/ss_pair_engine.sv": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409",
+        "project/rtl/ss_pcm_windows.sv": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41",
+        "project/rtl/ss_clean_compute.sv": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669",
+        "project/rtl/ss_dual_compute.sv": "4015f2fdccbd2f13bea78a31995f03de45b861cbb95f75dbfccd70c185d8204a",
+        "project/rtl/bd_clean_compute.v": "d65b00a1d311d12bf36e60a10e38a6b78a6aba254557843149e4da63abf3310c",
+        "project/rtl/ss_pcm_time_cdc.sv": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c",
+        "project/rtl/ss_audio_fifo.sv": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56",
+        "project/rtl/ss_audio_capture.sv": "2dee1ef0725936d6a5f96709813c29aecbc1701a6186bf4f0ad39288ed825e04",
+        "project/rtl/bd_audio_capture.v": "25c52e8d59014e42600b0a11693e9d563f7245a1ec01d8244272101b9a9a0498",
+        "tb_audio.sv": "a37724394b487f1be8862c7795f7be33d09e8f4412e38d6c35ee13021505524e"
+      }
+    },
+    {
+      "run": "dualaudio_20261024_114722",
+      "result": "PASS",
+      "markers": [
+        "DUALAUDIO_PASS frames=3 checks=12 cycles=886245 official_fft_ifft=1 pcm_fixture=1"
+      ],
+      "source_files": {
+        "project/rtl/ss_manual_servo.sv": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675",
+        "project/rtl/ss_ps_control_regs.sv": "b3b0d802cca994dc66569777d72c3af8b87c4d3dd619340d824e5a3e185472eb",
+        "project/rtl/ss_ps_link.sv": "7240ba3336b6f2d927b007e300b6108aaea383ecc0e3759d2b4b75dd6321e9f0",
+        "project/rtl/bd_ps_link.v": "21251a1067337e328d0f6b625afce2ad958bb7c91d3ea45658a228088c73ea01",
+        "project/rtl/ss_axi_lite_regs.sv": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e",
+        "project/rtl/ss_snapshot_queue.sv": "5e2b408c8ccf7e0600e8a8a52d0e84e417a7b4520fc472cd0b4e9f466710d1c3",
+        "project/rtl/f1a_frame_store.sv": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d",
+        "project/rtl/ss_pair_engine.sv": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409",
+        "project/rtl/ss_pcm_windows.sv": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41",
+        "project/rtl/ss_clean_compute.sv": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669",
+        "project/rtl/ss_dual_compute.sv": "4015f2fdccbd2f13bea78a31995f03de45b861cbb95f75dbfccd70c185d8204a",
+        "project/rtl/bd_clean_compute.v": "d65b00a1d311d12bf36e60a10e38a6b78a6aba254557843149e4da63abf3310c",
+        "project/rtl/ss_pcm_time_cdc.sv": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c",
+        "project/rtl/ss_audio_fifo.sv": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56",
+        "project/rtl/ss_audio_capture.sv": "2dee1ef0725936d6a5f96709813c29aecbc1701a6186bf4f0ad39288ed825e04",
+        "project/rtl/bd_audio_capture.v": "25c52e8d59014e42600b0a11693e9d563f7245a1ec01d8244272101b9a9a0498",
+        "tb_dualaudio.sv": "cf54cfe7d807f3eab217c2763ae3d1b52a582a39dfc9d220393b4f387bf2ff9a"
+      }
+    },
+    {
+      "run": "duallevel_20261024_114723",
+      "result": "PASS",
+      "markers": [
+        "DUALLEVEL_PASS frames=3 checks=12 cycles=886245 official_fft_ifft=1 pcm_fixture=1"
+      ],
+      "source_files": {
+        "project/rtl/ss_manual_servo.sv": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675",
+        "project/rtl/ss_ps_control_regs.sv": "b3b0d802cca994dc66569777d72c3af8b87c4d3dd619340d824e5a3e185472eb",
+        "project/rtl/ss_ps_link.sv": "7240ba3336b6f2d927b007e300b6108aaea383ecc0e3759d2b4b75dd6321e9f0",
+        "project/rtl/bd_ps_link.v": "21251a1067337e328d0f6b625afce2ad958bb7c91d3ea45658a228088c73ea01",
+        "project/rtl/ss_axi_lite_regs.sv": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e",
+        "project/rtl/ss_snapshot_queue.sv": "5e2b408c8ccf7e0600e8a8a52d0e84e417a7b4520fc472cd0b4e9f466710d1c3",
+        "project/rtl/f1a_frame_store.sv": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d",
+        "project/rtl/ss_pair_engine.sv": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409",
+        "project/rtl/ss_pcm_windows.sv": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41",
+        "project/rtl/ss_clean_compute.sv": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669",
+        "project/rtl/ss_dual_compute.sv": "4015f2fdccbd2f13bea78a31995f03de45b861cbb95f75dbfccd70c185d8204a",
+        "project/rtl/bd_clean_compute.v": "d65b00a1d311d12bf36e60a10e38a6b78a6aba254557843149e4da63abf3310c",
+        "project/rtl/ss_pcm_time_cdc.sv": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c",
+        "project/rtl/ss_audio_fifo.sv": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56",
+        "project/rtl/ss_audio_capture.sv": "2dee1ef0725936d6a5f96709813c29aecbc1701a6186bf4f0ad39288ed825e04",
+        "project/rtl/bd_audio_capture.v": "25c52e8d59014e42600b0a11693e9d563f7245a1ec01d8244272101b9a9a0498",
+        "tb_duallevel.sv": "19405cc8beff61677fbeb44897582eb5402e912e015b3d959ed6aa771b4cc726"
+      }
+    },
+    {
+      "run": "dual_20261024_115519",
+      "result": "PASS",
+      "markers": [
+        "DUAL_PASS frames=3 checks=12 cycles=886245 official_fft_ifft=1 pcm_fixture=1"
+      ],
+      "source_files": {
+        "project/rtl/ss_manual_servo.sv": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675",
+        "project/rtl/ss_ps_control_regs.sv": "b3b0d802cca994dc66569777d72c3af8b87c4d3dd619340d824e5a3e185472eb",
+        "project/rtl/ss_ps_link.sv": "7240ba3336b6f2d927b007e300b6108aaea383ecc0e3759d2b4b75dd6321e9f0",
+        "project/rtl/bd_ps_link.v": "21251a1067337e328d0f6b625afce2ad958bb7c91d3ea45658a228088c73ea01",
+        "project/rtl/ss_axi_lite_regs.sv": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e",
+        "project/rtl/ss_snapshot_queue.sv": "5e2b408c8ccf7e0600e8a8a52d0e84e417a7b4520fc472cd0b4e9f466710d1c3",
+        "project/rtl/f1a_frame_store.sv": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d",
+        "project/rtl/ss_pair_engine.sv": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409",
+        "project/rtl/ss_pcm_windows.sv": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41",
+        "project/rtl/ss_clean_compute.sv": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669",
+        "project/rtl/ss_dual_compute.sv": "4015f2fdccbd2f13bea78a31995f03de45b861cbb95f75dbfccd70c185d8204a",
+        "project/rtl/bd_clean_compute.v": "d65b00a1d311d12bf36e60a10e38a6b78a6aba254557843149e4da63abf3310c",
+        "project/rtl/ss_pcm_time_cdc.sv": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c",
+        "project/rtl/ss_audio_fifo.sv": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56",
+        "project/rtl/ss_audio_capture.sv": "2dee1ef0725936d6a5f96709813c29aecbc1701a6186bf4f0ad39288ed825e04",
+        "project/rtl/bd_audio_capture.v": "25c52e8d59014e42600b0a11693e9d563f7245a1ec01d8244272101b9a9a0498",
+        "tb_dual.sv": "a25cb48cd00954f11633d1412e46d5ae48302af110dbb32bab429e385c038ccb"
+      }
+    },
+    {
+      "run": "manual_20261024_115131",
+      "result": "PASS",
+      "markers": [
+        "MANUAL_PASS checks=84694 audio_frames=0 manual_without_audio=1 range=1 watchdog=1 stop=1 mode_mutex=1"
+      ],
+      "source_files": {
+        "project/rtl/ss_manual_servo.sv": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675",
+        "project/rtl/ss_ps_control_regs.sv": "b3b0d802cca994dc66569777d72c3af8b87c4d3dd619340d824e5a3e185472eb",
+        "project/rtl/ss_ps_link.sv": "7240ba3336b6f2d927b007e300b6108aaea383ecc0e3759d2b4b75dd6321e9f0",
+        "project/rtl/bd_ps_link.v": "21251a1067337e328d0f6b625afce2ad958bb7c91d3ea45658a228088c73ea01",
+        "project/rtl/ss_axi_lite_regs.sv": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e",
+        "project/rtl/ss_snapshot_queue.sv": "5e2b408c8ccf7e0600e8a8a52d0e84e417a7b4520fc472cd0b4e9f466710d1c3",
+        "project/rtl/f1a_frame_store.sv": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d",
+        "project/rtl/ss_pair_engine.sv": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409",
+        "project/rtl/ss_pcm_windows.sv": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41",
+        "project/rtl/ss_clean_compute.sv": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669",
+        "project/rtl/ss_dual_compute.sv": "4015f2fdccbd2f13bea78a31995f03de45b861cbb95f75dbfccd70c185d8204a",
+        "project/rtl/bd_clean_compute.v": "d65b00a1d311d12bf36e60a10e38a6b78a6aba254557843149e4da63abf3310c",
+        "project/rtl/ss_pcm_time_cdc.sv": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c",
+        "project/rtl/ss_audio_fifo.sv": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56",
+        "project/rtl/ss_audio_capture.sv": "2dee1ef0725936d6a5f96709813c29aecbc1701a6186bf4f0ad39288ed825e04",
+        "project/rtl/bd_audio_capture.v": "25c52e8d59014e42600b0a11693e9d563f7245a1ec01d8244272101b9a9a0498",
+        "tb_manual.sv": "caf0b135f2d2ae64d28ae2ea6d8d435655fcfc510c7ebd119b1bff7e6e43f26f"
+      }
+    }
+  ],
+  "canaries": [
+    {
+      "run": "audioctrl_canary_enable_20261024",
+      "result": "EXPECTED_FAILURE_DETECTED",
+      "expected_fatal": "AUDIOCTRL_FAIL source glitch crossed"
+    },
+    {
+      "run": "audioctrl_canary_drain_20261024",
+      "result": "EXPECTED_FAILURE_DETECTED",
+      "expected_fatal": "AUDIOCTRL_FAIL drain glitch crossed"
+    }
+  ],
+  "synthesis": "NOT_RUN",
+  "implementation": "NOT_RUN",
+  "routed_cdc": "NOT_RUN",
+  "board": "NOT_RUN"
+}

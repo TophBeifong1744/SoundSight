@@ -1,0 +1,153 @@
+Vivado=2025.2 part=xc7z020clg400-1
+CELL=ps7
+CONFIG.PCW_EN_RST0_PORT=1
+CONFIG.PCW_EN_RST1_PORT=1
+CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ=100
+CELL=clk_main
+CONFIG.CLKOUT1_REQUESTED_OUT_FREQ=96.000
+CONFIG.CLKOUT2_REQUESTED_OUT_FREQ=100.000
+CONFIG.MMCM_BANDWIDTH=OPTIMIZED
+CONFIG.MMCM_CLKFBOUT_MULT_F=9.000
+CONFIG.MMCM_CLKFBOUT_PHASE=0.000
+CONFIG.MMCM_CLKFBOUT_USE_FINE_PS=false
+CONFIG.MMCM_CLKIN1_PERIOD=10.000
+CONFIG.MMCM_CLKIN2_PERIOD=10.000
+CONFIG.MMCM_CLKOUT0_DIVIDE_F=9.375
+CONFIG.MMCM_CLKOUT0_DUTY_CYCLE=0.500
+CONFIG.MMCM_CLKOUT0_PHASE=0.000
+CONFIG.MMCM_CLKOUT0_USE_FINE_PS=false
+CONFIG.MMCM_CLKOUT1_DIVIDE=9
+CONFIG.MMCM_CLKOUT1_DUTY_CYCLE=0.500
+CONFIG.MMCM_CLKOUT1_PHASE=0.000
+CONFIG.MMCM_CLKOUT1_USE_FINE_PS=false
+CONFIG.MMCM_CLKOUT2_DIVIDE=1
+CONFIG.MMCM_CLKOUT2_DUTY_CYCLE=0.500
+CONFIG.MMCM_CLKOUT2_PHASE=0.000
+CONFIG.MMCM_CLKOUT2_USE_FINE_PS=false
+CONFIG.MMCM_CLKOUT3_DIVIDE=1
+CONFIG.MMCM_CLKOUT3_DUTY_CYCLE=0.500
+CONFIG.MMCM_CLKOUT3_PHASE=0.000
+CONFIG.MMCM_CLKOUT3_USE_FINE_PS=false
+CONFIG.MMCM_CLKOUT4_CASCADE=false
+CONFIG.MMCM_CLKOUT4_DIVIDE=1
+CONFIG.MMCM_CLKOUT4_DUTY_CYCLE=0.500
+CONFIG.MMCM_CLKOUT4_PHASE=0.000
+CONFIG.MMCM_CLKOUT4_USE_FINE_PS=false
+CONFIG.MMCM_CLKOUT5_DIVIDE=1
+CONFIG.MMCM_CLKOUT5_DUTY_CYCLE=0.500
+CONFIG.MMCM_CLKOUT5_PHASE=0.000
+CONFIG.MMCM_CLKOUT5_USE_FINE_PS=false
+CONFIG.MMCM_CLKOUT6_DIVIDE=1
+CONFIG.MMCM_CLKOUT6_DUTY_CYCLE=0.500
+CONFIG.MMCM_CLKOUT6_PHASE=0.000
+CONFIG.MMCM_CLKOUT6_USE_FINE_PS=false
+CONFIG.MMCM_CLOCK_HOLD=false
+CONFIG.MMCM_COMPENSATION=ZHOLD
+CONFIG.MMCM_DIVCLK_DIVIDE=1
+CONFIG.MMCM_NOTES=None
+CONFIG.MMCM_REF_JITTER1=0.010
+CONFIG.MMCM_REF_JITTER2=0.010
+CONFIG.MMCM_STARTUP_WAIT=false
+CELL=clk_audio
+CONFIG.CLKOUT1_REQUESTED_OUT_FREQ=61.440
+CONFIG.CLKOUT2_REQUESTED_OUT_FREQ=100.000
+CONFIG.MMCM_BANDWIDTH=OPTIMIZED
+CONFIG.MMCM_CLKFBOUT_MULT_F=52.000
+CONFIG.MMCM_CLKFBOUT_PHASE=0.000
+CONFIG.MMCM_CLKFBOUT_USE_FINE_PS=false
+CONFIG.MMCM_CLKIN1_PERIOD=10.417
+CONFIG.MMCM_CLKIN2_PERIOD=10.000
+CONFIG.MMCM_CLKOUT0_DIVIDE_F=16.250
+CONFIG.MMCM_CLKOUT0_DUTY_CYCLE=0.500
+CONFIG.MMCM_CLKOUT0_PHASE=0.000
+CONFIG.MMCM_CLKOUT0_USE_FINE_PS=false
+CONFIG.MMCM_CLKOUT1_DIVIDE=1
+CONFIG.MMCM_CLKOUT1_DUTY_CYCLE=0.500
+CONFIG.MMCM_CLKOUT1_PHASE=0.000
+CONFIG.MMCM_CLKOUT1_USE_FINE_PS=false
+CONFIG.MMCM_CLKOUT2_DIVIDE=1
+CONFIG.MMCM_CLKOUT2_DUTY_CYCLE=0.500
+CONFIG.MMCM_CLKOUT2_PHASE=0.000
+CONFIG.MMCM_CLKOUT2_USE_FINE_PS=false
+CONFIG.MMCM_CLKOUT3_DIVIDE=1
+CONFIG.MMCM_CLKOUT3_DUTY_CYCLE=0.500
+CONFIG.MMCM_CLKOUT3_PHASE=0.000
+CONFIG.MMCM_CLKOUT3_USE_FINE_PS=false
+CONFIG.MMCM_CLKOUT4_CASCADE=false
+CONFIG.MMCM_CLKOUT4_DIVIDE=1
+CONFIG.MMCM_CLKOUT4_DUTY_CYCLE=0.500
+CONFIG.MMCM_CLKOUT4_PHASE=0.000
+CONFIG.MMCM_CLKOUT4_USE_FINE_PS=false
+CONFIG.MMCM_CLKOUT5_DIVIDE=1
+CONFIG.MMCM_CLKOUT5_DUTY_CYCLE=0.500
+CONFIG.MMCM_CLKOUT5_PHASE=0.000
+CONFIG.MMCM_CLKOUT5_USE_FINE_PS=false
+CONFIG.MMCM_CLKOUT6_DIVIDE=1
+CONFIG.MMCM_CLKOUT6_DUTY_CYCLE=0.500
+CONFIG.MMCM_CLKOUT6_PHASE=0.000
+CONFIG.MMCM_CLKOUT6_USE_FINE_PS=false
+CONFIG.MMCM_CLOCK_HOLD=false
+CONFIG.MMCM_COMPENSATION=ZHOLD
+CONFIG.MMCM_DIVCLK_DIVIDE=5
+CONFIG.MMCM_NOTES=None
+CONFIG.MMCM_REF_JITTER1=0.010
+CONFIG.MMCM_REF_JITTER2=0.010
+CONFIG.MMCM_STARTUP_WAIT=false
+CELL=core_reset
+CONFIG.C_AUX_RESET_HIGH=0
+CONFIG.C_EXT_RESET_HIGH=0
+CELL=io_reset
+CONFIG.C_AUX_RESET_HIGH=0
+CONFIG.C_EXT_RESET_HIGH=0
+CELL=core_release
+CONFIG.CDC_TYPE=xpm_cdc_async_rst
+CONFIG.DEST_SYNC_FF=3
+CONFIG.RST_ACTIVE_HIGH=false
+CELL=io_release
+CONFIG.CDC_TYPE=xpm_cdc_async_rst
+CONFIG.DEST_SYNC_FF=3
+CONFIG.RST_ACTIVE_HIGH=false
+CELL=bus_reset
+CONFIG.C_AUX_RESET_HIGH=0
+CONFIG.C_EXT_RESET_HIGH=0
+CELL=bus_io_reset
+CONFIG.C_AUX_RESET_HIGH=0
+CONFIG.C_EXT_RESET_HIGH=0
+CELL=control_cdc
+CONFIG.ACLK_ASYNC=1
+CONFIG.SYNCHRONIZATION_STAGES=3
+run=synth_1 state=Not started
+run=impl_1 state=Not started
+net=/bus_io_reset_peripheral_aresetn pins=/bus_io_reset/peripheral_aresetn /control_cdc/m_axi_aresetn /ps_link/aresetn
+net=/bus_reset_interconnect_aresetn pins=/bus_reset/interconnect_aresetn /control_bus/ARESETN
+net=/bus_reset_peripheral_aresetn pins=/bus_reset/peripheral_aresetn /control_bus/S00_ARESETN /control_bus/M00_ARESETN /control_cdc/s_axi_aresetn
+net=/clk_audio_clk_out1 pins=/clk_audio/clk_out1 /io_reset/slowest_sync_clk /io_release/dest_clk /compute/io_clk /bus_io_reset/slowest_sync_clk /control_cdc/m_axi_aclk /ps_link/clk
+net=/clk_audio_locked pins=/clk_audio/locked /core_reset/dcm_locked /io_reset/dcm_locked /core_reset_gate/Op2 /io_reset_gate/Op2 /bus_reset/dcm_locked /bus_io_reset/dcm_locked
+net=/clk_main_clk_out1 pins=/clk_main/clk_out1 /clk_audio/clk_in1
+net=/clk_main_clk_out2 pins=/clk_main/clk_out2 /core_reset/slowest_sync_clk /core_release/dest_clk /compute/clk /bus_reset/slowest_sync_clk /ps7/M_AXI_GP0_ACLK /control_bus/ACLK /control_bus/S00_ACLK /control_bus/M00_ACLK /control_cdc/s_axi_aclk
+net=/clk_main_locked pins=/clk_main/locked /clk_audio/resetn
+net=/compute_draining pins=/compute/draining /ps_link/compute_draining
+net=/compute_feature_flags pins=/compute/feature_flags /ps_link/feature_flags
+net=/compute_feature_pairs pins=/compute/feature_pairs /ps_link/feature_pairs
+net=/compute_feature_valid pins=/compute/feature_valid /ps_link/feature_valid
+net=/compute_pdm_clocks pins=/compute/pdm_clocks
+net=/compute_source_faults pins=/compute/source_faults /ps_link/source_faults
+net=/core_release_dest_arst pins=/core_release/dest_arst /compute/rst_n
+net=/core_reset_gate_Res pins=/core_reset_gate/Res /core_release/src_arst
+net=/core_reset_peripheral_aresetn pins=/core_reset/peripheral_aresetn /core_reset_gate/Op1
+net=/io_release_dest_arst pins=/io_release/dest_arst /compute/io_rst_n /ps_link/rst_n
+net=/io_reset_gate_Res pins=/io_reset_gate/Res /io_release/src_arst
+net=/io_reset_peripheral_aresetn pins=/io_reset/peripheral_aresetn /io_reset_gate/Op1
+net=/irq_concat_dout pins=/irq_concat/dout /ps7/IRQ_F2P
+net=/irq_zero_dout pins=/irq_zero/dout /irq_concat/In1
+net=/one_dout pins=/one/dout /core_reset/aux_reset_in /io_reset/aux_reset_in /bus_reset/aux_reset_in /bus_io_reset/aux_reset_in
+net=/pdm_data_1 pins=/compute/pdm_data
+net=/ps7_FCLK_CLK0 pins=/ps7/FCLK_CLK0 /clk_main/clk_in1
+net=/ps7_FCLK_RESET0_N pins=/ps7/FCLK_RESET0_N /bus_reset/ext_reset_in /bus_io_reset/ext_reset_in
+net=/ps7_FCLK_RESET1_N pins=/ps7/FCLK_RESET1_N /clk_main/resetn /core_reset/ext_reset_in /io_reset/ext_reset_in
+net=/ps_link_feature_ready pins=/ps_link/feature_ready /compute/feature_ready
+net=/ps_link_irq pins=/ps_link/irq /irq_concat/In0
+net=/ps_link_run_enable pins=/ps_link/run_enable /compute/enable
+net=/ps_link_servo_pwm pins=/ps_link/servo_pwm
+net=/zero_dout pins=/zero/dout /core_reset/mb_debug_sys_rst /io_reset/mb_debug_sys_rst /bus_reset/mb_debug_sys_rst /bus_io_reset/mb_debug_sys_rst
+address=/ps7/Data/SEG_ps_link_reg0 offset=0x40000000 range=0x00001000

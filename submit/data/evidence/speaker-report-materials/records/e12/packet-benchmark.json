@@ -1,0 +1,16 @@
+{
+  "scope": "BOARD_RAM_PACKET_VALIDATION_ONLY",
+  "iterations_per_round": 3000,
+  "rounds": 4,
+  "python": "3.8.2",
+  "machine": "armv7l",
+  "hardware_access": false,
+  "reference": {
+    "cpu_seconds": 7.6089348165,
+    "wall_seconds": 7.6113800085000065
+  },
+  "rx4": {
+    "cpu_seconds": 0.32638183350000105,
+    "wall_seconds": 0.326399507000005
+  }
+}

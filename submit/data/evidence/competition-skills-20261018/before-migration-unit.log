@@ -1,0 +1,27 @@
+test_bad_input_reports_no_hardware (test_runner.RunnerTest.test_bad_input_reports_no_hardware) ... ok
+test_examples_load (test_runner.RunnerTest.test_examples_load) ... ERROR
+test_existing_output_untouched (test_runner.RunnerTest.test_existing_output_untouched) ... ok
+test_no_false_pass (test_runner.RunnerTest.test_no_false_pass) ... ok
+test_positive (test_runner.RunnerTest.test_positive) ... ok
+test_reject_schema (test_runner.RunnerTest.test_reject_schema) ... ok
+test_stage_failures (test_runner.RunnerTest.test_stage_failures) ... ok
+
+======================================================================
+ERROR: test_examples_load (test_runner.RunnerTest.test_examples_load)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Users\Toph Beifong\Documents\GitHub\SoundSight\research\competition-skills\fpga-module-verification\tests\test_runner.py", line 36, in test_examples_load
+    case, sources, contract = runner.load_case(ROOT / "examples" / example / "case.json")
+                              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Users\Toph Beifong\Documents\GitHub\SoundSight\research\competition-skills\fpga-module-verification\scripts\run_xsim.py", line 44, in load_case
+    src = (path.parent / source).resolve(strict=True)
+  File "C:\Python314\Lib\pathlib\__init__.py", line 938, in resolve
+    return self.with_segments(os.path.realpath(self, strict=strict))
+                              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen ntpath>", line 696, in realpath
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\research\\rtl\\acquisition\\pcm4_signext_pack.v'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.072s
+
+FAILED (errors=1)

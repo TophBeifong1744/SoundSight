@@ -1,0 +1,283 @@
+{
+  "status": "LIVE_CAPTURE_PASS_IDENTITY_NOT_QUALIFIED",
+  "provenance": "User-pasted board console; no AI board operation; result.json/WAV/raw packets not yet retrieved",
+  "ground_truth": "target_only",
+  "ground_truth_source": "Explicit user reply: 全程只有本人",
+  "console_sha256": "fa80a99c040e92527703e9e3c67eef2d23931f864a57d36f1bfacb87666abab4",
+  "command": "sudo sh soundsight.sh speaker --window 1",
+  "board_log_directory": "logs/pcm-20211118-143429-415692",
+  "pcm_initial": {
+    "audio": {
+      "armed": false,
+      "dma_reset_released": true,
+      "epoch": 0,
+      "errors": 0,
+      "idle": true,
+      "partial_tail": false,
+      "pending": false,
+      "published": 0,
+      "raw": 24,
+      "ready": false,
+      "rejected": 0
+    },
+    "channels": 4,
+    "dma_status": 1,
+    "motion": false,
+    "packet_bytes": 8224,
+    "ps": {
+      "actuator": 0,
+      "drops": 0,
+      "fault": 0,
+      "status": 983040,
+      "sys": 8
+    },
+    "sample_rate": 48000
+  },
+  "session": {
+    "status": "PASS",
+    "error": null,
+    "window_seconds": 1.0,
+    "epoch": 26,
+    "input_packets": 938,
+    "input_capacity_packets": 32,
+    "input_highwater": 3,
+    "front_blocks": 312,
+    "front_seconds": 5.384140167999703,
+    "max_front_lag_seconds": 0.04143877300001009,
+    "tail_samples48_not_processed": 1024,
+    "mel_frames_computed_once": 996,
+    "generated": 18,
+    "replaced": 12,
+    "consumed": 6,
+    "eligible_results": 0,
+    "current_identity": "insufficient",
+    "reason": "session_ended",
+    "motion_commands": 0,
+    "recognition_qualified": false,
+    "scheduling": {
+      "revision": "rx3",
+      "capture_cpus": [
+        0
+      ],
+      "frontend_cpus": [
+        1
+      ],
+      "ps_optimization": "opt1",
+      "algorithm_process_cpus": [
+        1
+      ],
+      "capture_gil_shared": false,
+      "embedding_cpus": [
+        0,
+        1
+      ],
+      "embedding_threads": 2,
+      "embedding_nice_increment": 10,
+      "policy": "capture_interpreter_isolated_algorithms_on_other_cpu_embedding_lower_priority",
+      "realtime_scheduler": false
+    },
+    "backend_timing": {
+      "front": {
+        "decode_seconds": 0.030176802000028147,
+        "frontend_seconds": 4.825519394000594,
+        "mel_seconds": 0.20309768300080577,
+        "vad_seconds": 4.422545646001026,
+        "cmn_seconds": 0.0,
+        "embedding_seconds": 0.0,
+        "frontend_blocks": 312.0,
+        "embedding_calls": 0.0
+      },
+      "embed": {
+        "decode_seconds": 0.0,
+        "frontend_seconds": 0.0,
+        "mel_seconds": 0.0,
+        "vad_seconds": 0.0,
+        "cmn_seconds": 0.0005270639999253035,
+        "embedding_seconds": 9.398576416000083,
+        "frontend_blocks": 0.0,
+        "embedding_calls": 3.0
+      },
+      "meaning": "C wall time includes scheduling; frontend contains mel and VAD, do not sum nested fields"
+    },
+    "time_origin": "host monotonic before capture START; includes start/transport overhead, not measured acoustic timestamp",
+    "ipc": {
+      "process_isolated": true,
+      "packet_limit": 32,
+      "sent": 938,
+      "frontend_taken": 938,
+      "highwater": 3,
+      "kernel_send_buffer_bytes": 360448
+    }
+  },
+  "receiver_timing": {
+    "max_poll_gap_seconds": 0.016864078000025984,
+    "max_rearm_seconds": 0.0007719089999227435,
+    "max_frame_service_seconds": 0.012981645999957436,
+    "max_decode_seconds": 0.004291098000066995,
+    "max_sink_seconds": 0.002018303999989257,
+    "early_rearms": 937
+  },
+  "results": [
+    {
+      "end_sample16": 16320,
+      "start_sample16": 320,
+      "frames": 98,
+      "coverage": 0.796,
+      "voice_epoch": 1,
+      "active": true,
+      "window_seconds": 1.0,
+      "epoch": 26,
+      "state": "insufficient",
+      "eligible": false,
+      "score": 0.6911128831670628,
+      "start_age_seconds": 0.025489470000006786,
+      "raw_state": "target",
+      "reason": "expired",
+      "compute_seconds": 3.8066068979999272,
+      "result_age_seconds": 3.832100489999998,
+      "publish_elapsed_seconds": 4.85212508699999,
+      "valid_until_source_elapsed_seconds": null,
+      "motion_commands": 0,
+      "source_window_seconds": [
+        0.02,
+        1.02
+      ]
+    },
+    {
+      "end_sample16": 72160,
+      "start_sample16": 56160,
+      "frames": 98,
+      "coverage": 1.0,
+      "voice_epoch": 3,
+      "active": true,
+      "window_seconds": 1.0,
+      "epoch": 26,
+      "state": "insufficient",
+      "eligible": false,
+      "score": null,
+      "start_age_seconds": 0.34262415499994425,
+      "reason": "stale_before_start",
+      "compute_seconds": 5.389800003285927e-05,
+      "result_age_seconds": 0.34268185699999343,
+      "publish_elapsed_seconds": 4.852692714,
+      "valid_until_source_elapsed_seconds": null,
+      "motion_commands": 0
+    },
+    {
+      "end_sample16": 80320,
+      "start_sample16": 64320,
+      "frames": 98,
+      "coverage": 1.0,
+      "voice_epoch": 3,
+      "active": true,
+      "window_seconds": 1.0,
+      "epoch": 26,
+      "state": "insufficient",
+      "eligible": false,
+      "score": 0.5290080995481381,
+      "start_age_seconds": 0.025858772999963975,
+      "raw_state": "non_target",
+      "reason": "expired",
+      "compute_seconds": 3.8426355679999915,
+      "result_age_seconds": 3.868498003999985,
+      "publish_elapsed_seconds": 8.888511230999939,
+      "valid_until_source_elapsed_seconds": null,
+      "motion_commands": 0,
+      "source_window_seconds": [
+        4.02,
+        5.02
+      ]
+    },
+    {
+      "end_sample16": 136160,
+      "start_sample16": 120160,
+      "frames": 98,
+      "coverage": 0.488,
+      "voice_epoch": 5,
+      "active": true,
+      "window_seconds": 1.0,
+      "epoch": 26,
+      "state": "insufficient",
+      "eligible": false,
+      "score": null,
+      "start_age_seconds": 0.3789575260000131,
+      "reason": "stale_before_start",
+      "compute_seconds": 5.255700000361685e-05,
+      "result_age_seconds": 0.3790140009999643,
+      "publish_elapsed_seconds": 8.88902469300001,
+      "valid_until_source_elapsed_seconds": null,
+      "motion_commands": 0
+    },
+    {
+      "end_sample16": 144320,
+      "start_sample16": 128320,
+      "frames": 98,
+      "coverage": 0.668,
+      "voice_epoch": 5,
+      "active": true,
+      "window_seconds": 1.0,
+      "epoch": 26,
+      "state": "insufficient",
+      "eligible": false,
+      "score": 0.6840127055222888,
+      "start_age_seconds": 0.026204154999941665,
+      "raw_state": "insufficient",
+      "reason": "fresh",
+      "compute_seconds": 1.755892571000004,
+      "result_age_seconds": 1.7821007339999646,
+      "publish_elapsed_seconds": 10.80211288399994,
+      "valid_until_source_elapsed_seconds": null,
+      "motion_commands": 0,
+      "source_window_seconds": [
+        8.02,
+        9.02
+      ]
+    },
+    {
+      "end_sample16": 152000,
+      "start_sample16": 136000,
+      "frames": 98,
+      "coverage": 1.0,
+      "voice_epoch": 5,
+      "active": true,
+      "window_seconds": 1.0,
+      "epoch": 26,
+      "state": "insufficient",
+      "eligible": false,
+      "score": null,
+      "start_age_seconds": 1.3025606759999846,
+      "reason": "stale_before_start",
+      "compute_seconds": 5.4750000003878085e-05,
+      "result_age_seconds": 1.3026191789999757,
+      "publish_elapsed_seconds": 10.80262990999995,
+      "valid_until_source_elapsed_seconds": null,
+      "motion_commands": 0
+    }
+  ],
+  "summary": {
+    "scored_windows": 3,
+    "raw_target": 1,
+    "raw_non_target": 1,
+    "raw_insufficient": 1,
+    "expired_scored": 2,
+    "stale_before_start": 3,
+    "eligible_results": 0,
+    "compute_seconds_sum": 9.405135036999923,
+    "c_embedding_wall_seconds": 9.398576416000083,
+    "max_poll_gap_ms": 16.864078000025984,
+    "max_rearm_ms": 0.7719089999227435,
+    "max_front_lag_ms": 41.43877300001009
+  },
+  "thresholds": {
+    "low": 0.6201497316360474,
+    "high": 0.68942791223526,
+    "source": "Local released opt1 package; no new board package hash received"
+  },
+  "limits": [
+    "One 10-second capture cannot establish long-term overflow resolution",
+    "All final identities insufficient; raw non_target is a target-window rejection, not a valid non-target output",
+    "Third scored result published after nominal capture end; not proof of sustained real-time performance",
+    "C timers are wall time including scheduling; CPU contention remains a hypothesis requiring CPU-time or profiler evidence"
+  ],
+  "next": "Retrieve exact epoch26 recording and result.json; compare same windows offline and under concurrent load before changing thresholds or CPU policy"
+}

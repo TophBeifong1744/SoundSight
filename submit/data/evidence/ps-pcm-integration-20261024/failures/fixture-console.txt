@@ -1,0 +1,18 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Oct 23 23:54:52 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+CRITICAL WARNING: [Common 17-1297] User repo 'C:/Users/Toph Beifong/AppData/Roaming/Xilinx/Vivado/2025.2/XilinxTclStore' catalog file is corrupted. XilinxTclStore has been reverted to the installation area and Tcl Store changes will not be saved. To use local Tcl Store, please run tclapp::reset_tclstore and reinstall the apps.
+source codex_out/pcm-integration/prepare.tcl
+# create_project SoundSight_PS_Reliaze {E:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project} -part xc7z020clg400-2
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'E:/Users/Toph Beifong/Documents/GitHub/SoundSight/codex_out/pcm-integration/project'
+ERROR: [Common 17-539] Failed to load tclapp initializer can't find package ::tclapp::support::appinit 1.2 from 'F:/AMD/2025.2/Vivado/data/XilinxTclStore'
+ERROR: [Common 17-69] Command failed: ERROR: [Common 17-539] Failed to load tclapp initializer can't find package ::tclapp::support::appinit 1.2 from 'F:/AMD/2025.2/Vivado/data/XilinxTclStore'
+
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 23 23:54:57 2026...

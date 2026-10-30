@@ -1,0 +1,461 @@
+{
+  "package": "soundsight_pynq_3d_speaker.zip",
+  "package_sha256": "0fa1b530f168551816abf7d9792d518bbc9fac8a7764f083240b1c2f0967d7df",
+  "base": "4aaa94cef9381963fc983285e9cf8663d2940e5e",
+  "programs": [
+    {
+      "package_path": "software/common/fpga_stm32_abi_frozen.h",
+      "repository_path": "software/common/fpga_stm32_abi_frozen.h",
+      "status_before": "equal",
+      "sha256": "1b7ac7b6327db9ce8402605c10f86b8a2e11d580217832751ff97f6cad65d117"
+    },
+    {
+      "package_path": "software/common/s1/doa_solver.c",
+      "repository_path": "software/common/s1/doa_solver.c",
+      "status_before": "equal",
+      "sha256": "1f790b115a95e744222507bce4e30fac4f44114ad0f94ac459acfbc3525215a8"
+    },
+    {
+      "package_path": "software/common/s1/doa_solver.h",
+      "repository_path": "software/common/s1/doa_solver.h",
+      "status_before": "equal",
+      "sha256": "b8196afea3499ba1d0d6c4be4593404b1c0767400f58b091949028739e30fe4c"
+    },
+    {
+      "package_path": "software/ps/angle_filter.py",
+      "repository_path": "software/ps/angle_filter.py",
+      "status_before": "equal",
+      "sha256": "adf7b0ad7bac3cca8c3c2080f818862fb93216599c9fac09a17c7136f706bfdf"
+    },
+    {
+      "package_path": "software/ps/board_tools.py",
+      "repository_path": "software/ps/board_tools.py",
+      "status_before": "equal",
+      "sha256": "ec7ba1f28374c47943728516cf9ed14a1d94e1cf28a61e225c587a30c204aedf"
+    },
+    {
+      "package_path": "software/ps/build_solver.sh",
+      "repository_path": "software/ps/build_solver.sh",
+      "status_before": "equal",
+      "sha256": "f2ff47ef411bb936a9813a12a1dcc81d6d90559dd6d0b13aaffa53f23349b72c"
+    },
+    {
+      "package_path": "software/ps/horizontal_motion.py",
+      "repository_path": "software/ps/horizontal_motion.py",
+      "status_before": "equal",
+      "sha256": "4e92ec219b4097e9f4faa922d8b09fac6bf908902ea8e68bdb0cb9d674c58b11"
+    },
+    {
+      "package_path": "software/ps/live_cpu_profile.py",
+      "repository_path": "software/ps/live_cpu_profile.py",
+      "status_before": "missing",
+      "sha256": "e39a8bdf52e5dced6c8c74736e30182eddbf26956393ca8b442b552a2e4557f5"
+    },
+    {
+      "package_path": "software/ps/live_speaker.py",
+      "repository_path": "software/ps/live_speaker.py",
+      "status_before": "missing",
+      "sha256": "1d311024f2d6170eb82c67872c6e021bb63c1f37b6eecf32d3ab470aee7bcfab"
+    },
+    {
+      "package_path": "software/ps/live_speaker_follow.py",
+      "repository_path": "software/ps/live_speaker_follow.py",
+      "status_before": "missing",
+      "sha256": "bfa97bdd07681e963933fa438ebb64f21a3bf0b85cd16c931d33b57e2c8368d6"
+    },
+    {
+      "package_path": "software/ps/manual_servo.py",
+      "repository_path": "software/ps/manual_servo.py",
+      "status_before": "equal",
+      "sha256": "5144ea6ce9f548efaea67e886a8a26bbbd7838f856ce6d8df8a6372f1ce6b4c2"
+    },
+    {
+      "package_path": "software/ps/pcm_capture.py",
+      "repository_path": "software/ps/pcm_capture.py",
+      "status_before": "equal",
+      "sha256": "381e2be97ad4d45eeee109f1c3181c3559d3eb90133bb5eb35b150d0b0ae124b"
+    },
+    {
+      "package_path": "software/ps/ps_client.py",
+      "repository_path": "software/ps/ps_client.py",
+      "status_before": "equal",
+      "sha256": "917c9f0e00b1f4cbcf435afc37971ad44f389fbe2268cfebb2f401f78b40a20f"
+    },
+    {
+      "package_path": "software/ps/ram_queue.py",
+      "repository_path": "software/ps/ram_queue.py",
+      "status_before": "equal",
+      "sha256": "e4992ca48c0049dba05073b0705dc3076188c7cc8f6769dda9ef12163f6feff6"
+    },
+    {
+      "package_path": "software/ps/recover_ram.py",
+      "repository_path": "software/ps/recover_ram.py",
+      "status_before": "equal",
+      "sha256": "9be7e73ea25a150720cfde4fecf60a1e36750a80e2c68fc003c57c93de48c86b"
+    },
+    {
+      "package_path": "software/ps/run_buffered.py",
+      "repository_path": "software/ps/run_buffered.py",
+      "status_before": "equal",
+      "sha256": "972c8c84e8ef1f8a29c4fa19f603779c4aa2e0e04cf7a1b9fd91a50a8ffb267f"
+    },
+    {
+      "package_path": "software/ps/run_capture.py",
+      "repository_path": "software/ps/run_capture.py",
+      "status_before": "equal",
+      "sha256": "c0df1febdd38845ac7dd92e5265f92043e070753c2e822603be58782617b06c0"
+    },
+    {
+      "package_path": "software/ps/run_device.py",
+      "repository_path": "software/ps/run_device.py",
+      "status_before": "equal",
+      "sha256": "05af29da43cff50f542f30e5a244362e2a33ea1968517767b0feb7a185ee59bc"
+    },
+    {
+      "package_path": "software/ps/run_normal.py",
+      "repository_path": "software/ps/run_normal.py",
+      "status_before": "equal",
+      "sha256": "900e41750983ab1566930954caec4308eaf3e78103749998022cceaf44145e6c"
+    },
+    {
+      "package_path": "software/ps/run_pcm.py",
+      "repository_path": "software/ps/run_pcm.py",
+      "status_before": "equal",
+      "sha256": "d48f7198a3bc94bf381be20802ddd22566c5c2bb02e01756d57d829c7bcb9617"
+    },
+    {
+      "package_path": "software/ps/run_smp.py",
+      "repository_path": "software/ps/run_smp.py",
+      "status_before": "equal",
+      "sha256": "544b2cc9199fd625441bef38081b5abe913198f9d974b2256ec3e1327e3e4c07"
+    },
+    {
+      "package_path": "software/ps/speaker_core/pipeline_bench.py",
+      "repository_path": "software/ps/speaker_core/pipeline_bench.py",
+      "status_before": "missing",
+      "sha256": "75ac772ec1449207545a2776e2872498ad3a1823bda5caeecbc76ad5a117420b"
+    },
+    {
+      "package_path": "software/ps/speaker_core/short_bench.py",
+      "repository_path": "software/ps/speaker_core/short_bench.py",
+      "status_before": "missing",
+      "sha256": "aa31b32ffe033a71b7ac2f593fa122b100931e787ee2edfc6221e58e031f5bf3"
+    },
+    {
+      "package_path": "software/ps/speaker_core/source/detail_profile.h",
+      "repository_path": "software/ps/speaker_core/detail_profile.h",
+      "status_before": "missing",
+      "sha256": "34f95d8776550a0ac6fe41fbeb994493701eb3cd2566bedad008cf0855c753ee"
+    },
+    {
+      "package_path": "software/ps/speaker_core/source/pipeline_backend.c",
+      "repository_path": "software/ps/speaker_core/pipeline_backend.c",
+      "status_before": "missing",
+      "sha256": "1c34b9b8f585b460f62cb543f4c6037e2e74726c0fd3d0a5f536747aea180fb3"
+    },
+    {
+      "package_path": "software/ps/speaker_core/source/stream_frontend.h",
+      "repository_path": "software/ps/speaker_core/stream_frontend.h",
+      "status_before": "missing",
+      "sha256": "7c424821dde0d22eab3568a0218bf2e010097eafb7e15ce9d2b10866060c7f9e"
+    },
+    {
+      "package_path": "software/ps/speaker_core/stream_bench.py",
+      "repository_path": "software/ps/speaker_core/stream_bench.py",
+      "status_before": "missing",
+      "sha256": "445996c2515861b3219cdaa9a95ac942a6ae85837443bc996a657f9097139e59"
+    },
+    {
+      "package_path": "software/ps/speaker_follow_setup.py",
+      "repository_path": "software/ps/speaker_follow_setup.py",
+      "status_before": "missing",
+      "sha256": "6c44787bb4c5d007d08cc19d391f2726adff7ff8030b67f3214720ec85f8584b"
+    },
+    {
+      "package_path": "software/ps/speaker_models.py",
+      "repository_path": "software/ps/speaker_models.py",
+      "status_before": "missing",
+      "sha256": "404c3e023e0509bfac00e495bd51c8d5f3929e4297531db216cbd8428d079714"
+    },
+    {
+      "package_path": "software/ps/speaker_permission.py",
+      "repository_path": "software/ps/speaker_permission.py",
+      "status_before": "equal",
+      "sha256": "2baec34ea12845fda73c8d55fc8bbf17da187a6a542f427dd3ea269565fbc64f"
+    },
+    {
+      "package_path": "software/ps/speaker_process.py",
+      "repository_path": "software/ps/speaker_process.py",
+      "status_before": "missing",
+      "sha256": "7b095fa60ac4829a21a9456b9b434ef24a93924107b7a9c5b8ab17abd131ad12"
+    },
+    {
+      "package_path": "software/ps/speaker_scheduling.py",
+      "repository_path": "software/ps/speaker_scheduling.py",
+      "status_before": "missing",
+      "sha256": "5aca8a2a79ee5d44e8a5d0d3c5b98aa85d5f2641ade31ab806e37d91ab01afd1"
+    },
+    {
+      "package_path": "software/ps/speaker_settings.py",
+      "repository_path": "software/ps/speaker_settings.py",
+      "status_before": "missing",
+      "sha256": "ee01830a96fb1925f594f385ffa7d5b81fae2be8fa6859aca8908d7987c991d4"
+    },
+    {
+      "package_path": "software/ps/speaker_targets.py",
+      "repository_path": "software/ps/speaker_targets.py",
+      "status_before": "missing",
+      "sha256": "da5facc447bdb9871df554b0e9b1a68ab58c4ff18eb935635583a17bca4d8632"
+    },
+    {
+      "package_path": "software/ps/ss_solver_bridge.c",
+      "repository_path": "software/ps/ss_solver_bridge.c",
+      "status_before": "equal",
+      "sha256": "711287b352a2392c1d2be1dd8b9d31d28c00615080e78feaebe4006c8f22fc88"
+    },
+    {
+      "package_path": "software/ps/volume_gate.py",
+      "repository_path": "software/ps/volume_gate.py",
+      "status_before": "equal",
+      "sha256": "8905c4573954dec252523c7b30b8da02084ea891c7f4b365aada19cfc18cd48a"
+    },
+    {
+      "package_path": "software/tests/test_board_tools.py",
+      "repository_path": "software/tests/test_board_tools.py",
+      "status_before": "equal",
+      "sha256": "782f8b868fc272e407d6b9f44179b57b86bc288b87b34fe93c58746fdf15e041"
+    },
+    {
+      "package_path": "software/tests/test_filter_controls.py",
+      "repository_path": "software/tests/test_filter_controls.py",
+      "status_before": "equal",
+      "sha256": "be546c3bb9c09d038aa81d0e44b8fad772b159f9fe746705dfa1556d040cd72e"
+    },
+    {
+      "package_path": "software/tests/test_manual_servo.py",
+      "repository_path": "software/tests/test_manual_servo.py",
+      "status_before": "equal",
+      "sha256": "4d04594adb1969214787f0a2aa950ec8f609cb73e111dd8456f4ff1993e23857"
+    },
+    {
+      "package_path": "software/tests/test_normal.py",
+      "repository_path": "software/tests/test_normal.py",
+      "status_before": "equal",
+      "sha256": "289294df44927488fda386b1e3ccdb3f972a39106b7883f5d1a8b42660072c01"
+    },
+    {
+      "package_path": "software/tests/test_online_angle_filter.py",
+      "repository_path": "software/tests/test_online_angle_filter.py",
+      "status_before": "equal",
+      "sha256": "9a3a8412cc8ee770360e7b8c9895ae4f9ce6759e4b59ec61b710e057724f46b0"
+    },
+    {
+      "package_path": "software/tests/test_pcm_capture.py",
+      "repository_path": "software/tests/test_pcm_capture.py",
+      "status_before": "equal",
+      "sha256": "8910f1a9f82e7eabe5db7531b0ba3b67fa79464497fa9786fc5a124eb9504576"
+    },
+    {
+      "package_path": "software/tests/test_serial_english.py",
+      "repository_path": "software/tests/test_serial_english.py",
+      "status_before": "equal",
+      "sha256": "c4d566617f853b75faedda9ca69880aa9710dfc132450792b90935a5e7e095d7"
+    },
+    {
+      "package_path": "software/tests/test_speaker_follow.py",
+      "repository_path": "software/tests/test_speaker_follow.py",
+      "status_before": "missing",
+      "sha256": "be3597959582b003ae6543e935a55922395c8672510f29c4bb8ff498c7ff5947"
+    },
+    {
+      "package_path": "software/tests/test_volume_gate.py",
+      "repository_path": "software/tests/test_volume_gate.py",
+      "status_before": "equal",
+      "sha256": "3e518a0ae19abc90062ee52e450837c2047a346f2e619659e3c7e9e16f9aa05a"
+    },
+    {
+      "package_path": "software/tetra3d/core/doa_dispatch.c",
+      "repository_path": "software/tetra3d/core/doa_dispatch.c",
+      "status_before": "equal",
+      "sha256": "809df4b689e52bf1fe84e9a2124003430a30a071ba6e84f8d838781f01df85c1"
+    },
+    {
+      "package_path": "software/tetra3d/core/doa_dispatch.h",
+      "repository_path": "software/tetra3d/core/doa_dispatch.h",
+      "status_before": "equal",
+      "sha256": "6e121c1422b1afda99f5d0a0f1e9f607ffca1e6e72793f4b05095c0732ea7829"
+    },
+    {
+      "package_path": "software/tetra3d/core/doa_geometry.c",
+      "repository_path": "software/tetra3d/core/doa_geometry.c",
+      "status_before": "equal",
+      "sha256": "e9d9424543a0502f737b84779e4508a9a6111478549ccc98a33f69c8f169e521"
+    },
+    {
+      "package_path": "software/tetra3d/core/doa_geometry.h",
+      "repository_path": "software/tetra3d/core/doa_geometry.h",
+      "status_before": "equal",
+      "sha256": "4002612b61dface3065ed026ff007b979d86dc59b10eb26de314519ce14a49fd"
+    },
+    {
+      "package_path": "software/tetra3d/core/doa_solver_3d.c",
+      "repository_path": "software/tetra3d/core/doa_solver_3d.c",
+      "status_before": "equal",
+      "sha256": "059ccf5c39466382f6d7353db3685cf9b288dd8fb8b8227c3634600592d6e069"
+    },
+    {
+      "package_path": "software/tetra3d/core/doa_solver_3d.h",
+      "repository_path": "software/tetra3d/core/doa_solver_3d.h",
+      "status_before": "equal",
+      "sha256": "790b662a7d7017a8cc03cb113d00cc39675ffeb8a8f95dce4f9894f5478a87f1"
+    },
+    {
+      "package_path": "software/tetra3d/core/doa_target_3d.c",
+      "repository_path": "software/tetra3d/core/doa_target_3d.c",
+      "status_before": "equal",
+      "sha256": "cc203a91c46b1783d76462047cc074451f0275455cb4c706ed8e1012412dbb9c"
+    },
+    {
+      "package_path": "software/tetra3d/core/doa_target_3d.h",
+      "repository_path": "software/tetra3d/core/doa_target_3d.h",
+      "status_before": "equal",
+      "sha256": "784109b7ec086c01e4d47ecbf58c1ffafb261588727726ba2374654572863b30"
+    },
+    {
+      "package_path": "software/tetra3d/linux/board_3d.py",
+      "repository_path": "software/tetra3d/linux/board_3d.py",
+      "status_before": "equal",
+      "sha256": "59527222321c2e02010e18e173ed2ca191d910a53ea0636966083a41622959d7"
+    },
+    {
+      "package_path": "software/tetra3d/linux/build_solver_3d.sh",
+      "repository_path": "software/tetra3d/linux/build_solver_3d.sh",
+      "status_before": "equal",
+      "sha256": "c19de1d6b393c680512c4b2e7757bd2e303ef9a37d5fce5333037430282def86"
+    },
+    {
+      "package_path": "software/tetra3d/linux/client_3d.py",
+      "repository_path": "software/tetra3d/linux/client_3d.py",
+      "status_before": "equal",
+      "sha256": "71bc9a0029a8edd5c1334e4bddd5b84b787c2f8a449be4c0cf3fc587b5d6057b"
+    },
+    {
+      "package_path": "software/tetra3d/linux/filter_3d.py",
+      "repository_path": "software/tetra3d/linux/filter_3d.py",
+      "status_before": "equal",
+      "sha256": "f5e76b07657d3077ba7e6eac34ef5cae955ac30b310c74275214fffa126a179e"
+    },
+    {
+      "package_path": "software/tetra3d/linux/motion_3d.py",
+      "repository_path": "software/tetra3d/linux/motion_3d.py",
+      "status_before": "equal",
+      "sha256": "3f9cd5aa12ad97c3a9c5245891f3c9b5d6e15294cba62b3d764dd528621a8f34"
+    },
+    {
+      "package_path": "software/tetra3d/linux/runtime_3d.py",
+      "repository_path": "software/tetra3d/linux/runtime_3d.py",
+      "status_before": "equal",
+      "sha256": "0b8dfe49ba223136cb07b70ede7cc122be16656d0f498606eb01086f4eff234e"
+    },
+    {
+      "package_path": "software/tetra3d/linux/solver_3d.py",
+      "repository_path": "software/tetra3d/linux/solver_3d.py",
+      "status_before": "equal",
+      "sha256": "44f392562b87627d9b02d12ccf722038eb8a3055e840d04c5c46d53c895fda8c"
+    },
+    {
+      "package_path": "software/tetra3d/linux/speaker_capture_3d.py",
+      "repository_path": "software/tetra3d/linux/speaker_capture_3d.py",
+      "status_before": "equal",
+      "sha256": "91ec86846b046a75c4cb0f19c3a4beac70f2927da484315a0b67d8944f0f452b"
+    },
+    {
+      "package_path": "software/tetra3d/linux/speaker_runtime_3d.py",
+      "repository_path": "software/tetra3d/linux/speaker_runtime_3d.py",
+      "status_before": "equal",
+      "sha256": "ce60d30763342dc8bee5bb17f70b1b7e2efb4ab4b9f26019974ca6f3ed8d698d"
+    },
+    {
+      "package_path": "software/tetra3d/linux/ss_solver_3d_bridge.c",
+      "repository_path": "software/tetra3d/linux/ss_solver_3d_bridge.c",
+      "status_before": "equal",
+      "sha256": "f30db07b8d1e4e18955848bcbc1b14f5680bafe8a519483eb6493d4034a1429e"
+    },
+    {
+      "package_path": "software/tetra3d/linux/ss_solver_3d_bridge.h",
+      "repository_path": "software/tetra3d/linux/ss_solver_3d_bridge.h",
+      "status_before": "equal",
+      "sha256": "2f2775e8c9376ba8ea97e25002ccf9f149519ec5eb06f446ff42403d34ccf966"
+    },
+    {
+      "package_path": "software/tetra3d/tests/solver_3d_reference.c",
+      "repository_path": "software/tetra3d/tests/solver_3d_reference.c",
+      "status_before": "equal",
+      "sha256": "471712041c457c9d9b87dc9252aa4e599be9de85ccd952645fd733f4bc91bd1f"
+    },
+    {
+      "package_path": "software/tetra3d/tests/test_doa_3d.c",
+      "repository_path": "software/tetra3d/tests/test_doa_3d.c",
+      "status_before": "equal",
+      "sha256": "8b9b67368ac1056e132d1e539a61e4cfeb5e4502103bb891936792aa65114a1a"
+    },
+    {
+      "package_path": "software/tetra3d/tests/test_follow_sound.py",
+      "repository_path": "software/tetra3d/tests/test_follow_sound.py",
+      "status_before": "equal",
+      "sha256": "970648e85dee48a5256136d47705f80c583744ec342e3f5293b2392471076c67"
+    },
+    {
+      "package_path": "software/tetra3d/tests/test_online_3d.py",
+      "repository_path": "software/tetra3d/tests/test_online_3d.py",
+      "status_before": "equal",
+      "sha256": "3f697bb137e942ef691f8245230019e29137d2c3870461b2ed8aabf83777bb1f"
+    },
+    {
+      "package_path": "software/tetra3d/tests/test_solver_3d_migration.py",
+      "repository_path": "software/tetra3d/tests/test_solver_3d_migration.py",
+      "status_before": "equal",
+      "sha256": "1221b79b256c5bb5e3280121c4bc1460502a924fdc25f181126328896decf4f7"
+    },
+    {
+      "package_path": "software/tetra3d/tests/test_target_3d.c",
+      "repository_path": "software/tetra3d/tests/test_target_3d.c",
+      "status_before": "equal",
+      "sha256": "ebd4663b6a704e1cc7b2bc26801c84909fee3ef3d6271ccf677ccccfbe3d2cef"
+    },
+    {
+      "package_path": "soundsight-3d.sh",
+      "repository_path": "soundsight-3d.sh",
+      "status_before": "equal",
+      "sha256": "e6c578435241c93056bb0219dd28be4f7cb2aee4d06d599a0e4dcd941a2e6ac0"
+    },
+    {
+      "package_path": "soundsight.sh",
+      "repository_path": "soundsight.sh",
+      "status_before": "equal",
+      "sha256": "a6927671c93dfe397f2ba8fbcebe7feaf5b4dbbb2743c81d973666a474cd2d22"
+    },
+    {
+      "package_path": "tools/install_normal_update.py",
+      "repository_path": "tools/install_normal_update.py",
+      "status_before": "equal",
+      "sha256": "a021eca4b9c2777845a211edcc9e7a87a1eeb69571e2ceb971a71ee70d78b311"
+    }
+  ],
+  "missing_count": 16,
+  "extra_dependencies_tests": [
+    "software/ps/speaker_core/core_bench.c",
+    "software/ps/speaker_core/cpu_profile_bench.py",
+    "software/ps/speaker_core/armv7.cmake",
+    "software/ps/speaker_core/build_runtime.sh",
+    "software/ps/speaker_core/prepare_dependencies.py",
+    "software/ps/speaker_core/build-lock.json",
+    "software/tests/test_speaker_process.py",
+    "software/tests/test_speaker_live.py",
+    "software/tests/test_speaker_rx.py",
+    "software/tests/test_live_cpu_profile.py",
+    "software/tests/test_stream_scheduler.py",
+    "tools/package_speaker_3d.py"
+  ],
+  "private_assets_not_published": true
+}

@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "archive_sha256": "b5b49d9e8e616ac6c102360c9c29ac3d22e4a465ecf827674980287a231cf198",
+  "bytes": 6274705,
+  "files": {
+    "packets.bin": "54bc869c36a24a84edb6e883287a60253ccf1a0758851bb5d62707b78766c800",
+    "four_mic.wav": "ef7758084c71116476e827f1faf16e67f17bc9752aaae3250f8d2e5f0b45aca6",
+    "result.json": "0181a13411229e37d287dc782c40730e1c15c6937a2122b46293b53c2a389ebb"
+  },
+  "package_sha256": "6e4647acb63747466725771feb9eeb185d62729bd857ff7eabb215d054ece067",
+  "scope": "Packets/WAV/full report independently read; target-only label explicitly supplied by user",
+  "samples": 480256,
+  "seconds": 10.005333333333333,
+  "packets": 938,
+  "packet_continuity": true,
+  "wav_bit_exact": true,
+  "report_matches_console": true,
+  "dma_halted": true,
+  "cleanup_errors": [],
+  "final_fault": 64,
+  "final_drops": 0,
+  "audio_errors": 0,
+  "audio_rejected": 0,
+  "channels": [
+    {
+      "mic": 0,
+      "samples": 480256,
+      "minimum": -103552,
+      "maximum": 132672,
+      "rms_dbfs": -52.457147914336026,
+      "clipped_samples": 0
+    },
+    {
+      "mic": 1,
+      "samples": 480256,
+      "minimum": -117056,
+      "maximum": 150720,
+      "rms_dbfs": -51.535643032099834,
+      "clipped_samples": 0
+    },
+    {
+      "mic": 2,
+      "samples": 480256,
+      "minimum": -120384,
+      "maximum": 156672,
+      "rms_dbfs": -51.422039534857795,
+      "clipped_samples": 0
+    },
+    {
+      "mic": 3,
+      "samples": 480256,
+      "minimum": -103616,
+      "maximum": 127680,
+      "rms_dbfs": -52.5784561894463,
+      "clipped_samples": 0
+    }
+  ],
+  "ground_truth": "target_only",
+  "asset_hashes": {
+    "frontend.f32": "f73e592e890a555f8e55f6b47017f69a07285ee73aa0ab0b14073791ec7b7875",
+    "speaker-template.json": "4221abddba4399aaa1d8e2092e02f95e7a935d387e61514f4b0927b33f6e0ca4",
+    "models/int8-head.onnx": "e14405d2580db61c1359808102c7f7f8ac73623303c2076087d2a9efd7ebc4f4",
+    "models/silero_vad.onnx": "597d30b3ec076608d059477bb14cfeffdf951bf5cae370d38f65d33bbfe82004"
+  }
+}

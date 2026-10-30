@@ -1,0 +1,64 @@
+{
+  "scope": "BOARD_DEVELOPMENT_RECORDINGS_NOT_HOLDOUT",
+  "threshold_calibrated": false,
+  "independent_accuracy_claim": false,
+  "rows": [
+    {
+      "window": "full_speech",
+      "same_speaker": {
+        "n": 3,
+        "min": 0.8498310310818125,
+        "max": 0.8734859647615822
+      },
+      "other_speaker": {
+        "n": 3,
+        "min": 0.4103835517825421,
+        "max": 0.4725528359651972
+      },
+      "observed_gap": 0.37727819511661526
+    },
+    {
+      "window": 1.0,
+      "same_speaker": {
+        "n": 9,
+        "min": 0.5059608535228488,
+        "max": 0.7424698220193359
+      },
+      "other_speaker": {
+        "n": 9,
+        "min": 0.2055082643352878,
+        "max": 0.37269547755304916
+      },
+      "observed_gap": 0.13326537596979965
+    },
+    {
+      "window": 1.5,
+      "same_speaker": {
+        "n": 9,
+        "min": 0.5259848873973247,
+        "max": 0.8196067345157925
+      },
+      "other_speaker": {
+        "n": 9,
+        "min": 0.28183032780091033,
+        "max": 0.4419406046648356
+      },
+      "observed_gap": 0.08404428273248915
+    },
+    {
+      "window": 2.0,
+      "same_speaker": {
+        "n": 9,
+        "min": 0.6637174818499302,
+        "max": 0.8341944497790839
+      },
+      "other_speaker": {
+        "n": 9,
+        "min": 0.2881409688495873,
+        "max": 0.45758166031840486
+      },
+      "observed_gap": 0.20613582153152532
+    }
+  ],
+  "note": "n=9为每类三段开发录音抽出的窗口，非9个独立说话人或独立录音；不发布模板或逐窗向量"
+}

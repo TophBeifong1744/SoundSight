@@ -1,0 +1,25 @@
+{
+  "system": "Windows",
+  "machine": "AMD64",
+  "python": "3.14.6",
+  "python_executable": "C:\\Python314\\python.exe",
+  "process_bits": 64,
+  "allowed_cpus": [],
+  "pynq_installed": false,
+  "gcc": "F:\\Program\\env\\mingw64\\bin\\gcc.EXE",
+  "hardware_access": false,
+  "bit_downloaded": false,
+  "compiler": "gcc.EXE (x86_64-win32-seh-rev1, Built by MinGW-Builds project) 16.1.0",
+  "ps_link": {
+    "base": "0x40000000",
+    "bytes": 4096
+  },
+  "actuator_bound": "0",
+  "errors": [
+    "Run this check on the Zynq PYNQ board (ARM Linux).",
+    "This Zynq-7000 delivery expects a 32-bit ARM userspace.",
+    "CPU 0 and CPU 1 must both be available; do not load a bare-metal CPU1 ELF.",
+    "Use the Python environment containing PYNQ."
+  ],
+  "result": "NEEDS_ATTENTION"
+}

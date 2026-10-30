@@ -1,0 +1,9 @@
+{
+  "external_rtl_old_candidate_match": 16,
+  "external_bd_unchanged": true,
+  "existing_packages": {
+    "release/output/soundsight_pynq_servo.zip": "3cd72b198ea4f392d2accd7105db180520b61f792e4c7b82f234d184f9dd5f8e",
+    "release/output/soundsight_pynq_pcm.zip": "76d06181106e062b5f7452a4c3071a77c0f932fdfb47357c5cf0749023257555",
+    "release/output/soundsight_reliaze_update.zip": "1ee0768f6b97c2e9f7d4f8ce755672d2c7ee7ffec022a0a937e7f4167bc86fd3"
+  }
+}

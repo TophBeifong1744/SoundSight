@@ -1,0 +1,195 @@
+{
+  "status": "PASS",
+  "scope": "Static configuration/dependency/source comparison only",
+  "bd_functional_events_matched": 63,
+  "bd_gui_layout": "excluded; existing layout retained",
+  "fft_explicit_parameters_matched": {
+    "ss_fft29": 27,
+    "ss_ifft25": 27
+  },
+  "unchanged_xci_sha256": {
+    "ss_fft29": "5c0bdc33182c97692d5691bca29550d4850b9c3741321dabeb197f652c9de3ea",
+    "ss_ifft25": "97f248e741a43cd3423808eb039b7ac07e013798a6b22304ea06b4845318a0f9"
+  },
+  "run_properties_matched": 77,
+  "handoff_engineering_files": 40,
+  "external_debug_xdc": "disabled; not imported into maintained recipes",
+  "live_sources_compared": [
+    {
+      "repository": "project/rtl/bd_clean_compute.v",
+      "external_sha256": "ebe46ade46f9fb935186fb35955614cee9e645a1ed8a1d19545f3be99a763ebf",
+      "repository_sha256": "ebe46ade46f9fb935186fb35955614cee9e645a1ed8a1d19545f3be99a763ebf",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/bd_stm32_link.v",
+      "external_sha256": "c8aa16308e5c68a55a8bd42d63a35c1a08d6bd7bffab73873842b18dc8765cc0",
+      "repository_sha256": "c8aa16308e5c68a55a8bd42d63a35c1a08d6bd7bffab73873842b18dc8765cc0",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/doa_math_pkg.sv",
+      "external_sha256": "70f9a28d343914fa115b40ed8875ae294db69390937155ef862de9374d7cb509",
+      "repository_sha256": "70f9a28d343914fa115b40ed8875ae294db69390937155ef862de9374d7cb509",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/doa_math_serial.sv",
+      "external_sha256": "f9c7e6dd052ba25e755303f9e28264f08919f4f7878f7ad6dd70e627d04ba2de",
+      "repository_sha256": "f9c7e6dd052ba25e755303f9e28264f08919f4f7878f7ad6dd70e627d04ba2de",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/doa_phat_client.sv",
+      "external_sha256": "e679a854f8174b11719ceea587b3d1606b8fd6e223b0ddcf5c55784d84123f7d",
+      "repository_sha256": "e679a854f8174b11719ceea587b3d1606b8fd6e223b0ddcf5c55784d84123f7d",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/f1a_frame_store.sv",
+      "external_sha256": "da84d0ee264c512ab16dca5b1b318936d191428e5e7d6a331a4738bc73eb341d",
+      "repository_sha256": "da84d0ee264c512ab16dca5b1b318936d191428e5e7d6a331a4738bc73eb341d",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/fft29_official.sv",
+      "external_sha256": "1d7492e77711c5e507aeb48f9651621f8056ac97d3c05c3451f61ddc0b5ab92d",
+      "repository_sha256": "1d7492e77711c5e507aeb48f9651621f8056ac97d3c05c3451f61ddc0b5ab92d",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/hann-u18f17.mem",
+      "external_sha256": "487c7f988ab00fc0428dc3fbe1705e933eac96ef4f54519727bf9fb0d11dc1bf",
+      "repository_sha256": "487c7f988ab00fc0428dc3fbe1705e933eac96ef4f54519727bf9fb0d11dc1bf",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/i17_turntable_pwm_guard.sv",
+      "external_sha256": "c9785a61b03cb24727f14c092073c4fc6fc4854c70eacb2b11f3fb97993a8453",
+      "repository_sha256": "c9785a61b03cb24727f14c092073c4fc6fc4854c70eacb2b11f3fb97993a8453",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ifft25_official.sv",
+      "external_sha256": "5f8d4af7839f97b71fb4b33fec71ac64c6f8f3c80def1983430e8a4a0bae3479",
+      "repository_sha256": "5f8d4af7839f97b71fb4b33fec71ac64c6f8f3c80def1983430e8a4a0bae3479",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/motor_drive.v",
+      "external_sha256": "4b899a4ebe5a96dab8919b0f63a8a46eff4c1d3678ce67d32d693642c817cf60",
+      "repository_sha256": "4b899a4ebe5a96dab8919b0f63a8a46eff4c1d3678ce67d32d693642c817cf60",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/pdm_cic3.v",
+      "external_sha256": "6bf88142124546eaa11d2a31cf00bfeb313a61032b1540867e1d788742d1da13",
+      "repository_sha256": "6bf88142124546eaa11d2a31cf00bfeb313a61032b1540867e1d788742d1da13",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ss_actuator_control.sv",
+      "external_sha256": "67cf3c39cce559a5f3a4cff170cfcc54020ab55a5e6b8106f70d878753d3b979",
+      "repository_sha256": "67cf3c39cce559a5f3a4cff170cfcc54020ab55a5e6b8106f70d878753d3b979",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ss_async_word.sv",
+      "external_sha256": "ad8457a2f3421b3b2a3df69438f15acf148018f154e7969bc37e8e7902d04ebd",
+      "repository_sha256": "ad8457a2f3421b3b2a3df69438f15acf148018f154e7969bc37e8e7902d04ebd",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ss_bist_source.sv",
+      "external_sha256": "e578bee07453a57e22909c8773e011064c9532275a0a67fe4f9f9310b8ab262b",
+      "repository_sha256": "e578bee07453a57e22909c8773e011064c9532275a0a67fe4f9f9310b8ab262b",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ss_clean_compute.sv",
+      "external_sha256": "16c7c1dd4159c277af7d6467c4b85bf83935de5bd37b705be3ad36ddc53ea811",
+      "repository_sha256": "16c7c1dd4159c277af7d6467c4b85bf83935de5bd37b705be3ad36ddc53ea811",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ss_control_regs.sv",
+      "external_sha256": "f16d17d7900e607ed0139cc0ff0fd2e63fc1c39fb6f770d7e3fcfeb5a13b7440",
+      "repository_sha256": "f16d17d7900e607ed0139cc0ff0fd2e63fc1c39fb6f770d7e3fcfeb5a13b7440",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ss_dual_compute.sv",
+      "external_sha256": "70340efdda709ffba28106dce951d914be5884a17611adea361aa510218baa3d",
+      "repository_sha256": "70340efdda709ffba28106dce951d914be5884a17611adea361aa510218baa3d",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ss_fft_frontend.sv",
+      "external_sha256": "e31cb97b33d9865a2e9796ba1b21dfb688adcde6f29c44741d6d049f2d9308d3",
+      "repository_sha256": "e31cb97b33d9865a2e9796ba1b21dfb688adcde6f29c44741d6d049f2d9308d3",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ss_pair_engine.sv",
+      "external_sha256": "9113501bb85ce4aba0491e33ed5bec9dca54cc7aa0dde3bde9c555d2c196c1c7",
+      "repository_sha256": "44bbf41a4d1bf9bc220c2023c06c55a575d0e17354e4f4f60f40a706e1125a60",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ss_pcm_windows.sv",
+      "external_sha256": "0418b73817054d50d5c09712cb42232a2740500a1b894f59d660d86e572b649b",
+      "repository_sha256": "0418b73817054d50d5c09712cb42232a2740500a1b894f59d660d86e572b649b",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ss_pdm_capture.sv",
+      "external_sha256": "f2a600c5f3ac6ebd44668c526bd40fb0dfc1e0f434e5350cf1e00733ef3b59fa",
+      "repository_sha256": "f2a600c5f3ac6ebd44668c526bd40fb0dfc1e0f434e5350cf1e00733ef3b59fa",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ss_preprocess.sv",
+      "external_sha256": "db95ab0f8548f3b57e8fd3245cef9a481888d49a9c7cb6bb9fd32f098e139aeb",
+      "repository_sha256": "db95ab0f8548f3b57e8fd3245cef9a481888d49a9c7cb6bb9fd32f098e139aeb",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ss_snapshot_queue.sv",
+      "external_sha256": "3b24cb7633d83a9ce8f1bcccd597015373a05c38a0bde91ab9c6048daa2be534",
+      "repository_sha256": "3b24cb7633d83a9ce8f1bcccd597015373a05c38a0bde91ab9c6048daa2be534",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ss_spi_mode0.sv",
+      "external_sha256": "1888b6414087fa406759a09adc6ec929f73715c1adeb190423b58b9f565c0a24",
+      "repository_sha256": "3e07356d0320a1eac7fbc036cd5ebdce872111f46eaf3f6d7dbb178eed010bd5",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/rtl/ss_stm32_link.sv",
+      "external_sha256": "e5781389b1e18713029d60793bcc0f6fa2600f3fc7c736560ada3a12066363f4",
+      "repository_sha256": "e5781389b1e18713029d60793bcc0f6fa2600f3fc7c736560ada3a12066363f4",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/sdc/stm32/board_pins.xdc",
+      "external_sha256": "454d315ca30e801aac7cc0f1360c8ac66751ad261a560bb30bcbc8fec81ca5bd",
+      "repository_sha256": "193902d10de43a3632fc0403ecd1e4bd979762e8ddbbf42a1e17d4d84fda088a",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    },
+    {
+      "repository": "project/sdc/stm32/interface_timing.xdc",
+      "external_sha256": "7e3920e59439644fae80d3684a865046511502900d3ab437d1270dfb98c3ab80",
+      "repository_sha256": "b7f68049ce7c4e9d2b4ae95bc94a5483f115649065697ac6f0c72ad716d8a37c",
+      "equal_ignoring_line_endings_and_trailing_spaces": true
+    }
+  ],
+  "export_sha256": {
+    "project.tcl": "cc641f120b45ef7705fd73895b32c2e4e1925705e9945f377db4d6fdd7fee7f5",
+    "soundsight_stm32_bd.tcl": "820916c0c5238edc89ab919cbb1ce43c03b63293b1aeff7c26894d9d6829de5b"
+  },
+  "vivado_started": false,
+  "rtl_simulation": "SKIPPED; existing board fix synchronized",
+  "recipe_rebuild": "NOT_RUN",
+  "new_board_test": "NOT_RUN"
+}

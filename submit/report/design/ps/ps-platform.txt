@@ -1,0 +1,99 @@
+无STM32 PL+PS版：BD、平台和软件
+
+2026-10-29：PL+PS现为Zynq-7020唯一主方案，STM32已弃用。本页为早期PS基础BD说明，最新三维、PCM DMA和双轴配置按document/main-architecture.md接续。
+
+已有STM32工程副本且已加入ps_link时，使用document/manual-ps-bd-completion.md的补齐入口project/bd/complete_manual_ps.tcl；不要在已有BD上执行下面的新建配方。
+
+所有路径相对SoundSight根目录。入口：project/script/run.bat prepare ps；已有工程用open ps；仅生成输出用outputs ps。工程位于variants/pl_ps/project/par/SoundSight_PS.xpr，顶层soundsight_ps_bd_wrapper。
+
+2026-10-21已接回SoundSight_PS_Volume的实际BD和PS7 DDR/MIO配置；正式prepare ps入口包含该板配置，详见document/ps-handoff.md。其他板仍需用户核对并调整DDR/MIO/PYNQ镜像。当前目标器件统一为xc7z020clg400-2。
+迁移阶段曾在Vivado2025.2独立目录实际Validate、生成wrapper及官方IP输出；这些记录对应当时配置。本次统一器件后未重新Validate或生成IP输出，synth_1、impl_1均未启动。
+
+时钟和复位
+与主方案采用相同PS FCLK100→Clocking Wizard→100/61.44MHz结构，具体端口见时钟复位.txt。
+计算100MHz，采集/寄存器/快照/PWM保护61.44MHz；公共WATCHDOG_TICKS保持原61.44MHz单位。
+PS7/M_AXI_GP0_ACLK及control_bus全部ACLK接clk_main/clk_out2，100MHz。
+control_cdc为AXI Clock Converter 2.1，AXI4-Lite，ACLK_ASYNC=1、同步3级；s_axi_aclk接100MHz，m_axi_aclk接61.44MHz。
+ps_link=bd_ps_link，clk接61.44MHz，rst_n接io_release/dest_arst，aresetn接bus_io_reset/peripheral_aresetn。
+bus_reset/interconnect_aresetn→control_bus/ARESETN；bus_reset/peripheral_aresetn→control_bus的S00/M00_ARESETN和control_cdc/s_axi_aresetn。
+bus_io_reset/peripheral_aresetn→control_cdc/m_axi_aresetn及ps_link/aresetn。
+两套bus reset的ext_reset_in接PS FCLK_RESET0_N；PL冷复位使用独立FCLK_RESET1_N。辅助复位低有效接1，debug复位高有效接0。
+
+总线与特征
+PS7/M_AXI_GP0→control_bus/S00_AXI→control_bus/M00_AXI→control_cdc/S_AXI→control_cdc/M_AXI→ps_link/S_AXI。
+compute/feature_valid → ps_link/feature_valid（1位）；compute/feature_pairs → ps_link/feature_pairs（960位）。
+compute/feature_flags → ps_link/feature_flags（32位）；compute/source_faults → ps_link/source_faults（12位）。
+compute/draining → ps_link/compute_draining（1位）；ps_link/feature_ready → compute/feature_ready（1位）；ps_link/run_enable → compute/enable（1位）。
+上述数据和控制全部为61.44MHz域。draining和run_enable两条线两端名字不同，不能按同名猜接。
+ps_link/irq→irq_concat/In0；irq_zero/dout（15位0）→irq_concat/In1；irq_concat/dout（16位）→ps7/IRQ_F2P。软件先按电平查询，不声称Linux中断驱动完成。
+DDR、FIXED_IO引出；四麦和PWM物理引脚与主方案相同。本版不引出STM32 SPI五根线，不提供第二个同时消费快照的入口。
+
+地址与应用
+本次实际BD分配ps_link局部4KiB段到0x40000000，证据在document/evidence/migration/native/ps。它是工具本次分配结果，不是硬编码公共地址。
+run_capture.py从用户实际HWH读取地址与范围；单一进程持有控制权，调用原S1，先写入JSONL并fsync，再消费硬件槽。
+默认BIST拒绝向量；可选BIST通过和真实取数。CLI默认不请求动作；ARM共享库先构建，真实机械绑定/许可仍需另行明确。
+存储失败、Ctrl+C或正常退出都请求停止；未完成保存的帧保留。--drain-existing先停新采集，再取已存记录。程序不会加载bit、复位PS或控制硬件下载。
+无须DMA搬120字节特征；这里没有原始PCM/频谱采样通道。
+
+用户自行完成的实际配置
+DDR型号、容量、位宽、速率、走线/训练；MIO外设/电平；符合-2器件规格的PS时钟树和参考晶振；匹配的启动及PYNQ镜像。
+保持FCLK0=100MHz、两个复位端口，以及上述分域连线。确认平台初始化释放FCLK_RESET1_N，普通总线恢复只用RESET0，时钟丢失恢复用RESET1冷重启。
+配置后Validate并生成HWH，再自行点击综合/实现。ARM实际编译运行、最坏调度时间、真实音频、机械闭环仍需实测。
+
+官方依据
+https://docs.amd.com/r/2025.2-English/ug994-vivado-ip-subsystems/Limitations-of-the-Module-Reference-Feature
+https://docs.amd.com/r/en-US/pg065-clk-wiz/Configuring-Output-Clocks
+https://docs.amd.com/api/khub/documents/5VcEWg~hYG0gT~7WNDt64g/content （Processor System Reset PG164）
+https://docs.amd.com/api/khub/documents/uaBd8Qxmf_K1~~tiVnOxrw/content （Zynq DS187）
+https://pynq.readthedocs.io/en/v2.7.0/pynq_package/pynq.mmio.html
+
+手动新建和模块取舍
+源清单document/build/ps-src-list.txt，公共源仍在project/rtl，不能另复制一套。compute引用bd_clean_compute；ps_link引用bd_ps_link；不加入bd_stm32_link及SPI外部端口。
+官方公共时钟/冷复位IP同主方案；额外加入axi_interconnect:2.1一个（control_bus，1个SI、1个MI）、axi_clock_converter:2.1一个、proc_sys_reset:5.0两个（bus_reset、bus_io_reset）、xlconcat:2.1一个、15位零常量一个。共19个BD单元。
+PS启用M_AXI_GP0、Fabric Interrupt和IRQ_F2P。AXI Clock Converter的S_AXI/M_AXI是完整接口连接，不逐条猜连数据线；协议AXI4LITE，32位数据、端点12位局部地址，内部偏移按software/common/fpga_stm32_abi_frozen.h。
+主方案和PS版都需生成ss_fft29/ss_ifft25两个独立IP，配置见project/ip/create_fft_ip.tcl；不能在BD另加第二套FFT。
+Make External得到DDR_0、FIXED_IO_0；PL仅引出pdm_data[3:0]、pdm_clocks[3:0]、servo_pwm。约束用project/sdc/ps/board_pins.xdc和interface_timing.xdc。
+compute的debug_frontend/debug_backend、ps_link/fault_status为可选观察输出，默认可悬空。debug属100MHz、fault_status属61.44MHz，不能混用ILA采样时钟。
+实际BD连线配方为project/bd/ps.tcl，供正式入口调用；不在已有手工BD上重复source。板级参数配置好后在GUI Validate、Generate Output Products、Create HDL Wrapper；由用户选择运行综合和实现。
+当前源码没有DMA，也没有主方案和PS同时消费同一快照的入口。
+
+逐线核对表（来自当前已准备BD，与正式Tcl配方对照）
+左侧为源，右侧为同一根网的全部接收端。外部输入从顶层流向模块；DDR/FIXED_IO为双向接口。
+BD单元：compute, ps_link, ps7, zero, one, clk_main, clk_audio, core_reset, io_reset, core_reset_gate, core_release, io_reset_gate, io_release, control_bus, control_cdc, bus_reset, bus_io_reset, irq_concat, irq_zero
+bus_io_reset/peripheral_aresetn → control_cdc/m_axi_aresetn, ps_link/aresetn
+bus_reset/interconnect_aresetn → control_bus/ARESETN
+bus_reset/peripheral_aresetn → control_bus/S00_ARESETN, control_bus/M00_ARESETN, control_cdc/s_axi_aresetn
+clk_audio/clk_out1 → io_reset/slowest_sync_clk, io_release/dest_clk, compute/io_clk, bus_io_reset/slowest_sync_clk, control_cdc/m_axi_aclk, ps_link/clk
+clk_audio/locked → core_reset/dcm_locked, io_reset/dcm_locked, core_reset_gate/Op2, io_reset_gate/Op2, bus_reset/dcm_locked, bus_io_reset/dcm_locked
+clk_main/clk_out1 → clk_audio/clk_in1
+clk_main/clk_out2 → core_reset/slowest_sync_clk, core_release/dest_clk, compute/clk, bus_reset/slowest_sync_clk, ps7/M_AXI_GP0_ACLK, control_bus/ACLK, control_bus/S00_ACLK, control_bus/M00_ACLK, control_cdc/s_axi_aclk
+clk_main/locked → clk_audio/resetn
+compute/draining → ps_link/compute_draining
+compute/feature_flags → ps_link/feature_flags
+compute/feature_pairs → ps_link/feature_pairs
+compute/feature_valid → ps_link/feature_valid
+compute/pdm_clocks → pdm_clocks
+compute/source_faults → ps_link/source_faults
+core_release/dest_arst → compute/rst_n
+core_reset_gate/Res → core_release/src_arst
+core_reset/peripheral_aresetn → core_reset_gate/Op1
+io_release/dest_arst → compute/io_rst_n, ps_link/rst_n
+io_reset_gate/Res → io_release/src_arst
+io_reset/peripheral_aresetn → io_reset_gate/Op1
+irq_concat/dout → ps7/IRQ_F2P
+irq_zero/dout → irq_concat/In1
+one/dout → core_reset/aux_reset_in, io_reset/aux_reset_in, bus_reset/aux_reset_in, bus_io_reset/aux_reset_in
+pdm_data → compute/pdm_data
+ps7/FCLK_CLK0 → clk_main/clk_in1
+ps7/FCLK_RESET0_N → bus_reset/ext_reset_in, bus_io_reset/ext_reset_in
+ps7/FCLK_RESET1_N → clk_main/resetn, core_reset/ext_reset_in, io_reset/ext_reset_in
+ps_link/feature_ready → compute/feature_ready
+ps_link/irq → irq_concat/In0
+ps_link/run_enable → compute/enable
+ps_link/servo_pwm → servo_pwm
+zero/dout → core_reset/mb_debug_sys_rst, io_reset/mb_debug_sys_rst, bus_reset/mb_debug_sys_rst, bus_io_reset/mb_debug_sys_rst
+接口：control_bus/M00_AXI ↔ control_cdc/S_AXI
+接口：control_cdc/M_AXI ↔ ps_link/S_AXI
+接口：DDR_0 ↔ ps7/DDR
+接口：FIXED_IO_0 ↔ ps7/FIXED_IO
+接口：ps7/M_AXI_GP0 ↔ control_bus/S00_AXI

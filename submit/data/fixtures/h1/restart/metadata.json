@@ -1,0 +1,55 @@
+{
+  "schema_version": "ss-data-draft-0.3",
+  "acquisition_id": "h1-code-002",
+  "config_version": "h1-code-config-0.1",
+  "channel_order": [
+    "mic0",
+    "mic1",
+    "mic2",
+    "mic3"
+  ],
+  "coordinates_m": [
+    [
+      -0.02,
+      -0.02,
+      0
+    ],
+    [
+      0.02,
+      -0.02,
+      0
+    ],
+    [
+      0.02,
+      0.02,
+      0
+    ],
+    [
+      -0.02,
+      0.02,
+      0
+    ]
+  ],
+  "geometry_version": "square40-provisional-0.1",
+  "coordinate_system": "x-forward_y-left_z-up",
+  "direction_convention": "array-to-source",
+  "angle_unit": "deg",
+  "sample_rate_hz": 48000,
+  "sample_format": {
+    "encoding": "signed-pcm",
+    "storage_dtype": "int32",
+    "valid_bits": 24,
+    "alignment": "right",
+    "fractional_bits": 0
+  },
+  "source_kind": "synthetic-code",
+  "evidence_level": "synthetic",
+  "capture_point": "software-fixed-pattern",
+  "provisional_fields": {
+    "channel_order": "Software mapping only; physical microphones not mapped.",
+    "coordinates_m": "Nominal square geometry, not measured.",
+    "sample_rate_hz": "Nominal software timebase, not measured.",
+    "sample_format": "Exchange representation only, not measured microphone resolution."
+  },
+  "calibration_status": "not-calibrated"
+}

@@ -1,0 +1,153 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Thu Oct 29 16:42:14 2026
+| Host         : Toph running 64-bit major release  (build 9200)
+| Command      : report_timing -from [all_registers -clock_pins] -to soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/v_guard/pwm_o_reg/C -delay_type max -max_paths 4 -nworst 4 -path_type full_clock_expanded -input_pins -warn_on_violation -file {E:/Users/Toph Beifong/Documents/GitHub/SoundSight/project/reports/ps_3d/w16/supplemental/servo_pwm_max.rpt}
+| Design       : soundsight_stm32_bd_wrapper
+| Device       : 7z020-clg400
+| Speed File   : -2  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             10.182ns  (required time - arrival time)
+  Source:                 soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/h_guard/pwm_o_reg/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_soundsight_stm32_bd_clk_wiz_0_1  {rise@0.000ns fall@8.138ns period=16.276ns})
+  Destination:            servo_pwm
+  Path Group:             **default**
+  Path Type:              Max at Slow Process Corner
+  Requirement:            20.000ns  (MaxDelay Path 20.000ns)
+  Data Path Delay:        9.818ns  (logic 4.581ns (46.658%)  route 5.237ns (53.342%))
+  Logic Levels:           2  (LUT3=1 OBUF=1)
+  Output Delay:           0.000ns
+  Timing Exception:       MaxDelay Path 20.000ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X34Y35                                      0.000     0.000 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/h_guard/pwm_o_reg/C
+    SLICE_X34Y35         FDCE (Prop_fdce_C_Q)         0.433     0.433 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/h_guard/pwm_o_reg/Q
+                         net (fo=3, routed)           0.833     1.266    soundsight_stm32_bd_i/ps_link/inst/u_core/regs/dual_pwm_h
+    SLICE_X38Y35                                                      r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/I2
+    SLICE_X38Y35         LUT3 (Prop_lut3_I2_O)        0.105     1.371 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/O
+                         net (fo=1, routed)           4.404     5.775    servo_pwm_OBUF
+    T15                                                               r  servo_pwm_OBUF_inst/I
+    T15                  OBUF (Prop_obuf_I_O)         4.043     9.818 r  servo_pwm_OBUF_inst/O
+                         net (fo=0)                   0.000     9.818    servo_pwm
+    T15                                                               r  servo_pwm (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   20.000    20.000    
+                         output delay                -0.000    20.000    
+  -------------------------------------------------------------------
+                         required time                         20.000    
+                         arrival time                          -9.818    
+  -------------------------------------------------------------------
+                         slack                                 10.182    
+
+Slack (MET) :             10.182ns  (required time - arrival time)
+  Source:                 soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/h_guard/pwm_o_reg/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_soundsight_stm32_bd_clk_wiz_0_1  {rise@0.000ns fall@8.138ns period=16.276ns})
+  Destination:            servo_pwm
+  Path Group:             **default**
+  Path Type:              Max at Slow Process Corner
+  Requirement:            20.000ns  (MaxDelay Path 20.000ns)
+  Data Path Delay:        9.818ns  (logic 4.581ns (46.658%)  route 5.237ns (53.342%))
+  Logic Levels:           2  (LUT3=1 OBUF=1)
+  Output Delay:           0.000ns
+  Timing Exception:       MaxDelay Path 20.000ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X34Y35                                      0.000     0.000 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/h_guard/pwm_o_reg/C
+    SLICE_X34Y35         FDCE (Prop_fdce_C_Q)         0.433     0.433 f  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/h_guard/pwm_o_reg/Q
+                         net (fo=3, routed)           0.833     1.266    soundsight_stm32_bd_i/ps_link/inst/u_core/regs/dual_pwm_h
+    SLICE_X38Y35                                                      f  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/I2
+    SLICE_X38Y35         LUT3 (Prop_lut3_I2_O)        0.105     1.371 f  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/O
+                         net (fo=1, routed)           4.404     5.775    servo_pwm_OBUF
+    T15                                                               f  servo_pwm_OBUF_inst/I
+    T15                  OBUF (Prop_obuf_I_O)         4.043     9.818 f  servo_pwm_OBUF_inst/O
+                         net (fo=0)                   0.000     9.818    servo_pwm
+    T15                                                               f  servo_pwm (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   20.000    20.000    
+                         output delay                -0.000    20.000    
+  -------------------------------------------------------------------
+                         required time                         20.000    
+                         arrival time                          -9.818    
+  -------------------------------------------------------------------
+                         slack                                 10.182    
+
+Slack (MET) :             10.430ns  (required time - arrival time)
+  Source:                 soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual/guard/pwm_o_reg/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_soundsight_stm32_bd_clk_wiz_0_1  {rise@0.000ns fall@8.138ns period=16.276ns})
+  Destination:            servo_pwm
+  Path Group:             **default**
+  Path Type:              Max at Slow Process Corner
+  Requirement:            20.000ns  (MaxDelay Path 20.000ns)
+  Data Path Delay:        9.570ns  (logic 4.581ns (47.865%)  route 4.990ns (52.135%))
+  Logic Levels:           2  (LUT3=1 OBUF=1)
+  Output Delay:           0.000ns
+  Timing Exception:       MaxDelay Path 20.000ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X38Y35                                      0.000     0.000 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual/guard/pwm_o_reg/C
+    SLICE_X38Y35         FDCE (Prop_fdce_C_Q)         0.433     0.433 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual/guard/pwm_o_reg/Q
+                         net (fo=3, routed)           0.585     1.018    soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual_pwm
+    SLICE_X38Y35                                                      r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/I1
+    SLICE_X38Y35         LUT3 (Prop_lut3_I1_O)        0.105     1.123 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/O
+                         net (fo=1, routed)           4.404     5.528    servo_pwm_OBUF
+    T15                                                               r  servo_pwm_OBUF_inst/I
+    T15                  OBUF (Prop_obuf_I_O)         4.043     9.570 r  servo_pwm_OBUF_inst/O
+                         net (fo=0)                   0.000     9.570    servo_pwm
+    T15                                                               r  servo_pwm (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   20.000    20.000    
+                         output delay                -0.000    20.000    
+  -------------------------------------------------------------------
+                         required time                         20.000    
+                         arrival time                          -9.570    
+  -------------------------------------------------------------------
+                         slack                                 10.430    
+
+Slack (MET) :             10.430ns  (required time - arrival time)
+  Source:                 soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual/guard/pwm_o_reg/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_soundsight_stm32_bd_clk_wiz_0_1  {rise@0.000ns fall@8.138ns period=16.276ns})
+  Destination:            servo_pwm
+  Path Group:             **default**
+  Path Type:              Max at Slow Process Corner
+  Requirement:            20.000ns  (MaxDelay Path 20.000ns)
+  Data Path Delay:        9.570ns  (logic 4.581ns (47.865%)  route 4.990ns (52.135%))
+  Logic Levels:           2  (LUT3=1 OBUF=1)
+  Output Delay:           0.000ns
+  Timing Exception:       MaxDelay Path 20.000ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X38Y35                                      0.000     0.000 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual/guard/pwm_o_reg/C
+    SLICE_X38Y35         FDCE (Prop_fdce_C_Q)         0.433     0.433 f  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual/guard/pwm_o_reg/Q
+                         net (fo=3, routed)           0.585     1.018    soundsight_stm32_bd_i/ps_link/inst/u_core/regs/manual_pwm
+    SLICE_X38Y35                                                      f  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/I1
+    SLICE_X38Y35         LUT3 (Prop_lut3_I1_O)        0.105     1.123 f  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/servo_pwm__0/O
+                         net (fo=1, routed)           4.404     5.528    servo_pwm_OBUF
+    T15                                                               f  servo_pwm_OBUF_inst/I
+    T15                  OBUF (Prop_obuf_I_O)         4.043     9.570 f  servo_pwm_OBUF_inst/O
+                         net (fo=0)                   0.000     9.570    servo_pwm
+    T15                                                               f  servo_pwm (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   20.000    20.000    
+                         output delay                -0.000    20.000    
+  -------------------------------------------------------------------
+                         required time                         20.000    
+                         arrival time                          -9.570    
+  -------------------------------------------------------------------
+                         slack                                 10.430    
+
+
+
+

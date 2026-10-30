@@ -1,0 +1,92 @@
+[
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "software/tetra3d/tests/test_follow_sound.py",
+      "-v"
+    ],
+    "returncode": 0,
+    "tail": [
+      "----------------------------------------------------------------------",
+      "Ran 7 tests in 0.040s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "software/tetra3d/tests/test_online_3d.py",
+      "-v"
+    ],
+    "returncode": 0,
+    "tail": [
+      "----------------------------------------------------------------------",
+      "Ran 21 tests in 0.144s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "software/tests/test_normal.py",
+      "-v"
+    ],
+    "returncode": 0,
+    "tail": [
+      "----------------------------------------------------------------------",
+      "Ran 17 tests in 0.572s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "software/tests/test_manual_servo.py",
+      "-v"
+    ],
+    "returncode": 0,
+    "tail": [
+      "----------------------------------------------------------------------",
+      "Ran 8 tests in 0.000s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "software/tests/test_horizontal_motion.py",
+      "-v"
+    ],
+    "returncode": 0,
+    "tail": [
+      "----------------------------------------------------------------------",
+      "Ran 28 tests in 0.118s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "software/tests/test_board_tools.py",
+      "-v"
+    ],
+    "returncode": 0,
+    "tail": [
+      "----------------------------------------------------------------------",
+      "Ran 15 tests in 0.049s",
+      "",
+      "OK"
+    ]
+  }
+]

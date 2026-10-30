@@ -1,0 +1,13 @@
+{
+  "existing_nets_preserved": 34,
+  "unchanged_components": 18,
+  "axi_address_interfaces_unchanged": true,
+  "existing_ports_unchanged": true,
+  "horizontal_rtl_byte_match": 7,
+  "new_vertical_port": true,
+  "copied_xdc_pins": "T15/W15",
+  "generated_hwh_parameters_match": true,
+  "synthesis": false,
+  "implementation": false,
+  "hardware_actions": false
+}

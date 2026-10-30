@@ -1,0 +1,17 @@
+{
+  "tests": [
+    {
+      "test": "test_servo_pin_update.py",
+      "returncode": 0
+    },
+    {
+      "test": "test_horizontal_tcl.py",
+      "returncode": 0
+    }
+  ],
+  "scope": "Tcl with mocked project API and real temporary XDC file edits",
+  "vivado": "NOT_RUN",
+  "sta": "NOT_RUN",
+  "board": "NOT_RUN",
+  "initial_failure": "Tcl normalized sandbox AppData junction differently; moved fixture to simulation/work and modeled external extracted kit. No product workaround."
+}

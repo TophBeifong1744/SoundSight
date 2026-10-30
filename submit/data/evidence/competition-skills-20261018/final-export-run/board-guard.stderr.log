@@ -1,0 +1,1 @@
+BOARD_RUNNER_NOT_QUALIFIED: no PYNQ import, allocation, MMIO or download. Use simulate_dma.py for offline tests. A real adapter must first qualify driver completion, abort/quiescence, coherency and process lifetime; see references/hardware-runbook.md.

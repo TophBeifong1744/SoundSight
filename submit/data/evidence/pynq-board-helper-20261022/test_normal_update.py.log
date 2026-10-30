@@ -1,0 +1,15 @@
+BACKUP= C:\Users\Toph Beifong\AppData\Local\Temp\tmpd8lwlamo\installed\backup_normal_zh_rf07r
+NORMAL_UPDATE_INSTALLED FILES= 2 HARDWARE_ACTIONS=0
+BACKUP= C:\Users\Toph Beifong\AppData\Local\Temp\tmpafn8_trg\installed\backup_normal_n1fb7lg8
+NORMAL_UPDATE_INSTALLED FILES= 3 HARDWARE_ACTIONS=0
+
+test_backup_only_replaced_files_preserves_hardware_library_logs (__main__.InstallTests.test_backup_only_replaced_files_preserves_hardware_library_logs) ... ok
+test_missing_payload_refused_before_replacement (__main__.InstallTests.test_missing_payload_refused_before_replacement) ... ok
+test_prepare_is_opt_in_and_runs_after_installer_lock_is_closed (__main__.InstallTests.test_prepare_is_opt_in_and_runs_after_installer_lock_is_closed) ... ok
+test_root_launcher_allowed_and_local_settings_preserved (__main__.InstallTests.test_root_launcher_allowed_and_local_settings_preserved) ... ok
+test_traversal_and_hardware_update_refused (__main__.InstallTests.test_traversal_and_hardware_update_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.170s
+
+OK

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scope": "Static export equivalence and dependency existence only",
+  "bd_cells": 13,
+  "bd_signal_nets": 30,
+  "bd_interface_nets": 2,
+  "bd_export_events_matched": 64,
+  "fft_explicit_parameters_matched": {
+    "ss_fft29": 27,
+    "ss_ifft25": 27
+  },
+  "run_properties_matched": 77,
+  "handoff_engineering_files": 40,
+  "vivado_started": false,
+  "rebuild_validate_simulation_sta_board": "NOT_RUN"
+}

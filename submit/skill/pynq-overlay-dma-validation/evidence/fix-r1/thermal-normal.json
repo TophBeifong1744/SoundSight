@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "evidence_level": "mock",
+  "board_execution": false,
+  "transaction_id": 1,
+  "mode": "receive",
+  "status": "PASS",
+  "requested_bytes": 96,
+  "actual_bytes": 96,
+  "events": [
+    "rx.allocate",
+    "rx.fill",
+    "rx.flush",
+    "rx.invalidate_before",
+    "rx.arm",
+    "dma.quiescent",
+    "rx.invalidate_after",
+    "rx.read",
+    "rx.release"
+  ],
+  "errors": [],
+  "snapshots": [
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": false,
+        "tx_completed": false,
+        "quiescent": false,
+        "actual_bytes": null,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 1,
+          "simulated_active": true
+        }
+      }
+    },
+    {
+      "phase": "transfer",
+      "state": {
+        "transaction_id": 1,
+        "rx_completed": true,
+        "tx_completed": false,
+        "quiescent": true,
+        "actual_bytes": 96,
+        "error": null,
+        "raw_status": {
+          "simulated_poll": 2,
+          "simulated_active": false
+        }
+      }
+    }
+  ],
+  "mismatch_count": 0,
+  "first_mismatch": null,
+  "transfer_elapsed_seconds": 0.001,
+  "throughput_bytes_per_second": 96000.0,
+  "buffer_disposition": "released",
+  "tlast_observed": null,
+  "expected_sha256": "b2decedfbcf9d1ab45a1f49c0447821f2a2079063c781fba7b3c1a626bbe1dfe",
+  "output_sha256": "b2decedfbcf9d1ab45a1f49c0447821f2a2079063c781fba7b3c1a626bbe1dfe",
+  "session_blocked": false,
+  "adapter_trace": [
+    "rx.allocate",
+    "rx.write",
+    "rx.flush",
+    "rx.invalidate",
+    "rx.arm",
+    "snapshot",
+    "snapshot",
+    "rx.invalidate",
+    "rx.read",
+    "rx.release"
+  ],
+  "payload_format": "<h",
+  "golden_sha256": "b2decedfbcf9d1ab45a1f49c0447821f2a2079063c781fba7b3c1a626bbe1dfe",
+  "timing_source": "synthetic mock clock; not hardware throughput"
+}

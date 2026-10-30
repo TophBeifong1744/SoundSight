@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "scope": "static project structure only; no HDL/STA/board claim",
+  "root": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\git_portability_20261017_210450\\checkout",
+  "source_lists": {
+    "project/script/src_list.txt": 26,
+    "document/build/ps-src-list.txt": 26,
+    "simulation/script/src_list.txt": 33
+  },
+  "python_syntax_checked": 8,
+  "errors": []
+}

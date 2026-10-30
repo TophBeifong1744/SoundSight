@@ -1,0 +1,138 @@
+{
+  "source": "ram-real-100-001-pairs-uart.txt",
+  "decoder_contract": "software/common/fpga_stm32_abi_frozen.h",
+  "samples": [
+    {
+      "sequence": 56,
+      "reason": 1,
+      "pairs": [
+        {
+          "pair": "01",
+          "word": "0x62000000",
+          "lag": 0,
+          "mask_count": 0,
+          "phat_stage": 2,
+          "ifft_stage": 6,
+          "raw_peak_valid": false,
+          "ifft_qualified": false
+        },
+        {
+          "pair": "02",
+          "word": "0x62000100",
+          "lag": 0,
+          "mask_count": 0,
+          "phat_stage": 2,
+          "ifft_stage": 6,
+          "raw_peak_valid": false,
+          "ifft_qualified": false
+        },
+        {
+          "pair": "03",
+          "word": "0x62000200",
+          "lag": 0,
+          "mask_count": 0,
+          "phat_stage": 2,
+          "ifft_stage": 6,
+          "raw_peak_valid": false,
+          "ifft_qualified": false
+        },
+        {
+          "pair": "12",
+          "word": "0x62000300",
+          "lag": 0,
+          "mask_count": 0,
+          "phat_stage": 2,
+          "ifft_stage": 6,
+          "raw_peak_valid": false,
+          "ifft_qualified": false
+        },
+        {
+          "pair": "13",
+          "word": "0x62000400",
+          "lag": 0,
+          "mask_count": 0,
+          "phat_stage": 2,
+          "ifft_stage": 6,
+          "raw_peak_valid": false,
+          "ifft_qualified": false
+        },
+        {
+          "pair": "23",
+          "word": "0x62000500",
+          "lag": 0,
+          "mask_count": 0,
+          "phat_stage": 2,
+          "ifft_stage": 6,
+          "raw_peak_valid": false,
+          "ifft_qualified": false
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "reason": 3,
+      "pairs": [
+        {
+          "pair": "01",
+          "word": "0x113638fd",
+          "lag": -3,
+          "mask_count": 54,
+          "phat_stage": 1,
+          "ifft_stage": 1,
+          "raw_peak_valid": true,
+          "ifft_qualified": true
+        },
+        {
+          "pair": "02",
+          "word": "0x113639f8",
+          "lag": -8,
+          "mask_count": 54,
+          "phat_stage": 1,
+          "ifft_stage": 1,
+          "raw_peak_valid": true,
+          "ifft_qualified": true
+        },
+        {
+          "pair": "03",
+          "word": "0x11303afd",
+          "lag": -3,
+          "mask_count": 48,
+          "phat_stage": 1,
+          "ifft_stage": 1,
+          "raw_peak_valid": true,
+          "ifft_qualified": true
+        },
+        {
+          "pair": "12",
+          "word": "0x113f3bfd",
+          "lag": -3,
+          "mask_count": 63,
+          "phat_stage": 1,
+          "ifft_stage": 1,
+          "raw_peak_valid": true,
+          "ifft_qualified": true
+        },
+        {
+          "pair": "13",
+          "word": "0x113a3cff",
+          "lag": -1,
+          "mask_count": 58,
+          "phat_stage": 1,
+          "ifft_stage": 1,
+          "raw_peak_valid": true,
+          "ifft_qualified": true
+        },
+        {
+          "pair": "23",
+          "word": "0x113b3d01",
+          "lag": 1,
+          "mask_count": 59,
+          "phat_stage": 1,
+          "ifft_stage": 1,
+          "raw_peak_valid": true,
+          "ifft_qualified": true
+        }
+      ]
+    }
+  ]
+}

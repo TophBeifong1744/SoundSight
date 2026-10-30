@@ -1,0 +1,20 @@
+{
+  "package": "six-mic-acoustic-review-v1",
+  "created": "2026-09-07",
+  "evidence_level": "synthetic floating-point simulation, not hardware acceptance",
+  "source_git_head": "9a4c1cdccda9c1f48a4343eb5690d993e453d8ba",
+  "source_worktree_dirty": true,
+  "rebuild_note": "Git HEAD alone does not contain the delivered worktree. Use bundled source and hashes.",
+  "sources": {
+    "script": "model/python/six_mic_acoustic_review.py",
+    "report": "docs/six-mic-acoustic-software-review.md",
+    "results": "results/model/six-mic-acoustic-review",
+    "license": "LICENSE"
+  },
+  "script_sha256": "fef3cf3de90750f21003a7d23abd02e2b623bc71c597deb9480cf48defa6a4d1",
+  "copy_policy": "script, result files and LICENSE are byte-exact; report links and reproduction command rebased for portability",
+  "environment": {"os": "Windows", "python": "3.12.14", "numpy": "2.3.5", "pillow": "12.3.0"},
+  "scope": "six microphones only; no new four-mic simulation or four/six comparison",
+  "tests": {"self_tests": 21, "trial_frames": 2700, "reproduced_artifacts": 15},
+  "limitations": ["not natural speech", "not measured room acoustics", "not fixed point or PL timing", "no PDM/board acceptance", "no automatic target locking", "3D-G0 not fully passed"]
+}

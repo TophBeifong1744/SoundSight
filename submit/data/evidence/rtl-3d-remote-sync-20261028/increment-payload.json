@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "repair_files": [
+    "software/ps/run_capture.py",
+    "software/ps/horizontal_motion.py",
+    "software/ps/board_tools.py",
+    "software/ps/speaker_permission.py"
+  ],
+  "entries": 41,
+  "scope": "A-side increment payload; B engine/assets not included"
+}

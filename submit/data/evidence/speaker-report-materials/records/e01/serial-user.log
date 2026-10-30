@@ -1,0 +1,8 @@
+sh speaker-core.sh bench
+CORE_PACKAGE_OK=1 ARCH=armv7l BITS=32 GLIBC=glibc 2.31 NO_HARDWARE_ACCESS=1
+CORE_BENCH_BEGIN=1 INPUT_SECONDS=3.104 THREADS=2 OUTPUT=logs/core-Kiptwv
+CORE_ONLY=1 MOTION_COMMANDS=0 ORT=1.17.3 THREADS=2 LOAD_SECONDS=2.883954
+{"run":1,"frames":311,"seconds":9.058208,"max_abs_error":0.000612258911,"cosine":1,"peak_rss_mib":127.438,"pass":true}
+{"run":2,"frames":311,"seconds":9.069425,"max_abs_error":0.000612258911,"cosine":1,"peak_rss_mib":127.438,"pass":true}
+CORE_BENCH=PASS NOT_END_TO_END=1 MOTION_COMMANDS=0
+xilinx@pynq:~/SoundSight_Speaker_Core_ARMHF$

@@ -1,0 +1,15 @@
+USER MESSAGE UTC 2026-10-21T09:23:30.679Z
+---- 已发送 utf8 编码消息: "sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_buffered.py --hwh soundsight.hwh --output ram-bist-pass-001.jsonl --mode bist-pass --clear-faults 0x40\n" ----
+cal/share/pynq-venv/bin/python3 software/ps/run_buffered.py --hwh soundsight.hwh --output ram-bist-pass-001.jsonl --mode bist-pass --clear-faults 0x40
+RAM_QUEUE_SWAP_ACTIVE= True
+RAM_RECOVERY_DIR= /dev/shm/soundsight-3fua787x
+PYNQ双核已启动： {'host_pid': 627, 'host_cpu': 0, 'host_affinity': [0], 'worker_pid': 629, 'worker_cpu': 1, 'worker_affinity': [1]}
+DURABLE_FRAMES= 1 QUEUE_PEAK= 3 RESULT= {'error': None, 'stats': {'consumed': 1, 'drained': 0, 'max_service_ns': 6456432}, 'stop_reason': 'requested_frames', 'requested_frames': 1, 'host_stop_reason': None, 'queue_peak': 2}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+---- 已发送 utf8 编码消息: "cat ram-bist-pass-001.jsonl\n" ----
+cat ram-bist-pass-001.jsonl
+{"event": "startup", "fault_before": 0, "requested_clear_faults": 64, "retention": "ram_before_consume", "worker_pid": 629, "worker_cpu": 1, "worker_affinity": [1], "ram_record": {"session": "soundsight-3fua787x", "ticket": 1}}
+{"frame": {"sequence": 1, "status": 98105, "words": [1716459524, 1000, 800, 800, 100, 1716459780, 1000, 800, 800, 100, 1716460032, 1000, 800, 800, 100, 1716460288, 1000, 800, 800, 100, 1716460796, 1000, 800, 800, 100, 1716461052, 1000, 800, 800, 100], "energy": 100000, "fault": 0, "drops": 0}, "result": {"api_status": 0, "direction_valid": 1, "reason": 0, "angle_q8": 0, "ux_q20": 749295, "uy_q20": 0, "valid_pairs": 6, "servo_deg": 0, "servo_cmd_valid": 0, "map_status": 1, "first_error": 0, "bad_pair": 255, "bridge_status": 0}, "motion_requested": false, "timing_ns": {"acquire": 1226787, "solve": 640653}, "ram_record": {"session": "soundsight-3fua787x", "ticket": 2}}
+{"event": "finished", "retention": "ram_before_consume", "host_pid": 627, "host_cpu": 0, "host_affinity": [0], "error": null, "stats": {"consumed": 1, "drained": 0, "max_service_ns": 6456432}, "stop_reason": "requested_frames", "requested_frames": 1, "host_stop_reason": null, "queue_peak": 2}
+xilinx@pynq:~/SoundSight_PYNQ$ 
+

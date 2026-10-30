@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/zynq_ps_20261017/evidence/ps_20261017_151554/sources/ss_fft29.vhd" into library work
+INFO: [VRFC 10-3107] analyzing entity 'ss_fft29'
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Users/Toph Beifong/Documents/GitHub/Competition_fpga/migration/zynq_ps_20261017/evidence/ps_20261017_151554/sources/ss_ifft25.vhd" into library work
+INFO: [VRFC 10-3107] analyzing entity 'ss_ifft25'

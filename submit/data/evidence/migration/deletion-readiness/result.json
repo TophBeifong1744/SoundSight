@@ -1,0 +1,104 @@
+{
+  "scope": "Current migration file completeness and old-path independence; no EDA or deletion",
+  "errors": [],
+  "mapping": {
+    "entries": 806,
+    "missing": [],
+    "old_mapped_files_changed_after_copy_manifest": []
+  },
+  "native_projects": [
+    {
+      "project": "project/par/SoundSight.xpr",
+      "registered_file_references": 32
+    },
+    {
+      "project": "variants/pl_ps/project/par/SoundSight_PS.xpr",
+      "registered_file_references": 32
+    }
+  ],
+  "reference_scan": {
+    "text_files": 454,
+    "reparse_points": [],
+    "old_name_occurrences": [
+      {
+        "path": "project/ip/reference/ps/ss_fft29/ss_fft29.xci",
+        "lines": [
+          [
+            7,
+            "    \"gen_directory\": \"../../../../i17_live_loop.gen/sources_1/ip/ss_fft29\","
+          ],
+          [
+            96,
+            "        \"OUTPUTDIR\": [ { \"value\": \"../../../../i17_live_loop.gen/sources_1/ip/ss_fft29\" } ],"
+          ]
+        ]
+      },
+      {
+        "path": "project/ip/reference/ps/ss_ifft25/ss_ifft25.xci",
+        "lines": [
+          [
+            7,
+            "    \"gen_directory\": \"../../../../i17_live_loop.gen/sources_1/ip/ss_ifft25\","
+          ],
+          [
+            96,
+            "        \"OUTPUTDIR\": [ { \"value\": \"../../../../i17_live_loop.gen/sources_1/ip/ss_ifft25\" } ],"
+          ]
+        ]
+      },
+      {
+        "path": "project/ip/reference/stm32/ss_fft29/ss_fft29.xci",
+        "lines": [
+          [
+            7,
+            "    \"gen_directory\": \"../../../../i17_live_loop.gen/sources_1/ip/ss_fft29\","
+          ],
+          [
+            96,
+            "        \"OUTPUTDIR\": [ { \"value\": \"../../../../i17_live_loop.gen/sources_1/ip/ss_fft29\" } ],"
+          ]
+        ]
+      },
+      {
+        "path": "project/ip/reference/stm32/ss_ifft25/ss_ifft25.xci",
+        "lines": [
+          [
+            7,
+            "    \"gen_directory\": \"../../../../i17_live_loop.gen/sources_1/ip/ss_ifft25\","
+          ],
+          [
+            96,
+            "        \"OUTPUTDIR\": [ { \"value\": \"../../../../i17_live_loop.gen/sources_1/ip/ss_ifft25\" } ],"
+          ]
+        ]
+      },
+      {
+        "path": "tools/check_project.py",
+        "lines": [
+          [
+            23,
+            "            for word in ['Competition'+'_fpga','F:/AMD/p/'+'i17_live_loop','migration/'+'clean_pl_20261017','migration/'+'zynq_ps_20261017']:"
+          ]
+        ]
+      }
+    ]
+  },
+  "archives": [
+    {
+      "name": "legacy-technical.zip",
+      "entries": 11418,
+      "crc_error": null,
+      "compared_to_current_old_files": 11418,
+      "mismatched": []
+    },
+    {
+      "name": "migration-input-originals.zip",
+      "entries": 79,
+      "crc_error": null,
+      "compared_to_current_old_files": 0,
+      "mismatched": []
+    }
+  ],
+  "latest_product_unmapped_files": [],
+  "status": "PASS"
+}

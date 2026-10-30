@@ -1,0 +1,35 @@
+{
+  "scope": "PC_X86_DAS_SYNTHETIC",
+  "python": "3.13.0",
+  "numpy": "2.2.0",
+  "sample_rate": 48000,
+  "input_samples": 48000,
+  "block_samples": 1024,
+  "rounds": 3,
+  "allocation_probe_samples": 8192,
+  "variants": {
+    "baseline_trace": {
+      "median_wall_seconds": 0.176659,
+      "tracemalloc_peak_bytes": 2616168
+    },
+    "ring_trace": {
+      "median_wall_seconds": 0.121388,
+      "tracemalloc_peak_bytes": 2169612
+    },
+    "ring_no_trace": {
+      "median_wall_seconds": 0.113945,
+      "tracemalloc_peak_bytes": 99820
+    }
+  },
+  "synthetic_examples": {
+    "direction_rms_before_deg": 2.722807,
+    "direction_rms_after_deg": 0.898019,
+    "reacquire_ms_after_first_candidate": 40,
+    "weighted_bad_pair_before_deg": 4.049,
+    "weighted_bad_pair_after_deg": 1.747,
+    "unweighted_residual_before_samples": 0.231,
+    "unweighted_residual_after_samples": 0.265,
+    "distinct_python_tests": 86,
+    "new_integration_tests": 13
+  }
+}

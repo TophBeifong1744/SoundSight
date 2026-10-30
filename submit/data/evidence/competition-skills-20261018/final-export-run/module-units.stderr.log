@@ -1,0 +1,12 @@
+test_bad_input_reports_no_hardware (test_runner.RunnerTest.test_bad_input_reports_no_hardware) ... ok
+test_examples_load (test_runner.RunnerTest.test_examples_load) ... ok
+test_existing_output_untouched (test_runner.RunnerTest.test_existing_output_untouched) ... ok
+test_no_false_pass (test_runner.RunnerTest.test_no_false_pass) ... ok
+test_positive (test_runner.RunnerTest.test_positive) ... ok
+test_reject_schema (test_runner.RunnerTest.test_reject_schema) ... ok
+test_stage_failures (test_runner.RunnerTest.test_stage_failures) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.067s
+
+OK

@@ -1,0 +1,68 @@
+{
+  "result": "SCOPED_PASS",
+  "scope": "Original Oct28 routed checkpoint + in-memory vertical max delay. No netlist/placement/routing or bit changed.",
+  "original_artifacts_unchanged": true,
+  "hardware": {
+    "bit": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.runs\\impl_1\\soundsight_stm32_bd_wrapper.bit",
+      "bytes": 4045703,
+      "mtime_ns": 1793165895620027100,
+      "sha256": "40d19dfcb77ee87e7f92f479c11300c45d789d6699beb7a6945c13ea8273725f"
+    },
+    "hwh": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.gen\\sources_1\\bd\\soundsight_stm32_bd\\hw_handoff\\soundsight_stm32_bd.hwh",
+      "bytes": 433376,
+      "mtime_ns": 1793165371030185700,
+      "sha256": "de42bdb325d202a27161f9be7e4197701f1d0c644d8bb8d80d4d547efdf2ab3f"
+    },
+    "routed_dcp": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.runs\\impl_1\\soundsight_stm32_bd_wrapper_routed.dcp",
+      "bytes": 17139594,
+      "mtime_ns": 1793165882182951400,
+      "sha256": "500c29d9276b92c91bb71d429b077f9e2630ab86114195e431620e912b426dd8"
+    },
+    "bd": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.srcs\\sources_1\\bd\\soundsight_stm32_bd\\soundsight_stm32_bd.bd",
+      "bytes": 99328,
+      "mtime_ns": 1793165369070226000,
+      "sha256": "297bbab6ae075772292ffe59e977f73979629f0abe7743870bdd8f97bfe21a7e"
+    },
+    "xpr": {
+      "path": "F:\\AMD\\work\\SoundSight_PS_3D\\SoundSight_PS_3D.xpr",
+      "bytes": 24984,
+      "mtime_ns": 1793165882904724500,
+      "sha256": "78d6f2f1c08947e44a727836ad959802f50f10f2d34b0794b4d660857d18a783"
+    }
+  },
+  "timing": {
+    "wns_ns": 0.311,
+    "whs_ns": 0.036,
+    "wpws_ns": 2.208,
+    "horizontal_max_budget_slack_ns": 11.077,
+    "vertical_max_budget_slack_ns": 12.608,
+    "unconstrained_internal_endpoints": 0,
+    "unconstrained_outputs": 0,
+    "pwm_external_hold": "NOT_APPLICABLE: asynchronous PWM; datapath-only max budget"
+  },
+  "cdc": {
+    "critical": 0,
+    "info_cdc3": 22,
+    "warning_cdc15": 1252,
+    "cdc15_sources": {
+      "feature_fifo": 1154,
+      "pcm_fifo": 98
+    }
+  },
+  "residuals": [
+    "Existing vendor-IP LUTAR-1 and REQP-1839/1840 asynchronous reset warnings; not a complete RDC signoff",
+    "DRC reports retain rule display limits",
+    "Physical channel mapping and mechanical zero/direction/limits not confirmed",
+    "No ARM 3D or dual-axis board test yet"
+  ],
+  "reports": "project/reports/ps_3d",
+  "hardware_actions": 0,
+  "synthesis_or_implementation_runs_by_assistant": 0,
+  "independent_reviewer": "dual_axis_physical_review (read-only, non-author)",
+  "allowed_next_scope": "Default axes=off bounded 3D measurement; explicit small-range manual calibration after user confirms mapping and mechanical settings",
+  "exceptions_ignored": "8 vendor XPM non-existent-path entries, retained and reviewed"
+}

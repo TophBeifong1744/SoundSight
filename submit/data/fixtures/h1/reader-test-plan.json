@@ -1,0 +1,112 @@
+{
+  "schema_version": "ss-data-draft-0.3",
+  "owner": "BryanZheng802",
+  "note": "Specification for B's reader; not executed reader tests.",
+  "cases": [
+    {
+      "id": "exact-uint64",
+      "fixture": "code-pattern",
+      "action": "Read first two sample IDs without float conversion",
+      "expected": "Keep 9007199254740992 and 9007199254740993 distinct",
+      "reader_test_status": "NOT_RUN"
+    },
+    {
+      "id": "pcm-boundaries",
+      "fixture": "code-pattern",
+      "action": "Read row 2 extrema",
+      "expected": "Accept -8388608 and 8388607",
+      "reader_test_status": "NOT_RUN"
+    },
+    {
+      "id": "gap",
+      "fixture": "code-pattern",
+      "action": "Read row 3",
+      "expected": "Keep gap [9007199254740994,9007199254740994] and both flags; do not renumber",
+      "reader_test_status": "NOT_RUN"
+    },
+    {
+      "id": "restart",
+      "fixture": "restart",
+      "action": "Read after code-pattern",
+      "expected": "New acquisition; do not join or reject because new ID starts at zero",
+      "reader_test_status": "NOT_RUN"
+    },
+    {
+      "id": "unknown-schema",
+      "fixture": "code-pattern",
+      "action": "Set schema_version to unsupported-99",
+      "expected": "Reject with metadata field name",
+      "reader_test_status": "NOT_RUN"
+    },
+    {
+      "id": "swapped-header",
+      "fixture": "code-pattern",
+      "action": "Swap mic0 and mic1 header only",
+      "expected": "Reject column order",
+      "reader_test_status": "NOT_RUN"
+    },
+    {
+      "id": "duplicate-channel",
+      "fixture": "code-pattern",
+      "action": "Set channel_order[1] to mic0",
+      "expected": "Reject duplicate channel",
+      "reader_test_status": "NOT_RUN"
+    },
+    {
+      "id": "pcm-overflow",
+      "fixture": "code-pattern",
+      "action": "Set row 1 mic0 to 8388608",
+      "expected": "Reject CSV physical line 2 / mic0",
+      "reader_test_status": "NOT_RUN"
+    },
+    {
+      "id": "duplicate-id",
+      "fixture": "code-pattern",
+      "action": "Set row 2 ID equal to row 1",
+      "expected": "Reject CSV physical line 3 / sample_id",
+      "reader_test_status": "NOT_RUN"
+    },
+    {
+      "id": "silent-gap",
+      "fixture": "code-pattern",
+      "action": "Set row 3 stream_error=0 and flags empty",
+      "expected": "Reject CSV physical line 4 / missing drop indication",
+      "reader_test_status": "NOT_RUN"
+    },
+    {
+      "id": "error-inconsistency",
+      "fixture": "code-pattern",
+      "action": "Set row 1 error=0 and flags=overflow",
+      "expected": "Reject CSV physical line 2 / flags",
+      "reader_test_status": "NOT_RUN"
+    },
+    {
+      "id": "unknown-coordinates",
+      "fixture": "code-pattern",
+      "action": "Set coordinates_m=null and give provisional reason",
+      "expected": "Allow format/amplitude diagnostics; forbid direction",
+      "reader_test_status": "NOT_RUN"
+    },
+    {
+      "id": "unknown-error-token",
+      "fixture": "code-pattern",
+      "action": "Set row 5 flags=mystery",
+      "expected": "Reject unsupported flag, retain input",
+      "reader_test_status": "NOT_RUN"
+    },
+    {
+      "id": "uint64-overflow",
+      "fixture": "restart",
+      "action": "Set row 1 ID=18446744073709551616",
+      "expected": "Reject CSV physical line 2 / sample_id",
+      "reader_test_status": "NOT_RUN"
+    },
+    {
+      "id": "uint64-maximum",
+      "fixture": "restart",
+      "action": "Use consecutive IDs 18446744073709551614 and 18446744073709551615",
+      "expected": "Accept both exactly; no rollover allowed",
+      "reader_test_status": "NOT_RUN"
+    }
+  ]
+}

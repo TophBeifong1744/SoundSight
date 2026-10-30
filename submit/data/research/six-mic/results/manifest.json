@@ -1,0 +1,17 @@
+{
+  "A-single-reference.wav": "4d4bb599d412bd73de8287d9ddee89adf8f2e5a7c4d785ff5b50007d296ced33",
+  "audio-demo.json": "b0d09c0f20133f0cb22f6a3eed3a8a11a7516b44c14acf1a769662735a9374c9",
+  "B-manual-direction.wav": "e38e27431510baf7853acc147a294e06c07c7316ea811ac850039f830954781a",
+  "beam-cuts.csv": "9e5e46d0fadb0452bb3ce508b8ec3315936a41274a5277e8555044e3c65fcf3c",
+  "C-auto-static-direction.wav": "c0b3fd375cd9a3b151223ab53229f052aa3b72a583ffd236e793371c8e75502a",
+  "config.json": "c1d7b076256e26be66bf80d2ec62ae8b8f7545d462722a1966a445bae710016e",
+  "direction-bins.csv": "1ff2714d95357fdb6ee367338149ed78e977ee427e46d47f833694388ec17846",
+  "direction-summary.csv": "cab66fbb976f5d791df763d1a8ca36d98be72b4299d1ed1731b0e55eac669695",
+  "direction-trials.csv": "4447e27a61ed31fa3ee21291e5828e7ca062e474d9ce909ad270fde77972a362",
+  "self-tests.json": "1e50be6e8cb560378a14e6880d92ef170293ffbf606a0d0ff9e5d71524d1bf9c",
+  "six-channel-synthetic-input.wav": "219cefb08536b53ab4e6dc639d84e9d7a2aaec3674092efecbce1c56d26a7390",
+  "six-mic-beam-cuts.png": "73f458305a54342128c000f144844f54af21a02241916fdd980abae5f080e3be",
+  "six-mic-direction-summary.png": "83192fb5b84e144264e6d457a220f8f09a0b17f9596716e9b89146ab762eab82",
+  "six-mic-geometry.png": "46d891416e40f91698a00d1585320b7c8691435a4202279df27e669aedb05e7a",
+  "SUMMARY.md": "621295f34cb8d8833cb727d9400bcc23ae0af67986039083140d3c7f2dfa7e1b"
+}

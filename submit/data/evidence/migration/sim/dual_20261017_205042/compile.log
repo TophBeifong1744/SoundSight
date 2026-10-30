@@ -1,0 +1,69 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/doa_math_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/bd_board_clock.v" into library work
+INFO: [VRFC 10-311] analyzing module bd_board_clock
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/bd_clean_compute.v" into library work
+INFO: [VRFC 10-311] analyzing module bd_clean_compute
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/bd_ps_link.v" into library work
+INFO: [VRFC 10-311] analyzing module bd_ps_link
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/bd_stm32_link.v" into library work
+INFO: [VRFC 10-311] analyzing module bd_stm32_link
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/doa_math_serial.sv" into library work
+INFO: [VRFC 10-311] analyzing module doa_math_serial
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/doa_phat_client.sv" into library work
+INFO: [VRFC 10-311] analyzing module doa_phat_client
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/f1a_frame_store.sv" into library work
+INFO: [VRFC 10-311] analyzing module f1a_frame_store
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/fft29_official.sv" into library work
+INFO: [VRFC 10-311] analyzing module fft29_official
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/i17_turntable_pwm_guard.sv" into library work
+INFO: [VRFC 10-311] analyzing module i17_turntable_pwm_guard
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ifft25_official.sv" into library work
+INFO: [VRFC 10-311] analyzing module ifft25_official
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/motor_drive.v" into library work
+INFO: [VRFC 10-311] analyzing module motor_drive
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/pdm_cic3.v" into library work
+INFO: [VRFC 10-311] analyzing module pdm_cic3
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/sound_servo_clock.sv" into library work
+INFO: [VRFC 10-311] analyzing module sound_servo_clock
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_actuator_control.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_actuator_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_async_word.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_async_word
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_axi_lite_regs.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_axi_lite_regs
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_bist_source.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_bist_source
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_board_clock.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_board_clock
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_clean_compute.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_clean_compute
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_control_regs.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_control_regs
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_dual_compute.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_dual_compute
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_fft_frontend.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_fft_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_pair_engine.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_pair_engine
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_pcm_windows.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_pcm_windows
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_pdm_capture.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_pdm_capture
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_preprocess.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_preprocess
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_ps_control_regs.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_ps_control_regs
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_ps_link.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_ps_link
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_snapshot_queue.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_snapshot_queue
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_spi_mode0.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_spi_mode0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_stm32_link.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_stm32_link
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/ss_stm32_tile.sv" into library work
+INFO: [VRFC 10-311] analyzing module ss_stm32_tile
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/tb_dual.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_dual
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/dual_20261017_205042/sources/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl

@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-29",
+  "reference_commit": "2f8bddc0e1da58ac52b077fbd36e01a15083fec9",
+  "scope": "DOCUMENTATION_ONLY",
+  "new_experiments": 0,
+  "new_evidence_ids": [],
+  "new_metrics_rows": 0,
+  "protected_evidence_and_metrics_files_unchanged": 46,
+  "historical_source_map_fields_unchanged": true,
+  "original_zip_matches_A_intake": true,
+  "local_links_in_changed_docs_checked": 71,
+  "fixed_ref_links_checked_against_tree": 14,
+  "absolute_local_links_in_changed_docs": 0,
+  "product_or_hardware_changes": false,
+  "check_phase": "PRE_PUBLICATION",
+  "publication_status_source": "Repository PR and merge record; publication is not an experiment"
+}

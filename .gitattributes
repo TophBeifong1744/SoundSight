@@ -21,3 +21,5 @@
 *.ckpt binary
 *.zip binary
 *.xsa binary
+# Submission manifests describe exact payload bytes, including original log/source line endings.
+submit/** -text -eol

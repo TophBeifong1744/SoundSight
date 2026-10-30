@@ -1,0 +1,28 @@
+test_completion_time_not_receipt_time (__main__.GateTests.test_completion_time_not_receipt_time) ... ok
+test_events_are_bounded_and_silence_revision_survives_overwrite (__main__.GateTests.test_events_are_bounded_and_silence_revision_survives_overwrite) ... ok
+test_exact_score_threshold_and_time_boundary (__main__.GateTests.test_exact_score_threshold_and_time_boundary) ... ok
+test_frontend_loss_revokes_before_hardware_lease (__main__.GateTests.test_frontend_loss_revokes_before_hardware_lease) ... ok
+test_inference_in_progress_does_not_extend_or_remove_previous_pass (__main__.GateTests.test_inference_in_progress_does_not_extend_or_remove_previous_pass) ... ok
+test_low_volume_invalidates_window_that_started_before_quiet (__main__.GateTests.test_low_volume_invalidates_window_that_started_before_quiet) ... ok
+test_new_fail_revokes_old_pass (__main__.GateTests.test_new_fail_revokes_old_pass) ... ok
+test_settings_missing_and_persistence_do_not_imply_calibrated (__main__.GateTests.test_settings_missing_and_persistence_do_not_imply_calibrated) ... ok
+test_silence_late_result_and_new_speech_do_not_revive_old_permission (__main__.GateTests.test_silence_late_result_and_new_speech_do_not_revive_old_permission) ... ok
+test_unconfigured_cannot_grant_even_high_score (__main__.GateTests.test_unconfigured_cannot_grant_even_high_score) ... ok
+test_wrong_session_unusable_nan_future_replay_are_rejected (__main__.GateTests.test_wrong_session_unusable_nan_future_replay_are_rejected) ... ok
+test_cli_modes_keep_manual_independent_and_axes_opt_in (__main__.JointTests.test_cli_modes_keep_manual_independent_and_axes_opt_in) ... ok
+test_dma_gap_overflow_timeout_and_worker_loss_stop (__main__.JointTests.test_dma_gap_overflow_timeout_and_worker_loss_stop) ... ok
+test_failed_dma_reset_is_not_claimed_halted (__main__.JointTests.test_failed_dma_reset_is_not_claimed_halted) ... ok
+test_gate_expiry_during_arm_or_shadow_write_never_commits (__main__.JointTests.test_gate_expiry_during_arm_or_shadow_write_never_commits) ... ok
+test_insufficient_raw_pairs_never_reach_hardware_commit (__main__.JointTests.test_insufficient_raw_pairs_never_reach_hardware_commit) ... ok
+test_long_session_uses_constant_retention (__main__.JointTests.test_long_session_uses_constant_retention) ... ok
+test_metadata_mismatch_retains_locked_frame_and_revokes (__main__.JointTests.test_metadata_mismatch_retains_locked_frame_and_revokes) ... ok
+test_two_keys_enable_and_stop_drains_without_motion_after_stop (__main__.JointTests.test_two_keys_enable_and_stop_drains_without_motion_after_stop) ... ok
+test_unconfigured_no_result_off_or_quiet_never_commit (__main__.JointTests.test_unconfigured_no_result_off_or_quiet_never_commit) ... ok
+test_cp1_wrong_shape_fails_before_native_inference (__main__.PipelineTests.test_cp1_wrong_shape_fails_before_native_inference) ... ok
+test_mid_inference_silence_cannot_publish_usable_score (__main__.PipelineTests.test_mid_inference_silence_cannot_publish_usable_score) ... ok
+test_new_delayed_mode_accepts_older_than_two_seconds_without_altering_profile (__main__.PipelineTests.test_new_delayed_mode_accepts_older_than_two_seconds_without_altering_profile) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.295s
+
+OK

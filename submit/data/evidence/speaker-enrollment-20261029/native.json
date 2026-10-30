@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "scope": "HOST_ACTUAL_MODELS_HISTORICAL_PCM_NOT_ARM_OR_REAL_ENROLLMENT",
+  "first_quality": {
+    "eligible_windows": 1,
+    "selected_windows": [
+      16640
+    ],
+    "coverage": [
+      1.0
+    ],
+    "clipped_samples": 0,
+    "channel": 0,
+    "sample_count": 144384,
+    "within_clip_cosines": [
+      1.0
+    ]
+  },
+  "second_quality": {
+    "eligible_windows": 1,
+    "selected_windows": [
+      16640
+    ],
+    "coverage": [
+      1.0
+    ],
+    "clipped_samples": 0,
+    "channel": 0,
+    "sample_count": 144384,
+    "within_clip_cosines": [
+      1.0
+    ]
+  },
+  "centroid_max_abs_error": 0.0,
+  "next_clip_cosine": 0.5471873946335627,
+  "zero_audio_rejected": true,
+  "persisted_template_reloaded": true,
+  "old_threshold_cleared": true,
+  "hardware_actions": 0,
+  "recognition_accuracy": "NOT_MEASURED"
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "command": "software/tetra3d/tests/test_online_3d.py",
+    "exit": 0,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 19 tests in 0.146s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "command": "software/tests/test_normal.py",
+    "exit": 0,
+    "tail": [
+      "................",
+      "----------------------------------------------------------------------",
+      "Ran 17 tests in 0.602s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "command": "software/tests/test_filter_controls.py",
+    "exit": 0,
+    "tail": [
+      ".............",
+      "----------------------------------------------------------------------",
+      "Ran 13 tests in 0.043s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "command": "software/tests/test_manual_servo.py",
+    "exit": 0,
+    "tail": [
+      "........",
+      "----------------------------------------------------------------------",
+      "Ran 8 tests in 0.000s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "command": "software/tests/test_volume_gate.py",
+    "exit": 0,
+    "tail": [
+      "...............",
+      "----------------------------------------------------------------------",
+      "Ran 15 tests in 0.013s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "command": "software/tests/test_launcher.py",
+    "exit": 1,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 12 tests in 0.002s",
+      "",
+      "FAILED (failures=12)"
+    ]
+  }
+]

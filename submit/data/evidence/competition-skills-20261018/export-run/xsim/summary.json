@@ -1,0 +1,67 @@
+{
+  "status": "PASS_DEMONSTRATION",
+  "scope": "author demonstration, not independent B review",
+  "script_sha256": "75a1a6858a8e6bacff9985b709ef1c346de98bee87ef93b1f7db198453c2f201",
+  "runs": [
+    {
+      "name": "pcm4",
+      "expected": "PASS_SIMULATION",
+      "actual": "PASS_SIMULATION",
+      "matched": true,
+      "checks": 792,
+      "first_failure": null,
+      "result": "pcm4/result.json",
+      "result_sha256": "dabcb9f7b79594c286b75610d38b31ff52658ab07308cd4323b1e256bcf3f856"
+    },
+    {
+      "name": "elastic",
+      "expected": "PASS_SIMULATION",
+      "actual": "PASS_SIMULATION",
+      "matched": true,
+      "checks": 13800,
+      "first_failure": null,
+      "result": "elastic/result.json",
+      "result_sha256": "d37b8581d1feb4ba97d099af205b187206447de85d8e0e59832178af8ef81c97"
+    },
+    {
+      "name": "bad_data",
+      "expected": "FAIL_SIMULATION",
+      "actual": "FAIL_SIMULATION",
+      "matched": true,
+      "checks": null,
+      "first_failure": "Fatal: SKILL_FAIL one_edge_data width=1 cycle=2 after_edge=1 transaction=0 expected=1 actual=0",
+      "result": "bad_data/result.json",
+      "result_sha256": "869be0e92ebc71b67bf7d6c4a601132fc18b36b52df6f23950580928fe34194c"
+    },
+    {
+      "name": "bad_ready",
+      "expected": "FAIL_SIMULATION",
+      "actual": "FAIL_SIMULATION",
+      "matched": true,
+      "checks": null,
+      "first_failure": "Fatal: SKILL_FAIL slot_ready width=1 cycle=2 after_edge=0 occupancy=0 actual=0",
+      "result": "bad_ready/result.json",
+      "result_sha256": "a32a2f3ba31ea575adc719175c0c4ecc87ed1b19f5690cc7f4a2e3ee35c9313e"
+    },
+    {
+      "name": "two_stage",
+      "expected": "FAIL_SIMULATION",
+      "actual": "FAIL_SIMULATION",
+      "matched": true,
+      "checks": null,
+      "first_failure": "Fatal: SKILL_FAIL one_edge_valid width=1 cycle=2 after_edge=1 expected=1 actual=0",
+      "result": "two_stage/result.json",
+      "result_sha256": "02b6b7b66fa3a58756a4be97d3a07f671232466478ae6cd8bcab67f7dc45283d"
+    },
+    {
+      "name": "restored",
+      "expected": "PASS_SIMULATION",
+      "actual": "PASS_SIMULATION",
+      "matched": true,
+      "checks": 13800,
+      "first_failure": null,
+      "result": "restored/result.json",
+      "result_sha256": "4f089ab4eb66154852284b2fd3d6526336c864d693aeba43e1a018dec59d3502"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/platform_20261017_205033/sources/soundsight_ps_bd_bus_io_reset_0.vhd" into library work
+INFO: [VRFC 10-3107] analyzing entity 'soundsight_ps_bd_bus_io_reset_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/platform_20261017_205033/sources/soundsight_ps_bd_bus_reset_0.vhd" into library work
+INFO: [VRFC 10-3107] analyzing entity 'soundsight_ps_bd_bus_reset_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/platform_20261017_205033/sources/soundsight_ps_bd_core_reset_0.vhd" into library work
+INFO: [VRFC 10-3107] analyzing entity 'soundsight_ps_bd_core_reset_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/platform_20261017_205033/sources/soundsight_ps_bd_io_reset_0.vhd" into library work
+INFO: [VRFC 10-3107] analyzing entity 'soundsight_ps_bd_io_reset_0'

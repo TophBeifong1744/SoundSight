@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "checks": 8,
+  "scope": "PC HWH and application only; no ARM/PYNQ/board run"
+}

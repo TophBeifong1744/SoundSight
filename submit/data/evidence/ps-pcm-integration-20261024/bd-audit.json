@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "scope": "saved BD and source audit only",
+  "prior_explicit_ps_parameters_preserved": 76,
+  "external_ports_preserved": true,
+  "original_interfaces_preserved": true,
+  "original_nets_preserved_except_irq_zero_reposition": true,
+  "unchanged_other_components": 13,
+  "new_components": 3,
+  "candidate_files": {
+    "project/rtl/ss_manual_servo.sv": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675",
+    "project/rtl/ss_ps_control_regs.sv": "b3b0d802cca994dc66569777d72c3af8b87c4d3dd619340d824e5a3e185472eb",
+    "project/rtl/ss_ps_link.sv": "7240ba3336b6f2d927b007e300b6108aaea383ecc0e3759d2b4b75dd6321e9f0",
+    "project/rtl/bd_ps_link.v": "21251a1067337e328d0f6b625afce2ad958bb7c91d3ea45658a228088c73ea01",
+    "project/rtl/ss_axi_lite_regs.sv": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e",
+    "project/rtl/ss_snapshot_queue.sv": "5e2b408c8ccf7e0600e8a8a52d0e84e417a7b4520fc472cd0b4e9f466710d1c3",
+    "project/rtl/f1a_frame_store.sv": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d",
+    "project/rtl/ss_pair_engine.sv": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409",
+    "project/rtl/ss_pcm_windows.sv": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41",
+    "project/rtl/ss_clean_compute.sv": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669",
+    "project/rtl/ss_dual_compute.sv": "b6872cfaa7d4bc74c8ae9a01d80299042fa89c307f5b9d63e13ea43e182d172c",
+    "project/rtl/bd_clean_compute.v": "aab69f147ca0b0956d4368e95928e181947fe8ecdaa34efabc3e48fdb961750d",
+    "project/rtl/ss_pcm_time_cdc.sv": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c",
+    "project/rtl/ss_audio_fifo.sv": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56",
+    "project/rtl/ss_audio_capture.sv": "91f1c1df0c82e6d4ddc3f65b5bfd7ed267de86dd428c2013c0df8e5c307e76d5",
+    "project/rtl/bd_audio_capture.v": "3433f5ec05128968e3d91fb858b6f875062ca851048eb10965a1cf354ed7bb08",
+    "project/bd/update_ps_reliaze.tcl": "00b738b083ba71fcb09ea90d3bc7e5df07bb5dffd08f6d583e023761c2d90fa8"
+  },
+  "synthesis": "NOT_RUN",
+  "implementation": "NOT_RUN",
+  "board": "NOT_RUN"
+}

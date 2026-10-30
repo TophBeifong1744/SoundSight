@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "updated_files": 11,
+  "private_files_preserved": 7,
+  "backup_verified": true,
+  "relocated_tests": 18,
+  "hardware_unchanged": true,
+  "hardware_actions": 0,
+  "packages": [
+    {
+      "name": "soundsight_pynq_3d_speaker.zip",
+      "bytes": 59320710,
+      "sha256": "e6a9dc806dfbbdf3ba384bdad041bdf45be07eec0e3e78dc67782bb0f7b6a925"
+    },
+    {
+      "name": "soundsight_enrollment_update.zip",
+      "bytes": 41215,
+      "sha256": "7c4738ffd3d5e2617214f40a0ce9be7976dddd9b049ecf6d4685e690290a5650"
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "evidence_level": "mock",
+  "board_execution": false,
+  "review_status": "INDEPENDENT_FORWARD_TRIAL_NOT_B_ACCEPTANCE",
+  "archive_kind": "condensed_from_independent_agent_output",
+  "raw_source_directory": "C:/Users/Toph Beifong/AppData/Local/Temp/pynq-forward-70d800907e3f4a24b98b087092d409ef",
+  "cases": [
+    {
+      "case": "receive-ok",
+      "exit": 0,
+      "status": "PASS",
+      "disposition": "released",
+      "actual_bytes": 104,
+      "mismatch_count": 0,
+      "errors": []
+    },
+    {
+      "case": "receive-cache-noop",
+      "exit": 1,
+      "status": "FAIL",
+      "disposition": "released",
+      "actual_bytes": 104,
+      "mismatch_count": 104,
+      "errors": [
+        "compare: RuntimeError: golden mismatch"
+      ]
+    },
+    {
+      "case": "receive-short",
+      "exit": 1,
+      "status": "FAIL",
+      "disposition": "released",
+      "actual_bytes": 103,
+      "mismatch_count": null,
+      "errors": [
+        "length: RuntimeError: received byte count differs from requested length"
+      ]
+    },
+    {
+      "case": "loopback-ok",
+      "exit": 0,
+      "status": "PASS",
+      "disposition": "released",
+      "actual_bytes": 104,
+      "mismatch_count": 0,
+      "errors": []
+    },
+    {
+      "case": "loopback-partial-start",
+      "exit": 1,
+      "status": "FAIL",
+      "disposition": "released",
+      "actual_bytes": null,
+      "mismatch_count": null,
+      "errors": [
+        "tx.arm: RuntimeError: TX submission raised after RX started"
+      ]
+    },
+    {
+      "case": "loopback-abort-timeout",
+      "exit": 1,
+      "status": "FAIL",
+      "disposition": "retained",
+      "actual_bytes": null,
+      "mismatch_count": null,
+      "errors": [
+        "poll: TimeoutError: transfer deadline exceeded",
+        "abort: TimeoutError: abort deadline exceeded"
+      ]
+    },
+    {
+      "case": "loopback-no-abort",
+      "exit": 1,
+      "status": "FAIL",
+      "disposition": "retained",
+      "actual_bytes": null,
+      "mismatch_count": null,
+      "errors": [
+        "tx.arm: RuntimeError: TX submission raised after RX started"
+      ]
+    },
+    {
+      "case": "loopback-release-error",
+      "exit": 1,
+      "status": "FAIL",
+      "disposition": "release_indeterminate",
+      "actual_bytes": 104,
+      "mismatch_count": 0,
+      "errors": [
+        "release: RuntimeError: injected uncertain release failure"
+      ]
+    },
+    {
+      "case": "loopback-unreadable",
+      "exit": 1,
+      "status": "FAIL",
+      "disposition": "retained",
+      "actual_bytes": null,
+      "mismatch_count": null,
+      "errors": [
+        "poll: OSError: injected unreadable DMA status",
+        "diagnostic: OSError: injected unreadable DMA status",
+        "abort: OSError: injected unreadable DMA status"
+      ]
+    }
+  ],
+  "snapshot_history_preserved": true,
+  "initial_numeric_bug": {
+    "status": "REPRODUCED_FALSE_PASS",
+    "expected": [
+      9007199254740992
+    ],
+    "actual_decimal_literal": "9007199254740993",
+    "atol": 0,
+    "rtol": 0,
+    "original_report": {
+      "tool": "pynq-overlay-dma-validation/compare_golden.py",
+      "generated_at_utc": "2026-09-13T14:41:05.004935+00:00",
+      "status": "PASS",
+      "format": "json-numbers",
+      "atol": 0,
+      "rtol": 0,
+      "expected_path": "C:\\Users\\Toph Beifong\\AppData\\Local\\Temp\\pynq-forward-70d800907e3f4a24b98b087092d409ef\\large-expected.json",
+      "actual_path": "C:\\Users\\Toph Beifong\\AppData\\Local\\Temp\\pynq-forward-70d800907e3f4a24b98b087092d409ef\\large-actual.json",
+      "expected_sha256": "0506c693e95882ea854bdbca187d4d6f2c8cace1ce3d66f23e2df609226333d0",
+      "actual_sha256": "6a3c3801e6c28bd56e639371820c1692722bd29477d021db9f023aeb5303c820",
+      "expected_count": 1,
+      "actual_count": 1,
+      "mismatch_count": 0,
+      "first_mismatch": null,
+      "max_absolute_error": 0
+    },
+    "original_compare_script_sha256": "db1b33857bbf8005bb472ce7cef2fb95a3faf173a80af8813e68bcefc7734278"
+  },
+  "corrected_numeric_retest": {
+    "tool": "pynq-overlay-dma-validation/compare_golden.py",
+    "generated_at_utc": "2026-09-13T14:43:55.722634+00:00",
+    "status": "FAIL",
+    "format": "json-numbers",
+    "atol": 0,
+    "rtol": 0,
+    "expected_path": "C:\\Users\\Toph Beifong\\AppData\\Local\\Temp\\pynq-forward-70d800907e3f4a24b98b087092d409ef\\large-expected.json",
+    "actual_path": "C:\\Users\\Toph Beifong\\AppData\\Local\\Temp\\pynq-forward-70d800907e3f4a24b98b087092d409ef\\large-actual.json",
+    "expected_sha256": "0506c693e95882ea854bdbca187d4d6f2c8cace1ce3d66f23e2df609226333d0",
+    "actual_sha256": "6a3c3801e6c28bd56e639371820c1692722bd29477d021db9f023aeb5303c820",
+    "expected_count": 1,
+    "actual_count": 1,
+    "mismatch_count": 1,
+    "first_mismatch": 0,
+    "max_absolute_error": 1
+  },
+  "final_regression": {
+    "generated_at_utc": "2026-09-13T14:43:57.507707+00:00",
+    "status": "PASS",
+    "tests_run": 50,
+    "subtests_run": 39,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sources_unchanged_during_run": true,
+    "source_sha256": {
+      "scripts/compare_golden.py": "7ff7883414f27ba5e94c4c3f5dde395b801efe7c43d9431605a7ef845cc71c70",
+      "scripts/dma_session.py": "61f8c3996973184470e4473e474793854d4e91046147fab551de848e34f1c03e",
+      "scripts/pynq_probe.py": "2ac2101c8dd1e5f72faa9b2ff107f3546c9c15e74a0372e6f0d567de59be1907",
+      "scripts/run_offline_tests.py": "b22abefb050a32f9a30fb05fe96883f5564d8215fbe52c6fb205ac849bbb7700",
+      "scripts/simulate_dma.py": "45afbe11746a297fb04e353b272c2483de467aec88ff2946eef3274b780e1117",
+      "scripts/validate_profile.py": "2b6299b8c43a3fcff6d18f7f6f914180a81110b832508f648de8807812129482",
+      "tests/test_dma_session.py": "5b3b591fbc385c4eb84d9e70d263e1c0277a1cc9fda43cc13f7ae9ce2eeb88e8",
+      "tests/test_validate_profile.py": "1108cfdee9364f56df9eb9e259791f16b32f2604c49fefbe0d51ee253f03c01a",
+      "references/example-profile.json": "f9722abb54fa1ba67afc783619b2d8b96786231a06f1a0815153be09d4a30a8e",
+      "references/example-session.json": "a2edb87387dfa94158bcf9f7d548e28a23b0bfef56808ecf931bec04753b6e5a"
+    },
+    "claims": {
+      "pynq_driver": "NOT_RUN",
+      "overlay_download": "NOT_RUN",
+      "physical_dma": "NOT_RUN",
+      "tlast_waveform": "NOT_RUN",
+      "hardware_performance": "NOT_RUN",
+      "vivado_resources": "NOT_RUN"
+    }
+  }
+}

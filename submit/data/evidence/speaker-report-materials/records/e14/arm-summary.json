@@ -1,0 +1,37 @@
+{
+  "revision": "FS1",
+  "scope": "BOARD_OFFLINE_FIXED98",
+  "status": "NUMERIC_PASS_PERFORMANCE_REQUIRES_REVIEW",
+  "rounds": 2,
+  "all_bit_exact": true,
+  "performance": {
+    "isolated": {
+      "variants": {
+        "shipped": {
+          "samples": 18,
+          "median_wall_seconds": 1.076338876500003,
+          "median_cpu_seconds": 1.8900000000000006
+        },
+        "fs1": {
+          "samples": 18,
+          "median_wall_seconds": 1.0762557620000024,
+          "median_cpu_seconds": 1.8900000000000006
+        }
+      }
+    },
+    "paced_frontend": {
+      "variants": {
+        "shipped": {
+          "samples": 6,
+          "median_wall_seconds": 1.537847943499969,
+          "median_cpu_seconds": 2.1999999999999993
+        },
+        "fs1": {
+          "samples": 6,
+          "median_wall_seconds": 1.5692620410000018,
+          "median_cpu_seconds": 2.2649999999999997
+        }
+      }
+    }
+  }
+}

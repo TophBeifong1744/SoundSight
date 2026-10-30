@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "files": 112,
+  "added": [
+    "software/ps/speaker_core/cpu_profile_bench.py",
+    "software/ps/speaker_core/source/core_bench.c"
+  ],
+  "content_differences": [],
+  "line_endings_only": [
+    "README.md",
+    "document/follow-sound-af1.md",
+    "document/pynq-board-helper.md",
+    "document/pynq-speaker-3d.md",
+    "document/pynq-three-d-dual-axis.md",
+    "document/pynq-three-d-sd.md",
+    "document/total-handoff-20261029.md",
+    "reports/hardware-review.json",
+    "reports/user-build-receipt.json",
+    "software/ps/board_tools.py",
+    "software/ps/ps_client.py",
+    "software/ps/ram_queue.py",
+    "software/ps/recover_ram.py",
+    "software/ps/run_buffered.py",
+    "software/ps/run_capture.py",
+    "software/ps/run_device.py",
+    "software/ps/run_normal.py",
+    "software/ps/run_smp.py",
+    "software/ps/ss_solver_bridge.c",
+    "software/ps/volume_gate.py",
+    "software/tests/test_normal.py",
+    "tools/install_normal_update.py"
+  ],
+  "existing_program_content_equal": true,
+  "hardware_byte_equal": true,
+  "mode": "payload in memory, active ZIP not rewritten"
+}

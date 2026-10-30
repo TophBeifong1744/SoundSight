@@ -1,0 +1,96 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Sat Oct 17 20:53:16 2026
+| Host         : Toph running 64-bit major release  (build 9200)
+| Command      : report_ip_status
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+IP Status Summary
+
+1. Project IP Status
+--------------------
+Your project uses 15 IP. Some of these IP may have undergone changes in this release of the software. Please review the recommended actions.
+
+More information on the Xilinx versioning policy is available at www.xilinx.com.
+
+Project IP Instances
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| Instance Name                         | Status                         | Recommendation           | Change    | IP Name            | IP      | New Version   | New        | Original Part        |
+|                                       |                                |                          | Log       |                    | Version |               | License    |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_stm32_bd_clk_audio_0       | Up-to-date                     | No changes required      |  *(1)     | Clocking Wizard    | 6.0     | 6.0 (Rev. 17) | Included   | xc7z020clg400-1      |
+|                                       |                                |                          |           |                    | (Rev.   |               |            |                      |
+|                                       |                                |                          |           |                    | 17)     |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_stm32_bd_clk_main_0        | Up-to-date                     | No changes required      |  *(2)     | Clocking Wizard    | 6.0     | 6.0 (Rev. 17) | Included   | xc7z020clg400-1      |
+|                                       |                                |                          |           |                    | (Rev.   |               |            |                      |
+|                                       |                                |                          |           |                    | 17)     |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_stm32_bd_compute_0         | Module reference is unresolved | Resolve module reference | Change    | bd_clean_compute_v | 1.0     | 1.0 (Rev. 1)  | Included   | xc7z020clg400-1      |
+|                                       |                                |                          | Log not   |                    | (Rev.   |               |            |                      |
+|                                       |                                |                          | available |                    | 1)      |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_stm32_bd_core_release_0    | Up-to-date                     | No changes required      |  *(3)     | xpm_cdc            | 1.0     | 1.0 (Rev. 5)  | Included   | xc7z020clg400-1      |
+|                                       |                                |                          |           |                    | (Rev.   |               |            |                      |
+|                                       |                                |                          |           |                    | 5)      |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_stm32_bd_core_reset_0      | Up-to-date                     | No changes required      |  *(4)     | Processor System   | 5.0     | 5.0 (Rev. 17) | Included   | xc7z020clg400-1      |
+|                                       |                                |                          |           | Reset              | (Rev.   |               |            |                      |
+|                                       |                                |                          |           |                    | 17)     |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_stm32_bd_core_reset_gate_0 | Up-to-date (discontinued)      | No changes required      |  *(5)     | Utility Vector     | 2.0     | 2.0 (Rev. 5)  | Included   | xc7z020clg400-1      |
+|                                       |                                |                          |           | Logic              | (Rev.   |               |            |                      |
+|                                       |                                |                          |           |                    | 5)      |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_stm32_bd_io_release_0      | Up-to-date                     | No changes required      |  *(6)     | xpm_cdc            | 1.0     | 1.0 (Rev. 5)  | Included   | xc7z020clg400-1      |
+|                                       |                                |                          |           |                    | (Rev.   |               |            |                      |
+|                                       |                                |                          |           |                    | 5)      |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_stm32_bd_io_reset_0        | Up-to-date                     | No changes required      |  *(7)     | Processor System   | 5.0     | 5.0 (Rev. 17) | Included   | xc7z020clg400-1      |
+|                                       |                                |                          |           | Reset              | (Rev.   |               |            |                      |
+|                                       |                                |                          |           |                    | 17)     |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_stm32_bd_io_reset_gate_0   | Up-to-date (discontinued)      | No changes required      |  *(8)     | Utility Vector     | 2.0     | 2.0 (Rev. 5)  | Included   | xc7z020clg400-1      |
+|                                       |                                |                          |           | Logic              | (Rev.   |               |            |                      |
+|                                       |                                |                          |           |                    | 5)      |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_stm32_bd_link_0            | Module reference is unresolved | Resolve module reference | Change    | bd_stm32_link_v1_0 | 1.0     | 1.0 (Rev. 1)  | Included   | xc7z020clg400-1      |
+|                                       |                                |                          | Log not   |                    | (Rev.   |               |            |                      |
+|                                       |                                |                          | available |                    | 1)      |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_stm32_bd_one_0             | Up-to-date (discontinued)      | No changes required      |  *(9)     | Constant           | 1.1     | 1.1 (Rev. 10) | Included   | xc7z020clg400-1      |
+|                                       |                                |                          |           |                    | (Rev.   |               |            |                      |
+|                                       |                                |                          |           |                    | 10)     |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_stm32_bd_ps7_0             | Up-to-date                     | No changes required      |  *(10)    | ZYNQ7 Processing   | 5.5     | 5.5 (Rev. 8)  | Included   | xc7z020clg400-1      |
+|                                       |                                |                          |           | System             | (Rev.   |               |            |                      |
+|                                       |                                |                          |           |                    | 8)      |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| soundsight_stm32_bd_zero_0            | Up-to-date (discontinued)      | No changes required      |  *(11)    | Constant           | 1.1     | 1.1 (Rev. 10) | Included   | xc7z020clg400-1      |
+|                                       |                                |                          |           |                    | (Rev.   |               |            |                      |
+|                                       |                                |                          |           |                    | 10)     |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| ss_fft29                              | Up-to-date                     | No changes required      |  *(12)    | Fast Fourier       | 9.1     | 9.1 (Rev. 15) | Included   | xc7z020clg400-1      |
+|                                       |                                |                          |           | Transform          | (Rev.   |               |            |                      |
+|                                       |                                |                          |           |                    | 15)     |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| ss_ifft25                             | Up-to-date                     | No changes required      |  *(13)    | Fast Fourier       | 9.1     | 9.1 (Rev. 15) | Included   | xc7z020clg400-1      |
+|                                       |                                |                          |           | Transform          | (Rev.   |               |            |                      |
+|                                       |                                |                          |           |                    | 15)     |               |            |                      |
++---------------------------------------+--------------------------------+--------------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+*(1) f:/AMD/2025.2/Vivado/data/ip/xilinx/clk_wiz_v6_0/doc/clk_wiz_v6_0_changelog.txt
+*(2) f:/AMD/2025.2/Vivado/data/ip/xilinx/clk_wiz_v6_0/doc/clk_wiz_v6_0_changelog.txt
+*(3) f:/AMD/2025.2/Vivado/data/ip/xilinx/xpm_cdc_gen_v1_0/doc/xpm_cdc_gen_v1_0_changelog.txt
+*(4) f:/AMD/2025.2/Vivado/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(5) f:/AMD/2025.2/Vivado/data/ip/xilinx/util_vector_logic_v2_0/doc/util_vector_logic_v2_0_changelog.txt
+*(6) f:/AMD/2025.2/Vivado/data/ip/xilinx/xpm_cdc_gen_v1_0/doc/xpm_cdc_gen_v1_0_changelog.txt
+*(7) f:/AMD/2025.2/Vivado/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(8) f:/AMD/2025.2/Vivado/data/ip/xilinx/util_vector_logic_v2_0/doc/util_vector_logic_v2_0_changelog.txt
+*(9) f:/AMD/2025.2/Vivado/data/ip/xilinx/xlconstant_v1_1/doc/xlconstant_v1_1_changelog.txt
+*(10) f:/AMD/2025.2/Vivado/data/ip/xilinx/processing_system7_v5_5/doc/processing_system7_v5_5_changelog.txt
+*(11) f:/AMD/2025.2/Vivado/data/ip/xilinx/xlconstant_v1_1/doc/xlconstant_v1_1_changelog.txt
+*(12) f:/AMD/2025.2/Vivado/data/ip/xilinx/xfft_v9_1/doc/xfft_v9_1_changelog.txt
+*(13) f:/AMD/2025.2/Vivado/data/ip/xilinx/xfft_v9_1/doc/xfft_v9_1_changelog.txt
+
+

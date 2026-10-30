@@ -1,0 +1,1629 @@
+{
+  "scope": "exploratory existing recordings; new untouched accuracy tests absent; no board run",
+  "source_sha256": "4b63ab9e2e2036fa0007a084665cfe6590b6b4419e7561958f9eb5e522fd2239",
+  "script_sha256": "f9cf334517ea5469ab067e58b3f8e9487758642e26a77aa4b9667f80f485c16a",
+  "ort_version": "1.31.0",
+  "calibration_ids": [
+    "P01_E01_0",
+    "P01_E01_1",
+    "P01_E01_2",
+    "P01_E02_0",
+    "P01_E02_1",
+    "P01_E03_0",
+    "P01_E03_1",
+    "P01_E03_2"
+  ],
+  "quantization_limits": {
+    "real_chunk_cosine_min": 0.99,
+    "clip_score_drift_max": 0.03,
+    "decisions_unchanged": true
+  },
+  "template_sha256": "114a3cbb98875553feb953e824032eb192c54d6202340db175e22e8c85e371b3",
+  "low": 0.6201497316360474,
+  "high": 0.68942791223526,
+  "models": {
+    "baseline": {
+      "sha256": "4b63ab9e2e2036fa0007a084665cfe6590b6b4419e7561958f9eb5e522fd2239",
+      "bytes": 28347783,
+      "nodes": 3104,
+      "operators": {
+        "Transpose": 1,
+        "Constant": 951,
+        "Unsqueeze": 369,
+        "Conv": 225,
+        "Relu": 171,
+        "Add": 56,
+        "Shape": 265,
+        "Gather": 213,
+        "Mul": 107,
+        "Concat": 158,
+        "Reshape": 106,
+        "BatchNormalization": 56,
+        "ReduceMean": 55,
+        "AveragePool": 52,
+        "ConstantOfShape": 52,
+        "Equal": 52,
+        "Where": 52,
+        "Expand": 52,
+        "Slice": 52,
+        "Sigmoid": 52,
+        "ReduceProd": 1,
+        "Sub": 2,
+        "Cast": 1,
+        "Div": 1,
+        "Sqrt": 1,
+        "Squeeze": 1
+      },
+      "checks": [
+        {
+          "id": "P01_E01_0",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 1.0639429092407227e-05
+        },
+        {
+          "id": "P01_E01_1",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.3165175914764404e-05
+        },
+        {
+          "id": "P01_E01_2",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 2.4199485778808594e-05
+        },
+        {
+          "id": "P01_E02_0",
+          "kind": "real_reused_recording",
+          "frames": 200,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.0073184967041016e-05
+        },
+        {
+          "id": "P01_E02_1",
+          "kind": "real_reused_recording",
+          "frames": 200,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 7.033348083496094e-06
+        },
+        {
+          "id": "P01_E03_0",
+          "kind": "real_reused_recording",
+          "frames": 324,
+          "cosine_to_fp32": 0.9999998807907104,
+          "max_abs_error_to_fp32": 2.1845102310180664e-05
+        },
+        {
+          "id": "P01_E03_1",
+          "kind": "real_reused_recording",
+          "frames": 324,
+          "cosine_to_fp32": 0.9999998807907104,
+          "max_abs_error_to_fp32": 6.079673767089844e-06
+        },
+        {
+          "id": "P01_E03_2",
+          "kind": "real_reused_recording",
+          "frames": 324,
+          "cosine_to_fp32": 1.0000001192092896,
+          "max_abs_error_to_fp32": 4.947185516357422e-06
+        },
+        {
+          "id": "P01_C01_0",
+          "kind": "real_reused_recording",
+          "frames": 296,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 7.450580596923828e-06
+        },
+        {
+          "id": "P01_C01_1",
+          "kind": "real_reused_recording",
+          "frames": 296,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 2.2292137145996094e-05
+        },
+        {
+          "id": "P01_C01_2",
+          "kind": "real_reused_recording",
+          "frames": 296,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 5.125999450683594e-06
+        },
+        {
+          "id": "P01_C02_0",
+          "kind": "real_reused_recording",
+          "frames": 379,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 4.0531158447265625e-06
+        },
+        {
+          "id": "P01_C02_1",
+          "kind": "real_reused_recording",
+          "frames": 379,
+          "cosine_to_fp32": 0.9999998807907104,
+          "max_abs_error_to_fp32": 4.708766937255859e-06
+        },
+        {
+          "id": "P01_C03_0",
+          "kind": "real_reused_recording",
+          "frames": 270,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 6.9141387939453125e-06
+        },
+        {
+          "id": "P01_C03_1",
+          "kind": "real_reused_recording",
+          "frames": 270,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 2.6881694793701172e-05
+        },
+        {
+          "id": "P01_C03_2",
+          "kind": "real_reused_recording",
+          "frames": 270,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 8.612871170043945e-06
+        },
+        {
+          "id": "P02_C01_0",
+          "kind": "real_reused_recording",
+          "frames": 268,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.6450881958007812e-05
+        },
+        {
+          "id": "P02_C01_1",
+          "kind": "real_reused_recording",
+          "frames": 268,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.0967254638671875e-05
+        },
+        {
+          "id": "P02_C01_2",
+          "kind": "real_reused_recording",
+          "frames": 268,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 6.079673767089844e-06
+        },
+        {
+          "id": "P02_C02_0",
+          "kind": "real_reused_recording",
+          "frames": 386,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 6.9141387939453125e-06
+        },
+        {
+          "id": "P02_C02_1",
+          "kind": "real_reused_recording",
+          "frames": 386,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 9.238719940185547e-06
+        },
+        {
+          "id": "P02_C03_0",
+          "kind": "real_reused_recording",
+          "frames": 348,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 5.245208740234375e-06
+        },
+        {
+          "id": "P02_C03_1",
+          "kind": "real_reused_recording",
+          "frames": 348,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 1.2159347534179688e-05
+        },
+        {
+          "id": "P02_T01_0",
+          "kind": "real_reused_recording",
+          "frames": 352,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 8.940696716308594e-06
+        },
+        {
+          "id": "P02_T01_1",
+          "kind": "real_reused_recording",
+          "frames": 352,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.7642974853515625e-05
+        },
+        {
+          "id": "P02_T02_0",
+          "kind": "real_reused_recording",
+          "frames": 272,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 5.245208740234375e-06
+        },
+        {
+          "id": "P02_T02_1",
+          "kind": "real_reused_recording",
+          "frames": 272,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 1.0326504707336426e-05
+        },
+        {
+          "id": "P02_T02_2",
+          "kind": "real_reused_recording",
+          "frames": 272,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 6.9141387939453125e-06
+        },
+        {
+          "id": "P02_T03_0",
+          "kind": "real_reused_recording",
+          "frames": 298,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 5.066394805908203e-06
+        },
+        {
+          "id": "P02_T03_1",
+          "kind": "real_reused_recording",
+          "frames": 298,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 6.794929504394531e-06
+        },
+        {
+          "id": "P02_T03_2",
+          "kind": "real_reused_recording",
+          "frames": 298,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 1.2636184692382812e-05
+        },
+        {
+          "id": "boundary_151",
+          "kind": "synthetic_numeric_only",
+          "frames": 151,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 4.76837158203125e-06
+        },
+        {
+          "id": "boundary_199",
+          "kind": "synthetic_numeric_only",
+          "frames": 199,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 7.092952728271484e-06
+        },
+        {
+          "id": "boundary_200",
+          "kind": "synthetic_numeric_only",
+          "frames": 200,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.8835067749023438e-05
+        },
+        {
+          "id": "boundary_201",
+          "kind": "synthetic_numeric_only",
+          "frames": 201,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.627206802368164e-05
+        },
+        {
+          "id": "boundary_399",
+          "kind": "synthetic_numeric_only",
+          "frames": 399,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 6.079673767089844e-06
+        },
+        {
+          "id": "boundary_400",
+          "kind": "synthetic_numeric_only",
+          "frames": 400,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 6.318092346191406e-06
+        },
+        {
+          "id": "boundary_401",
+          "kind": "synthetic_numeric_only",
+          "frames": 401,
+          "cosine_to_fp32": 0.9999998807907104,
+          "max_abs_error_to_fp32": 5.0067901611328125e-06
+        }
+      ],
+      "scores": [
+        {
+          "id": "P01_C01",
+          "score": 0.9125778675079346,
+          "old_score": 0.9125781059265137,
+          "drift": 2.384185791015625e-07,
+          "state": "target",
+          "old_state": "target"
+        },
+        {
+          "id": "P01_C02",
+          "score": 0.8402910232543945,
+          "old_score": 0.8402910232543945,
+          "drift": 0.0,
+          "state": "target",
+          "old_state": "target"
+        },
+        {
+          "id": "P01_C03",
+          "score": 0.8279845714569092,
+          "old_score": 0.8279842734336853,
+          "drift": 2.980232238769531e-07,
+          "state": "target",
+          "old_state": "target"
+        },
+        {
+          "id": "P02_C01",
+          "score": 0.48159337043762207,
+          "old_score": 0.48159337043762207,
+          "drift": 0.0,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_C02",
+          "score": 0.4519392251968384,
+          "old_score": 0.45193904638290405,
+          "drift": 1.7881393432617188e-07,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_C03",
+          "score": 0.3825823664665222,
+          "old_score": 0.382582426071167,
+          "drift": 5.960464477539063e-08,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_T01",
+          "score": 0.4104936718940735,
+          "old_score": 0.4104939103126526,
+          "drift": 2.384185791015625e-07,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_T02",
+          "score": 0.4351595342159271,
+          "old_score": 0.4351595640182495,
+          "drift": 2.9802322387695312e-08,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_T03",
+          "score": 0.39485999941825867,
+          "old_score": 0.39486005902290344,
+          "drift": 5.960464477539063e-08,
+          "state": "non_target",
+          "old_state": "non_target"
+        }
+      ],
+      "load_seconds": 0.7649432000002889,
+      "quality_pass": true,
+      "core_seconds": [
+        0.024616799999876093,
+        0.024302300000272226,
+        0.023595600000135164,
+        0.023496399999658024,
+        0.024308499999733613
+      ],
+      "median_seconds": 0.024302300000272226,
+      "status": "PC_NUMERICAL_PASS"
+    },
+    "fp32-opt": {
+      "sha256": "78d70dbb81ff7bb520bfad68fe45e3554bb694b9a38fdc389e330ad46daf9d7a",
+      "bytes": 28157573,
+      "nodes": 1786,
+      "operators": {
+        "Transpose": 1,
+        "Unsqueeze": 265,
+        "Conv": 225,
+        "Relu": 171,
+        "Add": 56,
+        "Shape": 106,
+        "Gather": 213,
+        "Mul": 55,
+        "Concat": 158,
+        "Reshape": 106,
+        "BatchNormalization": 56,
+        "AveragePool": 52,
+        "Equal": 52,
+        "Where": 52,
+        "Expand": 52,
+        "Slice": 52,
+        "ReduceMean": 55,
+        "Sigmoid": 52,
+        "ReduceProd": 1,
+        "Cast": 1,
+        "Sub": 2,
+        "Div": 1,
+        "Sqrt": 1,
+        "Squeeze": 1
+      },
+      "checks": [
+        {
+          "id": "P01_E01_0",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 1.0639429092407227e-05
+        },
+        {
+          "id": "P01_E01_1",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.3165175914764404e-05
+        },
+        {
+          "id": "P01_E01_2",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 2.4199485778808594e-05
+        },
+        {
+          "id": "P01_E02_0",
+          "kind": "real_reused_recording",
+          "frames": 200,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.0073184967041016e-05
+        },
+        {
+          "id": "P01_E02_1",
+          "kind": "real_reused_recording",
+          "frames": 200,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 7.033348083496094e-06
+        },
+        {
+          "id": "P01_E03_0",
+          "kind": "real_reused_recording",
+          "frames": 324,
+          "cosine_to_fp32": 0.9999998807907104,
+          "max_abs_error_to_fp32": 2.1845102310180664e-05
+        },
+        {
+          "id": "P01_E03_1",
+          "kind": "real_reused_recording",
+          "frames": 324,
+          "cosine_to_fp32": 0.9999998807907104,
+          "max_abs_error_to_fp32": 6.079673767089844e-06
+        },
+        {
+          "id": "P01_E03_2",
+          "kind": "real_reused_recording",
+          "frames": 324,
+          "cosine_to_fp32": 1.0000001192092896,
+          "max_abs_error_to_fp32": 4.947185516357422e-06
+        },
+        {
+          "id": "P01_C01_0",
+          "kind": "real_reused_recording",
+          "frames": 296,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 7.450580596923828e-06
+        },
+        {
+          "id": "P01_C01_1",
+          "kind": "real_reused_recording",
+          "frames": 296,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 2.2292137145996094e-05
+        },
+        {
+          "id": "P01_C01_2",
+          "kind": "real_reused_recording",
+          "frames": 296,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 5.125999450683594e-06
+        },
+        {
+          "id": "P01_C02_0",
+          "kind": "real_reused_recording",
+          "frames": 379,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 4.0531158447265625e-06
+        },
+        {
+          "id": "P01_C02_1",
+          "kind": "real_reused_recording",
+          "frames": 379,
+          "cosine_to_fp32": 0.9999998807907104,
+          "max_abs_error_to_fp32": 4.708766937255859e-06
+        },
+        {
+          "id": "P01_C03_0",
+          "kind": "real_reused_recording",
+          "frames": 270,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 6.9141387939453125e-06
+        },
+        {
+          "id": "P01_C03_1",
+          "kind": "real_reused_recording",
+          "frames": 270,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 2.6881694793701172e-05
+        },
+        {
+          "id": "P01_C03_2",
+          "kind": "real_reused_recording",
+          "frames": 270,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 8.612871170043945e-06
+        },
+        {
+          "id": "P02_C01_0",
+          "kind": "real_reused_recording",
+          "frames": 268,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.6450881958007812e-05
+        },
+        {
+          "id": "P02_C01_1",
+          "kind": "real_reused_recording",
+          "frames": 268,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.0967254638671875e-05
+        },
+        {
+          "id": "P02_C01_2",
+          "kind": "real_reused_recording",
+          "frames": 268,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 6.079673767089844e-06
+        },
+        {
+          "id": "P02_C02_0",
+          "kind": "real_reused_recording",
+          "frames": 386,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 6.9141387939453125e-06
+        },
+        {
+          "id": "P02_C02_1",
+          "kind": "real_reused_recording",
+          "frames": 386,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 9.238719940185547e-06
+        },
+        {
+          "id": "P02_C03_0",
+          "kind": "real_reused_recording",
+          "frames": 348,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 5.245208740234375e-06
+        },
+        {
+          "id": "P02_C03_1",
+          "kind": "real_reused_recording",
+          "frames": 348,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 1.2159347534179688e-05
+        },
+        {
+          "id": "P02_T01_0",
+          "kind": "real_reused_recording",
+          "frames": 352,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 8.940696716308594e-06
+        },
+        {
+          "id": "P02_T01_1",
+          "kind": "real_reused_recording",
+          "frames": 352,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.7642974853515625e-05
+        },
+        {
+          "id": "P02_T02_0",
+          "kind": "real_reused_recording",
+          "frames": 272,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 5.245208740234375e-06
+        },
+        {
+          "id": "P02_T02_1",
+          "kind": "real_reused_recording",
+          "frames": 272,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 1.0326504707336426e-05
+        },
+        {
+          "id": "P02_T02_2",
+          "kind": "real_reused_recording",
+          "frames": 272,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 6.9141387939453125e-06
+        },
+        {
+          "id": "P02_T03_0",
+          "kind": "real_reused_recording",
+          "frames": 298,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 5.066394805908203e-06
+        },
+        {
+          "id": "P02_T03_1",
+          "kind": "real_reused_recording",
+          "frames": 298,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 6.794929504394531e-06
+        },
+        {
+          "id": "P02_T03_2",
+          "kind": "real_reused_recording",
+          "frames": 298,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 1.2636184692382812e-05
+        },
+        {
+          "id": "boundary_151",
+          "kind": "synthetic_numeric_only",
+          "frames": 151,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 4.76837158203125e-06
+        },
+        {
+          "id": "boundary_199",
+          "kind": "synthetic_numeric_only",
+          "frames": 199,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 7.092952728271484e-06
+        },
+        {
+          "id": "boundary_200",
+          "kind": "synthetic_numeric_only",
+          "frames": 200,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.8835067749023438e-05
+        },
+        {
+          "id": "boundary_201",
+          "kind": "synthetic_numeric_only",
+          "frames": 201,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.627206802368164e-05
+        },
+        {
+          "id": "boundary_399",
+          "kind": "synthetic_numeric_only",
+          "frames": 399,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 6.079673767089844e-06
+        },
+        {
+          "id": "boundary_400",
+          "kind": "synthetic_numeric_only",
+          "frames": 400,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 6.318092346191406e-06
+        },
+        {
+          "id": "boundary_401",
+          "kind": "synthetic_numeric_only",
+          "frames": 401,
+          "cosine_to_fp32": 0.9999998807907104,
+          "max_abs_error_to_fp32": 5.0067901611328125e-06
+        }
+      ],
+      "scores": [
+        {
+          "id": "P01_C01",
+          "score": 0.9125778675079346,
+          "old_score": 0.9125781059265137,
+          "drift": 2.384185791015625e-07,
+          "state": "target",
+          "old_state": "target"
+        },
+        {
+          "id": "P01_C02",
+          "score": 0.8402910232543945,
+          "old_score": 0.8402910232543945,
+          "drift": 0.0,
+          "state": "target",
+          "old_state": "target"
+        },
+        {
+          "id": "P01_C03",
+          "score": 0.8279845714569092,
+          "old_score": 0.8279842734336853,
+          "drift": 2.980232238769531e-07,
+          "state": "target",
+          "old_state": "target"
+        },
+        {
+          "id": "P02_C01",
+          "score": 0.48159337043762207,
+          "old_score": 0.48159337043762207,
+          "drift": 0.0,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_C02",
+          "score": 0.4519392251968384,
+          "old_score": 0.45193904638290405,
+          "drift": 1.7881393432617188e-07,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_C03",
+          "score": 0.3825823664665222,
+          "old_score": 0.382582426071167,
+          "drift": 5.960464477539063e-08,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_T01",
+          "score": 0.4104936718940735,
+          "old_score": 0.4104939103126526,
+          "drift": 2.384185791015625e-07,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_T02",
+          "score": 0.4351595342159271,
+          "old_score": 0.4351595640182495,
+          "drift": 2.9802322387695312e-08,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_T03",
+          "score": 0.39485999941825867,
+          "old_score": 0.39486005902290344,
+          "drift": 5.960464477539063e-08,
+          "state": "non_target",
+          "old_state": "non_target"
+        }
+      ],
+      "load_seconds": 0.6092524999999114,
+      "quality_pass": true,
+      "core_seconds": [
+        0.02650949999997465,
+        0.025840599999810365,
+        0.023336400000061985,
+        0.024564100000134204,
+        0.024410799999714072
+      ],
+      "median_seconds": 0.024564100000134204,
+      "status": "PC_NUMERICAL_PASS"
+    },
+    "fp32-fixed": {
+      "sha256": "0e65f381a83c5cec5987846cd3b9bf6f842f7cfd83bac2c03a35996512648e5e",
+      "bytes": 27959991,
+      "nodes": 991,
+      "operators": {
+        "Transpose": 1,
+        "Unsqueeze": 54,
+        "Conv": 225,
+        "Relu": 171,
+        "Add": 56,
+        "Reshape": 54,
+        "BatchNormalization": 56,
+        "ReduceMean": 55,
+        "AveragePool": 52,
+        "Expand": 52,
+        "Slice": 52,
+        "Sigmoid": 52,
+        "Mul": 54,
+        "Concat": 53,
+        "Sub": 1,
+        "Div": 1,
+        "Sqrt": 1,
+        "Squeeze": 1
+      },
+      "checks": [
+        {
+          "id": "P01_E01_0",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 0.9999999403953552,
+          "max_abs_error_to_fp32": 1.0639429092407227e-05
+        },
+        {
+          "id": "P01_E01_1",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 1.3165175914764404e-05
+        },
+        {
+          "id": "P01_E01_2",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 1.0,
+          "max_abs_error_to_fp32": 2.4199485778808594e-05
+        }
+      ],
+      "scores": [],
+      "load_seconds": 0.09549550000019735,
+      "quality_pass": true,
+      "core_seconds": [
+        0.027254800000264368,
+        0.02599450000025172,
+        0.028119199999764533,
+        0.02639210000006642,
+        0.029490899999927933
+      ],
+      "median_seconds": 0.027254800000264368,
+      "status": "PC_NUMERICAL_PASS"
+    },
+    "int8-full": {
+      "sha256": "9725b8f2af193e2990acdf373ec2d7d5a8abacdf38b284364a0090b2ec142c32",
+      "bytes": 8457497,
+      "nodes": 2234,
+      "operators": {
+        "Transpose": 1,
+        "Unsqueeze": 265,
+        "QuantizeLinear": 223,
+        "QLinearConv": 225,
+        "DequantizeLinear": 225,
+        "Relu": 171,
+        "Add": 56,
+        "Shape": 106,
+        "Gather": 213,
+        "Mul": 55,
+        "Concat": 158,
+        "Reshape": 106,
+        "BatchNormalization": 56,
+        "AveragePool": 52,
+        "ReduceMean": 55,
+        "Equal": 52,
+        "Where": 52,
+        "Expand": 52,
+        "Slice": 52,
+        "Sigmoid": 52,
+        "Sub": 2,
+        "ReduceProd": 1,
+        "Cast": 1,
+        "Div": 1,
+        "Sqrt": 1,
+        "Squeeze": 1
+      },
+      "checks": [
+        {
+          "id": "P01_E01_0",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 0.993861734867096,
+          "max_abs_error_to_fp32": 0.32299503684043884
+        },
+        {
+          "id": "P01_E01_1",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 0.9921077489852905,
+          "max_abs_error_to_fp32": 0.34427154064178467
+        },
+        {
+          "id": "P01_E01_2",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 0.99489426612854,
+          "max_abs_error_to_fp32": 0.2703116536140442
+        },
+        {
+          "id": "P01_E02_0",
+          "kind": "real_reused_recording",
+          "frames": 200,
+          "cosine_to_fp32": 0.9958118200302124,
+          "max_abs_error_to_fp32": 0.2521982192993164
+        },
+        {
+          "id": "P01_E02_1",
+          "kind": "real_reused_recording",
+          "frames": 200,
+          "cosine_to_fp32": 0.9948495626449585,
+          "max_abs_error_to_fp32": 0.2936142086982727
+        },
+        {
+          "id": "P01_E03_0",
+          "kind": "real_reused_recording",
+          "frames": 324,
+          "cosine_to_fp32": 0.9958213567733765,
+          "max_abs_error_to_fp32": 0.27267056703567505
+        },
+        {
+          "id": "P01_E03_1",
+          "kind": "real_reused_recording",
+          "frames": 324,
+          "cosine_to_fp32": 0.9959531426429749,
+          "max_abs_error_to_fp32": 0.3557596206665039
+        },
+        {
+          "id": "P01_E03_2",
+          "kind": "real_reused_recording",
+          "frames": 324,
+          "cosine_to_fp32": 0.994766354560852,
+          "max_abs_error_to_fp32": 0.33687305450439453
+        },
+        {
+          "id": "P01_C01_0",
+          "kind": "real_reused_recording",
+          "frames": 296,
+          "cosine_to_fp32": 0.9947863817214966,
+          "max_abs_error_to_fp32": 0.2767830491065979
+        },
+        {
+          "id": "P01_C01_1",
+          "kind": "real_reused_recording",
+          "frames": 296,
+          "cosine_to_fp32": 0.9959869384765625,
+          "max_abs_error_to_fp32": 0.26828765869140625
+        },
+        {
+          "id": "P01_C01_2",
+          "kind": "real_reused_recording",
+          "frames": 296,
+          "cosine_to_fp32": 0.9937493801116943,
+          "max_abs_error_to_fp32": 0.3190474510192871
+        },
+        {
+          "id": "P01_C02_0",
+          "kind": "real_reused_recording",
+          "frames": 379,
+          "cosine_to_fp32": 0.996341347694397,
+          "max_abs_error_to_fp32": 0.26657116413116455
+        },
+        {
+          "id": "P01_C02_1",
+          "kind": "real_reused_recording",
+          "frames": 379,
+          "cosine_to_fp32": 0.9953492283821106,
+          "max_abs_error_to_fp32": 0.3019264340400696
+        },
+        {
+          "id": "P01_C03_0",
+          "kind": "real_reused_recording",
+          "frames": 270,
+          "cosine_to_fp32": 0.9941238760948181,
+          "max_abs_error_to_fp32": 0.3511629104614258
+        },
+        {
+          "id": "P01_C03_1",
+          "kind": "real_reused_recording",
+          "frames": 270,
+          "cosine_to_fp32": 0.9941853284835815,
+          "max_abs_error_to_fp32": 0.28510332107543945
+        },
+        {
+          "id": "P01_C03_2",
+          "kind": "real_reused_recording",
+          "frames": 270,
+          "cosine_to_fp32": 0.9944151639938354,
+          "max_abs_error_to_fp32": 0.7650730609893799
+        },
+        {
+          "id": "P02_C01_0",
+          "kind": "real_reused_recording",
+          "frames": 268,
+          "cosine_to_fp32": 0.9939123392105103,
+          "max_abs_error_to_fp32": 0.5315918922424316
+        },
+        {
+          "id": "P02_C01_1",
+          "kind": "real_reused_recording",
+          "frames": 268,
+          "cosine_to_fp32": 0.9960814714431763,
+          "max_abs_error_to_fp32": 0.26228344440460205
+        },
+        {
+          "id": "P02_C01_2",
+          "kind": "real_reused_recording",
+          "frames": 268,
+          "cosine_to_fp32": 0.9926139116287231,
+          "max_abs_error_to_fp32": 0.37434113025665283
+        },
+        {
+          "id": "P02_C02_0",
+          "kind": "real_reused_recording",
+          "frames": 386,
+          "cosine_to_fp32": 0.9952768087387085,
+          "max_abs_error_to_fp32": 0.25822699069976807
+        },
+        {
+          "id": "P02_C02_1",
+          "kind": "real_reused_recording",
+          "frames": 386,
+          "cosine_to_fp32": 0.9899407625198364,
+          "max_abs_error_to_fp32": 0.591855525970459
+        },
+        {
+          "id": "P02_C03_0",
+          "kind": "real_reused_recording",
+          "frames": 348,
+          "cosine_to_fp32": 0.9946881532669067,
+          "max_abs_error_to_fp32": 0.29619452357292175
+        },
+        {
+          "id": "P02_C03_1",
+          "kind": "real_reused_recording",
+          "frames": 348,
+          "cosine_to_fp32": 0.9950079917907715,
+          "max_abs_error_to_fp32": 0.32852649688720703
+        },
+        {
+          "id": "P02_T01_0",
+          "kind": "real_reused_recording",
+          "frames": 352,
+          "cosine_to_fp32": 0.9948508739471436,
+          "max_abs_error_to_fp32": 0.3084307610988617
+        },
+        {
+          "id": "P02_T01_1",
+          "kind": "real_reused_recording",
+          "frames": 352,
+          "cosine_to_fp32": 0.9941214919090271,
+          "max_abs_error_to_fp32": 0.33641135692596436
+        },
+        {
+          "id": "P02_T02_0",
+          "kind": "real_reused_recording",
+          "frames": 272,
+          "cosine_to_fp32": 0.9950637221336365,
+          "max_abs_error_to_fp32": 0.5608587265014648
+        },
+        {
+          "id": "P02_T02_1",
+          "kind": "real_reused_recording",
+          "frames": 272,
+          "cosine_to_fp32": 0.993254542350769,
+          "max_abs_error_to_fp32": 0.3730541467666626
+        },
+        {
+          "id": "P02_T02_2",
+          "kind": "real_reused_recording",
+          "frames": 272,
+          "cosine_to_fp32": 0.9951183795928955,
+          "max_abs_error_to_fp32": 0.30461859703063965
+        },
+        {
+          "id": "P02_T03_0",
+          "kind": "real_reused_recording",
+          "frames": 298,
+          "cosine_to_fp32": 0.9944577813148499,
+          "max_abs_error_to_fp32": 0.31358808279037476
+        },
+        {
+          "id": "P02_T03_1",
+          "kind": "real_reused_recording",
+          "frames": 298,
+          "cosine_to_fp32": 0.9927996397018433,
+          "max_abs_error_to_fp32": 0.28204864263534546
+        },
+        {
+          "id": "P02_T03_2",
+          "kind": "real_reused_recording",
+          "frames": 298,
+          "cosine_to_fp32": 0.9914162158966064,
+          "max_abs_error_to_fp32": 0.3990142345428467
+        },
+        {
+          "id": "boundary_151",
+          "kind": "synthetic_numeric_only",
+          "frames": 151,
+          "cosine_to_fp32": 0.6480627059936523,
+          "max_abs_error_to_fp32": 3.0068869590759277
+        },
+        {
+          "id": "boundary_199",
+          "kind": "synthetic_numeric_only",
+          "frames": 199,
+          "cosine_to_fp32": 0.696746826171875,
+          "max_abs_error_to_fp32": 3.1539366245269775
+        },
+        {
+          "id": "boundary_200",
+          "kind": "synthetic_numeric_only",
+          "frames": 200,
+          "cosine_to_fp32": 0.5793265700340271,
+          "max_abs_error_to_fp32": 3.934288263320923
+        },
+        {
+          "id": "boundary_201",
+          "kind": "synthetic_numeric_only",
+          "frames": 201,
+          "cosine_to_fp32": 0.6591187715530396,
+          "max_abs_error_to_fp32": 3.1350462436676025
+        },
+        {
+          "id": "boundary_399",
+          "kind": "synthetic_numeric_only",
+          "frames": 399,
+          "cosine_to_fp32": 0.6315371990203857,
+          "max_abs_error_to_fp32": 3.6399567127227783
+        },
+        {
+          "id": "boundary_400",
+          "kind": "synthetic_numeric_only",
+          "frames": 400,
+          "cosine_to_fp32": 0.7089381814002991,
+          "max_abs_error_to_fp32": 3.130463123321533
+        },
+        {
+          "id": "boundary_401",
+          "kind": "synthetic_numeric_only",
+          "frames": 401,
+          "cosine_to_fp32": 0.7171510457992554,
+          "max_abs_error_to_fp32": 2.657034397125244
+        }
+      ],
+      "scores": [
+        {
+          "id": "P01_C01",
+          "score": 0.9089831113815308,
+          "old_score": 0.9125781059265137,
+          "drift": 0.00359499454498291,
+          "state": "target",
+          "old_state": "target"
+        },
+        {
+          "id": "P01_C02",
+          "score": 0.8403955698013306,
+          "old_score": 0.8402910232543945,
+          "drift": 0.00010454654693603516,
+          "state": "target",
+          "old_state": "target"
+        },
+        {
+          "id": "P01_C03",
+          "score": 0.8249815106391907,
+          "old_score": 0.8279842734336853,
+          "drift": 0.003002762794494629,
+          "state": "target",
+          "old_state": "target"
+        },
+        {
+          "id": "P02_C01",
+          "score": 0.4753938913345337,
+          "old_score": 0.48159337043762207,
+          "drift": 0.006199479103088379,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_C02",
+          "score": 0.4391929507255554,
+          "old_score": 0.45193904638290405,
+          "drift": 0.012746095657348633,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_C03",
+          "score": 0.372204065322876,
+          "old_score": 0.382582426071167,
+          "drift": 0.010378360748291016,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_T01",
+          "score": 0.4145424962043762,
+          "old_score": 0.4104939103126526,
+          "drift": 0.004048585891723633,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_T02",
+          "score": 0.43573492765426636,
+          "old_score": 0.4351595640182495,
+          "drift": 0.0005753636360168457,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_T03",
+          "score": 0.3924117386341095,
+          "old_score": 0.39486005902290344,
+          "drift": 0.0024483203887939453,
+          "state": "non_target",
+          "old_state": "non_target"
+        }
+      ],
+      "load_seconds": 1.9593830999997408,
+      "quality_pass": false,
+      "core_seconds": [
+        0.01850960000001578,
+        0.01886190000004717,
+        0.018768200000067736,
+        0.018585499999971944,
+        0.01774909999994634
+      ],
+      "median_seconds": 0.018585499999971944,
+      "status": "REJECTED_QUALITY"
+    },
+    "int8-head": {
+      "sha256": "957cb4282f02537f0bf76ab34f3c649e8cd22d70b9fbe2b00d91ce0bcb6423a7",
+      "bytes": 28070719,
+      "nodes": 1808,
+      "operators": {
+        "Transpose": 1,
+        "Unsqueeze": 265,
+        "QuantizeLinear": 10,
+        "QLinearConv": 12,
+        "DequantizeLinear": 12,
+        "Relu": 171,
+        "Add": 56,
+        "Shape": 106,
+        "Gather": 213,
+        "Mul": 55,
+        "Concat": 158,
+        "Reshape": 106,
+        "Conv": 213,
+        "BatchNormalization": 56,
+        "AveragePool": 52,
+        "ReduceMean": 55,
+        "Equal": 52,
+        "Where": 52,
+        "Expand": 52,
+        "Slice": 52,
+        "Sigmoid": 52,
+        "Sub": 2,
+        "ReduceProd": 1,
+        "Cast": 1,
+        "Div": 1,
+        "Sqrt": 1,
+        "Squeeze": 1
+      },
+      "checks": [
+        {
+          "id": "P01_E01_0",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 0.9986138343811035,
+          "max_abs_error_to_fp32": 0.13711458444595337
+        },
+        {
+          "id": "P01_E01_1",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 0.9982591867446899,
+          "max_abs_error_to_fp32": 0.15516680479049683
+        },
+        {
+          "id": "P01_E01_2",
+          "kind": "real_reused_recording",
+          "frames": 308,
+          "cosine_to_fp32": 0.9988073110580444,
+          "max_abs_error_to_fp32": 0.1316983699798584
+        },
+        {
+          "id": "P01_E02_0",
+          "kind": "real_reused_recording",
+          "frames": 200,
+          "cosine_to_fp32": 0.9980782270431519,
+          "max_abs_error_to_fp32": 0.1820995807647705
+        },
+        {
+          "id": "P01_E02_1",
+          "kind": "real_reused_recording",
+          "frames": 200,
+          "cosine_to_fp32": 0.9980976581573486,
+          "max_abs_error_to_fp32": 0.1587563157081604
+        },
+        {
+          "id": "P01_E03_0",
+          "kind": "real_reused_recording",
+          "frames": 324,
+          "cosine_to_fp32": 0.9985572695732117,
+          "max_abs_error_to_fp32": 0.14373838901519775
+        },
+        {
+          "id": "P01_E03_1",
+          "kind": "real_reused_recording",
+          "frames": 324,
+          "cosine_to_fp32": 0.9985233545303345,
+          "max_abs_error_to_fp32": 0.19616419076919556
+        },
+        {
+          "id": "P01_E03_2",
+          "kind": "real_reused_recording",
+          "frames": 324,
+          "cosine_to_fp32": 0.9986042976379395,
+          "max_abs_error_to_fp32": 0.14709991216659546
+        },
+        {
+          "id": "P01_C01_0",
+          "kind": "real_reused_recording",
+          "frames": 296,
+          "cosine_to_fp32": 0.9978846311569214,
+          "max_abs_error_to_fp32": 0.1820397824048996
+        },
+        {
+          "id": "P01_C01_1",
+          "kind": "real_reused_recording",
+          "frames": 296,
+          "cosine_to_fp32": 0.9989233613014221,
+          "max_abs_error_to_fp32": 0.12204468250274658
+        },
+        {
+          "id": "P01_C01_2",
+          "kind": "real_reused_recording",
+          "frames": 296,
+          "cosine_to_fp32": 0.9983643293380737,
+          "max_abs_error_to_fp32": 0.17218363285064697
+        },
+        {
+          "id": "P01_C02_0",
+          "kind": "real_reused_recording",
+          "frames": 379,
+          "cosine_to_fp32": 0.9989383816719055,
+          "max_abs_error_to_fp32": 0.161413311958313
+        },
+        {
+          "id": "P01_C02_1",
+          "kind": "real_reused_recording",
+          "frames": 379,
+          "cosine_to_fp32": 0.9988653659820557,
+          "max_abs_error_to_fp32": 0.12379103899002075
+        },
+        {
+          "id": "P01_C03_0",
+          "kind": "real_reused_recording",
+          "frames": 270,
+          "cosine_to_fp32": 0.9972132444381714,
+          "max_abs_error_to_fp32": 0.24656283855438232
+        },
+        {
+          "id": "P01_C03_1",
+          "kind": "real_reused_recording",
+          "frames": 270,
+          "cosine_to_fp32": 0.9974839687347412,
+          "max_abs_error_to_fp32": 0.21213988959789276
+        },
+        {
+          "id": "P01_C03_2",
+          "kind": "real_reused_recording",
+          "frames": 270,
+          "cosine_to_fp32": 0.9968689680099487,
+          "max_abs_error_to_fp32": 0.23889608681201935
+        },
+        {
+          "id": "P02_C01_0",
+          "kind": "real_reused_recording",
+          "frames": 268,
+          "cosine_to_fp32": 0.9988529682159424,
+          "max_abs_error_to_fp32": 0.1278526782989502
+        },
+        {
+          "id": "P02_C01_1",
+          "kind": "real_reused_recording",
+          "frames": 268,
+          "cosine_to_fp32": 0.9988874197006226,
+          "max_abs_error_to_fp32": 0.12108668684959412
+        },
+        {
+          "id": "P02_C01_2",
+          "kind": "real_reused_recording",
+          "frames": 268,
+          "cosine_to_fp32": 0.998787522315979,
+          "max_abs_error_to_fp32": 0.12811923027038574
+        },
+        {
+          "id": "P02_C02_0",
+          "kind": "real_reused_recording",
+          "frames": 386,
+          "cosine_to_fp32": 0.9986815452575684,
+          "max_abs_error_to_fp32": 0.14703595638275146
+        },
+        {
+          "id": "P02_C02_1",
+          "kind": "real_reused_recording",
+          "frames": 386,
+          "cosine_to_fp32": 0.9968608617782593,
+          "max_abs_error_to_fp32": 0.2087869644165039
+        },
+        {
+          "id": "P02_C03_0",
+          "kind": "real_reused_recording",
+          "frames": 348,
+          "cosine_to_fp32": 0.9993715286254883,
+          "max_abs_error_to_fp32": 0.10400474071502686
+        },
+        {
+          "id": "P02_C03_1",
+          "kind": "real_reused_recording",
+          "frames": 348,
+          "cosine_to_fp32": 0.9990199208259583,
+          "max_abs_error_to_fp32": 0.15865841507911682
+        },
+        {
+          "id": "P02_T01_0",
+          "kind": "real_reused_recording",
+          "frames": 352,
+          "cosine_to_fp32": 0.9989480376243591,
+          "max_abs_error_to_fp32": 0.1440260410308838
+        },
+        {
+          "id": "P02_T01_1",
+          "kind": "real_reused_recording",
+          "frames": 352,
+          "cosine_to_fp32": 0.998782753944397,
+          "max_abs_error_to_fp32": 0.1206197440624237
+        },
+        {
+          "id": "P02_T02_0",
+          "kind": "real_reused_recording",
+          "frames": 272,
+          "cosine_to_fp32": 0.9984488487243652,
+          "max_abs_error_to_fp32": 0.1754400134086609
+        },
+        {
+          "id": "P02_T02_1",
+          "kind": "real_reused_recording",
+          "frames": 272,
+          "cosine_to_fp32": 0.9986581802368164,
+          "max_abs_error_to_fp32": 0.1409158855676651
+        },
+        {
+          "id": "P02_T02_2",
+          "kind": "real_reused_recording",
+          "frames": 272,
+          "cosine_to_fp32": 0.9989208579063416,
+          "max_abs_error_to_fp32": 0.14640825986862183
+        },
+        {
+          "id": "P02_T03_0",
+          "kind": "real_reused_recording",
+          "frames": 298,
+          "cosine_to_fp32": 0.9985589981079102,
+          "max_abs_error_to_fp32": 0.150651216506958
+        },
+        {
+          "id": "P02_T03_1",
+          "kind": "real_reused_recording",
+          "frames": 298,
+          "cosine_to_fp32": 0.9979491233825684,
+          "max_abs_error_to_fp32": 0.15236055850982666
+        },
+        {
+          "id": "P02_T03_2",
+          "kind": "real_reused_recording",
+          "frames": 298,
+          "cosine_to_fp32": 0.998528778553009,
+          "max_abs_error_to_fp32": 0.15690767765045166
+        },
+        {
+          "id": "boundary_151",
+          "kind": "synthetic_numeric_only",
+          "frames": 151,
+          "cosine_to_fp32": 0.8832464814186096,
+          "max_abs_error_to_fp32": 1.390292763710022
+        },
+        {
+          "id": "boundary_199",
+          "kind": "synthetic_numeric_only",
+          "frames": 199,
+          "cosine_to_fp32": 0.9504568576812744,
+          "max_abs_error_to_fp32": 0.9486303329467773
+        },
+        {
+          "id": "boundary_200",
+          "kind": "synthetic_numeric_only",
+          "frames": 200,
+          "cosine_to_fp32": 0.891463041305542,
+          "max_abs_error_to_fp32": 1.4435884952545166
+        },
+        {
+          "id": "boundary_201",
+          "kind": "synthetic_numeric_only",
+          "frames": 201,
+          "cosine_to_fp32": 0.9726637601852417,
+          "max_abs_error_to_fp32": 0.8966989517211914
+        },
+        {
+          "id": "boundary_399",
+          "kind": "synthetic_numeric_only",
+          "frames": 399,
+          "cosine_to_fp32": 0.9827920198440552,
+          "max_abs_error_to_fp32": 0.8240319490432739
+        },
+        {
+          "id": "boundary_400",
+          "kind": "synthetic_numeric_only",
+          "frames": 400,
+          "cosine_to_fp32": 0.9788438081741333,
+          "max_abs_error_to_fp32": 0.5888583064079285
+        },
+        {
+          "id": "boundary_401",
+          "kind": "synthetic_numeric_only",
+          "frames": 401,
+          "cosine_to_fp32": 0.9719076156616211,
+          "max_abs_error_to_fp32": 0.7762000560760498
+        }
+      ],
+      "scores": [
+        {
+          "id": "P01_C01",
+          "score": 0.9109562635421753,
+          "old_score": 0.9125781059265137,
+          "drift": 0.001621842384338379,
+          "state": "target",
+          "old_state": "target"
+        },
+        {
+          "id": "P01_C02",
+          "score": 0.8431281447410583,
+          "old_score": 0.8402910232543945,
+          "drift": 0.0028371214866638184,
+          "state": "target",
+          "old_state": "target"
+        },
+        {
+          "id": "P01_C03",
+          "score": 0.8261293172836304,
+          "old_score": 0.8279842734336853,
+          "drift": 0.0018549561500549316,
+          "state": "target",
+          "old_state": "target"
+        },
+        {
+          "id": "P02_C01",
+          "score": 0.4866204559803009,
+          "old_score": 0.48159337043762207,
+          "drift": 0.005027085542678833,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_C02",
+          "score": 0.44874662160873413,
+          "old_score": 0.45193904638290405,
+          "drift": 0.003192424774169922,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_C03",
+          "score": 0.3825717568397522,
+          "old_score": 0.382582426071167,
+          "drift": 1.0669231414794922e-05,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_T01",
+          "score": 0.41366463899612427,
+          "old_score": 0.4104939103126526,
+          "drift": 0.0031707286834716797,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_T02",
+          "score": 0.43646329641342163,
+          "old_score": 0.4351595640182495,
+          "drift": 0.0013037323951721191,
+          "state": "non_target",
+          "old_state": "non_target"
+        },
+        {
+          "id": "P02_T03",
+          "score": 0.39534199237823486,
+          "old_score": 0.39486005902290344,
+          "drift": 0.0004819333553314209,
+          "state": "non_target",
+          "old_state": "non_target"
+        }
+      ],
+      "load_seconds": 0.56194830000004,
+      "quality_pass": true,
+      "core_seconds": [
+        0.022994099999777973,
+        0.02331980000008116,
+        0.02276160000019445,
+        0.023249999999734428,
+        0.023040000000037253
+      ],
+      "median_seconds": 0.023040000000037253,
+      "status": "PC_NUMERICAL_PASS"
+    }
+  }
+}

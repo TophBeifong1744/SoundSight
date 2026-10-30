@@ -1,0 +1,48 @@
+{
+  "scope": "Prior ILA diagnostic build; NOT the latest no-ILA implementation",
+  "csv_sha256": "c2096b0d56822b3e09f7ffbe8c14eb89cd582ceba524068ccf676cad17eb7820",
+  "samples": 8192,
+  "clock_hz": 61440000,
+  "trigger_samples": [
+    6144
+  ],
+  "cs_transitions": [
+    [
+      2707,
+      1
+    ],
+    [
+      3332,
+      0
+    ],
+    [
+      6142,
+      1
+    ],
+    [
+      6143,
+      0
+    ],
+    [
+      6456,
+      1
+    ],
+    [
+      7015,
+      0
+    ]
+  ],
+  "fault_transitions": [
+    [
+      6144,
+      1
+    ]
+  ],
+  "format_error_samples": [
+    6143,
+    6457
+  ],
+  "bits_seen_before_first_error": 39,
+  "pin_pulse_width": "UNVERIFIED; synchronized CS high for one sample only",
+  "root_cause": "UNRESOLVED"
+}

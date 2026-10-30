@@ -1,0 +1,82 @@
+{
+  "scope": "BOARD_LIVE_DIAGNOSTIC_NOT_PAIRED",
+  "session": {
+    "status": "PASS",
+    "epoch": 32,
+    "input_packets": 938,
+    "front_blocks": 312,
+    "window_seconds": 1.0,
+    "eligible_results": 0,
+    "score_only": true,
+    "recognition_qualified": false,
+    "scheduling": {
+      "revision": "rx3",
+      "capture_cpus": [
+        0
+      ],
+      "frontend_cpus": [
+        1
+      ],
+      "ps_optimization": "opt1",
+      "algorithm_process_cpus": [
+        1
+      ],
+      "capture_gil_shared": false,
+      "embedding_cpus": [
+        0,
+        1
+      ],
+      "embedding_threads": 2,
+      "embedding_nice_increment": 10,
+      "policy": "capture_interpreter_isolated_algorithms_on_other_cpu_embedding_lower_priority",
+      "realtime_scheduler": false
+    }
+  },
+  "results": [
+    {
+      "end_sample16": 16320,
+      "compute_seconds": 3.044162646000018,
+      "result_age_seconds": 3.065908833000076,
+      "publish_elapsed_seconds": 4.085931165000034,
+      "reason": "expired",
+      "eligible": false,
+      "inference_executed": true
+    },
+    {
+      "end_sample16": 64000,
+      "compute_seconds": 2.9506899140000087,
+      "result_age_seconds": 3.0372435279999763,
+      "publish_elapsed_seconds": 7.037254958000062,
+      "reason": "expired",
+      "eligible": false,
+      "inference_executed": true
+    },
+    {
+      "end_sample16": 112000,
+      "compute_seconds": 3.0134871629999225,
+      "result_age_seconds": 3.051248988999987,
+      "publish_elapsed_seconds": 10.051260755000044,
+      "reason": "expired",
+      "eligible": false,
+      "inference_executed": true
+    },
+    {
+      "end_sample16": 152000,
+      "compute_seconds": 6.175500004701462e-05,
+      "result_age_seconds": 0.551777148000042,
+      "publish_elapsed_seconds": 10.051786865000054,
+      "reason": "stale_before_start",
+      "eligible": false,
+      "inference_executed": false
+    }
+  ],
+  "receiver_timing": {
+    "max_poll_gap_seconds": 0.018582252999976845,
+    "max_rearm_seconds": 0.002314554000008684,
+    "max_frame_service_seconds": 0.0023156729999982417,
+    "max_decode_seconds": 0.00031567200005611085,
+    "max_sink_seconds": 0.0017423550000330579,
+    "early_rearms": 937
+  },
+  "note": "不同录音不能严格配对；reference最后一次包含采集结束后计算，不混入持续并发速度"
+}

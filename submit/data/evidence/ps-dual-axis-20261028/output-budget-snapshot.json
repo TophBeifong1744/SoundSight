@@ -1,0 +1,12 @@
+{
+  "mode": "BUILD_FLOW",
+  "status": "AUTHOR_SELF_TEST_ONLY_NATIVE_VIVADO_NOT_RUN",
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "files": {
+    "project/sdc/ps/dual_axis_output_timing.xdc": "347c91d9e5d522fcd4e2273d22b59e1190bf149866efda08d97a74a3f70b7478",
+    "project/bd/update_ps_dual_axis.tcl": "2207baf2710e7d70125d785cb426edbf3fc8859be5c42771ec30a711938ecb9e",
+    "project/bd/report_ps_dual_axis.tcl": "f6efbc5b37bd9c3bf3ff1ab8de3eb6b42bda71bd213eecd919676ec88edfb7ec",
+    "software/tests/test_dual_axis_tcl.py": "1558b1ae0a190332682623ef016b1c162f64d83b98c15ea512fd7bd6df6ac775",
+    "software/tests/test_dual_axis_report_tcl.py": "c6029390b00ab28667a876c9c01b62fadbf84602b8ecb2048d1816d92d67151a"
+  }
+}

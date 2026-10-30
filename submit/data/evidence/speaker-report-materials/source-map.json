@@ -1,0 +1,903 @@
+{
+  "date": "2026-10-28",
+  "scope": "REPORT_MATERIALS_NOT_RUNTIME",
+  "frozen_source_archive": "soundsight_b_speaker_source_20261026_v3.zip",
+  "frozen_source_archive_sha256": "014080abe511789197d1dbe374d589d9f99b64874e8789c7bbe1874bf8d732c8",
+  "release": "https://github.com/TophBeifong1744/SoundSight/releases/tag/speaker-b-handoff-20261026-v3",
+  "evidence": {
+    "records/E01/serial-user.log": {
+      "source": "document/evidence/ps-speaker-core-board-20261024/serial-user.log",
+      "source_sha256": "ed526d8e31b13fc6bd2b88c9852fca2251e9b5e0c4b283e9ca4daa946bef9433",
+      "copy_note": "byte-identical"
+    },
+    "records/E02/serial-user-threads1.log": {
+      "source": "document/evidence/ps-campplus-core-board-20261024/serial-user-threads1.log",
+      "source_sha256": "503af9533d5fecfdd5aba4d9f0a7dc7039e8cb57b826a0d37ab16f270ebff75d",
+      "copy_note": "byte-identical"
+    },
+    "records/E02/serial-user-threads2.log": {
+      "source": "document/evidence/ps-campplus-core-board-20261024/serial-user-threads2.log",
+      "source_sha256": "29ba8adf4f0ae0035b130c1505f3ebd1408cb77d492e735cc8657f9614c5c3ba",
+      "copy_note": "byte-identical"
+    },
+    "records/E03/serial-user.log": {
+      "source": "document/evidence/ps-campplus-opt-board-20261025/serial-user.log",
+      "source_sha256": "177ba1e56c7acfd99ca8e06d5a04d95cb48a5a4e4aa4180063e5f5b0777c358e",
+      "copy_note": "byte-identical"
+    },
+    "records/E04/summary.json": {
+      "source": "document/evidence/ps-campplus-short-board-20261025/summary.json",
+      "source_sha256": "d59ce75e3663911711ee2a1f985a92c186eaf1b4c74f39e59e12d50d53b3c0b1",
+      "copy_note": "byte-identical"
+    },
+    "records/E04/summary-fp32-full.json": {
+      "source": "document/evidence/ps-campplus-short-board-20261025/summary-fp32-full.json",
+      "source_sha256": "f3125fb85ed77a298e4494de1a26070c49521bc9da16ad6c423ae5577085de56",
+      "copy_note": "byte-identical"
+    },
+    "records/E05/board-opt1-bench.json": {
+      "source": "document/evidence/ps-speaker-live-opt-20261025/board-opt1-bench.json",
+      "source_sha256": "10c44077cf73ff2bc4db34d34391d4b20104c3722374b5c6f20ab846f7e12219",
+      "copy_note": "byte-identical"
+    },
+    "records/E06/board-epoch26.json": {
+      "source": "document/evidence/ps-speaker-live-opt-20261025/board-epoch26.json",
+      "source_sha256": "c6d7bf2d4628728c750e905bcd2dffc247b8b244b8e3e9c6ffa4f40d00a45de0",
+      "copy_note": "public copy normalized GB18030 to UTF-8; original unchanged"
+    },
+    "records/E06/native-replay.json": {
+      "source": "document/evidence/ps-speaker-epoch26-analysis-20261025/native-replay.json",
+      "source_sha256": "e77985791319bf3d6dd84676e6aeeff1ccbbf222f44e4be774cb73745d723245",
+      "copy_note": "byte-identical"
+    },
+    "records/E06/input-audit.json": {
+      "source": "document/evidence/ps-speaker-epoch26-analysis-20261025/input-audit.json",
+      "source_sha256": "f73ce3f83d7cfe380f1e3cb17b1f0a258874259359e7e5e8f18ae6e9e81ea088",
+      "copy_note": "byte-identical"
+    },
+    "records/E07/board-profile.json": {
+      "source": "document/evidence/ps-speaker-profile-20261025/board-profile.json",
+      "source_sha256": "36eb149c186e6322414859ef5b42b3d553fc605fb197a819e5a6ad6b06d23468",
+      "copy_note": "byte-identical"
+    },
+    "records/E08/tests.json": {
+      "source": "document/evidence/ps-speaker-full-profile-20261026/tests.json",
+      "source_sha256": "d998a376f63843fc97f76fe9091abfeee04326b6f4dc43f8b3c8f4cdf8cc69db",
+      "copy_note": "byte-identical"
+    },
+    "records/E08/arm.json": {
+      "source": "document/evidence/ps-speaker-full-profile-20261026/arm.json",
+      "source_sha256": "87c0dc860b2bbfd6357a2c7f8821c901d409c355926491f186d50b0b6046edad",
+      "copy_note": "byte-identical"
+    },
+    "records/E08/entry.json": {
+      "source": "document/evidence/ps-speaker-full-profile-20261026/entry.json",
+      "source_sha256": "8aa0697d28671f64753a1c3610b0f7a63988e8b5284c022bb157dc2b33246aad",
+      "copy_note": "byte-identical"
+    },
+    "records/E08/review.json": {
+      "source": "document/evidence/ps-speaker-full-profile-20261026/review.json",
+      "source_sha256": "26dac8675abc50e72ebea5a57afa2a03d69eea17ca808de580466aa099506d5b",
+      "copy_note": "byte-identical"
+    },
+    "records/E08/package-check.json": {
+      "source": "document/evidence/ps-speaker-full-profile-20261026/package-check.json",
+      "source_sha256": "0d262f0420bcd2fa12e73414800ea754e7f88e78291aa528de147e95ea31e593",
+      "copy_note": "byte-identical"
+    },
+    "records/E09/REVIEW.json": {
+      "source": "document/evidence/speaker-return-review-20261028/REVIEW.json",
+      "source_sha256": "bc4b8931ca72274408bf5cbd7f9cdb504fd8ec9c740ac17a6d5859e4d6112bcf",
+      "copy_note": "byte-identical"
+    },
+    "records/E10/validation.json": {
+      "source": "document/evidence/speaker-3d-gate-20261028/validation.json",
+      "source_sha256": "5315f877253bbb8c3947f74e97ee871c220f845dca8c499c10c5d8153d442d9f",
+      "copy_note": "byte-identical"
+    },
+    "records/E10/native-models.json": {
+      "source": "document/evidence/speaker-3d-gate-20261028/native-models.json",
+      "source_sha256": "2aaffb17ade373352a6d0f454de16e2f4f48eb471fc5129da0621e006c1e6595",
+      "copy_note": "byte-identical"
+    },
+    "records/E10/independent-review.json": {
+      "source": "document/evidence/speaker-3d-gate-20261028/independent-review.json",
+      "source_sha256": "a79bee117eaeb34f0d903b284e37d535580c596dbbb106be9000d1ff89464d71",
+      "copy_note": "byte-identical"
+    },
+    "records/E11/pc-evaluation.json": {
+      "source": "document/evidence/ps-campplus-opt-armhf-20261024/pc-evaluation.json",
+      "source_sha256": "f150cf1ea417b3cc4ba9133505bafcde481c9dfc45a0682645ca3fd3efb7c48c",
+      "copy_note": "byte-identical; PC quantization evaluation, not ARM speed"
+    },
+    "records/E09/intake-excerpt.md": {
+      "source": "document/evidence/speaker-return-review-20261028/README.md",
+      "source_sha256": "4abd4e91a4d774e97b404c3d7893034ba6d704cf5d37e62c1ae9218277a27a4b",
+      "copy_note": "exact progress-section excerpt; surrounding links and private-package intake instructions omitted",
+      "start_line": 13,
+      "end_line": 25
+    },
+    "records/E12/packet-benchmark.json": {
+      "source": "document/evidence/p02-compute-opt-20261027/ARM-BENCH.md",
+      "source_sha256": "9ca31a48b9cc8bb5d330d112055c38df94c7d6066d0567544b2e0fd7de08da21",
+      "copy_note": "从用户ARM串口归档表逐值提取，3000包/轮，不是端到端",
+      "public_record": "records/E12/packet-benchmark.json",
+      "public_sha256": "d8f4146bec9b7e7a7cb9143b1498e75f158deb110839b3c0122024656844b5cf"
+    },
+    "records/E12/epoch32-rx4-timing.json": {
+      "source": "document/evidence/p02-compute-opt-20261027/epoch32-rx4/result.json",
+      "source_sha256": "028b553d9e9bca0d8f9770af5da6b1b353dd66569fa566ec01bfc5985ffbd0d6",
+      "copy_note": "剔除身份分数及覆盖率，仅公开匿名会话/耗时/故障边界",
+      "public_record": "records/E12/epoch32-rx4-timing.json",
+      "public_sha256": "26b81059a2aa64a19146f1c10f01600854d0b8eebb00d2803e6e46aef2fbca13"
+    },
+    "records/E12/epoch33-reference-timing.json": {
+      "source": "document/evidence/p02-compute-opt-20261027/epoch33-reference/result.json",
+      "source_sha256": "d2bc52005f4049a0611f8e645bcba72bc2c36bc82fd2daf42e9df06a2ea1e0ce",
+      "copy_note": "剔除身份分数及覆盖率，仅公开匿名会话/耗时/故障边界",
+      "public_record": "records/E12/epoch33-reference-timing.json",
+      "public_sha256": "d889bdee1f656e70cd11486cea2f08faf8d037f7d9e03fafd47c2e209c39ef3d"
+    },
+    "records/E13/arm-summary.json": {
+      "source": "document/evidence/p02-runtime-memory-20261027/board-mp1/summary.json",
+      "source_sha256": "0ed3a41bb291d36f442e4effb69213bc76bdc0608a169466db9f9c0885dc3a6c",
+      "copy_note": "字段摘取；非完整原件，不含录音/特征/模板/模型",
+      "public_record": "records/E13/arm-summary.json",
+      "public_sha256": "c4413eaa39e19e8cdf2fd0f44bd56507d95207c5ad3d9d1a439936006a7fbb39"
+    },
+    "records/E14/arm-summary.json": {
+      "source": "document/evidence/p02-fixed-window-20261027/board-fs1.md",
+      "source_sha256": "41583bd3498830863921f47a04ed62ffaf67d0ceaa3ed430ae64c8453c95c805",
+      "copy_note": "从完整用户汇总归档表提取；RSS和逐样本文件未收到",
+      "public_record": "records/E14/arm-summary.json",
+      "public_sha256": "ded89df38f1d7b944bdeb0d154bc5dfef832ecb13133d7d6df3ec73d882369bd"
+    },
+    "records/E14/cc1-rejected.json": {
+      "source": "document/evidence/p02-cam-context-20261027/pc-model-validation.json",
+      "source_sha256": "e01d6180614cb4aa274b81488df5e204e7a91ddb9d084c49d20c88ed76463c52",
+      "copy_note": "保留CC1在匹配板端ORT1.17.3的失败；剔除合成模板分数，未放宽门限",
+      "public_record": "records/E14/cc1-rejected.json",
+      "public_sha256": "f90f6fb1f9d2e06d76801ed5dba98f746d572c7e4e7af01f7d253effa9b33fd6"
+    },
+    "records/E15/arm-summary.json": {
+      "source": "document/evidence/p02-packed-cam-20261028/board-cp1/summary.json",
+      "source_sha256": "9be7b9adba208970e460a837b8cabdebcd356259d21281711be31cb63191aa7e",
+      "copy_note": "字段摘取；非完整原件，不含录音/特征/模板/模型",
+      "public_record": "records/E15/arm-summary.json",
+      "public_sha256": "5496d66a1aa6a92b455913fabc50913377ef8c8909349602c5868e176c945ed0"
+    },
+    "records/E16/arm-summary.json": {
+      "source": "document/evidence/p02-vad-frontend-20261028/board-vf1/summary.json",
+      "source_sha256": "c0a84bf7478c360bf213e8e762735bef2e93fa941ba57b17e4a60c584ff6fcd5",
+      "copy_note": "字段摘取；非完整原件，不含录音/特征/模板/模型",
+      "public_record": "records/E16/arm-summary.json",
+      "public_sha256": "817e6fb2ce35cb000e12ecbaaa1a4849721b4141f455a46a6a24a5ebfef0d435"
+    },
+    "records/E16/pc-vad-summary.json": {
+      "source": "document/evidence/p02-vad-frontend-20261028/pc-model-validation.json",
+      "source_sha256": "70b88a428055be5c22311b8ff19ba37d61d66263008fdcae0f4a9ed7595ee62b",
+      "copy_note": "仅PC VAD，568状态块；计时排除第1成对轮，不是ARM整体前端",
+      "public_record": "records/E16/pc-vad-summary.json",
+      "public_sha256": "151cceb399c31386e3775f514cf8091ca43af69c4659cac8b589cd127a298a1d"
+    },
+    "records/E16/cp2-rejected.json": {
+      "source": "document/evidence/p02-local-conv-probe-20261028/numerical-validation.json",
+      "source_sha256": "ee8d3c5c941b88e84080c86be09ae8962627e2e6996d46dc1ecf37fd7845a45b",
+      "copy_note": "kernel3转MatMul候选数值失败，未测速/交付；剔除合成模板分数",
+      "public_record": "records/E16/cp2-rejected.json",
+      "public_sha256": "914d2bec879b248326e0d228e658c7d687252d807cce277439bb184718ab2999"
+    },
+    "records/E17/migration-summary.json": {
+      "source": "document/evidence/ps-tetra3d-migration-20261021/PC-RESULT.json",
+      "source_sha256": "7d3573a36c4dd889f56e258c1a9f4d3c5617d5c57b91cbcb654d44c0044de4b9",
+      "copy_note": "公开PC合成验证字段摘取；不复制逐帧特征，原日志保留",
+      "public_record": "records/E17/migration-summary.json",
+      "public_sha256": "cdc9e1381ea0e5520696302ace549551078aeae6d92d35ac31633a0df85480ff",
+      "source_url": "https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/document/evidence/ps-tetra3d-migration-20261021/PC-RESULT.json"
+    },
+    "records/E18/optimization-measurements.json": {
+      "source": "document/evidence/tetra3d-optimizations-20261025/REPORT.md",
+      "source_sha256": "687db32f374237dff3886a2e2ed9c53e7e8ee901d14c02e857a1c088b5aa809a",
+      "copy_note": "逐值摘取公开开发报告；性能为PC合成，tracemalloc为块分配峰值，非进程RSS",
+      "public_record": "records/E18/optimization-measurements.json",
+      "public_sha256": "b4bc13797870ea56307a43156bf0a73e71b35593dffad1c43bcc36be96d747a4",
+      "source_url": "https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/document/evidence/tetra3d-optimizations-20261025/REPORT.md"
+    },
+    "records/E18/SUMMARY.json": {
+      "source": "document/evidence/tetra3d-optimizations-20261025/SUMMARY.json",
+      "source_sha256": "74ece69cfe1bdf5cc4930fd705a8f53e6a4bc5210056d43f21d25f1f6a83cbb8",
+      "copy_note": "byte-equivalent JSON values; PC test-run durations are not algorithm latency",
+      "public_record": "records/E18/SUMMARY.json",
+      "public_sha256": "74ece69cfe1bdf5cc4930fd705a8f53e6a4bc5210056d43f21d25f1f6a83cbb8",
+      "source_url": "https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/document/evidence/tetra3d-optimizations-20261025/SUMMARY.json"
+    },
+    "records/E18/INTEGRATION-SUMMARY.json": {
+      "source": "document/evidence/tetra3d-optimizations-20261025/INTEGRATION-SUMMARY.json",
+      "source_sha256": "c0791ba010374cea470f4239f98bbe9124b36652a724c4813ee8311cbf72a1ef",
+      "copy_note": "byte-equivalent JSON values; PC test-run durations are not algorithm latency",
+      "public_record": "records/E18/INTEGRATION-SUMMARY.json",
+      "public_sha256": "c0791ba010374cea470f4239f98bbe9124b36652a724c4813ee8311cbf72a1ef",
+      "source_url": "https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/document/evidence/tetra3d-optimizations-20261025/INTEGRATION-SUMMARY.json"
+    },
+    "records/E19/development-score-ranges.json": {
+      "source": "document/evidence/p02-target-20261026/board-enrollment/summary.json",
+      "source_sha256": "157ec38f75fd2178522346ac6816251473238453284d24d7ee120cb797bca218",
+      "copy_note": "匿名目标/非目标开发分数范围，不含姓名/模板/特征，不能据此报告泛化准确率",
+      "public_record": "records/E19/development-score-ranges.json",
+      "public_sha256": "113197ce797f6ee5ea7034ccd22fe7441ca542f576767b7c8cd45204333c8241"
+    }
+  },
+  "code_excerpts": [
+    {
+      "id": "S01",
+      "source": "software/ps/speaker_core/pipeline_backend.c",
+      "start_line": 89,
+      "end_line": 112,
+      "source_sha256": "1c34b9b8f585b460f62cb543f4c6037e2e74726c0fd3d0a5f536747aea180fb3",
+      "excerpt_sha256": "a87849fe4209a2700ed3fe1a5b8cad44c0d79db162318e2777a0a632bede349e"
+    },
+    {
+      "id": "S02",
+      "source": "software/ps/speaker_core/stream_frontend.h",
+      "start_line": 10,
+      "end_line": 37,
+      "source_sha256": "7c424821dde0d22eab3568a0218bf2e010097eafb7e15ce9d2b10866060c7f9e",
+      "excerpt_sha256": "283827f08d91486761447a330dffb8580ca5045a81b1e8e0105d6bee6c3a7eae"
+    },
+    {
+      "id": "S03",
+      "source": "software/ps/speaker_process.py",
+      "start_line": 83,
+      "end_line": 94,
+      "source_sha256": "ce2ac807578dbffc883953488ffc2ddec98922fd856be679975c04fff7d315e3",
+      "excerpt_sha256": "3f0a54cf6d535ade459a95752a35aef4e51509c96e79411cb53f576e1fce5d88"
+    },
+    {
+      "id": "S04",
+      "source": "software/ps/speaker_core/stream_bench.py",
+      "start_line": 94,
+      "end_line": 101,
+      "source_sha256": "445996c2515861b3219cdaa9a95ac942a6ae85837443bc996a657f9097139e59",
+      "excerpt_sha256": "8788d305187d546100b5c4b6dd5ed4a4082183924ae45eb58de678170f665755"
+    },
+    {
+      "id": "S05",
+      "source": "software/ps/speaker_core/stream_bench.py",
+      "start_line": 119,
+      "end_line": 127,
+      "source_sha256": "445996c2515861b3219cdaa9a95ac942a6ae85837443bc996a657f9097139e59",
+      "excerpt_sha256": "56c472ffaa84d206719525cb19efe849b9eb59ed770ae21327c44cfc09a36334"
+    },
+    {
+      "id": "S06",
+      "source": "software/ps/speaker_core/network_profile.py",
+      "start_line": 66,
+      "end_line": 77,
+      "source_sha256": "7966bae9b845d418ae72a7d5e6175673c9960bac929de2afed9d1df35a1837be",
+      "excerpt_sha256": "6443c0bb5951fe64c57b5b74326eeba85fcfb53af83e1af07636822baae26905"
+    },
+    {
+      "id": "S07",
+      "source": "software/ps/pcm_capture.py",
+      "start_line": 74,
+      "end_line": 89,
+      "source_sha256": "381e2be97ad4d45eeee109f1c3181c3559d3eb90133bb5eb35b150d0b0ae124b",
+      "excerpt_sha256": "05094bf7851df4830092d9621dbb7298a3a4ad7a70caafa23c6fe9ab143776ee",
+      "public_excerpt_sha256": "05094bf7851df4830092d9621dbb7298a3a4ad7a70caafa23c6fe9ab143776ee",
+      "candidate": "RX4 ZIP 0b648d4a0853d1b9444ef46e4ed51dd5ae3b9fce93cf22d56b1ac50f02824615",
+      "public_excerpt": "03-code-highlights.md#s07"
+    },
+    {
+      "id": "S08",
+      "source": "tools/packed_cam_model.py",
+      "start_line": 113,
+      "end_line": 145,
+      "source_sha256": "4fafa7dd7af306764d03ee2c56c018a79a2bd132924e9bdda86a907295210439",
+      "excerpt_sha256": "01f118504a61108f2a4d5a5adc542efc6b666e6db326bdfe03c43c3b141d396c",
+      "public_excerpt_sha256": "01f118504a61108f2a4d5a5adc542efc6b666e6db326bdfe03c43c3b141d396c",
+      "candidate": "CP1模型 5012f8f3afd594943d37384524a8b596b1fc860c5f371058b783c396411396ac",
+      "public_excerpt": "03-code-highlights.md#s08"
+    },
+    {
+      "id": "S09",
+      "source": "tools/vad_fixed_model.py",
+      "start_line": 35,
+      "end_line": 67,
+      "source_sha256": "b128bfe38fb76debbef2ee8c08bf337b75162af287108ad0329c98acf6a8c78f",
+      "excerpt_sha256": "501f3997a1ee2d687f3160d1aad964d47e15d8c3068d5a5f9a4879c223e9efda",
+      "public_excerpt_sha256": "501f3997a1ee2d687f3160d1aad964d47e15d8c3068d5a5f9a4879c223e9efda",
+      "candidate": "VF1模型 2f9baaee7df0ff223225b6fcb176ad0ae33542c7ae83015d7f87351c5c32d84c",
+      "public_excerpt": "03-code-highlights.md#s09"
+    },
+    {
+      "id": "S10",
+      "source": "tools/vad_fixed_model.py",
+      "start_line": 135,
+      "end_line": 141,
+      "source_sha256": "b128bfe38fb76debbef2ee8c08bf337b75162af287108ad0329c98acf6a8c78f",
+      "excerpt_sha256": "25372ae85b4e9332c13d88224c443ca1f9c44b5d2cb60642b01a2b748b11ba57",
+      "public_excerpt_sha256": "25372ae85b4e9332c13d88224c443ca1f9c44b5d2cb60642b01a2b748b11ba57",
+      "candidate": "同S09",
+      "public_excerpt": "03-code-highlights.md#s10"
+    },
+    {
+      "id": "S11",
+      "source": "software/tetra3d/core/doa_solver_3d.c",
+      "start_line": 154,
+      "end_line": 177,
+      "source_sha256": "2553c8f3282f4fa78bcc0b2829745a1b0ce757e299e2a28a4b9ac719dc05c4c2",
+      "excerpt_sha256": "7a5f6680597ae3277f3551e2eaa118447951ce1a865f5663c09ab47122cb157f",
+      "public_excerpt_sha256": "7a5f6680597ae3277f3551e2eaa118447951ce1a865f5663c09ab47122cb157f",
+      "candidate": "dfe9975168bae92af34b9c25891c3678bc5d1dc6",
+      "public_excerpt": "03-code-highlights.md#s11",
+      "source_url": "https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/software/tetra3d/core/doa_solver_3d.c",
+      "commit": "dfe9975168bae92af34b9c25891c3678bc5d1dc6"
+    },
+    {
+      "id": "S12",
+      "source": "software/tetra3d/das/dynamic_das.py",
+      "start_line": 89,
+      "end_line": 110,
+      "source_sha256": "6538276369c9850b7b3ddf70b564f2cf1e81111893de6f710e8e5e68ef455a7c",
+      "excerpt_sha256": "10edc316109d82761fc9695016df9144a9f5a6c113fbb933ca68eca3fe4e3a18",
+      "public_excerpt_sha256": "10edc316109d82761fc9695016df9144a9f5a6c113fbb933ca68eca3fe4e3a18",
+      "candidate": "dfe9975168bae92af34b9c25891c3678bc5d1dc6",
+      "public_excerpt": "03-code-highlights.md#s12",
+      "source_url": "https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/software/tetra3d/das/dynamic_das.py",
+      "commit": "dfe9975168bae92af34b9c25891c3678bc5d1dc6"
+    },
+    {
+      "id": "S13",
+      "source": "software/tetra3d/linux/pipeline_3d.py",
+      "start_line": 251,
+      "end_line": 278,
+      "source_sha256": "f46461f168296fbf350866f59aef96beb6f1d322ee4e99b1b531e779c1baccb7",
+      "excerpt_sha256": "62437eb67bc64467ea507576bed43283676948364f6f3374fbfc29c0a5352170",
+      "public_excerpt_sha256": "62437eb67bc64467ea507576bed43283676948364f6f3374fbfc29c0a5352170",
+      "candidate": "dfe9975168bae92af34b9c25891c3678bc5d1dc6",
+      "public_excerpt": "03-code-highlights.md#s13",
+      "source_url": "https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/software/tetra3d/linux/pipeline_3d.py",
+      "commit": "dfe9975168bae92af34b9c25891c3678bc5d1dc6"
+    }
+  ],
+  "metric_bindings_b": {
+    "B-RX4-reference-wall": {
+      "record": "records/E12/packet-benchmark.json",
+      "json_pointer": "/reference/wall_seconds",
+      "statistic": "median of 4 rounds; 3000 packet validations/round; no MMIO/DMA/model"
+    },
+    "B-RX4-reference-cpu": {
+      "record": "records/E12/packet-benchmark.json",
+      "json_pointer": "/reference/cpu_seconds",
+      "statistic": "median of 4 rounds; 3000 packet validations/round; no MMIO/DMA/model"
+    },
+    "B-RX4-rx4-wall": {
+      "record": "records/E12/packet-benchmark.json",
+      "json_pointer": "/rx4/wall_seconds",
+      "statistic": "median of 4 rounds; 3000 packet validations/round; no MMIO/DMA/model"
+    },
+    "B-RX4-rx4-cpu": {
+      "record": "records/E12/packet-benchmark.json",
+      "json_pointer": "/rx4/cpu_seconds",
+      "statistic": "median of 4 rounds; 3000 packet validations/round; no MMIO/DMA/model"
+    },
+    "B-epoch32-rx4-0": {
+      "record": "records/E12/epoch32-rx4-timing.json",
+      "json_pointer": "/results/0/compute_seconds",
+      "statistic": "LiveSpeaker compute_seconds; one window incl scoring/publication preparation; tail context retained in record"
+    },
+    "B-epoch32-rx4-1": {
+      "record": "records/E12/epoch32-rx4-timing.json",
+      "json_pointer": "/results/1/compute_seconds",
+      "statistic": "LiveSpeaker compute_seconds; one window incl scoring/publication preparation; tail context retained in record"
+    },
+    "B-epoch32-rx4-2": {
+      "record": "records/E12/epoch32-rx4-timing.json",
+      "json_pointer": "/results/2/compute_seconds",
+      "statistic": "LiveSpeaker compute_seconds; one window incl scoring/publication preparation; tail context retained in record"
+    },
+    "B-epoch33-reference-0": {
+      "record": "records/E12/epoch33-reference-timing.json",
+      "json_pointer": "/results/0/compute_seconds",
+      "statistic": "LiveSpeaker compute_seconds; one window incl scoring/publication preparation; tail context retained in record"
+    },
+    "B-epoch33-reference-3": {
+      "record": "records/E12/epoch33-reference-timing.json",
+      "json_pointer": "/results/3/compute_seconds",
+      "statistic": "LiveSpeaker compute_seconds; one window incl scoring/publication preparation; tail context retained in record"
+    },
+    "B-epoch33-reference-5": {
+      "record": "records/E12/epoch33-reference-timing.json",
+      "json_pointer": "/results/5/compute_seconds",
+      "statistic": "LiveSpeaker compute_seconds; one window incl scoring/publication preparation; tail context retained in record"
+    },
+    "B-MP1-frontend-shipped-wall": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/frontend/variants/shipped/median_wall_seconds",
+      "statistic": "median; 312-block frontend replay; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-frontend-shipped-cpu": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/frontend/variants/shipped/median_cpu_seconds",
+      "statistic": "median; 312-block frontend replay; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-frontend-rebuild-wall": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/frontend/variants/rebuild/median_wall_seconds",
+      "statistic": "median; 312-block frontend replay; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-frontend-rebuild-cpu": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/frontend/variants/rebuild/median_cpu_seconds",
+      "statistic": "median; 312-block frontend replay; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-frontend-pattern-wall": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/frontend/variants/pattern/median_wall_seconds",
+      "statistic": "median; 312-block frontend replay; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-frontend-pattern-cpu": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/frontend/variants/pattern/median_cpu_seconds",
+      "statistic": "median; 312-block frontend replay; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_1.0s-shipped-wall": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_1.0s/variants/shipped/median_wall_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_1.0s-shipped-cpu": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_1.0s/variants/shipped/median_cpu_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_1.0s-rebuild-wall": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_1.0s/variants/rebuild/median_wall_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_1.0s-rebuild-cpu": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_1.0s/variants/rebuild/median_cpu_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_1.0s-pattern-wall": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_1.0s/variants/pattern/median_wall_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_1.0s-pattern-cpu": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_1.0s/variants/pattern/median_cpu_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_1.5s-shipped-wall": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_1.5s/variants/shipped/median_wall_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_1.5s-shipped-cpu": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_1.5s/variants/shipped/median_cpu_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_1.5s-rebuild-wall": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_1.5s/variants/rebuild/median_wall_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_1.5s-rebuild-cpu": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_1.5s/variants/rebuild/median_cpu_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_1.5s-pattern-wall": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_1.5s/variants/pattern/median_wall_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_1.5s-pattern-cpu": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_1.5s/variants/pattern/median_cpu_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_2.0s-shipped-wall": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_2.0s/variants/shipped/median_wall_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_2.0s-shipped-cpu": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_2.0s/variants/shipped/median_cpu_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_2.0s-rebuild-wall": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_2.0s/variants/rebuild/median_wall_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_2.0s-rebuild-cpu": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_2.0s/variants/rebuild/median_cpu_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_2.0s-pattern-wall": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_2.0s/variants/pattern/median_wall_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-MP1-embedding_2.0s-pattern-cpu": {
+      "record": "records/E13/arm-summary.json",
+      "json_pointer": "/performance/embedding_2.0s/variants/pattern/median_cpu_seconds",
+      "statistic": "median; fixed cached features J CMN+network+IPC; load excluded; no DMA; rebuild is same-compiler baseline"
+    },
+    "B-FS1-isolated-shipped-wall": {
+      "record": "records/E14/arm-summary.json",
+      "json_pointer": "/performance/isolated/variants/shipped/median_wall_seconds",
+      "statistic": "warm median; J CMN+network+IPC; isolated; same cached features; load excluded; no DMA"
+    },
+    "B-FS1-isolated-shipped-cpu": {
+      "record": "records/E14/arm-summary.json",
+      "json_pointer": "/performance/isolated/variants/shipped/median_cpu_seconds",
+      "statistic": "warm median; J CMN+network+IPC; isolated; same cached features; load excluded; no DMA"
+    },
+    "B-FS1-isolated-fs1-wall": {
+      "record": "records/E14/arm-summary.json",
+      "json_pointer": "/performance/isolated/variants/fs1/median_wall_seconds",
+      "statistic": "warm median; J CMN+network+IPC; isolated; same cached features; load excluded; no DMA"
+    },
+    "B-FS1-isolated-fs1-cpu": {
+      "record": "records/E14/arm-summary.json",
+      "json_pointer": "/performance/isolated/variants/fs1/median_cpu_seconds",
+      "statistic": "warm median; J CMN+network+IPC; isolated; same cached features; load excluded; no DMA"
+    },
+    "B-FS1-paced_frontend-shipped-wall": {
+      "record": "records/E14/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/shipped/median_wall_seconds",
+      "statistic": "warm median; J CMN+network+IPC; paced_frontend; same cached features; load excluded; no DMA"
+    },
+    "B-FS1-paced_frontend-shipped-cpu": {
+      "record": "records/E14/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/shipped/median_cpu_seconds",
+      "statistic": "warm median; J CMN+network+IPC; paced_frontend; same cached features; load excluded; no DMA"
+    },
+    "B-FS1-paced_frontend-fs1-wall": {
+      "record": "records/E14/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/fs1/median_wall_seconds",
+      "statistic": "warm median; J CMN+network+IPC; paced_frontend; same cached features; load excluded; no DMA"
+    },
+    "B-FS1-paced_frontend-fs1-cpu": {
+      "record": "records/E14/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/fs1/median_cpu_seconds",
+      "statistic": "warm median; J CMN+network+IPC; paced_frontend; same cached features; load excluded; no DMA"
+    },
+    "B-CP1-isolated-shipped-wall": {
+      "record": "records/E15/arm-summary.json",
+      "json_pointer": "/performance/isolated/variants/shipped/median_wall_seconds",
+      "statistic": "warm median; fixed cached features J CMN+network+IPC; isolated; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-CP1-isolated-shipped-cpu": {
+      "record": "records/E15/arm-summary.json",
+      "json_pointer": "/performance/isolated/variants/shipped/median_cpu_seconds",
+      "statistic": "warm median; fixed cached features J CMN+network+IPC; isolated; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-CP1-isolated-cp1-wall": {
+      "record": "records/E15/arm-summary.json",
+      "json_pointer": "/performance/isolated/variants/cp1/median_wall_seconds",
+      "statistic": "warm median; fixed cached features J CMN+network+IPC; isolated; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-CP1-isolated-cp1-cpu": {
+      "record": "records/E15/arm-summary.json",
+      "json_pointer": "/performance/isolated/variants/cp1/median_cpu_seconds",
+      "statistic": "warm median; fixed cached features J CMN+network+IPC; isolated; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-CP1-paced_frontend-shipped-wall": {
+      "record": "records/E15/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/shipped/median_wall_seconds",
+      "statistic": "warm median; fixed cached features J CMN+network+IPC; paced_frontend; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-CP1-paced_frontend-shipped-cpu": {
+      "record": "records/E15/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/shipped/median_cpu_seconds",
+      "statistic": "warm median; fixed cached features J CMN+network+IPC; paced_frontend; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-CP1-paced_frontend-cp1-wall": {
+      "record": "records/E15/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/cp1/median_wall_seconds",
+      "statistic": "warm median; fixed cached features J CMN+network+IPC; paced_frontend; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-CP1-paced_frontend-cp1-cpu": {
+      "record": "records/E15/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/cp1/median_cpu_seconds",
+      "statistic": "warm median; fixed cached features J CMN+network+IPC; paced_frontend; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-VF1-frontend-original-wall": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/frontend/variants/original/median_wall_seconds",
+      "statistic": "warm median; 312-block full frontend replay; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-VF1-frontend-original-cpu": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/frontend/variants/original/median_cpu_seconds",
+      "statistic": "warm median; 312-block full frontend replay; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-VF1-frontend-original-rss": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/frontend/variants/original/peak_rss_mib",
+      "statistic": "maximum native process VmHWM over measured rows; not combined system RSS"
+    },
+    "B-VF1-frontend-vf1-wall": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/frontend/variants/vf1/median_wall_seconds",
+      "statistic": "warm median; 312-block full frontend replay; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-VF1-frontend-vf1-cpu": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/frontend/variants/vf1/median_cpu_seconds",
+      "statistic": "warm median; 312-block full frontend replay; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-VF1-frontend-vf1-rss": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/frontend/variants/vf1/peak_rss_mib",
+      "statistic": "maximum native process VmHWM over measured rows; not combined system RSS"
+    },
+    "B-VF1-paced_frontend-shipped-wall": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/shipped/median_wall_seconds",
+      "statistic": "warm median; fixed cached features J CMN+network+IPC; paced_frontend; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-VF1-paced_frontend-shipped-cpu": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/shipped/median_cpu_seconds",
+      "statistic": "warm median; fixed cached features J CMN+network+IPC; paced_frontend; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-VF1-paced_frontend-shipped-rss": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/shipped/peak_rss_mib",
+      "statistic": "maximum native process VmHWM over measured rows; not combined system RSS"
+    },
+    "B-VF1-paced_frontend-cp1-wall": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/cp1/median_wall_seconds",
+      "statistic": "warm median; fixed cached features J CMN+network+IPC; paced_frontend; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-VF1-paced_frontend-cp1-cpu": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/cp1/median_cpu_seconds",
+      "statistic": "warm median; fixed cached features J CMN+network+IPC; paced_frontend; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-VF1-paced_frontend-cp1-rss": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/cp1/peak_rss_mib",
+      "statistic": "maximum native process VmHWM over measured rows; not combined system RSS"
+    },
+    "B-VF1-paced_frontend-vf1-wall": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/vf1/median_wall_seconds",
+      "statistic": "warm median; fixed cached features J CMN+network+IPC; paced_frontend; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-VF1-paced_frontend-vf1-cpu": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/vf1/median_cpu_seconds",
+      "statistic": "warm median; fixed cached features J CMN+network+IPC; paced_frontend; load excluded; no DMA; VF1 paced uses same rebuilt frontend"
+    },
+    "B-VF1-paced_frontend-vf1-rss": {
+      "record": "records/E16/arm-summary.json",
+      "json_pointer": "/performance/paced_frontend/variants/vf1/peak_rss_mib",
+      "statistic": "maximum native process VmHWM over measured rows; not combined system RSS"
+    },
+    "B-VF1-PC-original": {
+      "record": "records/E16/pc-vad-summary.json",
+      "json_pointer": "/median_wall_seconds/original",
+      "statistic": "median of rounds2..8; 312 recurrent VAD blocks; load excluded; NumPy-derived PCM not native C frontend"
+    },
+    "B-VF1-PC-vf1": {
+      "record": "records/E16/pc-vad-summary.json",
+      "json_pointer": "/median_wall_seconds/vf1",
+      "statistic": "median of rounds2..8; 312 recurrent VAD blocks; load excluded; NumPy-derived PCM not native C frontend"
+    },
+    "B-TETRA-MIGRATE-MEDIAN": {
+      "record": "records/E17/migration-summary.json",
+      "json_pointer": "/call_ns/median",
+      "statistic": "median 200 Python+ctypes+C geometry validation+solve calls; no acquisition; not ARM deadline"
+    },
+    "B-DAS-baseline_trace-wall": {
+      "record": "records/E18/optimization-measurements.json",
+      "json_pointer": "/variants/baseline_trace/median_wall_seconds",
+      "statistic": "median 3 runs; 48000 samples/1024-sample blocks; Python DAS only; no ARM/capture"
+    },
+    "B-DAS-baseline_trace-alloc": {
+      "record": "records/E18/optimization-measurements.json",
+      "json_pointer": "/variants/baseline_trace/tracemalloc_peak_bytes",
+      "statistic": "8192-sample allocation probe peak; NOT RSS; repetitions not specified in original report"
+    },
+    "B-DAS-ring_trace-wall": {
+      "record": "records/E18/optimization-measurements.json",
+      "json_pointer": "/variants/ring_trace/median_wall_seconds",
+      "statistic": "median 3 runs; 48000 samples/1024-sample blocks; Python DAS only; no ARM/capture"
+    },
+    "B-DAS-ring_trace-alloc": {
+      "record": "records/E18/optimization-measurements.json",
+      "json_pointer": "/variants/ring_trace/tracemalloc_peak_bytes",
+      "statistic": "8192-sample allocation probe peak; NOT RSS; repetitions not specified in original report"
+    },
+    "B-DAS-ring_no_trace-wall": {
+      "record": "records/E18/optimization-measurements.json",
+      "json_pointer": "/variants/ring_no_trace/median_wall_seconds",
+      "statistic": "median 3 runs; 48000 samples/1024-sample blocks; Python DAS only; no ARM/capture"
+    },
+    "B-DAS-ring_no_trace-alloc": {
+      "record": "records/E18/optimization-measurements.json",
+      "json_pointer": "/variants/ring_no_trace/tracemalloc_peak_bytes",
+      "statistic": "8192-sample allocation probe peak; NOT RSS; repetitions not specified in original report"
+    }
+  },
+  "candidate_identities_b": {
+    "RX4": {
+      "package_name": "soundsight_capture_cpu_opt_rx4.zip",
+      "package_sha256": "0b648d4a0853d1b9444ef46e4ed51dd5ae3b9fce93cf22d56b1ac50f02824615",
+      "package_published_here": false,
+      "public_implementation_excerpt": "03-code-highlights.md",
+      "public_measurement_record": "records/E12/packet-benchmark.json"
+    },
+    "MP1": {
+      "package_name": "soundsight_runtime_memory_mp1.zip",
+      "package_sha256": "e54a2fc001e0e7e4c0b54cd098ce100694b85061789c7b9cf40645b332cc5888",
+      "package_published_here": false,
+      "public_implementation_excerpt": "03-code-highlights.md",
+      "public_measurement_record": "records/E13/arm-summary.json"
+    },
+    "FS1": {
+      "package_name": "soundsight_fixed_window_fs1.zip",
+      "package_sha256": "beebfbbabde7d850488bd2dec13959327de5ac62ed1eff70f5db0c60c1d03987",
+      "package_published_here": false,
+      "public_implementation_excerpt": "03-code-highlights.md",
+      "public_measurement_record": "records/E14/arm-summary.json"
+    },
+    "CP1": {
+      "package_name": "soundsight_packed_cam_cp1.zip",
+      "package_sha256": "f07c98bbcfb53d0f2142503547218e0428ebaa6daa0b27596dfd7ef2b95bbbb3",
+      "package_published_here": false,
+      "public_implementation_excerpt": "03-code-highlights.md",
+      "public_measurement_record": "records/E15/arm-summary.json"
+    },
+    "VF1": {
+      "package_name": "soundsight_vad_frontend_vf1.zip",
+      "package_sha256": "4a96fd2a90dacd55d1350593eeeca904f1af381f3468d079d4c5d3635f7433b7",
+      "package_published_here": false,
+      "public_implementation_excerpt": "03-code-highlights.md",
+      "public_measurement_record": "records/E16/arm-summary.json"
+    },
+    "TETRA3D": {
+      "commit": "dfe9975168bae92af34b9c25891c3678bc5d1dc6",
+      "source_url": "https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/software/tetra3d/INTEGRATION.md"
+    }
+  },
+  "b_addition": {
+    "date": "2026-10-28",
+    "scope": "B_REPORT_ADDITION_NOT_PRODUCT_MERGE",
+    "tetra_source_commit": "dfe9975168bae92af34b9c25891c3678bc5d1dc6",
+    "private_assets_included": false,
+    "public_records": [
+      "records/E12/packet-benchmark.json",
+      "records/E12/epoch32-rx4-timing.json",
+      "records/E12/epoch33-reference-timing.json",
+      "records/E13/arm-summary.json",
+      "records/E14/arm-summary.json",
+      "records/E14/cc1-rejected.json",
+      "records/E15/arm-summary.json",
+      "records/E16/arm-summary.json",
+      "records/E16/pc-vad-summary.json",
+      "records/E16/cp2-rejected.json",
+      "records/E17/migration-summary.json",
+      "records/E18/optimization-measurements.json",
+      "records/E18/SUMMARY.json",
+      "records/E18/INTEGRATION-SUMMARY.json",
+      "records/E19/development-score-ranges.json"
+    ]
+  },
+  "repository_alignment_20261029": {
+    "reference_commit": "2f8bddc0e1da58ac52b077fbd36e01a15083fec9",
+    "scope": "DOCUMENTATION_ALIGNMENT_NO_NEW_EXPERIMENT",
+    "original_bundle_sha256": "422d33b43c79bbdbd6fe50a915dda308beb395196204e0d63bac4dcdf420554d",
+    "evidence_ids_added": [],
+    "metrics_rows_added": 0,
+    "read_method": "GitHub connector fixed-ref file and tree reads",
+    "references": [
+      {
+        "path": "AGENTS.md",
+        "git_blob": "ec8848458e8f9c7d20cd9beb21b7b6e76959e114",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/AGENTS.md"
+      },
+      {
+        "path": "document/directory-guide.md",
+        "git_blob": "1f4938b73556093944c9029d7424aa668f4e3a23",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/directory-guide.md"
+      },
+      {
+        "path": "document/git-workflow.md",
+        "git_blob": "f83a25cb26b00428b12b93eb0cfa9d37c09b3888",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/git-workflow.md"
+      },
+      {
+        "path": "document/main-architecture.md",
+        "git_blob": "bf6f3c996846d23d40984ffbd77c742628c5c940",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/main-architecture.md"
+      },
+      {
+        "path": "document/current-status.md",
+        "git_blob": "5ca36dd35550bafd94faf6cc6051a96d2611ec71",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/current-status.md"
+      },
+      {
+        "path": "document/requirements/acceptance.md",
+        "git_blob": "c93c3813184f51d553c268b611a6ed010e36d9c2",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/requirements/acceptance.md"
+      },
+      {
+        "path": "document/evidence/b-report-supplement-20261029/README.md",
+        "git_blob": "1e27d12891df61112315a91f751267d11c91f5bb",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/evidence/b-report-supplement-20261029/README.md"
+      },
+      {
+        "path": "document/evidence/b-report-supplement-20261029/intake.json",
+        "git_blob": "2a59f0ecb5cd2941dd8bf0d4c64c1953bca4ea0c",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/evidence/b-report-supplement-20261029/intake.json"
+      },
+      {
+        "path": "document/evidence/sd-program-source-sync-20261029/README.md",
+        "git_blob": "4d0457e8e2ae4e894dbc90a506338b7e7928c57a",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/evidence/sd-program-source-sync-20261029/README.md"
+      },
+      {
+        "path": "project/reports/ps_3d/w16/board-manual-result.md",
+        "git_blob": "4a59f5865cc5ffaa1bb2c75f021d5aa4249489d7",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/project/reports/ps_3d/w16/board-manual-result.md"
+      },
+      {
+        "path": "project/reports/ps_3d/w16/board-unexpected-reboot.md",
+        "git_blob": "8fe1c512fa4e2453466ac935eeac632934532334",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/project/reports/ps_3d/w16/board-unexpected-reboot.md"
+      },
+      {
+        "path": "document/evidence/speaker-report-materials/CONTRIBUTING.md",
+        "git_blob": "f6c0500307e41653ee6193f1de60aee8cad1fd3f",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/evidence/speaker-report-materials/CONTRIBUTING.md"
+      }
+    ],
+    "current_contribution_page": "07-b-contribution-and-gaps-20261029.md"
+  },
+  "repository_alignment_pr30": {
+    "reference_commit": "4adfc48086e889951806102a782d5f804e390d97",
+    "scope": "DIRECTORY_AND_DOCUMENTATION_ONLY_NO_NEW_EXPERIMENT",
+    "evidence_ids_added": [],
+    "metrics_rows_added": 0,
+    "references": [
+      {
+        "path": "document/vivado-ps-3d-rebuild.md",
+        "git_blob": "d9bff3cffeb91a58cdc6984487526e8806bd453b",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/4adfc48086e889951806102a782d5f804e390d97/document/vivado-ps-3d-rebuild.md"
+      },
+      {
+        "path": "document/evidence/portable-vivado-20261029/README.md",
+        "git_blob": "2452768b54dad97fca5ac68b4b57db9c4afbbe9e",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/4adfc48086e889951806102a782d5f804e390d97/document/evidence/portable-vivado-20261029/README.md"
+      },
+      {
+        "path": "document/evidence/speaker-enrollment-20261029/README.md",
+        "git_blob": "98fe3f3c837b3a8270a1430d18db28ec7ce3c787",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/4adfc48086e889951806102a782d5f804e390d97/document/evidence/speaker-enrollment-20261029/README.md"
+      },
+      {
+        "path": "document/evidence/speaker-enrollment-20261029/board-result.md",
+        "git_blob": "7a45b0f4a4eedeca0e434f8ae08910be31bd3073",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/4adfc48086e889951806102a782d5f804e390d97/document/evidence/speaker-enrollment-20261029/board-result.md"
+      },
+      {
+        "path": "document/current-status.md",
+        "git_blob": "be4023d3257f74324bd442802e8bb2acb0d12a36",
+        "url": "https://github.com/TophBeifong1744/SoundSight/blob/4adfc48086e889951806102a782d5f804e390d97/document/current-status.md"
+      }
+    ]
+  }
+}

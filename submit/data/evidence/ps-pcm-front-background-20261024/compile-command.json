@@ -1,0 +1,16 @@
+[
+  "F:\\Program\\env\\mingw64\\bin\\gcc.exe",
+  "-std=c99",
+  "-O2",
+  "-Wall",
+  "-Wextra",
+  "-Werror",
+  "-shared",
+  "-IE:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\software\\common",
+  "-IE:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\software\\common\\s1",
+  "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\software\\common\\s1\\doa_solver.c",
+  "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\software\\ps\\ss_solver_bridge.c",
+  "-lm",
+  "-o",
+  "E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\simulation\\work\\pcm-front-replay\\solver.dll"
+]

@@ -1,0 +1,22 @@
+{
+  "document_shell_commands_parsed": 22,
+  "hardware_actions": false,
+  "runtime_code_changed": false,
+  "packages": {
+    "soundsight_manual_update.zip": {
+      "changed_docs": [
+        "soundsight_normal_update/payload/document/pynq-board-helper.md",
+        "soundsight_normal_update/payload/document/pynq-horizontal.md",
+        "soundsight_normal_update/payload/document/ps-manual-calibration.md"
+      ],
+      "all_other_bytes_unchanged": true
+    },
+    "soundsight_horizontal_project_update.zip": {
+      "changed_docs": [
+        "document/pynq-horizontal.md",
+        "document/ps-manual-calibration.md"
+      ],
+      "all_other_bytes_unchanged": true
+    }
+  }
+}

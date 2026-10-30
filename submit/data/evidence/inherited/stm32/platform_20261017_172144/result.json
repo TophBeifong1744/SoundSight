@@ -1,0 +1,25 @@
+{
+  "scope": "actual Clocking Wizard and Processor System Reset simulation; ideal PS FCLK input",
+  "stages": [
+    {
+      "stage": "vhdl",
+      "exit": 0,
+      "pass_": true
+    },
+    {
+      "stage": "compile",
+      "exit": 0,
+      "pass_": true
+    },
+    {
+      "stage": "elaborate",
+      "exit": 0,
+      "pass_": true
+    },
+    {
+      "stage": "simulate",
+      "exit": 0,
+      "pass_": true
+    }
+  ]
+}

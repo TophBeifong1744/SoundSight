@@ -1,0 +1,219 @@
+{
+  "case": "actuator",
+  "inputs": [
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\doa_math_pkg.sv",
+      "sha256": "9f6ee318008b25a10ee503eb754cc74f9d505ca3024ccf868196920eae8a425b"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\ss_actuator_control.sv",
+      "sha256": "9eb48b147444c1bf3c93a3b10b2f8a8ced9c2e0f4a05858ea614575f2ab1804b"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\ss_bist_source.sv",
+      "sha256": "43b2453709d83a9c7dd5e277dbdae8aaac2783c88d4aea102afe5e7df721a7fc"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\ss_board_clock.sv",
+      "sha256": "95702e8f3fd2fcedba89104c5e69304e4dac7116071ad0b10cfd2c61eb5f9ca5"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\ss_compute_pipeline.sv",
+      "sha256": "d10282654f8a93b173bc717ccac2c935f24be287b5d0f1e40762fe427aced881"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\ss_diag_archive.sv",
+      "sha256": "7f5640d61feaef855382a3f41c4afdceef79e0c70af24ea98fd0b1c9849d4a26"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\ss_f1a_native.sv",
+      "sha256": "7a9183509e1db26161fa2f5a69658f3d1549da3d0adb21714d7fcd0e571cce6d"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\ss_f1a_official.sv",
+      "sha256": "f367cbc5c9694be459530bc5c6ad69de565bee596a24db9939d2001ad4466c51"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\ss_migration_tile.sv",
+      "sha256": "8f68970b5f45a706cad34048c6c01c428e029e4b319d2da7144707a8484d28be"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\ss_snapshot_queue.sv",
+      "sha256": "3446c5a5e1000b900aa69551f9c406a393b905a50698b743c37958b3b4d4f387"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\ss_spi_mode0.sv",
+      "sha256": "27c519dff3e9f8ab199891c682742f2795a19a884509bb6b9e9003c7ca3f15c1"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\ss_stm32_link.sv",
+      "sha256": "cda62775c3d59fa69437a77612bdba9203a81bce13860d24520b6ec84f864d0f"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\diag_evidence_store.sv",
+      "sha256": "e3cf317756f45950c4fccfa5f462ba62d75c669412084f1bc1e4d2066e37d409"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\diag_record_bank_wordview.sv",
+      "sha256": "d376cab14c8ae4578e8261eefc285866459e1af2fa2984d2c15638c33a55de67"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\doa_math_serial.sv",
+      "sha256": "d9a5f7605bf1e69c0a5e2dd6c659b8bc4a2c445c9ac31d971b7b338c08775fd0"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\doa_math_shared.sv",
+      "sha256": "fa8e752d4aeb22e70ce1cd16bb246bf9c42522f4bf93876dd438b9cad4580fe8"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\doa_phat_client.sv",
+      "sha256": "8dfa8978305a1b7874d90cc8a08aaf4425749d8f203a030927f822d198652ed3"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\f1a_frame_store.sv",
+      "sha256": "b2c12887d057757a013a936bf32d46b8791f3c158c0560fd3cc9fc81281ba336"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\fft29_official.sv",
+      "sha256": "4d8da1ae958771d47ea7149c9413f5dd56cd1c660d0e39b12c7800844ab84506"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\fixed4_leaf.sv",
+      "sha256": "1f2a47956b34872f2625fcb262166eee73d88044c84415c8dedb0e3258254efa"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\forward_window_adapter.sv",
+      "sha256": "3d1ae6e429e4fe8d10578f1c5e714e62910e3d4d7959342dd06341607f03d8d4"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\forward_window_manager.sv",
+      "sha256": "6e25365ecca1dbb0cd7f8fa35c45ae9b3d37bc1803561389762dca0d63e9f2e3"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\four_mic_top_forward.v",
+      "sha256": "ae23d08d3ee5b237696f52699e062b94f7bc46d6a50f24e4e567c15b9801562d"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\i17_diag_consumer.sv",
+      "sha256": "91681690a3633d5df311e8b19c9d47bef4c87246f5a4a70387e0a2021231d9c3"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\i17_fast_packet_capture.sv",
+      "sha256": "b9426a810d0c53399591977b5602fe0796ef9c54aa615c0eb1f72e12c3c354ff"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\i17_turntable_pwm_guard.sv",
+      "sha256": "46f589f82a8e4ea1271e0a5d3cd9e0b51c7a301f80b537390c0eced6c523b1d9"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\ifft25_official.sv",
+      "sha256": "954e0b69a8153ab4556cbf53600eb44f4e04fc1f5c80ad088e784ea9b5f75fe9"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\motor_drive.v",
+      "sha256": "e01336c7ace9254fa3d1a204f8c69c713e61e4d01756911767445c8a26d1d265"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\pcm4_c1_lifecycle.v",
+      "sha256": "d27208b34d4bdb73a8e75088dd444d3ac5690d89de4128a4fdbd7e163da3eda8"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\pcm4_c1_packet_framer.v",
+      "sha256": "1fd9c6c6fe28b7c8817b67a6902c1816b6531d3496c90a4733973775cf0919a0"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\pcm4_continuous_axis.v",
+      "sha256": "fe038be18ffd175e6a68ae96bbcba6516f48f50c44fcce23ca35ff663532fc7b"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\pcm4_doa_f1a.sv",
+      "sha256": "78d8f6ca3deaf8b0487f78e54219a00609981845618e10ecf412086c7ee44b76"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\pcm4_forward_fft_entry.sv",
+      "sha256": "ed0b3c37aad93198ce406e464a82b38613173d07f9df00f5598a8fa39df581da"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\pcm4_forward_fft_fixed4.sv",
+      "sha256": "f583438ba65aa3c6a0b9c04953ccede6d5e98466e56e6a8d383c02b2e47cdab6"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\pcm4_live_window_handoff.v",
+      "sha256": "3f6fd7a98853d938f6db13cdf3d82877d9c83b4812e1992786e089c7b78b3de0"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\pcm4_numeric_preprocess.sv",
+      "sha256": "6c07861aa9a08a69ee8ce5426435fcfe373e2461377590a58a3abf32c3e1fef3"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\pcm4_overlap_framer_bram.v",
+      "sha256": "474a1b7a7eaf4b4b37e87f7d420f6ae3ab42156cd69d86ea75ecaf45ba2a7431"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\pcm4_source_cancel_observer.v",
+      "sha256": "2d5ade680c14c6d31777f470c18fa98432772111b256ae092778bb0c4e45cf7f"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\pcm4_window_caller.sv",
+      "sha256": "5f884c616e1feb1f5fc60f112e3090389bc0a1fbf5485be039b1379bc671d461"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\pcm4_window_caller_entry.v",
+      "sha256": "111311c2e34b087b175917d11145dde089dbd4c95ff45e2705fe94c354253183"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\pcm4_window_consumer.sv",
+      "sha256": "c5fa64a7165d6b9db6f0066a60e8a664aede1929e9c6e256f187941dc7b8280e"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\pdm_cic3.v",
+      "sha256": "a80c176053688662cd8bb47f98edcadeb9b758d514365724fd8b6ffd2120573d"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\sound_servo_clock.sv",
+      "sha256": "a625b9d64142451c2ec87af60dd3b04566b76e8b7b457486053b61ff6453302a"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\ss_control_case_equal.sv",
+      "sha256": "36a58f20ba7fffbca724be90b29c244bf67b6924522107682230e704eca97c68"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\ss_identity_match_register.sv",
+      "sha256": "d1102aa22b5edbebc7414e9f6a9233d5d9e05b965b9818ee9568ea61348ba099"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\rtl\\reused\\ss_timing_equal.sv",
+      "sha256": "e0e858c9a64e70947429de96feaac84f95eae5ed79c21d7b1a48898803fc3b3c"
+    },
+    {
+      "path": "E:\\Users\\Toph Beifong\\Documents\\GitHub\\Competition_fpga\\migration\\stm32_fpga_20261017\\test\\tb_actuator.sv",
+      "sha256": "3f44fc9bf1ec449991824a36be21f6d4bd20fd4ec9351ec238e370aa23b9f73f"
+    }
+  ],
+  "stages": [
+    {
+      "stage": "compile",
+      "exit": 0,
+      "timeout": false,
+      "pass_": true,
+      "errors": [],
+      "seconds": 0.9031752000000779
+    },
+    {
+      "stage": "elaborate",
+      "exit": 0,
+      "timeout": false,
+      "pass_": true,
+      "errors": [],
+      "seconds": 1.8455708000001323
+    },
+    {
+      "stage": "simulate",
+      "exit": 0,
+      "timeout": false,
+      "pass_": true,
+      "errors": [],
+      "seconds": 2.499254700000165
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 50104}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 34016}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 41240}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 52232}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 44676}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 50908}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 43104}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 2220}
+PYNQ双核已启动： {'backend': 'fake', 'worker_pid': 39984}
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 3.449s
+
+OK

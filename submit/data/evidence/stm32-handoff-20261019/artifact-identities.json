@@ -1,0 +1,21 @@
+{
+  "scope": "Files observed in user impl_1; not proof of loaded Flash or complete build-input identity",
+  "files": {
+    "soundsight_stm32_bd_wrapper.bit": {
+      "sha256": "8593dc01850845922a50052b6108c6d3c920193b2af969e09360ed9f5c32b491",
+      "bytes": 4045703
+    },
+    "soundsight_stm32_bd_wrapper_timing_summary_routed.rpt": {
+      "sha256": "e617e1d497cb133d2da99eae8959a83b2931c4048bde7826c50bdfa2e7969704",
+      "bytes": 1044453
+    },
+    "soundsight_stm32_bd_wrapper_utilization_placed.rpt": {
+      "sha256": "ed8060d0039cd3eafc7ca6fbdbb4eb764f837d548f85ce01d3fbb113c0951509",
+      "bytes": 12096
+    },
+    "soundsight_stm32_bd_wrapper_drc_routed.rpt": {
+      "sha256": "0545e164452fe128bb22cdadafc8d58048720e3914aaeb557bb7dcfdfa738031",
+      "bytes": 67859
+    }
+  }
+}
