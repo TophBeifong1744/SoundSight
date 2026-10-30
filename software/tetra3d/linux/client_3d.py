@@ -21,9 +21,26 @@ class ThreeDClient(TimedClient):
         self.speaker_permission = None  # Set only by the combined single-owner runtime.
         self.expected_audio_epoch = None
         self.motion_interlock = None  # Joint owner polls latest IPC before ARM/COMMIT.
+        self.frame_read_started_at = None
+
+    def frame_stale(self):
+        # Same 750ms budget as the existing direction hold, measured before
+        # ACQUIRE rather than after a potentially stalled solver returns.
+        return (self.frame_read_started_at is None or
+                time.monotonic()-self.frame_read_started_at >= .75)
+
+    def discard_stale_direction(self, record):
+        self.spatial.reset()
+        self.revoke_target()
+        record['direction_output'].update(valid=False, updated=False, vector=None,
+            azimuth_deg=None, elevation_deg=None, azimuth_valid=False,
+            elevation_valid=False, reason='stale_locked_frame')
+        record['angle_filter'].update(reset_reason='stale_locked_frame',
+            complete=False, frame_count=0, valid_count=0, inlier_count=0)
+        record['motion']['reason'] = 'STALE_LOCKED_FRAME'
 
     def motion_allowed(self):
-        if self.stop_requested() or self.stopped:
+        if self.stop_requested() or self.stopped or self.frame_stale():
             return False
         if self.motion_interlock is not None and not self.motion_interlock():
             return False
@@ -70,12 +87,17 @@ class ThreeDClient(TimedClient):
         action = dict(requested=bool(self.axis_mask), committed=False, targets=None,
                       axes=self.axis_mask, reason='OFF', mechanical_arrival='UNVERIFIED')
         record['motion'] = action
+        # Volume/angle protection remains separate from the speaker permission TTL.
         if self.speaker_permission is not None:
             if record['direction_output']['reason'] == 'below_volume_threshold':
                 audio = record['frame'].get('audio', {})
                 if audio.get('valid'):
                     self.speaker_permission.quiet((audio['sample_start']+audio['sample_count'])/3.)
             record['speaker'] = self.speaker_permission.snapshot()
+        if self.frame_stale():
+            self.discard_stale_direction(record)
+            return
+        if self.speaker_permission is not None:
             if not record['speaker']['permit']:
                 self.revoke_target()
                 action['reason'] = 'SPEAKER_'+record['speaker']['reason']
@@ -104,7 +126,7 @@ class ThreeDClient(TimedClient):
         if self.target is not None and time.monotonic()-self.target_time >= .75:
             self.revoke_target()
         if out['valid']:
-            self.target_time = time.monotonic()
+            self.target_time = self.frame_read_started_at
             self.target, reason = mapped_targets(out, self.calibration, self.axis_mask)
             if self.target is None:
                 self.revoke_target()
@@ -125,23 +147,23 @@ class ThreeDClient(TimedClient):
         # A normal application revoke needs a new valid group. A hardware
         # expiry sets FAULT and is never silently re-armed here.
         if not state & 1:
-            if self.speaker_permission is None:
-                self.axes.arm(True)
-            elif not self.axes.arm(True, permit_check=self.motion_allowed):
+            if not self.axes.arm(True, permit_check=self.motion_allowed):
                 self.revoke_target()
-                record['speaker'] = self.speaker_permission.snapshot()
+                if self.speaker_permission is not None:
+                    record['speaker'] = self.speaker_permission.snapshot()
                 action['reason'] = 'SPEAKER_REVOKED_BEFORE_ARM'
+                if self.frame_stale(): self.discard_stale_direction(record)
                 return
         if self.stop_requested():
             self.revoke_target()
             action['reason'] = 'USER_STOP'
             return
-        if self.speaker_permission is None:
-            self.axes.commit(self.target, record['frame']['sequence'])
-        elif not self.axes.commit(self.target, record['frame']['sequence'], permit_check=self.motion_allowed):
+        if not self.axes.commit(self.target, record['frame']['sequence'], permit_check=self.motion_allowed):
             self.revoke_target()
-            record['speaker'] = self.speaker_permission.snapshot()
+            if self.speaker_permission is not None:
+                record['speaker'] = self.speaker_permission.snapshot()
             action['reason'] = 'SPEAKER_REVOKED_BEFORE_COMMIT'
+            if self.frame_stale(): self.discard_stale_direction(record)
             return
         if self.speaker_permission is not None:
             record['speaker'] = self.speaker_permission.snapshot()
@@ -152,6 +174,7 @@ class ThreeDClient(TimedClient):
         offered = False
         try:
             began = time.monotonic_ns()
+            self.frame_read_started_at = time.monotonic()
             frame = self.acquire()
             if self.expected_audio_epoch is not None:
                 audio = frame['audio']

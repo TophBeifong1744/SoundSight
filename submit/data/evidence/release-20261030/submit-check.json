@@ -1,0 +1,40 @@
+{
+  "scope": "SUBMISSION_PACKAGING_ONLY",
+  "files": 2110,
+  "category_files": {
+    "board": 63,
+    "build": 198,
+    "data": 1366,
+    "report": 90,
+    "sim": 103,
+    "skill": 127,
+    "src": 162
+  },
+  "manifest_files": 2097,
+  "relative_links": 538,
+  "broken_links": 0,
+  "filename_check": "PASS",
+  "raw_sources_and_results": "PASS",
+  "eda": "NOT_RUN",
+  "hardware": "NOT_RUN",
+  "tests": [
+    {
+      "pattern": "test_vivado_portable.py",
+      "exit": 0,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.075s\n\nOK\n"
+    },
+    {
+      "pattern": "test_volume_gate.py",
+      "exit": 0,
+      "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.013s\n\nOK\n"
+    }
+  ],
+  "isolation": {
+    "zip_crc": "PASS",
+    "workspace_restore_files": 2097,
+    "outside_repository": "PASS",
+    "overwrite_rejected": true,
+    "missing_input_rejected": true,
+    "path_traversal_rejected": true
+  }
+}

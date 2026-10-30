@@ -1,15 +1,17 @@
 // MIGRATION_MODULE_GUIDE
 // 分组：07 SPI 与快照
-// 用途：两槽 FREE/READY/LOCKED；锁最老完整帧；满时丢新，已锁内容不动。
+// 用途：两槽 FREE/READY/LOCKED；锁最老完整帧；默认满时丢新，PS可选淘汰最老READY。
 // 接口要点：整帧输入；ACQUIRE/RELEASE/CONSUME；锁帧内容、序号、gap/drop/错误。与新帧同拍消费优先释放槽。
 // 全部参数与端口：document/modules/RTL-INTERFACES.html。
 `timescale 1ns/1ps
 `default_nettype none
-// 两槽各存整帧；序号在发布尝试时分配，满时只丢新帧。读者只看 LOCKED。
+// 两槽各存整帧；序号在发布尝试时分配。读者只看LOCKED，任何模式都不覆盖锁帧。
 // 同拍先消费，再写新帧，因此恰好释放的槽可以立即使用，不制造假溢出。
-module ss_snapshot_queue #(parameter integer META_ENABLE=0) (
+module ss_snapshot_queue #(parameter integer META_ENABLE=0, LATEST_WINS=0) (
     input wire clk, rst_n,
     input wire frame_valid,
+    // 仅LATEST_WINS=1使用；停止/故障/取消排尾时由调用方撤销替换许可。
+    input wire replace_enable,
     input wire [128:0] frame_meta,output wire [128:0] locked_meta,
     input wire [959:0] frame_pairs,
     input wire [31:0] frame_flags, frame_energy,
@@ -30,7 +32,7 @@ module ss_snapshot_queue #(parameter integer META_ENABLE=0) (
     reg energy_valid[0:1];
     reg [31:0] sequence_count;
     integer wr_slot, choose;
-    reg bad_command;
+    reg bad_command,replaced_ready;
     wire lock_index=(state[1]==LOCKED);
     assign locked=(state[0]==LOCKED || state[1]==LOCKED);
     assign queued=(state[0]==READY || state[1]==READY);
@@ -55,10 +57,17 @@ module ss_snapshot_queue #(parameter integer META_ENABLE=0) (
             4: if(locked) next_state[lock_index]=FREE; else bad_command=1;
             default: bad_command=1;
         endcase
-        wr_slot=-1;
+        wr_slot=-1;replaced_ready=0;
         if(frame_valid && !exhausted) begin
             if(next_state[0]==FREE) wr_slot=0;
             else if(next_state[1]==FREE) wr_slot=1;
+            else if(LATEST_WINS && replace_enable && !bad_command) begin
+                // 用命令处理后的状态：新ACQUIRE的LOCKED受保护，RELEASE则已交还所有权。
+                if(next_state[0]==READY && next_state[1]==READY) wr_slot=seq[0]<seq[1] ? 0 : 1;
+                else if(next_state[0]==READY) wr_slot=0;
+                else if(next_state[1]==READY) wr_slot=1;
+                if(wr_slot>=0) replaced_ready=1;
+            end
             if(wr_slot>=0) next_state[wr_slot]=READY;
         end
     end
@@ -83,10 +92,13 @@ module ss_snapshot_queue #(parameter integer META_ENABLE=0) (
                         meta[wr_slot]<=META_ENABLE ? frame_meta : 129'b0;
                         energy[wr_slot]<=frame_energy;energy_valid[wr_slot]<=frame_energy_valid;
                         seq[wr_slot]<=sequence_count+1'b1;
-                    end else begin
-                        gap<=1;overflow_pulse<=1;
+                    end
+                    // 主动淘汰和无法接收都计入丢帧；只有无法接收才报硬件溢出。
+                    if(wr_slot<0 || replaced_ready) begin
+                        gap<=1;
                         if(drop_count!=32'hffffffff) drop_count<=drop_count+1'b1;
                     end
+                    if(wr_slot<0) overflow_pulse<=1;
                 end
             end
         end

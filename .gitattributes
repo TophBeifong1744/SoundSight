@@ -22,4 +22,9 @@
 *.zip binary
 *.xsa binary
 # Submission manifests describe exact payload bytes, including original log/source line endings.
-submit/** -text -eol
+submit/** -text -eol -whitespace
+
+# Preserve original evidence, matched hardware and report bytes.
+project/reports/ps_3d/latest_result/** -text -eol -whitespace
+document/evidence/*-20261030/** -text -eol -whitespace
+release/output/ps_3d_latest_result/** -text -eol

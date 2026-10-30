@@ -1,0 +1,14 @@
+test_cli_is_explicit_and_stats_reader_does_not_open_hardware (__main__.StatisticsTests.test_cli_is_explicit_and_stats_reader_does_not_open_hardware) ... ok
+test_constant_space_and_no_io_in_hot_path (__main__.StatisticsTests.test_constant_space_and_no_io_in_hot_path) ... ok
+test_failed_atomic_replace_keeps_previous_summary (__main__.StatisticsTests.test_failed_atomic_replace_keeps_previous_summary) ... ok
+test_inference_wiring_and_disabled_behavior (__main__.StatisticsTests.test_inference_wiring_and_disabled_behavior) ... ok
+test_save_and_read_last_not_last_enabled_or_largest_timestamp (__main__.StatisticsTests.test_save_and_read_last_not_last_enabled_or_largest_timestamp) ... ok
+test_skipped_invalid_failed_values_not_in_denominator (__main__.StatisticsTests.test_skipped_invalid_failed_values_not_in_denominator) ... ok
+test_whole_session_exceeds_32_rows_and_has_exact_threshold (__main__.StatisticsTests.test_whole_session_exceeds_32_rows_and_has_exact_threshold) ... ok
+test_worker_failure_preserves_available_counts_or_reports_unavailable (__main__.StatisticsTests.test_worker_failure_preserves_available_counts_or_reports_unavailable) ... ok
+test_zero_and_missing_threshold_are_not_false_zeros (__main__.StatisticsTests.test_zero_and_missing_threshold_are_not_false_zeros) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.383s
+
+OK

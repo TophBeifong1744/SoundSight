@@ -70,11 +70,12 @@ class GateTests(unittest.TestCase):
         self.result(.9, completed_at=10.)
         self.assertFalse(self.gate.allowed())
 
-    def test_new_fail_revokes_old_pass(self):
+    def test_new_low_score_preserves_old_pass_without_refresh(self):
         self.result(.9)
         self.now += .1
         self.result(.64999)
-        self.assertFalse(self.gate.allowed())
+        self.assertTrue(self.gate.allowed())
+        self.assertEqual(self.gate.expires_at, 13.)
 
     def test_unconfigured_cannot_grant_even_high_score(self):
         self.gate = SpeakerPermission(settings(), lambda: self.now)
@@ -83,40 +84,82 @@ class GateTests(unittest.TestCase):
         self.assertFalse(self.gate.allowed())
         self.assertEqual(self.gate.reason, 'UNCONFIGURED')
 
-    def test_silence_late_result_and_new_speech_do_not_revive_old_permission(self):
+    def test_silence_new_speech_and_low_volume_preserve_ttl(self):
         self.result(.9)
         self.now += .01
         self.voice(False, 2)
-        self.assertFalse(self.gate.allowed())
-        self.voice(True, 3)
-        self.result(.9)
-        self.assertFalse(self.gate.allowed())
-        self.now += .01
-        self.result(.9, voice_epoch=3)
-        self.assertTrue(self.gate.allowed())
-
-    def test_low_volume_invalidates_window_that_started_before_quiet(self):
-        self.result(.9)
         self.gate.quiet(20000)
-        self.now += .01
-        self.result(.9, start_sample16=19999)
-        self.assertFalse(self.gate.allowed())
-        self.now += .01
-        self.result(.9, start_sample16=20000)
         self.assertTrue(self.gate.allowed())
+        self.assertEqual(self.gate.expires_at, 13.)
+        self.voice(True, 3)
+        # The old speech segment's result still refreshes from completion.
+        self.result(.9, voice_epoch=1, start_sample16=0)
+        self.assertTrue(self.gate.allowed())
+        self.assertEqual(self.gate.expires_at, 13.01)
 
-    def test_frontend_loss_revokes_before_hardware_lease(self):
+    def test_voice_heartbeat_age_is_not_a_second_expiry(self):
         self.result(.9)
         self.now += .501
+        self.assertTrue(self.gate.allowed())
+        self.now = 13.
         self.assertFalse(self.gate.allowed())
-        self.assertEqual(self.gate.reason, 'FRONTEND_LOST')
+
+    def test_refresh_then_low_and_no_score_expire_at_last_pass(self):
+        self.result(.9)
+        self.now = 12.9
+        self.result(.7)
+        self.assertEqual(self.gate.expires_at, 15.9)
+        self.now = 14.
+        self.result(.2)
+        self.now = 15.
+        self.result(None, usable=False, reason='insufficient_speech')
+        self.assertTrue(self.gate.allowed())
+        self.assertEqual(self.gate.expires_at, 15.9)
+        self.now = 15.9
+        self.assertFalse(self.gate.allowed())
+        self.now = 16.
+        self.result(.9)
+        self.assertTrue(self.gate.allowed())
+        self.assertEqual(self.gate.expires_at, 19.)
+
+    def test_no_voice_event_required_to_grant(self):
+        self.gate = SpeakerPermission(settings(.65), lambda: self.now)
+        self.gate.start(7)
+        self.result(.9)
+        self.assertTrue(self.gate.allowed())
 
     def test_wrong_session_unusable_nan_future_replay_are_rejected(self):
-        for extra in (dict(epoch=8), dict(usable=False), dict(score=float('nan')),
+        for extra in (dict(epoch=8), dict(score=float('nan')),
                       dict(completed_at=11.), dict(completed_at=9.)):
             self.setUp(); self.result(.9); self.now += .01
             self.result(**extra)
             self.assertFalse(self.gate.allowed(), extra)
+
+    def test_legacy_settings_preserve_threshold_and_ttl(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            old = dict(settings(.45, 10.), policy='delayed_permission_v1')
+            path = Path(tmp)/'speaker-follow.local.json'
+            path.write_text(json.dumps(old))
+            migrated = load_settings(tmp)
+            self.assertEqual(migrated['policy'], 'score_ttl_v2')
+            self.assertEqual((migrated['threshold'], migrated['permit_seconds']), (.45, 10.))
+            self.assertEqual(json.loads(path.read_text()), old)
+
+    def test_mailbox_pass_survives_later_low_or_skipped_result(self):
+        for low in (.1, None):
+            self.setUp()
+            mail = LatestEvents(.65)
+            mail.publish(dict(kind='result', epoch=7, voice_epoch=1, completed_at=10.,
+                              score=.9, usable=True))
+            mail.publish(dict(kind='result', epoch=7, voice_epoch=2, completed_at=10.1,
+                              score=low, usable=low is not None, reason='insufficient_speech'))
+            self.now = 10.2
+            rows = mail.take()
+            self.assertEqual(len(rows), 2)
+            for row in rows: self.gate.event(row)
+            self.assertTrue(self.gate.allowed())
+            self.assertEqual(self.gate.expires_at, 13.)
+            self.assertEqual(mail.take(), [])
 
     def test_settings_missing_and_persistence_do_not_imply_calibrated(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -307,9 +350,9 @@ class JointTests(unittest.TestCase):
 
 
 class PipelineTests(unittest.TestCase):
-    def infer(self, duration=3.2, change_voice=False, frames=98):
+    def infer(self, duration=3.2, change_voice=False, frames=98, start_age=0., collect_statistics=False):
         value = FollowSpeaker.__new__(FollowSpeaker)
-        now = [1.]
+        now = [1.+start_age]
         value.clock = lambda: now[0]
         value.origin = 0.
         value.stop = threading.Event()
@@ -323,6 +366,8 @@ class PipelineTests(unittest.TestCase):
         value.config = dict(template=[1.]+[0.]*191, target_id='P02', score_only=True)
         value.completed_rows = deque(maxlen=32)
         value.completed_count = 0
+        from speaker_statistics import SpeakerStatistics
+        value.statistics = SpeakerStatistics(.65) if collect_statistics else None
         value.error = None
         value.error_lock = threading.Lock()
         rows = []
@@ -348,10 +393,16 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(rows[0]['target_id'], 'P02')
         self.assertFalse(rows[0]['recognition_qualified'])
 
-    def test_mid_inference_silence_cannot_publish_usable_score(self):
+    def test_mid_inference_silence_can_publish_usable_score(self):
         _, rows = self.infer(change_voice=True)
-        self.assertFalse(rows[0]['usable'])
-        self.assertEqual(rows[0]['reason'], 'speech_state_changed')
+        self.assertTrue(rows[0]['usable'])
+        self.assertEqual(rows[0]['reason'], 'scored')
+
+    def test_old_waiting_window_is_scored_not_discarded_for_age(self):
+        engine, rows = self.infer(start_age=4., change_voice=True)
+        self.assertIsNone(engine.error)
+        self.assertTrue(rows[0]['usable'])
+        self.assertEqual(rows[0]['start_age_seconds'], 4.)
 
     def test_cp1_wrong_shape_fails_before_native_inference(self):
         engine, rows = self.infer(frames=99)

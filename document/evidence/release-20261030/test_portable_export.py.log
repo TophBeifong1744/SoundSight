@@ -1,0 +1,23 @@
+PREVIOUS_HANDOFF=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/speaker-release/simulation/work/export ���� ivamq1i2/source project/handoff/previous_20261030_200317_176136872385
+EXPORT_COMPLETE: E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/speaker-release/simulation/work/export ���� ivamq1i2/source project/handoff/latest
+PORTABLE_PATHS_CHECKED=1 SOURCE_DEPENDENCIES_COPIED=1 HARDWARE_ACTIONS=0
+PROJECT_RECREATED_NO_SYNTHESIS_OR_IMPLEMENTATION_STARTED
+PREVIOUS_HANDOFF=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/speaker-release/simulation/work/export ���� e0t37wjh/source project/handoff/previous_20261030_200318_176138028810
+EXPORT_COMPLETE: E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/speaker-release/simulation/work/export ���� e0t37wjh/source project/handoff/latest
+PORTABLE_PATHS_CHECKED=1 SOURCE_DEPENDENCIES_COPIED=1 HARDWARE_ACTIONS=0
+test_actual_archived_vivado_utils_removed_without_changing_other_sections (__main__.CacheRemovalTests.test_actual_archived_vivado_utils_removed_without_changing_other_sections) ... ok
+test_json_relative_separators_are_not_unc_paths (__main__.CacheRemovalTests.test_json_relative_separators_are_not_unc_paths) ... ok
+test_unknown_utils_layout_stops_instead_of_dropping_later_design (__main__.CacheRemovalTests.test_unknown_utils_layout_stops_instead_of_dropping_later_design) ... ok
+test_bd_import_quotes_spaces_and_rejects_unknown_file (__main__.ExportTests.test_bd_import_quotes_spaces_and_rejects_unknown_file) ... ok
+test_bundle_moves_and_recreates_from_an_unrelated_working_directory (__main__.ExportTests.test_bundle_moves_and_recreates_from_an_unrelated_working_directory) ... ok
+test_busy_and_custom_repo_stop_before_export (__main__.ExportTests.test_busy_and_custom_repo_stop_before_export) ... ok
+test_external_reference_is_not_silently_dropped (__main__.ExportTests.test_external_reference_is_not_silently_dropped) ... ok
+test_include_collection_and_escape_rejection (__main__.ExportTests.test_include_collection_and_escape_rejection) ... ok
+test_recipe_extra_input_is_collected_and_missing_one_stops (__main__.ExportTests.test_recipe_extra_input_is_collected_and_missing_one_stops) ... ok
+test_source_absolute_path_and_missing_source_fail (__main__.ExportTests.test_source_absolute_path_and_missing_source_fail) ... ok
+test_unknown_absolute_path_cannot_publish_and_previous_latest_survives (__main__.ExportTests.test_unknown_absolute_path_cannot_publish_and_previous_latest_survives) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.377s
+
+OK

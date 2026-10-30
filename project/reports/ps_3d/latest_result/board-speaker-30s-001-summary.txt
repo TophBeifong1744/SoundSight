@@ -1,0 +1,366 @@
+python3 -c "import json; d=json.load(open('logs/speaker-3d-20211118-222724-731716.json')); print
+---- 已发送 utf8 编码消息: "python3 -c \"import json; d=json.load(open('logs/speaker-3d-20211118-222724-731716.json')); print(json.dumps({k:d.get(k) for k in ('error','settings','stats','hardware','first_fault','packets','max_service_gap_seconds','speaker_worker')},ensure_ascii=True,indent=2))\"\n" ----
+(json.dumps({k:d.get(k) for k in ('error','settings','stats','hardware','first_fault','packets','max_service_gap_seconds','speaker_worker')},ensure_ascii=True,indent=2))"
+{
+  "error": null,
+  "settings": {
+    "speaker": {
+      "schema": 1,
+      "threshold": 0.45,
+      "permit_seconds": 10.0,
+      "policy": "delayed_permission_v1",
+      "recognition_qualified": false
+    },
+    "models": {
+      "selection": "cp1_vf1",
+      "sample_rate": 16000,
+      "embedding_shape": [
+        1,
+        98,
+        80
+      ],
+      "vad_shape": [
+        1,
+        576
+      ],
+      "vad_state_shape": [
+        2,
+        1,
+        128
+      ],
+      "sha256": {
+        "cp1/fixed98.onnx": "5012f8f3afd594943d37384524a8b596b1fc860c5f371058b783c396411396ac",
+        "vf1/vad16_fixed.onnx": "2f9baaee7df0ff223225b6fcb176ad0ae33542c7ae83015d7f87351c5c32d84c"
+      },
+      "enrollment_model": "int8-head.onnx",
+      "recognition_qualified": false
+    },
+    "target_id": "toph",
+    "min_level": 12000,
+    "window_frames": 5,
+    "min_valid": 3,
+    "axes": "off",
+    "frames": 0,
+    "seconds": 30.0,
+    "geometry": {
+      "schema": 1,
+      "revision": 1,
+      "provenance": "NOMINAL",
+      "source_id": "tetra40-nominal-v1",
+      "sample_rate_hz": 48000,
+      "sound_speed_m_s": 343,
+      "position_error_mm": -1,
+      "microphones": [
+        {
+          "channel": 0,
+          "xyz_mm": [
+            23.094010767585033,
+            0,
+            -8.16496580927726
+          ]
+        },
+        {
+          "channel": 1,
+          "xyz_mm": [
+            -11.547005383792516,
+            20,
+            -8.16496580927726
+          ]
+        },
+        {
+          "channel": 2,
+          "xyz_mm": [
+            -11.547005383792516,
+            -20,
+            -8.16496580927726
+          ]
+        },
+        {
+          "channel": 3,
+          "xyz_mm": [
+            0,
+            0,
+            24.49489742783178
+          ]
+        }
+      ]
+    },
+    "calibration": {
+      "horizontal": {
+        "front_deg": 180,
+        "direction": 1,
+        "min_deg": 0,
+        "max_deg": 360
+      },
+      "vertical": {
+        "front_deg": 110,
+        "direction": 1,
+        "min_deg": 0,
+        "max_deg": 220
+      }
+    },
+    "recognition_qualified": false
+  },
+  "stats": {
+    "consumed": 2811,
+    "drained": 0,
+    "raw_valid": 186,
+    "accepted_windows": 11,
+    "motion_commits": 0,
+    "sequence_gaps": 0,
+    "below_volume": 1379,
+    "first_sequence": 1,
+    "last_sequence": 2811,
+    "fault_or": 0,
+    "drops_first": 0,
+    "drops_last": 0,
+    "max_service_ns": 3954698
+  },
+  "hardware": {
+    "audio": {
+      "raw": 28,
+      "errors": 0,
+      "armed": false,
+      "pending": false,
+      "partial_tail": true,
+      "idle": true,
+      "dma_reset_released": true,
+      "ready": false,
+      "rejected": 0,
+      "published": 2812,
+      "epoch": 11
+    },
+    "status": 999424,
+    "fault": 64,
+    "drops": 0,
+    "dma_status": 0
+  },
+  "first_fault": null,
+  "packets": 2812,
+  "max_service_gap_seconds": 0.013696935999973903,
+  "speaker_worker": {
+    "status": "PASS",
+    "error": null,
+    "input_packets": 2812,
+    "generated": 214,
+    "replaced": 205,
+    "consumed": 9,
+    "results": [
+      {
+        "end_sample16": 27520,
+        "start_sample16": 11520,
+        "frames": 98,
+        "coverage": 1.0,
+        "voice_epoch": 3,
+        "active": true,
+        "window_seconds": 1.0,
+        "epoch": 11,
+        "kind": "result",
+        "score": 0.36330642380854394,
+        "usable": false,
+        "reason": "speech_state_changed",
+        "target_id": "toph",
+        "model_selection": "cp1_vf1",
+        "profile_score_only": true,
+        "recognition_qualified": false,
+        "start_age_seconds": 0.025402890999997707,
+        "completed_at": 221.544901381,
+        "compute_seconds": 3.304699688999989,
+        "source_age_seconds": 3.330106360000001
+      },
+      {
+        "end_sample16": 38400,
+        "start_sample16": 22400,
+        "frames": 98,
+        "coverage": 1.0,
+        "voice_epoch": 3,
+        "active": true,
+        "window_seconds": 1.0,
+        "epoch": 11,
+        "kind": "result",
+        "score": null,
+        "usable": false,
+        "reason": "stale_before_start",
+        "target_id": "toph",
+        "model_selection": "cp1_vf1",
+        "profile_score_only": true,
+        "recognition_qualified": false,
+        "start_age_seconds": 2.6501967289999926,
+        "completed_at": 221.545061482,
+        "compute_seconds": 6.419700000037665e-05,
+        "source_age_seconds": 2.650264169000002
+      },
+      {
+        "end_sample16": 169440,
+        "start_sample16": 153440,
+        "frames": 98,
+        "coverage": 1.0,
+        "voice_epoch": 21,
+        "active": true,
+        "window_seconds": 1.0,
+        "epoch": 11,
+        "kind": "result",
+        "score": 0.3012658302661764,
+        "usable": false,
+        "reason": "speech_state_changed",
+        "target_id": "toph",
+        "model_selection": "cp1_vf1",
+        "profile_score_only": true,
+        "recognition_qualified": false,
+        "start_age_seconds": 0.019590756999978254,
+        "completed_at": 230.564042034,
+        "compute_seconds": 3.4596523440000055,
+        "source_age_seconds": 3.479246538999977
+      },
+      {
+        "end_sample16": 224640,
+        "start_sample16": 208640,
+        "frames": 98,
+        "coverage": 1.0,
+        "voice_epoch": 25,
+        "active": true,
+        "window_seconds": 1.0,
+        "epoch": 11,
+        "kind": "result",
+        "score": 0.3497166023256404,
+        "usable": false,
+        "reason": "speech_state_changed",
+        "target_id": "toph",
+        "model_selection": "cp1_vf1",
+        "profile_score_only": true,
+        "recognition_qualified": false,
+        "start_age_seconds": 0.029337546999975928,
+        "completed_at": 233.664721348,
+        "compute_seconds": 3.1005845170000157,
+        "source_age_seconds": 3.129925546999992
+      },
+      {
+        "end_sample16": 273920,
+        "start_sample16": 257920,
+        "frames": 98,
+        "coverage": 1.0,
+        "voice_epoch": 27,
+        "active": true,
+        "window_seconds": 1.0,
+        "epoch": 11,
+        "kind": "result",
+        "score": 0.3271227783416465,
+        "usable": false,
+        "reason": "speech_state_changed",
+        "target_id": "toph",
+        "model_selection": "cp1_vf1",
+        "profile_score_only": true,
+        "recognition_qualified": false,
+        "start_age_seconds": 0.050023427999978054,
+        "completed_at": 236.904976962,
+        "compute_seconds": 3.2401550990000203,
+        "source_age_seconds": 3.290182099999985
+      },
+      {
+        "end_sample16": 308640,
+        "start_sample16": 292640,
+        "frames": 98,
+        "coverage": 1.0,
+        "voice_epoch": 29,
+        "active": true,
+        "window_seconds": 1.0,
+        "epoch": 11,
+        "kind": "result",
+        "score": null,
+        "usable": false,
+        "reason": "stale_before_start",
+        "target_id": "toph",
+        "model_selection": "cp1_vf1",
+        "profile_score_only": true,
+        "recognition_qualified": false,
+        "start_age_seconds": 1.1202741459999785,
+        "completed_at": 236.905136127,
+        "compute_seconds": 6.209400001466747e-05,
+        "source_age_seconds": 1.1203392729999777
+      },
+      {
+        "end_sample16": 350080,
+        "start_sample16": 334080,
+        "frames": 98,
+        "coverage": 1.0,
+        "voice_epoch": 33,
+        "active": true,
+        "window_seconds": 1.0,
+        "epoch": 11,
+        "kind": "result",
+        "score": 0.3470265722122544,
+        "usable": false,
+        "reason": "speech_state_changed",
+        "target_id": "toph",
+        "model_selection": "cp1_vf1",
+        "profile_score_only": true,
+        "recognition_qualified": false,
+        "start_age_seconds": 0.02557386300000175,
+        "completed_at": 241.598406456,
+        "compute_seconds": 3.1980331019999824,
+        "source_age_seconds": 3.2236102619999905
+      },
+      {
+        "end_sample16": 399840,
+        "start_sample16": 383840,
+        "frames": 98,
+        "coverage": 1.0,
+        "voice_epoch": 37,
+        "active": true,
+        "window_seconds": 1.0,
+        "epoch": 11,
+        "kind": "result",
+        "score": 0.2917850825430862,
+        "usable": false,
+        "reason": "speech_state_changed",
+        "target_id": "toph",
+        "model_selection": "cp1_vf1",
+        "profile_score_only": true,
+        "recognition_qualified": false,
+        "start_age_seconds": 0.11371171899999055,
+        "completed_at": 244.942538191,
+        "compute_seconds": 3.344026630000002,
+        "source_age_seconds": 3.4577416489999955
+      },
+      {
+        "end_sample16": 451040,
+        "start_sample16": 435040,
+        "frames": 98,
+        "coverage": 1.0,
+        "voice_epoch": 41,
+        "active": true,
+        "window_seconds": 1.0,
+        "epoch": 11,
+        "kind": "result",
+        "score": null,
+        "usable": false,
+        "reason": "stale_before_start",
+        "target_id": "toph",
+        "model_selection": "cp1_vf1",
+        "profile_score_only": true,
+        "recognition_qualified": false,
+        "start_age_seconds": 0.2578340099999785,
+        "completed_at": 244.942697386,
+        "compute_seconds": 6.343200001879268e-05,
+        "source_age_seconds": 0.257900381999999
+      }
+    ],
+    "retained_result_limit": 32,
+    "max_front_lag_seconds": 0.029951034999976756,
+    "policy": "delayed_permission_v1",
+    "current_identity": "insufficient",
+    "reason": "session_ended",
+    "recognition_qualified": false,
+    "model_selection": "cp1_vf1",
+    "motion_commands": 0,
+    "ipc": {
+      "process_isolated": true,
+      "packet_limit": 32,
+      "sent": 2812,
+      "frontend_taken": 2812,
+      "highwater": 2,
+      "kernel_send_buffer_bytes": 360448
+    }
+  }
+}
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ 

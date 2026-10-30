@@ -1,0 +1,19 @@
+LATEST_RESULT_BACKUP=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/speaker-release/simulation/work/dual axis Tcl vbpxt5s_/user external copy/handoff/before_latest_result_20261030_200318_176142005601
+LATEST_RESULT_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/speaker-release/simulation/work/dual axis Tcl vbpxt5s_/user external copy/ss_snapshot_queue.sv
+LATEST_RESULT_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/speaker-release/simulation/work/dual axis Tcl vbpxt5s_/user external copy/ss_ps_control_regs.sv
+LATEST_RESULT_PREPARED: LAT1 at 0x98; READY replacement enabled during normal real capture
+LOCKED_FRAME_PRESERVED; STOP_FAULT_TAIL_PRESERVED; PINS_T15_W16_UNCHANGED
+NEXT: run synthesis, implementation and bitstream generation manually
+NO_SYNTHESIS_IMPLEMENTATION_BITSTREAM_OR_HARDWARE_ACTIONS_STARTED
+LATEST_RESULT_BACKUP=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/speaker-release/simulation/work/dual axis Tcl qlgd0cjh/user external copy/handoff/before_latest_result_20261030_200318_176142482192
+LATEST_RESULT_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/speaker-release/simulation/work/dual axis Tcl qlgd0cjh/user external copy/ss_snapshot_queue.sv
+LATEST_RESULT_COPIED=E:/Users/Toph Beifong/Documents/GitHub/SoundSight/simulation/work/speaker-release/simulation/work/dual axis Tcl qlgd0cjh/user external copy/ss_ps_control_regs.sv
+test_busy_and_wrong_configuration_rejected_before_write (__main__.LatestTclTests.test_busy_and_wrong_configuration_rejected_before_write) ... ok
+test_external_source_reference_rejected (__main__.LatestTclTests.test_external_source_reference_rejected) ... ok
+test_only_two_sources_changed_and_backup_kept (__main__.LatestTclTests.test_only_two_sources_changed_and_backup_kept) ... ok
+test_refresh_parameter_loss_stops_before_success (__main__.LatestTclTests.test_refresh_parameter_loss_stops_before_success) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.150s
+
+OK

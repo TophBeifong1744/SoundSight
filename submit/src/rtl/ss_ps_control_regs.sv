@@ -2,7 +2,7 @@
 // 分组：PS实验版
 // 用途：PS版寄存器层；与SPI版相同公开字段，增加host_stop保留快照的停用入口。
 // 接口要点：host_stop来自同步总线复位；冷rst_n才清队列。普通PS复位清使能、角度影子和看门狗，不能自动恢复动作。
-// 主方案仍由STM32独占控制，本模块只在独立PS版本使用。
+// 当前PL+PS主方案入口；历史STM32冻结接口独立保留。
 `timescale 1ns/1ps
 `default_nettype none
 // 独立寄存器/快照/动作控制层。commit一拍只执行一次副作用；read_data按address组合读取。
@@ -64,7 +64,9 @@ module ss_ps_control_regs #(
     // BIST 只在空闲启用时发出，真实排空帧永远有优先权；碰撞还会报源协议错。
     assign feature_ready=1'b1;
     wire [128:0] locked_meta;
-    ss_snapshot_queue #(.META_ENABLE(AUDIO_ENABLE)) queue(
+    wire queue_replace_enable;
+    ss_snapshot_queue #(.META_ENABLE(AUDIO_ENABLE),.LATEST_WINS(AUDIO_ENABLE)) queue(
+        .replace_enable(queue_replace_enable),
         .frame_meta(feature_valid ? feature_meta : 129'b0),.locked_meta(locked_meta),.clk(clk),.rst_n(rst_n),.frame_valid(feature_valid || bist_valid),
         .frame_pairs(feature_valid ? feature_pairs : bist_pairs),
         .frame_flags(feature_valid ? feature_flags : 32'h18),
@@ -167,6 +169,7 @@ module ss_ps_control_regs #(
             'h8c: begin read_data=locked_meta[95:64];known_address=AUDIO_ENABLE;end
             'h90: begin read_data=locked_meta[31:0];known_address=AUDIO_ENABLE;end
             'h94: begin read_data={15'b0,locked_meta[128],16'd1024};known_address=AUDIO_ENABLE;end
+            'h98: begin read_data=AUDIO_ENABLE ? 32'h4c415431 : 0;known_address=AUDIO_ENABLE;end // LAT1
             'h00: read_data=32'h5a5a2026;
             'h04: begin read_data={28'b0,sys_ctrl};writable=1;end
             'h08: read_data=locked_sequence;
@@ -194,6 +197,38 @@ module ss_ps_control_regs #(
         endcase
     end
     reg [11:0] fault_events,clear_mask;
+    reg register_access_error;
+    // LR-001：与顺序写入共用同一组字段校验，非法访问到达拍就禁止READY淘汰。
+    always @* begin
+        register_access_error=!known_address || (write_access && !writable);
+        if(known_address && write_access && writable) case(address)
+            'h04: register_access_error=(write_data & ~32'hb)!=0 || !write_data[3] ||
+                ((write_data[1]!=sys_ctrl[1]) && (sys_ctrl[0] || manual_active || dual_active || draining || occupied)) ||
+                (write_data[0] && !sys_ctrl[0] && (manual_active || dual_manual || draining || counter_exhausted ||
+                    (write_data[1] && occupied)));
+            'h18: register_access_error=(write_data & 32'hfff00000)!=0 || write_data[19];
+            'h1c: register_access_error=write_data>5;
+            'h2c: register_access_error=write_data>1 || sys_ctrl[0] || draining || occupied;
+            'h38: register_access_error=(write_data & ~32'h7)!=0;
+            'h58: register_access_error=(write_data & ~32'hf)!=0;
+            'h60: register_access_error=motion_permit;
+            'h64: register_access_error=(write_data & ~32'hfff)!=0;
+            'h74: register_access_error=write_data>2;
+            'h78: register_access_error=(write_data & ~32'h1ff)!=0;
+            'h7c: register_access_error=manual_active || manual_draining || (write_data & ~32'h01ff01ff)!=0 ||
+                write_data[8:0]>write_data[24:16] || write_data[8:0]<MECHANICAL_MIN ||
+                write_data[24:16]>MECHANICAL_MAX;
+            default: begin end // 双轴扩展自身的字段校验由dual_register_error同拍提供。
+        endcase
+    end
+    // snap_command比本层事务晚一拍；预测已有待执行命令后的锁，保留紧邻合法ACQUIRE/RELEASE。
+    wire lock_after_pending_snap=(snap_command==1) ? (locked || queued) :
+        ((snap_command==2 || snap_command==4) ? 1'b0 : locked);
+    wire snapshot_access_error=write_access && address=='h38 &&
+        ((write_data!=0 && write_data!=1 && write_data!=2 && write_data!=4) ||
+         ((write_data==2 || write_data==4) && !lock_after_pending_snap));
+    wire queue_access_error=commit && (register_access_error || snapshot_access_error ||
+        (write_access && dual_known && address=='ha4 && write_data>4));
     always @* begin
         fault_events=source_faults | frame_errors;
         fault_events[0]=fault_events[0] | format_error;
@@ -213,6 +248,10 @@ module ss_ps_control_regs #(
             if(counter_exhausted) clear_mask[9]=0;
         end
     end
+    // 仅正常真实采集可淘汰READY。STOP同拍、现有/新故障及取消尾帧都先保住旧记录。
+    // fault_events来自本拍源标志/停止/错误，不等faults下一拍置位才关替换。
+    assign queue_replace_enable=AUDIO_ENABLE && run_enable && feature_valid && !bist_valid && !feature_flags[3] &&
+        !compute_draining && !manual_stop && !stop_pulse && !queue_access_error && !(|faults) && !(|fault_events);
     always @(posedge clk) begin
         if(!rst_n) begin
             sys_ctrl<=8;pair_select<=0;bist_select<=0;stop_latched<=0;
@@ -229,43 +268,29 @@ module ss_ps_control_regs #(
                 stop_pulse<=sys_ctrl[0];
                 manual_angle<=0;manual_limits_valid<=0;
             end else if(commit) begin
-                if(!known_address || (write_access && !writable)) register_error<=1;
+                if(register_access_error) register_error<=1;
                 else if(write_access) case(address)
                     'h04: begin
-                        if((write_data & ~32'hb)!=0 || !write_data[3] ||
-                           ((write_data[1]!=sys_ctrl[1]) && (sys_ctrl[0] || manual_active || dual_active || draining || occupied)) ||
-                           (write_data[0] && !sys_ctrl[0] && (manual_active || dual_manual || draining || counter_exhausted ||
-                               (write_data[1] && occupied)))) register_error<=1;
-                        else begin
-                            sys_ctrl<=write_data[3:0];
-                            if(!write_data[0]) begin
-                                stop_latched<=0;
-                                if(sys_ctrl[0]) stop_pulse<=1;
-                            end
-                            if(write_data[0] && !sys_ctrl[0] && write_data[1]) bist_trigger<=1;
+                        sys_ctrl<=write_data[3:0];
+                        if(!write_data[0]) begin
+                            stop_latched<=0;
+                            if(sys_ctrl[0]) stop_pulse<=1;
                         end
+                        if(write_data[0] && !sys_ctrl[0] && write_data[1]) bist_trigger<=1;
                     end
-                    'h18: if((write_data & 32'hfff00000)!=0 || write_data[19]) register_error<=1;
-                           else actuator_shadow<=write_data[19:0];
-                    'h1c: if(write_data>5) register_error<=1;else pair_select<=write_data[2:0];
-                    'h2c: if(write_data>1 || sys_ctrl[0] || draining || occupied) register_error<=1;
-                           else bist_select<=write_data[0];
-                    'h38: if((write_data & ~32'h7)!=0) register_error<=1;
-                           else snap_command<=write_data[2:0];
-                    'h58: if((write_data & ~32'hf)!=0) register_error<=1;
-                           else begin
-                               act_write<=1;act_control<=write_data[3:0];
-                               if(write_data[1]) begin stop_pulse<=1;stop_latched<=1;end
-                           end
-                    'h60: if(motion_permit) register_error<=1;else watchdog_ticks<=write_data;
-                    'h64: if((write_data & ~32'hfff)!=0) register_error<=1;
-                    'h74: if(write_data>2) register_error<=1; // command handled by manual controller
-                    'h78: if((write_data & ~32'h1ff)!=0) register_error<=1;
-                           else manual_angle<=write_data[8:0];
-                    'h7c: if(manual_active || manual_draining || (write_data & ~32'h01ff01ff)!=0 ||
-                              write_data[8:0]>write_data[24:16] || write_data[8:0]<MECHANICAL_MIN ||
-                              write_data[24:16]>MECHANICAL_MAX) register_error<=1;
-                           else begin manual_min<=write_data[8:0];manual_max<=write_data[24:16];manual_limits_valid<=1;end
+                    'h18: actuator_shadow<=write_data[19:0];
+                    'h1c: pair_select<=write_data[2:0];
+                    'h2c: bist_select<=write_data[0];
+                    'h38: snap_command<=write_data[2:0]; // 非单一命令仍由原队列报snapshot_error。
+                    'h58: begin
+                        act_write<=1;act_control<=write_data[3:0];
+                        if(write_data[1]) begin stop_pulse<=1;stop_latched<=1;end
+                    end
+                    'h60: watchdog_ticks<=write_data;
+                    'h64: begin end // 清错在clear_mask中执行。
+                    'h74: begin end // 命令由manual controller处理。
+                    'h78: manual_angle<=write_data[8:0];
+                    'h7c: begin manual_min<=write_data[8:0];manual_max<=write_data[24:16];manual_limits_valid<=1;end
                     default: if(!dual_known) register_error<=1; // 新扩展自己的原子控制器处理其写入。
                 endcase
             end

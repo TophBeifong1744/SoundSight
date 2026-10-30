@@ -39,3 +39,9 @@
 /pcm_epoch.local.json
 /logs/
 /document/evidence/portable-vivado-20261029/local/
+
+# Public software increments and matched LAT1 hardware; private speaker bundle stays ignored.
+!/release/output/soundsight_enrollment_update.zip
+!/release/output/soundsight_latest_result_update.zip
+!/release/output/soundsight_vivado_ps_3d.zip
+!/release/output/ps_3d_latest_result/

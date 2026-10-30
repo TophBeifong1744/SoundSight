@@ -1,0 +1,231 @@
+{
+  "scope": "User-generated LAT1 candidate; no AI synthesis/implementation/download",
+  "artifacts": {
+    "bit": {
+      "path": "release/output/ps_3d_latest_result/soundsight.bit",
+      "bytes": 4045703,
+      "sha256": "6fff7134c64dc6c75d0267ef09d854382d2d0e18f622f8af460f115f6995220e"
+    },
+    "hwh": {
+      "path": "release/output/ps_3d_latest_result/soundsight.hwh",
+      "bytes": 433376,
+      "sha256": "d1573332dbf8cd302e465f6123f7c5f062f932c2756d17357436148dc2301c30"
+    },
+    "xsa": {
+      "path": "release/output/ps_3d_latest_result/soundsight.xsa",
+      "bytes": 961449,
+      "sha256": "40b38f1d312daf4f53464036e567839be3e3be5a4c76834dce7065228d45d064"
+    }
+  },
+  "registered_files": [
+    {
+      "path": "payload/SoundSight_PS_3D.gen/sources_1/bd/soundsight_stm32_bd/hdl/soundsight_stm32_bd_wrapper.v",
+      "bytes": 3068,
+      "sha256": "0e4f5240ed0f1af3889820a785d4ed792e0cd2674264aa9d05371ff3e1a5413e"
+    },
+    {
+      "path": "payload/SoundSight_PS_3D.srcs/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.bd",
+      "bytes": 99328,
+      "sha256": "297bbab6ae075772292ffe59e977f73979629f0abe7743870bdd8f97bfe21a7e"
+    },
+    {
+      "path": "payload/SoundSight_PS_3D.srcs/sources_1/ip/ss_fft29/ss_fft29.xci",
+      "bytes": 28255,
+      "sha256": "0bf45a44b0c4cf6857702909656101498a7f0bf3e5763e97ddf69df9f4c039a0"
+    },
+    {
+      "path": "payload/SoundSight_PS_3D.srcs/sources_1/ip/ss_ifft25/ss_ifft25.xci",
+      "bytes": 28259,
+      "sha256": "9d878e4e8c539e6b6c9a6dc0988ae183007f37a61d35d45b800b0d70da909120"
+    },
+    {
+      "path": "payload/dual_axis_constraints/01/spi_ila_debug.xdc",
+      "bytes": 19101,
+      "sha256": "bbb89dcf639ed12d899b385e25a2897aaf63b4b6e3874c42d036b60c8f75f64f"
+    },
+    {
+      "path": "payload/dual_axis_constraints/02/board_pins.xdc",
+      "bytes": 1242,
+      "sha256": "76c1f5e3dc44804f23da08166a4d380cb1197900ae0fd28a00fcc5de863c8dce"
+    },
+    {
+      "path": "payload/dual_axis_constraints/03/interface_timing.xdc",
+      "bytes": 1376,
+      "sha256": "6e984160ad1c7e52ec2148785e8469ee641825a80c79d5ed83167d884f08edf8"
+    },
+    {
+      "path": "payload/dual_axis_constraints/04/horizontal_reserved.xdc",
+      "bytes": 450,
+      "sha256": "29607c989003229cfc4ff680a0f3be214eae3f62cfa1f637622983a056e4f1a8"
+    },
+    {
+      "path": "payload/dual_axis_sources/bd_audio_capture.v",
+      "bytes": 4719,
+      "sha256": "25c52e8d59014e42600b0a11693e9d563f7245a1ec01d8244272101b9a9a0498"
+    },
+    {
+      "path": "payload/dual_axis_sources/bd_clean_compute.v",
+      "bytes": 2587,
+      "sha256": "d65b00a1d311d12bf36e60a10e38a6b78a6aba254557843149e4da63abf3310c"
+    },
+    {
+      "path": "payload/dual_axis_sources/bd_ps_link.v",
+      "bytes": 5119,
+      "sha256": "ae17152cb965e1aee142e17c396de93f0b87b6aed3e66782b1e17d2e73041f3b"
+    },
+    {
+      "path": "payload/dual_axis_sources/doa_math_pkg.sv",
+      "bytes": 10478,
+      "sha256": "70f9a28d343914fa115b40ed8875ae294db69390937155ef862de9374d7cb509"
+    },
+    {
+      "path": "payload/dual_axis_sources/doa_math_serial.sv",
+      "bytes": 5907,
+      "sha256": "f9c7e6dd052ba25e755303f9e28264f08919f4f7878f7ad6dd70e627d04ba2de"
+    },
+    {
+      "path": "payload/dual_axis_sources/doa_phat_client.sv",
+      "bytes": 3980,
+      "sha256": "e679a854f8174b11719ceea587b3d1606b8fd6e223b0ddcf5c55784d84123f7d"
+    },
+    {
+      "path": "payload/dual_axis_sources/f1a_frame_store.sv",
+      "bytes": 5210,
+      "sha256": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d"
+    },
+    {
+      "path": "payload/dual_axis_sources/fft29_official.sv",
+      "bytes": 2133,
+      "sha256": "1d7492e77711c5e507aeb48f9651621f8056ac97d3c05c3451f61ddc0b5ab92d"
+    },
+    {
+      "path": "payload/dual_axis_sources/hann-u18f17.mem",
+      "bytes": 6144,
+      "sha256": "487c7f988ab00fc0428dc3fbe1705e933eac96ef4f54519727bf9fb0d11dc1bf"
+    },
+    {
+      "path": "payload/dual_axis_sources/i17_turntable_pwm_guard.sv",
+      "bytes": 2603,
+      "sha256": "c9785a61b03cb24727f14c092073c4fc6fc4854c70eacb2b11f3fb97993a8453"
+    },
+    {
+      "path": "payload/dual_axis_sources/ifft25_official.sv",
+      "bytes": 2004,
+      "sha256": "5f8d4af7839f97b71fb4b33fec71ac64c6f8f3c80def1983430e8a4a0bae3479"
+    },
+    {
+      "path": "payload/dual_axis_sources/motor_drive.v",
+      "bytes": 6503,
+      "sha256": "4b899a4ebe5a96dab8919b0f63a8a46eff4c1d3678ce67d32d693642c817cf60"
+    },
+    {
+      "path": "payload/dual_axis_sources/pdm_cic3.v",
+      "bytes": 1495,
+      "sha256": "6bf88142124546eaa11d2a31cf00bfeb313a61032b1540867e1d788742d1da13"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_actuator_control.sv",
+      "bytes": 3742,
+      "sha256": "67cf3c39cce559a5f3a4cff170cfcc54020ab55a5e6b8106f70d878753d3b979"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_async_word.sv",
+      "bytes": 2027,
+      "sha256": "ad8457a2f3421b3b2a3df69438f15acf148018f154e7969bc37e8e7902d04ebd"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_audio_capture.sv",
+      "bytes": 6440,
+      "sha256": "2dee1ef0725936d6a5f96709813c29aecbc1701a6186bf4f0ad39288ed825e04"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_audio_fifo.sv",
+      "bytes": 1197,
+      "sha256": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_axi_lite_regs.sv",
+      "bytes": 3507,
+      "sha256": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_bist_source.sv",
+      "bytes": 1348,
+      "sha256": "e578bee07453a57e22909c8773e011064c9532275a0a67fe4f9f9310b8ab262b"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_clean_compute.sv",
+      "bytes": 8056,
+      "sha256": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_dual_axis_control.sv",
+      "bytes": 9393,
+      "sha256": "e913324fe0d9071355900e9fd092182e3ebcae52d24431d8b61435955c3f1bfb"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_dual_compute.sv",
+      "bytes": 5139,
+      "sha256": "4015f2fdccbd2f13bea78a31995f03de45b861cbb95f75dbfccd70c185d8204a"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_fft_frontend.sv",
+      "bytes": 7206,
+      "sha256": "efd263ffd477ccb2f7e35837d5459b8d8d842571f3f8b4a97440cbf19d13bb9b"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_manual_servo.sv",
+      "bytes": 2700,
+      "sha256": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_pair_engine.sv",
+      "bytes": 25145,
+      "sha256": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_pcm_time_cdc.sv",
+      "bytes": 2280,
+      "sha256": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_pcm_windows.sv",
+      "bytes": 3361,
+      "sha256": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_pdm_capture.sv",
+      "bytes": 2037,
+      "sha256": "f2a600c5f3ac6ebd44668c526bd40fb0dfc1e0f434e5350cf1e00733ef3b59fa"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_preprocess.sv",
+      "bytes": 5956,
+      "sha256": "b8ee9fe24350b447d2b41f6cca6f8a55ee7916f1ef5b84e3fe154eb9316f0108"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_ps_control_regs.sv",
+      "bytes": 19171,
+      "sha256": "8ab53742ffa16a43bb295eae0f779fcaa5922a09057edee3520338981864342b"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_ps_link.sv",
+      "bytes": 4570,
+      "sha256": "f2d56f97cccb55089caf40ca53a3f1af1b8fa3470fb3bad93bc5ae6497072265"
+    },
+    {
+      "path": "payload/dual_axis_sources/ss_snapshot_queue.sv",
+      "bytes": 5365,
+      "sha256": "5217940f11447758f91f4969905d6692480594fae142fc7b7f0dc7b59cda903e"
+    }
+  ],
+  "xsa_bit_hwh_equal": true,
+  "repository_product_logic_equal": true,
+  "comment_differences": [
+    {
+      "file": "bd_ps_link.v",
+      "detail": "Installed comment says W15; routed I/O and repository comment correctly say W16; logic unchanged"
+    }
+  ],
+  "handoff": "handoff.zip"
+}

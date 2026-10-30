@@ -22,6 +22,7 @@ class ThreeDLauncherTests(LauncherTests):
     def test_check_needs_no_pynq_but_manual_does(self):
         self.interpreter(self.venv, good=False)
         self.helper(self.run_entry('check'))
+        self.helper(self.run_entry('speaker-stats'))
         self.interpreter(self.bin/'python3', good=False)
         result = self.run_entry('manual', '--vertical', '110')
         self.assertNotEqual(result.returncode, 0)

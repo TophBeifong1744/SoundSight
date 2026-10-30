@@ -1,5 +1,8 @@
 # 最新三维双轴 Vivado 工程复现
 
+最新手工工程的导出入口为 `project/script/export_portable_handoff.tcl`，见[可搬移导出说明](portable-handoff-export.md)。它收集当前工程实际依赖，不仅导出旧目录路径清单；本页既有发布ZIP仍代表其注明的候选。
+
+
 本入口从正式源码重建完整工程，不依赖发送方的旧工程或盘符。器件为 `xc7z020clg400-2`，要求 Vivado **2025.2** 和 Python 3。只准备工程、生成 IP HDL、检查 BD 和生成顶层 wrapper；**综合、实现、位流和上板由使用者操作**。
 
 ## 使用
