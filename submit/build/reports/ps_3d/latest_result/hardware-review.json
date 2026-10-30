@@ -1,0 +1,15 @@
+{
+  "result": "SCOPED_PASS",
+  "scope": "User routed timing and XSA/source receipt; initial axes-off board retest",
+  "wns_ns": 0.176,
+  "whs_ns": 0.029,
+  "wpws_ns": 2.208,
+  "no_output_delay": 1,
+  "horizontal_pin": "T15",
+  "vertical_pin": "W16",
+  "latest_result_cap": "0x4c415431",
+  "hardware_board_test": "NOT_RUN",
+  "cdc_new_report": "NOT_EXPORTED",
+  "warnings": "DRC/methodology warnings remain; one output delay missing; old supplemental STA not reused",
+  "independent_design_signoff": false
+}

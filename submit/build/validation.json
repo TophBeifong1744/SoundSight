@@ -1,17 +1,17 @@
 {
   "scope": "SUBMISSION_PACKAGING_ONLY",
-  "files": 2011,
+  "files": 2113,
   "category_files": {
-    "board": 60,
-    "build": 167,
-    "data": 1315,
-    "report": 84,
-    "sim": 96,
+    "board": 63,
+    "build": 199,
+    "data": 1368,
+    "report": 90,
+    "sim": 103,
     "skill": 127,
-    "src": 161
+    "src": 162
   },
-  "manifest_files": 1997,
-  "relative_links": 517,
+  "manifest_files": 2099,
+  "relative_links": 538,
   "broken_links": 0,
   "filename_check": "PASS",
   "raw_sources_and_results": "PASS",
@@ -21,17 +21,17 @@
     {
       "pattern": "test_vivado_portable.py",
       "exit": 0,
-      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.198s\n\nOK\n"
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.078s\n\nOK\n"
     },
     {
       "pattern": "test_volume_gate.py",
       "exit": 0,
-      "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.012s\n\nOK\n"
+      "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.014s\n\nOK\n"
     }
   ],
   "isolation": {
     "zip_crc": "PASS",
-    "workspace_restore_files": 1997,
+    "workspace_restore_files": 2099,
     "outside_repository": "PASS",
     "overwrite_rejected": true,
     "missing_input_rejected": true,

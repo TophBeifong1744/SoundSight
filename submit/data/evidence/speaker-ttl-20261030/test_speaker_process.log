@@ -1,0 +1,23 @@
+SPEAKER_PROCESS_READY=1 CAPTURE_GIL_SHARED=0 IPC_PACKET_LIMIT=32
+SPEAKER_PROCESS_READY=1 CAPTURE_GIL_SHARED=0 IPC_PACKET_LIMIT=32
+SPEAKER_PROCESS_READY=1 CAPTURE_GIL_SHARED=0 IPC_PACKET_LIMIT=32
+SPEAKER_PROCESS_READY=1 CAPTURE_GIL_SHARED=0 IPC_PACKET_LIMIT=32
+SPEAKER_PROCESS_READY=1 CAPTURE_GIL_SHARED=0 IPC_PACKET_LIMIT=32
+SPEAKER_PROCESS_READY=1 CAPTURE_GIL_SHARED=0 IPC_PACKET_LIMIT=32
+SPEAKER_PROCESS_READY=1 CAPTURE_GIL_SHARED=0 IPC_PACKET_LIMIT=32
+SPEAKER_PROCESS_READY=1 CAPTURE_GIL_SHARED=0 IPC_PACKET_LIMIT=32
+SPEAKER_PROCESS_READY=1 CAPTURE_GIL_SHARED=0 IPC_PACKET_LIMIT=32
+test_bad_control_messages_fail_closed (__main__.ProcessTests.test_bad_control_messages_fail_closed) ... ok
+test_child_crash_stops_capture_and_halts_dma (__main__.ProcessTests.test_child_crash_stops_capture_and_halts_dma) ... ok
+test_credit_budget_is_not_returned_just_by_transport_receipt (__main__.ProcessTests.test_credit_budget_is_not_returned_just_by_transport_receipt) ... ok
+test_failed_capture_invalidates_successful_child_scores (__main__.ProcessTests.test_failed_capture_invalidates_successful_child_scores) ... ok
+test_kernel_backpressure_is_nonblocking (__main__.ProcessTests.test_kernel_backpressure_is_nonblocking) ... ok
+test_mismatched_counts_cannot_pass (__main__.ProcessTests.test_mismatched_counts_cannot_pass) ... ok
+test_packet_continuity_epoch_and_start_guard (__main__.ProcessTests.test_packet_continuity_epoch_and_start_guard) ... ok
+test_startup_failure_and_timeout_are_bounded (__main__.ProcessTests.test_startup_failure_and_timeout_are_bounded) ... ok
+test_success_separate_pid_no_parent_thread_and_origin_preserved (__main__.ProcessTests.test_success_separate_pid_no_parent_thread_and_origin_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 9.556s
+
+OK

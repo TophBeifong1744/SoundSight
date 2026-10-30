@@ -79,6 +79,7 @@ def parser():
     sub.add_parser('status', help='Read state of already prepared hardware')
     sub.add_parser('drain', help='STOP and save existing raw frames with the legacy recovery helper; no 3D/motion')
     sub.add_parser('speaker-check', help='Validate models, selected enrollment and trial settings; no hardware')
+    sub.add_parser('speaker-stats', help='Show statistics of the last saved speaker session; no hardware')
     sub.add_parser('speaker-list', help='List saved voice profiles; no hardware')
     select = sub.add_parser('speaker-select', help='Select a saved target and clear the old score threshold')
     select.add_argument('target')
@@ -118,6 +119,7 @@ def parser():
         run.add_argument('--window-frames', type=int)
         run.add_argument('--min-valid', type=int)
         if name == 'speaker':
+            run.add_argument('--speaker-stats', action='store_true', help='Count successful scores and inference time; save only at session end')
             run.add_argument('--seconds', type=float, default=0., help='0 until Ctrl+C; bounded run otherwise')
     return p
 
@@ -154,6 +156,10 @@ def run_options(args, root=ROOT):
 def main(argv=None):
     args = parser().parse_args(argv)
     try:
+        if args.command == 'speaker-stats':
+            from speaker_statistics import show_last
+            show_last(ROOT)
+            return 0
         if args.command == 'speaker-enroll':
             from speaker_enrollment import run
             print('SPEAKER_ENROLLMENT='+json.dumps(run(ROOT, args.target, args.seconds)), flush=True)

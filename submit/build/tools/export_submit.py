@@ -42,6 +42,7 @@ def destination(name):
         ('research/competition-skills/', 'skill/'),
         ('research/six-mic/results/', 'data/research/six-mic/results/'),
         ('research/', 'src/research/'),
+        ('release/output/ps_3d_latest_result/', 'board/artifacts/ps_3d_latest_result/'),
         ('release/output/', 'data/history/releases/'),
         ('release/', 'build/release/'),
         ('data/', 'data/'),
@@ -121,7 +122,7 @@ submit/
 
 唯一主方案为Zynq-7020 PL+PS/PYNQ：四麦40mm标称正四面体定位、双轴运动控制和可选声纹许可。水平T15、垂直W16。A维护PL和当前总工程；B的历史STM32/PYNQ、三维/DAS、声纹适配与优化贡献见[设计与贡献报告](report/design-report.md)。CAM++、Silero、ONNX Runtime及厂商组件属于第三方。
 
-PR #30提供最新完整Vivado源码配方：31个RTL、Hann数据、真实BD/PS配置、双FFT参数及5份约束。已有工程创建/BD Validate/IP HDL/wrapper成功记录，不代表重新综合或上板通过。双轴手动可转已有用户回报；纯声音跟随长稳发生整板重启，原因未定。5秒声纹录入与本人关轴评分已有回报，门限、他人对照及声纹联合双轴仍未验收。
+当前配方沿PR #30接入LAT1两槽最新定位结果策略，保留31个RTL、Hann数据、实际BD/PS配置、双FFT参数及5份约束。2026-10-30用户两轮声纹双轴测试正常结束并确认跟随，建议TTL10秒；第二轮淘汰1个旧结果。对应已导出实现WNS+0.176ns/WHS+0.029ns，但实际四约束候选缺垂直PWM输出延迟，不能称完整I/O签核。纯声音供电重启后用户接12V适配器报告长稳正常，未测电源波形。声纹门限/其他人对照及声纹联合长稳仍待验证，见[本次集成说明](report/release-20261030.md)。
 
 ## 从零复现
 
@@ -161,7 +162,7 @@ EXTRAS = {
  'src/README.md': '# 设计源码\n\n`rtl/`保存真实RTL与Hann数据；`software/ps`、`software/tetra3d`及`software/common`保存PS与算法实现。`software/stm32`和`research`包含已弃用路线/历史研究，不能误作当前部署。执行前按[根README](../README.md)生成独立工作目录；源码内容保持，文件名在提交目录统一小写。\n',
  'sim/README.md': '# 仿真与离线验证\n\n本目录包含实际`rtl/tb`、`rtl/script`、`software`测试及`models`参考模型。在按[根README](../README.md)生成的工作目录运行原测试路径。\n\n```text\npython -B -m unittest discover -s software/tests -p test_vivado_portable.py\npython -B -m unittest discover -s software/tests -p test_volume_gate.py\n```\n\nRTL仿真使用Vivado 2025.2 XSim，原入口为`simulation/script/run.bat batch <case>`。用例及实际历史结果见[运行说明](../report/run-guide.md)和[data/evidence](../data/evidence)。本批只验证提交包的脱离仓库复现，不重跑RTL/板测；软件测试不等于ARM实测。\n',
  'build/README.md': '# 构建配方与报告\n\n`vivado/`内为实际BD、PS/IP Tcl、XDC和工程脚本，`tools/`为Python/Tcl助手，`reports/`内为已有实现报告。完整PR #30配方和31个RTL在本包中，不需回到原仓库取文件。\n\n先在submit根运行`python -B build/prepare_workspace.py --output ../soundsight_work`，然后按[根README](../README.md)在生成目录启动工程配方。`prepare_workspace.py`只复制本包文件，不执行EDA/硬件。原配方的详细说明见[复现说明](../report/vivado-ps-3d-rebuild.md)。\n\n提交目录用小写路径；准备脚本按`file-map.json`恢复工具所需的原名。报告的结果只适用于其记录的候选，不能代替新工程STA。\n',
- 'board/README.md': '# 上板与现场资料\n\n`scripts/`是实际板端启动脚本，`hardware/`为板卡/麦克风/接线原件，`instructions/`为当前安装和操作说明，`results/`为用户现场回报。现有匹配W16位流、HWH和使用者私人声纹资产没有因为本次整理而补造；历史Vitis与旧SD包不能当成当前部署。\n\n从[三维SD说明](instructions/pynq-three-d-sd.md)、[W16更新](instructions/pynq-w16-update.md)、[声纹操作](instructions/pynq-speaker-3d.md)阅读；脚本在按[根README](../README.md)准备的工作目录运行。所有硬件命令仅供后续由使用者操作，本批未运行。\n\n双轴用户观察见[手动回报](results/board-manual-result.md)，长期运行失败见[重启回报](results/board-unexpected-reboot.md)，短录入/评分见[声纹板测](results/speaker-enrollment-board-result.md)。\n',
+ 'board/README.md': '# 上板与现场资料\n\n`scripts/`是实际板端启动脚本，`hardware/`为板卡/麦克风/接线原件，`instructions/`为当前安装和操作说明，`results/`为用户现场回报。`artifacts/ps_3d_latest_result/`保存当前匹配bit/HWH/XSA；私人声纹模型和档案不进入公开交付。历史Vitis与旧SD包不能当成当前部署。\n\n从[三维SD说明](instructions/pynq-three-d-sd.md)、[W16更新](instructions/pynq-w16-update.md)、[声纹操作](instructions/pynq-speaker-3d.md)阅读；脚本在按[根README](../README.md)准备的工作目录运行。所有硬件命令仅供后续由使用者操作，本批未运行。\n\n双轴用户观察见[手动回报](results/board-manual-result.md)，长期运行失败见[重启回报](results/board-unexpected-reboot.md)，短录入/评分见[声纹板测](results/speaker-enrollment-board-result.md)。\n',
  'data/README.md': '# 输入、参考结果与实验证据\n\n`fixtures/`为真实已保存的合成测试输入与参考生成器，`evidence/`为原仓库实验原件，`research/`含六麦合成音频与结果，`history/releases/`为有版本范围的旧交付包。\n\nB的原始指标在[evidence/speaker-report-materials/metrics.csv](evidence/speaker-report-materials/metrics.csv)，贡献总览见[对应报告](evidence/speaker-report-materials/07-b-contribution-and-gaps-20261029.md)。原日志、JSON/CSV、历史ZIP保留内容，不把新目录当成新实验。本目录不含新增私人录音、模板或模型权重。\n',
  'skill/README.md': '# 比赛技能包\n\n本目录已放入两个技能包的实际脚本、示例、测试与许可证：`fpga-module-verification/`和`pynq-overlay-dma-validation/`，不是外部链接占位。各自的`skill.md`是小写提交入口；需安装到要求`SKILL.md`的助手时在使用者副本恢复该名称，或用本包准备脚本恢复原目录。\n\n在生成工作目录中可运行：\n\n```text\npython -B release/check_competition_skills.py --skills-root research/competition-skills --output ../skill_check\n```\n\n省略`--vivado-bin`仅做离线测试；XSim标NOT_RUN。真实PYNQ Skill验收仍未完成。许可、历史失败与实际AI纠错见[交付说明](../report/competition-skills-delivery.md)、[AI协作记录](../report/competition-skills-ai-corrections.md)。\n',
  'report/README.md': '# 设计报告与协作资料\n\n本目录包含实际设计文档、现有DOCX手册、第三方声明和AI纠错记录。先阅读[设计报告](design-report.md)、[现行架构](main-architecture.md)、[B贡献原稿](../data/evidence/speaker-report-materials/07-b-contribution-and-gaps-20261029.md)和[材料缺项](pending-materials.md)。\n\n历史设计/STM32路线按原时点理解。文件中的操作命令以准备脚本生成的工作目录为基准；本文档链接以submit目录为基准。原仓库中就未收录的历史引用转成文字线索，清单见`unavailable-references.json`；不会把不可访问本机链接包装成可复现入口。\n',
@@ -181,14 +182,14 @@ PL完成四麦PDM采集、分窗预处理、FFT/PHAT/IFFT、六对时差特征�
 
 | 工作 | 归属、方法 | 已有结果 | 范围与未完成项 |
 |---|---|---|---|
-| PL、连续PCM、双轴保护与总工程 | A及原作者；2026-10-29起A全面维护 | PR #30完整配方创建、BD Validate、IP HDL/wrapper成功；W16报告见build/reports | 新重建配方未重新综合/实现；整机长稳未通过 |
+| PL、连续PCM、双轴保护与总工程 | A及原作者；2026-10-29起A全面维护 | PR #30完整配方创建、BD Validate、IP HDL/wrapper成功；W16报告见build/reports | 本次未运行EDA；最新导出实现缺垂直PWM输出延迟，声纹联合长稳未验收 |
 | STM32 S1/S2 | B的C99算法、驱动和自检 | PC 4705/15980断言；本板11通过、0失败、11跳过 | 已弃用路线，不能写作跨板通信完成 |
 | 二维PYNQ及存储修正 | B算法桥接、板测分析、8条/50ms批写 | 有声/静音各1000帧原件；后续长采2831/3000高水位停止 | 有效率不是参考角准确率；失败保留 |
 | 三维与DAS | B的算法迁移、几何最小二乘、分数延迟及回退 | PC154组数值、17非法、15几何、4类CLI；DAS16项及70/8方向验证 | 真实三维精度、DAS实麦改善未验收 |
 | 六项软件优化 | B方向稳定、可选质量加权、环缓冲、校准接口、几何缓存、双轴映射 | PC86项不同Python测试；DAS耗时下降35.50%、块分配峰值下降96.18% | 不是ARM或整机RSS效果，不等于全部候选已采用 |
 | 声纹迁移/计算优化 | B对第三方模型的工程适配与RX4/CP1/VF1优化 | opt1 ARM离线前端下降40.55%；RX4校验CPU下降95.71%；同轮CP1+VF1离线并发下降18.12% | 计时边界不同不可相加；原性能门限未达；失败候选保留 |
 | AF1入口 | B复用A runtime增加无声纹跟随入口 | 板端原21+新7离线检查通过 | 不代表机械或声纹验收；W15不动是历史失败 |
-| 后续W16、短录入和目标管理 | A接续实现，用户执行现场测试 | 手动两轴可转；5秒录入成功、本人两次可用分数0.6103/0.5563 | 门限未配置、他人对照和联合双轴待验收；纯声音长稳重启根因未定 |
+| 后续W16、短录入和目标管理 | A接续实现，用户执行现场测试 | 手动两轴可转；5秒录入成功、本人两次可用分数0.6103/0.5563 | 该行是10月29日历史；10月30日门限0.45两轮联合短测见release-20261030，其他人对照待做 |
 
 算法思想、CAM++、Silero、ONNX Runtime及厂商/PYNQ组件属于第三方。B的贡献是具体实现、迁移、优化与验证；A的后续成果不倒填为B当时完成；接线、下载、实际运行和观察按现场记录归属。
 
@@ -202,9 +203,9 @@ PL完成四麦PDM采集、分窗预处理、FFT/PHAT/IFFT、六对时差特征�
 
 | 项目 | 已有内容 | 尚缺内容 |
 |---|---|---|
-| 完整源码与工程配方 | 本submit的RTL、PS程序、PR #30 BD/IP/XDC与准备脚本 | 当前候选匹配的最终bit/HWH、运行环境及个人模型配置，不用旧SD包冒充 |
+| 完整源码与工程配方 | 本submit的RTL、PS程序、PR #30 BD/IP/XDC与准备脚本 | 匹配bit/HWH/XSA已在board/artifacts；运行环境及个人模型配置仍由使用者提供 |
 | 设计报告 | design-report.md、算法贡献、现有手册与接口说明 | 参赛者按最终结果确认定稿、必要签署与赛事表单 |
-| 实验 | PC/ARM离线、采集、W16用户观察及失败原件 | 真三维精度/标定、长稳重启根因和复验、身份方向关联、DAS实麦效果 |
+| 实验 | PC/ARM离线、采集、W16用户观察及失败原件 | 真三维精度/标定、电源原因仪器确认、身份方向关联、声纹联合长稳及DAS实麦效果 |
 | 图片/视频 | 已有麦克风/板卡材料与实现截图 | 当前整机、连接/机构、界面和真实演示视频 |
 | AI协作 | 可见请求与纠错选编、代码和失败修复证据 | 按赛事要求选择真实提示词/回答原文；禁止补写伪造聊天 |
 | 声纹 | 第三方适配、离线优化、5秒录入与本人评分 | 独立他人对照、门限标定、稳定延迟及联合双轴验收 |
@@ -291,7 +292,7 @@ def main():
             # The skills root readme was an index; its actual packages remain copied.
             if name!='skill/README.md': raise ValueError('Generated file collision: '+name)
         p=out/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text,encoding='utf-8',newline='\n')
-    manifest={'baseline_commit':'80b6a8487874fb7586c73ba2c301e81cc9ba5f9a','scope':'standalone submission snapshot, no new hardware experiment','files':records,'counts':counts}
+    manifest={'baseline_commit':subprocess.check_output(git+['rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'scope':'standalone submission snapshot, no new hardware experiment','files':records,'counts':counts}
     (out/'build/file-map.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     (out/'report/unavailable-references.json').write_text(json.dumps({'note':'Already absent from source repository; preserved as text, not invented files.','references':unavailable},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({'copied_files':len(records),'counts':counts,'historical_missing_references':len(unavailable)},ensure_ascii=False))

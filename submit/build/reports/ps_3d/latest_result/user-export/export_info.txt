@@ -1,0 +1,8 @@
+Project: SoundSight_PS_3D
+Implementation: impl_1
+Run status: write_bitstream Complete!
+Vivado: 2025.2
+Reports describe the saved implementation run. BD PDFs describe the current BD.
+Export completion does not mean timing or constraints passed.
+BD PDF: bd_01_soundsight_stm32_bd.pdf
+Export errors: 0

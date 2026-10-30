@@ -1,7 +1,8 @@
 """Experimental delayed speaker permission; no cryptography and no hardware IO.
 
 Permission age starts at inference completion, never at message reception.
-Audio/voice epochs revoke old decisions; an in-flight inference is not permission.
+Speech pauses do not revoke a pass. Only a new passing result refreshes its TTL.
+Audio-session identity, invalid data and explicit STOP remain fail-closed.
 """
 import json
 import math
@@ -10,6 +11,7 @@ import time
 
 CONFIG_NAME = 'speaker-follow.local.json'
 DEFAULT_TTL = 3.0
+POLICY = 'score_ttl_v2'
 
 
 def settings(threshold=None, ttl=DEFAULT_TTL):
@@ -19,7 +21,7 @@ def settings(threshold=None, ttl=DEFAULT_TTL):
     if type(ttl) not in (int, float) or not math.isfinite(ttl) or not .1 <= ttl <= 30:
         raise ValueError('Speaker permit seconds must be 0.1..30')
     return dict(schema=1, threshold=threshold, permit_seconds=float(ttl),
-                policy='delayed_permission_v1', recognition_qualified=False)
+                policy=POLICY, recognition_qualified=False)
 
 
 def load_settings(root):
@@ -27,7 +29,7 @@ def load_settings(root):
     if not path.exists():
         return settings()  # Absence is deliberately NOT the trial 0.65 threshold.
     value = json.loads(path.read_text(encoding='utf-8'))
-    if set(value) != set(settings()) or value['schema'] != 1 or value['policy'] != 'delayed_permission_v1' or value['recognition_qualified'] is not False:
+    if set(value) != set(settings()) or value['schema'] != 1 or value['policy'] not in ('delayed_permission_v1', POLICY) or value['recognition_qualified'] is not False:
         raise ValueError('Unknown speaker-follow configuration')
     return settings(value['threshold'], value['permit_seconds'])
 
@@ -42,9 +44,9 @@ class SpeakerPermission:
         self.voice_active = False
         self.voice_at = None
         self.score = self.result = None
+        self.display_result = None
         self.expires_at = 0.
         self.last_completed = -1.
-        self.quiet_until_sample16 = 0
         self.reason = 'UNCONFIGURED' if self.config['threshold'] is None else 'WAITING_FOR_SPEECH'
         self.revocations = self.results = 0
 
@@ -60,9 +62,8 @@ class SpeakerPermission:
         self.reason = reason
 
     def quiet(self, sample_end16):
-        """Volume silence also prevents an older in-flight result re-enabling motion."""
-        self.quiet_until_sample16 = max(self.quiet_until_sample16, sample_end16)
-        self.revoke('LOW_VOLUME')
+        """Volume affects direction/motion separately, never the speaker TTL."""
+        pass
 
     def event(self, message):
         now = self.clock()
@@ -74,38 +75,33 @@ class SpeakerPermission:
         if type(ve) is not int or ve < 0:
             raise ValueError('Invalid voice epoch')
         if kind == 'voice':
-            at = message['at']
-            if type(at) not in (int, float) or not math.isfinite(at) or at > now or now-at > .5:
-                self.revoke('STALE_FRONTEND')
-                return
-            if ve < self.voice_epoch or self.voice_at is not None and at < self.voice_at:
-                self.revoke('OUT_OF_ORDER_VOICE')
-                return
-            if ve != self.voice_epoch or not message['active']:
-                self.revoke('NEW_SPEECH' if message['active'] else 'SILENCE')
-            self.voice_epoch, self.voice_active, self.voice_at = ve, bool(message['active']), at
+            # Diagnostic only: silence, pauses and segment changes cannot shorten
+            # an already granted score TTL. Worker/capture failures still STOP.
+            self.voice_epoch = ve
+            self.voice_active = bool(message['active'])
+            self.voice_at = message['at']
         elif kind == 'result':
             self.results += 1
             self.result = dict(message)
+            self._remember_score(message.get('display_result', message), now)
             self.score = message.get('score')
             completed = message['completed_at']
             if type(completed) not in (int, float) or not math.isfinite(completed) or completed > now or completed <= self.last_completed:
                 self.revoke('INVALID_RESULT_TIME')
                 return
             self.last_completed = completed
-            if (ve != self.voice_epoch or not self.voice_active or
-                    self.voice_at is None or now-self.voice_at > .5):
-                self.revoke('OLD_OR_SILENT_SPEECH')
-            elif message.get('start_sample16', -1) < self.quiet_until_sample16:
-                self.revoke('RESULT_PRECEDES_QUIET')
-            elif not message.get('usable'):
-                self.revoke(str(message.get('reason', 'UNUSABLE_RESULT')).upper())
+            if not message.get('usable'):
+                # No score (e.g. insufficient speech) is not a new passing result.
+                # It neither extends nor cancels the previous permit.
+                if not self.allowed():
+                    self.reason = str(message.get('reason', 'UNUSABLE_RESULT')).upper()
             elif self.config['threshold'] is None:
                 self.revoke('UNCONFIGURED')
             elif type(self.score) not in (int, float) or not math.isfinite(self.score) or not -1 <= self.score <= 1:
                 self.revoke('INVALID_SCORE')
             elif self.score < self.config['threshold']:
-                self.revoke('SPEAKER_REJECTED')
+                if not self.allowed():
+                    self.reason = 'SPEAKER_REJECTED'
             elif now >= completed+self.config['permit_seconds']:
                 self.revoke('EXPIRED')
             else:
@@ -114,17 +110,33 @@ class SpeakerPermission:
         else:
             raise ValueError('Unknown speaker event')
 
+    def _remember_score(self, result, now):
+        """Retain a diagnostic score without granting or extending permission."""
+        if not isinstance(result, dict):
+            return
+        score, completed = result.get('score'), result.get('completed_at')
+        if (result.get('epoch') != self.epoch or result.get('kind') != 'result' or
+                type(score) not in (int, float) or not math.isfinite(score) or not -1 <= score <= 1 or
+                type(completed) not in (int, float) or not math.isfinite(completed) or not 0 <= completed <= now):
+            return
+        if self.display_result is not None and completed <= self.display_result['completed_at']:
+            return
+        self.display_result = dict(score=score, completed_at=completed,
+                                   usable=bool(result.get('usable')),
+                                   reason=str(result.get('reason', 'UNKNOWN')).upper())
+
     def allowed(self):
         now = self.clock()
-        if self.voice_at is not None and now-self.voice_at > .5:
-            self.revoke('FRONTEND_LOST')
         if self.expires_at and now >= self.expires_at:
             self.revoke('EXPIRED')
-        return bool(self.expires_at and self.voice_active and self.config['threshold'] is not None)
+        return bool(self.expires_at and self.config['threshold'] is not None)
 
     def snapshot(self):
         permit = self.allowed()
-        return dict(permit=permit, reason=self.reason, score=self.score,
+        return dict(policy=POLICY, permit=permit, reason=self.reason, score=self.score,
+                    display_score=None if self.display_result is None else self.display_result['score'],
+                    display_score_age_seconds=None if self.display_result is None else max(0., self.clock()-self.display_result['completed_at']),
+                    display_result=self.display_result,
                     threshold=self.config['threshold'], permit_seconds=self.config['permit_seconds'],
                     remaining_seconds=max(0., self.expires_at-self.clock()), epoch=self.epoch,
                     voice_epoch=self.voice_epoch, results=self.results, revocations=self.revocations,

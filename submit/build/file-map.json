@@ -1,5 +1,5 @@
 {
-  "baseline_commit": "80b6a8487874fb7586c73ba2c301e81cc9ba5f9a",
+  "baseline_commit": "839ed62a51fbadf50f576a01cf38885311a4b56f",
   "scope": "standalone submission snapshot, no new hardware experiment",
   "files": [
     {
@@ -198,8 +198,8 @@
       "source_path": "document/b-speaker-3d-interface.md",
       "submit_path": "report/b-speaker-3d-interface.md",
       "mode": "100644",
-      "source_sha256": "e169796b2fedc3eedec722a8dff7e8a199d08ee71bfb8237035bf03df09bcdea",
-      "submit_sha256": "e169796b2fedc3eedec722a8dff7e8a199d08ee71bfb8237035bf03df09bcdea",
+      "source_sha256": "e0e490d7581503e5a9a76f5f9e2a3bc54689d42fd047c54f408a9599765a8602",
+      "submit_sha256": "e0e490d7581503e5a9a76f5f9e2a3bc54689d42fd047c54f408a9599765a8602",
       "transform": "none"
     },
     {
@@ -246,8 +246,8 @@
       "source_path": "document/current-status.md",
       "submit_path": "report/current-status.md",
       "mode": "100644",
-      "source_sha256": "0ea94fc7b072b89df2142c932a0cd0297bcb4ea23eab0895c4448e44c15dba56",
-      "submit_sha256": "9e6b042ef4bbba05e0dae1d359180d73a8520243f175c94103f49a93b96a62be",
+      "source_sha256": "d728cb883f36a05d15cde49eefebb28d6e724a6bd2ee0cd02fb77ee6064c574e",
+      "submit_sha256": "2dd77e2eb4dbdebd65cff01c46998f735c360a967dba8faef4eaf752277a8dbb",
       "transform": "documentation_links_only"
     },
     {
@@ -4443,6 +4443,22 @@
       "transform": "none"
     },
     {
+      "source_path": "document/evidence/portable-export-20261030/README.md",
+      "submit_path": "data/evidence/portable-export-20261030/readme.md",
+      "mode": "100644",
+      "source_sha256": "8bcb142b725015635f9551cb3a5da1e3b6743d89b964f608050a625994b7bb09",
+      "submit_sha256": "8bcb142b725015635f9551cb3a5da1e3b6743d89b964f608050a625994b7bb09",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/portable-export-20261030/help-query-failed.txt",
+      "submit_path": "data/evidence/portable-export-20261030/help-query-failed.txt",
+      "mode": "100644",
+      "source_sha256": "7799f7a4093981a12fdbb673a669fd09c8f199ceca94f3777389f9662fc936c3",
+      "submit_sha256": "7799f7a4093981a12fdbb673a669fd09c8f199ceca94f3777389f9662fc936c3",
+      "transform": "none"
+    },
+    {
       "source_path": "document/evidence/portable-vivado-20261029/README.md",
       "submit_path": "data/evidence/portable-vivado-20261029/readme.md",
       "mode": "100644",
@@ -6328,6 +6344,102 @@
       "mode": "100644",
       "source_sha256": "996c2f4483339b76b6781a605baffc66c3bf870a48e5f1b7c1005c6cfd2c962a",
       "submit_sha256": "996c2f4483339b76b6781a605baffc66c3bf870a48e5f1b7c1005c6cfd2c962a",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/ps-latest-result-20261030/README.md",
+      "submit_path": "data/evidence/ps-latest-result-20261030/readme.md",
+      "mode": "100644",
+      "source_sha256": "df65eb6259dc21394f4c1d116313a5e20f67042444f4df08224edf300b41c283",
+      "submit_sha256": "df65eb6259dc21394f4c1d116313a5e20f67042444f4df08224edf300b41c283",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/ps-latest-result-20261030/dualaxis-result.json",
+      "submit_path": "data/evidence/ps-latest-result-20261030/dualaxis-result.json",
+      "mode": "100644",
+      "source_sha256": "abd18eadf36f07916dd3482d3982986d79f22ce26f6639451909be14d507d116",
+      "submit_sha256": "abd18eadf36f07916dd3482d3982986d79f22ce26f6639451909be14d507d116",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/ps-latest-result-20261030/dualaxis-xsim.log",
+      "submit_path": "data/evidence/ps-latest-result-20261030/dualaxis-xsim.log",
+      "mode": "100644",
+      "source_sha256": "f0c2a538c0fa2f50419735d0743408e7931924e77295762d41b56f8fe2297265",
+      "submit_sha256": "f0c2a538c0fa2f50419735d0743408e7931924e77295762d41b56f8fe2297265",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/ps-latest-result-20261030/latestps-result.json",
+      "submit_path": "data/evidence/ps-latest-result-20261030/latestps-result.json",
+      "mode": "100644",
+      "source_sha256": "350d87df642ef1b5df55f7e82b0cfe33da04463985b27c504dac63c452a73c60",
+      "submit_sha256": "350d87df642ef1b5df55f7e82b0cfe33da04463985b27c504dac63c452a73c60",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/ps-latest-result-20261030/latestps-xsim.log",
+      "submit_path": "data/evidence/ps-latest-result-20261030/latestps-xsim.log",
+      "mode": "100644",
+      "source_sha256": "2754a11c791e0340e83a79b184ee630f58bb0311f886b84939b6f945f8c326e6",
+      "submit_sha256": "2754a11c791e0340e83a79b184ee630f58bb0311f886b84939b6f945f8c326e6",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/ps-latest-result-20261030/latestqueue-result.json",
+      "submit_path": "data/evidence/ps-latest-result-20261030/latestqueue-result.json",
+      "mode": "100644",
+      "source_sha256": "396a04dfb9dbb171759d17bc0e428725548145e0b888212e67cd911261083006",
+      "submit_sha256": "396a04dfb9dbb171759d17bc0e428725548145e0b888212e67cd911261083006",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/ps-latest-result-20261030/latestqueue-xsim.log",
+      "submit_path": "data/evidence/ps-latest-result-20261030/latestqueue-xsim.log",
+      "mode": "100644",
+      "source_sha256": "71dabde5f538347a67a2eeb3e93c17e8c58a6bd994e8e0755060ca508b15a512",
+      "submit_sha256": "71dabde5f538347a67a2eeb3e93c17e8c58a6bd994e8e0755060ca508b15a512",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/ps-latest-result-20261030/ps-result.json",
+      "submit_path": "data/evidence/ps-latest-result-20261030/ps-result.json",
+      "mode": "100644",
+      "source_sha256": "434a5edd6d71daaaa73f3fa7ba2e59b590bbd990e324186003edda02541de568",
+      "submit_sha256": "434a5edd6d71daaaa73f3fa7ba2e59b590bbd990e324186003edda02541de568",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/ps-latest-result-20261030/ps-xsim.log",
+      "submit_path": "data/evidence/ps-latest-result-20261030/ps-xsim.log",
+      "mode": "100644",
+      "source_sha256": "bbd745489384e38dc206369385badee82bf0b1f318b3781fef7275d3f18c5c85",
+      "submit_sha256": "bbd745489384e38dc206369385badee82bf0b1f318b3781fef7275d3f18c5c85",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/ps-latest-result-20261030/queue-result.json",
+      "submit_path": "data/evidence/ps-latest-result-20261030/queue-result.json",
+      "mode": "100644",
+      "source_sha256": "a4af075a859858f930062d624f1e7fc17b8425c8e51c7c087284bbbec8e71853",
+      "submit_sha256": "a4af075a859858f930062d624f1e7fc17b8425c8e51c7c087284bbbec8e71853",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/ps-latest-result-20261030/queue-xsim.log",
+      "submit_path": "data/evidence/ps-latest-result-20261030/queue-xsim.log",
+      "mode": "100644",
+      "source_sha256": "8ed2af2fb2ebf1c455e58e68c5743a5594b84671cf70f36b8c627641f8c21957",
+      "submit_sha256": "8ed2af2fb2ebf1c455e58e68c5743a5594b84671cf70f36b8c627641f8c21957",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/ps-latest-result-20261030/tested-sources.json",
+      "submit_path": "data/evidence/ps-latest-result-20261030/tested-sources.json",
+      "mode": "100644",
+      "source_sha256": "faf7df0d8819231ad60f9528354a633d62ce40a76ecc952ab01fa8ce71486d75",
+      "submit_sha256": "faf7df0d8819231ad60f9528354a633d62ce40a76ecc952ab01fa8ce71486d75",
       "transform": "none"
     },
     {
@@ -9299,6 +9411,62 @@
       "transform": "none"
     },
     {
+      "source_path": "document/evidence/release-20261030/README.md",
+      "submit_path": "data/evidence/release-20261030/readme.md",
+      "mode": "100644",
+      "source_sha256": "9c1a05f0348de84279f04b394b439a77d1893ea1b49996eb2c0b0f2258446b59",
+      "submit_sha256": "9c1a05f0348de84279f04b394b439a77d1893ea1b49996eb2c0b0f2258446b59",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/release-20261030/portable-tests.json",
+      "submit_path": "data/evidence/release-20261030/portable-tests.json",
+      "mode": "100644",
+      "source_sha256": "2ece670f26125eac109fa719fd997743e8f6c25c28262c1ab1efaf629f4d3e47",
+      "submit_sha256": "2ece670f26125eac109fa719fd997743e8f6c25c28262c1ab1efaf629f4d3e47",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/release-20261030/rtl-source-equivalence.json",
+      "submit_path": "data/evidence/release-20261030/rtl-source-equivalence.json",
+      "mode": "100644",
+      "source_sha256": "a1a754636b7bda94667ed18a56060aa02b19b10e6194f9493bab0b8bd3d76936",
+      "submit_sha256": "a1a754636b7bda94667ed18a56060aa02b19b10e6194f9493bab0b8bd3d76936",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/release-20261030/submit-check.json",
+      "submit_path": "data/evidence/release-20261030/submit-check.json",
+      "mode": "100644",
+      "source_sha256": "32fe5e59330352f89933f0e2a9cb4ffb78ca3eaefcb56a6afbc52be9a889b71c",
+      "submit_sha256": "32fe5e59330352f89933f0e2a9cb4ffb78ca3eaefcb56a6afbc52be9a889b71c",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/release-20261030/test_latest_result_tcl.py.log",
+      "submit_path": "data/evidence/release-20261030/test_latest_result_tcl.py.log",
+      "mode": "100644",
+      "source_sha256": "e6c5b628723f28f42785ffce3ad5ecb01d9f5ff3c54ba181fbb56c42c8c0c115",
+      "submit_sha256": "e6c5b628723f28f42785ffce3ad5ecb01d9f5ff3c54ba181fbb56c42c8c0c115",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/release-20261030/test_portable_export.py.log",
+      "submit_path": "data/evidence/release-20261030/test_portable_export.py.log",
+      "mode": "100644",
+      "source_sha256": "0b2c4a6cbc2ffa948f8b98793129cad0aba19842c94c63005b7dc0bdb238d25d",
+      "submit_sha256": "0b2c4a6cbc2ffa948f8b98793129cad0aba19842c94c63005b7dc0bdb238d25d",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/release-20261030/test_vivado_portable.py.log",
+      "submit_path": "data/evidence/release-20261030/test_vivado_portable.py.log",
+      "mode": "100644",
+      "source_sha256": "abe4360880cda16432eef42310d9294d13f440c7d5da5170fb852b5c7a3549d2",
+      "submit_sha256": "abe4360880cda16432eef42310d9294d13f440c7d5da5170fb852b5c7a3549d2",
+      "transform": "none"
+    },
+    {
       "source_path": "document/evidence/rtl-3d-remote-sync-20261028/README.md",
       "submit_path": "data/evidence/rtl-3d-remote-sync-20261028/readme.md",
       "mode": "100644",
@@ -9696,6 +9864,30 @@
       "mode": "100644",
       "source_sha256": "a63adf10cd868150f23d7b264c6a3cf7eff324eb3aca5092bf940090d5762767",
       "submit_sha256": "a63adf10cd868150f23d7b264c6a3cf7eff324eb3aca5092bf940090d5762767",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-dual-axis-20261030/README.md",
+      "submit_path": "data/evidence/speaker-dual-axis-20261030/readme.md",
+      "mode": "100644",
+      "source_sha256": "285fc49999c664da74ff9fe11fce08f1c23ae0fa80765779e2f7dc19bd7137cd",
+      "submit_sha256": "021bae8b61f04c9126cf6aa15090825ded722853d1b9c88023ba717ac0bc73ee",
+      "transform": "documentation_links_only"
+    },
+    {
+      "source_path": "document/evidence/speaker-dual-axis-20261030/analysis.json",
+      "submit_path": "data/evidence/speaker-dual-axis-20261030/analysis.json",
+      "mode": "100644",
+      "source_sha256": "44fac76a4bb28d23417733ab116a60124e6f0ab3961337836fc21afbe0243e14",
+      "submit_sha256": "44fac76a4bb28d23417733ab116a60124e6f0ab3961337836fc21afbe0243e14",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-dual-axis-20261030/board-tests.zip",
+      "submit_path": "data/evidence/speaker-dual-axis-20261030/board-tests.zip",
+      "mode": "100644",
+      "source_sha256": "fff072281309055998dc92f3e4bee69f40a9079a8c4d51630705cb804296d162",
+      "submit_sha256": "fff072281309055998dc92f3e4bee69f40a9079a8c4d51630705cb804296d162",
       "transform": "none"
     },
     {
@@ -10315,6 +10507,214 @@
       "transform": "none"
     },
     {
+      "source_path": "document/evidence/speaker-score-display-20261030/README.md",
+      "submit_path": "data/evidence/speaker-score-display-20261030/readme.md",
+      "mode": "100644",
+      "source_sha256": "b903f5d7661182632f1699bb6511bb382c86bccbaf6e85a088a423ffd32600a2",
+      "submit_sha256": "b903f5d7661182632f1699bb6511bb382c86bccbaf6e85a088a423ffd32600a2",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-score-display-20261030/unpacked-tests.log",
+      "submit_path": "data/evidence/speaker-score-display-20261030/unpacked-tests.log",
+      "mode": "100644",
+      "source_sha256": "43acb3140b87a64ae4943538caa2975d5fc0b9a8fd9c23d4e0fe46facdcc11eb",
+      "submit_sha256": "43acb3140b87a64ae4943538caa2975d5fc0b9a8fd9c23d4e0fe46facdcc11eb",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-statistics-20261030/README.md",
+      "submit_path": "data/evidence/speaker-statistics-20261030/readme.md",
+      "mode": "100644",
+      "source_sha256": "0f50991ce1f159daaec0193121eddfc2c59938b38add9d8b7e416c84f2ddbeae",
+      "submit_sha256": "0f50991ce1f159daaec0193121eddfc2c59938b38add9d8b7e416c84f2ddbeae",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-statistics-20261030/increment-check.json",
+      "submit_path": "data/evidence/speaker-statistics-20261030/increment-check.json",
+      "mode": "100644",
+      "source_sha256": "559b2b49f884b7188a242cea56dfb8e1b0c307d342fb9f7731c2fb85c26c5d8f",
+      "submit_sha256": "559b2b49f884b7188a242cea56dfb8e1b0c307d342fb9f7731c2fb85c26c5d8f",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-statistics-20261030/increment-install.log",
+      "submit_path": "data/evidence/speaker-statistics-20261030/increment-install.log",
+      "mode": "100644",
+      "source_sha256": "7484793ac39fdeaaa95fc9c6667d368490d558f32854dde3eaf84ecaac91b6e2",
+      "submit_sha256": "7484793ac39fdeaaa95fc9c6667d368490d558f32854dde3eaf84ecaac91b6e2",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-statistics-20261030/sd-package-check.json",
+      "submit_path": "data/evidence/speaker-statistics-20261030/sd-package-check.json",
+      "mode": "100644",
+      "source_sha256": "aa9d5b23f8e9fef47efe766fb26aa1a7feee99755ebfd193d5906096277e1475",
+      "submit_sha256": "aa9d5b23f8e9fef47efe766fb26aa1a7feee99755ebfd193d5906096277e1475",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-statistics-20261030/sd-package-tests.log",
+      "submit_path": "data/evidence/speaker-statistics-20261030/sd-package-tests.log",
+      "mode": "100644",
+      "source_sha256": "299fa2eed128256b9e00f3ee8528122c692befc58183b0c975fea9a677362f60",
+      "submit_sha256": "299fa2eed128256b9e00f3ee8528122c692befc58183b0c975fea9a677362f60",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-statistics-20261030/test_latest_result.log",
+      "submit_path": "data/evidence/speaker-statistics-20261030/test_latest_result.log",
+      "mode": "100644",
+      "source_sha256": "c6d19fdfeffbcb83c1d7c9ef5e06ab16baa155900d4985f7ed04b134cd46947f",
+      "submit_sha256": "c6d19fdfeffbcb83c1d7c9ef5e06ab16baa155900d4985f7ed04b134cd46947f",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-statistics-20261030/test_online_3d.log",
+      "submit_path": "data/evidence/speaker-statistics-20261030/test_online_3d.log",
+      "mode": "100644",
+      "source_sha256": "3bfba46fba949b261ec464aed099b4a472a84b177f444567d9580e39c3590d4a",
+      "submit_sha256": "3bfba46fba949b261ec464aed099b4a472a84b177f444567d9580e39c3590d4a",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-statistics-20261030/test_speaker_display.log",
+      "submit_path": "data/evidence/speaker-statistics-20261030/test_speaker_display.log",
+      "mode": "100644",
+      "source_sha256": "cc457ac882fc186bdc247cc7243c78f806d657685ff78413dd40ae6aac7204e1",
+      "submit_sha256": "cc457ac882fc186bdc247cc7243c78f806d657685ff78413dd40ae6aac7204e1",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-statistics-20261030/test_speaker_follow.log",
+      "submit_path": "data/evidence/speaker-statistics-20261030/test_speaker_follow.log",
+      "mode": "100644",
+      "source_sha256": "46dbf9287abb07df152bc618f23781d3bbd24b3fb6d5d707ffd686e9c35b1619",
+      "submit_sha256": "46dbf9287abb07df152bc618f23781d3bbd24b3fb6d5d707ffd686e9c35b1619",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-statistics-20261030/test_speaker_process.log",
+      "submit_path": "data/evidence/speaker-statistics-20261030/test_speaker_process.log",
+      "mode": "100644",
+      "source_sha256": "67d34fb21208073b10a076ebe90ca3acbabeab500e147f93588757becd9f52c0",
+      "submit_sha256": "67d34fb21208073b10a076ebe90ca3acbabeab500e147f93588757becd9f52c0",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-statistics-20261030/test_speaker_statistics.log",
+      "submit_path": "data/evidence/speaker-statistics-20261030/test_speaker_statistics.log",
+      "mode": "100644",
+      "source_sha256": "a339512a54fc437e8cf5c17925089d60dab6dcdcfc8d83bb9fb57b31ba276982",
+      "submit_sha256": "a339512a54fc437e8cf5c17925089d60dab6dcdcfc8d83bb9fb57b31ba276982",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-statistics-20261030/test_three_d_launcher.log",
+      "submit_path": "data/evidence/speaker-statistics-20261030/test_three_d_launcher.log",
+      "mode": "100644",
+      "source_sha256": "bd7360448bcc9bbcc4d39a265d4e1af856205dbb1eeb762a4fb412e30793a8a4",
+      "submit_sha256": "bd7360448bcc9bbcc4d39a265d4e1af856205dbb1eeb762a4fb412e30793a8a4",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-statistics-20261030/tests.json",
+      "submit_path": "data/evidence/speaker-statistics-20261030/tests.json",
+      "mode": "100644",
+      "source_sha256": "2126c103646d39e5d937f9b1cbaac6e41f146523410ddb903779b69fdffda4e9",
+      "submit_sha256": "2126c103646d39e5d937f9b1cbaac6e41f146523410ddb903779b69fdffda4e9",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-ttl-20261030/README.md",
+      "submit_path": "data/evidence/speaker-ttl-20261030/readme.md",
+      "mode": "100644",
+      "source_sha256": "d02117c220cc92924ee34be5f409eadfcb77c36d08608893f6c5141c74ef4e3f",
+      "submit_sha256": "d02117c220cc92924ee34be5f409eadfcb77c36d08608893f6c5141c74ef4e3f",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-ttl-20261030/increment-check.json",
+      "submit_path": "data/evidence/speaker-ttl-20261030/increment-check.json",
+      "mode": "100644",
+      "source_sha256": "559b2b49f884b7188a242cea56dfb8e1b0c307d342fb9f7731c2fb85c26c5d8f",
+      "submit_sha256": "559b2b49f884b7188a242cea56dfb8e1b0c307d342fb9f7731c2fb85c26c5d8f",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-ttl-20261030/increment-install.log",
+      "submit_path": "data/evidence/speaker-ttl-20261030/increment-install.log",
+      "mode": "100644",
+      "source_sha256": "c6a01dcc91273aec95e47f637c8710d80432d41a24053c3b2e5c2cab2339c0b7",
+      "submit_sha256": "c6a01dcc91273aec95e47f637c8710d80432d41a24053c3b2e5c2cab2339c0b7",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-ttl-20261030/sd-package-check.json",
+      "submit_path": "data/evidence/speaker-ttl-20261030/sd-package-check.json",
+      "mode": "100644",
+      "source_sha256": "b4d0c4ec043a4d79611a147bff2998a01e2c3b4e4c1646f4316d49dcc0daac9f",
+      "submit_sha256": "b4d0c4ec043a4d79611a147bff2998a01e2c3b4e4c1646f4316d49dcc0daac9f",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-ttl-20261030/sd-package-tests.log",
+      "submit_path": "data/evidence/speaker-ttl-20261030/sd-package-tests.log",
+      "mode": "100644",
+      "source_sha256": "9f160db09bdfc0e5fa410438d69d7a5aa0e39a7faa23bd251f9eab044dd41c8f",
+      "submit_sha256": "9f160db09bdfc0e5fa410438d69d7a5aa0e39a7faa23bd251f9eab044dd41c8f",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-ttl-20261030/test_latest_result.log",
+      "submit_path": "data/evidence/speaker-ttl-20261030/test_latest_result.log",
+      "mode": "100644",
+      "source_sha256": "c6d19fdfeffbcb83c1d7c9ef5e06ab16baa155900d4985f7ed04b134cd46947f",
+      "submit_sha256": "c6d19fdfeffbcb83c1d7c9ef5e06ab16baa155900d4985f7ed04b134cd46947f",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-ttl-20261030/test_online_3d.log",
+      "submit_path": "data/evidence/speaker-ttl-20261030/test_online_3d.log",
+      "mode": "100644",
+      "source_sha256": "852a23f4c3cc0a7ab14bb56f424c5336522d616f7cabac221bbaaa8402abfb9c",
+      "submit_sha256": "852a23f4c3cc0a7ab14bb56f424c5336522d616f7cabac221bbaaa8402abfb9c",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-ttl-20261030/test_speaker_display.log",
+      "submit_path": "data/evidence/speaker-ttl-20261030/test_speaker_display.log",
+      "mode": "100644",
+      "source_sha256": "cc457ac882fc186bdc247cc7243c78f806d657685ff78413dd40ae6aac7204e1",
+      "submit_sha256": "cc457ac882fc186bdc247cc7243c78f806d657685ff78413dd40ae6aac7204e1",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-ttl-20261030/test_speaker_follow.log",
+      "submit_path": "data/evidence/speaker-ttl-20261030/test_speaker_follow.log",
+      "mode": "100644",
+      "source_sha256": "5c3804b4e47d923a770eac765ad15700369a706f5870a81e60fa81bd6874f8b1",
+      "submit_sha256": "5c3804b4e47d923a770eac765ad15700369a706f5870a81e60fa81bd6874f8b1",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-ttl-20261030/test_speaker_process.log",
+      "submit_path": "data/evidence/speaker-ttl-20261030/test_speaker_process.log",
+      "mode": "100644",
+      "source_sha256": "35a7484c1ae495cdeb4ed29c1e9943bd74223382ebd8d1247a5cbbe8eb7db729",
+      "submit_sha256": "35a7484c1ae495cdeb4ed29c1e9943bd74223382ebd8d1247a5cbbe8eb7db729",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/speaker-ttl-20261030/tests.json",
+      "submit_path": "data/evidence/speaker-ttl-20261030/tests.json",
+      "mode": "100644",
+      "source_sha256": "df3e81a1f62b8ed3e33ff50e1dfd5f0e4825c2eed891cd7d0fa9d4eb564e420c",
+      "submit_sha256": "df3e81a1f62b8ed3e33ff50e1dfd5f0e4825c2eed891cd7d0fa9d4eb564e420c",
+      "transform": "none"
+    },
+    {
       "source_path": "document/evidence/stm32-handoff-20261018/README.md",
       "submit_path": "data/evidence/stm32-handoff-20261018/readme.md",
       "mode": "100644",
@@ -10739,6 +11139,14 @@
       "transform": "none"
     },
     {
+      "source_path": "document/portable-handoff-export.md",
+      "submit_path": "report/portable-handoff-export.md",
+      "mode": "100644",
+      "source_sha256": "82aa537b2da78257b3b1dee95bfbf0b60bb3bad6c65ef2e12271e315be02fd64",
+      "submit_sha256": "82aa537b2da78257b3b1dee95bfbf0b60bb3bad6c65ef2e12271e315be02fd64",
+      "transform": "none"
+    },
+    {
       "source_path": "document/ps-cdc-control-fix.md",
       "submit_path": "report/ps-cdc-control-fix.md",
       "mode": "100644",
@@ -10761,6 +11169,14 @@
       "source_sha256": "e47e47f282742dee155c3956a5b3cb3cf3dd16d9d8611208127f945ea5ae631d",
       "submit_sha256": "e47e47f282742dee155c3956a5b3cb3cf3dd16d9d8611208127f945ea5ae631d",
       "transform": "none"
+    },
+    {
+      "source_path": "document/ps-latest-result.md",
+      "submit_path": "report/ps-latest-result.md",
+      "mode": "100644",
+      "source_sha256": "3fa77facf285308ed389f3b2e367db91b882e7c705a516f7769f05cb028dbd7c",
+      "submit_sha256": "c0dc7fa2817c2464613afed6e7f4e9942048fc4c4c10bd4eeb866af8b5d54f3a",
+      "transform": "documentation_links_only"
     },
     {
       "source_path": "document/ps-manual-calibration.md",
@@ -10827,6 +11243,14 @@
       "transform": "documentation_links_only"
     },
     {
+      "source_path": "document/pynq-latest-result-update.md",
+      "submit_path": "report/pynq-latest-result-update.md",
+      "mode": "100644",
+      "source_sha256": "040276196bfb08b5570719ac9aef2e0df94ee55d9d31f1d2da471425e5cde0f8",
+      "submit_sha256": "040276196bfb08b5570719ac9aef2e0df94ee55d9d31f1d2da471425e5cde0f8",
+      "transform": "none"
+    },
+    {
       "source_path": "document/pynq-manual-status-fix.md",
       "submit_path": "report/pynq-manual-status-fix.md",
       "mode": "100644",
@@ -10886,17 +11310,33 @@
       "source_path": "document/pynq-speaker-3d.md",
       "submit_path": "board/instructions/pynq-speaker-3d.md",
       "mode": "100644",
-      "source_sha256": "7858cd469719271a0bad99776852260cb88463b35f62d1f569e221533fc791d5",
-      "submit_sha256": "7858cd469719271a0bad99776852260cb88463b35f62d1f569e221533fc791d5",
-      "transform": "none"
+      "source_sha256": "1b5f15ae57597428bd65cbcb84eda06b15900838cc15a14d21ec750975e4b6e9",
+      "submit_sha256": "66993b82a0dd983d3f1a71355b36cf2c74a11a09d1e42195a86ee29c4f381bb9",
+      "transform": "documentation_links_only"
     },
     {
       "source_path": "document/pynq-speaker-enrollment.md",
       "submit_path": "board/instructions/pynq-speaker-enrollment.md",
       "mode": "100644",
-      "source_sha256": "ff5319044f56cb2929ac7ef8f20b3c122e633025aee31a079b2f5454e65c0224",
-      "submit_sha256": "488d94d8572dff41caf2ddb78c3eef70e33e9624171c9735e7138b3e5ac89a81",
+      "source_sha256": "db85d009b9f7326dd4e270e90edd9ae97d3150fe3a1ea61b59d1a02ed34ce2e7",
+      "submit_sha256": "4bb80e66e023daab81da17147c51eafd1aa0719060a4830db6eca1ef39a8a3df",
       "transform": "documentation_links_only"
+    },
+    {
+      "source_path": "document/pynq-speaker-statistics.md",
+      "submit_path": "report/pynq-speaker-statistics.md",
+      "mode": "100644",
+      "source_sha256": "5c450d406431ae8eb18cd276449193398dff2a78ea476f73568dfc4167b7c938",
+      "submit_sha256": "5c450d406431ae8eb18cd276449193398dff2a78ea476f73568dfc4167b7c938",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/pynq-speaker-ttl-update.md",
+      "submit_path": "report/pynq-speaker-ttl-update.md",
+      "mode": "100644",
+      "source_sha256": "a5d667106332b066a46674e7c72e4776b6a155a99a22aa88686b5d90a6564d73",
+      "submit_sha256": "a5d667106332b066a46674e7c72e4776b6a155a99a22aa88686b5d90a6564d73",
+      "transform": "none"
     },
     {
       "source_path": "document/pynq-three-d-dual-axis.md",
@@ -10929,6 +11369,14 @@
       "source_sha256": "a71a35f77cabc3d55cf183d9ac79a811e20ac3642d155400fb7b336c577f2dbc",
       "submit_sha256": "a71a35f77cabc3d55cf183d9ac79a811e20ac3642d155400fb7b336c577f2dbc",
       "transform": "none"
+    },
+    {
+      "source_path": "document/release-20261030.md",
+      "submit_path": "report/release-20261030.md",
+      "mode": "100644",
+      "source_sha256": "f3fd609d6299a8ec2cb18c11c38fb5354ae84c5c89896993fc5579064815da80",
+      "submit_sha256": "2aaac4cb60a0f4d367394c69451f3381ee55b8c73f3afbc61fcc8d3dfa445c93",
+      "transform": "documentation_links_only"
     },
     {
       "source_path": "document/requirements/acceptance.md",
@@ -11054,8 +11502,8 @@
       "source_path": "document/vivado-ps-3d-rebuild.md",
       "submit_path": "report/vivado-ps-3d-rebuild.md",
       "mode": "100644",
-      "source_sha256": "e287730cc52b1475480d2d1000ab04ff6f4d8faf378b872c5905413fd8613854",
-      "submit_sha256": "e287730cc52b1475480d2d1000ab04ff6f4d8faf378b872c5905413fd8613854",
+      "source_sha256": "09ee649d8d4e21d00f490746e4866b32a6c560a43cddb4d4f57f842764808e34",
+      "submit_sha256": "09ee649d8d4e21d00f490746e4866b32a6c560a43cddb4d4f57f842764808e34",
       "transform": "none"
     },
     {
@@ -11619,6 +12067,14 @@
       "transform": "none"
     },
     {
+      "source_path": "project/bd/update_ps_latest_result.tcl",
+      "submit_path": "build/vivado/bd/update_ps_latest_result.tcl",
+      "mode": "100644",
+      "source_sha256": "666a2f4f968876f29f38e86dfda5f6400f1317f7992c33d84ab808fe72d696ad",
+      "submit_sha256": "666a2f4f968876f29f38e86dfda5f6400f1317f7992c33d84ab808fe72d696ad",
+      "transform": "none"
+    },
+    {
       "source_path": "project/bd/update_ps_manual.tcl",
       "submit_path": "build/vivado/bd/update_ps_manual.tcl",
       "mode": "100644",
@@ -11881,6 +12337,190 @@
       "source_sha256": "541bc996ff712055fc10d4596cd14a9e3482cf2dd7d279d008b75cbbe4cc2de6",
       "submit_sha256": "5bca79096606c42dc64c2bec24bc04f91ab103e50072267acfb6dec893ea480f",
       "transform": "documentation_links_only"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/README.md",
+      "submit_path": "build/reports/ps_3d/latest_result/readme.md",
+      "mode": "100644",
+      "source_sha256": "a647ef74377f46ce5ce1fb2287137a0ba23cc292ae54112604879e7146513074",
+      "submit_sha256": "a647ef74377f46ce5ce1fb2287137a0ba23cc292ae54112604879e7146513074",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/audit_status.txt",
+      "submit_path": "build/reports/ps_3d/latest_result/audit_status.txt",
+      "mode": "100644",
+      "source_sha256": "724e7d12e6dfcaccd85639f90e2cd8bff9fdeffad40e95eea890372bc4e34b4f",
+      "submit_sha256": "724e7d12e6dfcaccd85639f90e2cd8bff9fdeffad40e95eea890372bc4e34b4f",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/board-speaker-30s-001-summary.txt",
+      "submit_path": "build/reports/ps_3d/latest_result/board-speaker-30s-001-summary.txt",
+      "mode": "100644",
+      "source_sha256": "729f911477b437ceeac053784df9dac552a88a1b50275c8300eb8e8fb360aafc",
+      "submit_sha256": "729f911477b437ceeac053784df9dac552a88a1b50275c8300eb8e8fb360aafc",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/board-speaker-30s-001.md",
+      "submit_path": "build/reports/ps_3d/latest_result/board-speaker-30s-001.md",
+      "mode": "100644",
+      "source_sha256": "aedf8f5bcf771af28d1b3bebb345a9b7c59e898254aca27ad6b7707c125d0219",
+      "submit_sha256": "aedf8f5bcf771af28d1b3bebb345a9b7c59e898254aca27ad6b7707c125d0219",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/board-speaker-30s-001.txt",
+      "submit_path": "build/reports/ps_3d/latest_result/board-speaker-30s-001.txt",
+      "mode": "100644",
+      "source_sha256": "0819c914f1372faf7ab428fe08e90823a410709c143322ed9958969d40905622",
+      "submit_sha256": "0819c914f1372faf7ab428fe08e90823a410709c143322ed9958969d40905622",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/handoff.zip",
+      "submit_path": "build/reports/ps_3d/latest_result/handoff.zip",
+      "mode": "100644",
+      "source_sha256": "aaaeecc0f2509d0ff7fdf4416748343d628197938a6e80a75bcd59e415114669",
+      "submit_sha256": "aaaeecc0f2509d0ff7fdf4416748343d628197938a6e80a75bcd59e415114669",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/hardware-review.json",
+      "submit_path": "build/reports/ps_3d/latest_result/hardware-review.json",
+      "mode": "100644",
+      "source_sha256": "956f9395fdb6e22d122c7ca2ac51f6d2b8d9cf455562bf128f182824783ea363",
+      "submit_sha256": "956f9395fdb6e22d122c7ca2ac51f6d2b8d9cf455562bf128f182824783ea363",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/original/soundsight_stm32_bd_wrapper_drc_routed.rpt",
+      "submit_path": "build/reports/ps_3d/latest_result/original/soundsight_stm32_bd_wrapper_drc_routed.rpt",
+      "mode": "100644",
+      "source_sha256": "2169225d46eb4ad0c0cda3c8034968fbf147ec1a36c2f8413917cd84c9f34b39",
+      "submit_sha256": "2169225d46eb4ad0c0cda3c8034968fbf147ec1a36c2f8413917cd84c9f34b39",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/original/soundsight_stm32_bd_wrapper_io_placed.rpt",
+      "submit_path": "build/reports/ps_3d/latest_result/original/soundsight_stm32_bd_wrapper_io_placed.rpt",
+      "mode": "100644",
+      "source_sha256": "178dca7e953eb0465709974cba7a4e55c9f422312f222ad6adf5930e32aae8d1",
+      "submit_sha256": "178dca7e953eb0465709974cba7a4e55c9f422312f222ad6adf5930e32aae8d1",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/original/soundsight_stm32_bd_wrapper_methodology_drc_routed.rpt",
+      "submit_path": "build/reports/ps_3d/latest_result/original/soundsight_stm32_bd_wrapper_methodology_drc_routed.rpt",
+      "mode": "100644",
+      "source_sha256": "1b1081b6332e23d71f6ffffd082b02ff0a69f1ef36265826dac63c91a6173584",
+      "submit_sha256": "1b1081b6332e23d71f6ffffd082b02ff0a69f1ef36265826dac63c91a6173584",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/original/soundsight_stm32_bd_wrapper_route_status.rpt",
+      "submit_path": "build/reports/ps_3d/latest_result/original/soundsight_stm32_bd_wrapper_route_status.rpt",
+      "mode": "100644",
+      "source_sha256": "016b88ee9ab99e1184a7c281b35c6dd65601a62eb09480c7a9db0314452524b7",
+      "submit_sha256": "016b88ee9ab99e1184a7c281b35c6dd65601a62eb09480c7a9db0314452524b7",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/original/soundsight_stm32_bd_wrapper_timing_summary_routed.rpt",
+      "submit_path": "build/reports/ps_3d/latest_result/original/soundsight_stm32_bd_wrapper_timing_summary_routed.rpt",
+      "mode": "100644",
+      "source_sha256": "9b4276de5f39ea5dde4ec88a22c5f3bc7bcc88c75c60107be4c8807b0dd08566",
+      "submit_sha256": "9b4276de5f39ea5dde4ec88a22c5f3bc7bcc88c75c60107be4c8807b0dd08566",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/original/soundsight_stm32_bd_wrapper_utilization_placed.rpt",
+      "submit_path": "build/reports/ps_3d/latest_result/original/soundsight_stm32_bd_wrapper_utilization_placed.rpt",
+      "mode": "100644",
+      "source_sha256": "7400f6f62b5b9829b19e85d9f1d3e8c7942b6cc666e40aac66150ea3f586a495",
+      "submit_sha256": "7400f6f62b5b9829b19e85d9f1d3e8c7942b6cc666e40aac66150ea3f586a495",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/sd-package-check.json",
+      "submit_path": "build/reports/ps_3d/latest_result/sd-package-check.json",
+      "mode": "100644",
+      "source_sha256": "ea39ced6043da495492e13e6cd3e5102084d7a56bee02e0b65db355e4ceb9276",
+      "submit_sha256": "ea39ced6043da495492e13e6cd3e5102084d7a56bee02e0b65db355e4ceb9276",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/sd-package-tests.log",
+      "submit_path": "build/reports/ps_3d/latest_result/sd-package-tests.log",
+      "mode": "100644",
+      "source_sha256": "1f6bcd68b9b391b509fea3d6795db144ed1b0a7f2f84a4ac6a72f6e49bcdab48",
+      "submit_sha256": "1f6bcd68b9b391b509fea3d6795db144ed1b0a7f2f84a4ac6a72f6e49bcdab48",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/user-build-receipt.json",
+      "submit_path": "build/reports/ps_3d/latest_result/user-build-receipt.json",
+      "mode": "100644",
+      "source_sha256": "6b68b2612310ea726b3ed1f15cd1b8c05633e409052665738a7da4f61ab536bd",
+      "submit_sha256": "6b68b2612310ea726b3ed1f15cd1b8c05633e409052665738a7da4f61ab536bd",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/user-export/README.md",
+      "submit_path": "build/reports/ps_3d/latest_result/user-export/readme.md",
+      "mode": "100644",
+      "source_sha256": "16239226a34735d9437de9e4911e663c700cc129f57fa8ee8ca5b5f4258762f8",
+      "submit_sha256": "16239226a34735d9437de9e4911e663c700cc129f57fa8ee8ca5b5f4258762f8",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/user-export/bd_01_soundsight_stm32_bd.pdf",
+      "submit_path": "build/reports/ps_3d/latest_result/user-export/bd_01_soundsight_stm32_bd.pdf",
+      "mode": "100644",
+      "source_sha256": "e00189d390961e4f81be7660b555c412084681429b3a327882dd2382d50990bc",
+      "submit_sha256": "e00189d390961e4f81be7660b555c412084681429b3a327882dd2382d50990bc",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/user-export/export_info.txt",
+      "submit_path": "build/reports/ps_3d/latest_result/user-export/export_info.txt",
+      "mode": "100644",
+      "source_sha256": "9c7d049f91cc9b29cadad7aecdba42871bc31b5b4da095334bf431ba60e434af",
+      "submit_sha256": "9c7d049f91cc9b29cadad7aecdba42871bc31b5b4da095334bf431ba60e434af",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/user-export/imp_schematic.png",
+      "submit_path": "build/reports/ps_3d/latest_result/user-export/imp_schematic.png",
+      "mode": "100644",
+      "source_sha256": "301b3437e90c9bc55101187efa79957e10fd9a823fc98b1e7334b82242e7fcbd",
+      "submit_sha256": "301b3437e90c9bc55101187efa79957e10fd9a823fc98b1e7334b82242e7fcbd",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/user-export/timing_report_imp.txt",
+      "submit_path": "build/reports/ps_3d/latest_result/user-export/timing_report_imp.txt",
+      "mode": "100644",
+      "source_sha256": "1e54a854e0126af0ff8b95c4badeed850d9eb1f6470ef98634f7a242a89002b5",
+      "submit_sha256": "1e54a854e0126af0ff8b95c4badeed850d9eb1f6470ef98634f7a242a89002b5",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/user-export/utilization_hierarchy_imp.txt",
+      "submit_path": "build/reports/ps_3d/latest_result/user-export/utilization_hierarchy_imp.txt",
+      "mode": "100644",
+      "source_sha256": "e4fe760a954aa7e97761ccd457dddf143c60bef55517ba65ae2906ade249d294",
+      "submit_sha256": "e4fe760a954aa7e97761ccd457dddf143c60bef55517ba65ae2906ade249d294",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/reports/ps_3d/latest_result/user-export/utilization_report_imp.txt",
+      "submit_path": "build/reports/ps_3d/latest_result/user-export/utilization_report_imp.txt",
+      "mode": "100644",
+      "source_sha256": "554fdaa23a3b9c324fc1df83110feefad0ffbc1c4e27102a8a27dc0bb67f314a",
+      "submit_sha256": "554fdaa23a3b9c324fc1df83110feefad0ffbc1c4e27102a8a27dc0bb67f314a",
+      "transform": "none"
     },
     {
       "source_path": "project/reports/ps_3d/original/soundsight_stm32_bd_wrapper_bus_skew_routed.rpt",
@@ -12678,8 +13318,8 @@
       "source_path": "project/rtl/ss_ps_control_regs.sv",
       "submit_path": "src/rtl/ss_ps_control_regs.sv",
       "mode": "100644",
-      "source_sha256": "47a31aed76313fc58243ee0f8c5b1bf7b626b6392ba4e5c9056d9e03ac9e3308",
-      "submit_sha256": "47a31aed76313fc58243ee0f8c5b1bf7b626b6392ba4e5c9056d9e03ac9e3308",
+      "source_sha256": "1b9f4f8bb713d8d3dcb01668bc7a2d9805fb85649570516561f059dacc80b4f4",
+      "submit_sha256": "1b9f4f8bb713d8d3dcb01668bc7a2d9805fb85649570516561f059dacc80b4f4",
       "transform": "none"
     },
     {
@@ -12694,8 +13334,8 @@
       "source_path": "project/rtl/ss_snapshot_queue.sv",
       "submit_path": "src/rtl/ss_snapshot_queue.sv",
       "mode": "100644",
-      "source_sha256": "4e79a909347d4ed8018bf48f22252a6d1a12942882c7d4931fde04c5bb82299e",
-      "submit_sha256": "4e79a909347d4ed8018bf48f22252a6d1a12942882c7d4931fde04c5bb82299e",
+      "source_sha256": "6e698f2f6e240a24459dd392d755df36ae7e3e4501d6450904e88abe942cf3d4",
+      "submit_sha256": "6e698f2f6e240a24459dd392d755df36ae7e3e4501d6450904e88abe942cf3d4",
       "transform": "none"
     },
     {
@@ -12720,6 +13360,14 @@
       "mode": "100644",
       "source_sha256": "cc7cd7eb0651c89fdbcdf6a55590525dd4c31cc17605a3b8c6eb689dcf93c56a",
       "submit_sha256": "cc7cd7eb0651c89fdbcdf6a55590525dd4c31cc17605a3b8c6eb689dcf93c56a",
+      "transform": "none"
+    },
+    {
+      "source_path": "project/script/export_portable_handoff.tcl",
+      "submit_path": "build/vivado/script/export_portable_handoff.tcl",
+      "mode": "100644",
+      "source_sha256": "a34b407b1a8bcb13a92d8d0183ecf06d99fff10af190c689e5099b890a39544c",
+      "submit_sha256": "a34b407b1a8bcb13a92d8d0183ecf06d99fff10af190c689e5099b890a39544c",
       "transform": "none"
     },
     {
@@ -12867,11 +13515,51 @@
       "transform": "none"
     },
     {
+      "source_path": "release/output/ps_3d_latest_result/soundsight.bit",
+      "submit_path": "board/artifacts/ps_3d_latest_result/soundsight.bit",
+      "mode": "100644",
+      "source_sha256": "6fff7134c64dc6c75d0267ef09d854382d2d0e18f622f8af460f115f6995220e",
+      "submit_sha256": "6fff7134c64dc6c75d0267ef09d854382d2d0e18f622f8af460f115f6995220e",
+      "transform": "none"
+    },
+    {
+      "source_path": "release/output/ps_3d_latest_result/soundsight.hwh",
+      "submit_path": "board/artifacts/ps_3d_latest_result/soundsight.hwh",
+      "mode": "100644",
+      "source_sha256": "d1573332dbf8cd302e465f6123f7c5f062f932c2756d17357436148dc2301c30",
+      "submit_sha256": "d1573332dbf8cd302e465f6123f7c5f062f932c2756d17357436148dc2301c30",
+      "transform": "none"
+    },
+    {
+      "source_path": "release/output/ps_3d_latest_result/soundsight.xsa",
+      "submit_path": "board/artifacts/ps_3d_latest_result/soundsight.xsa",
+      "mode": "100644",
+      "source_sha256": "40b38f1d312daf4f53464036e567839be3e3be5a4c76834dce7065228d45d064",
+      "submit_sha256": "40b38f1d312daf4f53464036e567839be3e3be5a4c76834dce7065228d45d064",
+      "transform": "none"
+    },
+    {
       "source_path": "release/output/soundsight-competition-skills.zip",
       "submit_path": "data/history/releases/soundsight-competition-skills.zip",
       "mode": "100644",
       "source_sha256": "51ea0f89a6bd19c5069e63540f2cc6e156ed5bf781e3b8eb65eeebd2b3a4e2ab",
       "submit_sha256": "51ea0f89a6bd19c5069e63540f2cc6e156ed5bf781e3b8eb65eeebd2b3a4e2ab",
+      "transform": "none"
+    },
+    {
+      "source_path": "release/output/soundsight_enrollment_update.zip",
+      "submit_path": "data/history/releases/soundsight_enrollment_update.zip",
+      "mode": "100644",
+      "source_sha256": "2d73b7c0511a1f4be2bbe5dae327a8f3c5690c46574355648807d225094ea595",
+      "submit_sha256": "2d73b7c0511a1f4be2bbe5dae327a8f3c5690c46574355648807d225094ea595",
+      "transform": "none"
+    },
+    {
+      "source_path": "release/output/soundsight_latest_result_update.zip",
+      "submit_path": "data/history/releases/soundsight_latest_result_update.zip",
+      "mode": "100644",
+      "source_sha256": "b2a785aae561ca5a9dc0b719b36d120307b7dc9705ff878de969f5522e2be9f5",
+      "submit_sha256": "b2a785aae561ca5a9dc0b719b36d120307b7dc9705ff878de969f5522e2be9f5",
       "transform": "none"
     },
     {
@@ -12888,6 +13576,14 @@
       "mode": "100644",
       "source_sha256": "68905688ce82a919e8e2ad8f5a78ff1b87bf066f6c9b84769334d7e270df7f70",
       "submit_sha256": "68905688ce82a919e8e2ad8f5a78ff1b87bf066f6c9b84769334d7e270df7f70",
+      "transform": "none"
+    },
+    {
+      "source_path": "release/output/soundsight_vivado_ps_3d.zip",
+      "submit_path": "data/history/releases/soundsight_vivado_ps_3d.zip",
+      "mode": "100644",
+      "source_sha256": "1054543735370b6f33c0bbb8f22cadde0b78b8847e46c9c947794c4249b1328d",
+      "submit_sha256": "1054543735370b6f33c0bbb8f22cadde0b78b8847e46c9c947794c4249b1328d",
       "transform": "none"
     },
     {
@@ -14347,6 +15043,22 @@
       "transform": "none"
     },
     {
+      "source_path": "simulation/tb/ps/tb_latestps.sv",
+      "submit_path": "sim/rtl/tb/ps/tb_latestps.sv",
+      "mode": "100644",
+      "source_sha256": "3c7c651bbeabd0c0e0d24286ee12d934b8bef7e53ae41db6d669ff9101f03d1c",
+      "submit_sha256": "3c7c651bbeabd0c0e0d24286ee12d934b8bef7e53ae41db6d669ff9101f03d1c",
+      "transform": "none"
+    },
+    {
+      "source_path": "simulation/tb/ps/tb_latestqueue.sv",
+      "submit_path": "sim/rtl/tb/ps/tb_latestqueue.sv",
+      "mode": "100644",
+      "source_sha256": "407cd361d32130772148174c59838aa130c119665809fba48ad1a24d0a26f92e",
+      "submit_sha256": "407cd361d32130772148174c59838aa130c119665809fba48ad1a24d0a26f92e",
+      "transform": "none"
+    },
+    {
       "source_path": "simulation/tb/ps/tb_manual.sv",
       "submit_path": "sim/rtl/tb/ps/tb_manual.sv",
       "mode": "100644",
@@ -14542,8 +15254,8 @@
       "source_path": "simulation/tb/stm32/tb_queue.sv",
       "submit_path": "sim/rtl/tb/stm32/tb_queue.sv",
       "mode": "100644",
-      "source_sha256": "54cd2b51e35cf61d8f4866d140a587cd0c5750220b8c013ab56ad4a60a5d5057",
-      "submit_sha256": "54cd2b51e35cf61d8f4866d140a587cd0c5750220b8c013ab56ad4a60a5d5057",
+      "source_sha256": "01fcea7a9052d7271e580b4e51fc94c217202a3efaf9b9d0d5e064a8e99841a9",
+      "submit_sha256": "01fcea7a9052d7271e580b4e51fc94c217202a3efaf9b9d0d5e064a8e99841a9",
       "transform": "none"
     },
     {
@@ -14678,8 +15390,8 @@
       "source_path": "software/ps/live_speaker_follow.py",
       "submit_path": "src/software/ps/live_speaker_follow.py",
       "mode": "100644",
-      "source_sha256": "bfa97bdd07681e963933fa438ebb64f21a3bf0b85cd16c931d33b57e2c8368d6",
-      "submit_sha256": "bfa97bdd07681e963933fa438ebb64f21a3bf0b85cd16c931d33b57e2c8368d6",
+      "source_sha256": "64d1ac0638e21d01735a98acfb6c9f6a8458f3c981cf0932096bdf28c19cb29d",
+      "submit_sha256": "64d1ac0638e21d01735a98acfb6c9f6a8458f3c981cf0932096bdf28c19cb29d",
       "transform": "none"
     },
     {
@@ -14974,16 +15686,16 @@
       "source_path": "software/ps/speaker_permission.py",
       "submit_path": "src/software/ps/speaker_permission.py",
       "mode": "100644",
-      "source_sha256": "2baec34ea12845fda73c8d55fc8bbf17da187a6a542f427dd3ea269565fbc64f",
-      "submit_sha256": "2baec34ea12845fda73c8d55fc8bbf17da187a6a542f427dd3ea269565fbc64f",
+      "source_sha256": "5f52a8d3d1419feae19a6e2a330f6c50d6b9ad65396e08c9ef6ce0a8760ca226",
+      "submit_sha256": "5f52a8d3d1419feae19a6e2a330f6c50d6b9ad65396e08c9ef6ce0a8760ca226",
       "transform": "none"
     },
     {
       "source_path": "software/ps/speaker_process.py",
       "submit_path": "src/software/ps/speaker_process.py",
       "mode": "100644",
-      "source_sha256": "7b095fa60ac4829a21a9456b9b434ef24a93924107b7a9c5b8ab17abd131ad12",
-      "submit_sha256": "7b095fa60ac4829a21a9456b9b434ef24a93924107b7a9c5b8ab17abd131ad12",
+      "source_sha256": "718f2712af52c0052b71b9f06e1661c4d1b1efeb87d48ed77f155a3e386ed156",
+      "submit_sha256": "718f2712af52c0052b71b9f06e1661c4d1b1efeb87d48ed77f155a3e386ed156",
       "transform": "none"
     },
     {
@@ -15000,6 +15712,14 @@
       "mode": "100644",
       "source_sha256": "ee01830a96fb1925f594f385ffa7d5b81fae2be8fa6859aca8908d7987c991d4",
       "submit_sha256": "ee01830a96fb1925f594f385ffa7d5b81fae2be8fa6859aca8908d7987c991d4",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/speaker_statistics.py",
+      "submit_path": "src/software/ps/speaker_statistics.py",
+      "mode": "100644",
+      "source_sha256": "a71a35db204031964adde9f72530c514e657b7d084555efb969d6c3feacc6652",
+      "submit_sha256": "a71a35db204031964adde9f72530c514e657b7d084555efb969d6c3feacc6652",
       "transform": "none"
     },
     {
@@ -15139,6 +15859,22 @@
       "transform": "none"
     },
     {
+      "source_path": "software/tests/test_latest_result.py",
+      "submit_path": "sim/software/test_latest_result.py",
+      "mode": "100644",
+      "source_sha256": "3253585935003f2ed3497b62a4466de970b0d6e8ec64af2949c604085853294d",
+      "submit_sha256": "3253585935003f2ed3497b62a4466de970b0d6e8ec64af2949c604085853294d",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/tests/test_latest_result_tcl.py",
+      "submit_path": "sim/software/test_latest_result_tcl.py",
+      "mode": "100644",
+      "source_sha256": "2bebe7ecf4c4a5e0e838c797b544cdee68a1e75687b0a2488819a5e1f5235a11",
+      "submit_sha256": "2bebe7ecf4c4a5e0e838c797b544cdee68a1e75687b0a2488819a5e1f5235a11",
+      "transform": "none"
+    },
+    {
       "source_path": "software/tests/test_launcher.py",
       "submit_path": "sim/software/test_launcher.py",
       "mode": "100644",
@@ -15192,6 +15928,14 @@
       "mode": "100644",
       "source_sha256": "8910f1a9f82e7eabe5db7531b0ba3b67fa79464497fa9786fc5a124eb9504576",
       "submit_sha256": "8910f1a9f82e7eabe5db7531b0ba3b67fa79464497fa9786fc5a124eb9504576",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/tests/test_portable_export.py",
+      "submit_path": "sim/software/test_portable_export.py",
+      "mode": "100644",
+      "source_sha256": "9e4bdf14aca5a70410d0ae8c3e1d9d56e579168bf474c0cf477a6084eb91d8db",
+      "submit_sha256": "9e4bdf14aca5a70410d0ae8c3e1d9d56e579168bf474c0cf477a6084eb91d8db",
       "transform": "none"
     },
     {
@@ -15259,6 +16003,14 @@
       "transform": "none"
     },
     {
+      "source_path": "software/tests/test_speaker_display.py",
+      "submit_path": "sim/software/test_speaker_display.py",
+      "mode": "100644",
+      "source_sha256": "647b8e9986047188b6af1ef064ebf021b871f4476c1cd90de0667c4355112aab",
+      "submit_sha256": "647b8e9986047188b6af1ef064ebf021b871f4476c1cd90de0667c4355112aab",
+      "transform": "none"
+    },
+    {
       "source_path": "software/tests/test_speaker_enrollment.py",
       "submit_path": "sim/software/test_speaker_enrollment.py",
       "mode": "100644",
@@ -15278,8 +16030,8 @@
       "source_path": "software/tests/test_speaker_follow.py",
       "submit_path": "sim/software/test_speaker_follow.py",
       "mode": "100644",
-      "source_sha256": "be3597959582b003ae6543e935a55922395c8672510f29c4bb8ff498c7ff5947",
-      "submit_sha256": "be3597959582b003ae6543e935a55922395c8672510f29c4bb8ff498c7ff5947",
+      "source_sha256": "3baea6c54abe3e19797231df246cd438c1816095f82cba40811990653504307d",
+      "submit_sha256": "3baea6c54abe3e19797231df246cd438c1816095f82cba40811990653504307d",
       "transform": "none"
     },
     {
@@ -15307,6 +16059,14 @@
       "transform": "none"
     },
     {
+      "source_path": "software/tests/test_speaker_statistics.py",
+      "submit_path": "sim/software/test_speaker_statistics.py",
+      "mode": "100644",
+      "source_sha256": "67f9e19d483444539e699c62d0baaa55312a63a1f50df053c1f91a0ba9bb5b1f",
+      "submit_sha256": "67f9e19d483444539e699c62d0baaa55312a63a1f50df053c1f91a0ba9bb5b1f",
+      "transform": "none"
+    },
+    {
       "source_path": "software/tests/test_stream_scheduler.py",
       "submit_path": "sim/software/test_stream_scheduler.py",
       "mode": "100644",
@@ -15318,8 +16078,8 @@
       "source_path": "software/tests/test_three_d_launcher.py",
       "submit_path": "sim/software/test_three_d_launcher.py",
       "mode": "100644",
-      "source_sha256": "122b5e1b8784bef070cf7b205a798c51da0bce8e1083394c98efe91a81f92ffe",
-      "submit_sha256": "122b5e1b8784bef070cf7b205a798c51da0bce8e1083394c98efe91a81f92ffe",
+      "source_sha256": "7c682f4e694d675e61baa274b30486c98ba43ff1f8c9f03c202b9d7c91d2f51a",
+      "submit_sha256": "7c682f4e694d675e61baa274b30486c98ba43ff1f8c9f03c202b9d7c91d2f51a",
       "transform": "none"
     },
     {
@@ -15470,8 +16230,8 @@
       "source_path": "software/tetra3d/linux/board_3d.py",
       "submit_path": "src/software/tetra3d/linux/board_3d.py",
       "mode": "100644",
-      "source_sha256": "b72f246537db86b24c4c8360be27d0ab6e4ee746defdd0d69943953b12e2bebe",
-      "submit_sha256": "b72f246537db86b24c4c8360be27d0ab6e4ee746defdd0d69943953b12e2bebe",
+      "source_sha256": "7c7bb5d1fc1329d1e90514c04797991799bd25358a26852eb1cae45de86ec507",
+      "submit_sha256": "7c7bb5d1fc1329d1e90514c04797991799bd25358a26852eb1cae45de86ec507",
       "transform": "none"
     },
     {
@@ -15486,8 +16246,8 @@
       "source_path": "software/tetra3d/linux/client_3d.py",
       "submit_path": "src/software/tetra3d/linux/client_3d.py",
       "mode": "100644",
-      "source_sha256": "71bc9a0029a8edd5c1334e4bddd5b84b787c2f8a449be4c0cf3fc587b5d6057b",
-      "submit_sha256": "71bc9a0029a8edd5c1334e4bddd5b84b787c2f8a449be4c0cf3fc587b5d6057b",
+      "source_sha256": "2b3776d719b074e267228ff49cd10e2a1b1ba9ee2358d14a740a1b7c14ecc956",
+      "submit_sha256": "2b3776d719b074e267228ff49cd10e2a1b1ba9ee2358d14a740a1b7c14ecc956",
       "transform": "none"
     },
     {
@@ -15534,8 +16294,8 @@
       "source_path": "software/tetra3d/linux/speaker_runtime_3d.py",
       "submit_path": "src/software/tetra3d/linux/speaker_runtime_3d.py",
       "mode": "100644",
-      "source_sha256": "4ff5a3774fc043272352ffc5b61a0c8c99ef598f38128ba02c0b92f149765693",
-      "submit_sha256": "4ff5a3774fc043272352ffc5b61a0c8c99ef598f38128ba02c0b92f149765693",
+      "source_sha256": "1259924e0e18ddd4da6e98e9853de7923cd6eeb2a3fb9495478ac18c3e7eba38",
+      "submit_sha256": "1259924e0e18ddd4da6e98e9853de7923cd6eeb2a3fb9495478ac18c3e7eba38",
       "transform": "none"
     },
     {
@@ -15654,8 +16414,8 @@
       "source_path": "soundsight-3d.sh",
       "submit_path": "board/scripts/soundsight-3d.sh",
       "mode": "100644",
-      "source_sha256": "5239f303c0228eed6ec185d62fe21ebbfe9fc8719fc433cc1fe76217761f357f",
-      "submit_sha256": "5239f303c0228eed6ec185d62fe21ebbfe9fc8719fc433cc1fe76217761f357f",
+      "source_sha256": "1a6ec9c405ab617df3d0ab68d1b6797ca994e09b35d71a1c48c09dff76cf298d",
+      "submit_sha256": "1a6ec9c405ab617df3d0ab68d1b6797ca994e09b35d71a1c48c09dff76cf298d",
       "transform": "none"
     },
     {
@@ -15683,6 +16443,14 @@
       "transform": "none"
     },
     {
+      "source_path": "tools/analyze_speaker_sessions.py",
+      "submit_path": "build/tools/analyze_speaker_sessions.py",
+      "mode": "100644",
+      "source_sha256": "1daea7d6dd1f6090ea7add8a62b277a92eaf558edd9a9f6834ed3669edb28d40",
+      "submit_sha256": "1daea7d6dd1f6090ea7add8a62b277a92eaf558edd9a9f6834ed3669edb28d40",
+      "transform": "none"
+    },
+    {
       "source_path": "tools/audit_native.tcl",
       "submit_path": "build/tools/audit_native.tcl",
       "mode": "100644",
@@ -15704,6 +16472,22 @@
       "mode": "100644",
       "source_sha256": "d1d9a8de7f6d817022cc92f8d594109b4333d1fe4c90e48b95cadb54863b1772",
       "submit_sha256": "d1d9a8de7f6d817022cc92f8d594109b4333d1fe4c90e48b95cadb54863b1772",
+      "transform": "none"
+    },
+    {
+      "source_path": "tools/check_latest_result_update.py",
+      "submit_path": "build/tools/check_latest_result_update.py",
+      "mode": "100644",
+      "source_sha256": "44d5d8fb0794383315fc6bc365c66a7e00983d31e5731211f980309a8a6723d4",
+      "submit_sha256": "44d5d8fb0794383315fc6bc365c66a7e00983d31e5731211f980309a8a6723d4",
+      "transform": "none"
+    },
+    {
+      "source_path": "tools/check_latest_sd_package.py",
+      "submit_path": "build/tools/check_latest_sd_package.py",
+      "mode": "100644",
+      "source_sha256": "1fa0c09bcbbb9456f29685eaf2dc8a1c8c57bf3a7b3e2395f9f45a7fdf2f2b9e",
+      "submit_sha256": "1fa0c09bcbbb9456f29685eaf2dc8a1c8c57bf3a7b3e2395f9f45a7fdf2f2b9e",
       "transform": "none"
     },
     {
@@ -15747,6 +16531,22 @@
       "transform": "none"
     },
     {
+      "source_path": "tools/check_speaker_statistics.py",
+      "submit_path": "build/tools/check_speaker_statistics.py",
+      "mode": "100644",
+      "source_sha256": "b1d391668c2edc1d9da5c48c268d82bf047a292c7d4ce47a8a72cdbf3b79135b",
+      "submit_sha256": "b1d391668c2edc1d9da5c48c268d82bf047a292c7d4ce47a8a72cdbf3b79135b",
+      "transform": "none"
+    },
+    {
+      "source_path": "tools/check_speaker_ttl.py",
+      "submit_path": "build/tools/check_speaker_ttl.py",
+      "mode": "100644",
+      "source_sha256": "ac43a2e93785f067b784248d8c7e5d4dc6a1507d97dfb08d94ae0b8848c5e420",
+      "submit_sha256": "ac43a2e93785f067b784248d8c7e5d4dc6a1507d97dfb08d94ae0b8848c5e420",
+      "transform": "none"
+    },
+    {
       "source_path": "tools/check_submit.py",
       "submit_path": "build/tools/check_submit.py",
       "mode": "100644",
@@ -15774,8 +16574,8 @@
       "source_path": "tools/export_submit.py",
       "submit_path": "build/tools/export_submit.py",
       "mode": "100644",
-      "source_sha256": "225cd2220748cb66e180bf48c55a356182792cb39aa6e8c3b9ad2832774e5de3",
-      "submit_sha256": "225cd2220748cb66e180bf48c55a356182792cb39aa6e8c3b9ad2832774e5de3",
+      "source_sha256": "9dfa7187ae86aeff310049df6b5d56d3f852173795bf1f85ad829687347fea67",
+      "submit_sha256": "9dfa7187ae86aeff310049df6b5d56d3f852173795bf1f85ad829687347fea67",
       "transform": "none"
     },
     {
@@ -15800,6 +16600,14 @@
       "mode": "100644",
       "source_sha256": "2e793cb727fd32b34df66bb510c171c39d2ccc0f4b3c00397607b23051b4fa6f",
       "submit_sha256": "2e793cb727fd32b34df66bb510c171c39d2ccc0f4b3c00397607b23051b4fa6f",
+      "transform": "none"
+    },
+    {
+      "source_path": "tools/package_latest_result_update.py",
+      "submit_path": "build/tools/package_latest_result_update.py",
+      "mode": "100644",
+      "source_sha256": "497b979baee1b8a7544ada6e603c1757735740acc6141d5f7fe58bf40343e49d",
+      "submit_sha256": "497b979baee1b8a7544ada6e603c1757735740acc6141d5f7fe58bf40343e49d",
       "transform": "none"
     },
     {
@@ -15854,16 +16662,16 @@
       "source_path": "tools/package_speaker_3d.py",
       "submit_path": "build/tools/package_speaker_3d.py",
       "mode": "100644",
-      "source_sha256": "be4507eabbdc8ab97657b1ed7587ead48ea83fd6cca68afc1ea8b17e714c642f",
-      "submit_sha256": "be4507eabbdc8ab97657b1ed7587ead48ea83fd6cca68afc1ea8b17e714c642f",
+      "source_sha256": "36727ac8e99f8ea78fcb5c9adf7bf126a3e608ed63b71d69e5cf1228c428e442",
+      "submit_sha256": "36727ac8e99f8ea78fcb5c9adf7bf126a3e608ed63b71d69e5cf1228c428e442",
       "transform": "none"
     },
     {
       "source_path": "tools/package_speaker_enrollment_update.py",
       "submit_path": "build/tools/package_speaker_enrollment_update.py",
       "mode": "100644",
-      "source_sha256": "73d10158c5339f8b22dcf2aba8cb2a5cfbe9b8003c0ad3f2803f07e14ddb5786",
-      "submit_sha256": "73d10158c5339f8b22dcf2aba8cb2a5cfbe9b8003c0ad3f2803f07e14ddb5786",
+      "source_sha256": "ff4dafdbdee938ccbfe1130bd7f34ddce93ce2719a5a845e4afaabc378f76b5e",
+      "submit_sha256": "ff4dafdbdee938ccbfe1130bd7f34ddce93ce2719a5a845e4afaabc378f76b5e",
       "transform": "none"
     },
     {
@@ -15923,6 +16731,14 @@
       "transform": "none"
     },
     {
+      "source_path": "tools/receive_latest_result_handoff.py",
+      "submit_path": "build/tools/receive_latest_result_handoff.py",
+      "mode": "100644",
+      "source_sha256": "0ce76d06c39f77be97db61a18a8fbee31d58d0fe5f6d37777c5554a561215071",
+      "submit_sha256": "0ce76d06c39f77be97db61a18a8fbee31d58d0fe5f6d37777c5554a561215071",
+      "transform": "none"
+    },
+    {
       "source_path": "tools/receive_ps_handoff.py",
       "submit_path": "build/tools/receive_ps_handoff.py",
       "mode": "100644",
@@ -15950,8 +16766,8 @@
       "source_path": "tools/run_sim.py",
       "submit_path": "build/tools/run_sim.py",
       "mode": "100644",
-      "source_sha256": "f461089aec3f555f05b155f5bc70ce98e9e23baaccac1d0eb5d65402f41cb1d2",
-      "submit_sha256": "f461089aec3f555f05b155f5bc70ce98e9e23baaccac1d0eb5d65402f41cb1d2",
+      "source_sha256": "84ca3dd62fc470242208387de6724bb4cf0301b647f4439129610a7c5199193f",
+      "submit_sha256": "84ca3dd62fc470242208387de6724bb4cf0301b647f4439129610a7c5199193f",
       "transform": "none"
     },
     {
@@ -15980,12 +16796,12 @@
     }
   ],
   "counts": {
-    "src": 160,
-    "sim": 95,
-    "build": 163,
-    "board": 59,
-    "data": 1314,
+    "src": 161,
+    "sim": 102,
+    "build": 195,
+    "board": 62,
+    "data": 1367,
     "skill": 126,
-    "report": 80
+    "report": 86
   }
 }

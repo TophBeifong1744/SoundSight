@@ -1,0 +1,10 @@
+test_arm_and_shadow_stalls_do_not_commit (__main__.FreshnessTests.test_arm_and_shadow_stalls_do_not_commit) ... ok
+test_expired_frame_needs_a_whole_new_window (__main__.FreshnessTests.test_expired_frame_needs_a_whole_new_window) ... ok
+test_read_deadline_before_equal_after_for_both_modes (__main__.FreshnessTests.test_read_deadline_before_equal_after_for_both_modes) ... ok
+test_stale_quiet_frame_blocks_motion_but_preserves_speaker_ttl (__main__.FreshnessTests.test_stale_quiet_frame_blocks_motion_but_preserves_speaker_ttl) ... ok
+test_stall_revokes_previously_held_target (__main__.FreshnessTests.test_stall_revokes_previously_held_target) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.006s
+
+OK

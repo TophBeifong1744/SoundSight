@@ -1,5 +1,7 @@
 # SoundSight
 
+最新更新：[2026-10-30集成与交付说明](document/release-20261030.md)。包含实际声纹双轴测试、10秒TTL依据、LAT1及累计统计，和同候选实现报告的限制。
+
 ## 比赛提交目录
 
 完整可提交文件夹为 [submit](submit/README.md)，内部是实际的`src/sim/build/board/data/skill/report`文件，不再使用根目录导航占位。整体复制或压缩`submit/`即可交付现有源码与材料；离线复现只需要该目录，步骤见其README。

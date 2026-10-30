@@ -9,7 +9,7 @@ module tb_queue;
     wire locked,queued,occupied,locked_energy_valid,gap,exhausted,snapshot_error,overflow_pulse,counter_error;
     wire [959:0] locked_pairs;
     wire [31:0] locked_flags,locked_energy,locked_sequence,drop_count;
-    ss_snapshot_queue dut(.frame_meta(129'b0),.locked_meta(),.*);
+    ss_snapshot_queue dut(.replace_enable(1'b0),.frame_meta(129'b0),.locked_meta(),.*);
     integer states[0:1],sequences[0:1],payloads[0:1];
     integer seqno=0,drops=0,checks=0,seed=32'h31415926;
     task check(input bit okay,input string message);

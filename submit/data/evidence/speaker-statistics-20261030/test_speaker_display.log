@@ -1,0 +1,12 @@
+test_board_reproducer_score_then_skipped_attempt_same_poll (__main__.DisplayTests.test_board_reproducer_score_then_skipped_attempt_same_poll) ... ok
+test_expiry_and_missing_threshold_do_not_hide_score (__main__.DisplayTests.test_expiry_and_missing_threshold_do_not_hide_score) ... ok
+test_invalid_nested_diagnostic_never_displays_or_grants (__main__.DisplayTests.test_invalid_nested_diagnostic_never_displays_or_grants) ... ok
+test_latest_numeric_replaces_old_and_storage_is_bounded (__main__.DisplayTests.test_latest_numeric_replaces_old_and_storage_is_bounded) ... ok
+test_no_score_and_invalid_or_old_diagnostics (__main__.DisplayTests.test_no_score_and_invalid_or_old_diagnostics) ... ok
+test_quiet_and_new_speech_keep_score_and_permission (__main__.DisplayTests.test_quiet_and_new_speech_keep_score_and_permission) ... ok
+test_skip_next_poll_retains_score_and_existing_permission (__main__.DisplayTests.test_skip_next_poll_retains_score_and_existing_permission) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.006s
+
+OK

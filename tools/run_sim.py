@@ -5,7 +5,7 @@ from tool_config import vivado_root, simulation_tools
 
 ROOT = Path(__file__).resolve().parents[1]
 CASES = ('pair','preprocess','capture','clean','dual','cdc','samplecdc','link','stm32',
-         'pdm','frontstop','queue','spi','actuator','clock','axi','ps','pscdc','platform','level','levelstore','pslevel','duallevel','horizontal','manual','dualaxis','audio','audiometa','audiostore','dualaudio','audiotime','audioctrl')
+         'pdm','frontstop','queue','latestqueue','latestps','spi','actuator','clock','axi','ps','pscdc','platform','level','levelstore','pslevel','duallevel','horizontal','manual','dualaxis','audio','audiometa','audiostore','dualaudio','audiotime','audioctrl')
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
@@ -22,7 +22,7 @@ def main():
     out=ROOT/'simulation/work'/(case+'_'+time.strftime('%Y%m%d_%H%M%S'))
     out.mkdir(parents=True,exist_ok=False)
     source_dir=out/'sources';source_dir.mkdir()
-    ps=case in ('axi','ps','pscdc','pslevel','horizontal','manual','dualaxis','audio','audiometa','audioctrl')
+    ps=case in ('axi','ps','pscdc','pslevel','horizontal','manual','dualaxis','audio','audiometa','audioctrl','latestqueue','latestps')
     tb=ROOT/'simulation/tb'/('ps' if ps else 'stm32')
     rtl=ROOT/'project/rtl'
     ip=ROOT/'project/ip/reference'/('ps' if ps else 'stm32')

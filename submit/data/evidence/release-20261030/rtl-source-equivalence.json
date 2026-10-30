@@ -1,0 +1,26 @@
+[
+  {
+    "file": "project/rtl/ss_snapshot_queue.sv",
+    "tested_source_sha256": "5217940f11447758f91f4969905d6692480594fae142fc7b7f0dc7b59cda903e",
+    "integrated_sha256": "6e698f2f6e240a24459dd392d755df36ae7e3e4501d6450904e88abe942cf3d4",
+    "change": "LF line-ending normalization only"
+  },
+  {
+    "file": "project/rtl/ss_ps_control_regs.sv",
+    "tested_source_sha256": "8ab53742ffa16a43bb295eae0f779fcaa5922a09057edee3520338981864342b",
+    "integrated_sha256": "1b9f4f8bb713d8d3dcb01668bc7a2d9805fb85649570516561f059dacc80b4f4",
+    "change": "LF line-ending normalization only"
+  },
+  {
+    "file": "simulation/tb/ps/tb_latestqueue.sv",
+    "tested_source_sha256": "407cd361d32130772148174c59838aa130c119665809fba48ad1a24d0a26f92e",
+    "integrated_sha256": "407cd361d32130772148174c59838aa130c119665809fba48ad1a24d0a26f92e",
+    "change": "unchanged"
+  },
+  {
+    "file": "simulation/tb/ps/tb_latestps.sv",
+    "tested_source_sha256": "bd05fc62c3201f82ea7927f72e6742c006c51d82cc1e5cdfc5d2c8e29f70b5c6",
+    "integrated_sha256": "3c7c651bbeabd0c0e0d24286ee12d934b8bef7e53ae41db6d669ff9101f03d1c",
+    "change": "LF line-ending normalization only"
+  }
+]

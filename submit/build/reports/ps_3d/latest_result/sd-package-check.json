@@ -1,0 +1,30 @@
+{
+  "result": "PASS",
+  "private_files_preserved": 6,
+  "bit_hwh_equal": true,
+  "tests": [
+    {
+      "test": "software/tests/test_latest_result.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tetra3d/tests/test_online_3d.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_speaker_follow.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_speaker_display.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_speaker_enrollment.py",
+      "exit": 0
+    }
+  ],
+  "hardware_actions": 0,
+  "zip_bytes": 59351565,
+  "zip_sha256": "1482a16eecae8143577843650c28ac7c4b1bfdf4a8540a2ec7a7f01cb7d2fe8a"
+}

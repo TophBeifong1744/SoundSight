@@ -1,0 +1,111 @@
+{
+  "runs": [
+    {
+      "log": "logs/speaker-3d-20211118-232743-532522.json",
+      "result": "PASS",
+      "error": null,
+      "elapsed_seconds": 32.15870465100002,
+      "target": "user2",
+      "threshold": 0.45,
+      "ttl_seconds": 10.0,
+      "consumed": 3012,
+      "motion_commits": 117,
+      "sequence_gaps": 0,
+      "runtime_fault_or": 0,
+      "drops_delta": 0,
+      "statistics": {
+        "enabled": true,
+        "threshold": 0.45,
+        "successful_calculations": 8,
+        "threshold_passes": 4,
+        "total_compute_seconds": 24.258647639000003,
+        "average_compute_seconds": 3.0323309548750004,
+        "max_compute_seconds": 3.49937768800001,
+        "scope": "all_successful_numeric_inferences_in_session",
+        "meaning": "Scores meeting threshold, not servo movements or permission refreshes"
+      },
+      "all_scores_retained": true,
+      "completed_before_stop": 6,
+      "passed_before_stop": 3,
+      "completed_after_stop": 2,
+      "pass_intervals_before_stop_seconds": [
+        3.3263675670000055,
+        15.681086870000001
+      ],
+      "completion_intervals_before_stop_seconds": [
+        3.3263675670000055,
+        3.1652571900000055,
+        4.123385896000002,
+        3.355290924000002,
+        5.037152859999992
+      ],
+      "successful_source_ages_seconds": [
+        3.5196977859999983,
+        3.356064912000006,
+        4.091322414000009,
+        3.484708117999997,
+        4.629999950999991,
+        3.427152277000001,
+        4.4803535900000035,
+        2.3586399470000323
+      ]
+    },
+    {
+      "log": "logs/speaker-3d-20211118-233002-942132.json",
+      "result": "PASS",
+      "error": null,
+      "elapsed_seconds": 27.254283026000053,
+      "target": "user2",
+      "threshold": 0.45,
+      "ttl_seconds": 10.0,
+      "consumed": 2552,
+      "motion_commits": 94,
+      "sequence_gaps": 1,
+      "runtime_fault_or": 0,
+      "drops_delta": 1,
+      "statistics": {
+        "enabled": true,
+        "threshold": 0.45,
+        "successful_calculations": 7,
+        "threshold_passes": 5,
+        "total_compute_seconds": 21.861598877000063,
+        "average_compute_seconds": 3.123085553857152,
+        "max_compute_seconds": 3.562405757000022,
+        "scope": "all_successful_numeric_inferences_in_session",
+        "meaning": "Scores meeting threshold, not servo movements or permission refreshes"
+      },
+      "all_scores_retained": true,
+      "completed_before_stop": 6,
+      "passed_before_stop": 4,
+      "completed_after_stop": 1,
+      "pass_intervals_before_stop_seconds": [
+        3.327794606999987,
+        3.2882563310000137,
+        3.260043082999971
+      ],
+      "completion_intervals_before_stop_seconds": [
+        3.327794606999987,
+        3.2882563310000137,
+        3.260043082999971,
+        4.640080988000022,
+        3.370326165999984
+      ],
+      "successful_source_ages_seconds": [
+        3.5882510109999517,
+        3.356045857999959,
+        3.3243021110000015,
+        5.9043446119999885,
+        3.224426461,
+        3.8347531369999928,
+        3.3895929099999726
+      ]
+    }
+  ],
+  "live_compute_count": 12,
+  "live_compute_mean_seconds": 3.351195408250002,
+  "live_compute_max_seconds": 3.562405757000022,
+  "design_assumption": "one nonpassing inference between passes, 20% margin, 2-second rounding",
+  "calculated_budget_seconds": 8.549773816800052,
+  "recommended_trial_ttl_seconds": 10,
+  "limitation": "Small same-target sample; speech pauses and repeated low scores can exceed TTL. No identity accuracy or hard real-time guarantee; post-STOP results excluded from timing budget."
+}

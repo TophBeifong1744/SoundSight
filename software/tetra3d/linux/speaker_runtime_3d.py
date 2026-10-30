@@ -19,18 +19,27 @@ from speaker_scheduling import CaptureScheduling
 from speaker_settings import verify_assets
 from speaker_models import verify_candidates
 from speaker_permission import load_settings
+from speaker_statistics import save_last
 from speaker_follow_setup import check as check_speaker
 from speaker_capture_3d import capture_joint
 
 
 def display(state):
     speaker = state['speaker']
-    score = 'NONE' if speaker['score'] is None else '%.4f' % speaker['score']
-    return angle_display(state).rstrip()+(' SPEAKER_SCORE=%s THRESHOLD=%s PERMIT=%s REMAIN=%.2fs REASON=%s TRIAL=1\n' %
-        (score, speaker['threshold'], int(speaker['permit']), speaker['remaining_seconds'], speaker['reason']))
+    diagnostic = speaker.get('display_result')
+    score = 'NONE' if diagnostic is None else '%.4f' % diagnostic['score']
+    age = 'NONE' if diagnostic is None else '%.2fs' % speaker['display_score_age_seconds']
+    usable = 'NONE' if diagnostic is None else str(int(diagnostic['usable']))
+    reason = 'NO_SCORE_YET' if diagnostic is None else diagnostic['reason']
+    return angle_display(state).rstrip()+(' SPEAKER_SCORE=%s SCORE_STATE=%s SCORE_AGE=%s'
+        ' SCORE_USABLE_AT_COMPLETION=%s SCORE_REASON=%s THRESHOLD=%s PERMIT=%s'
+        ' REMAIN=%.2fs PERMIT_REASON=%s POLICY=score_ttl_v2 TRIAL=1\n' %
+        (score, 'NONE' if diagnostic is None else 'LAST_COMPLETED', age, usable, reason,
+         speaker['threshold'], int(speaker['permit']), speaker['remaining_seconds'], speaker['reason']))
 
 
 def run(args, root):
+    collect_statistics = bool(getattr(args, 'speaker_stats', False))
     core = root/'software/ps/speaker_core'
     layout = audio_hwh(root/'soundsight.hwh')
     base, size = check_hwh(root/'soundsight.hwh')
@@ -61,13 +70,15 @@ def run(args, root):
             client = ThreeDClient(ip, solver, args.min_level, args.window_frames,
                                    args.min_valid, args.axis_mask, args.calibration)
             # All expensive imports/model startup happen before capture starts.
-            processor = ProcessSpeaker(core, 1., scheduling, follow=True)
+            processor = ProcessSpeaker(core, 1., scheduling, follow=True,
+                                       permission_threshold=gate_config['threshold'], collect_statistics=collect_statistics)
             from pynq import allocate
             buffer = allocate(shape=(PACKET_BYTES,), dtype='u1')
             dma = SimpleReceive(dma_ip, buffer)
             state = State3D(args.frames+4 if args.debug else 0)
             print('SPEAKER_3D_READY TARGET=%s THRESHOLD=%s TTL=%s AXES=%s TRIAL=1' %
                   (profile.get('target_id', 'P01'), gate_config['threshold'], gate_config['permit_seconds'], args.axes), flush=True)
+            print('SPEAKER_STATS_ENABLED='+str(int(collect_statistics)), flush=True)
             console = NonblockingConsole(sys.stdout.fileno())
             report = capture_joint(client, audio, dma, processor, epoch, state, gate_config,
                                    frames=args.frames, seconds=args.seconds,
@@ -96,9 +107,10 @@ def run(args, root):
                                min_level=args.min_level, window_frames=args.window_frames,
                                min_valid=args.min_valid, axes=args.axes, frames=args.frames, seconds=args.seconds,
                                geometry=args.geometry, calibration=args.calibration,
-                               recognition_qualified=False)
+                               speaker_statistics_enabled=collect_statistics, recognition_qualified=False)
     with output.open('x', encoding='ascii') as handle:
         json.dump(report, handle, ensure_ascii=True, allow_nan=False, indent=2)
         handle.write('\n'); handle.flush(); os.fsync(handle.fileno())
+    save_last(root, report, output, collect_statistics)
     print('SPEAKER_3D_STOPPED RESULT=%s OUTPUT=%s ERROR=%s' % (report['result'], output, report.get('error')), flush=True)
     return int(report['result'] != 'PASS')

@@ -10,7 +10,7 @@ export PYTHONDONTWRITEBYTECODE=1
 
 # 帮助和门限文件操作不需要PYNQ。硬件入口必须先实际导入，不能只看-x。
 need_pynq=1
-case "${1:-}" in ''|check|level|filter|servo-config|servo-geometry|speaker-config|speaker-import|speaker-check|speaker-list|speaker-select|-h|--help) need_pynq=0 ;; esac
+case "${1:-}" in ''|check|level|filter|servo-config|servo-geometry|speaker-config|speaker-import|speaker-check|speaker-stats|speaker-list|speaker-select|-h|--help) need_pynq=0 ;; esac
 for argument in "$@"; do
     case "$argument" in -h|--help) need_pynq=0 ;; esac
 done

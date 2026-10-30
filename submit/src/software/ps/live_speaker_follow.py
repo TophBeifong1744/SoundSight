@@ -10,18 +10,23 @@ import threading
 
 from live_speaker import LiveSpeaker
 from pipeline_bench import unit
-from stream_bench import MAX_FRONT_LAG, MAX_START_AGE
+from stream_bench import MAX_FRONT_LAG
+from speaker_permission import POLICY
+from speaker_statistics import SpeakerStatistics
 
 
 class LatestEvents:
-    """Two fixed mailboxes: latest voice state and latest completed result.
+    """Bounded mailboxes for voice, latest attempt and latest numeric score.
 
-    The increasing voice epoch carries skipped silence transitions, so replacing
-    a status cannot hide a revoke. Threads never perform socket/console writes.
+    A dedicated passing-result slot survives later low scores or skipped jobs.
+    Threads never perform socket/console writes; storage stays constant.
     """
-    def __init__(self):
+    def __init__(self, threshold=None):
+        self.threshold = threshold
+        self.passing_result = None
         self.lock = threading.Lock()
         self.voice = self.result = None
+        self.scored_result = None
 
     def publish(self, event):
         with self.lock:
@@ -29,16 +34,32 @@ class LatestEvents:
                 self.voice = event
             else:
                 self.result = event
+                score = event.get('score')
+                if type(score) in (int, float) and math.isfinite(score) and -1 <= score <= 1:
+                    self.scored_result = event
+                    if event.get('usable') and self.threshold is not None and score >= self.threshold:
+                        self.passing_result = event
 
     def take(self):
         with self.lock:
-            values = [x for x in (self.voice, self.result) if x is not None]
+            result = self.result
+            if result is not None and self.scored_result is not None:
+                # Keep the latest diagnostic score even after a skipped attempt.
+                result = dict(result, display_result=dict(self.scored_result))
+            values = [self.voice] if self.voice is not None else []
+            if self.passing_result is not None and self.passing_result is not self.result:
+                values.append(self.passing_result)
+            if result is not None:
+                values.append(result)
+            self.passing_result = None
             self.voice = self.result = None
+            self.scored_result = None
         return values
 
 
 class FollowSpeaker(LiveSpeaker):
-    def __init__(self, *args, event_sink, **kwargs):
+    def __init__(self, *args, event_sink, collect_statistics=False, statistics_threshold=None, **kwargs):
+        self.statistics = SpeakerStatistics(statistics_threshold) if collect_statistics else None
         self.event_sink = event_sink
         self.completed_rows = deque(maxlen=32)
         self.completed_count = 0
@@ -109,20 +130,19 @@ class FollowSpeaker(LiveSpeaker):
                            target_id=self.config.get('target_id', 'P01'), model_selection='cp1_vf1',
                            profile_score_only=self.config.get('score_only', False), recognition_qualified=False,
                            start_age_seconds=age)
-                if age > MAX_START_AGE:
-                    row['reason'] = 'stale_before_start'
-                elif job['coverage'] >= .5 and job['active']:
+                if job['coverage'] >= .5 and job['active']:
                     if (job['frames'] != 98 or len(job['features']) != 7840 or
                             not all(math.isfinite(x) for x in job['features'])):
                         raise ValueError('CP1 requires 98x80 finite native features')
                     vector = unit(self.embed.run('J', job['features']))
                     row['score'] = max(-1., min(1., sum(x*y for x, y in zip(vector, self.config['template']))))
                     with self.mail.cv:
-                        row['usable'] = bool(not self.mail.error and self.mail.active and
-                                             self.mail.voice_epoch == job['voice_epoch'] and not self.stop.is_set())
-                    row['reason'] = 'scored' if row['usable'] else 'speech_state_changed'
+                        row['usable'] = bool(not self.mail.error and not self.stop.is_set())
+                    row['reason'] = 'scored' if row['usable'] else 'capture_failed'
                 row.update(completed_at=self.clock(), compute_seconds=self.clock()-began,
                            source_age_seconds=self.clock()-self.origin-job['end_sample16']/16000)
+                if self.statistics is not None:
+                    self.statistics.observe(row['score'], row['compute_seconds'])
                 self.completed_count += 1
                 self.completed_rows.append(row)
                 self.event_sink(row)  # Bounded IPC; no per-result stdout blocking.
@@ -143,5 +163,6 @@ class FollowSpeaker(LiveSpeaker):
         return dict(status='FAIL' if self.error else 'PASS', error=self.error, input_packets=self.accepted,
                     generated=self.mail.generated, replaced=self.mail.replaced, consumed=self.completed_count,
                     results=list(self.completed_rows), retained_result_limit=32, max_front_lag_seconds=self.max_lag,
-                    policy='delayed_permission_v1', current_identity='insufficient', reason='session_ended',
+                    statistics=self.statistics.snapshot() if self.statistics is not None else dict(enabled=False),
+                    policy=POLICY, current_identity='insufficient', reason='session_ended',
                     recognition_qualified=False, model_selection='cp1_vf1')

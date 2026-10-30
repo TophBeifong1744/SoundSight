@@ -1,0 +1,26 @@
+{
+  "result": "PASS",
+  "tests": [
+    {
+      "test": "software/tests/test_speaker_follow.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_speaker_display.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_latest_result.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_speaker_process.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tetra3d/tests/test_online_3d.py",
+      "exit": 0
+    }
+  ],
+  "hardware_actions": 0
+}

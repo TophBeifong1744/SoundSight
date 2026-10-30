@@ -22,7 +22,7 @@ MAX_MESSAGE=131072
 
 class ProcessSpeaker:
     def __init__(self,core,window,scheduling,worker_command=None,startup_timeout=60.,backend_executable=None,
-                 follow=False):
+                 follow=False, permission_threshold=None, collect_statistics=False):
         self.sent=self.acked=self.highwater=0
         self.epoch=None;self.started_once=False;self.result=None;self.error=None
         self.closed=False;self.p=None
@@ -40,6 +40,8 @@ class ProcessSpeaker:
         if follow:
             config['models']=models
             config['follow']=True
+            config['permission_threshold']=permission_threshold
+            config['collect_statistics']=bool(collect_statistics)
         if os.environ.get('SS_SPEAKER_CPU_PROFILE') == '1':
             config['cpu_profile_capture_pid']=os.getpid()
         if backend_executable is not None:config['backend_executable']=str(Path(backend_executable).resolve())
@@ -176,7 +178,7 @@ def worker(fd,config):
         from live_speaker_follow import FollowSpeaker, LatestEvents
         from speaker_models import verify_candidates, backend_options
         verify_candidates(config['core'],config['window'])
-        events=LatestEvents()
+        events=LatestEvents(config.get('permission_threshold'))
         sock.settimeout(.5)
     def send(data):
         if len(data)>MAX_MESSAGE:raise RuntimeError('SPEAKER_RESULT_TOO_LARGE')
@@ -198,7 +200,9 @@ def worker(fd,config):
         return value
     try:
         factory=FollowSpeaker if config.get('follow') else LiveSpeaker
-        extra=dict(event_sink=events.publish,emit=lambda *a,**k:None) if events is not None else {}
+        extra=dict(event_sink=events.publish,emit=lambda *a,**k:None,
+                   collect_statistics=config.get('collect_statistics',False),
+                   statistics_threshold=config.get('permission_threshold')) if events is not None else {}
         engine=factory(Path(config['core']),config['window'],backend_factory=backend,
                        scheduling=config['scheduling'],packet_taken=packet_taken,**extra)
         send(b'R')

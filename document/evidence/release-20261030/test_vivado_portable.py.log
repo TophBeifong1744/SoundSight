@@ -1,0 +1,8 @@
+test_complete_payload_no_machine_paths (__main__.PortableKitTests.test_complete_payload_no_machine_paths) ... ok
+test_missing_dependency_and_absolute_path_fail_closed (__main__.PortableKitTests.test_missing_dependency_and_absolute_path_fail_closed) ... ok
+test_no_automatic_runs_or_hardware_commands (__main__.PortableKitTests.test_no_automatic_runs_or_hardware_commands) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.087s
+
+OK

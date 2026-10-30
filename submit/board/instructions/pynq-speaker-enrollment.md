@@ -1,5 +1,9 @@
 # 板端录入、切换目标人与声纹双轴跟随
 
+可选整轮统计：运行时加`--speaker-stats`，结束后用`sudo sh soundsight-3d.sh speaker-stats`查询。默认关闭，仅统计成功计算，见[统计与更新说明](../../report/pynq-speaker-statistics.md)。
+
+当前声纹许可已更新为**score_ttl_v2**：过线刷新有效期，低分和静音不提前清除；旧语音段结果仍可评分授权，当前方向的音量筛选独立生效。以下历史语音段作废示例仅解释旧日志。安装见[TTL更新说明](../../report/pynq-speaker-ttl-update.md)。
+
 现在可以直接在板上录入：**只录一段，默认3秒，可改成2～10秒。** 不用电脑预录或重做Vivado。录入时双轴撤输出，采集停止并确认DMA停止后才计算模板；不会自动开启跟随，也不会自动替换当前目标。
 
 ## 安装这次的软件更新
@@ -49,6 +53,25 @@ sudo sh soundsight-3d.sh speaker-check
 
 ## 先只测试评分，不转动
 
+2026-10-30：评分展示已与转动许可分开。现有板子仍使用本页的
+`soundsight_enrollment_update.zip` 增量安装步骤，保留个人模板、门限和限位。
+安装后另运行 `python3 -B software/tests/test_speaker_display.py -v`，应为7项通过。
+无需重做Vivado或更新位流；重启后按原步骤prepare。
+
+串口示例：
+
+```text
+SPEAKER_SCORE=0.5018 SCORE_STATE=LAST_COMPLETED SCORE_AGE=1.20s SCORE_USABLE_AT_COMPLETION=0 SCORE_REASON=SPEECH_STATE_CHANGED THRESHOLD=None PERMIT=0 REMAIN=0.00s PERMIT_REASON=STALE_BEFORE_START
+```
+
+- `SPEAKER_SCORE`保留本会话最近一次算出的有限分数，包括不能用于许可的结果。无分数的跳过任务不再清掉它。
+- `SCORE_AGE`是该分数计算完成至今的时间；`LAST_COMPLETED`表示历史计算结果，不表示当前声音刚刚通过。
+- `SCORE_USABLE_AT_COMPLETION`和`SCORE_REASON`说明推理结束时是否可用；即使当时可用，当前许可也可能已过期；score_ttl_v2下静音不提前撤销未过期许可。
+- `PERMIT`、`REMAIN`、`PERMIT_REASON`才是当前声纹许可状态。许可通过仍须有效角度、限位及用户显式开轴才能转动。
+- 新会话没有算出分数时仍显示`NONE`。保存摘要增加`display_result`诊断字段，最近一次任务及原许可字段保留。
+
+当前显示与许可独立；TTL可调。下面旧日志中的语音段作废状态不代表当前score_ttl_v2规则。
+
 ```sh
 sudo sh soundsight-3d.sh speaker --axes off --seconds 30
 ```
@@ -67,7 +90,7 @@ sudo sh soundsight-3d.sh speaker-check
 sudo sh soundsight-3d.sh speaker --axes both
 ```
 
-最后一条持续运行到Ctrl+C。同时满足有效声音方向、音量/多帧筛选、声纹许可和机械限位才允许转动。下一轮声纹计算保留未过期许可；失败、静音、故障或超时撤销。水平T15、垂直W16不变。`follow-sound`是另外的纯声源模式，没有声纹限制；需要身份判断时使用这里的 `speaker`。
+最后一条持续运行到Ctrl+C。同时满足有效声音方向、音量/多帧筛选、声纹许可和机械限位才允许转动。下一轮声纹计算保留未过期许可；低分和静音不提前撤销；采集/处理故障、STOP或有效期到期撤销。水平T15、垂直W16不变。`follow-sound`是另外的纯声源模式，没有声纹限制；需要身份判断时使用这里的 `speaker`。
 
 常用修改（都在停止会话后执行，下次运行生效）：
 
