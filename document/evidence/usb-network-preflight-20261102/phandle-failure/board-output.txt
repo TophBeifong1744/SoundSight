@@ -1,0 +1,18 @@
+User UART output, 2026-11-02; credentials and command echo omitted.
+
+CHECK_OK: matching kernel/boot inputs; USB0 disabled; MIO baseline matches.
+OF: overlay: WARNING: memory leak will occur if overlay removed, property: /__symbols__/ss_usb0_pins
+OF: overlay: WARNING: memory leak will occur if overlay removed, property: /__symbols__/ss_usb_reset_pin
+OF: overlay: WARNING: memory leak will occur if overlay removed, property: /__symbols__/ss_usb_phy
+OF: resolver: overlay phandle fixup failed: -2
+create_overlay: Failed to create overlay (err=-2)
+USB_START_FAILED: no UDC after USB0 enable; collect dmesg and reboot
+Keep UART connected. Save dmesg; normal reboot restores runtime changes. No online overlay removal.
+ERROR: no UDC after USB0 enable; collect dmesg and reboot
+
+User follow-up read-only property dump:
+__symbols__/ss_usb_phy b'//soundsight-usb-phy\x00'
+__symbols__/ss_usb0_pins b'/amba/slcr@f8000000/pinctrl@700/soundsight-usb0-pins\x00'
+soundsight-usb-phy/phandle b'\x00\x00\x009'
+amba/slcr@f8000000/pinctrl@700/soundsight-usb0-pins/phandle b'\x00\x00\x008'
+amba/usb@e0002000/status b'disabled\x00'

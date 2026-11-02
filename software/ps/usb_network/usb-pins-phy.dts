@@ -1,0 +1,53 @@
+/dts-v1/;
+/plugin/;
+
+/* First stage: configure RESET pin and register a PHY, with USB0 still disabled. */
+/ {
+    fragment@0 {
+        target-path = "/amba/slcr@f8000000/pinctrl@700";
+        __overlay__ {
+            ss_usb0_pins: soundsight-usb0-pins {
+                mux { groups = "usb0_0_grp"; function = "usb0"; };
+                conf {
+                    groups = "usb0_0_grp";
+                    io-standard = <1>; /* Bank501: LVCMOS18 */
+                    slew-rate = <0>;
+                    low-power-disable;
+                };
+                conf-rx {
+                    pins = "MIO29", "MIO31", "MIO36";
+                    bias-high-impedance;
+                };
+                conf-tx {
+                    pins = "MIO28", "MIO30", "MIO32", "MIO33", "MIO34",
+                           "MIO35", "MIO37", "MIO38", "MIO39";
+                    bias-disable;
+                };
+            };
+            ss_usb_reset_pin: soundsight-usb-reset-pin {
+                mux { groups = "gpio0_9_grp"; function = "gpio0"; };
+                conf {
+                    groups = "gpio0_9_grp";
+                    io-standard = <3>; /* Bank500: LVCMOS33; diode isolation on board. */
+                    slew-rate = <0>;
+                    bias-disable;
+                    low-power-disable;
+                };
+            };
+        };
+    };
+    fragment@1 {
+        /* Linux 5.4 overlay.c concatenates target + tail literally. A root
+         * target would export //soundsight-usb-phy, which its resolver rejects. */
+        target-path = "/amba";
+        __overlay__ {
+            ss_usb_phy: soundsight-usb-phy {
+                compatible = "usb-nop-xceiv";
+                #phy-cells = <0>;
+                pinctrl-names = "default";
+                pinctrl-0 = <&ss_usb_reset_pin>;
+                /* GPIO reset is sequenced before stage 2; never reset here. */
+            };
+        };
+    };
+};

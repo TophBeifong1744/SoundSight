@@ -278,7 +278,7 @@
       "source_path": "document/current-status.md",
       "submit_path": "report/current-status.md",
       "mode": "100644",
-      "source_sha256": "34581862a9297faa58365e5f9827afbe5006fd7c5971980c5d8c076d077d857a",
+      "source_sha256": "ed44acfd3114ad65ee5f345e8d9ce6773b459ad17ba3517d7eef679928b94187",
       "submit_sha256": "45486f5b51d9ef5f1b55f429a40137c3f2800600647dbaf4288445dcd50857df",
       "transform": "documentation_links_only"
     },
