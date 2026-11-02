@@ -1,0 +1,72 @@
+{
+  "category": "long-run test",
+  "user_observation": {
+    "duration": "approximately several minutes; not timed precisely",
+    "source": "human voice",
+    "axes": "both",
+    "following": "continuous according to user",
+    "obvious_pauses_or_wrong_direction": "none observed"
+  },
+  "archive_crc_ok": true,
+  "source_files_verified": 9,
+  "matches_B_CF1A_payload": true,
+  "exported_hardware_hashes_match_B_dependencies": {
+    "soundsight.bit": true,
+    "soundsight.hwh": true
+  },
+  "summary_file": "run/three-d-20211119-083847-336791-1288.json",
+  "summary_elapsed_seconds": 30.01577396899995,
+  "summary_stop_reason": "requested_limit",
+  "summary_seconds_limit": 30.0,
+  "summary_result": "PASS",
+  "summary_stats": {
+    "consumed": 2808,
+    "drained": 1,
+    "raw_valid": 233,
+    "accepted_windows": 36,
+    "motion_commits": 22,
+    "sequence_gaps": 3,
+    "below_volume": 2082,
+    "first_sequence": 1,
+    "last_sequence": 2811,
+    "fault_or": 0,
+    "drops_first": 0,
+    "drops_last": 3,
+    "max_service_ns": 22869323
+  },
+  "summary_frontend": {
+    "revision": "CF1A",
+    "packets": 2812,
+    "solved": 2808,
+    "valid": 233,
+    "missing_pcm": 1,
+    "resets": 1,
+    "clipped_windows": 0,
+    "max_solve_seconds": 0.020962136999969516,
+    "max_blocks": 64,
+    "total_solve_seconds": 19.379965998999523,
+    "spectral_windows": 2811,
+    "backfilled_windows": 3,
+    "max_windows_per_solve": 2,
+    "snapshot_gaps": 3,
+    "buffered_blocks": 64,
+    "history_frames": 0,
+    "mean_solve_seconds": 0.0069016972930909986,
+    "audio_support_ms": 181.333333,
+    "nominal_history_center_extra_ms": 80,
+    "freshness_basis": "conservative_start_plus_sample_end",
+    "physical_gates_unchanged": true,
+    "board_latency_measured": false
+  },
+  "status_after": {
+    "status": 999428,
+    "fault": 64,
+    "drops": 4,
+    "sys": 8,
+    "actuator": 0,
+    "dual_axis": 768
+  },
+  "evidence_gap": "User describes several-minute Ctrl+C run, but supplied summary has seconds=30 and requested_limit; association not established. Status-after drops=4 versus summary hardware drops=3. Preserve both without rewriting.",
+  "board_clock_note": "2021 timestamp is board clock, not actual experiment date",
+  "hardware_actions_performed_by_this_review": 0
+}

@@ -1,0 +1,3 @@
+PYTHON_EXE=/usr/local/share/pynq-venv/bin/python3
+PYNQ_IMPORT_OK=1
+DEVICE_STATE={"status": 999428, "fault": 64, "drops": 4, "sys": 8, "actuator": 0, "dual_axis": 768}
