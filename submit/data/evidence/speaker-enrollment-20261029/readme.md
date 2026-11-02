@@ -1,6 +1,6 @@
 # 单段板端声纹录入：实现与验证
 
-后续用户实板进展：5秒单段录入成功，已取得本人关轴评分；3秒录入失败事实、全部三次评分和未完成项见[板测回报](../../../board/results/speaker-enrollment-board-result.md)。下方主机测试范围保留当时状态。
+后续用户实板进展：5秒单段录入成功，已取得本人关轴评分；3秒录入失败事实、全部三次评分和未完成项见[板测回报](board-result.md)。下方主机测试范围保留当时状态。
 
 用户最终范围：只录一段、缩短录音，保存多个目标并切换，录入不驱动舵机；先测分数再显式开启声纹双轴跟随。实现默认3秒，可设2～10秒，没有自动录三段，也没有自动启动跟随。
 
@@ -34,4 +34,4 @@ sh software/tests/run_stream_python.sh -B tools/check_speaker_enrollment_package
 
 原生测试从现有私有完整ZIP读取模型及epoch26 PCM，必须拥有这些既有输入；输出限于忽略的 `software/build/enrollment-validation`，不对板端发起操作。该测试拒绝覆盖已有同名测试工作目录。最终有效代码在正式software/tools目录，说明在document，未创建codex_out。任务结束清理本次生成的模型解压副本、合成私有模板与主机测试二进制，保留本目录结果；既有私有交接包和历史失败原件不删。
 
-板端操作见[短录入说明](../../../board/instructions/pynq-speaker-enrollment.md)。本批不包含新上板、执行器动作、综合或实现。
+板端操作见[短录入说明](../../../report/pynq-speaker-enrollment.md)。本批不包含新上板、执行器动作、综合或实现。

@@ -84,7 +84,7 @@ source {<SoundSight仓库>/project/bd/update_ps_volume.tcl}
 
 看到`PS_VOLUME_READY_FOR_GENERATE_BITSTREAM`且没有ERROR后，可直接点击 **Generate Bitstream**，确认Vivado提示的重新综合/实现。脚本成功只是准备完成，**不代表新候选时序通过**；生成后仍检查实际实现时序/DRC并导出配套HWH。发生错误则停止本轮构建并保留Console原文；脚本不是自动回滚事务，失败前的修改和备份都保留。
 
-不需要先手动复制源码，也不需要再组合执行`resume_ps_volume.tcl`和`enable_ps_level.tcl`。此前停在模块刷新时，也统一执行上面的完整入口；每次备份目录不同，不覆盖首次备份。完整入口已在Vivado 2025.2的干净隔离副本中实际通过复制、刷新、Validate和输出生成，另有7项离线Tcl流程测试通过。实际验证记录及先前失败原因见[evidence/ps-volume-gate/TCL-UPDATE.md](../data/evidence/ps-volume-gate/tcl-update.md)。
+不需要先手动复制源码，也不需要再组合执行`resume_ps_volume.tcl`和`enable_ps_level.tcl`。此前停在模块刷新时，也统一执行上面的完整入口；每次备份目录不同，不覆盖首次备份。完整入口已在Vivado 2025.2的干净隔离副本中实际通过复制、刷新、Validate和输出生成，另有7项离线Tcl流程测试通过。实际验证记录及先前失败原因见evidence/ps-volume-gate/TCL-UPDATE.md（历史引用：`evidence/ps-volume-gate/TCL-UPDATE.md`）。
 
 ### 手工方式（备用）
 
@@ -120,4 +120,4 @@ sudo env XILINX_XRT=/usr /usr/local/share/pynq-venv/bin/python3 software/ps/run_
 
 ## 验证与交付边界
 
-定向XSim、Python自测和旧模式回归结果见[evidence/ps-volume-gate](../data/evidence/ps-volume-gate/readme.md)。隔离工程已完成真实Vivado准备检查，用户实际工作工程的更新仍由用户执行。仿真和BD检查不等于实际资源/时序通过；完整自然PDM实板、实际音量门限、综合、实现和新bit均待用户执行。没有修改C求解数值、机械映射或冻结SPI协议。
+定向XSim、Python自测和旧模式回归结果见evidence/ps-volume-gate（历史引用：`evidence/ps-volume-gate/README.md`）。隔离工程已完成真实Vivado准备检查，用户实际工作工程的更新仍由用户执行。仿真和BD检查不等于实际资源/时序通过；完整自然PDM实板、实际音量门限、综合、实现和新bit均待用户执行。没有修改C求解数值、机械映射或冻结SPI协议。

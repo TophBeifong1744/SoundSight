@@ -1,3 +1,5 @@
-# 构建配方与报告
+# 当前硬件与复现
 
-最新实际导出见handoff/screen_s2和reports/current/screen_s2_20261102；正式S2配方见vivado/screen_s2，实际RTL位于../src/rtl。按[根说明](../README.md)恢复工作目录，再执行tools/prepare_screen_s2.py复制49项完整配方。旧PR30入口保留作历史，不包含屏幕；本次没有启动EDA。
+vivado/screen_s2及../src/rtl组成S2的49项配方；handoff/screen_s2是实际导出。
+reports/current为本次收到的工具报告，reports/ps_3d/screen_s2为S2原有审查报告。
+prepare_workspace.py从本提交独立恢复，tools/prepare_screen_s2.py只准备新工程目录。

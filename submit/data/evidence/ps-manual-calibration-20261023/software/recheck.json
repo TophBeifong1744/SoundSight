@@ -1,7 +1,0 @@
-{
-  "test": "test_buffered.py",
-  "returncode": 0,
-  "initial_failure_retained": "test_buffered.py.log",
-  "change": "No product or test changes; repeated in workspace temp directory after WinError5 in AppData",
-  "scope": "unchanged buffered debug path"
-}

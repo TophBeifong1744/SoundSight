@@ -1,0 +1,35 @@
+{
+  "archives": [
+    {
+      "file": "submit/report/requirements/poster-reference.pptx",
+      "members": 103,
+      "crc": "PASS"
+    },
+    {
+      "file": "submit/report/requirements/technical-report-template.docx",
+      "members": 26,
+      "crc": "PASS"
+    },
+    {
+      "file": "submit/report/requirements/originals/competition-test.docx",
+      "members": 17,
+      "crc": "PASS"
+    },
+    {
+      "file": "submit/data/evidence/cf1a-longrun-20261102/soundsight_cf1a_longrun_1637311136971902722.zip",
+      "members": 16,
+      "crc": "PASS"
+    },
+    {
+      "file": "submit/data/evidence/speaker-dual-axis-20261030/board-tests.zip",
+      "members": 3,
+      "crc": "PASS"
+    },
+    {
+      "file": "submit/board/hardware/reference/navigator-zynq/navigator-zynq-io-pin-map.xlsx",
+      "members": 16,
+      "crc": "PASS"
+    }
+  ],
+  "office_xml_feature_matches": []
+}

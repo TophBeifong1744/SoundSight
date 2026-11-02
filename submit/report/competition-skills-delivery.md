@@ -1,6 +1,6 @@
 # 两个比赛 Skills 的交付与复现
 
-本次完成 SoundSight 新仓库适配。两个 Skill 的正式源码在 [research/competition-skills](../skill/package-overview.md)，独立比赛包在 [soundsight-competition-skills.zip](../data/history/releases/soundsight-competition-skills.zip)。本包交付模块仿真和离线软件能力；真实 PYNQ 仍为待办，不安排上板。
+本次完成 SoundSight 新仓库适配。两个 Skill 的正式源码在 [research/competition-skills](../skill/package-overview.md)，独立比赛包在 soundsight-competition-skills.zip（历史引用：`../release/output/soundsight-competition-skills.zip`）。本包交付模块仿真和离线软件能力；真实 PYNQ 仍为待办，不安排上板。
 
 ## 改了什么
 
