@@ -4,7 +4,7 @@
 
 ## 来源与变化
 
-- 来源固定为B分支`codex/tetra3d-das`的`3347989eb03488a33c88c241c75eed517d3a30f0`。从上一级已保存候选快照接回23个模块/说明/测试文件；补齐作者原始迁移报告、示例和PC黄金结果，位于`document/evidence/ps-tetra3d-migration-20261021/`。
+- 来源固定为B分支固定候选的`3347989eb03488a33c88c241c75eed517d3a30f0`。从上一级已保存候选快照接回23个模块/说明/测试文件；补齐作者原始迁移报告、示例和PC黄金结果，位于`document/evidence/ps-tetra3d-migration-20261021/`。
 - 接回前核对公共冻结头、`doa_solver.c/h`与B候选内容一致（仅忽略文本换行）；没有覆盖公共依赖。
 - `software/tetra3d/linux/ss_solver_3d_bridge.c`：只在PS桥自己的允许掩码中加入bit18，注释说明它是能力位而不是动作许可。算法帧标志仍按冻结的帧标志掩码提取。
 - `software/tetra3d/tests/test_solver_3d_migration.py`：新增155组能力位等价检查；将非法STATUS位、未锁帧、错误配对/字段检查扩展到能力位有/无两种情况。总桥负例为28项。
@@ -23,23 +23,21 @@
 | 能力位等价 | 154组原特征逐组增加bit18后，完整结果保持一致；实际PS状态组合合成复现另1组，共155组通过 |
 | 桥输入负例 | 28项通过；保留位6/21/22/23、未锁帧、错误配对/字段及Python整数范围仍拒绝 |
 | 几何及JSONL入口 | 原15个几何检查、4个回放入口检查通过 |
-| DAS回归 | 16项通过、0跳过，实际C求解器到DAS的用例也执行 |
 | 旧桥检错验证 | 用未修复B桥编译库，运行新增测试，准确在`ps_manual_capability`断言失败 |
 
 155组能力位等价包含方向有效、无效、取消和旧BIST等原始用例；bit18不会使被算法拒绝的帧变成有效方向。PS状态组合用例的特征是合成45°/30°特征，不是新实物采集。
 
-`RESULT.json`与`migration.log`保存修复后的结果，`das.log`保存DAS输出。`old-bridge-canary.log`保存预期检出的旧故障；这是测试检错成功，不是修复版失败。原始故障探针及未改B源码仍保存在上一级，未被覆盖。
+`RESULT.json`与`migration.log`保存修复后的结果。`old-bridge-canary.log`保存预期检出的旧故障；这是测试检错成功，不是修复版失败。原始故障探针及未改B源码仍保存在上一级，未被覆盖。
 
 ## 复现
 
-在仓库根目录运行；`gcc`可通过`--cc`或本机环境变量`CC`指定，DAS中的实际C接合用例也需要同一编译器：
+在仓库根目录运行；`gcc`可通过`--cc`或本机环境变量`CC`指定：
 
 ```sh
 python software/tetra3d/tests/test_solver_3d_migration.py --cc gcc --golden document/evidence/ps-tetra3d-migration-20261021/PC-RESULT.json --output software/build/tetra3d-migration/RESULT.json
-python software/tetra3d/das/test_das_3d.py -v
 ```
 
-预期看到`equivalence=154 bridge_negative=28 geometry=15`、`PS_CAPABILITY_PASS equivalence=155`和DAS的`Ran 16 tests ... OK`，不能有跳过C接合测试。
+预期看到`equivalence=154 bridge_negative=28 geometry=15`、`PS_CAPABILITY_PASS equivalence=155`，不能有跳过C接合测试。
 
 ## 未测及收尾
 

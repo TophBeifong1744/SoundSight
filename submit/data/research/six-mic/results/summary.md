@@ -21,23 +21,6 @@ Single-channel-noise results use all six channels; no automatic channel removal 
 Two controlled echoes are not a measured room/RT60 model. Probes are random band-limited noise, not speech.
 No four-microphone simulations were run. See config.json for every assumption and limitation.
 
-## Ideal horizontal rejection at 90 degrees
-
-| Hz | Attenuation dB |
-|---|---:|
-| 500 | 0.194 |
-| 1000 | 0.777 |
-| 2000 | 3.077 |
-| 4000 | 9.352 |
-
-This is one geometry and angular cut, not broadband SNR or room measurement.
-
-## Audio
-
-A/B/C WAV files share one global scale and come from one SIX-channel synthetic recording.
-They contain noise probes, NOT speech. C uses a static mean of accepted direction estimates, not realtime tracking.
-Known clean target/interferer components permit SIR calculation; audio-demo.json has exact values.
-
 ## Reproduction
 
 Run model/python/six_mic_acoustic_review.py --out <new_directory> --repeats 5.

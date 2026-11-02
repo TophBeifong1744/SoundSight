@@ -43,7 +43,8 @@
     "records/E06/board-epoch26.json": {
       "source": "document/evidence/ps-speaker-live-opt-20261025/board-epoch26.json",
       "source_sha256": "c6d7bf2d4628728c750e905bcd2dffc247b8b244b8e3e9c6ffa4f40d00a45de0",
-      "copy_note": "public copy normalized GB18030 to UTF-8; original unchanged"
+      "copy_note": "2026-11-02 retained feature excerpt; historical source values, not a rerun",
+      "public_sha256": "87ad8cc6d90b35c5105c4789b08024fd95dcb448af0bd5f40a35f5d18cf085e8"
     },
     "records/E06/native-replay.json": {
       "source": "document/evidence/ps-speaker-epoch26-analysis-20261025/native-replay.json",
@@ -113,9 +114,10 @@
     "records/E09/intake-excerpt.md": {
       "source": "document/evidence/speaker-return-review-20261028/README.md",
       "source_sha256": "4abd4e91a4d774e97b404c3d7893034ba6d704cf5d37e62c1ae9218277a27a4b",
-      "copy_note": "exact progress-section excerpt; surrounding links and private-package intake instructions omitted",
+      "copy_note": "2026-11-02 retained feature excerpt; historical source values, not a rerun",
       "start_line": 13,
-      "end_line": 25
+      "end_line": 25,
+      "public_sha256": "168e2369e0f2096eaa00b961c4cd122f2a716133e30f8ed57e28fb698b30f6c0"
     },
     "records/E12/packet-benchmark.json": {
       "source": "document/evidence/p02-compute-opt-20261027/ARM-BENCH.md",
@@ -198,25 +200,25 @@
     "records/E18/optimization-measurements.json": {
       "source": "document/evidence/tetra3d-optimizations-20261025/REPORT.md",
       "source_sha256": "687db32f374237dff3886a2e2ed9c53e7e8ee901d14c02e857a1c088b5aa809a",
-      "copy_note": "逐值摘取公开开发报告；性能为PC合成，tracemalloc为块分配峰值，非进程RSS",
+      "copy_note": "2026-11-02 direction-only excerpt; original values retained; not a rerun",
       "public_record": "records/E18/optimization-measurements.json",
-      "public_sha256": "b4bc13797870ea56307a43156bf0a73e71b35593dffad1c43bcc36be96d747a4",
+      "public_sha256": "ee53e550451729bcc9db71d369f46e1b1ce12a045617aae73a42b167edd885f6",
       "source_url": "https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/document/evidence/tetra3d-optimizations-20261025/REPORT.md"
     },
     "records/E18/SUMMARY.json": {
       "source": "document/evidence/tetra3d-optimizations-20261025/SUMMARY.json",
       "source_sha256": "74ece69cfe1bdf5cc4930fd705a8f53e6a4bc5210056d43f21d25f1f6a83cbb8",
-      "copy_note": "byte-equivalent JSON values; PC test-run durations are not algorithm latency",
+      "copy_note": "2026-11-02 direction-only excerpt; original values retained; not a rerun",
       "public_record": "records/E18/SUMMARY.json",
-      "public_sha256": "74ece69cfe1bdf5cc4930fd705a8f53e6a4bc5210056d43f21d25f1f6a83cbb8",
+      "public_sha256": "65dd11705c4f1991a84ed3837439b247bf2a40f33bd1de38b72f7dcafc8f1aaf",
       "source_url": "https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/document/evidence/tetra3d-optimizations-20261025/SUMMARY.json"
     },
     "records/E18/INTEGRATION-SUMMARY.json": {
       "source": "document/evidence/tetra3d-optimizations-20261025/INTEGRATION-SUMMARY.json",
       "source_sha256": "c0791ba010374cea470f4239f98bbe9124b36652a724c4813ee8311cbf72a1ef",
-      "copy_note": "byte-equivalent JSON values; PC test-run durations are not algorithm latency",
+      "copy_note": "2026-11-02 direction-only excerpt; original values retained; not a rerun",
       "public_record": "records/E18/INTEGRATION-SUMMARY.json",
-      "public_sha256": "c0791ba010374cea470f4239f98bbe9124b36652a724c4813ee8311cbf72a1ef",
+      "public_sha256": "8516a18d261f100f5a97a9f1fe75d51e2d4014a3c3c78b12b4f2c00e2e521358",
       "source_url": "https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/document/evidence/tetra3d-optimizations-20261025/INTEGRATION-SUMMARY.json"
     },
     "records/E19/development-score-ranges.json": {
@@ -331,19 +333,6 @@
       "candidate": "dfe9975168bae92af34b9c25891c3678bc5d1dc6",
       "public_excerpt": "03-code-highlights.md#s11",
       "source_url": "https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/software/tetra3d/core/doa_solver_3d.c",
-      "commit": "dfe9975168bae92af34b9c25891c3678bc5d1dc6"
-    },
-    {
-      "id": "S12",
-      "source": "software/tetra3d/das/dynamic_das.py",
-      "start_line": 89,
-      "end_line": 110,
-      "source_sha256": "6538276369c9850b7b3ddf70b564f2cf1e81111893de6f710e8e5e68ef455a7c",
-      "excerpt_sha256": "10edc316109d82761fc9695016df9144a9f5a6c113fbb933ca68eca3fe4e3a18",
-      "public_excerpt_sha256": "10edc316109d82761fc9695016df9144a9f5a6c113fbb933ca68eca3fe4e3a18",
-      "candidate": "dfe9975168bae92af34b9c25891c3678bc5d1dc6",
-      "public_excerpt": "03-code-highlights.md#s12",
-      "source_url": "https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/software/tetra3d/das/dynamic_das.py",
       "commit": "dfe9975168bae92af34b9c25891c3678bc5d1dc6"
     },
     {
@@ -700,36 +689,6 @@
       "record": "records/E17/migration-summary.json",
       "json_pointer": "/call_ns/median",
       "statistic": "median 200 Python+ctypes+C geometry validation+solve calls; no acquisition; not ARM deadline"
-    },
-    "B-DAS-baseline_trace-wall": {
-      "record": "records/E18/optimization-measurements.json",
-      "json_pointer": "/variants/baseline_trace/median_wall_seconds",
-      "statistic": "median 3 runs; 48000 samples/1024-sample blocks; Python DAS only; no ARM/capture"
-    },
-    "B-DAS-baseline_trace-alloc": {
-      "record": "records/E18/optimization-measurements.json",
-      "json_pointer": "/variants/baseline_trace/tracemalloc_peak_bytes",
-      "statistic": "8192-sample allocation probe peak; NOT RSS; repetitions not specified in original report"
-    },
-    "B-DAS-ring_trace-wall": {
-      "record": "records/E18/optimization-measurements.json",
-      "json_pointer": "/variants/ring_trace/median_wall_seconds",
-      "statistic": "median 3 runs; 48000 samples/1024-sample blocks; Python DAS only; no ARM/capture"
-    },
-    "B-DAS-ring_trace-alloc": {
-      "record": "records/E18/optimization-measurements.json",
-      "json_pointer": "/variants/ring_trace/tracemalloc_peak_bytes",
-      "statistic": "8192-sample allocation probe peak; NOT RSS; repetitions not specified in original report"
-    },
-    "B-DAS-ring_no_trace-wall": {
-      "record": "records/E18/optimization-measurements.json",
-      "json_pointer": "/variants/ring_no_trace/median_wall_seconds",
-      "statistic": "median 3 runs; 48000 samples/1024-sample blocks; Python DAS only; no ARM/capture"
-    },
-    "B-DAS-ring_no_trace-alloc": {
-      "record": "records/E18/optimization-measurements.json",
-      "json_pointer": "/variants/ring_no_trace/tracemalloc_peak_bytes",
-      "statistic": "8192-sample allocation probe peak; NOT RSS; repetitions not specified in original report"
     }
   },
   "candidate_identities_b": {

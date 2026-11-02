@@ -1,0 +1,12 @@
+{
+  "archive": "F:\\\u8d44\u6599\\WeChatFile\\xwechat_files\\wxid_0lxp48f6x79412_943d\\msg\\file\\2026-10\\\u62a5\u544a\u5bfc\u51fa\u811a\u672c.zip",
+  "archive_sha256": "9e1ce15d887e78626d811a588069a4dfc66d1e13301b6496e1ad8552e955d19e",
+  "project": "F:\\NUEC\\ss-screen-ps-i2c-s2\\project\\par\\SoundSight_PS_3D.xpr",
+  "project_sha256_before": "227d562368ed8034deac00a0d2bc0ac83740fb3d1ec95fcc718a110f3255f907",
+  "supplied": {
+    "export_bd_impl_reports.tcl": "0a2a842b82019150492418abe6eb1f8d3cf2e7440fde2aebd18c7dec32116d46",
+    "rebuild_tool.tcl": "135352787ead85f9272ba58c23708e414584d503a4cd9bd6c1dbbf414e97ba68",
+    "report-export-rules.md": "949875c354674b286d5697be0eb3122915ad7554dbac8804dd8c33baa404a9b9"
+  },
+  "purpose": "Existing saved S2 implementation reports only; no synthesis, implementation or hardware actions"
+}

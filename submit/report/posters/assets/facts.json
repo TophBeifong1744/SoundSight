@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-31",
+  "frontend_mean_seconds": {
+    "baseline": 7.333078533499993,
+    "opt1": 4.359630203500004
+  },
+  "frontend_reduction_percent": 40.54843155458199,
+  "input_seconds_each": 10.912,
+  "recording_count": 2,
+  "runs": [
+    {
+      "source": "logs/speaker-3d-20211118-232743-532522.json",
+      "seconds": 32.15870465100002,
+      "frames": 3012,
+      "commits": 117,
+      "runtime_fault": 0,
+      "drops": 0,
+      "gaps": 0,
+      "threshold": 0.45,
+      "ttl": 10.0,
+      "result": "PASS"
+    },
+    {
+      "source": "logs/speaker-3d-20211118-233002-942132.json",
+      "seconds": 27.254283026000053,
+      "frames": 2552,
+      "commits": 94,
+      "runtime_fault": 0,
+      "drops": 1,
+      "gaps": 1,
+      "threshold": 0.45,
+      "ttl": 10.0,
+      "result": "PASS"
+    }
+  ],
+  "sources": [
+    {
+      "path": "document/evidence/ps-speaker-live-opt-20261025/board-opt1-bench.json",
+      "sha256": "10c44077cf73ff2bc4db34d34391d4b20104c3722374b5c6f20ab846f7e12219"
+    },
+    {
+      "path": "document/evidence/speaker-dual-axis-20261030/board-tests.zip",
+      "sha256": "fff072281309055998dc92f3e4bee69f40a9079a8c4d51630705cb804296d162"
+    },
+    {
+      "path": "project/reports/ps_3d/latest_result/user-export/imp_schematic.png",
+      "sha256": "301b3437e90c9bc55101187efa79957e10fd9a823fc98b1e7334b82242e7fcbd"
+    },
+    {
+      "path": "document/evidence/ps-speaker-live-opt-20261025/board-opt1-bench-user.log",
+      "sha256": "3dc23f4518f24fe214198f287c1be56dbad4788a8e730bc167baaa6bd003ae61"
+    },
+    {
+      "path": "document/requirements/report-poster-master-guide.md",
+      "sha256": "e700b2985f193a5d39340ac5a84c44f96f5a0318c3d92a89ac9040cd50acf9e5"
+    },
+    {
+      "path": "document/main-architecture.md",
+      "sha256": "89a3ab71217baaf55727ee6e6b08af9704428a071b3ff81f878798663615de64"
+    },
+    {
+      "path": "software/tetra3d/README.md",
+      "sha256": "ccb4115dfd1c5b468c561f30e8fb467fa8dd385033424f148c4cd061679b5bf1"
+    }
+  ],
+  "scope": "Offline board benchmark and separate live sessions; no new measurements in this task."
+}

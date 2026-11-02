@@ -7,18 +7,6 @@
     },
     {
       "document": "report/history/acoustic-validation-plan.md",
-      "original_target": "team-workflow.md"
-    },
-    {
-      "document": "report/history/acoustic-validation-plan.md",
-      "original_target": "project-plan.md"
-    },
-    {
-      "document": "report/history/acoustic-validation-plan.md",
-      "original_target": "three-handoff-workflow.md"
-    },
-    {
-      "document": "report/history/acoustic-validation-plan.md",
       "original_target": "current-status.md"
     },
     {
@@ -32,10 +20,6 @@
     {
       "document": "report/history/acoustic-validation-plan.md",
       "original_target": "../deliverables/six-mic-acoustic-review-v1/README.md"
-    },
-    {
-      "document": "report/history/acoustic-validation-plan.md",
-      "original_target": "principles-flow.md#9-从多组-tdoa-求解-doa"
     },
     {
       "document": "report/history/acoustic-validation-plan.md",
@@ -78,86 +62,6 @@
       "original_target": "../task-packages/PKG-A-ACQ/evidence/existing-electrical-timing-audit-2026-09-10/README.md"
     },
     {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/six-mic-geometry.png"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/six-mic-direction-summary.png"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/six-mic-beam-cuts.png"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/six-channel-synthetic-input.wav"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/A-single-reference.wav"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/B-manual-direction.wav"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/C-auto-static-direction.wav"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../models/python/six_mic_acoustic_review.py"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/config.json"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/direction-trials.csv"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/direction-bins.csv"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/direction-summary.csv"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/self-tests.json"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/SUMMARY.md"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/audio-demo.json"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../results/model/six-mic-acoustic-review/manifest.json"
-    },
-    {
-      "document": "report/history/six-mic-acoustic-software-review.md",
-      "original_target": "../models/python/README.md"
-    },
-    {
-      "document": "report/history/three-dimensional-doa-engineering-guide.md",
-      "original_target": "team-workflow.md"
-    },
-    {
-      "document": "report/history/three-dimensional-doa-engineering-guide.md",
-      "original_target": "project-plan.md"
-    },
-    {
-      "document": "report/history/three-dimensional-doa-engineering-guide.md",
-      "original_target": "three-handoff-workflow.md"
-    },
-    {
       "document": "report/history/three-dimensional-doa-engineering-guide.md",
       "original_target": "engineering-flow.md"
     },
@@ -195,18 +99,6 @@
     },
     {
       "document": "report/history/three-dimensional-doa-plan.md",
-      "original_target": "team-workflow.md"
-    },
-    {
-      "document": "report/history/three-dimensional-doa-plan.md",
-      "original_target": "project-plan.md"
-    },
-    {
-      "document": "report/history/three-dimensional-doa-plan.md",
-      "original_target": "work-packages.md"
-    },
-    {
-      "document": "report/history/three-dimensional-doa-plan.md",
       "original_target": "../deliverables/six-mic-acoustic-review-v1/README.md"
     },
     {
@@ -235,18 +127,6 @@
     },
     {
       "document": "report/history/three-dimensional-doa-principles-guide.md",
-      "original_target": "team-workflow.md"
-    },
-    {
-      "document": "report/history/three-dimensional-doa-principles-guide.md",
-      "original_target": "project-plan.md"
-    },
-    {
-      "document": "report/history/three-dimensional-doa-principles-guide.md",
-      "original_target": "three-handoff-workflow.md"
-    },
-    {
-      "document": "report/history/three-dimensional-doa-principles-guide.md",
       "original_target": "principles-flow.md"
     },
     {
@@ -264,6 +144,86 @@
     {
       "document": "report/history/three-dimensional-doa-principles-guide.md",
       "original_target": "work-packages.md"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "report-revision-content.json"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "技术报告二次批注落实说明.md"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../requirements/report-poster-master-guide.md"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../../software/tetra3d/core/doa_solver_3d.c"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../main-architecture.md"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../../project/rtl/ss_dual_axis_control.sv"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../main-architecture.md"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../../software/ps/speaker_permission.py"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../evidence/speaker-dual-axis-20261030/README.md"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "report-revision-content.json"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../evidence/speaker-report-materials/README.md"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../requirements/report-poster-master-guide.md"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../posters/verification-checklist.md"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../../software/tetra3d/das/README.md"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../../software/ps/speaker_core/pipeline_backend.c"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../evidence/speaker-dual-axis-20261030/board-tests.zip"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../evidence/speaker-dual-axis-20261030/analysis.json"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../evidence/speaker-dual-axis-20261030/README.md"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../evidence/speaker-report-materials/records/E05/board-opt1-bench.json"
+    },
+    {
+      "document": "report/posters/assets/reference/zh-content-handoff.md",
+      "original_target": "../../current-status.md"
     },
     {
       "document": "report/pynq-latest-operations.md",

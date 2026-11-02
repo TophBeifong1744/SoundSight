@@ -15,7 +15,7 @@
 - **纯声音双轴跟随已经出现动作，但长稳发生整板重启。** 该次为`follow-sound --axes both`，未运行声纹推理；原因未确定，关轴持续对照只有准备结果、未收到持续时长/结论。不得归因于已证实的供电、看门狗或声纹负载，见[重启证据与边界](https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/project/reports/ps_3d/w16/board-unexpected-reboot.md)。
 - **A已收录B原资料ZIP。** 原件200文件、194份来源、189处内部链接的收件检查通过；不把原件里的194份历史引用复制到当前产品目录。见[收件说明](https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/evidence/b-report-supplement-20261029/README.md)。
 
-当前仍缺真实三维精度/标定、持续运行稳定性、声纹独立门限与身份方向关联、DAS实麦效果及最终比赛实物材料，见[当前验收范围](https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/requirements/acceptance.md)。PC/ARM离线/真实采集/人工动作观察继续分列；CP1/VF1历史数值通过而性能门限未达的结论保持。
+当前仍缺真实三维精度/标定、持续运行稳定性、声纹独立门限与身份方向关联及最终比赛实物材料，见[当前验收范围](https://github.com/TophBeifong1744/SoundSight/blob/2f8bddc0e1da58ac52b077fbd36e01a15083fec9/document/requirements/acceptance.md)。PC/ARM离线/真实采集/人工动作观察继续分列；CP1/VF1历史数值通过而性能门限未达的结论保持。
 
 
 ## 截至v3资料可以支持的结论
@@ -44,6 +44,6 @@ epoch26当时串口记录中“原件未取回”的说明保留为历史事实�
 
 当时声纹保存点：CP1+VF1已私下打包供A接入；ARM离线组合1.296293秒，比同轮原版快18.12%，比CP1再快2.01%。数值逐位一致不等于人物识别合格。用户授权开展接合不重写历史NO_ADOPTION；B侧尚无新组合真实采集并发回传。口头的“1秒采集+1.296秒≈2.3秒首结果”只是粗略估算，不进入metrics；采集/前端/推理是流水并行，不能简单累加各阶段总时长。
 
-当时三维保存点：B的dfe9975提供独立求解/空间滤波/可选DAS/纯软件双轴接合模块，PC及合成验证完成。A现有main的三维采集、许可/动作提交和机械接口另行维护，不声称已合入B全部六项候选，也不把双方测试数相加成新的整机验收。
+当时三维保存点：B的dfe9975提供独立求解/空间滤波/纯软件双轴接合模块，PC及合成验证完成。A现有main的三维采集、许可/动作提交和机械接口另行维护，不声称已合入B所有候选，也不把双方测试数相加成新的整机验收。
 
 完整算法源码入口与贡献边界见[三维与B贡献索引](06-b-algorithms.md)。B本轮转入比赛资料，暂停新的声纹优化/板卡操作；既有私有模型、录音、模板和交接包原样保留。后续实麦需要确认实际运行提交、目标配置、时间关联、门限标定及定位并发；不从本资料自动触发动作。

@@ -1,0 +1,2016 @@
+{
+  "recordCount": 79,
+  "records": [
+    {
+      "kind": "layout",
+      "id": "ly/atofqts7",
+      "editable": false,
+      "name": "",
+      "type": "master",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        },
+        {
+          "name": "body",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/ux4ruhcv",
+      "editable": false,
+      "name": "Title Slide - No Image",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Event name or presentation title"
+        },
+        {
+          "name": "body",
+          "type": "body",
+          "textPreview": "Speaker name or subtitle text"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/p83mt83u",
+      "editable": false,
+      "name": "Title Slide with Picture",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "picture",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        },
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Event name or presentation title"
+        },
+        {
+          "name": "body",
+          "type": "body",
+          "textPreview": "Speaker name or subtitle text"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/4v2ps7ql",
+      "editable": false,
+      "name": "Title and Content",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        },
+        {
+          "name": "content placeholder 3",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/3yt8jipk",
+      "editable": false,
+      "name": "Title & Non-bulleted text",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        },
+        {
+          "name": "body",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/elwrupwj",
+      "editable": false,
+      "name": "Two Content",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        },
+        {
+          "name": "content placeholder 4",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "content placeholder 8",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/14ra9krq",
+      "editable": false,
+      "name": "Two Column Non-bulleted text",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        },
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/07y1cjyt",
+      "editable": false,
+      "name": "Title Only",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/bqdgbyxk",
+      "editable": false,
+      "name": "Small title - half page",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/m1sra9c7",
+      "editable": false,
+      "name": "1_Custom Layout",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drop Image"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/2t4jax8v",
+      "editable": false,
+      "name": "Title with Square Picture",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "picture",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        },
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        },
+        {
+          "name": "body",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/rm10zq1g",
+      "editable": false,
+      "name": "Product/Feature - Square Photo",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        },
+        {
+          "name": "content placeholder 4",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "picture",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/ov6t8ra5",
+      "editable": false,
+      "name": "Top Horizontal Photo and Title",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        },
+        {
+          "name": "picture",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/psz2ps32",
+      "editable": false,
+      "name": "Bottom Horizontal Photo and Title",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        },
+        {
+          "name": "picture",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/ilcjap47",
+      "editable": false,
+      "name": "Two picture content",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        },
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drag and drop your photo here | or click or tap icon below | to insert"
+        },
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/3qpgrqlg",
+      "editable": false,
+      "name": "Three picture content",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        },
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        },
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        },
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/sjah8f2x",
+      "editable": false,
+      "name": "Three content with headings",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "Text Placeholder 4",
+          "type": "body",
+          "textPreview": "Click to edit heading"
+        },
+        {
+          "name": "Text Placeholder 6",
+          "type": "body"
+        },
+        {
+          "name": "Content Placeholder 16",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "Text Placeholder 4",
+          "type": "body",
+          "textPreview": "Click to edit heading"
+        },
+        {
+          "name": "Text Placeholder 6",
+          "type": "body"
+        },
+        {
+          "name": "Content Placeholder 16",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "Text Placeholder 4",
+          "type": "body",
+          "textPreview": "Click to edit heading"
+        },
+        {
+          "name": "Text Placeholder 6",
+          "type": "body"
+        },
+        {
+          "name": "Content Placeholder 16",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/dwbupgv6",
+      "editable": false,
+      "name": "Three Products",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to add heading | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "Text Placeholder 6",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        },
+        {
+          "name": "Text Placeholder 6",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        },
+        {
+          "name": "Text Placeholder 6",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        },
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to add heading | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to add heading | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/qd87il83",
+      "editable": false,
+      "name": "Four picture content",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        },
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        },
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Drag & drop your photo here  | or click or tap icon below  | to insert"
+        },
+        {
+          "name": "Text Placeholder 3",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles"
+        },
+        {
+          "name": "Picture Placeholder",
+          "type": "picture",
+          "textPreview": "Dag & drop your photo here  | or click or tap icon below  | to insert"
+        },
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/n2hszmhw",
+      "editable": false,
+      "name": "Scorecard",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "Text Placeholder 4",
+          "type": "body",
+          "textPreview": "#"
+        },
+        {
+          "name": "Text Placeholder 6",
+          "type": "body",
+          "textPreview": "Click to add heading"
+        },
+        {
+          "name": "Text Placeholder 18",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "Text Placeholder 4",
+          "type": "body",
+          "textPreview": "#"
+        },
+        {
+          "name": "Text Placeholder 6",
+          "type": "body",
+          "textPreview": "Click to add heading"
+        },
+        {
+          "name": "Text Placeholder 18",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "Text Placeholder 4",
+          "type": "body",
+          "textPreview": "#"
+        },
+        {
+          "name": "Text Placeholder 6",
+          "type": "body",
+          "textPreview": "Click to add heading"
+        },
+        {
+          "name": "Text Placeholder 18",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "Text Placeholder 4",
+          "type": "body",
+          "textPreview": "#"
+        },
+        {
+          "name": "Text Placeholder 6",
+          "type": "body",
+          "textPreview": "Click to add heading"
+        },
+        {
+          "name": "Text Placeholder 18",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "Text Placeholder 4",
+          "type": "body",
+          "textPreview": "#"
+        },
+        {
+          "name": "Text Placeholder 6",
+          "type": "body",
+          "textPreview": "Click to add heading"
+        },
+        {
+          "name": "Text Placeholder 18",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "Text Placeholder 4",
+          "type": "body",
+          "textPreview": "#"
+        },
+        {
+          "name": "Text Placeholder 6",
+          "type": "body",
+          "textPreview": "Click to add heading"
+        },
+        {
+          "name": "Text Placeholder 18",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        },
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/nqlkrm9w",
+      "editable": false,
+      "name": "Screenshot and caption",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        },
+        {
+          "name": "body",
+          "type": "body",
+          "textPreview": "Add a caption"
+        },
+        {
+          "name": "picture",
+          "type": "picture",
+          "textPreview": "Drag & drop a | screenshot here | or click or tap icon | below to insert"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/29czmt87",
+      "editable": false,
+      "name": "Agenda",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        },
+        {
+          "name": "body",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/lsbex8z6",
+      "editable": false,
+      "name": "Title and text side by side 2",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Title"
+        },
+        {
+          "name": "body",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/cbmhk7id",
+      "editable": false,
+      "name": "Demo slide",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Demo title"
+        },
+        {
+          "name": "body",
+          "type": "body",
+          "textPreview": "Speaker name"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/3m907qdc",
+      "editable": false,
+      "name": "Blank",
+      "type": ""
+    },
+    {
+      "kind": "layout",
+      "id": "ly/25gn6xsz",
+      "editable": false,
+      "name": "Developer Code Layout",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Software code slide"
+        },
+        {
+          "name": "body",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/1gnihs3a",
+      "editable": false,
+      "name": "Disclaimer and Attribution",
+      "type": "",
+      "placeholders": [
+        {
+          "name": "title",
+          "type": "title",
+          "textPreview": "Click to edit Master title style"
+        },
+        {
+          "name": "body",
+          "type": "body",
+          "textPreview": "Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"
+        }
+      ]
+    },
+    {
+      "kind": "layout",
+      "id": "ly/o7ih4725",
+      "editable": false,
+      "name": "Closing logo slide",
+      "type": ""
+    },
+    {
+      "kind": "slide",
+      "id": "sl/y90nupkv",
+      "slideIndex": 0,
+      "layout": {
+        "id": "ly/07y1cjyt",
+        "name": "Title Only"
+      },
+      "title": "Radio telescopes use wireless radio reception, measurement, and analysis of c...",
+      "textShapes": 40,
+      "backgroundColor": "rgba(255,255,255,1)"
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/sryl4zqx",
+      "slideIndex": 0,
+      "position": {
+        "left": 18.88,
+        "top": 186.64,
+        "width": 380.94,
+        "height": 483.02
+      },
+      "name": "Content Placeholder 2",
+      "text": "Radio telescopes use wireless radio reception, measurement, and analysis of celestial radio signals to explore the radio window of celestial bodies after the optical window. \n\n\n\n\nA typical radio telescope system consists of an antenna system, a receiver analog front-end system, a data processing and recording system. Most of the current receiver systems have the capability of accumulate integration, FFT transformation, and correlation calculation, but cannot retain the raw data of the radio signals, Lost a lot of temporal information.\nKey technical issues addressed:\n1. Signal acquisition, High-performance ADC (Analog-to-Digital Converter) device.\n2. Data receiving and processing, AMD-Xilinx 7 series Zynq System on a Chip (SoC) devices.\n3. Data transmitting, SERDES (Serializer/Deserializer) Interface with GTX for 10G linerate.\n4. Data storing, Dedicated server with disk array and RNIC support.\n\n\n",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 14.67,
+        "typeface": "Calibri",
+        "color": "#000000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/fu94fe98",
+      "slideIndex": 0,
+      "position": {
+        "left": 45.71,
+        "top": 113.78,
+        "width": 293.47,
+        "height": 43.54
+      },
+      "name": "Title 1",
+      "placeholder": "title",
+      "text": "INTRODUCTION",
+      "fillColor": "#2F2F2F",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/utg3698n",
+      "slideIndex": 0,
+      "position": {
+        "left": 22.54,
+        "top": 41.55,
+        "width": 521.7,
+        "height": 48.47
+      },
+      "name": "TextBox 8",
+      "text": "Title ：Times New Roman Size：24",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 32,
+        "typeface": "Times New Roman",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "shape",
+      "id": "sh/wn6dc7eh",
+      "slideIndex": 0,
+      "position": {
+        "left": 811.88,
+        "top": 219.49,
+        "width": 43.2,
+        "height": 334.8
+      },
+      "name": "Title 1",
+      "geometry": "rect",
+      "fillColor": "#2F2F2F",
+      "style": {
+        "fontSize": 58.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/hofulsf2",
+      "slideIndex": 0,
+      "position": {
+        "left": 102.35,
+        "top": 346.7,
+        "width": 197.6,
+        "height": 25.67
+      },
+      "name": "文本框 4",
+      "text": "Typical application case",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 14.67,
+        "typeface": "微软雅黑",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "shape",
+      "id": "sh/ul4vaxgb",
+      "slideIndex": 0,
+      "position": {
+        "left": 628.54,
+        "top": 18.35,
+        "width": 243.81,
+        "height": 183.02
+      },
+      "name": "Straight Connector 11",
+      "geometry": "line",
+      "lineWidth": 1.33
+    },
+    {
+      "kind": "shape",
+      "id": "sh/vmdcj2xw",
+      "slideIndex": 0,
+      "position": {
+        "left": 872.35,
+        "top": 200.16,
+        "width": 388.77,
+        "height": 1.13
+      },
+      "name": "Straight Connector 12",
+      "geometry": "line",
+      "lineWidth": 1.33
+    },
+    {
+      "kind": "shape",
+      "id": "sh/4r6dg7et",
+      "slideIndex": 0,
+      "position": {
+        "left": 872.35,
+        "top": 201.37,
+        "width": 0,
+        "height": 496.53
+      },
+      "name": "Straight Connector 13",
+      "geometry": "line",
+      "lineWidth": 1.33
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/5sfepcfe",
+      "slideIndex": 0,
+      "position": {
+        "left": 820.14,
+        "top": 413.29,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 14",
+      "text": "D",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/ipovexwn",
+      "slideIndex": 0,
+      "position": {
+        "left": 820.14,
+        "top": 433.74,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 15",
+      "text": "E",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/3qxwn2x8",
+      "slideIndex": 0,
+      "position": {
+        "left": 820.14,
+        "top": 454.98,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 16",
+      "text": "S",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/sfqdkrep",
+      "slideIndex": 0,
+      "position": {
+        "left": 820.14,
+        "top": 475.43,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 17",
+      "text": "I",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/dgzetcfa",
+      "slideIndex": 0,
+      "position": {
+        "left": 820.14,
+        "top": 494.96,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 18",
+      "text": "N",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/1cvuxc7e",
+      "slideIndex": 0,
+      "position": {
+        "left": 820.14,
+        "top": 515.52,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 19",
+      "text": "G",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/0bmd476t",
+      "slideIndex": 0,
+      "position": {
+        "left": 818.57,
+        "top": 218.54,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 20",
+      "text": "C",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/zadcv2p8",
+      "slideIndex": 0,
+      "position": {
+        "left": 820.14,
+        "top": 239,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 21",
+      "text": "R",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/e94v2hon",
+      "slideIndex": 0,
+      "position": {
+        "left": 820.14,
+        "top": 260.23,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 22",
+      "text": "E",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/90ve1w7q",
+      "slideIndex": 0,
+      "position": {
+        "left": 820.14,
+        "top": 280.68,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 23",
+      "text": "A",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/ozmd8r65",
+      "slideIndex": 0,
+      "position": {
+        "left": 820.14,
+        "top": 300.21,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 24",
+      "text": "T",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/nydczmpk",
+      "slideIndex": 0,
+      "position": {
+        "left": 820.14,
+        "top": 320.77,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 25",
+      "text": "I",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/mx4v6hoz",
+      "slideIndex": 0,
+      "position": {
+        "left": 820.14,
+        "top": 340.14,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 26",
+      "text": "V",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/p4bu5s76",
+      "slideIndex": 0,
+      "position": {
+        "left": 820.14,
+        "top": 361.23,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 27",
+      "text": "E",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/432dwn6l",
+      "slideIndex": 0,
+      "position": {
+        "left": 682.31,
+        "top": 24.86,
+        "width": 254.4,
+        "height": 28.93
+      },
+      "name": "TextBox 28",
+      "text": "Hao Zhang, Zian Zhan, Jiale Ji",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 16,
+        "typeface": "Times New Roman",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/uxgjq907",
+      "slideIndex": 0,
+      "position": {
+        "left": 1053.63,
+        "top": 168.73,
+        "width": 235.03,
+        "height": 23.19
+      },
+      "name": "文本框 4",
+      "text": "On board test by AMD ZYNQ7000",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 13.33,
+        "typeface": "Times New Roman",
+        "color": "#000000",
+        "bold": true,
+        "italic": true,
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/vyp0je1s",
+      "slideIndex": 0,
+      "position": {
+        "left": 727.76,
+        "top": 46.05,
+        "width": 399,
+        "height": 67.73
+      },
+      "name": "TextBox 30",
+      "text": "China Three Gorges University, \nHubei Province\n",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 16,
+        "typeface": "Times New Roman",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "shape",
+      "id": "sh/wzy1szid",
+      "slideIndex": 0,
+      "position": {
+        "left": 893.13,
+        "top": 215.45,
+        "width": 39.68,
+        "height": 176.22
+      },
+      "name": "Title 1",
+      "geometry": "rect",
+      "fillColor": "#2F2F2F",
+      "style": {
+        "fontSize": 58.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/h072l4jy",
+      "slideIndex": 0,
+      "position": {
+        "left": 898.21,
+        "top": 231.02,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 32",
+      "text": "R",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/i1gje90j",
+      "slideIndex": 0,
+      "position": {
+        "left": 898.21,
+        "top": 250.87,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 33",
+      "text": "E",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/j2pkne14",
+      "slideIndex": 0,
+      "position": {
+        "left": 898.21,
+        "top": 272.17,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 34",
+      "text": "S",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/43y1gji9",
+      "slideIndex": 0,
+      "position": {
+        "left": 898.21,
+        "top": 295.09,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 35",
+      "text": "U",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/54r2poju",
+      "slideIndex": 0,
+      "position": {
+        "left": 898.21,
+        "top": 316.76,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 36",
+      "text": "L",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/y5wjip0z",
+      "slideIndex": 0,
+      "position": {
+        "left": 898.21,
+        "top": 337.89,
+        "width": 29.05,
+        "height": 38.78
+      },
+      "name": "TextBox 37",
+      "text": "T",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Aharoni",
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/e1oz61c3",
+      "slideIndex": 0,
+      "position": {
+        "left": 902.63,
+        "top": 412.68,
+        "width": 373.47,
+        "height": 224.93
+      },
+      "name": "文本框 3",
+      "text": "SFP+ interface is driven directly by GTX, can be programmed by users to support various communication protocols. This high degree of programmability ensures maximum compatibility with both existing and future communication devices, thereby reducing the cost of device deployment and iterative updates.\nRaw data storage requires a significant amount of storage bandwidth. The limitations of current storage devices necessitate the need to build disk arrays that can support high-bandwidth data storage. ",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 14.67,
+        "typeface": "Calibri",
+        "color": "#000000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/036h8but",
+      "slideIndex": 0,
+      "position": {
+        "left": 460.21,
+        "top": 372.09,
+        "width": 283,
+        "height": 25.67
+      },
+      "name": "文本框 4",
+      "text": "System Architecture",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 14.67,
+        "typeface": "微软雅黑",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "center"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/mpozalcz",
+      "slideIndex": 0,
+      "position": {
+        "left": 441.94,
+        "top": 584.49,
+        "width": 345.22,
+        "height": 106.25
+      },
+      "name": "矩形: 圆角 10",
+      "text": "High-speed Acquisition Card:\n1. Sampling and Quantization of Analog Signals;\n2. Receiving and Handling data from ADC;\n3. Transporting data to next work platform;",
+      "geometry": "roundRect",
+      "style": {
+        "fontSize": 16,
+        "typeface": "Calibri",
+        "color": "#FF0000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/9sfylgbq",
+      "slideIndex": 0,
+      "position": {
+        "left": 443.36,
+        "top": 405.18,
+        "width": 343.8,
+        "height": 164.46
+      },
+      "name": "矩形: 圆角 11",
+      "text": "Optical Communication Receiver Card:\n1. Communicating with the acquisition card;\n2. Receiving and Handling data from SFP+ with protocol such as Ethernet, Aurora and so on;\n3. Acting as an assistant to speed up the data processing workflow;\n4. Collaborating with the server for data uplink and downlink;",
+      "geometry": "roundRect",
+      "style": {
+        "fontSize": 16,
+        "typeface": "Calibri",
+        "color": "#FF0000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/buh0nqtg",
+      "slideIndex": 0,
+      "position": {
+        "left": 108.85,
+        "top": 165.56,
+        "width": 233.26,
+        "height": 26.44
+      },
+      "name": "Content Placeholder 2",
+      "text": "Font: Calibri(Body) Size:11  Size:11",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 14.67,
+        "typeface": "Calibri",
+        "color": "#000000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/at8zelcb",
+      "slideIndex": 0,
+      "position": {
+        "left": 738.81,
+        "top": -0.17,
+        "width": 360.76,
+        "height": 26.44
+      },
+      "name": "Content Placeholder 2",
+      "text": "Team Member Names Font: Times New Roman Size:12 ",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 14.67,
+        "typeface": "Calibri",
+        "color": "#000000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/8zqx4vq9",
+      "slideIndex": 0,
+      "position": {
+        "left": 1087.72,
+        "top": 146.35,
+        "width": 137.89,
+        "height": 26.44
+      },
+      "name": "Content Placeholder 2",
+      "text": "作品实物缩略图",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 14.67,
+        "typeface": "Calibri",
+        "color": "#000000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/t0jyd0ru",
+      "slideIndex": 0,
+      "position": {
+        "left": 1089.28,
+        "top": 188.11,
+        "width": 192.04,
+        "height": 26.44
+      },
+      "name": "Content Placeholder 2",
+      "text": "作品测试平台信息",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 14.67,
+        "typeface": "Calibri",
+        "color": "#000000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/6x8f2583",
+      "slideIndex": 0,
+      "position": {
+        "left": 984.69,
+        "top": 83.67,
+        "width": 58.39,
+        "height": 26.44
+      },
+      "name": "Content Placeholder 2",
+      "text": "校徽",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 14.67,
+        "typeface": "Calibri",
+        "color": "#000000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/7yhgbq9o",
+      "slideIndex": 0,
+      "position": {
+        "left": 795.9,
+        "top": 95.09,
+        "width": 58.39,
+        "height": 26.44
+      },
+      "name": "Content Placeholder 2",
+      "text": "校名",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 14.67,
+        "typeface": "Calibri",
+        "color": "#000000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/kvqx0vqd",
+      "slideIndex": 0,
+      "position": {
+        "left": 488.14,
+        "top": 349.71,
+        "width": 223.87,
+        "height": 26.44
+      },
+      "name": "Content Placeholder 2",
+      "text": "系统框图，关键创新点",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 14.67,
+        "typeface": "Calibri",
+        "color": "#000000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/lwzy90ry",
+      "slideIndex": 0,
+      "position": {
+        "left": 931.94,
+        "top": 645.11,
+        "width": 184.86,
+        "height": 26.44
+      },
+      "name": "Content Placeholder 2",
+      "text": "测试结果，性能，展望",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 14.67,
+        "typeface": "Calibri",
+        "color": "#000000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "textbox",
+      "id": "sh/yt8fyl87",
+      "slideIndex": 0,
+      "position": {
+        "left": 162.34,
+        "top": 511.93,
+        "width": 184.6,
+        "height": 26.44
+      },
+      "name": "Content Placeholder 2",
+      "text": "背景，关键信息摘要",
+      "geometry": "rect",
+      "style": {
+        "fontSize": 14.67,
+        "typeface": "Calibri",
+        "color": "#000000",
+        "alignment": "left"
+      }
+    },
+    {
+      "kind": "image",
+      "id": "im/s7a1obih",
+      "slideIndex": 0,
+      "position": {
+        "left": 861.93,
+        "top": 104.58,
+        "width": 185.23,
+        "height": 104.19
+      },
+      "name": "Picture 38"
+    },
+    {
+      "kind": "image",
+      "id": "im/43elgf2p",
+      "slideIndex": 0,
+      "position": {
+        "left": 973.54,
+        "top": 17.21,
+        "width": 76.5,
+        "height": 75.79
+      },
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 0.689,
+        "bottom": 0
+      },
+      "name": "Picture 11"
+    },
+    {
+      "kind": "image",
+      "id": "im/21c3e5kj",
+      "slideIndex": 0,
+      "position": {
+        "left": 27.01,
+        "top": 257.34,
+        "width": 348.27,
+        "height": 79.93
+      },
+      "name": "图片 7"
+    },
+    {
+      "kind": "image",
+      "id": "im/gzulcv2d",
+      "slideIndex": 0,
+      "position": {
+        "left": 436.34,
+        "top": 122.29,
+        "width": 321.69,
+        "height": 230.34
+      },
+      "name": "图片 2"
+    },
+    {
+      "kind": "image",
+      "id": "im/felkjq1s",
+      "slideIndex": 0,
+      "position": {
+        "left": 1086.86,
+        "top": 3.91,
+        "width": 168.5,
+        "height": 147.29
+      },
+      "name": "图片 5"
+    }
+  ],
+  "truncated": false,
+  "metadata": {
+    "target": {
+      "id": "pr/4jq56h"
+    },
+    "omittedRecords": 0,
+    "abbreviatedRecords": 0,
+    "notices": []
+  }
+}

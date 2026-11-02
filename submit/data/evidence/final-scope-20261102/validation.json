@@ -1,0 +1,119 @@
+{
+  "scope": "FUNCTION_REMOVAL_AND_DOCUMENTATION",
+  "current_online_code_and_rtl": "UNCHANGED",
+  "preserved_numeric_functions": {
+    "models/python/six_mic_acoustic_review.py": [
+      "unit",
+      "angle",
+      "source",
+      "shift",
+      "render",
+      "gcc",
+      "solve",
+      "make_trial",
+      "ratio",
+      "band_ratio",
+      "geometry_tests",
+      "write_csv",
+      "font",
+      "plot_panels"
+    ],
+    "models/python/soundsight_h3_portable/chain.py": [
+      "expected_units",
+      "ActivityState",
+      "solve_doa_vector_q20",
+      "_set",
+      "run_numeric_frame"
+    ]
+  },
+  "python_syntax_files": 69,
+  "original_templates_byte_equal": [
+    "technical-report-template.docx",
+    "design-report-requirements.jpg",
+    "design-report-scoring.png",
+    "poster-reference.pptx",
+    "poster-reference-annotated.jpg"
+  ],
+  "six_mic": {
+    "files": {
+      "direction-bins.csv": {
+        "rows": 540,
+        "max_absolute_difference": 0.0
+      },
+      "direction-summary.csv": {
+        "rows": 9,
+        "max_absolute_difference": 0.0
+      },
+      "direction-trials.csv": {
+        "rows": 2700,
+        "max_absolute_difference": 0.0
+      }
+    },
+    "outside_tolerance": 0
+  },
+  "current_software_tests": [
+    {
+      "test": "software/tetra3d/tests/test_online_3d.py",
+      "exit": 0,
+      "summary": [
+        "Ran 21 tests in 0.150s",
+        "OK"
+      ]
+    },
+    {
+      "test": "software/tetra3d/tests/test_follow_sound.py",
+      "exit": 0,
+      "summary": [
+        "Ran 7 tests in 0.051s",
+        "OK"
+      ]
+    },
+    {
+      "test": "software/tests/test_speaker_follow.py",
+      "exit": 0,
+      "summary": [
+        "Ran 27 tests in 0.230s",
+        "OK"
+      ]
+    },
+    {
+      "test": "software/tests/test_speaker_display.py",
+      "exit": 0,
+      "summary": [
+        "Ran 7 tests in 0.008s",
+        "OK"
+      ]
+    },
+    {
+      "test": "software/tetra3d/tests/test_cf1.py",
+      "exit": 0,
+      "summary": [
+        "Ran 12 tests in 0.133s",
+        "OK"
+      ]
+    }
+  ],
+  "commands": [
+    "python -B tools/check_current_software.py --output <empty-check-directory>",
+    "python -B software/tests/test_current_runtime.py",
+    "python -B research/six-mic/src/six_mic_acoustic_review.py --out <new-results> --repeats 5",
+    "python -B research/six-mic/verify_package.py --reproduced <new-results>",
+    "cd models/python; python -B -m soundsight_h3_portable --help"
+  ],
+  "installer_tests": 9,
+  "initial_failures": [
+    {
+      "check": "legacy numeric entry import",
+      "cause": "stale run_causal_interval export",
+      "resolution": "removed stale export; help/import passes"
+    },
+    {
+      "check": "old six-mic byte comparison",
+      "cause": "CRLF/LF difference only",
+      "resolution": "exact text comparison after newline normalization; all numeric values identical"
+    }
+  ],
+  "report_artworks_modified": false,
+  "eda": "NOT_RUN",
+  "board": "NOT_RUN"
+}

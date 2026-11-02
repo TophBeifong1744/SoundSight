@@ -45,25 +45,7 @@ P50/P95只统计被算法接受的帧，必须与“有效输出/所有目标活
 
 ![六麦方向误差与有效率](../../../data/research/six-mic/results/six-mic-direction-summary.png)
 
-## 4. 波束与音频
-
-理想远场、指向+x、水平相差90°的单频干扰，在该六麦布局下的衰减为：500 Hz约0.19 dB、1 kHz约0.78 dB、2 kHz约3.08 dB、4 kHz约9.35 dB。低频方向选择仍很弱；增加上下麦并不自动消除小孔径限制。此处没有运行四麦比较。
-
-![六麦理想波束截面](../../../data/research/six-mic/results/six-mic-beam-cuts.png)
-
-另做一组六通道、3秒的合成音频：目标方位0°/俯仰30°，干扰方位90°/俯仰0°，两者距阵列1.5 m；目标为宽带噪声探针，干扰为1.5～4 kHz带限噪声且约低6 dB。去掉两端各0.25秒，导出2.5秒样本。
-
-| 输出 | 目标/干扰比SIR | 相对固定单麦改善 |
-|---|---:|---:|
-| A：mic0单麦参考 | 5.99 dB | — |
-| B：六麦手动真实方向 | 11.65 dB | 5.65 dB |
-| C：六麦自动静态方向 | 11.28 dB | 5.29 dB |
-
-C用81个有效帧方向的向量平均作为整段静态指向，误差约4.05°；共尝试186帧，有效比例仅43.55%，不能用整段C音频掩盖在线定位大量拒绝的问题。这不是逐帧在线跟踪。输出共用同一增益，未分别归一化掩盖音量变化；指标按量化前已知目标/干扰分量计算，WAV为16 bit。原六通道输入一并保存。这是单个有利带限干扰场景，不是自然语音清晰度、房间平均SNR或V1“4 dB”实测验收。
-
-音频与数据：[六通道合成输入](../../../data/research/six-mic/results/six-channel-synthetic-input.wav)、[A单麦](../../../data/research/six-mic/results/a-single-reference.wav)、[B手动](../../../data/research/six-mic/results/b-manual-direction.wav)、[C自动静态](../../../data/research/six-mic/results/c-auto-static-direction.wav)。这些是噪声测试音，不是语音。
-
-## 5. 评审结论与未通过项
+## 4. 评审结论与未通过项
 
 本轮已完成六麦浮点第一基线，支持继续研究该六麦候选，但不批准硬件冻结。3D-G0只能登记“部分模型证据已形成、失败条件已发现”。
 
@@ -71,12 +53,12 @@ C用81个有效帧方向的向量平均作为整段静态指向，误差约4.05�
 
 仍缺：自然语音和真实房间RIR/录音、更广泛距离与高度、分布式标定误差、静音环境误报率、物理遮挡/模块方向性、自动异常通道识别、连续跟踪与延迟、PDM抽取/定点误差，以及完整FPGA资源/周期/时序预算。原全pair的6 FFT＋15 IFFT只是一部分运算计数，软件运行耗时不等于PL时限验证。
 
-## 6. 复现和文件
+## 5. 复现和文件
 
 - [模型入口](src/six_mic_acoustic_review.py)：仅六麦，不修改RTL/Vivado/采集合同，依赖现有NumPy和Pillow，无额外安装。
 - [机器可读配置](../../../data/research/six-mic/results/config.json)：坐标、采样率、频带、种子、场景、阈值、源码哈希和环境版本。
 - [逐帧记录](../../../data/research/six-mic/results/direction-trials.csv)、[分方向记录](../../../data/research/six-mic/results/direction-bins.csv)、[汇总](../../../data/research/six-mic/results/direction-summary.csv)、[自检](../../../data/research/six-mic/results/self-tests.json)。
-- [英文结果说明](../../../data/research/six-mic/results/summary.md)、[音频指标](../../../data/research/six-mic/results/audio-demo.json)、[产物SHA-256](../../../data/research/six-mic/results/manifest.json)。
+- [英文结果说明](../../../data/research/six-mic/results/summary.md)、[产物SHA-256](../../../data/research/six-mic/results/manifest.json)。
 
 ```powershell
 python src/six_mic_acoustic_review.py --out reproduced-results --repeats 5
@@ -84,4 +66,4 @@ python src/six_mic_acoustic_review.py --out reproduced-results --repeats 5
 
 运行会重新生成指定目录中同名模拟产物；换一个空目录可做独立复跑。文档中的结果是本脚本的合成模型计算，不引用外部项目性能作为本项目证据。
 
-验证记录：21个自检通过，2700帧结果保存；在独立临时目录复跑并比较15个产物SHA-256，检查全部一致；三张图已逐张查看，标签和数据范围可读。上述检查证明本轮计算可复现，不证明声学指标全面通过。
+验证记录：21个自检通过，2700帧结果保存；在独立临时目录复跑并比较方向相关产物，检查保留的方向统计；两张方向相关图已查看，标签和数据范围可读。上述检查证明本轮计算可复现，不证明声学指标全面通过。
