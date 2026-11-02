@@ -1,0 +1,2 @@
+# Keep the evidence snapshot byte-identical across Windows/Linux checkouts.
+zh-content-handoff.md -text -eol -whitespace
