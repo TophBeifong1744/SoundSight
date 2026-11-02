@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-02",
+  "deleted": [
+    "document/posters/output/SoundSight-poster-en-content-v1.pptx",
+    "document/posters/output/SoundSight-poster-en-content-v1.pdf",
+    "document/posters/output/SoundSight-poster-en-content-v1.png",
+    "document/posters/output/SoundSight-poster-en-content-v2.pptx",
+    "document/posters/output/SoundSight-poster-en-content-v2.pdf",
+    "document/posters/output/SoundSight-poster-en-content-v2.png",
+    "codex_out/poster-content-en"
+  ],
+  "archived_failure": "document/evidence/posters-en-20261102/rejected-v1.png",
+  "remaining_task_temporary_files": [],
+  "other_chat_files_preserved": true
+}

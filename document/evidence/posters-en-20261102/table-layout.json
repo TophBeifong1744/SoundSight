@@ -1,0 +1,47 @@
+{
+  "x": 948,
+  "y": 251,
+  "widths": [
+    193,
+    60,
+    60
+  ],
+  "rowHeight": 21,
+  "values": [
+    [
+      "Metric",
+      "Run 1",
+      "Run 2"
+    ],
+    [
+      "Logged duration / s",
+      "32.159",
+      "27.254"
+    ],
+    [
+      "Localization frames read",
+      "3012",
+      "2552"
+    ],
+    [
+      "Speaker evaluations before STOP",
+      "6",
+      "6"
+    ],
+    [
+      "Pan–tilt target commands",
+      "117",
+      "94"
+    ],
+    [
+      "Runtime fault value",
+      "0",
+      "0"
+    ],
+    [
+      "Old localization results dropped",
+      "0",
+      "1"
+    ]
+  ]
+}
