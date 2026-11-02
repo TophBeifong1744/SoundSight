@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "package": "soundsight_three_d_coherent_cf1a.zip",
+  "bytes": 34513,
+  "sha256": "5649788d4962df613f25e8060c31a4a8ea9f6543e01355ce667fcf70db2f6698",
+  "payload_files": 9,
+  "dependencies": 31,
+  "python38_syntax": true,
+  "tested_python_sources_equal": true,
+  "crc": true,
+  "board_test": "NOT_RUN",
+  "hardware_actions": 0
+}

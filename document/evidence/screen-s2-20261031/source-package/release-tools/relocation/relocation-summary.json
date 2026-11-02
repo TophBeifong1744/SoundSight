@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "source_hashes_matched_before_generation": 51,
+  "source_manifest_sha256": "7075d23512f122da9795afe282013cc8cb2e97d24449c550451ca5bd2d24f242",
+  "top_level_ip_identities_and_parameters_equal": true,
+  "external_scalar_ports_equal": true,
+  "external_interface_ports_equal": true,
+  "scalar_nets_equal": true,
+  "interface_nets_equal": true,
+  "ps7_init_sha256_equal": true,
+  "ps7_init_sha256": "f12c22e5ee88060217e1327ab7686a2bd51189b5f0b861306bd8ec8033cbdc1b",
+  "runtime_error_lines": [],
+  "critical_warning_lines": [],
+  "vivado_result": "PROJECT=F:/NUEC/ss-screen-ps-i2c-relocation-s2/project/par/SoundSight_PS_3D.xpr\nVERSION=2025.2\nINPUTS=122\nMANAGED_IPS=35\nERRORS=0\nSYNTH_STATUS=Not started\nIMPL_STATUS=Not started\n",
+  "native_exit_code": 0,
+  "synthesis_or_implementation_started": false,
+  "board_access": false,
+  "original_frozen_product_writes": false
+}

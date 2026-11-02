@@ -1,0 +1,9 @@
+test_accepts_exact_S1_S1a_S1b_repeat_preserves_originals (__main__.InstallerTests.test_accepts_exact_S1_S1a_S1b_repeat_preserves_originals) ... ok
+test_backup_ledger_and_each_replacement_failure_restores_present_absent (__main__.InstallerTests.test_backup_ledger_and_each_replacement_failure_restores_present_absent) ... ok
+test_checksum_and_revision_rejected_without_mutation (__main__.InstallerTests.test_checksum_and_revision_rejected_without_mutation) ... ok
+test_unknown_local_and_hardware_rejected_without_mutation (__main__.InstallerTests.test_unknown_local_and_hardware_rejected_without_mutation) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 14.574s
+
+OK

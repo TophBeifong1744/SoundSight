@@ -28,3 +28,31 @@ submit/** -text -eol -whitespace
 project/reports/ps_3d/latest_result/** -text -eol -whitespace
 document/evidence/*-20261030/** -text -eol -whitespace
 release/output/ps_3d_latest_result/** -text -eol
+
+# Original S2/S3/CF1A sources and evidence: preserve bytes.
+project/rtl/** -text -eol -whitespace
+project/screen_s2/** -text -eol -whitespace
+project/sdc/ps/screen_s2/** -text -eol -whitespace
+project/reports/ps_3d/screen_s2/** -text -eol -whitespace
+software/screen/** -text -eol -whitespace
+software/tetra3d/linux/board_3d.py -text -eol -whitespace
+software/tetra3d/linux/client_3d.py -text -eol -whitespace
+software/tetra3d/linux/coherent_frontend.py -text -eol -whitespace
+software/tetra3d/linux/cf1_hann.mem -text -eol -whitespace
+software/tetra3d/linux/speaker_capture_3d.py -text -eol -whitespace
+software/tetra3d/linux/speaker_runtime_3d.py -text -eol -whitespace
+software/tetra3d/tests/test_cf1.py -text -eol -whitespace
+software/tetra3d/tests/test_follow_sound.py -text -eol -whitespace
+soundsight-screen.sh -text -eol -whitespace
+soundsight-screen-i2c.sh -text -eol -whitespace
+soundsight-panel.sh -text -eol -whitespace
+document/evidence/*-20261031/** -text -eol -whitespace
+document/evidence/*-20261101/** -text -eol -whitespace
+document/evidence/*-20261102/** -text -eol -whitespace
+research/coherent-study/** -text -eol -whitespace
+release/output/screen_s2/** -text -eol -whitespace
+
+document/screen-readme.md -text -eol -whitespace
+document/screen-control.md -text -eol -whitespace
+document/cf1-update.md -text -eol -whitespace
+document/cf1a-handoff/** -text -eol -whitespace

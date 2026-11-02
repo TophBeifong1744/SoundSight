@@ -45,3 +45,12 @@
 !/release/output/soundsight_latest_result_update.zip
 !/release/output/soundsight_vivado_ps_3d.zip
 !/release/output/ps_3d_latest_result/
+
+# Published material candidates; no private runtime bundle.
+!/release/output/screen_s2/
+!/release/output/soundsight_screen_ps_i2c_s2_source.zip
+!/release/output/soundsight_screen_ps_i2c_s2.zip
+!/release/output/soundsight_screen_control_s3.zip
+!/release/output/soundsight_three_d_coherent_cf1.zip
+!/release/output/soundsight_three_d_coherent_cf1a.zip
+!/release/output/soundsight_a_cf1a_handoff_20261102.zip

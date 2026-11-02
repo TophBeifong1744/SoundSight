@@ -1,3 +1,5 @@
+> 历史PR30配方：T15/W16、不含屏幕。当前J3/S2完整硬件请使用[2026-11-02材料说明](release-20261102-submit.md)中的prepare_screen_s2.py；本页旧命令保留用于历史复现。
+
 # 最新三维双轴 Vivado 工程复现
 
 最新手工工程的导出入口为 `project/script/export_portable_handoff.tcl`，见[可搬移导出说明](portable-handoff-export.md)。它收集当前工程实际依赖，不仅导出旧目录路径清单；本页既有发布ZIP仍代表其注明的候选。

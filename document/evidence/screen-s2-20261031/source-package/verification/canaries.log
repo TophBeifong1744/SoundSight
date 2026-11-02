@@ -1,0 +1,5 @@
+short-transfer-accepted: DETECTED
+read-message-flag-removed: DETECTED
+claimed-client-ignored: DETECTED
+GPIO-before-ownership: DETECTED
+EMIO-parameter-not-checked: DETECTED

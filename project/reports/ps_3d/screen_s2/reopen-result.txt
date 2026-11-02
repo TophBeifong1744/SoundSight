@@ -1,0 +1,6 @@
+PROJECT=SoundSight_PS_3D
+VERSION=2025.2
+INPUTS=136
+ERRORS=0
+SYNTH_STATUS=synth_design Complete!
+IMPL_STATUS=route_design Complete!

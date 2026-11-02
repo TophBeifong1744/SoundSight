@@ -12,6 +12,7 @@ for folder in ('software/ps', 'software/tests', 'software/tetra3d/linux', 'softw
     sys.path.insert(0, str(ROOT/folder))
 import board_3d
 import runtime_3d
+import speaker_runtime_3d
 from test_online_3d import config, AxisModel, result
 from client_3d import ThreeDClient
 import motion_3d
@@ -55,7 +56,7 @@ class FollowSoundTests(unittest.TestCase):
         # Execute main routing, not just parser; prohibit any speaker runtime import.
         original_import = __import__
         def checked_import(name, *args, **kwargs):
-            if name in ('speaker_runtime_3d', 'speaker_process', 'live_speaker_follow'):
+            if name in ('speaker_process', 'live_speaker_follow'):
                 raise AssertionError('Acoustic mode started speaker runtime')
             return original_import(name, *args, **kwargs)
         with tempfile.TemporaryDirectory() as temp, patch.object(board_3d, 'ROOT', Path(temp)), \
@@ -64,12 +65,13 @@ class FollowSoundTests(unittest.TestCase):
                 patch.object(board_3d, 'check_hwh'), \
                 patch.object(board_3d, 'single_owner', return_value=contextlib.nullcontext()), \
                 patch.object(board_3d.board_tools, 'inspect_loaded') as inspect, \
-                patch.object(runtime_3d, 'run', return_value=0) as run, \
+                patch.object(speaker_runtime_3d, 'run', return_value=0) as run, \
                 patch('builtins.__import__', side_effect=checked_import), \
                 contextlib.redirect_stdout(io.StringIO()) as output:
             self.assertEqual(board_3d.main(['follow-sound', '--axes', 'both', '--frames', '100', '--min-level', '7000',
                                            '--geometry', str(ROOT/'software/tetra3d/core/tetra40-nominal.json')]), 0)
             inspect.assert_called_once()
+            self.assertTrue(run.call_args.kwargs['acoustic'])
             self.assertEqual(run.call_args[0][0].axis_mask, 3)
             self.assertIn('IDENTITY_GATE=OFF', output.getvalue())
 

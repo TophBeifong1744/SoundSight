@@ -1,3 +1,5 @@
+2026-11-02资料更新：当前S2/J3屏幕硬件准备使用 `python -B tools/prepare_screen_s2.py --output ../s2_work`，仅复制文件；PR30的rebuild_ps_3d.bat保留为旧T15/W16硬件复现。当前源码为S2硬件+S3面板+CF1A，结果和未完成项见 document/release-20261102-submit.md。
+
 # SoundSight 当前约定
 
 使用中文沟通，先说明结论和原因。负责人是 Toph Beifong（拓芙）；重大目标、公共接口和技术取舍交用户决定。普通已授权工作直接完成，必要验证后交付，不逐小步骤询问。

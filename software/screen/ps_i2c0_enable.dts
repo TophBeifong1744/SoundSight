@@ -1,0 +1,13 @@
+/dts-v1/;
+/plugin/;
+
+// 仅启用板端已确认的 PS I2C0 节点；保留原时钟、IRQ、寄存器和 I2C1。
+/ {
+    fragment@0 {
+        target-path = "/amba/i2c@e0004000";
+        __overlay__ {
+            status = "okay";
+            clock-frequency = <100000>;
+        };
+    };
+};
