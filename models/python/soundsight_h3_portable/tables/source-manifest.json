@@ -31,20 +31,6 @@
       "bytes": 818,
       "sha256": "28fdfe04a92b95dc3c3ace42d960812ea569a64801d25d0da2ed8b0551c7cccf"
     },
-    "dynamic_das": {
-      "commit": "268e52627d091b8909890b43586c70564563132e",
-      "path": "task-packages/PKG-B-ALG/tasks/h3-interface-review-20260918/dynamic-das-20260921/dynamic_das.py",
-      "git_blob": "8f6197cd275980dbe2c7de4e195323eb81f8f13f",
-      "bytes": 6140,
-      "sha256": "c0ccf39467e58c0fc75e88146d84119970fb1dbbbf99733ced8f8e3947fe7e3c"
-    },
-    "delay_rom_loader": {
-      "commit": "268e52627d091b8909890b43586c70564563132e",
-      "path": "task-packages/PKG-B-ALG/tasks/h3-interface-review-20260918/dynamic-das-20260921/delay_rom.py",
-      "git_blob": "7c2e6eb02de75f62e255dfd83b7c9c418bb5a84c",
-      "bytes": 893,
-      "sha256": "0b70b43b9197ba7b00df0d140d649ff81d7df82c66f6b789c9d80ba86ea2c7bb"
-    },
     "strict_activity": {
       "commit": "a14cd0766d923f00428c42ff7dc5d2eb52db0e50",
       "path": "task-packages/PKG-B-ALG/tasks/h3-interface-review-20260918/fixed-nodes-20260921/b1b3/strict_activity.py",
@@ -59,26 +45,12 @@
       "bytes": 3143,
       "sha256": "c2f22ea3f6fb184a38d2f3802d89cd5487e202e44b4226075004460a4c7af1d8"
     },
-    "stream_das_reference": {
-      "commit": "a14cd0766d923f00428c42ff7dc5d2eb52db0e50",
-      "path": "task-packages/PKG-B-ALG/tasks/h3-interface-review-20260918/fixed-nodes-20260921/b5b6/stream_das.py",
-      "git_blob": "d893fd4228691f87b05083dbdd6cb9cedf72d154",
-      "bytes": 2022,
-      "sha256": "d2269d4bad261b134805517db6a4c5a042a5ec2f4817ea5630e703b11c4cd96b"
-    },
     "hann": {
       "path": "task-packages/PKG-B-ALG/tasks/h3-interface-review-20260918/fixed-nodes-20260921/b1b3/run02/hann-u18f17.u32le",
       "bytes": 4096,
       "sha256": "51a05f855181f1774c3373c83085fd5a2792f5db932d66b1f3dc768e8ec6a2f2",
       "git_blob": "ec63ac7d92cb0829c7d4a120495642dde588ca25",
       "commit": "a14cd0766d923f00428c42ff7dc5d2eb52db0e50"
-    },
-    "delay_rom": {
-      "path": "task-packages/PKG-B-ALG/tasks/h3-interface-review-20260918/dynamic-das-20260921/validation/portable01/delay/delay-rom-s16.npy",
-      "bytes": 553088,
-      "sha256": "acb899401cf0f1b7d7c9685d52c04bcbf28b6f1454b386bde57310f23776fe86",
-      "git_blob": "aaa7013be5802b78d57467d2026717bb88a7bb2c",
-      "commit": "268e52627d091b8909890b43586c70564563132e"
     }
   }
 }

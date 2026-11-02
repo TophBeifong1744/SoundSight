@@ -11,7 +11,6 @@ import csv
 import hashlib
 import json
 import platform
-import wave
 from pathlib import Path
 
 import numpy as np
@@ -132,10 +131,6 @@ def make_trial(az, el, repeat, scenario):
     return u, target, other
 
 
-def das(x, steering):
-    # True arrival offset ~= -r dot u/c, so compensate by +r dot u/c.
-    delays = POS @ steering / C * FS
-    return np.mean([shift(s, d) for s, d in zip(x, delays)], axis=0)
 
 
 def ratio(a, b):
@@ -221,27 +216,7 @@ def plot_panels(path, title, panels):
     im.save(path)
 
 
-def ideal_beams(out):
-    angles = np.arange(-180, 181)
-    target = unit(0, 0)
-    rows = []
-    panels = [{"title": "Azimuth cut: elevation 0 deg; x-axis degrees; y-axis dB", "yrange": (-40, 0),
-               "xrange": (-180, 180), "xticks": [(a, a) for a in range(-180, 181, 60)], "series": []},
-              {"title": "Elevation cut: azimuth 0 deg; x-axis degrees; y-axis dB", "yrange": (-40, 0),
-               "xrange": (-90, 90), "xticks": [(a, a) for a in range(-90, 91, 30)], "series": []}]
-    for freq in [500, 1000, 2000, 4000]:
-        for axis, panel in [("azimuth", panels[0]), ("elevation", panels[1])]:
-            aa = angles if axis == "azimuth" else np.arange(-90, 91)
-            dirs = np.array([unit(a, 0) if axis == "azimuth" else unit(0, a) for a in aa])
-            response = np.abs(np.exp(2j * np.pi * freq / C * POS @ (target - dirs).T).mean(axis=0))
-            db = 20 * np.log10(np.maximum(response, 1e-8))
-            panel["series"].append((f"{freq} Hz", aa, db))
-            for a, d in zip(aa, db):
-                rows.append({"cut": axis, "frequency_hz": freq, "angle_deg": a, "response_db": d})
-        onaxis = np.abs(np.exp(2j * np.pi * freq / C * POS @ (target - target)).mean())
-        assert np.isclose(onaxis, 1)
-    plot_panels(out / "six-mic-beam-cuts.png", "Six microphones / ideal Delay-and-Sum / target +x / model only", panels)
-    write_csv(out / "beam-cuts.csv", rows)
+def plot_geometry(out):
     im = Image.new("RGB", (900, 720), "white")
     d = ImageDraw.Draw(im)
     d.text((30, 20), "Six-mic candidate / dimensions in mm / not frozen", fill="#182b49", font=font(26))
@@ -259,60 +234,8 @@ def ideal_beams(out):
         d.text((xx + 14, yy + 8), str(tuple(round(v, 1) for v in p.tolist())), fill="#42536a", font=font(17))
     d.text((30, 650), "Horizontal square: side 40; upper/lower: z = +/-28.284", fill="#42536a", font=font(22))
     im.save(out / "six-mic-geometry.png")
-    return rows
 
 
-def audio_demo(out):
-    # Six original channels -> three outputs. No four-channel array involved.
-    count = FS * 3
-    rng = np.random.default_rng(SEED)
-    f = np.fft.rfftfreq(count, 1 / FS)
-    x = np.fft.irfft(np.fft.rfft(rng.normal(size=count)) * ((f >= 300) & (f <= 4000)))
-    x /= np.std(x)
-    z = np.fft.irfft(np.fft.rfft(rng.normal(size=count)) * ((f >= 1500) & (f <= 4000)))
-    z /= np.std(z)
-    u = unit(0, 30)
-    target, other = render(x, u), .501187 * render(z, unit(90, 0))
-    mixture = target + other
-    estimates = []
-    total_frames = 0
-    for start in range(FS // 2, count - FS // 2 - N, 512):
-        total_frames += 1
-        est, valid, _, _ = solve(gcc(mixture[:, start:start + N]))
-        if valid:
-            estimates.append(est)
-    if not estimates:
-        return {"status": "no_valid_auto_direction", "speech": False}
-    auto = np.mean(estimates, axis=0)
-    auto /= np.linalg.norm(auto)
-    signals = [mixture[0], das(mixture, u), das(mixture, auto)]
-    # Static automatic direction from multiple frames: NOT a realtime streaming demo.
-    crop = slice(FS // 4, count - FS // 4)
-    signals = [s[crop] for s in signals]
-    scale = .8 / max(max(np.max(np.abs(s)) for s in signals), np.max(np.abs(mixture[:, crop])))
-    files = ["A-single-reference.wav", "B-manual-direction.wav", "C-auto-static-direction.wav"]
-    for path, signal in zip(files, signals):
-        with wave.open(str(out / path), "wb") as w:
-            w.setnchannels(1)
-            w.setsampwidth(2)
-            w.setframerate(FS)
-            w.writeframes((signal * scale * 32767).astype("<i2").tobytes())
-    with wave.open(str(out / "six-channel-synthetic-input.wav"), "wb") as w:
-        w.setnchannels(6)
-        w.setsampwidth(2)
-        w.setframerate(FS)
-        w.writeframes((mixture[:, crop].T * scale * 32767).astype("<i2").tobytes())
-    inp = ratio(target[0, crop], other[0, crop])
-    manual_snr = ratio(das(target, u)[crop], das(other, u)[crop])
-    auto_snr = ratio(das(target, auto)[crop], das(other, auto)[crop])
-    return {"status": "synthetic_noise_probe_only", "speech": False, "files": files,
-            "common_gain": scale, "input_file": "six-channel-synthetic-input.wav",
-            "wav_quantization": "16-bit shared scale; metrics computed before quantization",
-            "target_az": 0, "target_el": 30,
-            "auto_error_deg": angle(u, auto), "auto_valid_frames": len(estimates),
-            "auto_total_frames": total_frames, "auto_valid_pct": 100 * len(estimates) / total_frames,
-            "input_sir_db": inp, "manual_sir_db": manual_snr, "auto_sir_db": auto_snr,
-            "manual_improvement_db": manual_snr - inp, "auto_improvement_db": auto_snr - inp}
 
 
 def run(out, repeats):
@@ -336,7 +259,7 @@ def run(out, repeats):
     (out / "config.json").write_text(json.dumps(config, ensure_ascii=False, indent=2), encoding="utf-8")
     tests = geometry_tests()
     (out / "self-tests.json").write_text(json.dumps(tests, indent=2), encoding="utf-8")
-    beamrows = ideal_beams(out)
+    plot_geometry(out)
     rows = []
     for scenario in SCENARIOS:
         for az in range(0, 360, 30):
@@ -389,8 +312,6 @@ def run(out, repeats):
          "xrange": (-.4, len(labels) - .6), "xticks": list(zip(xp, short)), "series": [("P95", xp, vals)]},
         {"title": "Valid outputs / ALL target-active frames (%)", "yrange": (0, 100),
          "xrange": (-.4, len(labels) - .6), "xticks": list(zip(xp, short)), "series": [("Valid %", xp, [s["valid_pct"] for s in summaries])]}])
-    demo = audio_demo(out)
-    (out / "audio-demo.json").write_text(json.dumps(demo, indent=2), encoding="utf-8")
     lines = ["# Six-microphone acoustic software pre-review", "", "Evidence: FLOATING / SYNTHETIC ONLY. Not hardware acceptance.", "",
              f"Self-tests: {len(tests)} PASS. Direction frames: {len(rows)}. Seed: {SEED}.", "",
              "| Scenario | Input band ratio dB | Valid % | P50 accepted deg | P95 accepted deg | Wrong >30 / all % |", "|---|---:|---:|---:|---:|---:|"]
@@ -400,20 +321,12 @@ def run(out, repeats):
               "Single-channel-noise results use all six channels; no automatic channel removal is claimed.",
               "Two controlled echoes are not a measured room/RT60 model. Probes are random band-limited noise, not speech.",
               "No four-microphone simulations were run. See config.json for every assumption and limitation.", "",
-              "## Ideal horizontal rejection at 90 degrees", "", "| Hz | Attenuation dB |", "|---|---:|"]
-    for f in [500, 1000, 2000, 4000]:
-        value = next(r["response_db"] for r in beamrows if r["cut"] == "azimuth" and r["frequency_hz"] == f and r["angle_deg"] == 90)
-        lines.append(f"| {f} | {-value:.3f} |")
-    lines += ["", "This is one geometry and angular cut, not broadband SNR or room measurement.", "",
-              "## Audio", "", "A/B/C WAV files share one global scale and come from one SIX-channel synthetic recording.",
-              "They contain noise probes, NOT speech. C uses a static mean of accepted direction estimates, not realtime tracking.",
-              "Known clean target/interferer components permit SIR calculation; audio-demo.json has exact values.",
-              "", "## Reproduction", "", "Run model/python/six_mic_acoustic_review.py --out <new_directory> --repeats 5.",
-              "Compare config.json, CSVs, self-tests.json and audio-demo.json; plots may include renderer metadata."]
+              "## Reproduction", "", "Run src/six_mic_acoustic_review.py --out <new_directory> --repeats 5.",
+              "Compare direction CSVs and self-tests; config/plots may vary with the environment."]
     (out / "SUMMARY.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     hashes = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.iterdir()) if p.is_file() and p.name != "manifest.json"}
     (out / "manifest.json").write_text(json.dumps(hashes, indent=2), encoding="utf-8")
-    print(json.dumps({"self_tests": len(tests), "frames": len(rows), "summary": summaries, "audio": demo}, indent=2))
+    print(json.dumps({"self_tests": len(tests), "frames": len(rows), "summary": summaries}, indent=2))
 
 
 if __name__ == "__main__":

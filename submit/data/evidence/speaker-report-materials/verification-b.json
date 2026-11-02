@@ -21,7 +21,6 @@
     "CONTRIBUTING.md": "60890091c7e3f7352a8ca4b6053153326a355c5aa64f2428654454a4c755fc00",
     "README.md": "53c405f6c43de4989bae7808754154e3d642b5374697f6a0534f57e228dfa34b",
     "batches/2026-10-21-tetra-migration.md": "3cd62262e9a2e22d7b0f1eaca26f848933fd7a0623c6606b2ef5beae07c5f735",
-    "batches/2026-10-25-tetra-das-optimization.md": "ffb102d1437eb8c27260a91864f74df6a9789a2ad7323aa424f20089abce225c",
     "batches/2026-10-26-target-development.md": "2bac1454e56acd0fc50fafc51df57487177baf4440e898a8a32b2ef277709300",
     "batches/2026-10-27-mp1-board.md": "61365b3433081025b9365ad6bbf329e1f44b79fbc4432c02676e1cf6585ecdb2",
     "batches/2026-10-27-rx4-board.md": "1b6f99afd6b6c9968ab11896d10b697647820bb11f437ff3f850c9ae9d716a7f",
@@ -53,5 +52,6 @@
     "records/E19/README.md": "b6cdb7c19deab2b1d1b606d66ebc1a06ba5c1db7b7b99590476125260b0d458d",
     "records/E19/development-score-ranges.json": "113197ce797f6ee5ea7034ccd22fe7441ca542f576767b7c8cd45204333c8241",
     "source-map.json": "d13497f5f2eb87db81abbc638119bbe0aa5e986c937ebd29814dcc89730c7d21"
-  }
+  },
+  "note_current": "Historical audit. Current excerpts are checked in document/evidence/final-scope-20261102; old hashes are not current integrity checks."
 }

@@ -54,10 +54,9 @@ A已归档B完整补充原件；W16手动可转、纯声音跟随动作及整板
 | [CP1布局与CAM门控优化](batches/2026-10-28-cp1-board.md) | 55处1×1投影转常量右矩阵MatMul，52处CAM gate tile8；固定98帧，权重值保持。 | 向量/P02分数逐位一致；独立降14.81%，并发降15.84%，未达原20%门限。 [E15](records/E15/README.md) |
 | [VF1前端与CP2失败](batches/2026-10-28-vf1-cp2-board.md) | CP2局部卷积改写被数值门限拒绝；VF1仅展开固定16k/形状决定的7个If。 | ARM状态与向量逐位一致；前端快5.14%，组合快18.12%，比CP1增量2.01%；PC VAD快21.80%。CP2 zero-98相对L2=1.129958e-5失败。 [E16](records/E16/README.md) |
 | [正四面体三维算法迁移](batches/2026-10-21-tetra-migration.md) | 三维独立目录、几何校验、六对特征桥接、ctypes/JSONL；原C规则保持。 | 154数值/17非法/15几何/4CLI通过，原2110/2378/92270断言；PC调用中位11微秒。 [E17](records/E17/README.md) |
-| [三维DAS与六项兼容优化/模块接合](batches/2026-10-25-tetra-das-optimization.md) | 向量筛选平滑/可选质量加权/17槽DAS/延迟增益校准/几何掩码缓存/纯软件双轴；TetraPipeline统一时基。 | 86项不同Python测试；DAS0.176659→0.113945秒约35.50%，块分配峰值降约96.18%；不是ARM或实物降噪。 [E18](records/E18/README.md) |
 | [P02登记与开发对照](batches/2026-10-26-target-development.md) | 原C/ARM后端登记三段本人录音，保留原目标；score-only，不自动标定门限。 | 历史开发范围存在间隔，但无独立留出/真实场景门限验收。 [E19](records/E19/README.md) |
 
-绘图新增建议：RX4纯内存CPU/墙时分图；MP1/FS1保留无收益；CP1独立/并发分图；VF1 ARM三组合、PC VAD分别画；DAS PC耗时与块分配各一图。`n`是计时重复数，不是识别独立样本数；RSS是进程峰值而tracemalloc是块分配，两者不合并。
+绘图新增建议：RX4纯内存CPU/墙时分图；MP1/FS1保留无收益；CP1独立/并发分图；VF1 ARM三组合、PC VAD分别画。`n`是计时重复数，不是识别独立样本数；RSS是进程峰值而tracemalloc是块分配，两者不合并。
 
 ## 2026-11-02 新资料同步
 

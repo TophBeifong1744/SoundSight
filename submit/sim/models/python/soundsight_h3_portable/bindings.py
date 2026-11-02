@@ -80,14 +80,9 @@ class Bindings:
         self.phat = self.load("phat_model")
         self.guards = self.load("guards")
         self.cordic = self.load("cordic_candidate")
-        self.dynamic = self.load("dynamic_das")
-        self.delay_loader = self.load("delay_rom_loader")
         self.hann = np.frombuffer((self.repo / self.sources["entries"]["hann"]["path"]).read_bytes(), dtype="<u4").astype(np.int64)
         if self.hann.shape != (1024,) or np.any(self.hann > 2**17) or not np.any(self.hann):
             raise RuntimeError("HANN_FORMAT_MISMATCH")
-        self.delay_rom = self.delay_loader.DelayROM(
-            self.repo / self.sources["entries"]["delay_rom"]["path"],
-            self.sources["entries"]["delay_rom"]["sha256"])
         self.fft_twiddle = self._table("fft", (2, 1023, 2))
         self.cordic_atan = self._table("atan", (24,))
         if tuple(int(v) for v in self.fg._CORDIC_ATAN_Q16) != tuple(map(int, self.cordic_atan)):

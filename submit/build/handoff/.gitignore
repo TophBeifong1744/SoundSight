@@ -1,0 +1,7 @@
+/screen_s2/project/par/
+/screen_s2/reports/
+/screen_s2/output/
+/screen_s2/*.log
+/screen_s2/*.jou
+/screen_s2/payload/*.gen/
+/screen_s2/payload/*.ip_user_files/

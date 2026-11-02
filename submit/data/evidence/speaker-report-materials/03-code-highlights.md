@@ -323,42 +323,9 @@ def validate_runtime_inputs(audio,state,sr):
 
 <a id="s12"></a>
 
-### S12 DAS环缓冲与分数延时
-
-17槽覆盖所需历史；四通道线性插值、等权叠加和最近偶数舍入保留。关闭无用trace的PC收益见E18，不是ARM实时结论。
-
-候选：`dfe9975168bae92af34b9c25891c3678bc5d1dc6`；原路径 `software/tetra3d/das/dynamic_das.py` 第89–110行。 [完整源码](https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/software/tetra3d/das/dynamic_das.py#L89)。
-
-```python
-    def _sample(self, ch, k):
-        if k < 0 or k >= self.input_end:
-            return 0
-        slot = k % 17
-        if self._sample_times[slot] != k:
-            raise AssertionError('required sample was released or not yet received')
-        return self.samples[slot][ch]
-
-    def _beam(self, target, n):
-        if n < 0:
-            return 0
-        if target is None:
-            return self._sample(0, n)
-        acc = 0
-        sample = self._sample
-        for ch, delay in enumerate(target):
-            left, frac = divmod(n*Q-delay, Q)
-            # Do not read zero-weight right sample: exact -8 needs no +9 lookahead.
-            acc += sample(ch, left)*(Q-frac)
-            if frac:
-                acc += sample(ch, left+1)*frac
-        return rne(acc, 4*Q)
-```
-
-<a id="s13"></a>
-
 ### S13 三维模块接合和时基失效
 
-统一求解/空间滤波/可选DAS与纯软件轴；过旧新帧清除旧滤波状态，防止后续poll复活旧目标。不是PYNQ在线运行入口，也不实现人物识别。
+统一求解/空间滤波与纯软件轴；过旧新帧清除旧滤波状态，防止后续poll复活旧目标。不是PYNQ在线运行入口，也不实现人物识别。
 
 候选：`dfe9975168bae92af34b9c25891c3678bc5d1dc6`；原路径 `software/tetra3d/linux/pipeline_3d.py` 第251–278行。 [完整源码](https://github.com/TophBeifong1744/SoundSight/blob/dfe9975168bae92af34b9c25891c3678bc5d1dc6/software/tetra3d/linux/pipeline_3d.py#L251)。
 

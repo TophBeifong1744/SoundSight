@@ -1,5 +1,7 @@
 # 2026-11-02 当前材料入口
 
+**最终功能与报告口径：** [统一说明](document/final-function-scope.md)明确四项功能、PL/PS分工和当前组件组合；[报告/海报修改规则](document/requirements/final-report-scope.md)要求DAS彻底退出成品，包括正文、图表、公式、待办和展望。对应实现及专属材料从当前仓库删除；报告成品由各自聊天单独修改。原始模板与[制作总指导](document/requirements/report-poster-master-guide.md)也已归入仓库。
+
 [接近最终版的完整运行包与操作说明](document/pynq-final-runtime.md)：S2/S3触屏、CF1A三维、声纹和双轴；DAS已取消。保留个人配置，使用一条安装命令更新。含私人基础声纹资产的完整ZIP只作本地交付，源码、打包工具和验证记录进入仓库。
 
 **2026-11-02 USB单线调试已打通：** 领航者PYNQ的USB SLAVE已支持Windows RNDIS、SSH和WinSCP目录访问；v2加bootpy启动依赖补丁正常重启后由用户确认可重连，仓库v3内置相同依赖。保留DC供电和当前B版bit/HWH，未改启动镜像；VS Code旧版路线已取消。操作见[USB使用说明](document/pynq-usb-network.md)，验证范围见[板端结果](document/evidence/usb-network-preflight-20261102/board-success.md)。

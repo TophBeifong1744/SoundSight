@@ -1,0 +1,734 @@
+{
+  "status": "PASS",
+  "revision": "official-v4",
+  "source_sha256": "b99946c7443efd2a169035159185ed45b0021272e03d180786c2718ec40259df",
+  "original_furniture_geometry_ids": [
+    "8",
+    "10",
+    "12",
+    "13",
+    "14",
+    "32",
+    "39",
+    "45",
+    "46"
+  ],
+  "original_AMD_images_unchanged": true,
+  "sample_project_images_removed": true,
+  "native_shapes": 62,
+  "native_charts": 1,
+  "embedded_workbooks": 1,
+  "authored_textboxes_checked": 43,
+  "all_rendered_text_within_textboxes": true,
+  "rendered_glyph_bounds": [
+    {
+      "name": "brand",
+      "glyph_bounds_css": [
+        27.967724727118814,
+        48.86792533333331,
+        186.23349499315944,
+        80.87992533333333
+      ],
+      "textbox_css": [
+        28,
+        42,
+        548,
+        82
+      ],
+      "within_box": true
+    },
+    {
+      "name": "project-title",
+      "glyph_bounds_css": [
+        27.967724727118814,
+        84.31733333333334,
+        291.96512632749665,
+        108.31733333333334
+      ],
+      "textbox_css": [
+        28,
+        81,
+        548,
+        111
+      ],
+      "within_box": true
+    },
+    {
+      "name": "introduction",
+      "glyph_bounds_css": [
+        144.45191156255018,
+        124.22266666666663,
+        240.4509666899603,
+        148.22266666666664
+      ],
+      "textbox_css": [
+        45.71,
+        118,
+        339.18,
+        152
+      ],
+      "within_box": true
+    },
+    {
+      "name": "team",
+      "glyph_bounds_css": [
+        691.9491894764811,
+        30.243653333333288,
+        819.8039670633159,
+        46.23165333333335
+      ],
+      "textbox_css": [
+        692,
+        28,
+        959,
+        52
+      ],
+      "within_box": true
+    },
+    {
+      "name": "school",
+      "glyph_bounds_css": [
+        737.9834030504946,
+        59.232986666666726,
+        865.8381806373293,
+        75.2209866666667
+      ],
+      "textbox_css": [
+        738,
+        57,
+        966,
+        81
+      ],
+      "within_box": true
+    },
+    {
+      "name": "school-logo-needed",
+      "glyph_bounds_css": [
+        990.6049166182743,
+        41.59649066666665,
+        1032.3607296358628,
+        72.361824
+      ],
+      "textbox_css": [
+        980,
+        38,
+        1043,
+        81
+      ],
+      "within_box": true
+    },
+    {
+      "name": "real-device-photo-needed",
+      "glyph_bounds_css": [
+        1126.8169092823885,
+        62.78863733333333,
+        1214.9613457190378,
+        95.06463733333332
+      ],
+      "textbox_css": [
+        1098,
+        59,
+        1244,
+        103
+      ],
+      "within_box": true
+    },
+    {
+      "name": "platform",
+      "glyph_bounds_css": [
+        1055.4976112439833,
+        176.08887200000004,
+        1259.5107872402825,
+        188.10753866666664
+      ],
+      "textbox_css": [
+        1054,
+        173,
+        1261,
+        195
+      ],
+      "within_box": true
+    },
+    {
+      "name": "intro-body",
+      "glyph_bounds_css": [
+        28.006391013211797,
+        186.83263733333334,
+        307.2355306949077,
+        254.33397066666666
+      ],
+      "textbox_css": [
+        28,
+        183,
+        401,
+        256
+      ],
+      "within_box": true
+    },
+    {
+      "name": "application-label-0",
+      "glyph_bounds_css": [
+        40.440935292631615,
+        286.45542133333333,
+        93.64564895752333,
+        299.79675466666663
+      ],
+      "textbox_css": [
+        30,
+        283,
+        104,
+        305
+      ],
+      "within_box": true
+    },
+    {
+      "name": "application-caption-0",
+      "glyph_bounds_css": [
+        35.41431810054361,
+        324.26194133333337,
+        98.60641079779393,
+        336.92327466666666
+      ],
+      "textbox_css": [
+        27,
+        321,
+        107,
+        342
+      ],
+      "within_box": true
+    },
+    {
+      "name": "application-label-1",
+      "glyph_bounds_css": [
+        130.4307162331079,
+        286.45542133333333,
+        183.6354298979996,
+        299.79675466666663
+      ],
+      "textbox_css": [
+        120,
+        283,
+        194,
+        305
+      ],
+      "within_box": true
+    },
+    {
+      "name": "application-caption-1",
+      "glyph_bounds_css": [
+        131.75336988152998,
+        324.26194133333337,
+        182.32223748978842,
+        336.92327466666666
+      ],
+      "textbox_css": [
+        117,
+        321,
+        197,
+        342
+      ],
+      "within_box": true
+    },
+    {
+      "name": "application-label-2",
+      "glyph_bounds_css": [
+        220.42049717358415,
+        286.45542133333333,
+        273.6252108384759,
+        299.79675466666663
+      ],
+      "textbox_css": [
+        210,
+        283,
+        284,
+        305
+      ],
+      "within_box": true
+    },
+    {
+      "name": "application-caption-2",
+      "glyph_bounds_css": [
+        221.74315082200624,
+        324.26194133333337,
+        272.3120184302647,
+        336.92327466666666
+      ],
+      "textbox_css": [
+        207,
+        321,
+        287,
+        342
+      ],
+      "within_box": true
+    },
+    {
+      "name": "application-label-3",
+      "glyph_bounds_css": [
+        310.4476110799433,
+        286.45542133333333,
+        363.6523247448351,
+        299.79675466666663
+      ],
+      "textbox_css": [
+        300,
+        283,
+        374,
+        305
+      ],
+      "within_box": true
+    },
+    {
+      "name": "application-caption-3",
+      "glyph_bounds_css": [
+        311.7329317624825,
+        324.26194133333337,
+        362.3017993707409,
+        336.92327466666666
+      ],
+      "textbox_css": [
+        297,
+        321,
+        377,
+        342
+      ],
+      "within_box": true
+    },
+    {
+      "name": "application-caption",
+      "glyph_bounds_css": [
+        151.25584459470537,
+        353.8126373333334,
+        283.47983117751454,
+        368.4766373333334
+      ],
+      "textbox_css": [
+        80,
+        350,
+        355,
+        374
+      ],
+      "within_box": true
+    },
+    {
+      "name": "system-scope",
+      "glyph_bounds_css": [
+        28.006391013211797,
+        405.7806373333333,
+        329.2246769329697,
+        473.28197066666667
+      ],
+      "textbox_css": [
+        28,
+        402,
+        405,
+        481
+      ],
+      "within_box": true
+    },
+    {
+      "name": "technical-heading",
+      "glyph_bounds_css": [
+        28.006391013211797,
+        505.8246373333333,
+        204.35391930919312,
+        520.4886373333334
+      ],
+      "textbox_css": [
+        28,
+        502,
+        405,
+        527
+      ],
+      "within_box": true
+    },
+    {
+      "name": "technical-body",
+      "glyph_bounds_css": [
+        28.006391013211797,
+        536.779304,
+        312.7808254485683,
+        674.731304
+      ],
+      "textbox_css": [
+        28,
+        533,
+        410,
+        686
+      ],
+      "within_box": true
+    },
+    {
+      "name": "array-label",
+      "glyph_bounds_css": [
+        529.3174568491778,
+        133.4607546666667,
+        664.7456065616149,
+        146.802088
+      ],
+      "textbox_css": [
+        443,
+        130,
+        751,
+        152
+      ],
+      "within_box": true
+    },
+    {
+      "name": "PL-title",
+      "glyph_bounds_css": [
+        453.19820605440214,
+        184.446088,
+        565.8715877310916,
+        197.7874213333333
+      ],
+      "textbox_css": [
+        443,
+        181,
+        576,
+        202
+      ],
+      "within_box": true
+    },
+    {
+      "name": "PL-body",
+      "glyph_bounds_css": [
+        451.34622428256915,
+        209.28860799999998,
+        567.6031280217055,
+        252.3379413333333
+      ],
+      "textbox_css": [
+        444,
+        206,
+        575,
+        261
+      ],
+      "within_box": true
+    },
+    {
+      "name": "PS-title",
+      "glyph_bounds_css": [
+        624.333854981742,
+        184.446088,
+        744.7115208288628,
+        197.7874213333333
+      ],
+      "textbox_css": [
+        617,
+        181,
+        752,
+        202
+      ],
+      "within_box": true
+    },
+    {
+      "name": "PS-body",
+      "glyph_bounds_css": [
+        624.4471871996008,
+        209.28860799999998,
+        744.5207040403143,
+        252.3379413333333
+      ],
+      "textbox_css": [
+        617,
+        206,
+        752,
+        261
+      ],
+      "within_box": true
+    },
+    {
+      "name": "AXI",
+      "glyph_bounds_css": [
+        588.655539479598,
+        195.72591200000002,
+        606.1782150123191,
+        206.38457866666667
+      ],
+      "textbox_css": [
+        584,
+        193,
+        611,
+        210
+      ],
+      "within_box": true
+    },
+    {
+      "name": "output-label-0",
+      "glyph_bounds_css": [
+        453.80353342978884,
+        303.3232746666667,
+        520.1322459214638,
+        315.984608
+      ],
+      "textbox_css": [
+        439,
+        300,
+        535,
+        320
+      ],
+      "within_box": true
+    },
+    {
+      "name": "output-label-1",
+      "glyph_bounds_css": [
+        570.0223895434098,
+        303.3232746666667,
+        623.9185417361375,
+        315.984608
+      ],
+      "textbox_css": [
+        549,
+        300,
+        645,
+        320
+      ],
+      "within_box": true
+    },
+    {
+      "name": "output-label-2",
+      "glyph_bounds_css": [
+        676.1880112728546,
+        303.3232746666667,
+        737.6694328074196,
+        315.984608
+      ],
+      "textbox_css": [
+        659,
+        300,
+        755,
+        320
+      ],
+      "within_box": true
+    },
+    {
+      "name": "architecture-status",
+      "glyph_bounds_css": [
+        436.0023753047048,
+        335.93539200000004,
+        694.2918330856321,
+        347.27405866666663
+      ],
+      "textbox_css": [
+        436,
+        333,
+        762,
+        364
+      ],
+      "within_box": true
+    },
+    {
+      "name": "architecture-caption",
+      "glyph_bounds_css": [
+        535.3653973222046,
+        375.84730400000007,
+        682.3118949984085,
+        390.51130399999994
+      ],
+      "textbox_css": [
+        452,
+        372,
+        766,
+        397
+      ],
+      "within_box": true
+    },
+    {
+      "name": "design-vertical",
+      "glyph_bounds_css": [
+        821.471914646509,
+        286.2133333333333,
+        845.4716784283615,
+        396.6133333333334
+      ],
+      "textbox_css": [
+        817,
+        280,
+        850,
+        494
+      ],
+      "within_box": true
+    },
+    {
+      "name": "result-vertical",
+      "glyph_bounds_css": [
+        901.1057975151159,
+        241.874784,
+        923.7829076485464,
+        346.1894506666667
+      ],
+      "textbox_css": [
+        897,
+        236,
+        928,
+        376
+      ],
+      "within_box": true
+    },
+    {
+      "name": "ps-heading",
+      "glyph_bounds_css": [
+        459.96347280046433,
+        426.15686800000003,
+        658.5948991000741,
+        442.14486800000003
+      ],
+      "textbox_css": [
+        460,
+        422,
+        769,
+        447
+      ],
+      "within_box": true
+    },
+    {
+      "name": "ps-description",
+      "glyph_bounds_css": [
+        460.00213908655735,
+        454.8006373333333,
+        700.4596870450748,
+        557.5286373333333
+      ],
+      "textbox_css": [
+        460,
+        451,
+        768,
+        560
+      ],
+      "within_box": true
+    },
+    {
+      "name": "pl-heading",
+      "glyph_bounds_css": [
+        457.96082584488977,
+        604.172868,
+        655.5709288635607,
+        620.160868
+      ],
+      "textbox_css": [
+        458,
+        600,
+        772,
+        625
+      ],
+      "within_box": true
+    },
+    {
+      "name": "pl-description",
+      "glyph_bounds_css": [
+        457.96082584488977,
+        632.779304,
+        722.2088729782841,
+        682.6686373333333
+      ],
+      "textbox_css": [
+        458,
+        629,
+        773,
+        685
+      ],
+      "within_box": true
+    },
+    {
+      "name": "benchmark-heading",
+      "glyph_bounds_css": [
+        947.9720029002335,
+        224.1782013333333,
+        1075.8267804870682,
+        240.16620133333336
+      ],
+      "textbox_css": [
+        948,
+        220,
+        1258,
+        244
+      ],
+      "within_box": true
+    },
+    {
+      "name": "reduction",
+      "glyph_bounds_css": [
+        1022.2766048890591,
+        379.176868,
+        1185.6908364812678,
+        395.164868
+      ],
+      "textbox_css": [
+        948,
+        375,
+        1260,
+        400
+      ],
+      "within_box": true
+    },
+    {
+      "name": "offline-result",
+      "glyph_bounds_css": [
+        909.9497104687287,
+        424.82997066666667,
+        1198.9535139431039,
+        492.331304
+      ],
+      "textbox_css": [
+        910,
+        421,
+        1264,
+        501
+      ],
+      "within_box": true
+    },
+    {
+      "name": "live-result",
+      "glyph_bounds_css": [
+        909.9497104687287,
+        514.7819706666667,
+        1206.1107954974193,
+        617.5086373333334
+      ],
+      "textbox_css": [
+        910,
+        511,
+        1264,
+        628
+      ],
+      "within_box": true
+    },
+    {
+      "name": "outlook",
+      "glyph_bounds_css": [
+        909.9497104687287,
+        644.4527546666667,
+        1169.0071446908325,
+        673.8194213333334
+      ],
+      "textbox_css": [
+        910,
+        641,
+        1264,
+        681
+      ],
+      "within_box": true
+    }
+  ],
+  "english_pptx_pdf_png_unchanged": true,
+  "outputs": [
+    {
+      "name": "SoundSight-poster-zh-official-v4.pptx",
+      "sha256": "950c95b71abac8bf74924ff42d1747b4f2867079c8257338a2649639d659b562"
+    },
+    {
+      "name": "SoundSight-poster-zh-official-v4.pdf",
+      "sha256": "07ebd929522aac1513fd1e069cdcadf377a6e4f4634b2b760e03e038e54692a7"
+    },
+    {
+      "name": "SoundSight-poster-zh-official-v4.png",
+      "sha256": "a84002a48b2140eb6c7e8a1b9c102ee95418bc7eb7592a41d3f6dc80ad227174"
+    }
+  ],
+  "limitations": [
+    "No Microsoft PowerPoint edit/save test",
+    "Device photo and official identity pending",
+    "Print size pending",
+    "No new hardware or EDA test"
+  ]
+}
