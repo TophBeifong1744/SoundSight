@@ -1,0 +1,497 @@
+[
+  {
+    "name": "brand",
+    "text": "SoundSight",
+    "x": 28,
+    "y": 42,
+    "w": 520,
+    "h": 40,
+    "size": 32
+  },
+  {
+    "name": "project-title",
+    "text": "Sound Sensing and Pan–Tilt Tracking for Meetings",
+    "x": 28,
+    "y": 81,
+    "w": 590,
+    "h": 30,
+    "size": 24
+  },
+  {
+    "name": "introduction",
+    "text": "INTRODUCTION",
+    "x": 45.71,
+    "y": 118,
+    "w": 293.47,
+    "h": 34,
+    "size": 24
+  },
+  {
+    "name": "team",
+    "text": "Team members: to confirm",
+    "x": 692,
+    "y": 28,
+    "w": 267,
+    "h": 24,
+    "size": 16
+  },
+  {
+    "name": "school",
+    "text": "Affiliation: to confirm",
+    "x": 738,
+    "y": 57,
+    "w": 228,
+    "h": 24,
+    "size": 16
+  },
+  {
+    "name": "advisor",
+    "text": "Supervisor: to confirm",
+    "x": 780,
+    "y": 86,
+    "w": 186,
+    "h": 24,
+    "size": 16
+  },
+  {
+    "name": "school-logo-needed",
+    "text": "Logo\npending",
+    "x": 980,
+    "y": 38,
+    "w": 63,
+    "h": 43,
+    "size": 14
+  },
+  {
+    "name": "real-device-photo-needed",
+    "text": "Device photograph\nOriginal pending",
+    "x": 1098,
+    "y": 59,
+    "w": 146,
+    "h": 44,
+    "size": 14.667
+  },
+  {
+    "name": "platform",
+    "text": "AMD Zynq-7020 | PL + PS\nLinux / PYNQ",
+    "x": 1054,
+    "y": 160,
+    "w": 207,
+    "h": 36,
+    "size": 12
+  },
+  {
+    "name": "intro-body",
+    "text": "As people move and take turns speaking in meetings, fixed-direction devices need re-aiming. SoundSight targets meeting applications, with future use in robotics and embodied AI for sound direction and speaker identity.",
+    "x": 28,
+    "y": 174,
+    "w": 373,
+    "h": 90,
+    "size": 14.667
+  },
+  {
+    "name": "application-label-0",
+    "text": "Select\nmode",
+    "x": 30,
+    "y": 275,
+    "w": 74,
+    "h": 36,
+    "size": 13.333
+  },
+  {
+    "name": "application-caption-0",
+    "text": "Touch setup\nSelect template",
+    "x": 27,
+    "y": 320,
+    "w": 80,
+    "h": 36,
+    "size": 12
+  },
+  {
+    "name": "application-label-1",
+    "text": "Locate\nsound",
+    "x": 120,
+    "y": 275,
+    "w": 74,
+    "h": 36,
+    "size": 13.333
+  },
+  {
+    "name": "application-caption-1",
+    "text": "Sync capture\nAz. / elev.",
+    "x": 117,
+    "y": 320,
+    "w": 80,
+    "h": 36,
+    "size": 12
+  },
+  {
+    "name": "application-label-2",
+    "text": "Choose\ntracking",
+    "x": 210,
+    "y": 275,
+    "w": 74,
+    "h": 36,
+    "size": 13.333
+  },
+  {
+    "name": "application-caption-2",
+    "text": "Sound tracking\nOptional permit",
+    "x": 207,
+    "y": 320,
+    "w": 80,
+    "h": 36,
+    "size": 12
+  },
+  {
+    "name": "application-label-3",
+    "text": "Point and\ncapture",
+    "x": 300,
+    "y": 275,
+    "w": 74,
+    "h": 36,
+    "size": 13.333
+  },
+  {
+    "name": "application-caption-3",
+    "text": "Pan–tilt aim\nParallel audio",
+    "x": 297,
+    "y": 320,
+    "w": 80,
+    "h": 36,
+    "size": 12
+  },
+  {
+    "name": "application-caption",
+    "text": "Typical workflow (final design)",
+    "x": 68,
+    "y": 364,
+    "w": 310,
+    "h": 24,
+    "size": 14.667
+  },
+  {
+    "name": "system-scope",
+    "text": "Zynq-7020 combines sound sensing and pointing. PL handles synchronous capture, frequency-domain correlation and pan–tilt PWM; PS handles 3D estimation, speaker verification and tracking. The final design adds local RGB touch control and direction-guided audio.",
+    "x": 28,
+    "y": 402,
+    "w": 377,
+    "h": 96,
+    "size": 14.667
+  },
+  {
+    "name": "technical-heading",
+    "text": "Key technical challenges and design choices",
+    "x": 28,
+    "y": 508,
+    "w": 377,
+    "h": 25,
+    "size": 14.667
+  },
+  {
+    "name": "technical-body",
+    "text": "3D direction: Non-coplanar mics constrain azimuth and elevation; no distance estimate.\nScheduling: Direction updates continue during speaker scoring. Passing results grant a timed permit.\nMotion: Direction quality, limits and mode gate motion. Axes default off, with stop and timeout guards.\nIntegration: Directional audio uses PCM and direction; touch links settings and status.",
+    "x": 28,
+    "y": 537,
+    "w": 382,
+    "h": 157,
+    "size": 14.667
+  },
+  {
+    "name": "array-label",
+    "text": "Tetrahedral 4-mic",
+    "x": 439,
+    "y": 128,
+    "w": 97,
+    "h": 20,
+    "size": 12
+  },
+  {
+    "name": "acquisition-label",
+    "text": "PL  Sync capture",
+    "x": 566,
+    "y": 128,
+    "w": 97,
+    "h": 20,
+    "size": 12
+  },
+  {
+    "name": "correlation-label",
+    "text": "PL  Correlation",
+    "x": 439,
+    "y": 186,
+    "w": 97,
+    "h": 20,
+    "size": 12
+  },
+  {
+    "name": "solver-label",
+    "text": "PS  3D solver",
+    "x": 566,
+    "y": 186,
+    "w": 97,
+    "h": 20,
+    "size": 12
+  },
+  {
+    "name": "das-label",
+    "text": "PS  DAS audio",
+    "x": 707,
+    "y": 186,
+    "w": 85,
+    "h": 20,
+    "size": 12
+  },
+  {
+    "name": "sync-audio",
+    "text": "Sync PCM",
+    "x": 494,
+    "y": 163,
+    "w": 65,
+    "h": 17,
+    "size": 11.333
+  },
+  {
+    "name": "pcm-dma",
+    "text": "4-ch PCM\nDMA",
+    "x": 678,
+    "y": 131,
+    "w": 72,
+    "h": 30,
+    "size": 11.333
+  },
+  {
+    "name": "feature-bus",
+    "text": "6 pair features / AXI",
+    "x": 489,
+    "y": 214,
+    "w": 118,
+    "h": 18,
+    "size": 11.333
+  },
+  {
+    "name": "direction-das",
+    "text": "Dir.",
+    "x": 671,
+    "y": 177,
+    "w": 32,
+    "h": 16,
+    "size": 10.667
+  },
+  {
+    "name": "mono-output",
+    "text": "Mono audio",
+    "x": 702,
+    "y": 216,
+    "w": 94,
+    "h": 18,
+    "size": 11.333
+  },
+  {
+    "name": "pwm-label",
+    "text": "PL  Pan–tilt PWM",
+    "x": 439,
+    "y": 255,
+    "w": 97,
+    "h": 20,
+    "size": 12
+  },
+  {
+    "name": "decision-label",
+    "text": "PS  Tracking",
+    "x": 566,
+    "y": 255,
+    "w": 97,
+    "h": 20,
+    "size": 12
+  },
+  {
+    "name": "speaker-label",
+    "text": "PS  Verification\nSingle channel",
+    "x": 707,
+    "y": 247,
+    "w": 85,
+    "h": 33,
+    "size": 12
+  },
+  {
+    "name": "angles",
+    "text": "Az. / elev.",
+    "x": 620,
+    "y": 219,
+    "w": 79,
+    "h": 18,
+    "size": 11.333
+  },
+  {
+    "name": "angle-command",
+    "text": "Angle targets",
+    "x": 518,
+    "y": 232,
+    "w": 82,
+    "h": 18,
+    "size": 11.333
+  },
+  {
+    "name": "permit",
+    "text": "Timed permit",
+    "x": 659,
+    "y": 284,
+    "w": 69,
+    "h": 18,
+    "size": 11.333
+  },
+  {
+    "name": "speaker-mode",
+    "text": "Gated mode",
+    "x": 725,
+    "y": 284,
+    "w": 74,
+    "h": 18,
+    "size": 10.667
+  },
+  {
+    "name": "axes-label",
+    "text": "Pan–tilt unit",
+    "x": 439,
+    "y": 314,
+    "w": 97,
+    "h": 20,
+    "size": 12
+  },
+  {
+    "name": "touchscreen-label",
+    "text": "RGB touchscreen",
+    "x": 566,
+    "y": 314,
+    "w": 97,
+    "h": 20,
+    "size": 12
+  },
+  {
+    "name": "ui-link",
+    "text": "Input /\nstatus",
+    "x": 622,
+    "y": 279,
+    "w": 34,
+    "h": 29,
+    "size": 10.667
+  },
+  {
+    "name": "architecture-status",
+    "text": "Dashed paths await system integration; DAS has a PC reference.\nSpeaker verification uses one channel, not DAS output.",
+    "x": 436,
+    "y": 342,
+    "w": 365,
+    "h": 31,
+    "size": 11.333
+  },
+  {
+    "name": "architecture-caption",
+    "text": "System architecture and innovations",
+    "x": 452,
+    "y": 376,
+    "w": 314,
+    "h": 25,
+    "size": 14.667
+  },
+  {
+    "name": "design-vertical",
+    "text": "C\nR\nE\nA\nT\nI\nV\nE\n\nD\nE\nS\nI\nG\nN",
+    "x": 817,
+    "y": 222,
+    "w": 33,
+    "h": 328,
+    "size": 18
+  },
+  {
+    "name": "result-vertical",
+    "text": "R\nE\nS\nU\nL\nT",
+    "x": 897,
+    "y": 228,
+    "w": 31,
+    "h": 154,
+    "size": 20
+  },
+  {
+    "name": "tetra-heading",
+    "text": "Tetrahedral 3D sound localization",
+    "x": 460,
+    "y": 422,
+    "w": 309,
+    "h": 25,
+    "size": 16
+  },
+  {
+    "name": "tetra-description",
+    "text": "Four non-coplanar, tetrahedral mics provide six time-delay constraints. PL extracts correlation features; PS uses subsample interpolation, least squares and filtering to estimate azimuth and elevation, guiding pan–tilt aiming and directional audio.",
+    "x": 460,
+    "y": 451,
+    "w": 308,
+    "h": 110,
+    "size": 14.667
+  },
+  {
+    "name": "async-heading",
+    "text": "Asynchronous speaker-gated tracking",
+    "x": 458,
+    "y": 591,
+    "w": 314,
+    "h": 25,
+    "size": 16
+  },
+  {
+    "name": "async-description",
+    "text": "A passing score grants a timed permit, so pan–tilt updates need not await each inference. This uses the current direction without guaranteed multi-speaker identity binding.",
+    "x": 458,
+    "y": 616,
+    "w": 315,
+    "h": 73,
+    "size": 14.667
+  },
+  {
+    "name": "joint-heading",
+    "text": "Joint localization, verification\nand pan–tilt operation",
+    "x": 948,
+    "y": 210,
+    "w": 310,
+    "h": 38,
+    "size": 16
+  },
+  {
+    "name": "test-conditions",
+    "text": "48 kHz; direction window: 3 frames, at least 1 valid.\nLevel threshold: 12000 (PCM statistic).",
+    "x": 910,
+    "y": 406,
+    "w": 354,
+    "h": 35,
+    "size": 12.667
+  },
+  {
+    "name": "joint-result",
+    "text": "Both board trials combined localization reads, speaker scoring and pan–tilt commands with runtime fault values of 0. The user observed turning toward sound. This supports joint operation on one platform; commands do not confirm that the mechanism reached each target.",
+    "x": 910,
+    "y": 448,
+    "w": 354,
+    "h": 98,
+    "size": 14.667
+  },
+  {
+    "name": "test-limitations",
+    "text": "Both axes were enabled. The trials used one target template, threshold 0.45 and a 10 s permit. Each run completed 6 speaker evaluations before STOP as direction updates continued. Run 2 dropped 1 old localization result. Angular error, verification accuracy and long-term stability remain unverified.",
+    "x": 910,
+    "y": 551,
+    "w": 354,
+    "h": 107,
+    "size": 14.667
+  },
+  {
+    "name": "outlook",
+    "text": "Next: quantify direction/pointing error; test other speakers, real-mic beamforming and touch; pursue robotic hearing.",
+    "x": 910,
+    "y": 662,
+    "w": 276,
+    "h": 52,
+    "size": 13.333
+  }
+]

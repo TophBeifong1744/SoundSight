@@ -1,0 +1,277 @@
+[
+  {
+    "name": "brand",
+    "zh": "SoundSight",
+    "en": "SoundSight"
+  },
+  {
+    "name": "project-title",
+    "zh": "会议声源感知与双轴跟随",
+    "en": "Sound Sensing and Pan–Tilt Tracking for Meetings"
+  },
+  {
+    "name": "introduction",
+    "zh": "项目简介",
+    "en": "INTRODUCTION"
+  },
+  {
+    "name": "team",
+    "zh": "团队成员：待确认",
+    "en": "Team members: to confirm"
+  },
+  {
+    "name": "school",
+    "zh": "学校署名：待确认",
+    "en": "Affiliation: to confirm"
+  },
+  {
+    "name": "advisor",
+    "zh": "指导老师：待确认",
+    "en": "Supervisor: to confirm"
+  },
+  {
+    "name": "school-logo-needed",
+    "zh": "校徽\n待确认",
+    "en": "Logo\npending"
+  },
+  {
+    "name": "real-device-photo-needed",
+    "zh": "整机实物照片\n待补原件",
+    "en": "Device photograph\nOriginal pending"
+  },
+  {
+    "name": "platform",
+    "zh": "AMD Zynq-7020｜PL＋PS协同\nLinux / PYNQ",
+    "en": "AMD Zynq-7020 | PL + PS\nLinux / PYNQ"
+  },
+  {
+    "name": "intro-body",
+    "zh": "会议发言者的位置与次序不断变化，固定指向设备需要反复调整。SoundSight首先服务会议发言者指向，后续面向机器人等具身智能设备，提供声源方向感知与说话人身份信息。",
+    "en": "As people move and take turns speaking in meetings, fixed-direction devices need re-aiming. SoundSight targets meeting applications, with future use in robotics and embodied AI for sound direction and speaker identity."
+  },
+  {
+    "name": "application-label-0",
+    "zh": "选择模式",
+    "en": "Select\nmode"
+  },
+  {
+    "name": "application-caption-0",
+    "zh": "触摸设置\n选择声纹模板",
+    "en": "Touch setup\nSelect template"
+  },
+  {
+    "name": "application-label-1",
+    "zh": "发声测向",
+    "en": "Locate\nsound"
+  },
+  {
+    "name": "application-caption-1",
+    "zh": "同步采集\n方位／俯仰",
+    "en": "Sync capture\nAz. / elev."
+  },
+  {
+    "name": "application-label-2",
+    "zh": "判断跟随",
+    "en": "Choose\ntracking"
+  },
+  {
+    "name": "application-caption-2",
+    "zh": "声音跟随\n可选声纹许可",
+    "en": "Sound tracking\nOptional permit"
+  },
+  {
+    "name": "application-label-3",
+    "zh": "指向与拾音",
+    "en": "Point and\ncapture"
+  },
+  {
+    "name": "application-caption-3",
+    "zh": "双轴指向\n并行合成拾音",
+    "en": "Pan–tilt aim\nParallel audio"
+  },
+  {
+    "name": "application-caption",
+    "zh": "典型使用流程（最终设计）",
+    "en": "Typical workflow (final design)"
+  },
+  {
+    "name": "system-scope",
+    "zh": "系统以Zynq-7020实现声音感知与指向控制。PL承担同步采集、频域相关和双轴PWM，PS执行三维求解、声纹验证与跟随决策；最终设计通过RGB触摸屏完成本地操作，并以方向引导定向拾音。",
+    "en": "Zynq-7020 combines sound sensing and pointing. PL handles synchronous capture, frequency-domain correlation and pan–tilt PWM; PS handles 3D estimation, speaker verification and tracking. The final design adds local RGB touch control and direction-guided audio."
+  },
+  {
+    "name": "technical-heading",
+    "zh": "关键技术问题与设计要点：",
+    "en": "Key technical challenges and design choices"
+  },
+  {
+    "name": "technical-body",
+    "zh": "空间测角：非共面四麦提供水平与垂直约束，\n输出方位角和俯仰角，不估计距离。\n任务协同：定位持续更新，声纹异步计算，\n通过结果在有限时间内参与跟随决策。\n执行控制：方向质量、范围和模式共同决定\n动作，默认不开轴，保留停止与超时保护。\n功能接合：拾音接收同步音频与有效方向，\n触摸交互贯通配置与状态反馈。",
+    "en": "3D direction: Non-coplanar mics constrain azimuth and elevation; no distance estimate.\nScheduling: Direction updates continue during speaker scoring. Passing results grant a timed permit.\nMotion: Direction quality, limits and mode gate motion. Axes default off, with stop and timeout guards.\nIntegration: Directional audio uses PCM and direction; touch links settings and status."
+  },
+  {
+    "name": "array-label",
+    "zh": "正四面体四麦",
+    "en": "Tetrahedral 4-mic"
+  },
+  {
+    "name": "acquisition-label",
+    "zh": "PL 同步采集",
+    "en": "PL  Sync capture"
+  },
+  {
+    "name": "correlation-label",
+    "zh": "PL 相关特征",
+    "en": "PL  Correlation"
+  },
+  {
+    "name": "solver-label",
+    "zh": "PS 三维求解",
+    "en": "PS  3D solver"
+  },
+  {
+    "name": "das-label",
+    "zh": "PS DAS拾音",
+    "en": "PS  DAS audio"
+  },
+  {
+    "name": "sync-audio",
+    "zh": "同步音频",
+    "en": "Sync PCM"
+  },
+  {
+    "name": "pcm-dma",
+    "zh": "四路PCM\nDMA",
+    "en": "4-ch PCM\nDMA"
+  },
+  {
+    "name": "feature-bus",
+    "zh": "六对特征 / AXI",
+    "en": "6 pair features / AXI"
+  },
+  {
+    "name": "direction-das",
+    "zh": "方向",
+    "en": "Dir."
+  },
+  {
+    "name": "mono-output",
+    "zh": "单声道音频",
+    "en": "Mono audio"
+  },
+  {
+    "name": "pwm-label",
+    "zh": "PL 双轴PWM",
+    "en": "PL  Pan–tilt PWM"
+  },
+  {
+    "name": "decision-label",
+    "zh": "PS 跟随决策",
+    "en": "PS  Tracking"
+  },
+  {
+    "name": "speaker-label",
+    "zh": "PS 声纹验证\n单路取样",
+    "en": "PS  Verification\nSingle channel"
+  },
+  {
+    "name": "angles",
+    "zh": "方位／俯仰",
+    "en": "Az. / elev."
+  },
+  {
+    "name": "angle-command",
+    "zh": "角度命令",
+    "en": "Angle targets"
+  },
+  {
+    "name": "permit",
+    "zh": "限时许可",
+    "en": "Timed permit"
+  },
+  {
+    "name": "speaker-mode",
+    "zh": "仅声纹模式",
+    "en": "Gated mode"
+  },
+  {
+    "name": "axes-label",
+    "zh": "双轴机构",
+    "en": "Pan–tilt unit"
+  },
+  {
+    "name": "touchscreen-label",
+    "zh": "RGB触摸屏",
+    "en": "RGB touchscreen"
+  },
+  {
+    "name": "ui-link",
+    "zh": "操作\n状态",
+    "en": "Input /\nstatus"
+  },
+  {
+    "name": "architecture-status",
+    "zh": "虚线部分待整机接合验证；DAS已有PC参考实现。\n声纹当前使用单路音频，未接入DAS输出。",
+    "en": "Dashed paths await system integration; DAS has a PC reference.\nSpeaker verification uses one channel, not DAS output."
+  },
+  {
+    "name": "architecture-caption",
+    "zh": "系统结构与关键创新点",
+    "en": "System architecture and innovations"
+  },
+  {
+    "name": "design-vertical",
+    "zh": "创\n新\n设\n计",
+    "en": "C\nR\nE\nA\nT\nI\nV\nE\n\nD\nE\nS\nI\nG\nN"
+  },
+  {
+    "name": "result-vertical",
+    "zh": "测\n试\n结\n果",
+    "en": "R\nE\nS\nU\nL\nT"
+  },
+  {
+    "name": "tetra-heading",
+    "zh": "正四面体四麦三维测角",
+    "en": "Tetrahedral 3D sound localization"
+  },
+  {
+    "name": "tetra-description",
+    "zh": "正四面体四麦的非共面布局形成六组时差约束。PL提取通道间相关特征，PS通过亚采样插值、最小二乘求解和方向筛选，计算声源方位角与俯仰角。阵列几何、求解程序与软硬件处理链路共同构成三维测角方案，为双轴指向和定向拾音提供方向输入。",
+    "en": "Four non-coplanar, tetrahedral mics provide six time-delay constraints. PL extracts correlation features; PS uses subsample interpolation, least squares and filtering to estimate azimuth and elevation, guiding pan–tilt aiming and directional audio."
+  },
+  {
+    "name": "async-heading",
+    "zh": "异步声纹授权跟随",
+    "en": "Asynchronous speaker-gated tracking"
+  },
+  {
+    "name": "async-description",
+    "zh": "声纹异步计算，通过后在限时内允许双轴按新方向更新，避免动作逐次等待推理。许可作用于当前声源方向，尚不保证多人身份与方向绑定。",
+    "en": "A passing score grants a timed permit, so pan–tilt updates need not await each inference. This uses the current direction without guaranteed multi-speaker identity binding."
+  },
+  {
+    "name": "joint-heading",
+    "zh": "定位、声纹与双轴联合运行",
+    "en": "Joint localization, verification\nand pan–tilt operation"
+  },
+  {
+    "name": "test-conditions",
+    "zh": "48 kHz采样；方向筛选窗3帧，至少1帧合格；\n音量门限12000（PCM统计量）。",
+    "en": "48 kHz; direction window: 3 frames, at least 1 valid.\nLevel threshold: 12000 (PCM statistic)."
+  },
+  {
+    "name": "joint-result",
+    "zh": "两轮板端试验均完成了定位读取、声纹评分和双轴目标提交，运行期间故障值均为0；用户现场观察到机构随声音方向转动。结果支持三类任务在同一平台联合运行，提交次数仅表示控制命令，不代表机械到位。",
+    "en": "Both board trials combined localization reads, speaker scoring and pan–tilt commands with runtime fault values of 0. The user observed turning toward sound. This supports joint operation on one platform; commands do not confirm that the mechanism reached each target."
+  },
+  {
+    "name": "test-limitations",
+    "zh": "测试采用同一目标模板，声纹试验门限为0.45、许可时长为10 s，两轴同时启用。两轮停止前各完成6次声纹计算，方向通路在其间持续更新。第二轮淘汰1个旧定位结果；当前证据尚不能给出角度误差、身份识别准确率或长期稳定性结论。",
+    "en": "Both axes were enabled. The trials used one target template, threshold 0.45 and a 10 s permit. Each run completed 6 speaker evaluations before STOP as direction updates continued. Run 2 dropped 1 old localization result. Angular error, verification accuracy and long-term stability remain unverified."
+  },
+  {
+    "name": "outlook",
+    "zh": "补齐方向与指向误差、他人声纹对照、实麦拾音及触摸操作验证，再拓展机器人听觉交互。",
+    "en": "Next: quantify direction/pointing error; test other speakers, real-mic beamforming and touch; pursue robotic hearing."
+  }
+]
