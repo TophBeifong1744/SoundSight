@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+
+/* Symbols are exported by usb-pins-phy.dtbo and verified before this stage. */
+/ {
+    fragment@0 {
+        target-path = "/amba/usb@e0002000";
+        __overlay__ {
+            status = "okay";
+            dr_mode = "peripheral";
+            phy_type = "ulpi";
+            usb-phy = <&ss_usb_phy>;
+            pinctrl-names = "default";
+            pinctrl-0 = <&ss_usb0_pins>;
+        };
+    };
+};

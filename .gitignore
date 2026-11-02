@@ -54,3 +54,7 @@
 !/release/output/soundsight_three_d_coherent_cf1.zip
 !/release/output/soundsight_three_d_coherent_cf1a.zip
 !/release/output/soundsight_a_cf1a_handoff_20261102.zip
+
+# Board-matched USB release; raw collection stays local.
+!/release/output/soundsight_usb_network.zip
+/document/evidence/usb-network-preflight-20261102/board-inputs.zip
