@@ -39,11 +39,54 @@ class Backend:
         self.last_runtime_code = None
         self.stop_verified = True
         self.session_failed = False
-        self.reload()
+        self.recovery_requested = False
+        self.config_error = None
+        self.last_enrolled = None
+        self.external_fault = None
+        self.cache = dict(level=7000, window=20, minimum=12, threshold=None,
+                          ttl=3., target=None, profiles=['P01'], calibration={})
+        self.safe_reload()
 
     @property
     def busy(self):
         return self.proc is not None
+
+    def safe_reload(self):
+        try:
+            self.reload()
+            self.config_error = None
+            return True
+        except (ValueError, OSError, TypeError) as exc:
+            self.config_error = str(exc)
+            self.state, self.note = 'ERROR', 'Configuration error: '+str(exc)
+            return False
+
+    def next_user(self):
+        names = {p.name.casefold() for p in (self.root/'speaker-profiles').glob('*')}
+        for n in range(1, 10000):
+            name = 'user%d' % n
+            if name.casefold() not in names:
+                return name
+        raise ValueError('User list is full')
+
+    def enroll(self, name, seconds=5):
+        if not re.fullmatch(r'user[1-9][0-9]{0,3}', name) or name != self.next_user():
+            raise ValueError('New user changed; reopen the enrollment dialog')
+        if type(seconds) is not int or not 2 <= seconds <= 10:
+            raise ValueError('Recording must be 2..10 seconds')
+        if self.session_failed or not self.stop_verified or self.config_error:
+            raise RuntimeError('Recover confirmed STOP before enrollment')
+        self.last_enrolled = None
+        self._launch(['speaker-enroll', name, '--seconds', str(seconds)], 'ENROLL')
+
+    def fault(self, reason):
+        self.external_fault = str(reason)[:240]
+        self.session_failed = True
+        self.stop()
+        if not self.busy:
+            self.state = 'ERROR'
+        self.note = self.external_fault
+        self.generation += 1
 
     def reload(self):
         # 仅读小型本地配置，不读取或导出模型、嵌入向量、个人录音。
@@ -80,13 +123,14 @@ class Backend:
         self.proc = subprocess.Popen(['sh', str(self.root/'soundsight-3d.sh')] + list(arguments),
                                      cwd=str(self.root), stdout=subprocess.PIPE,
                                      stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
-                                     start_new_session=True, bufsize=0)
+                                     start_new_session=True, bufsize=0,
+                                     env=dict(os.environ, PYTHONUNBUFFERED='1'))
         self.pgid = self.proc.pid
         os.set_blocking(self.proc.stdout.fileno(), False)
         self.state = 'STARTING' if operation in ('SOUND', 'SPEAKER') else 'RUNNING'
         self.operation = operation
         self.status_rows = []
-        if operation in ('SOUND', 'SPEAKER'):
+        if operation in ('SOUND', 'SPEAKER', 'ENROLL'):
             self.clear_live()
             self.stop_verified = False
             self.last_runtime_code = None
@@ -166,29 +210,38 @@ class Backend:
                     self.accept_line(self.pending.decode('utf-8', errors='replace'))
                     self.pending = b''
                 operation = self.operation
-                self.reload()
-                if operation in ('SOUND', 'SPEAKER'):
+                self.safe_reload()
+                if operation in ('SOUND', 'SPEAKER', 'ENROLL'):
                     self.clear_live()
                     self.last_runtime_code = code
-                    self.session_failed = code != 0
+                    self.session_failed = code != 0 or bool(self.external_fault)
                     self._verify_stop()
                 elif operation == 'verify-stop':
                     valid = code == 0 and len(self.status_rows) == 1 and self.idle_state(self.status_rows[0])
                     self.stop_verified = valid
-                    self.state = 'IDLE' if valid and not self.session_failed else 'ERROR'
+                    if valid and self.recovery_requested and not self.config_error:
+                        self.session_failed = False
+                        self.external_fault = None
+                    self.recovery_requested = False
+                    self.state = 'IDLE' if valid and not self.session_failed and not self.config_error else 'ERROR'
                     self.note = ('STOP verified. Select axes before next START.' if self.state == 'IDLE' else
                                  'Session failed; inspect runtime log.' if valid else
                                  'STOP NOT VERIFIED. Inspect status; restart blocked.')
+                    if self.state == 'IDLE' and self.last_enrolled:
+                        self.note = 'Saved '+self.last_enrolled+'. Select user, then set threshold.'
+                    if self.config_error or self.external_fault:
+                        self.note = self.config_error or self.external_fault
                     print('PANEL_STOP_CHECK=' + json.dumps(dict(verified=valid,
                           runtime_code=self.last_runtime_code, status_code=code,
                           device=self.device_state)), flush=True)
                 else:
-                    self.state = 'IDLE' if code == 0 else 'ERROR'
+                    self.state = 'IDLE' if code == 0 and not self.config_error else 'ERROR'
                     self.note = 'Command finished; return code %s' % code
                 self.generation += 1
                 return
         # 配置/status 超时同样只发 SIGINT，不强杀或自动重新启动动作。
-        if self.operation not in ('SOUND', 'SPEAKER') and time.monotonic()-self.started > 15:
+        timeout = 240 if self.operation == 'ENROLL' else 15
+        if self.operation not in ('SOUND', 'SPEAKER') and time.monotonic()-self.started > timeout:
             if self.operation == 'verify-stop':
                 if self.state != 'STOPPING':
                     self.state, self.stopping = 'STOPPING', time.monotonic()
@@ -226,6 +279,18 @@ class Backend:
         # Parse bounded complete lines before clipping diagnostics. Never parse LAST_GROUP as current.
         self.lines.append(line[:800])
         self.generation += 1
+        if self.operation == 'ENROLL':
+            if line.startswith('READY_IN='):
+                self.note = 'Get ready: '+line.split('=', 1)[1]
+            elif line.startswith('RECORD_NOW:'):
+                self.note = 'SPEAK NOW. Keep speaking until processing appears.'
+            elif line.startswith('RECORDING_DONE'):
+                self.note = 'Processing voice. Please wait; axes are OFF.'
+            elif line.startswith('ENROLLED='):
+                self.last_enrolled = line.split('=', 1)[1].split()[0]
+                self.note = 'Saved '+self.last_enrolled+'. Select it, then set its threshold.'
+            elif line.startswith('STOP:'):
+                self.note = line[:160]
         if line.startswith('DEVICE_STATE='):
             try:
                 value = json.loads(line.split('=', 1)[1])
@@ -288,9 +353,12 @@ class Backend:
 
     def acknowledge(self):
         if not self.busy:
-            self.reload()
+            if not self.safe_reload():
+                self.generation += 1
+                return
             self.clear_live()
             if self.session_failed or not self.stop_verified:
+                self.recovery_requested = True
                 self._verify_stop()
             else:
                 self.state = 'IDLE'

@@ -28,7 +28,7 @@ def destination(name):
     if name == 'LICENSE': return 'report/licenses/license.txt'
     if name == 'THIRD_PARTY.md': return 'report/licenses/third-party.md'
     if name == 'tools.local.env.example': return 'build/config/tools.local.env.example'
-    if name in {'soundsight.sh', 'soundsight-3d.sh', 'soundsight-screen.sh', 'soundsight-screen-i2c.sh', 'soundsight-panel.sh'}: return 'board/scripts/'+name
+    if name in {'soundsight.sh', 'soundsight-3d.sh', 'soundsight-screen.sh', 'soundsight-screen-i2c.sh', 'soundsight-panel.sh', 'soundsight-product.sh'}: return 'board/scripts/'+name
     if name in {'document/screen-readme.md','document/screen-control.md'}:
         return 'board/instructions/'+name.rsplit('/',1)[1]
     pairs = [
@@ -105,11 +105,14 @@ def main():
 if __name__ == '__main__': main()
 '''
 
-README = """# SoundSight 最终提交材料 — 2026-11-02
+README = """# SoundSight 最终提交材料 — 2026-11-03
 
 最终范围：RGB触屏、四麦三维定位、声纹验证、双轴指向。已包含PR #40、#41后的源码。
 当前组合为S2硬件＋S3面板＋CF1A前端＋CP1/VF1声纹与score_ttl_v2许可。
 水平J3-2/M15、垂直J3-3/J14；默认不开轴。
+
+P1新增开机自启、触屏录入及确认关机，见[产品化操作与验收](report/screen-product.md)。
+用户已回报C的此前功能测试通过；P1冷启动等新增流程尚待本板测试，不将离线检查记为板测。
 
 七类目录均含实际文件，可整体复制上交。旧平台工程、旧安装包、非最终研究和过时海报副本已移出。
 保留的历史数据用于解释已采用优化的基线和失败，不作为可安装的另一套工程。

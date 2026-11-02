@@ -1,0 +1,35 @@
+{
+  "delivered_zip_bytes": 44609,
+  "zip_sha256": "497cc750b84e60d9df3e27e8c387256fd6a899a4c2c2c7197501dcc8aba210c9",
+  "python38_syntax": "PASS",
+  "actual_baseline_files": "PASS",
+  "delivered_installer_transaction": "PASS",
+  "s2_receipt_updated": "PASS",
+  "user_profile_preserved": "PASS",
+  "hardware_actions": 0,
+  "board_validation": "PENDING",
+  "service_calls": [
+    [
+      "is-active",
+      "soundsight-product.service"
+    ],
+    [
+      "show",
+      "bootpy.service",
+      "-p",
+      "LoadState",
+      "--value"
+    ],
+    [
+      "is-enabled",
+      "soundsight-product.service"
+    ],
+    [
+      "daemon-reload"
+    ],
+    [
+      "enable",
+      "soundsight-product.service"
+    ]
+  ]
+}

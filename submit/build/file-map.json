@@ -1,5 +1,5 @@
 {
-  "baseline_commit": "d78efe2073acce7a4ce747a3b7921ca0172efa64",
+  "baseline_commit": "011ae3824cc4fed68d7dddae0bef82966ecde200",
   "scope": "standalone submission snapshot, no new hardware experiment",
   "files": [
     {
@@ -4227,6 +4227,14 @@
       "transform": "none"
     },
     {
+      "source_path": "document/screen-product.md",
+      "submit_path": "report/screen-product.md",
+      "mode": "100644",
+      "source_sha256": "bfbedaf1a712b16d8ba2d24220f04685b5875601f44385751b7daa396e819412",
+      "submit_sha256": "bfbedaf1a712b16d8ba2d24220f04685b5875601f44385751b7daa396e819412",
+      "transform": "none"
+    },
+    {
       "source_path": "document/screen-readme.md",
       "submit_path": "board/instructions/screen-readme.md",
       "mode": "100644",
@@ -7366,16 +7374,16 @@
       "source_path": "software/screen/backend.py",
       "submit_path": "src/software/screen/backend.py",
       "mode": "100644",
-      "source_sha256": "7ccb154fff3d93d1cdf44b971a12c7353378bdfc369ff610566a4465f7bf689f",
-      "submit_sha256": "7ccb154fff3d93d1cdf44b971a12c7353378bdfc369ff610566a4465f7bf689f",
+      "source_sha256": "3c10dfe0a38053c4e44eb01304225823112494eb2642437bdb2c57829b778407",
+      "submit_sha256": "3c10dfe0a38053c4e44eb01304225823112494eb2642437bdb2c57829b778407",
       "transform": "none"
     },
     {
       "source_path": "software/screen/hardware.py",
       "submit_path": "src/software/screen/hardware.py",
       "mode": "100644",
-      "source_sha256": "153800c28e223e9315c07c1d1096e8982f95a8b869d3c425dd2733886b81b2b3",
-      "submit_sha256": "153800c28e223e9315c07c1d1096e8982f95a8b869d3c425dd2733886b81b2b3",
+      "source_sha256": "989662357319fd16ddc780bd5e8ebf7134caa35e1627c29d1d47605b0122d95a",
+      "submit_sha256": "989662357319fd16ddc780bd5e8ebf7134caa35e1627c29d1d47605b0122d95a",
       "transform": "none"
     },
     {
@@ -7384,6 +7392,22 @@
       "mode": "100644",
       "source_sha256": "b295f95605935248dbf8959c64a2a4d75f25a41ea284eed36afc1e6360518d46",
       "submit_sha256": "b295f95605935248dbf8959c64a2a4d75f25a41ea284eed36afc1e6360518d46",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/screen/product-baseline.json",
+      "submit_path": "src/software/screen/product-baseline.json",
+      "mode": "100644",
+      "source_sha256": "12ac8552b3173209c5bd9e21921726085033bc16d24140da2cbadaf56b686474",
+      "submit_sha256": "12ac8552b3173209c5bd9e21921726085033bc16d24140da2cbadaf56b686474",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/screen/product.py",
+      "submit_path": "src/software/screen/product.py",
+      "mode": "100644",
+      "source_sha256": "8ab750bc1ae62727913ff32dcd81e91582274f1ebd56fd90d16c5dc00cb96d90",
+      "submit_sha256": "8ab750bc1ae62727913ff32dcd81e91582274f1ebd56fd90d16c5dc00cb96d90",
       "transform": "none"
     },
     {
@@ -7414,8 +7438,8 @@
       "source_path": "software/screen/ui.py",
       "submit_path": "src/software/screen/ui.py",
       "mode": "100644",
-      "source_sha256": "be9d2cc255c4996fef89f170b418f04fb7f8cd6caf9c3df55bbb7b719559c6b6",
-      "submit_sha256": "be9d2cc255c4996fef89f170b418f04fb7f8cd6caf9c3df55bbb7b719559c6b6",
+      "source_sha256": "22bb3f366fea7dd9d7fdd5651602a3661a97db1c5b86561013986bb31c179580",
+      "submit_sha256": "22bb3f366fea7dd9d7fdd5651602a3661a97db1c5b86561013986bb31c179580",
       "transform": "none"
     },
     {
@@ -7488,6 +7512,14 @@
       "mode": "100644",
       "source_sha256": "8910f1a9f82e7eabe5db7531b0ba3b67fa79464497fa9786fc5a124eb9504576",
       "submit_sha256": "8910f1a9f82e7eabe5db7531b0ba3b67fa79464497fa9786fc5a124eb9504576",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/tests/test_screen_product.py",
+      "submit_path": "sim/software/test_screen_product.py",
+      "mode": "100644",
+      "source_sha256": "d7f20cf9ac76f525611968bbbf4c0578888eb0cc0e8d389ceb77bdc2aad85732",
+      "submit_sha256": "d7f20cf9ac76f525611968bbbf4c0578888eb0cc0e8d389ceb77bdc2aad85732",
       "transform": "none"
     },
     {
@@ -7843,6 +7875,14 @@
       "transform": "none"
     },
     {
+      "source_path": "soundsight-product.sh",
+      "submit_path": "board/scripts/soundsight-product.sh",
+      "mode": "100644",
+      "source_sha256": "145325733a92c589c207bd2372c40f8b90a6327189086ad19463735f3cca0ae6",
+      "submit_sha256": "145325733a92c589c207bd2372c40f8b90a6327189086ad19463735f3cca0ae6",
+      "transform": "none"
+    },
+    {
       "source_path": "soundsight-screen-i2c.sh",
       "submit_path": "board/scripts/soundsight-screen-i2c.sh",
       "mode": "100644",
@@ -7886,16 +7926,16 @@
       "source_path": "tools/check_current_software.py",
       "submit_path": "build/tools/check_current_software.py",
       "mode": "100644",
-      "source_sha256": "7eccd5df3bd6516014bb007840179ba79561af5b8d7d6b518a7f603e900eba04",
-      "submit_sha256": "7eccd5df3bd6516014bb007840179ba79561af5b8d7d6b518a7f603e900eba04",
+      "source_sha256": "291b6606b56e3c35c22f4478f6c5e777f519c1bee598e9506af3db446ce9e2c9",
+      "submit_sha256": "291b6606b56e3c35c22f4478f6c5e777f519c1bee598e9506af3db446ce9e2c9",
       "transform": "none"
     },
     {
       "source_path": "tools/check_submit.py",
       "submit_path": "build/tools/check_submit.py",
       "mode": "100644",
-      "source_sha256": "4bf21a2567e3b62cf631fea2873d6faed2e305110d3f8ff2b3d51008d781ba82",
-      "submit_sha256": "4bf21a2567e3b62cf631fea2873d6faed2e305110d3f8ff2b3d51008d781ba82",
+      "source_sha256": "6fc2f377a70cd4f2a49cef0bfd86f9666d6832d890467a12e931e5b31ced33b3",
+      "submit_sha256": "6fc2f377a70cd4f2a49cef0bfd86f9666d6832d890467a12e931e5b31ced33b3",
       "transform": "none"
     },
     {
@@ -7910,8 +7950,8 @@
       "source_path": "tools/export_submit.py",
       "submit_path": "build/tools/export_submit.py",
       "mode": "100644",
-      "source_sha256": "e213548e131e41368dc120b4cb67f0333e21b4ec0a261f186bbd3b5a3e75e3a6",
-      "submit_sha256": "e213548e131e41368dc120b4cb67f0333e21b4ec0a261f186bbd3b5a3e75e3a6",
+      "source_sha256": "c20bc1793e90c8d64cbcbd72d87915d3a8b536b7d437e92eda73cff6c34850be",
+      "submit_sha256": "c20bc1793e90c8d64cbcbd72d87915d3a8b536b7d437e92eda73cff6c34850be",
       "transform": "none"
     },
     {
@@ -7928,6 +7968,22 @@
       "mode": "100644",
       "source_sha256": "19bc04a6f4409b2bb330a52b6d4244a2302837bf5ce7ef82778e67f8619141bc",
       "submit_sha256": "19bc04a6f4409b2bb330a52b6d4244a2302837bf5ce7ef82778e67f8619141bc",
+      "transform": "none"
+    },
+    {
+      "source_path": "tools/install_product.py",
+      "submit_path": "build/tools/install_product.py",
+      "mode": "100644",
+      "source_sha256": "641724e140348f08357dd87ca418e4927655831ed84572bf0fc53d6a4e7a8442",
+      "submit_sha256": "641724e140348f08357dd87ca418e4927655831ed84572bf0fc53d6a4e7a8442",
+      "transform": "none"
+    },
+    {
+      "source_path": "tools/package_product.py",
+      "submit_path": "build/tools/package_product.py",
+      "mode": "100644",
+      "source_sha256": "292f40297761e689b51ff86880725ce2652be5be7f33f3d3f43f9b6e4fbea8a5",
+      "submit_sha256": "292f40297761e689b51ff86880725ce2652be5be7f33f3d3f43f9b6e4fbea8a5",
       "transform": "none"
     },
     {
@@ -7958,8 +8014,8 @@
       "source_path": "tools/submit_scope.py",
       "submit_path": "build/tools/submit_scope.py",
       "mode": "100644",
-      "source_sha256": "a76dbfae63e92718b5758b60e06a2c2687dc9660101f5f8377535144c6b75fca",
-      "submit_sha256": "a76dbfae63e92718b5758b60e06a2c2687dc9660101f5f8377535144c6b75fca",
+      "source_sha256": "b84a987bf2275be62e3a9bae79d89ae74f9daa4eaf2de80110bce5fbb445b464",
+      "submit_sha256": "b84a987bf2275be62e3a9bae79d89ae74f9daa4eaf2de80110bce5fbb445b464",
       "transform": "none"
     },
     {
@@ -7972,12 +8028,12 @@
     }
   ],
   "counts": {
-    "src": 141,
-    "sim": 43,
-    "build": 125,
-    "board": 33,
+    "src": 143,
+    "sim": 44,
+    "build": 127,
+    "board": 34,
     "data": 496,
     "skill": 126,
-    "report": 32
+    "report": 33
   }
 }

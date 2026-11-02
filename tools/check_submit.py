@@ -93,6 +93,15 @@ def main():
             run=call([sys.executable,'-B','tools/check_current_software.py','--output',str(base/'host-check')],work)
             assert run.returncode==0,run.stdout
             result['current_software']=json.loads((base/'host-check/result.json').read_text('utf-8'))
+        if (work/'tools/package_product.py').is_file():
+            # Rebuild the public P1 update without Git or the outer checkout.
+            package=base/'product.zip'
+            run=call([sys.executable,'-B','tools/package_product.py','--output',str(package)],work)
+            assert run.returncode==0,run.stdout
+            with zipfile.ZipFile(package) as z:
+                assert z.testzip() is None
+                result['product_update']={'standalone_rebuild':'PASS','files':len(z.namelist()),
+                                          'hardware':'NOT_RUN','board_validation':'PENDING'}
         reject=call([sys.executable,'-B','build/prepare_workspace.py','--output',str(work)],isolated)
         assert reject.returncode!=0 and 'Refusing to overwrite' in reject.stdout
         # Check missing input and attempted traversal before any files can be emitted.

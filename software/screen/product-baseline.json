@@ -1,0 +1,69 @@
+{
+  "baseline": "011ae3824cc4fed68d7dddae0bef82966ecde200",
+  "previous": {
+    "software/screen/backend.py": [
+      "16c6a2fecd9877a36efab4f65b54ea49f6d5ae6aea6ef25393a2178f4e588882",
+      "7ccb154fff3d93d1cdf44b971a12c7353378bdfc369ff610566a4465f7bf689f"
+    ],
+    "software/screen/ui.py": [
+      "23be34a01b608b4088de26d69a95e58d733470a877f328b1197f7fe7d36f7cb8",
+      "be9d2cc255c4996fef89f170b418f04fb7f8cd6caf9c3df55bbb7b719559c6b6"
+    ],
+    "software/screen/product.py": [],
+    "soundsight-product.sh": [],
+    "document/screen-product.md": [],
+    "software/tests/test_screen_product.py": [],
+    "tools/install_product.py": [],
+    "software/screen/hardware.py": [
+      "153800c28e223e9315c07c1d1096e8982f95a8b869d3c425dd2733886b81b2b3",
+      "73cf8d623daeee5b92d5a87f38943463caf974193c41f68105a1cc51b6803517"
+    ]
+  },
+  "requires": {
+    "soundsight-3d.sh": [
+      "1a6ec9c405ab617df3d0ab68d1b6797ca994e09b35d71a1c48c09dff76cf298d",
+      "e6275c19ffc35b0f56d4e52a9fb9cc9c8b99abf2e2e2bc951f7d6689433d8c11"
+    ],
+    "soundsight-panel.sh": [
+      "b8172b4523c180843e3ecf619740fee23b307de88a47f50ca0db4c45708aad00",
+      "bc4cff4fa78498b4c6532e0cdb72efee6a93ac166fc1e27bf6b5658db4a85299"
+    ],
+    "soundsight-screen.sh": [
+      "17f1e69869c0c175f7469e97806b0f309a0abf19a1e76679b0e015a6c4f52e53",
+      "f2a65df945abd5b2f4e9d749385784c304d249ba3f3925346b791420ccb65fa2"
+    ],
+    "software/ps/speaker_enrollment.py": [
+      "77ec24015e4d92e14e69b9bae71e16dc8dc07b13ba08752b31d0312de9b48c38",
+      "c2238d596f0333ca8c52a761c0ca242cc3aef83796ecb0c346d1a284fd848ca4"
+    ],
+    "software/ps/board_tools.py": [
+      "7d26b140b580c9235e256b961fc5e95a6af3d63645555e8a611e7b1da4daebd6",
+      "ec7ba1f28374c47943728516cf9ed14a1d94e1cf28a61e225c587a30c204aedf"
+    ],
+    "software/tetra3d/linux/board_3d.py": [
+      "b67fd6329050bc0f33ec9aafc631be5adfa1120c80d58043cb95f21673b55755",
+      "fce0f8e07f39604db95b3fc2bbaf67ec340a5dcbfcf7874c943689d491ccfba2"
+    ],
+    "software/screen/hardware.py": [
+      "153800c28e223e9315c07c1d1096e8982f95a8b869d3c425dd2733886b81b2b3",
+      "73cf8d623daeee5b92d5a87f38943463caf974193c41f68105a1cc51b6803517"
+    ],
+    "software/screen/linux_i2c.py": [
+      "55ae63548ffb4e2af8bc9f3d1d203f9d7e03550b1d5f9700fceb7255dfd40b4c",
+      "b295f95605935248dbf8959c64a2a4d75f25a41ea284eed36afc1e6360518d46"
+    ],
+    "software/screen/screen_i2c_prepare.py": [
+      "c51349920ebe5987da616f213be8ab63754a22759629521037a7ac73ae474ce1",
+      "fbdea1f5856dac871c519ec58eecffa317d4e45aeaabdb6d86d5c8d786397757"
+    ],
+    "software/screen/ps_i2c0_enable.dtbo": [
+      "8136ea2c115e4f1dbf60af27b3b1ddc01253924faba472442ad06568968e0b59"
+    ],
+    "soundsight.bit": [
+      "409aeb5d31f1f90a9e0f33d875d49bc15b3a45befb27dac711cae577316d76a2"
+    ],
+    "soundsight.hwh": [
+      "915f4097380eba354660bd95a54cab12857e1d2acb826e5b0cf25e1c7275790d"
+    ]
+  }
+}

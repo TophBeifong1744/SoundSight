@@ -11,7 +11,7 @@ from backend import Backend
 
 
 class UI:
-    def __init__(self, backend):
+    def __init__(self, backend, product=False):
         self.backend = backend
         self.page, self.mode, self.axes = 'HOME', 'SOUND', 'off'
         self.message, self.touch_text = '', 'Touch the four corners; coordinates appear here'
@@ -22,14 +22,62 @@ class UI:
         self.touch_count = 0
         self.exit_requested = False
         self.last_live_refresh = 0.
+        self.product = product
+        self.modal = None
+        self.enroll_seconds = 5
+        self.enroll_name = None
+        self.shutdown_pending = False
+        self.shutdown_checked = False
+        self.touch_failed = False
+        self.startup_block = ''
+        self.last_state = backend.state
+        if product:
+            try:
+                from product import load_preferences
+                self.mode = load_preferences(backend.root)
+            except (ValueError, OSError) as exc:
+                backend.fault('Saved screen settings: '+str(exc))
+
+    @property
+    def poweroff_ready(self):
+        b = self.backend
+        return (self.shutdown_pending and self.shutdown_checked and not b.busy and
+                b.stop_verified and b.operation == 'verify-stop' and
+                b.idle_state(b.device_state))
 
     def action(self, action):
         b = self.backend
         self.message = ''
         try:
             if action == 'STOP':
+                self.modal = None
+                self.shutdown_pending = False
                 b.stop()
                 self.axes = 'off'
+            elif action == 'POWER':
+                if not self.product or not b.control:
+                    raise RuntimeError('Power control requires product mode')
+                self.modal = 'POWER'
+            elif action == 'CANCEL':
+                self.modal = None
+            elif self.modal == 'POWER' and action == 'POWER_CONFIRM':
+                self.modal = None
+                self.axes = 'off'
+                if b.demo:
+                    self.message = 'DEMO: no power action'
+                else:
+                    self.shutdown_pending, self.shutdown_checked = True, False
+                    b.stop()
+                    self.message = 'Stopping before shutdown. Keep power connected.'
+            elif self.modal == 'ENROLL' and action in ('RECORD', 'SHORTER', 'LONGER'):
+                if action == 'RECORD':
+                    b.enroll(self.enroll_name, self.enroll_seconds)
+                    self.modal = None
+                    self.axes, self.page = 'off', 'HOME'
+                else:
+                    self.enroll_seconds = max(2, min(10, self.enroll_seconds + (1 if action == 'LONGER' else -1)))
+            elif self.modal or self.shutdown_pending:
+                self.message = 'Confirm or cancel the dialog first'
             elif action == 'EXIT':
                 b.stop()
                 self.exit_requested = True
@@ -44,10 +92,17 @@ class UI:
                 b.clear_live()
                 self.mode = 'SPEAKER' if self.mode == 'SOUND' else 'SOUND'
                 self.axes = 'off'
+                if self.product and not b.demo:
+                    from product import save_mode
+                    save_mode(b.root, self.mode)
             elif action == 'AXES':
                 choices = ['off', 'horizontal', 'vertical', 'both'] if b.motion and b.control else ['off']
                 self.axes = choices[(choices.index(self.axes)+1) % len(choices)]
             elif action == 'ACK':
+                if self.startup_block:
+                    raise RuntimeError('Startup failed: '+self.startup_block)
+                if self.touch_failed:
+                    raise RuntimeError('Touch unavailable; wait for touch recovery first')
                 b.acknowledge()
                 self.axes = 'off'
                 self.draft = dict(b.cache)
@@ -61,6 +116,12 @@ class UI:
                 self.message = 'Selection clears threshold. Run score-only before setting a new gate.'
             elif action == 'USER_VERIFY':
                 b.command('speaker-list')
+            elif action == 'ENROLL':
+                if not b.control:
+                    raise RuntimeError('Enrollment requires control mode')
+                self.enroll_name = b.next_user()
+                self.modal = 'ENROLL'
+                self.axes = 'off'
             elif action == 'FIELD':
                 self.setting_index = (self.setting_index+1) % 5
             elif action in ('PLUS', 'MINUS'):
@@ -110,6 +171,16 @@ class UI:
 
     def tick(self):
         self.backend.tick()
+        if self.shutdown_pending and not self.backend.busy and not self.shutdown_checked:
+            self.backend._verify_stop()
+            self.shutdown_checked = True
+        if self.product and not self.backend.demo and self.last_state != self.backend.state:
+            from product import update_journal
+            stage = 'READY' if self.backend.state == 'IDLE' else self.backend.state
+            update_journal(self.backend.root, stage, runtime_operation=self.backend.operation,
+                           stop_verified=self.backend.stop_verified,
+                           error=self.backend.note if self.backend.state == 'ERROR' else None)
+            self.last_state = self.backend.state
         now = time.monotonic()
         if self.backend.busy and now - self.last_live_refresh >= .5:
             self.last_live_refresh = now
@@ -118,6 +189,8 @@ class UI:
             if self.backend.state in ('IDLE', 'ERROR'):
                 self.axes = 'off'
                 self.draft = dict(self.backend.cache)
+                if self.backend.last_enrolled in self.backend.cache['profiles']:
+                    self.user_index = self.backend.cache['profiles'].index(self.backend.last_enrolled)
             self.last_generation = self.backend.generation
             self.dirty = True
 
@@ -160,7 +233,8 @@ class UI:
             button((20+n*195, 91, 200+n*195, 139), page, 'PAGE:'+page,
                    '#236b75' if self.page == page else '#21354f')
         if self.page == 'HOME':
-            text(24, 157, 'Acoustic follow' if self.mode == 'SOUND' else 'Speaker gate / score_ttl_v2', big=True)
+            text(24, 157, 'Voice enrollment' if b.operation == 'ENROLL' and b.busy else
+                 'Acoustic follow' if self.mode == 'SOUND' else 'Speaker gate / score_ttl_v2', big=True)
             live = b.live()
             if live.get('stale'):
                 text(24, 199, 'Direction: waiting / no recent runtime report', '#a7bdd5')
@@ -186,15 +260,20 @@ class UI:
             button((24, 309, 244, 359), 'Change mode', 'MODE')
             button((260, 309, 755, 359), 'Select axes: '+self.axes, 'AXES')
             text(24, 364, b.note, '#a7bdd5', limit=78)
+            if b.operation == 'ENROLL' and b.busy:
+                draw.rectangle((20, 192, 780, 305), fill='#183447')
+                text(24, 205, b.note, '#f5cd75', limit=68)
+                text(24, 249, 'Recording / processing with axes OFF. STOP cancels.')
         elif self.page == 'USERS':
             self.user_index %= len(c['profiles'])
             text(24, 160, 'Current: '+str(c['target'] or '(none)'), big=True)
             text(24, 205, 'Candidate: '+c['profiles'][self.user_index])
             text(24, 236, 'Local names only. SELECT runs original profile validation.')
             text(24, 264, 'Selecting a user clears the old threshold.', '#f5cd75')
-            button((24, 300, 215, 353), 'Next user', 'USER_NEXT')
-            button((231, 300, 447, 353), 'SELECT user', 'USER_SELECT')
-            button((463, 300, 755, 353), 'Validate / list', 'USER_VERIFY')
+            button((20, 300, 200, 353), 'Next user', 'USER_NEXT')
+            button((215, 300, 395, 353), 'SELECT', 'USER_SELECT')
+            button((410, 300, 590, 353), 'Validate', 'USER_VERIFY')
+            button((605, 300, 785, 353), 'NEW voice', 'ENROLL')
         elif self.page == 'SETTINGS':
             key = ['level', 'window', 'minimum', 'threshold', 'ttl'][self.setting_index]
             text(24, 157, 'Edit: %s = %s' % (key, self.draft[key]), big=True)
@@ -212,7 +291,25 @@ class UI:
                 text(24, 208+n*25, line, limit=78)
             button((24, 325, 250, 377), 'Read status', 'STATUS')
             button((266, 325, 575, 377), 'Recheck / reload', 'ACK')
-            button((591, 325, 778, 377), 'EXIT panel', 'EXIT', '#6a3945')
+            button((591, 325, 778, 377), 'SHUT DOWN' if self.product else 'EXIT panel',
+                   'POWER' if self.product else 'EXIT', '#6a3945')
+        if self.modal:
+            draw.rectangle((10, 145, 790, 388), fill='#183447', outline='#53d8cc')
+            self.buttons = []
+            if self.modal == 'POWER':
+                text(30, 165, 'Shut down SoundSight?', big=True)
+                text(30, 220, 'Runtime and display DMA must stop before poweroff.')
+                text(30, 250, 'Keep power connected until Linux has shut down.')
+                button((30, 315, 350, 374), 'CANCEL', 'CANCEL')
+                button((400, 315, 760, 374), 'CONFIRM shutdown', 'POWER_CONFIRM', '#9a3545')
+            else:
+                text(30, 162, 'New voice: '+str(self.enroll_name), big=True)
+                text(30, 205, 'Only this person speaks. Wait for SPEAK NOW.')
+                text(30, 237, 'Duration: %d seconds; existing users are preserved.' % self.enroll_seconds)
+                button((30, 276, 160, 323), '- 1 sec', 'SHORTER')
+                button((180, 276, 310, 323), '+ 1 sec', 'LONGER')
+                button((30, 334, 350, 383), 'CANCEL', 'CANCEL')
+                button((400, 334, 760, 383), 'RECORD new voice', 'RECORD', '#235748')
         # STOP 固定位置覆盖所有页面，配置状态不影响其可达性。
         draw.rectangle((0, 390, 800, 480), fill='#101f32')
         text(20, 394, self.message or b.note, '#f5cd75', limit=76)
@@ -238,6 +335,9 @@ def parser():
     p.add_argument('--swap-xy', action='store_true')
     p.add_argument('--invert-x', action='store_true')
     p.add_argument('--invert-y', action='store_true')
+    p.add_argument('--product', action='store_true', help='Saved mode, enrollment and confirmed shutdown')
+    p.add_argument('--owner-fd', type=int, help=argparse.SUPPRESS)
+    p.add_argument('--startup-error', default='', help=argparse.SUPPRESS)
     return p
 
 
@@ -279,12 +379,18 @@ def main(argv=None):
     except ImportError as exc:
         print('DEPENDENCY_MISSING: %s. No downloads or hardware access performed.' % exc, file=sys.stderr)
         return 2
-    print('SCREEN_S3 transport=PS_I2C0_EMIO_LINUX Python=%s Pillow=%s numpy=%s' %
-          (sys.version.split()[0], PIL.__version__, numpy.__version__))
+    print('%s transport=PS_I2C0_EMIO_LINUX Python=%s Pillow=%s numpy=%s' %
+          ('SCREEN_PRODUCT_P1' if args.product else 'SCREEN_S3',
+           sys.version.split()[0], PIL.__version__, numpy.__version__))
     offline = args.demo or args.demo_window
     backend = Backend(args.root, args.control, args.enable_motion, demo=offline, frames=args.frames)
-    ui = UI(backend)
-    ui.page, ui.mode = args.page, args.mode
+    ui = UI(backend, product=args.product)
+    ui.page = args.page
+    if not args.product:
+        ui.mode = args.mode
+    if args.startup_error:
+        ui.startup_block = args.startup_error
+        backend.fault('Startup failed: '+args.startup_error)
     if offline:
         ui.render().save(args.screenshot)
         print('OFFLINE_SCREENSHOT='+str(args.screenshot.resolve())+' HARDWARE_ACTIONS=0')
@@ -293,11 +399,24 @@ def main(argv=None):
         return 0
     if os.name != 'posix':
         raise RuntimeError('Hardware screen requires Linux/PYNQ; use --demo on PC')
+    if args.product:
+        from product import verify_product
+        verify_product(args.root)
     import fcntl
     from hardware import open_overlay, ScreenGPIO, Touch, Display, wait_until
     from linux_i2c import LinuxI2C
     # 单独的屏幕所有者锁允许原运行时拥有采集锁；禁止第二个 UI 使用 DMA。
-    owner = open('/tmp/soundsight-screen-owner.lock', 'a')
+    owner_path = '/tmp/soundsight-screen-owner.lock'
+    if args.owner_fd is not None:
+        if not args.product:
+            raise ValueError('Inherited owner requires product mode')
+        owner = os.fdopen(args.owner_fd, 'a')
+        held, actual = os.fstat(owner.fileno()), os.stat(owner_path)
+        if (held.st_dev, held.st_ino) != (actual.st_dev, actual.st_ino):
+            raise ValueError('Wrong inherited screen owner')
+        os.set_inheritable(owner.fileno(), False)
+    else:
+        owner = open(owner_path, 'a')
     fcntl.flock(owner, fcntl.LOCK_EX | fcntl.LOCK_NB)
     display, gpio, bus = None, None, None
     quit_requested = [False]
@@ -308,32 +427,68 @@ def main(argv=None):
     signal.signal(signal.SIGINT, request_exit)
     signal.signal(signal.SIGTERM, request_exit)
     result = 0
+    power_accepted = False
     try:
         overlay, mmio, allocate, np = open_overlay(args.root)
-        # 先确认内核所有权和打开 fd，再进行任何触摸 GPIO 复位或探测。
-        bus = LinuxI2C()
-        print('PS_I2C_READY='+json.dumps(bus.details, sort_keys=True), flush=True)
-        gpio = ScreenGPIO(mmio(0x41200000, 0x1000))
+        gpio = ScreenGPIO(mmio(0x41200000, 0x1000), touch_owned=False)
         display = Display(mmio(0x43000000, 0x1000), gpio, allocate, np)
         display.start(allocate)
         # 视频输出锁定依赖有效 AXI 视频流，必须先启动 VDMA 再等待锁定。
         wait_until(gpio.locked, 1., 'Screen video output timing lock not asserted')
-        touch = Touch(bus, gpio,
-                      args.swap_xy, args.invert_x, args.invert_y)
-        controller = touch.probe()
-        print('TOUCH='+controller, flush=True)
-        ui.message = ''
+        ui.message = 'Starting touch controller. Axes are OFF.'
         display.present(ui.render())
         gpio.backlight(True)
-        print('SCREEN_READY=1 CURRENT_FRAME_ACK=%d AXES=off CONTROL=%d' %
-              (display.active, int(args.control)), flush=True)
+        touch = None
+        touch_attempts, next_touch_retry = 0, 0.
+        def touch_error(exc):
+            ui.touch_failed = True
+            ui.axes, ui.down = 'off', True
+            ui.message = 'Touch fault; STOP requested. Recovery needs Recheck.'
+            backend.fault('Touch: '+str(exc))
+            ui.dirty = True
+            print('PRODUCT_TOUCH_FAULT='+str(exc), flush=True)
+            if args.product:
+                from product import update_journal
+                update_journal(args.root, 'TOUCH_FAULT', error=str(exc)[:400])
         started, last_render, last_health = time.monotonic(), time.monotonic(), 0.
         while not quit_requested[0] and not ui.exit_requested:
             now = time.monotonic()
             if args.seconds and now-started >= args.seconds:
                 break
             ui.tick()
-            ui.touch(touch.poll())
+            if touch is None and touch_attempts < 3 and now >= next_touch_retry and not backend.busy:
+                touch_attempts += 1
+                try:
+                    # Kernel ownership precedes all touch reset/probe operations.
+                    bus = LinuxI2C()
+                    candidate = Touch(bus, gpio, args.swap_xy, args.invert_x, args.invert_y)
+                    controller = candidate.probe()
+                    touch = candidate
+                    ui.touch_failed = False
+                    ui.message = ('Touch recovered. Tap Recheck; axes remain OFF.' if touch_attempts > 1
+                                  else args.startup_error)
+                    print('TOUCH='+controller, flush=True)
+                    print('SCREEN_READY=1 CURRENT_FRAME_ACK=%d AXES=off CONTROL=%d' %
+                          (display.active, int(args.control)), flush=True)
+                    if args.product:
+                        from product import update_journal, fingerprints
+                        update_journal(args.root, 'READY' if backend.state == 'IDLE' else 'FAULT_IDLE',
+                                       settings_at_ready=fingerprints(args.root), axes='off')
+                    ui.dirty = True
+                except (OSError, ValueError, RuntimeError) as exc:
+                    if bus:
+                        bus.close(); bus = None
+                    touch_error(exc)
+                    next_touch_retry = now+2.
+            if touch is not None:
+                try:
+                    ui.touch(touch.poll())
+                except (OSError, ValueError, RuntimeError) as exc:
+                    touch = None
+                    if bus:
+                        bus.close(); bus = None
+                    touch_error(exc)
+                    next_touch_retry = now+2.
             if now-last_health >= .1:
                 display.health()
                 last_health = now
@@ -341,9 +496,30 @@ def main(argv=None):
             if ui.dirty and now-last_render >= interval:
                 display.present(ui.render())
                 last_render = time.monotonic()
+            if ui.poweroff_ready:
+                ui.message = 'Shutting down. Keep power connected.'
+                display.present(ui.render())
+                if not display.close():
+                    raise RuntimeError('Display DMA STOP unconfirmed; shutdown blocked')
+                try:
+                    from product import poweroff
+                    poweroff(args.root)
+                    power_accepted = True
+                    break
+                except Exception as exc:
+                    ui.shutdown_pending = False
+                    ui.message = str(exc)
+                    backend.fault('Shutdown failed: '+str(exc))
+                    display = Display(mmio(0x43000000, 0x1000), gpio, allocate, np)
+                    display.start(allocate)
+                    wait_until(gpio.locked, 1., 'Screen timing lock after shutdown rejection')
+                    display.present(ui.render()); gpio.backlight(True)
             time.sleep(.02)
     except Exception as exc:
         result = 1
+        if args.product:
+            from product import update_journal
+            update_journal(args.root, 'ERROR', error=str(exc)[:400])
         print('SCREEN_STOP: %s: %s' % (type(exc).__name__, exc), file=sys.stderr, flush=True)
     finally:
         # 异常或退出先撤销运行时动作，等待真实退出；绝不静默强杀后重启。
@@ -360,7 +536,7 @@ def main(argv=None):
                 print('EXIT_PENDING: '+backend.note, flush=True)
                 last_report = time.monotonic()
             time.sleep(.05)
-        if backend.session_failed or not backend.stop_verified:
+        if not power_accepted and (backend.session_failed or not backend.stop_verified):
             result = 1
         if display:
             while not display.close():
@@ -370,6 +546,10 @@ def main(argv=None):
             bus.close()
         fcntl.flock(owner, fcntl.LOCK_UN)
         owner.close()
+        if args.product and not power_accepted:
+            from product import update_journal
+            update_journal(args.root, 'PANEL_STOPPED' if result == 0 else 'ERROR_STOPPED',
+                           stop_verified=backend.stop_verified, exit_code=result)
     return result
 
 

@@ -16,12 +16,17 @@ def wait_until(predicate, timeout, reason):
 class ScreenGPIO:
     RST, INT, BL = 1, 2, 4
 
-    def __init__(self, mmio):
+    def __init__(self, mmio, touch_owned=True):
         self.mmio = mmio
-        self.output = mmio.read(0) & ~7
+        # A startup error screen can own video/backlight before the I2C bus.
+        # In that case preserve the touch reset/INT latches and directions.
+        self.output = mmio.read(0)
+        if touch_owned:
+            self.output &= ~7
         self.direction = mmio.read(4)
         self.pin(self.BL, False, output=True)
-        self.pin(self.INT, False, output=False)
+        if touch_owned:
+            self.pin(self.INT, False, output=False)
 
     def pin(self, mask, high, output=True):
         # 仅修改本屏幕拥有的三个引脚；先置输出锁存，再改变三态。
