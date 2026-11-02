@@ -1,0 +1,4 @@
+# Keep original scripts and the S2 reproduction snapshot byte-for-byte.
+screen_s2/** -text -eol -whitespace
+tools/** -text -eol -whitespace
+source-map.json -text -eol -whitespace
