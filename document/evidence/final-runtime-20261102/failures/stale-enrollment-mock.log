@@ -1,0 +1,21 @@
+............E.....
+======================================================================
+ERROR: test_runtime_reads_target_and_threshold_only_inside_owner_lock (__main__.EnrollmentTests.test_runtime_reads_target_and_threshold_only_inside_owner_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Users\Toph Beifong\Documents\GitHub\SoundSight\codex_out\final-runtime\simulation\work\final-runtime-check\unpacked\SoundSight_PYNQ_3D_Speaker\software\tests\test_speaker_enrollment.py", line 171, in test_runtime_reads_target_and_threshold_only_inside_owner_lock
+    patch.object(runtime, 'check_speaker', side_effect=checked({})), \
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\unittest\mock.py", line 1510, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\unittest\mock.py", line 1480, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'speaker_runtime_3d' from 'E:\\Users\\Toph Beifong\\Documents\\GitHub\\SoundSight\\codex_out\\final-runtime\\simulation\\work\\final-runtime-check\\unpacked\\SoundSight_PYNQ_3D_Speaker\\software\\tetra3d\\linux\\speaker_runtime_3d.py'> does not have the attribute 'check_speaker'
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.723s
+
+FAILED (errors=1)

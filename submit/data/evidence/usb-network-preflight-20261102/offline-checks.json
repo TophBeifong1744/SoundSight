@@ -1,0 +1,103 @@
+{
+  "input_sha256": "323c41cc36427e626539c4d8d5174ea144a45b2b3de514c96969c813e45f24b0",
+  "input_files_verified": 12202,
+  "collection_issues": [
+    {
+      "path": "/lib/modules/5.4.0-xilinx-v2020.2/build/scripts/dtc/include-prefixes/openrisc",
+      "error": "directory symlink skipped",
+      "target": "../../../arch/openrisc/boot/dts"
+    },
+    {
+      "path": "/lib/modules/5.4.0-xilinx-v2020.2/build/scripts/dtc/include-prefixes/xtensa",
+      "error": "directory symlink skipped",
+      "target": "../../../arch/xtensa/boot/dts"
+    },
+    {
+      "path": "/lib/modules/5.4.0-xilinx-v2020.2/build/scripts/dtc/include-prefixes/arc",
+      "error": "directory symlink skipped",
+      "target": "../../../arch/arc/boot/dts"
+    },
+    {
+      "path": "/lib/modules/5.4.0-xilinx-v2020.2/build/scripts/dtc/include-prefixes/arm",
+      "error": "directory symlink skipped",
+      "target": "../../../arch/arm/boot/dts"
+    },
+    {
+      "path": "/lib/modules/5.4.0-xilinx-v2020.2/build/scripts/dtc/include-prefixes/sh",
+      "error": "directory symlink skipped",
+      "target": "../../../arch/sh/boot/dts"
+    },
+    {
+      "path": "/lib/modules/5.4.0-xilinx-v2020.2/build/scripts/dtc/include-prefixes/nios2",
+      "error": "directory symlink skipped",
+      "target": "../../../arch/nios2/boot/dts"
+    },
+    {
+      "path": "/lib/modules/5.4.0-xilinx-v2020.2/build/scripts/dtc/include-prefixes/dt-bindings",
+      "error": "directory symlink skipped",
+      "target": "../../../include/dt-bindings"
+    },
+    {
+      "path": "/lib/modules/5.4.0-xilinx-v2020.2/build/scripts/dtc/include-prefixes/h8300",
+      "error": "directory symlink skipped",
+      "target": "../../../arch/h8300/boot/dts"
+    },
+    {
+      "path": "/lib/modules/5.4.0-xilinx-v2020.2/build/scripts/dtc/include-prefixes/mips",
+      "error": "directory symlink skipped",
+      "target": "../../../arch/mips/boot/dts"
+    },
+    {
+      "path": "/lib/modules/5.4.0-xilinx-v2020.2/build/scripts/dtc/include-prefixes/arm64",
+      "error": "directory symlink skipped",
+      "target": "../../../arch/arm64/boot/dts"
+    },
+    {
+      "path": "/lib/modules/5.4.0-xilinx-v2020.2/build/scripts/dtc/include-prefixes/c6x",
+      "error": "directory symlink skipped",
+      "target": "../../../arch/c6x/boot/dts"
+    },
+    {
+      "path": "/lib/modules/5.4.0-xilinx-v2020.2/build/scripts/dtc/include-prefixes/powerpc",
+      "error": "directory symlink skipped",
+      "target": "../../../arch/powerpc/boot/dts"
+    },
+    {
+      "path": "/lib/modules/5.4.0-xilinx-v2020.2/build/scripts/dtc/include-prefixes/microblaze",
+      "error": "directory symlink skipped",
+      "target": "../../../arch/microblaze/boot/dts"
+    }
+  ],
+  "fit_kernel": "kernel@0",
+  "fit_fdt": "fdt@0",
+  "fit_hashes_checked": [
+    "/images/kernel@0/hash@1/algo",
+    "/images/fdt@0/hash@1/algo"
+  ],
+  "modules": [
+    {
+      "name": "u_ether.ko",
+      "sha256": "0a0739d1a3166ff1567d696c62197b708c7a7bba98349382b536accb6c29bde8",
+      "vermagic": "vermagic=5.4.0-xilinx-v2020.2 SMP preempt mod_unload modversions ARMv7 p2v8 ",
+      "versioned_imports": 54
+    },
+    {
+      "name": "usb_f_rndis.ko",
+      "sha256": "1ed617c7bbb4ba2d5e3e67b24c7ed9c708e578dfa27ab4ca9712cb248274ee4f",
+      "vermagic": "vermagic=5.4.0-xilinx-v2020.2 SMP preempt mod_unload modversions ARMv7 p2v8 ",
+      "versioned_imports": 64
+    }
+  ],
+  "dt_existing_property_changes": {
+    "/amba/usb@e0002000/status": {
+      "before_hex": "64697361626c656400",
+      "after_hex": "6f6b617900"
+    }
+  },
+  "kernel54_symbol_exports": {
+    "ss_usb0_pins": "/amba/slcr@f8000000/pinctrl@700/soundsight-usb0-pins",
+    "ss_usb_reset_pin": "/amba/slcr@f8000000/pinctrl@700/soundsight-usb-reset-pin",
+    "ss_usb_phy": "/amba/soundsight-usb-phy"
+  },
+  "status": "OFFLINE_CHECKS_PASS; BOARD_RESULTS_RECORDED_SEPARATELY"
+}

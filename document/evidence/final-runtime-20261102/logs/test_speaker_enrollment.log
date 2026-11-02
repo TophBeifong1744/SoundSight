@@ -1,0 +1,6 @@
+SPEAKER_3D_STOPPED RESULT=FAIL OUTPUT=C:\Users\TOPHBE~1\AppData\Local\Temp\tmpaxo52f1j\logs\speaker-3d-20261102-212813-851169.json ERROR=RuntimeError: mock stops before hardware
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 0.763s
+
+OK

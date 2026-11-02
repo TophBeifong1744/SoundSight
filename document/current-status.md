@@ -1,5 +1,7 @@
 # 当前状态 — 2026-11-02
 
+**接近最终版的联合运行包：** 用户撤销DAS接入，现交付S2/S3触屏、CF1A三维、CP1/VF1声纹和双轴完整包。沿用现有算法、筛选、许可和标定；升级保留个人配置/声纹/日志，不上传用户本机旧Vivado工程。安装器支持备份、失败回滚及首次失败重试。操作见[完整包说明](pynq-final-runtime.md)，离线验证见[交付检查](evidence/final-runtime-20261102/README.md)。本次没有硬件动作，完整组合的实板复测仍由用户执行。
+
 **2026-11-02 USB单线调试已打通：** 领航者PYNQ的USB SLAVE已支持Windows RNDIS、SSH和WinSCP目录访问；v2加bootpy启动依赖补丁正常重启后由用户确认可重连，仓库v3内置相同依赖。保留DC供电和当前B版bit/HWH，未改启动镜像；VS Code旧版路线已取消。操作见[USB使用说明](pynq-usb-network.md)，验证范围见[板端结果](evidence/usb-network-preflight-20261102/board-success.md)。
 
 当前资料快照：J3 M15/J14 + S2 PS I2C0 EMIO屏幕硬件 + S3面板 + CF1A。S2两轮基础显示/触摸已由用户执行；P02本人→到期→另一人本轮串行验证通过。CF1原两轮板测最终输出0/4，CF1A已接回一份30秒ARM板测摘要；用户另回报约几分钟持续双轴跟随，时长与日志关联待补，联合长稳/三维精度仍未完成定量验收。完整来源、数值与边界见[本次同步](release-20261102-submit.md)。

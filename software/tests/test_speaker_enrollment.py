@@ -168,10 +168,10 @@ class EnrollmentTests(unittest.TestCase):
                                axes='off', frames=1, seconds=1, geometry={}, calibration={})
         with patch.object(runtime, 'single_owner', owner), \
              patch.object(runtime, 'CaptureScheduling', return_value=contextlib.nullcontext()), \
-             patch.object(runtime, 'check_speaker', side_effect=checked({})), \
-             patch.object(runtime, 'verify_assets', side_effect=checked(dict(target_id='alice'))), \
-             patch.object(runtime, 'verify_candidates', side_effect=checked({})), \
-             patch.object(runtime, 'load_settings', side_effect=checked(dict(threshold=None))), \
+             patch('speaker_follow_setup.check', side_effect=checked({})), \
+             patch('speaker_settings.verify_assets', side_effect=checked(dict(target_id='alice'))), \
+             patch('speaker_models.verify_candidates', side_effect=checked({})), \
+             patch('speaker_permission.load_settings', side_effect=checked(dict(threshold=None))), \
              patch.object(runtime, 'audio_hwh', return_value={}), \
              patch.object(runtime, 'check_hwh', return_value=(0, 0)), \
              patch.object(runtime.board_tools, 'load_api', side_effect=RuntimeError('mock stops before hardware')):
