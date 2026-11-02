@@ -1,0 +1,60 @@
+{
+  "upstream_ref": "xilinx-v2020.2",
+  "files": {
+    "drivers/usb/gadget/function/u_ether.c": {
+      "url": "https://raw.githubusercontent.com/Xilinx/linux-xlnx/xilinx-v2020.2/drivers/usb/gadget/function/u_ether.c",
+      "sha256": "2ae748a5c93549752dee11dc4a48cc736e2ba8076cf6b614a7a8ecfcf49ab90d",
+      "bytes": 29393
+    },
+    "drivers/usb/gadget/function/f_rndis.c": {
+      "url": "https://raw.githubusercontent.com/Xilinx/linux-xlnx/xilinx-v2020.2/drivers/usb/gadget/function/f_rndis.c",
+      "sha256": "f0a27b4b55167c9a781e7ad4337cb76910b9e1688d21cdfe3dd3b8df485db434",
+      "bytes": 29690
+    },
+    "drivers/usb/gadget/function/rndis.c": {
+      "url": "https://raw.githubusercontent.com/Xilinx/linux-xlnx/xilinx-v2020.2/drivers/usb/gadget/function/rndis.c",
+      "sha256": "5f83ab6999ec21d5393a1f3284ac026c0d4fdb19d02da5153d1d3bd3fb14686a",
+      "bytes": 29102
+    },
+    "LICENSES/preferred/GPL-2.0": {
+      "url": "https://raw.githubusercontent.com/Xilinx/linux-xlnx/xilinx-v2020.2/LICENSES/preferred/GPL-2.0",
+      "sha256": "f6b78c087c3ebdf0f3c13415070dd480a3f35d8fc76f3d02180a407c1c812f79",
+      "bytes": 18729
+    },
+    "COPYING": {
+      "url": "https://raw.githubusercontent.com/Xilinx/linux-xlnx/xilinx-v2020.2/COPYING",
+      "sha256": "ee5808b032a67f587d3541099d46de34f5bec8cd5976114ba07f1299ee6001ff",
+      "bytes": 423
+    },
+    "drivers/usb/gadget/function/u_ether.h": {
+      "url": "https://raw.githubusercontent.com/Xilinx/linux-xlnx/xilinx-v2020.2/drivers/usb/gadget/function/u_ether.h",
+      "sha256": "7bff47e9e11dfdce05bb6f667e47b509da549ab828eb90eaea10fa49d57b927c",
+      "bytes": 8664
+    },
+    "drivers/usb/gadget/function/u_ether_configfs.h": {
+      "url": "https://raw.githubusercontent.com/Xilinx/linux-xlnx/xilinx-v2020.2/drivers/usb/gadget/function/u_ether_configfs.h",
+      "sha256": "70d78ea86ed84f9efadb55373e810e31482bbc7b34f672728578fbc147575770",
+      "bytes": 5181
+    },
+    "drivers/usb/gadget/function/u_rndis.h": {
+      "url": "https://raw.githubusercontent.com/Xilinx/linux-xlnx/xilinx-v2020.2/drivers/usb/gadget/function/u_rndis.h",
+      "sha256": "341de256c93d9a85556ad26e20fa30f869b1361f489655f9f492d0baae6cd8d9",
+      "bytes": 998
+    },
+    "drivers/usb/gadget/function/rndis.h": {
+      "url": "https://raw.githubusercontent.com/Xilinx/linux-xlnx/xilinx-v2020.2/drivers/usb/gadget/function/rndis.h",
+      "sha256": "768d8dd4f1a48b60a9477005c45d990db0d8f2a94fa21fdea1351305b10e8971",
+      "bytes": 4912
+    },
+    "drivers/usb/gadget/configfs.h": {
+      "url": "https://raw.githubusercontent.com/Xilinx/linux-xlnx/xilinx-v2020.2/drivers/usb/gadget/configfs.h",
+      "sha256": "a680515bf7a3f2a897283ffd104d8b8482eed6ecbdaf694f3fdef71b5abecb52",
+      "bytes": 553
+    },
+    "drivers/usb/gadget/function/ndis.h": {
+      "url": "https://raw.githubusercontent.com/Xilinx/linux-xlnx/xilinx-v2020.2/drivers/usb/gadget/function/ndis.h",
+      "sha256": "b3a24e6e6aa9885d0327def78fa7fb0660122f2578ed0ae316c9c2d9121cd547",
+      "bytes": 1064
+    }
+  }
+}

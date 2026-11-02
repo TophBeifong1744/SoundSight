@@ -1,5 +1,5 @@
 {
-  "baseline_commit": "61f7c6101fdf83d1609b931a00bbda0b787188c5",
+  "baseline_commit": "77a85ed6072fa99e1138f5d8b96e123a68093437",
   "scope": "standalone submission snapshot, no new hardware experiment",
   "files": [
     {
@@ -278,8 +278,8 @@
       "source_path": "document/current-status.md",
       "submit_path": "report/current-status.md",
       "mode": "100644",
-      "source_sha256": "ed44acfd3114ad65ee5f345e8d9ce6773b459ad17ba3517d7eef679928b94187",
-      "submit_sha256": "45486f5b51d9ef5f1b55f429a40137c3f2800600647dbaf4288445dcd50857df",
+      "source_sha256": "971e01186675b480c6cad3abdb8cd1eed0de924bbae494aa4e06dcbf03857c93",
+      "submit_sha256": "8f23b22f6d2d0b42dff28d94272516ffb5cb8495e203b625090893d76e8de84f",
       "transform": "documentation_links_only"
     },
     {
@@ -411,11 +411,19 @@
       "transform": "none"
     },
     {
+      "source_path": "document/directional-pickup-integration.md",
+      "submit_path": "report/directional-pickup-integration.md",
+      "mode": "100644",
+      "source_sha256": "b7837983cd3bc49ae969c3b54955bd6ea8eebb8cf726d6c1b82f2f47e2c932e7",
+      "submit_sha256": "b7837983cd3bc49ae969c3b54955bd6ea8eebb8cf726d6c1b82f2f47e2c932e7",
+      "transform": "none"
+    },
+    {
       "source_path": "document/directory-guide.md",
       "submit_path": "report/directory-guide.md",
       "mode": "100644",
-      "source_sha256": "cb5888f567b2f8ea2fcac3c7223845238269ffb2482e45bbd3f7ed42c3c62f87",
-      "submit_sha256": "17b8ffe308ecf7875ffc802d8b9a5a10bf9d246ac932eb67d936767411216ec4",
+      "source_sha256": "d078be0343425018a0721e2074280c048d295ee7831fb46e18ccb098fd495dfd",
+      "submit_sha256": "9b7fbf6de7f75a3e97d379387123e587262e28162a89fa4c8f9ec07f483d93f5",
       "transform": "documentation_links_only"
     },
     {
@@ -3064,6 +3072,174 @@
       "mode": "100644",
       "source_sha256": "e0675ec3571841403f901583d84c134946ddbefa3b18c2daf17806b253f7b362",
       "submit_sha256": "e0675ec3571841403f901583d84c134946ddbefa3b18c2daf17806b253f7b362",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/README.md",
+      "submit_path": "data/evidence/final-runtime-20261102/readme.md",
+      "mode": "100644",
+      "source_sha256": "4a97ba408385aadeb25134a13fcfc614d61e1f29d0c2213ca9a637fe0c752d56",
+      "submit_sha256": "a7798e512a7c4fec4c543c89ab0e3e059f885177c6f0da6a6b4cea61b84ab7f7",
+      "transform": "documentation_links_only"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/failures/missing-installer-dependency.log",
+      "submit_path": "data/evidence/final-runtime-20261102/failures/missing-installer-dependency.log",
+      "mode": "100644",
+      "source_sha256": "6fa4f0f2842e290cb49d777c3e1360925c042cc25406dec055ff9f6f4189945d",
+      "submit_sha256": "6fa4f0f2842e290cb49d777c3e1360925c042cc25406dec055ff9f6f4189945d",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/failures/stale-enrollment-mock.log",
+      "submit_path": "data/evidence/final-runtime-20261102/failures/stale-enrollment-mock.log",
+      "mode": "100644",
+      "source_sha256": "e17ca88caa1576983621c0ee01da1055ee0aa32ec5b13ea9ffa3be0477fec575",
+      "submit_sha256": "e17ca88caa1576983621c0ee01da1055ee0aa32ec5b13ea9ffa3be0477fec575",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/compile.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/compile.log",
+      "mode": "100644",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "submit_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_board_tools.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_board_tools.log",
+      "mode": "100644",
+      "source_sha256": "2374e4c3b5cca074c93f83179c706b37055f21c8cc8a7f5036ae9619ef0962f9",
+      "submit_sha256": "2374e4c3b5cca074c93f83179c706b37055f21c8cc8a7f5036ae9619ef0962f9",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_cf1.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_cf1.log",
+      "mode": "100644",
+      "source_sha256": "e3f54dee974aeca0e558aafbf48b3c39d1c28b791468e8c2db43ba4b6ef8d9e5",
+      "submit_sha256": "e3f54dee974aeca0e558aafbf48b3c39d1c28b791468e8c2db43ba4b6ef8d9e5",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_current_runtime.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_current_runtime.log",
+      "mode": "100644",
+      "source_sha256": "6bfe535d0859090565e58cff31f4a1872c54f1c104888469b1ae0981eebb7133",
+      "submit_sha256": "6bfe535d0859090565e58cff31f4a1872c54f1c104888469b1ae0981eebb7133",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_filter_controls.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_filter_controls.log",
+      "mode": "100644",
+      "source_sha256": "ca13449a3e4fe04be3f7301f392f2568befb9adf48eeb2300da35690807ed7f3",
+      "submit_sha256": "ca13449a3e4fe04be3f7301f392f2568befb9adf48eeb2300da35690807ed7f3",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_follow_sound.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_follow_sound.log",
+      "mode": "100644",
+      "source_sha256": "e349c59c4e7dcb27a987200e745aad4d594440ebd21efa0c06935ffd5d68a3cb",
+      "submit_sha256": "e349c59c4e7dcb27a987200e745aad4d594440ebd21efa0c06935ffd5d68a3cb",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_latest_result.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_latest_result.log",
+      "mode": "100644",
+      "source_sha256": "f62883825dfb6df192727b911cb533fd8624a948817bbceaeee0c2b400829418",
+      "submit_sha256": "f62883825dfb6df192727b911cb533fd8624a948817bbceaeee0c2b400829418",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_manual_servo.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_manual_servo.log",
+      "mode": "100644",
+      "source_sha256": "f2c53ce86fe0aefcf6ae8ae62f4dcef8a139f07b7f842d88dfeaf529d78b5683",
+      "submit_sha256": "f2c53ce86fe0aefcf6ae8ae62f4dcef8a139f07b7f842d88dfeaf529d78b5683",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_normal.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_normal.log",
+      "mode": "100644",
+      "source_sha256": "a032f48870ab95a24e940abb62649da5ecc49b6e53f908e47624f592fbcc8997",
+      "submit_sha256": "a032f48870ab95a24e940abb62649da5ecc49b6e53f908e47624f592fbcc8997",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_online_3d.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_online_3d.log",
+      "mode": "100644",
+      "source_sha256": "9410dc73512b2936b1981f932e03ba89f8b2cefe4fdcd7db7f5d96ff0b421c10",
+      "submit_sha256": "9410dc73512b2936b1981f932e03ba89f8b2cefe4fdcd7db7f5d96ff0b421c10",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_pcm_capture.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_pcm_capture.log",
+      "mode": "100644",
+      "source_sha256": "2ae705d8402de83fe7d80938aeb6a8cd5f0083432a2a9eeaf38bc47a68554947",
+      "submit_sha256": "2ae705d8402de83fe7d80938aeb6a8cd5f0083432a2a9eeaf38bc47a68554947",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_serial_english.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_serial_english.log",
+      "mode": "100644",
+      "source_sha256": "6dff50581539b4e506651cc515ce951402f0a657e6cdedfae86927b67e6e0bef",
+      "submit_sha256": "6dff50581539b4e506651cc515ce951402f0a657e6cdedfae86927b67e6e0bef",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_speaker_display.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_speaker_display.log",
+      "mode": "100644",
+      "source_sha256": "772a47e72c3d133fd5eb1e6d7a64957fe6299757766f2593ce4b791d288df6fe",
+      "submit_sha256": "772a47e72c3d133fd5eb1e6d7a64957fe6299757766f2593ce4b791d288df6fe",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_speaker_enrollment.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_speaker_enrollment.log",
+      "mode": "100644",
+      "source_sha256": "5b5705fd8367688329cf0f8bfecdb4625737d28c3f917b63dcd21d323fab8f9c",
+      "submit_sha256": "5b5705fd8367688329cf0f8bfecdb4625737d28c3f917b63dcd21d323fab8f9c",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_speaker_follow.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_speaker_follow.log",
+      "mode": "100644",
+      "source_sha256": "29a7e6228f90fbe79a6413285d5245f4ea8bb8f9b24024c34947cf9714a2e414",
+      "submit_sha256": "29a7e6228f90fbe79a6413285d5245f4ea8bb8f9b24024c34947cf9714a2e414",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_speaker_statistics.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_speaker_statistics.log",
+      "mode": "100644",
+      "source_sha256": "15e39e3d6b71b5d5ca3608bc0a080bb88798a9bce009ddf56f18d0a203a8b398",
+      "submit_sha256": "15e39e3d6b71b5d5ca3608bc0a080bb88798a9bce009ddf56f18d0a203a8b398",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/logs/test_volume_gate.log",
+      "submit_path": "data/evidence/final-runtime-20261102/logs/test_volume_gate.log",
+      "mode": "100644",
+      "source_sha256": "3681ec2229f6b6ccd032fdaf077b641bc71050bb053532dcc5b1dcafe254d173",
+      "submit_sha256": "3681ec2229f6b6ccd032fdaf077b641bc71050bb053532dcc5b1dcafe254d173",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/final-runtime-20261102/validation.json",
+      "submit_path": "data/evidence/final-runtime-20261102/validation.json",
+      "mode": "100644",
+      "source_sha256": "76b0bc948a8dd3fd52cb69fc52c9f492b9d5379b150c10a33e418fb643117ff3",
+      "submit_sha256": "76b0bc948a8dd3fd52cb69fc52c9f492b9d5379b150c10a33e418fb643117ff3",
       "transform": "none"
     },
     {
@@ -10670,16 +10846,16 @@
       "source_path": "document/evidence/speaker-report-materials/02-iterations.md",
       "submit_path": "data/evidence/speaker-report-materials/02-iterations.md",
       "mode": "100644",
-      "source_sha256": "e4f014dfdbdf529edefa71dfb1cc3b435de1b88cf1273c8a73bc2c83b2a118d8",
-      "submit_sha256": "99127ef7e953fb7a0cb743509364ed773852e4b61f392fb42d34e9ebb4646aba",
+      "source_sha256": "2011f477868ac8d778cb988790c418ef03ce71a571786931b90731dc9685419a",
+      "submit_sha256": "e9bedf2019225d4991c1c258cb67fc60f41b7106f24101bd0281bb277da8cd76",
       "transform": "documentation_links_only"
     },
     {
       "source_path": "document/evidence/speaker-report-materials/03-code-highlights.md",
       "submit_path": "data/evidence/speaker-report-materials/03-code-highlights.md",
       "mode": "100644",
-      "source_sha256": "9091de1b9ceef5557b2770e84fd9d1facbc42bda3d3e28163c39c38a7720687e",
-      "submit_sha256": "02e677edab40d3470a2a5b82abe6ac33857732285ba50318ef8ad48c40e56ecd",
+      "source_sha256": "2e7dfd682ce9a480931083a8c2eaa960f2adb3e6fc5af9ee0184ff79949dd09f",
+      "submit_sha256": "3862a10c405c64b08dc8249572aad59bb6d765da62ddf3007aba1a31a855cc8c",
       "transform": "documentation_links_only"
     },
     {
@@ -11691,6 +11867,110 @@
       "transform": "none"
     },
     {
+      "source_path": "document/evidence/usb-network-preflight-20261102/README.md",
+      "submit_path": "data/evidence/usb-network-preflight-20261102/readme.md",
+      "mode": "100644",
+      "source_sha256": "cad28179b6c0ff5b414e58ec1a3552e166cc82288fe176fde01ab48ce3a5ff5f",
+      "submit_sha256": "8ed4c7054330736e4dbbf16c43b02a6888e31683e1471aa557c2112f036a4c6d",
+      "transform": "documentation_links_only"
+    },
+    {
+      "source_path": "document/evidence/usb-network-preflight-20261102/board-success.md",
+      "submit_path": "data/evidence/usb-network-preflight-20261102/board-success.md",
+      "mode": "100644",
+      "source_sha256": "db8caef7f5d4bb16731bf8b4d4f7845b9296a5e06b3a45a78f05c646a7d6dc60",
+      "submit_sha256": "db8caef7f5d4bb16731bf8b4d4f7845b9296a5e06b3a45a78f05c646a7d6dc60",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/usb-network-preflight-20261102/boot-order-failure/README.md",
+      "submit_path": "data/evidence/usb-network-preflight-20261102/boot-order-failure/readme.md",
+      "mode": "100644",
+      "source_sha256": "459c669f6d201fca747b3b3000bae00763869b03351f27b6bdaf39b4844ee0f2",
+      "submit_sha256": "459c669f6d201fca747b3b3000bae00763869b03351f27b6bdaf39b4844ee0f2",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/usb-network-preflight-20261102/boot-order-failure/v2-candidate.zip",
+      "submit_path": "data/evidence/usb-network-preflight-20261102/boot-order-failure/v2-candidate.zip",
+      "mode": "100644",
+      "source_sha256": "cc54cb589f89ff678c77611672f4c89180b289e3c7d60942a5ecd163e780fecf",
+      "submit_sha256": "cc54cb589f89ff678c77611672f4c89180b289e3c7d60942a5ecd163e780fecf",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/usb-network-preflight-20261102/cleanup.json",
+      "submit_path": "data/evidence/usb-network-preflight-20261102/cleanup.json",
+      "mode": "100644",
+      "source_sha256": "b6281b2f0af1b023857a1015941c116d41fbb37e4383bfa983e2183abcf735fe",
+      "submit_sha256": "b6281b2f0af1b023857a1015941c116d41fbb37e4383bfa983e2183abcf735fe",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/usb-network-preflight-20261102/maintenance-checks.json",
+      "submit_path": "data/evidence/usb-network-preflight-20261102/maintenance-checks.json",
+      "mode": "100644",
+      "source_sha256": "a414b9f14d9e301f8809b9a864cac900f4c1239085c95f2cd8806d7f03868289",
+      "submit_sha256": "a414b9f14d9e301f8809b9a864cac900f4c1239085c95f2cd8806d7f03868289",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/usb-network-preflight-20261102/module-build.log",
+      "submit_path": "data/evidence/usb-network-preflight-20261102/module-build.log",
+      "mode": "100644",
+      "source_sha256": "b59f6a4e925fd7743efa00f1af79decec1a25c1682345a46a7b0370ef0665ec8",
+      "submit_sha256": "b59f6a4e925fd7743efa00f1af79decec1a25c1682345a46a7b0370ef0665ec8",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/usb-network-preflight-20261102/offline-checks.json",
+      "submit_path": "data/evidence/usb-network-preflight-20261102/offline-checks.json",
+      "mode": "100644",
+      "source_sha256": "db47338d35ab6f60a65b317c4aa8dc869a91e42022a437b00ddf7a27aa88e04b",
+      "submit_sha256": "db47338d35ab6f60a65b317c4aa8dc869a91e42022a437b00ddf7a27aa88e04b",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/usb-network-preflight-20261102/package-manifest.json",
+      "submit_path": "data/evidence/usb-network-preflight-20261102/package-manifest.json",
+      "mode": "100644",
+      "source_sha256": "8b0d263a0778dabd6c4491d0083ce88135d8b7cd83ad804a28117f5f20f4e0cd",
+      "submit_sha256": "8b0d263a0778dabd6c4491d0083ce88135d8b7cd83ad804a28117f5f20f4e0cd",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/usb-network-preflight-20261102/package.json",
+      "submit_path": "data/evidence/usb-network-preflight-20261102/package.json",
+      "mode": "100644",
+      "source_sha256": "eeba17ade01d61f01cee7a447d19a3541cb8d8cc5758c006f0b773580bb63afd",
+      "submit_sha256": "eeba17ade01d61f01cee7a447d19a3541cb8d8cc5758c006f0b773580bb63afd",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/usb-network-preflight-20261102/phandle-failure/board-output.txt",
+      "submit_path": "data/evidence/usb-network-preflight-20261102/phandle-failure/board-output.txt",
+      "mode": "100644",
+      "source_sha256": "94430656c42d152002b1a9279a65d53d873112bcdb08728fd023ec357113a774",
+      "submit_sha256": "94430656c42d152002b1a9279a65d53d873112bcdb08728fd023ec357113a774",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/usb-network-preflight-20261102/phandle-failure/original-candidate.zip",
+      "submit_path": "data/evidence/usb-network-preflight-20261102/phandle-failure/original-candidate.zip",
+      "mode": "100644",
+      "source_sha256": "c2074f43fa14189a0f0ec537586b8843aa6b2e62bbea08a1c5aba8b0f9cef42e",
+      "submit_sha256": "c2074f43fa14189a0f0ec537586b8843aa6b2e62bbea08a1c5aba8b0f9cef42e",
+      "transform": "none"
+    },
+    {
+      "source_path": "document/evidence/usb-network-preflight-20261102/vscode-arm32-cancelled.md",
+      "submit_path": "data/evidence/usb-network-preflight-20261102/vscode-arm32-cancelled.md",
+      "mode": "100644",
+      "source_sha256": "4210bfb68ab3ffef36c4a1c3c1ce513b4309593e2ae2c902078624ee6fd9df0d",
+      "submit_sha256": "4210bfb68ab3ffef36c4a1c3c1ce513b4309593e2ae2c902078624ee6fd9df0d",
+      "transform": "none"
+    },
+    {
       "source_path": "document/follow-sound-af1.md",
       "submit_path": "report/follow-sound-af1.md",
       "mode": "100644",
@@ -11923,6 +12203,14 @@
       "transform": "documentation_links_only"
     },
     {
+      "source_path": "document/pynq-final-runtime.md",
+      "submit_path": "report/pynq-final-runtime.md",
+      "mode": "100644",
+      "source_sha256": "ab6f0db84010733ead1cb9976d492ba0af120b5bd3b2df9537eaabfb5972b92f",
+      "submit_sha256": "ab6f0db84010733ead1cb9976d492ba0af120b5bd3b2df9537eaabfb5972b92f",
+      "transform": "none"
+    },
+    {
       "source_path": "document/pynq-first-run.md",
       "submit_path": "report/pynq-first-run.md",
       "mode": "100644",
@@ -12067,6 +12355,14 @@
       "transform": "none"
     },
     {
+      "source_path": "document/pynq-usb-network.md",
+      "submit_path": "report/pynq-usb-network.md",
+      "mode": "100644",
+      "source_sha256": "6aafb51d18732c1f8ea88877f9021a705f635770c691b9b90d9b9bba0ea3a284",
+      "submit_sha256": "c006cc7cc8dc814251608b06ef5327f3728b6dbf82eeb74fad7c0c0afdc7a42e",
+      "transform": "documentation_links_only"
+    },
+    {
       "source_path": "document/pynq-volume-sd.md",
       "submit_path": "report/pynq-volume-sd.md",
       "mode": "100644",
@@ -12158,8 +12454,8 @@
       "source_path": "document/run-guide.md",
       "submit_path": "report/run-guide.md",
       "mode": "100644",
-      "source_sha256": "7f9d8eb478983317d8f191ca12c7d8cace67a9d94d8626a6e8f428416a2147d5",
-      "submit_sha256": "7f9d8eb478983317d8f191ca12c7d8cace67a9d94d8626a6e8f428416a2147d5",
+      "source_sha256": "a6265b386da5186d07b283e2364822337dd679a851e358e39cf711eeecc5e21b",
+      "submit_sha256": "a6265b386da5186d07b283e2364822337dd679a851e358e39cf711eeecc5e21b",
       "transform": "none"
     },
     {
@@ -14787,6 +15083,14 @@
       "transform": "none"
     },
     {
+      "source_path": "release/output/soundsight_usb_network.zip",
+      "submit_path": "data/history/releases/soundsight_usb_network.zip",
+      "mode": "100644",
+      "source_sha256": "ba85aee96731ed8951d9aeee29592d1664f5559f574af1df958889a801058d12",
+      "submit_sha256": "ba85aee96731ed8951d9aeee29592d1664f5559f574af1df958889a801058d12",
+      "transform": "none"
+    },
+    {
       "source_path": "release/output/soundsight_vivado_ps_3d.zip",
       "submit_path": "data/history/releases/soundsight_vivado_ps_3d.zip",
       "mode": "100644",
@@ -17035,6 +17339,198 @@
       "transform": "none"
     },
     {
+      "source_path": "software/ps/usb_network/10-bootpy.conf",
+      "submit_path": "src/software/ps/usb_network/10-bootpy.conf",
+      "mode": "100644",
+      "source_sha256": "028612bc47046fa1f41aaa38db886ce9e43b15817a892028d4bab9e0a84b17db",
+      "submit_sha256": "028612bc47046fa1f41aaa38db886ce9e43b15817a892028d4bab9e0a84b17db",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/MAINTENANCE.md",
+      "submit_path": "src/software/ps/usb_network/maintenance.md",
+      "mode": "100644",
+      "source_sha256": "828aa870fe77461d04f36c2b225ccee571aed2b6fda43985f4f28609f628ff7a",
+      "submit_sha256": "828aa870fe77461d04f36c2b225ccee571aed2b6fda43985f4f28609f628ff7a",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/build_modules.sh",
+      "submit_path": "src/software/ps/usb_network/build_modules.sh",
+      "mode": "100644",
+      "source_sha256": "4aa5dc2909234c71980897854a76c93b022ac001444b70ffea40279aea7a19a0",
+      "submit_sha256": "4aa5dc2909234c71980897854a76c93b022ac001444b70ffea40279aea7a19a0",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/build_overlays.sh",
+      "submit_path": "src/software/ps/usb_network/build_overlays.sh",
+      "mode": "100644",
+      "source_sha256": "90e04c144a2c4d4bdf133a7e1de7b176f53787143b289ade1c9fb94cb1599864",
+      "submit_sha256": "90e04c144a2c4d4bdf133a7e1de7b176f53787143b289ade1c9fb94cb1599864",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/check_artifacts.py",
+      "submit_path": "src/software/ps/usb_network/check_artifacts.py",
+      "mode": "100644",
+      "source_sha256": "42bd54940600fbb9fc92295b3ab3225c22864a14562c1eb2db6d8b9413e07969",
+      "submit_sha256": "42bd54940600fbb9fc92295b3ab3225c22864a14562c1eb2db6d8b9413e07969",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/fetch_sources.py",
+      "submit_path": "src/software/ps/usb_network/fetch_sources.py",
+      "mode": "100644",
+      "source_sha256": "0e07e8e86631d65cec26c508997532833b1f6cd7f70e0aea7660fff9cf073d65",
+      "submit_sha256": "0e07e8e86631d65cec26c508997532833b1f6cd7f70e0aea7660fff9cf073d65",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/module.Makefile",
+      "submit_path": "src/software/ps/usb_network/module.makefile",
+      "mode": "100644",
+      "source_sha256": "ad684be7f31382bc186ed625bed003aaefa96bdb717d769ff69700f375edf22b",
+      "submit_sha256": "ad684be7f31382bc186ed625bed003aaefa96bdb717d769ff69700f375edf22b",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/prepare-modpost.mk",
+      "submit_path": "src/software/ps/usb_network/prepare-modpost.mk",
+      "mode": "100644",
+      "source_sha256": "fd29397ebd139c9acd4d9770f788dd67e3d92ccf0e86f4914150d08483817329",
+      "submit_sha256": "fd29397ebd139c9acd4d9770f788dd67e3d92ccf0e86f4914150d08483817329",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/source-receipt.json",
+      "submit_path": "src/software/ps/usb_network/source-receipt.json",
+      "mode": "100644",
+      "source_sha256": "20ba5546164040eadc8cf78d404f856651856870fc283d787077ebfebf671503",
+      "submit_sha256": "20ba5546164040eadc8cf78d404f856651856870fc283d787077ebfebf671503",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/unpack_host_tools.sh",
+      "submit_path": "src/software/ps/usb_network/unpack_host_tools.sh",
+      "mode": "100644",
+      "source_sha256": "d243f27e8f5d9f52b603a74fdeb75bfde7accebd5f27399415b08e941a6a3430",
+      "submit_sha256": "d243f27e8f5d9f52b603a74fdeb75bfde7accebd5f27399415b08e941a6a3430",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/usb-controller.dts",
+      "submit_path": "src/software/ps/usb_network/usb-controller.dts",
+      "mode": "100644",
+      "source_sha256": "59790b279be713ccf231a4ce805feaa2b4c694f4d40547809cf855e06235e92a",
+      "submit_sha256": "59790b279be713ccf231a4ce805feaa2b4c694f4d40547809cf855e06235e92a",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/usb-pins-phy.dts",
+      "submit_path": "src/software/ps/usb_network/usb-pins-phy.dts",
+      "mode": "100644",
+      "source_sha256": "2d1441bbb4a0e47a8031566666de26368a292e77b1fffd5233130e5e2f81e675",
+      "submit_sha256": "2d1441bbb4a0e47a8031566666de26368a292e77b1fffd5233130e5e2f81e675",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/usb_network.py",
+      "submit_path": "src/software/ps/usb_network/usb_network.py",
+      "mode": "100644",
+      "source_sha256": "4c62aeb745c1f18d83734806ec17fc06d7ac68cedff6b2597b6248ab7bb802f2",
+      "submit_sha256": "4c62aeb745c1f18d83734806ec17fc06d7ac68cedff6b2597b6248ab7bb802f2",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/vendor/linux-xlnx/COPYING",
+      "submit_path": "src/software/ps/usb_network/vendor/linux-xlnx/copying",
+      "mode": "100644",
+      "source_sha256": "ee5808b032a67f587d3541099d46de34f5bec8cd5976114ba07f1299ee6001ff",
+      "submit_sha256": "ee5808b032a67f587d3541099d46de34f5bec8cd5976114ba07f1299ee6001ff",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/vendor/linux-xlnx/LICENSES/preferred/GPL-2.0",
+      "submit_path": "src/software/ps/usb_network/vendor/linux-xlnx/licenses/preferred/gpl-2.0",
+      "mode": "100644",
+      "source_sha256": "f6b78c087c3ebdf0f3c13415070dd480a3f35d8fc76f3d02180a407c1c812f79",
+      "submit_sha256": "f6b78c087c3ebdf0f3c13415070dd480a3f35d8fc76f3d02180a407c1c812f79",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/configfs.h",
+      "submit_path": "src/software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/configfs.h",
+      "mode": "100644",
+      "source_sha256": "a680515bf7a3f2a897283ffd104d8b8482eed6ecbdaf694f3fdef71b5abecb52",
+      "submit_sha256": "a680515bf7a3f2a897283ffd104d8b8482eed6ecbdaf694f3fdef71b5abecb52",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/f_rndis.c",
+      "submit_path": "src/software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/f_rndis.c",
+      "mode": "100644",
+      "source_sha256": "f0a27b4b55167c9a781e7ad4337cb76910b9e1688d21cdfe3dd3b8df485db434",
+      "submit_sha256": "f0a27b4b55167c9a781e7ad4337cb76910b9e1688d21cdfe3dd3b8df485db434",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/ndis.h",
+      "submit_path": "src/software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/ndis.h",
+      "mode": "100644",
+      "source_sha256": "b3a24e6e6aa9885d0327def78fa7fb0660122f2578ed0ae316c9c2d9121cd547",
+      "submit_sha256": "b3a24e6e6aa9885d0327def78fa7fb0660122f2578ed0ae316c9c2d9121cd547",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/rndis.c",
+      "submit_path": "src/software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/rndis.c",
+      "mode": "100644",
+      "source_sha256": "5f83ab6999ec21d5393a1f3284ac026c0d4fdb19d02da5153d1d3bd3fb14686a",
+      "submit_sha256": "5f83ab6999ec21d5393a1f3284ac026c0d4fdb19d02da5153d1d3bd3fb14686a",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/rndis.h",
+      "submit_path": "src/software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/rndis.h",
+      "mode": "100644",
+      "source_sha256": "768d8dd4f1a48b60a9477005c45d990db0d8f2a94fa21fdea1351305b10e8971",
+      "submit_sha256": "768d8dd4f1a48b60a9477005c45d990db0d8f2a94fa21fdea1351305b10e8971",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/u_ether.c",
+      "submit_path": "src/software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/u_ether.c",
+      "mode": "100644",
+      "source_sha256": "2ae748a5c93549752dee11dc4a48cc736e2ba8076cf6b614a7a8ecfcf49ab90d",
+      "submit_sha256": "2ae748a5c93549752dee11dc4a48cc736e2ba8076cf6b614a7a8ecfcf49ab90d",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/u_ether.h",
+      "submit_path": "src/software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/u_ether.h",
+      "mode": "100644",
+      "source_sha256": "7bff47e9e11dfdce05bb6f667e47b509da549ab828eb90eaea10fa49d57b927c",
+      "submit_sha256": "7bff47e9e11dfdce05bb6f667e47b509da549ab828eb90eaea10fa49d57b927c",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/u_ether_configfs.h",
+      "submit_path": "src/software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/u_ether_configfs.h",
+      "mode": "100644",
+      "source_sha256": "70d78ea86ed84f9efadb55373e810e31482bbc7b34f672728578fbc147575770",
+      "submit_sha256": "70d78ea86ed84f9efadb55373e810e31482bbc7b34f672728578fbc147575770",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/u_rndis.h",
+      "submit_path": "src/software/ps/usb_network/vendor/linux-xlnx/drivers/usb/gadget/function/u_rndis.h",
+      "mode": "100644",
+      "source_sha256": "341de256c93d9a85556ad26e20fa30f869b1361f489655f9f492d0baae6cd8d9",
+      "submit_sha256": "341de256c93d9a85556ad26e20fa30f869b1361f489655f9f492d0baae6cd8d9",
+      "transform": "none"
+    },
+    {
       "source_path": "software/ps/volume_gate.py",
       "submit_path": "src/software/ps/volume_gate.py",
       "mode": "100644",
@@ -17176,6 +17672,14 @@
       "mode": "100644",
       "source_sha256": "30df44f0e765973e9e1d8a64062ab6b1758eac5a78bcc3445f08a99219cf6cb5",
       "submit_sha256": "30df44f0e765973e9e1d8a64062ab6b1758eac5a78bcc3445f08a99219cf6cb5",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/tests/test_current_runtime.py",
+      "submit_path": "sim/software/test_current_runtime.py",
+      "mode": "100644",
+      "source_sha256": "68a0858ff763f94405089f98b63c7a05733a546c63eb68fb008da311d98a64b5",
+      "submit_sha256": "68a0858ff763f94405089f98b63c7a05733a546c63eb68fb008da311d98a64b5",
       "transform": "none"
     },
     {
@@ -17374,8 +17878,8 @@
       "source_path": "software/tests/test_speaker_enrollment.py",
       "submit_path": "sim/software/test_speaker_enrollment.py",
       "mode": "100644",
-      "source_sha256": "c390897c21c04597c0ad920926487e160f84365fe85dffb228860fc7f24e0fb7",
-      "submit_sha256": "c390897c21c04597c0ad920926487e160f84365fe85dffb228860fc7f24e0fb7",
+      "source_sha256": "714ff42ca98a00ccd7f161683397a2404e42b7e01a286ba57279b659abfc4b53",
+      "submit_sha256": "714ff42ca98a00ccd7f161683397a2404e42b7e01a286ba57279b659abfc4b53",
       "transform": "none"
     },
     {
@@ -17448,6 +17952,22 @@
       "mode": "100644",
       "source_sha256": "439ba81dac650f1e37817f602a2cbe0a87fc9942eaa045a14ef27b673dbcdf06",
       "submit_sha256": "439ba81dac650f1e37817f602a2cbe0a87fc9942eaa045a14ef27b673dbcdf06",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/tests/test_usb_input_collector.py",
+      "submit_path": "sim/software/test_usb_input_collector.py",
+      "mode": "100644",
+      "source_sha256": "3994f4e95db102e350b35ff293d373bb3617d75472ef8ef1aeae66bfc1a39d59",
+      "submit_sha256": "3994f4e95db102e350b35ff293d373bb3617d75472ef8ef1aeae66bfc1a39d59",
+      "transform": "none"
+    },
+    {
+      "source_path": "software/tests/test_usb_network.py",
+      "submit_path": "sim/software/test_usb_network.py",
+      "mode": "100644",
+      "source_sha256": "7dcb22ed420b9ac88a63bad0827ecc7f4813800928dc2f390179264381559566",
+      "submit_sha256": "7dcb22ed420b9ac88a63bad0827ecc7f4813800928dc2f390179264381559566",
       "transform": "none"
     },
     {
@@ -17875,6 +18395,14 @@
       "transform": "none"
     },
     {
+      "source_path": "tools/check_current_runtime_package.py",
+      "submit_path": "build/tools/check_current_runtime_package.py",
+      "mode": "100644",
+      "source_sha256": "1b26684a5df84f40f4ebe3a6b45ef17fbec6525ef43635265701e8b1bd0f4a8a",
+      "submit_sha256": "1b26684a5df84f40f4ebe3a6b45ef17fbec6525ef43635265701e8b1bd0f4a8a",
+      "transform": "none"
+    },
+    {
       "source_path": "tools/check_current_software.py",
       "submit_path": "build/tools/check_current_software.py",
       "mode": "100644",
@@ -17979,6 +18507,14 @@
       "transform": "none"
     },
     {
+      "source_path": "tools/collect_usb_gadget_inputs.py",
+      "submit_path": "build/tools/collect_usb_gadget_inputs.py",
+      "mode": "100644",
+      "source_sha256": "27acb9d2911f5a8547c8c958fd79b560639d00841a78ecd5e3a10cd1f5f53541",
+      "submit_sha256": "27acb9d2911f5a8547c8c958fd79b560639d00841a78ecd5e3a10cd1f5f53541",
+      "transform": "none"
+    },
+    {
       "source_path": "tools/export_reports.tcl",
       "submit_path": "build/tools/export_reports.tcl",
       "mode": "100644",
@@ -17990,8 +18526,16 @@
       "source_path": "tools/export_submit.py",
       "submit_path": "build/tools/export_submit.py",
       "mode": "100644",
-      "source_sha256": "8843d5fdab2a8937711b25f4bb4e2b530a0259dae2ad9428bfbd124a0e9adddc",
-      "submit_sha256": "8843d5fdab2a8937711b25f4bb4e2b530a0259dae2ad9428bfbd124a0e9adddc",
+      "source_sha256": "63316b6ce8689981b7c86e2a0a53ba367267a2b2aa9384a07a9188e4b0d1231e",
+      "submit_sha256": "63316b6ce8689981b7c86e2a0a53ba367267a2b2aa9384a07a9188e4b0d1231e",
+      "transform": "none"
+    },
+    {
+      "source_path": "tools/install_current_runtime.py",
+      "submit_path": "build/tools/install_current_runtime.py",
+      "mode": "100644",
+      "source_sha256": "68730ae87bab78536b70b36a285128334c3bb46aab390b400a3e70ad5310aad5",
+      "submit_sha256": "68730ae87bab78536b70b36a285128334c3bb46aab390b400a3e70ad5310aad5",
       "transform": "none"
     },
     {
@@ -18008,6 +18552,14 @@
       "mode": "100644",
       "source_sha256": "fff44d90d0d525b800089927216eb343bd88a7b248a936c73086877c32e30409",
       "submit_sha256": "fff44d90d0d525b800089927216eb343bd88a7b248a936c73086877c32e30409",
+      "transform": "none"
+    },
+    {
+      "source_path": "tools/package_current_runtime.py",
+      "submit_path": "build/tools/package_current_runtime.py",
+      "mode": "100644",
+      "source_sha256": "9cdabf6dbf2678489308c321bb1e49f01708ba4ca6941cccf382d0be244bcaa8",
+      "submit_sha256": "9cdabf6dbf2678489308c321bb1e49f01708ba4ca6941cccf382d0be244bcaa8",
       "transform": "none"
     },
     {
@@ -18104,6 +18656,14 @@
       "mode": "100644",
       "source_sha256": "29154e9befb0ede46e666d547c453b0014c19d6542e4dc541b31d0889ebb1267",
       "submit_sha256": "29154e9befb0ede46e666d547c453b0014c19d6542e4dc541b31d0889ebb1267",
+      "transform": "none"
+    },
+    {
+      "source_path": "tools/package_usb_network.py",
+      "submit_path": "build/tools/package_usb_network.py",
+      "mode": "100644",
+      "source_sha256": "f8c8ad5423cd7b2ca1c5b4a80957dfead54cc49a42dad6c6e0680efb52ff61e6",
+      "submit_sha256": "f8c8ad5423cd7b2ca1c5b4a80957dfead54cc49a42dad6c6e0680efb52ff61e6",
       "transform": "none"
     },
     {
@@ -18220,12 +18780,12 @@
     }
   ],
   "counts": {
-    "src": 165,
-    "sim": 120,
-    "build": 247,
+    "src": 189,
+    "sim": 123,
+    "build": 252,
     "board": 80,
-    "data": 1452,
+    "data": 1487,
     "skill": 126,
-    "report": 87
+    "report": 90
   }
 }

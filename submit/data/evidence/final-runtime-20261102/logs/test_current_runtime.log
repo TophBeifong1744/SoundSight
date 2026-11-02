@@ -1,0 +1,14 @@
+test_corruption_and_missing_payload_rejected (__main__.InstallTests.test_corruption_and_missing_payload_rejected) ... ok
+test_empty_boot_id_rejected (__main__.InstallTests.test_empty_boot_id_rejected) ... ok
+test_fresh_and_idempotent_receipt (__main__.InstallTests.test_fresh_and_idempotent_receipt) ... ok
+test_fresh_failure_can_retry_without_deleting_evidence (__main__.InstallTests.test_fresh_failure_can_retry_without_deleting_evidence) ... ok
+test_private_asset_change_rejected (__main__.InstallTests.test_private_asset_change_rejected) ... ok
+test_protected_and_traversal_names_rejected (__main__.InstallTests.test_protected_and_traversal_names_rejected) ... ok
+test_rollback_on_replace_failure (__main__.InstallTests.test_rollback_on_replace_failure) ... ok
+test_settings_profiles_logs_preserved (__main__.InstallTests.test_settings_profiles_logs_preserved) ... ok
+test_wrong_hardware_no_writes (__main__.InstallTests.test_wrong_hardware_no_writes) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 1.030s
+
+OK

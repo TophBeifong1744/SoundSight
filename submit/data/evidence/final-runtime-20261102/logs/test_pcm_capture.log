@@ -1,0 +1,7 @@
+PCM_CHECK= {"audio": {"armed": false, "dma_reset_released": true, "epoch": 0, "errors": 0, "idle": true, "partial_tail": false, "pending": false, "published": 0, "raw": 24, "ready": false, "rejected": 0}, "channels": 4, "dma_status": 1, "motion": false, "packet_bytes": 8224, "ps": {"fault": 0}, "sample_rate": 48000}
+PCM_INTERFACE_OK=1 NO_CAPTURE=1 SERVO=OFF
+...................
+----------------------------------------------------------------------
+Ran 19 tests in 0.042s
+
+OK
