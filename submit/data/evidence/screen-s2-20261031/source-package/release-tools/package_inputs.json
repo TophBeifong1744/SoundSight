@@ -1,0 +1,57 @@
+{
+  "ui_files": [
+    "soundsight-screen.sh",
+    "soundsight-screen-i2c.sh",
+    "software/screen/hardware.py",
+    "software/screen/ui.py",
+    "software/screen/backend.py",
+    "software/screen/__init__.py",
+    "software/screen/linux_i2c.py",
+    "software/screen/screen_i2c_prepare.py",
+    "software/screen/ps_i2c0_enable.dts",
+    "software/screen/ps_i2c0_enable.dtbo"
+  ],
+  "accepted_hardware": [
+    {
+      "soundsight.bit": "618b1c1eea6adb05812805d90f81365d12cd6050c6a417a17fac7c1c0e2ea488",
+      "soundsight.hwh": "567a141f6d442c8c8e80d7eabd0a970e9c0440502bb5343764995d38bb695f58"
+    }
+  ],
+  "accepted_files": {
+    "soundsight-screen.sh": [
+      "f2a65df945abd5b2f4e9d749385784c304d249ba3f3925346b791420ccb65fa2"
+    ],
+    "soundsight-screen-i2c.sh": [
+      null
+    ],
+    "software/screen/hardware.py": [
+      "69f46fecfc6efc3a62011cbb9788980d1f241b96bb907bb4fe133cd3511e6a18",
+      "3dacbfbcaad0a05a9b7fa1f5bfb7490f2fc1730a4766c5160fba89fb744ee393",
+      "8876d0cc0e925435c5a7e162d28aec7dfb850c8cb905f7455128fa4720cd28eb"
+    ],
+    "software/screen/ui.py": [
+      "58e7e9fcde7f9efd586182bcc5dff170d5682fbafa182c50f6004cf3c18dccfd"
+    ],
+    "software/screen/backend.py": [
+      "428bee8fe44024e71544152f2a6612ad11106c8ee7501f846d022fd2a6483d9e"
+    ],
+    "software/screen/__init__.py": [
+      null
+    ],
+    "software/screen/linux_i2c.py": [
+      null
+    ],
+    "software/screen/screen_i2c_prepare.py": [
+      null
+    ],
+    "software/screen/ps_i2c0_enable.dts": [
+      null
+    ],
+    "software/screen/ps_i2c0_enable.dtbo": [
+      null
+    ],
+    "SCREEN-README.md": [
+      "0adf4c67c629d02cb99ab6755fcb114a45b43a74a5e4091afb798ea6995c0f36"
+    ]
+  }
+}

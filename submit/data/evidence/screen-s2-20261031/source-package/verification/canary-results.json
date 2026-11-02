@@ -1,0 +1,42 @@
+[
+  {
+    "name": "short-transfer-accepted",
+    "checker": "TransferTests.test_write_one_message_and_short_transfer_no_retry",
+    "detected": true,
+    "assertion_failures": 1,
+    "errors": 0,
+    "output": "F\n======================================================================\nFAIL: test_write_one_message_and_short_transfer_no_retry (test_linux_boundary.TransferTests.test_write_one_message_and_short_transfer_no_retry)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"F:\\NUEC\\ss-screen-ps-i2c-verification-s2\\test_linux_boundary.py\", line 146, in test_write_one_message_and_short_transfer_no_retry\n    with self.assertRaisesRegex(IOError,'short message transfer'):b.transaction(0x14,b'\\x81\\x4e',1)\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: OSError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+  },
+  {
+    "name": "read-message-flag-removed",
+    "checker": "TransferTests.test_native_layout_and_combined_exact_pointer_and_read",
+    "detected": true,
+    "assertion_failures": 1,
+    "errors": 0,
+    "output": "F\n======================================================================\nFAIL: test_native_layout_and_combined_exact_pointer_and_read (test_linux_boundary.TransferTests.test_native_layout_and_combined_exact_pointer_and_read)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"F:\\NUEC\\ss-screen-ps-i2c-verification-s2\\test_linux_boundary.py\", line 131, in test_native_layout_and_combined_exact_pointer_and_read\n    self.assertEqual(b.transaction(0x14,b'\\x81\\x4e',4),b'911\\0')\n                     ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"<canary:read-message-flag-removed>\", line 186, in transaction\n  File \"F:\\NUEC\\ss-screen-ps-i2c-verification-s2\\test_linux_boundary.py\", line 127, in ioctl\n    self.assertEqual((c.address,c.flags,c.length),(0x14,1,4))\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Tuples differ: (20, 0, 4) != (20, 1, 4)\n\nFirst differing element 1:\n0\n1\n\n- (20, 0, 4)\n?      ^\n\n+ (20, 1, 4)\n?      ^\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+  },
+  {
+    "name": "claimed-client-ignored",
+    "checker": "DiscoveryTests.test_pinctrl_or_runtime_client_or_driver_mismatch_rejected",
+    "detected": true,
+    "assertion_failures": 1,
+    "errors": 0,
+    "output": "F\n======================================================================\nFAIL: test_pinctrl_or_runtime_client_or_driver_mismatch_rejected (test_linux_boundary.DiscoveryTests.test_pinctrl_or_runtime_client_or_driver_mismatch_rejected)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"F:\\NUEC\\ss-screen-ps-i2c-verification-s2\\test_linux_boundary.py\", line 92, in test_pinctrl_or_runtime_client_or_driver_mismatch_rejected\n    with self.assertRaisesRegex(RuntimeError,'BUS_HAS_CLIENTS'):self.adapter_info()\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: RuntimeError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.078s\n\nFAILED (failures=1)\n"
+  },
+  {
+    "name": "GPIO-before-ownership",
+    "checker": "LifecycleTests.test_bus_rejected_no_GPIO_and_poll_error_closes_every_owner",
+    "detected": true,
+    "assertion_failures": 1,
+    "errors": 0,
+    "output": "F\n======================================================================\nFAIL: test_bus_rejected_no_GPIO_and_poll_error_closes_every_owner (test_linux_boundary.LifecycleTests.test_bus_rejected_no_GPIO_and_poll_error_closes_every_owner)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"F:\\NUEC\\ss-screen-ps-i2c-verification-s2\\test_linux_boundary.py\", line 299, in test_bus_rejected_no_GPIO_and_poll_error_closes_every_owner\n    self.assertEqual((result,events),(1,['bus-check']))\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Tuples differ: (1, ['gpio', 'bus-check', 'light-False']) != (1, ['bus-check'])\n\nFirst differing element 1:\n['gpio', 'bus-check', 'light-False']\n['bus-check']\n\n- (1, ['gpio', 'bus-check', 'light-False'])\n+ (1, ['bus-check'])\n\n----------------------------------------------------------------------\nRan 1 test in 0.005s\n\nFAILED (failures=1)\n"
+  },
+  {
+    "name": "EMIO-parameter-not-checked",
+    "checker": "MetadataTests.test_actual_HWH_bad_EMIO_connection_or_parameter_rejected",
+    "detected": true,
+    "assertion_failures": 1,
+    "errors": 0,
+    "output": "F\n======================================================================\nFAIL: test_actual_HWH_bad_EMIO_connection_or_parameter_rejected (test_linux_boundary.MetadataTests.test_actual_HWH_bad_EMIO_connection_or_parameter_rejected) (kind='parameter')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"F:\\NUEC\\ss-screen-ps-i2c-verification-s2\\test_linux_boundary.py\", line 252, in test_actual_HWH_bad_EMIO_connection_or_parameter_rejected\n    with self.assertRaises(ValueError):hw.check_s2_metadata(self.overlay,self.root)\n         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.074s\n\nFAILED (failures=1)\n"
+  }
+]

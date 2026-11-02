@@ -68,6 +68,7 @@ def offline(root=ROOT):
     Solver3D(root/'software/tetra3d/linux/libss_solver_3d.so', geometry)
     subprocess.run([sys.executable, '-B', str(root/'software/tetra3d/tests/test_online_3d.py')], check=True)
     subprocess.run([sys.executable, '-B', str(root/'software/tetra3d/tests/test_follow_sound.py')], check=True)
+    subprocess.run([sys.executable, '-B', str(root/'software/tetra3d/tests/test_cf1.py')], check=True)
     print('THREE_D_OFFLINE_OK=1 HARDWARE_ACTIONS=0', flush=True)
 
 
@@ -118,9 +119,9 @@ def parser():
         run.add_argument('--min-level', type=int)
         run.add_argument('--window-frames', type=int)
         run.add_argument('--min-valid', type=int)
+        run.add_argument('--seconds', type=float, default=0., help='0 until Ctrl+C; bounded run otherwise')
         if name == 'speaker':
             run.add_argument('--speaker-stats', action='store_true', help='Count successful scores and inference time; save only at session end')
-            run.add_argument('--seconds', type=float, default=0., help='0 until Ctrl+C; bounded run otherwise')
     return p
 
 
@@ -128,7 +129,9 @@ def run_options(args, root=ROOT):
     # Existing users may type run --axes. Route that automatic movement through
     # the same speaker gate. follow-sound is an explicit separate acoustic-only mode.
     if args.command == 'run' and args.axes != 'off':
-        args.command, args.seconds = 'speaker', 0.
+        args.command = 'speaker'
+        if not hasattr(args, 'seconds'):
+            args.seconds = 0.
     if args.frames < 0 or args.debug and not 1 <= args.frames <= 1000:
         raise ValueError('Normal: frames>=0; debug: explicitly select 1..1000 frames')
     settings = board_tools.get_settings(root)
@@ -242,8 +245,8 @@ def main(argv=None):
                            if getattr(args, name) is not None}
                 print('MANUAL_RESULT='+json.dumps(manual(ip, load_config(), targets, args.seconds)), flush=True)
                 return 0
-        if args.command == 'speaker' and (not math.isfinite(args.seconds) or args.seconds < 0):
-            raise ValueError('Speaker duration must be finite and nonnegative')
+        if not math.isfinite(args.seconds) or args.seconds < 0:
+            raise ValueError('Duration must be finite and nonnegative')
         args = run_options(args)
         if args.command == 'speaker':
             from speaker_runtime_3d import run as run_speaker
@@ -253,11 +256,11 @@ def main(argv=None):
             board_tools.inspect_loaded()
         (ROOT/'logs').mkdir(exist_ok=True)
         if args.command == 'follow-sound':
-            print('FOLLOW_SOUND=AF1 SPEAKER=DISABLED IDENTITY_GATE=OFF', flush=True)
+            print('FOLLOW_SOUND=CF1A SPEAKER=DISABLED IDENTITY_GATE=OFF', flush=True)
         print('AXES=%s MIN_LEVEL=%s WINDOW=%s MIN_VALID=%s GEOMETRY=%s CHANNEL_ORDER_UNVERIFIED_UNTIL_MEASURED' %
               (args.axes, args.min_level, args.window_frames, args.min_valid, args.geometry['source_id']), flush=True)
-        from runtime_3d import run
-        return run(args)
+        from speaker_runtime_3d import run as run_pcm_direction
+        return run_pcm_direction(args, ROOT, acoustic=True)
     except (Exception, KeyboardInterrupt) as exc:
         print('STOP: %s: %s' % (type(exc).__name__, exc), file=sys.stderr, flush=True)
         return 1

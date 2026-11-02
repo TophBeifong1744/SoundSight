@@ -1,0 +1,260 @@
+{
+  "target": "P02",
+  "actual_threshold": null,
+  "ttl": 10,
+  "display_rows": 271,
+  "observed_new_results": [
+    {
+      "time": "13:51:10.449",
+      "score": 0.6188,
+      "age": 0.24,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:51:13.962",
+      "score": 0.6529,
+      "age": 0.48,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:51:16.966",
+      "score": 0.5833,
+      "age": 0.16,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:51:20.477",
+      "score": 0.4618,
+      "age": 0.46,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:51:23.484",
+      "score": 0.4117,
+      "age": 0.08,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:51:26.997",
+      "score": 0.6113,
+      "age": 0.31,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:51:30.504",
+      "score": 0.5113,
+      "age": 0.42,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:51:34.013",
+      "score": 0.4849,
+      "age": 0.4,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:51:37.022",
+      "score": 0.4655,
+      "age": 0.02,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:51:40.533",
+      "score": 0.4936,
+      "age": 0.21,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:51:44.045",
+      "score": 0.5007,
+      "age": 0.43,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:51:47.550",
+      "score": 0.6127,
+      "age": 0.37,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:51:51.060",
+      "score": 0.5673,
+      "age": 0.3,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:51:54.068",
+      "score": 0.5876,
+      "age": 0.04,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:51:59.083",
+      "score": 0.2245,
+      "age": 0.41,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:52:02.092",
+      "score": 0.4443,
+      "age": 0.07,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:52:05.615",
+      "score": 0.3775,
+      "age": 0.17,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:52:09.121",
+      "score": 0.2199,
+      "age": 0.32,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:52:54.234",
+      "score": 0.1093,
+      "age": 0.23,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:52:57.746",
+      "score": 0.0726,
+      "age": 0.23,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:53:01.251",
+      "score": 0.0508,
+      "age": 0.24,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:53:04.756",
+      "score": 0.0838,
+      "age": 0.23,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:53:08.264",
+      "score": 0.0851,
+      "age": 0.34,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:53:11.773",
+      "score": 0.2576,
+      "age": 0.43,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:53:14.782",
+      "score": 0.1505,
+      "age": 0.2,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    }
+  ],
+  "early_segment": {
+    "observed_new_results": 14,
+    "min": 0.4117,
+    "max": 0.6529,
+    "mean": 0.5402428571428571,
+    "above_hypothetical_045": 13
+  },
+  "transition_unlabelled": [
+    {
+      "time": "13:51:59.083",
+      "score": 0.2245,
+      "age": 0.41,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:52:02.092",
+      "score": 0.4443,
+      "age": 0.07,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:52:05.615",
+      "score": 0.3775,
+      "age": 0.17,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    },
+    {
+      "time": "13:52:09.121",
+      "score": 0.2199,
+      "age": 0.32,
+      "usable": "1",
+      "threshold": "None",
+      "permit": "0"
+    }
+  ],
+  "late_segment": {
+    "observed_new_results": 7,
+    "min": 0.0508,
+    "max": 0.2576,
+    "mean": 0.11567142857142856,
+    "above_hypothetical_045": 0
+  },
+  "boundaries": "Time segments only, not independently labelled speech windows; caller says self -> pause -> other.",
+  "gate_test": "NOT_EXERCISED_THRESHOLD_UNCONFIGURED",
+  "runtime_result": "PASS",
+  "report_path": "/home/xilinx/SoundSight_PYNQ_3D_Speaker/logs/speaker-3d-20211119-023754-603270.json"
+}

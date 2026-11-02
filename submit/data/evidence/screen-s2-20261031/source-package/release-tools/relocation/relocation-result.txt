@@ -1,0 +1,7 @@
+PROJECT=F:/NUEC/ss-screen-ps-i2c-relocation-s2/project/par/SoundSight_PS_3D.xpr
+VERSION=2025.2
+INPUTS=122
+MANAGED_IPS=35
+ERRORS=0
+SYNTH_STATUS=Not started
+IMPL_STATUS=Not started

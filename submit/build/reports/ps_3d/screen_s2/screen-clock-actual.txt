@@ -1,0 +1,2 @@
+clkfbout_soundsight_stm32_bd_screen_pixel_clk_0 PERIOD_NS=40.000 WAVEFORM=0.000 20.000
+clk_out1_soundsight_stm32_bd_screen_pixel_clk_0 PERIOD_NS=30.030 WAVEFORM=0.000 15.015

@@ -1,10 +1,3 @@
-# 仿真与离线验证
+# 仿真与离线检查
 
-本目录包含实际`rtl/tb`、`rtl/script`、`software`测试及`models`参考模型。在按[根README](../README.md)生成的工作目录运行原测试路径。
-
-```text
-python -B -m unittest discover -s software/tests -p test_vivado_portable.py
-python -B -m unittest discover -s software/tests -p test_volume_gate.py
-```
-
-RTL仿真使用Vivado 2025.2 XSim，原入口为`simulation/script/run.bat batch <case>`。用例及实际历史结果见[运行说明](../report/run-guide.md)和[data/evidence](../data/evidence)。本批只验证提交包的脱离仓库复现，不重跑RTL/板测；软件测试不等于ARM实测。
+本目录包含RTL测试、软件测试、tetra3d回归及研究脚本。按[根说明](../README.md)恢复原目录后，运行tools/check_current_software.py，用公开合成输入及正式源码新编译C库检查CF1A/在线流程/声纹显示等行为。Windows仅提供resource导入shim，不模拟性能测量。历史私有录音研究依赖见[说明](research/coherent-study/readme.md)。本次不运行RTL或硬件。

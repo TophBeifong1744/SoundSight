@@ -1,0 +1,28 @@
+BACKUP_DIR=F:\NUEC\ss-three-d-coherent-cf1a\verification\tmpgult_b_l\backup_three_d_cf1a_o1izruwr
+BACKUP_DIR=F:\NUEC\ss-three-d-coherent-cf1a\verification\tmp7bwrk_px\backup_three_d_cf1a_f7vgsodu
+BACKUP_DIR=F:\NUEC\ss-three-d-coherent-cf1a\verification\tmpzpiw2ceg\backup_three_d_cf1a_gtf97yk5
+BACKUP_DIR=F:\NUEC\ss-three-d-coherent-cf1a\verification\tmpe6zcrql9\backup_three_d_cf1a_ya0x02ag
+BACKUP_DIR=F:\NUEC\ss-three-d-coherent-cf1a\verification\tmpnxvr1scw\backup_three_d_cf1a_5c8jr5v_
+BACKUP_DIR=F:\NUEC\ss-three-d-coherent-cf1a\verification\tmpb9d3go5t\backup_three_d_cf1a_pbw4nesh
+BACKUP_DIR=F:\NUEC\ss-three-d-coherent-cf1a\verification\tmpf_63k18f\backup_three_d_cf1a_z9ovzmtb
+BACKUP_DIR=F:\NUEC\ss-three-d-coherent-cf1a\verification\tmp1o6o97cd\backup_three_d_cf1a__8lq6rx2
+BACKUP_DIR=F:\NUEC\ss-three-d-coherent-cf1a\verification\tmpqcz0qvym\backup_three_d_cf1a__p5v712g
+BACKUP_DIR=F:\NUEC\ss-three-d-coherent-cf1a\verification\tmphe2snsv0\backup_three_d_cf1a_hcfqybcf
+BACKUP_DIR=F:\NUEC\ss-three-d-coherent-cf1a\verification\tmpre_50q1a\backup_three_d_cf1a_sxph54yj
+test_every_install_replace_failure_rolls_back (__main__.InstallerTests.test_every_install_replace_failure_rolls_back) ... ok
+BACKUP_DIR=F:\NUEC\ss-three-d-coherent-cf1a\verification\tmpcoz13s5r\backup_three_d_cf1a_x1_u78o9
+test_install_repeat_restore_and_private_files (__main__.InstallerTests.test_install_repeat_restore_and_private_files) ... ok
+THREE_D_CF1A_INSTALLED=1 HARDWARE_ACCESS=0 DEFAULT_AXES=off
+BITSTREAM_UNCHANGED=1 REBOOT_REQUIRED=0 USER_PROFILES_UNCHANGED=1
+THREE_D_CF1A_ALREADY_INSTALLED=1 HARDWARE_ACCESS=0
+THREE_D_CF1A_RESTORED=1 HARDWARE_ACCESS=0 CURRENT_VERSION_BACKUP=F:\NUEC\ss-three-d-coherent-cf1a\verification\tmpcoz13s5r\backup_before_cf1a_restore_h2vncfu_
+BACKUP_DIR=F:\NUEC\ss-three-d-coherent-cf1a\verification\tmp_2wgfk89\backup_three_d_cf1a_xki8h_un
+test_restore_refuses_changed_current_file (__main__.InstallerTests.test_restore_refuses_changed_current_file) ... ok
+test_unknown_local_edit_and_wrong_dependency_rejected (__main__.InstallerTests.test_unknown_local_edit_and_wrong_dependency_rejected) ... ok
+THREE_D_CF1A_INSTALLED=1 HARDWARE_ACCESS=0 DEFAULT_AXES=off
+BITSTREAM_UNCHANGED=1 REBOOT_REQUIRED=0 USER_PROFILES_UNCHANGED=1
+
+----------------------------------------------------------------------
+Ran 4 tests in 7.065s
+
+OK
