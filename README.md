@@ -1,5 +1,7 @@
 # 2026-11-02 当前材料入口
 
+**2026-11-02 USB单线调试已打通：** 领航者PYNQ的USB SLAVE已支持Windows RNDIS、SSH和WinSCP目录访问；v2加bootpy启动依赖补丁正常重启后由用户确认可重连，仓库v3内置相同依赖。保留DC供电和当前B版bit/HWH，未改启动镜像；VS Code旧版路线已取消。操作见[USB使用说明](document/pynq-usb-network.md)，验证范围见[板端结果](document/evidence/usb-network-preflight-20261102/board-success.md)。
+
 [最新S2/S3/CF1A源码、证据及使用边界](document/release-20261102-submit.md)。当前硬件J3 M15/J14；S2准备入口为`python -B tools/prepare_screen_s2.py --output ../s2_work`，只复制文件。下方PR30/W16操作记录为历史，旧rebuild_ps_3d.bat不包含屏幕。比赛交付为[submit](submit/README.md)。
 
 # SoundSight

@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-02",
+  "tests": {
+    "command": "python -B -m unittest discover -s software/tests -p 'test_usb*.py' -v",
+    "passed": 13
+  },
+  "offline_artifact_check": "PASS; 12202 collected input files; module import CRCs 54/64; kernel5.4 symbol paths; existing DT status change USB0 only",
+  "package": {
+    "path": "release/output/soundsight_usb_network.zip",
+    "revision": "usb-boot-order-v3",
+    "bytes": 90533,
+    "files": 32,
+    "sha256": "ba85aee96731ed8951d9aeee29592d1664f5559f574af1df958889a801058d12"
+  },
+  "raw_collection": "local-only; excluded from Git",
+  "board_result": "v2 plus 10-bootpy.conf: user confirmed normal reboot reconnect; v3 fresh install not directly tested",
+  "vscode_legacy": "cancelled; downloads and preparation helper removed",
+  "independent_review": "Runtime, payload, license and raw input exclusion reviewed; mandatory SS_HOST_TOOLS documentation corrected."
+}
