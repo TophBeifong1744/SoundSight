@@ -500,10 +500,8 @@
     "document/evidence/pynq-normal-mode-20261022/test_sd_batch.py.log",
     "document/evidence/pynq-normal-mode-20261022/test_volume_gate.py.log",
     "document/evidence/tetra3d-review-20261025/README.md",
-    "document/evidence/tetra3d-review-20261025/das-review.log",
     "document/evidence/tetra3d-review-20261025/local-fix/README.md",
     "document/evidence/tetra3d-review-20261025/local-fix/RESULT.json",
-    "document/evidence/tetra3d-review-20261025/local-fix/das.log",
     "document/evidence/tetra3d-review-20261025/local-fix/migration.log",
     "document/evidence/tetra3d-review-20261025/local-fix/old-bridge-canary.log",
     "document/evidence/tetra3d-review-20261025/migration-result.json",
@@ -704,10 +702,6 @@
     "software/tetra3d/core/doa_target_3d.c",
     "software/tetra3d/core/doa_target_3d.h",
     "software/tetra3d/core/tetra40-nominal.json",
-    "software/tetra3d/das/README.md",
-    "software/tetra3d/das/das_3d.py",
-    "software/tetra3d/das/dynamic_das.py",
-    "software/tetra3d/das/test_das_3d.py",
     "software/tetra3d/linux/board_3d.py",
     "software/tetra3d/linux/build_solver_3d.sh",
     "software/tetra3d/linux/client_3d.py",
@@ -742,5 +736,6 @@
     "tools/replay_pynq_angle_filter.py",
     "tools/run_sim.py"
   ],
-  "excluded": "B voiceprint inference, models, templates, recordings, local settings, private ZIPs; existing remote speaker material retained"
+  "excluded": "B voiceprint inference, models, templates, recordings, local settings, private ZIPs; existing remote speaker material retained",
+  "current_excerpt_note": "2026-11-02 retained feature excerpt; preserved values are historical, not a new execution."
 }

@@ -1,6 +1,5 @@
 {
   "repository": "https://github.com/TophBeifong1744/SoundSight",
-  "branch": "codex/tetra3d-das",
   "commit": "3347989eb03488a33c88c241c75eed517d3a30f0",
   "retrieval": "GitHub file fetch at fixed commit; LF/final newline normalization only",
   "paths": [
@@ -17,10 +16,6 @@
     "software/tetra3d/core/doa_target_3d.c",
     "software/tetra3d/core/doa_target_3d.h",
     "software/tetra3d/core/tetra40-nominal.json",
-    "software/tetra3d/das/README.md",
-    "software/tetra3d/das/das_3d.py",
-    "software/tetra3d/das/dynamic_das.py",
-    "software/tetra3d/das/test_das_3d.py",
     "software/tetra3d/linux/build_solver_3d.sh",
     "software/tetra3d/linux/solver_3d.py",
     "software/tetra3d/linux/ss_solver_3d_bridge.c",
@@ -34,5 +29,6 @@
     "software/common/s1/doa_solver.h",
     "software/common/s1/test_doa_solver.c",
     "tools/tool_config.py"
-  ]
+  ],
+  "current_excerpt_note": "2026-11-02 retained feature excerpt; preserved values are historical, not a new execution."
 }
