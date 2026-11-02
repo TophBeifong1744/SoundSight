@@ -1,0 +1,1021 @@
+{
+  "base_commit": "9259eac4d59caea32114e1932cf95d16a3f47e50",
+  "source_root_note": "Original local provenance only; files are present in repository, no F drive required.",
+  "files": [
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!README.md",
+      "path": "document/evidence/screen-s2-20261031/source-package/README.md",
+      "sha256": "9aa46f20d5032015ff69dd7df814b24ee64c1b6623f3408e14906e12b82f2b03"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!audit_route.tcl",
+      "path": "project/screen_s2/audit_route.tcl",
+      "sha256": "42c20dd70d19d8bfd1fbdc0b4ac2181c2e7ab641786f0b02cf4b972c29c97458"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!build.tcl",
+      "path": "project/screen_s2/build.tcl",
+      "sha256": "2efa64cb6d1860b3acfdcdde84584c26f63158734b306219fbb43f6a8dff4b87"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!export_hw.tcl",
+      "path": "project/screen_s2/export_hw.tcl",
+      "sha256": "80dc95db1b01854934a86da7e2211353828be6e9e3586efb1cf04f29ce72ad93"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!output/soundsight.bit",
+      "path": "release/output/screen_s2/soundsight.bit",
+      "sha256": "409aeb5d31f1f90a9e0f33d875d49bc15b3a45befb27dac711cae577316d76a2"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!output/soundsight.hwh",
+      "path": "release/output/screen_s2/soundsight.hwh",
+      "sha256": "915f4097380eba354660bd95a54cab12857e1d2acb826e5b0cf25e1c7275790d"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!output/soundsight.xsa",
+      "path": "release/output/screen_s2/soundsight.xsa",
+      "sha256": "ff733ec7e85994ad8bb49a88068022f6362f0d3a89339ea2dde2c59420746f60"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/SoundSight_PS_3D.srcs/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.bd",
+      "path": "project/screen_s2/payload/SoundSight_PS_3D.srcs/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.bd",
+      "sha256": "b9167cf5d6c12642c72dfb6fa039916f15cf10db939ebce9868b43be45f0f5a1"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/SoundSight_PS_3D.srcs/sources_1/ip/ss_fft29/ss_fft29.xci",
+      "path": "project/screen_s2/payload/SoundSight_PS_3D.srcs/sources_1/ip/ss_fft29/ss_fft29.xci",
+      "sha256": "0bf45a44b0c4cf6857702909656101498a7f0bf3e5763e97ddf69df9f4c039a0"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/SoundSight_PS_3D.srcs/sources_1/ip/ss_ifft25/ss_ifft25.xci",
+      "path": "project/screen_s2/payload/SoundSight_PS_3D.srcs/sources_1/ip/ss_ifft25/ss_ifft25.xci",
+      "sha256": "9d878e4e8c539e6b6c9a6dc0988ae183007f37a61d35d45b800b0d70da909120"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_constraints/01/spi_ila_debug.xdc",
+      "path": "project/sdc/ps/screen_s2/spi_ila_debug.xdc",
+      "sha256": "bbb89dcf639ed12d899b385e25a2897aaf63b4b6e3874c42d036b60c8f75f64f"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_constraints/02/board_pins.xdc",
+      "path": "project/sdc/ps/screen_s2/board_pins.xdc",
+      "sha256": "2d7538903a9dcb8c11a90107b1b64c526afdb24a589534b543e26cd8ca4d5700"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_constraints/03/interface_timing.xdc",
+      "path": "project/sdc/ps/screen_s2/interface_timing.xdc",
+      "sha256": "6e984160ad1c7e52ec2148785e8469ee641825a80c79d5ed83167d884f08edf8"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_constraints/04/horizontal_reserved.xdc",
+      "path": "project/sdc/ps/screen_s2/horizontal_reserved.xdc",
+      "sha256": "81b61ff4998641a65bad2cca2b8c438c376193032bc0ac95aa988fd7ba384119"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_constraints/05/dual_axis_output_timing.xdc",
+      "path": "project/sdc/ps/screen_s2/dual_axis_output_timing.xdc",
+      "sha256": "cc72efdc83493b21f0efa93b86a60d4e6bcdd33850d9736798d1eed569b5e9e2"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/bd_audio_capture.v",
+      "path": "project/rtl/bd_audio_capture.v",
+      "sha256": "25c52e8d59014e42600b0a11693e9d563f7245a1ec01d8244272101b9a9a0498"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/bd_clean_compute.v",
+      "path": "project/rtl/bd_clean_compute.v",
+      "sha256": "d65b00a1d311d12bf36e60a10e38a6b78a6aba254557843149e4da63abf3310c"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/bd_ps_link.v",
+      "path": "project/rtl/bd_ps_link.v",
+      "sha256": "ae17152cb965e1aee142e17c396de93f0b87b6aed3e66782b1e17d2e73041f3b"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/doa_math_pkg.sv",
+      "path": "project/rtl/doa_math_pkg.sv",
+      "sha256": "70f9a28d343914fa115b40ed8875ae294db69390937155ef862de9374d7cb509"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/doa_math_serial.sv",
+      "path": "project/rtl/doa_math_serial.sv",
+      "sha256": "f9c7e6dd052ba25e755303f9e28264f08919f4f7878f7ad6dd70e627d04ba2de"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/doa_phat_client.sv",
+      "path": "project/rtl/doa_phat_client.sv",
+      "sha256": "e679a854f8174b11719ceea587b3d1606b8fd6e223b0ddcf5c55784d84123f7d"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/f1a_frame_store.sv",
+      "path": "project/rtl/f1a_frame_store.sv",
+      "sha256": "277a92ac91c9198511afadbe5d5d44b1527fce7f0dd57ce7d1ebcf03f323686d"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/fft29_official.sv",
+      "path": "project/rtl/fft29_official.sv",
+      "sha256": "1d7492e77711c5e507aeb48f9651621f8056ac97d3c05c3451f61ddc0b5ab92d"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/hann-u18f17.mem",
+      "path": "project/rtl/hann-u18f17.mem",
+      "sha256": "487c7f988ab00fc0428dc3fbe1705e933eac96ef4f54519727bf9fb0d11dc1bf"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/i17_turntable_pwm_guard.sv",
+      "path": "project/rtl/i17_turntable_pwm_guard.sv",
+      "sha256": "c9785a61b03cb24727f14c092073c4fc6fc4854c70eacb2b11f3fb97993a8453"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ifft25_official.sv",
+      "path": "project/rtl/ifft25_official.sv",
+      "sha256": "5f8d4af7839f97b71fb4b33fec71ac64c6f8f3c80def1983430e8a4a0bae3479"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/motor_drive.v",
+      "path": "project/rtl/motor_drive.v",
+      "sha256": "4b899a4ebe5a96dab8919b0f63a8a46eff4c1d3678ce67d32d693642c817cf60"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/pdm_cic3.v",
+      "path": "project/rtl/pdm_cic3.v",
+      "sha256": "6bf88142124546eaa11d2a31cf00bfeb313a61032b1540867e1d788742d1da13"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_actuator_control.sv",
+      "path": "project/rtl/ss_actuator_control.sv",
+      "sha256": "67cf3c39cce559a5f3a4cff170cfcc54020ab55a5e6b8106f70d878753d3b979"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_async_word.sv",
+      "path": "project/rtl/ss_async_word.sv",
+      "sha256": "ad8457a2f3421b3b2a3df69438f15acf148018f154e7969bc37e8e7902d04ebd"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_audio_capture.sv",
+      "path": "project/rtl/ss_audio_capture.sv",
+      "sha256": "2dee1ef0725936d6a5f96709813c29aecbc1701a6186bf4f0ad39288ed825e04"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_audio_fifo.sv",
+      "path": "project/rtl/ss_audio_fifo.sv",
+      "sha256": "ec2ebf30861b85cf92288b0109eafd04a20e73b2da9f157f8013d260d6de5b56"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_axi_lite_regs.sv",
+      "path": "project/rtl/ss_axi_lite_regs.sv",
+      "sha256": "9daab7d49dbd97845ddf36deaa25a80be47af76fbedd3ecc74d27e302c3d283e"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_bist_source.sv",
+      "path": "project/rtl/ss_bist_source.sv",
+      "sha256": "e578bee07453a57e22909c8773e011064c9532275a0a67fe4f9f9310b8ab262b"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_clean_compute.sv",
+      "path": "project/rtl/ss_clean_compute.sv",
+      "sha256": "def754d88c24ff970fe2212465717e4f1032f1062b5dbaf1e5e2637e0d7a4669"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_dual_axis_control.sv",
+      "path": "project/rtl/ss_dual_axis_control.sv",
+      "sha256": "e913324fe0d9071355900e9fd092182e3ebcae52d24431d8b61435955c3f1bfb"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_dual_compute.sv",
+      "path": "project/rtl/ss_dual_compute.sv",
+      "sha256": "4015f2fdccbd2f13bea78a31995f03de45b861cbb95f75dbfccd70c185d8204a"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_fft_frontend.sv",
+      "path": "project/rtl/ss_fft_frontend.sv",
+      "sha256": "efd263ffd477ccb2f7e35837d5459b8d8d842571f3f8b4a97440cbf19d13bb9b"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_manual_servo.sv",
+      "path": "project/rtl/ss_manual_servo.sv",
+      "sha256": "071a16e80d9f630287a97ded6f217dd4ac84a5994346def4e1ea0b754c3a5675"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_pair_engine.sv",
+      "path": "project/rtl/ss_pair_engine.sv",
+      "sha256": "aa0704110da671f542918817659a91fb092a930c3809c4579f7b0f8def471409"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_pcm_time_cdc.sv",
+      "path": "project/rtl/ss_pcm_time_cdc.sv",
+      "sha256": "db11e241934cd3464f29e735b305961f7f193913d3e56ce3258050a522c24c1c"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_pcm_windows.sv",
+      "path": "project/rtl/ss_pcm_windows.sv",
+      "sha256": "4847c546fe612142b2e719e437f7c2057e965cdc8eb4512497d2be319e33fa41"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_pdm_capture.sv",
+      "path": "project/rtl/ss_pdm_capture.sv",
+      "sha256": "f2a600c5f3ac6ebd44668c526bd40fb0dfc1e0f434e5350cf1e00733ef3b59fa"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_preprocess.sv",
+      "path": "project/rtl/ss_preprocess.sv",
+      "sha256": "b8ee9fe24350b447d2b41f6cca6f8a55ee7916f1ef5b84e3fe154eb9316f0108"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_ps_control_regs.sv",
+      "path": "project/rtl/ss_ps_control_regs.sv",
+      "sha256": "8ab53742ffa16a43bb295eae0f779fcaa5922a09057edee3520338981864342b"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_ps_link.sv",
+      "path": "project/rtl/ss_ps_link.sv",
+      "sha256": "f2d56f97cccb55089caf40ca53a3f1af1b8fa3470fb3bad93bc5ae6497072265"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/dual_axis_sources/ss_snapshot_queue.sv",
+      "path": "project/rtl/ss_snapshot_queue.sv",
+      "sha256": "5217940f11447758f91f4969905d6692480594fae142fc7b7f0dc7b59cda903e"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!payload/screen_pins.xdc",
+      "path": "project/sdc/ps/screen_s2/screen_pins.xdc",
+      "sha256": "2cd21b1f211d44ec11658998c1b073bdf9604d06ca6d3d5aacc6c7529927830a"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!project.tcl",
+      "path": "project/screen_s2/project.tcl",
+      "sha256": "cbcb9e828114d0d23595c6473ed70d4810a8b6d1f859cb79c44ee498a564168d"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!ps_i2c_integration.tcl",
+      "path": "project/screen_s2/ps_i2c_integration.tcl",
+      "sha256": "92babea1c812ecff7c47b0a6e6bf10c9314d9cab740a156b5d58dd41abe3938c"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!recipe.tcl",
+      "path": "project/screen_s2/recipe.tcl",
+      "sha256": "fa312cd4275f07a888c44b151df3b797bef4483d61d44270a309051a9c5dd596"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/BOARD-PREFLIGHT.md",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/BOARD-PREFLIGHT.md",
+      "sha256": "96ed785c3e61e6c16c10435dba06349b9e30f034e4696e4bf702c5a73cc58af1"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/README.md",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/README.md",
+      "sha256": "e371e0ef2433dd9ccb4fd46fbc26ae50a71f6ae9c6405f21993b5613cadc5c85"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/SD-INSTALL.md",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/SD-INSTALL.md",
+      "sha256": "c1ea5844706a53b89990981934ec559805479a1086482bbc26716a7b5f09a35e"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/VALIDATION.md",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/VALIDATION.md",
+      "sha256": "b2b2765b3577aecfeab701cacb8ae9fb79680ae53a4b518fec0e3a2482064e4f"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/acceptance.json",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/acceptance.json",
+      "sha256": "a45febfe3eed1b4505ec48176b17c16962a9fcfb0067e456d3a96a286b982542"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/build_test_candidate.py",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/build_test_candidate.py",
+      "sha256": "e6975408550a647dd9857330e89880c59ca084c9e031f4c3b66e79172490f320"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/candidate-payload-hashes.json",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/candidate-payload-hashes.json",
+      "sha256": "1fabcee02694a5952b2757e4edcb9b8f42216327e871eff04073d6c8e9099fb4"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/install_update.py",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/install_update.py",
+      "sha256": "197a8ccfa81f508007be29007c231e3ac323a5ea3927cd306781b7ea3933a733"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/package_inputs.json",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/package_inputs.json",
+      "sha256": "71b9ae162352eef56cc573d4b0add99af1443d8e64a6192e32b7182807e49e41"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/package_release.py",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/package_release.py",
+      "sha256": "4de008a54294bb7ced61c798f04c944f12698b29fc91339d2e9073a53d41ea4c"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/ps_i2c0_enable.dtbo",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/ps_i2c0_enable.dtbo",
+      "sha256": "8136ea2c115e4f1dbf60af27b3b1ddc01253924faba472442ad06568968e0b59"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/ps_i2c0_enable.roundtrip.dts",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/ps_i2c0_enable.roundtrip.dts",
+      "sha256": "552d8d38a705302d83f0a400159b9f02ddf1864801dfcb5e23140bea248e3170"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/relocation/relocation-check.log",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/relocation/relocation-check.log",
+      "sha256": "30630dbd1352d1f02293cbab68f2e4955f5d856c9b2ba282349b8ea0cf9cc2dc"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/relocation/relocation-inputs.txt",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/relocation/relocation-inputs.txt",
+      "sha256": "b36ff957fd7ab489feba8e9e6e79c5093048c81e2b1d48d98fc3c36221c33bfb"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/relocation/relocation-ip-status.rpt",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/relocation/relocation-ip-status.rpt",
+      "sha256": "0882cf2f4f074b6f16ea33add627c1e5b644edcf017c58f6c9def6617027edc9"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/relocation/relocation-result.txt",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/relocation/relocation-result.txt",
+      "sha256": "49c755913c51bcef3810e9904f9bc553daaa6b7d04f6ff208975476ce0b94456"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!release-tools/relocation/relocation-summary.json",
+      "path": "document/evidence/screen-s2-20261031/source-package/release-tools/relocation/relocation-summary.json",
+      "sha256": "725f95e6e943ce21cf10eaacdb16f34592d8a60e81c3a62e445ff0553f7310c8"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/actual-inputs.txt",
+      "path": "project/reports/ps_3d/screen_s2/actual-inputs.txt",
+      "sha256": "c76b346b0e18ec5a00936793f56ccd7ef9e94c8830be63aa7666f153e05183d2"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/baseline-source-manifest.json",
+      "path": "project/reports/ps_3d/screen_s2/baseline-source-manifest.json",
+      "sha256": "18f99232726dd8897b17729e14a6617e28effa597b0dde37d4287eecbade190b"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/bd-connection-delta.json",
+      "path": "project/reports/ps_3d/screen_s2/bd-connection-delta.json",
+      "sha256": "8e40988fcd6e8146140f649b9934b1a835f9f7f0fdc7da4b272b18448b19468f"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/bus-skew.rpt",
+      "path": "project/reports/ps_3d/screen_s2/bus-skew.rpt",
+      "sha256": "01611ead04904fb7ad6f58682588bfb822849ffb5114d95899f2f4a26400d16a"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/cdc.rpt",
+      "path": "project/reports/ps_3d/screen_s2/cdc.rpt",
+      "sha256": "98c8708641857f24403bd49513569dd6953eb48a57f9603e6bed31163d6dc263"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/check-timing.rpt",
+      "path": "project/reports/ps_3d/screen_s2/check-timing.rpt",
+      "sha256": "72754de9b4ade8558daa3398c43cd531b40b9e93a0500d766d2f85a36e05c4c6"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/clock-interaction.rpt",
+      "path": "project/reports/ps_3d/screen_s2/clock-interaction.rpt",
+      "sha256": "ce88329b30c8e4c595f31626c3621899bb50f4b7f42cb413c9fca1f2d4901551"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/clocks.rpt",
+      "path": "project/reports/ps_3d/screen_s2/clocks.rpt",
+      "sha256": "d7b14c7aecfc6588d84a79e4fd14fc90a4b0f13bdc0199f95ecde21cfc649544"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/drc.rpt",
+      "path": "project/reports/ps_3d/screen_s2/drc.rpt",
+      "sha256": "b1e0ff8209542dcd6fd6bcc9333a0aad142b7316affd855b310a059e0762b731"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/hardware-artifacts.json",
+      "path": "project/reports/ps_3d/screen_s2/hardware-artifacts.json",
+      "sha256": "548bb70b1d8be3bf7950a8d75dabe640d28467ccca806d8b38598475ffa274f6"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/hardware-result.json",
+      "path": "project/reports/ps_3d/screen_s2/hardware-result.json",
+      "sha256": "1a631f82d58450a7726faed94a3c2aaef67ab7183149e73f6ed9be9bf5d3840a"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/ignored-exceptions.rpt",
+      "path": "project/reports/ps_3d/screen_s2/ignored-exceptions.rpt",
+      "sha256": "c64df3883939e1df72922ab1b3ffd751b154f26ca8015375d6a1bbe6fa751ca7"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/io.rpt",
+      "path": "project/reports/ps_3d/screen_s2/io.rpt",
+      "sha256": "64fc0c0b68af226da6401e6fec3b68bf66f204aaa1f41bef1588da7a9da76d52"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/ip-status.rpt",
+      "path": "project/reports/ps_3d/screen_s2/ip-status.rpt",
+      "sha256": "3c3b5ccb0e22a6c742d11c3929c4bd787d88f3823628462bfd73d9efaef69269"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/methodology.rpt",
+      "path": "project/reports/ps_3d/screen_s2/methodology.rpt",
+      "sha256": "05faca194b5d347ae18498ddd06d78bbbc6f3c4a5890e48b1121fb6862827fe4"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/ps-i2c-platform-contract.json",
+      "path": "project/reports/ps_3d/screen_s2/ps-i2c-platform-contract.json",
+      "sha256": "6e9278fb4a1a7e1ec2647828f1cd90b038b9ee6187d9011438929d02a4cb182c"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/ps7-init-command-delta.txt",
+      "path": "project/reports/ps_3d/screen_s2/ps7-init-command-delta.txt",
+      "sha256": "fa89d62c718dd7133f13f6cb0a8a6f711f2ec357c18e3451f98118a4f180bb87"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/reopen-check.tcl",
+      "path": "project/reports/ps_3d/screen_s2/reopen-check.tcl",
+      "sha256": "8409380842aabf8d51cf74b4bf9946642649fe3bd8ae4751e581aa4dca45c788"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/reopen-ip-status.rpt",
+      "path": "project/reports/ps_3d/screen_s2/reopen-ip-status.rpt",
+      "sha256": "bebc9e28a799ddc43c3c5c69e0b094a75e5fd1dbfa2c239f0032ac69054de10a"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/reopen-result.txt",
+      "path": "project/reports/ps_3d/screen_s2/reopen-result.txt",
+      "sha256": "64ebcdee8a266af9726f5466300ff0e525fb2759bf6246fd468394b2ec148ebc"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/route-status.rpt",
+      "path": "project/reports/ps_3d/screen_s2/route-status.rpt",
+      "sha256": "29422d6de3591b0bdc57de692a6841f67a5dd0c99b31b75bd445c4e6dfec3565"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/screen-clock-actual.txt",
+      "path": "project/reports/ps_3d/screen_s2/screen-clock-actual.txt",
+      "sha256": "c9da07df2a31889db734468aeb44573c4a852587f0e8d655e7755154078eed06"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/screen-integrated-bd.tcl",
+      "path": "project/reports/ps_3d/screen_s2/screen-integrated-bd.tcl",
+      "sha256": "2b0d74388e2df3dc6d90cc361385e278788c4dd832f91cc64c8a300a117e8f2d"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/screen-ip-properties.txt",
+      "path": "project/reports/ps_3d/screen_s2/screen-ip-properties.txt",
+      "sha256": "884e718d04b6462dd30b10aa1fc4c237dfb470b47f6ab631a6f7bb9c2cec3d05"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/screen-source-manifest.json",
+      "path": "project/reports/ps_3d/screen_s2/screen-source-manifest.json",
+      "sha256": "7075d23512f122da9795afe282013cc8cb2e97d24449c550451ca5bd2d24f242"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/servo_pwm-max.rpt",
+      "path": "project/reports/ps_3d/screen_s2/servo_pwm-max.rpt",
+      "sha256": "efd5562819fa94c52aceb8678f9791db90ab7e1dd905f1fd344dd436f6d06b64"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/servo_pwm-min.rpt",
+      "path": "project/reports/ps_3d/screen_s2/servo_pwm-min.rpt",
+      "sha256": "7c9ad6c7fa49d68f931ac07ce2aa1cfca086b6876d570dced756090d4b94ac70"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/servo_vertical_pwm-max.rpt",
+      "path": "project/reports/ps_3d/screen_s2/servo_vertical_pwm-max.rpt",
+      "sha256": "955a1691cd461650850755e1ca589c4ebd19cee14b7439e9644cf2a0717045dc"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/servo_vertical_pwm-min.rpt",
+      "path": "project/reports/ps_3d/screen_s2/servo_vertical_pwm-min.rpt",
+      "sha256": "025f89a933d29f216afcf1f196530cdccf6a31335e304e3f359fcafc3576d6b2"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/source-files.txt",
+      "path": "project/reports/ps_3d/screen_s2/source-files.txt",
+      "sha256": "6783c44975a8494b34389f0f0e50d10777b1144052d0c8b5f71cd35f94865520"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/timing-summary.rpt",
+      "path": "project/reports/ps_3d/screen_s2/timing-summary.rpt",
+      "sha256": "b0c163936ac2d363777e3fcba85497eacb890b261c8045ed228bc42fe99d94cc"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!reports/utilization.rpt",
+      "path": "project/reports/ps_3d/screen_s2/utilization.rpt",
+      "sha256": "728eaecf9b727892822e41eb975a5b0e072bf2ae289b6120ea1962c1ff319b23"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!resume_build.tcl",
+      "path": "project/screen_s2/resume_build.tcl",
+      "sha256": "5a35220b50bff5b5c5e135aeb96cd9da5689e7d0b01045ba39d8e0074d713a05"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!screen_integration.tcl",
+      "path": "project/screen_s2/screen_integration.tcl",
+      "sha256": "8988a42e2cebb4d84a84c0b059393958737323b04e14832594701b02a3788cb7"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!verification/MODEL-CARD.md",
+      "path": "document/evidence/screen-s2-20261031/source-package/verification/MODEL-CARD.md",
+      "sha256": "735ef5608f7e09ba2fc065ccb9be5a7e48e5bf808736fe3ba46bc3e9f356f28e"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!verification/REPORT.md",
+      "path": "document/evidence/screen-s2-20261031/source-package/verification/REPORT.md",
+      "sha256": "76d32995d1f83ac10523a171393ce07c952bae8b63de5bd86777419bb060a4e7"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!verification/canaries.log",
+      "path": "document/evidence/screen-s2-20261031/source-package/verification/canaries.log",
+      "sha256": "7178f0e0b21a005798ef63d0014144b16a8886870ca715a8ed5b07ba6c217a91"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!verification/canary-results.json",
+      "path": "document/evidence/screen-s2-20261031/source-package/verification/canary-results.json",
+      "sha256": "7409aba861b598ce35e123539af704a83472651441afa7072be6d721613c4cf9"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!verification/installer-s2.log",
+      "path": "document/evidence/screen-s2-20261031/source-package/verification/installer-s2.log",
+      "sha256": "c1c4be1b7b7a0258f0567fada92195a775a73af5bcdd556a953255d4ab8e4208"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!verification/linux-boundary.log",
+      "path": "document/evidence/screen-s2-20261031/source-package/verification/linux-boundary.log",
+      "sha256": "539c8c764a5c1b77b0241db319a3aaa56d8aea041f1a4d29d1798ebc974eb39e"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!verification/test_boundary_canaries.py",
+      "path": "document/evidence/screen-s2-20261031/source-package/verification/test_boundary_canaries.py",
+      "sha256": "1b2be3192bd541e9be0dcb6a180ffb88d8fc083badfad18ea05eacd47fad6d0f"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!verification/test_installer_s2.py",
+      "path": "document/evidence/screen-s2-20261031/source-package/verification/test_installer_s2.py",
+      "sha256": "53b6518affa59d3d987d57da60edba8f857356061710f4a4bbbbfb0e26850c63"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!verification/test_linux_boundary.py",
+      "path": "document/evidence/screen-s2-20261031/source-package/verification/test_linux_boundary.py",
+      "sha256": "2a1fce0966c84e69e286f24a3e6673b28b77a3925bcdf842133de3ab2890afc7"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!verification/tested-artifacts.json",
+      "path": "document/evidence/screen-s2-20261031/source-package/verification/tested-artifacts.json",
+      "sha256": "ca0150777d4f739d33e234a26fa3986158d56e88b84ee42832ed4deed091d871"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip!verification/vendor_hwh_parser_pynq270.py",
+      "path": "document/evidence/screen-s2-20261031/source-package/verification/vendor_hwh_parser_pynq270.py",
+      "sha256": "6b210f365ca061b7440e1c43afc4b1445c61161a4f9be6daf849edeaef03c386"
+    },
+    {
+      "source": "derived from original source ZIP",
+      "path": "project/screen_s2/source-map.json",
+      "sha256": "e749f1df9eaaf1f2c3ba64851e6d20ebf4a95bfe1d7b7dd382bcaf979fc52d04"
+    },
+    {
+      "source": "ss-screen-control-s3/runtime/SCREEN-CONTROL.md",
+      "path": "document/screen-control.md",
+      "sha256": "faa9273f34dfb74a148243a8c8f02294fa6cc1532e7dd5ab7f7e2e803d929861"
+    },
+    {
+      "source": "ss-screen-control-s3/runtime/SCREEN-README.md",
+      "path": "document/screen-readme.md",
+      "sha256": "c643c3867c5d17e8cbe1b603878212616f689e6b24eb8d248938fa335a769f60"
+    },
+    {
+      "source": "ss-screen-control-s3/runtime/software/screen/__init__.py",
+      "path": "software/screen/__init__.py",
+      "sha256": "9774fc1dbf48185261b30d71eea5783ad5ab929995d2c208b895607de09314e2"
+    },
+    {
+      "source": "ss-screen-control-s3/runtime/software/screen/backend.py",
+      "path": "software/screen/backend.py",
+      "sha256": "7ccb154fff3d93d1cdf44b971a12c7353378bdfc369ff610566a4465f7bf689f"
+    },
+    {
+      "source": "ss-screen-control-s3/runtime/software/screen/hardware.py",
+      "path": "software/screen/hardware.py",
+      "sha256": "153800c28e223e9315c07c1d1096e8982f95a8b869d3c425dd2733886b81b2b3"
+    },
+    {
+      "source": "ss-screen-control-s3/runtime/software/screen/linux_i2c.py",
+      "path": "software/screen/linux_i2c.py",
+      "sha256": "b295f95605935248dbf8959c64a2a4d75f25a41ea284eed36afc1e6360518d46"
+    },
+    {
+      "source": "ss-screen-control-s3/runtime/software/screen/ps_i2c0_enable.dtbo",
+      "path": "software/screen/ps_i2c0_enable.dtbo",
+      "sha256": "8136ea2c115e4f1dbf60af27b3b1ddc01253924faba472442ad06568968e0b59"
+    },
+    {
+      "source": "ss-screen-control-s3/runtime/software/screen/ps_i2c0_enable.dts",
+      "path": "software/screen/ps_i2c0_enable.dts",
+      "sha256": "78b3d1e7f1a479f937c90a1630fd1fe6bfc6e42686f9f334df62832c9f1d133a"
+    },
+    {
+      "source": "ss-screen-control-s3/runtime/software/screen/screen_i2c_prepare.py",
+      "path": "software/screen/screen_i2c_prepare.py",
+      "sha256": "fbdea1f5856dac871c519ec58eecffa317d4e45aeaabdb6d86d5c8d786397757"
+    },
+    {
+      "source": "ss-screen-control-s3/runtime/software/screen/ui.py",
+      "path": "software/screen/ui.py",
+      "sha256": "be9d2cc255c4996fef89f170b418f04fb7f8cd6caf9c3df55bbb7b719559c6b6"
+    },
+    {
+      "source": "ss-screen-control-s3/runtime/soundsight-panel.sh",
+      "path": "soundsight-panel.sh",
+      "sha256": "bc4cff4fa78498b4c6532e0cdb72efee6a93ac166fc1e27bf6b5658db4a85299"
+    },
+    {
+      "source": "ss-screen-control-s3/runtime/soundsight-screen-i2c.sh",
+      "path": "soundsight-screen-i2c.sh",
+      "sha256": "0562b52cd9d76ecea55717078f7750ca0a5c3d7ca8d254c58022ea2102a19e61"
+    },
+    {
+      "source": "ss-screen-control-s3/runtime/soundsight-screen.sh",
+      "path": "soundsight-screen.sh",
+      "sha256": "f2a65df945abd5b2f4e9d749385784c304d249ba3f3925346b791420ccb65fa2"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/runtime/CF1-UPDATE.md",
+      "path": "document/cf1-update.md",
+      "sha256": "717854ae4420941f322fec4a5463cfd308bf4a596d4d4028c36ef914d6216544"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/runtime/software/tetra3d/linux/board_3d.py",
+      "path": "software/tetra3d/linux/board_3d.py",
+      "sha256": "fce0f8e07f39604db95b3fc2bbaf67ec340a5dcbfcf7874c943689d491ccfba2"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/runtime/software/tetra3d/linux/cf1_hann.mem",
+      "path": "software/tetra3d/linux/cf1_hann.mem",
+      "sha256": "487c7f988ab00fc0428dc3fbe1705e933eac96ef4f54519727bf9fb0d11dc1bf"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/runtime/software/tetra3d/linux/client_3d.py",
+      "path": "software/tetra3d/linux/client_3d.py",
+      "sha256": "a1e4063cf4bd59371e9c46ed58886d723b76e28fe7b476e2e7570b4b2a4e3484"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/runtime/software/tetra3d/linux/coherent_frontend.py",
+      "path": "software/tetra3d/linux/coherent_frontend.py",
+      "sha256": "35adde9a87db31bfd50cffc708fd5aa336683386bbfd384cd75cbb241f2f38c8"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/runtime/software/tetra3d/linux/speaker_capture_3d.py",
+      "path": "software/tetra3d/linux/speaker_capture_3d.py",
+      "sha256": "8481f99919a7f263006a5ac885f02a83413558570f3419ec92bef12fc68d9b7f"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/runtime/software/tetra3d/linux/speaker_runtime_3d.py",
+      "path": "software/tetra3d/linux/speaker_runtime_3d.py",
+      "sha256": "b9f7fc356350b87e5c8b1c01589158d2d9e1ed0f5cdd632dc65006d77fd0a2eb"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/runtime/software/tetra3d/tests/test_cf1.py",
+      "path": "software/tetra3d/tests/test_cf1.py",
+      "sha256": "41e2a4cd753d7d2733a9f5639a381a0751f43b2b9ba28d2f16fa2ad22da93426"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/runtime/software/tetra3d/tests/test_follow_sound.py",
+      "path": "software/tetra3d/tests/test_follow_sound.py",
+      "sha256": "c748b5ef02c5a4e8e0d7a5ae96aa4cf4d2a7ab12ce5d9c72ce256049ced0f71f"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/BOARD-RESULT.md",
+      "path": "document/evidence/screen-s2-20261031/BOARD-RESULT.md",
+      "sha256": "f5e2961cdec16344570788dd7683979ab8c3bd7546fa886c7afc6071d604dba3"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/VALIDATION.md",
+      "path": "document/evidence/screen-s2-20261031/VALIDATION.md",
+      "sha256": "19c738c0fea054c83d27293124197d01d6800c8bf66463b08c83527623c7e6f2"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/SD-INSTALL.md",
+      "path": "document/evidence/screen-s2-20261031/SD-INSTALL.md",
+      "sha256": "c1ea5844706a53b89990981934ec559805479a1086482bbc26716a7b5f09a35e"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/acceptance.json",
+      "path": "document/evidence/screen-s2-20261031/acceptance.json",
+      "sha256": "a45febfe3eed1b4505ec48176b17c16962a9fcfb0067e456d3a96a286b982542"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/candidate-payload-hashes.json",
+      "path": "document/evidence/screen-s2-20261031/candidate-payload-hashes.json",
+      "sha256": "1fabcee02694a5952b2757e4edcb9b8f42216327e871eff04073d6c8e9099fb4"
+    },
+    {
+      "source": "ss-screen-control-s3/README.md",
+      "path": "document/evidence/screen-s3-20261031/README.md",
+      "sha256": "c7888ae9dbceb011135bdc1c79eade86ed9deb852770c0922902cc8320625a4b"
+    },
+    {
+      "source": "ss-screen-control-s3/BOARD-FIRST-RESULT.md",
+      "path": "document/evidence/screen-s3-20261031/BOARD-FIRST-RESULT.md",
+      "sha256": "f6a129770fe93b5ff181cf2d382e51f3bd61da79809b8cf0fca1134adf52be13"
+    },
+    {
+      "source": "ss-screen-control-s3/BOARD-FIRST-RAW.txt",
+      "path": "document/evidence/screen-s3-20261031/BOARD-FIRST-RAW.txt",
+      "sha256": "79603661b5304ef74ff05b2423a9d834987b28563c8374a726e0d18ded34efb3"
+    },
+    {
+      "source": "ss-screen-control-s3/manifest.json",
+      "path": "document/evidence/screen-s3-20261031/manifest.json",
+      "sha256": "c30725e00d4751490ea1f2c2c7ad261152d63b585dce940a72531bcb22bdee0e"
+    },
+    {
+      "source": "ss-screen-control-s3/panel-preview.png",
+      "path": "document/evidence/screen-s3-20261031/panel-preview.png",
+      "sha256": "65002e40b75cf5966e54556135a83e253d07af3c0a8c0d33c10f6fa0f1203407"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/README.md",
+      "path": "document/evidence/cf1a-20261102/README.md",
+      "sha256": "717854ae4420941f322fec4a5463cfd308bf4a596d4d4028c36ef914d6216544"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/manifest.json",
+      "path": "document/evidence/cf1a-20261102/manifest.json",
+      "sha256": "7923a896129cf25b0486fededac7318e769d6f7b3c64ce895cbe65958f931828"
+    },
+    {
+      "source": "ss-speaker-p02-board-20261031/P02-TTL-RESULT.md",
+      "path": "document/evidence/p02-ttl-20261031/P02-TTL-RESULT.md",
+      "sha256": "f168d7466944953fddea9a3c31f2ee7b8f39dd8dd472ab91d0c591e14a8fdd96"
+    },
+    {
+      "source": "ss-speaker-p02-board-20261031/p02-ttl-pass-analysis.json",
+      "path": "document/evidence/p02-ttl-20261031/p02-ttl-pass-analysis.json",
+      "sha256": "8020955fb5e588f4f14d28d13a326f4c6df359b44f9b02ed1da965c0c8d277f0"
+    },
+    {
+      "source": "ss-speaker-p02-board-20261031/p02-ttl-pass-135903-140059.txt",
+      "path": "document/evidence/p02-ttl-20261031/p02-ttl-pass-135903-140059.txt",
+      "sha256": "7903ee4064a93b3f882757a2317ad46ac3a17a7814fbb642fe7eff54a1e95be2"
+    },
+    {
+      "source": "ss-speaker-p02-board-20261031/p02-unconfigured-analysis.json",
+      "path": "document/evidence/p02-ttl-20261031/p02-unconfigured-analysis.json",
+      "sha256": "a80d99d08e6ad36658f82e8ebbf3c687189abd77db8a475b0606ad2cb1cf90c9"
+    },
+    {
+      "source": "ss-speaker-p02-board-20261031/p02-unconfigured-135103-135319.txt",
+      "path": "document/evidence/p02-ttl-20261031/p02-unconfigured-135103-135319.txt",
+      "sha256": "f1891b0bea2db2a7cd1922b1fdfbf2d5706d2cc58f6a3c863bd55c9efd22fa5d"
+    },
+    {
+      "source": "ss-joint-peaks-study-20261101/REPORT.md",
+      "path": "document/evidence/joint-peaks-20261101/REPORT.md",
+      "sha256": "af3edb0aa50f5c9d07f11be8964da37bce7a5e8bab2723ddf8b80e750fd62849"
+    },
+    {
+      "source": "ss-joint-peaks-study-20261101/PLAN.md",
+      "path": "document/evidence/joint-peaks-20261101/PLAN.md",
+      "sha256": "220ecef0bb6fcba3e2e3d48be8a33f1325a94c69d9bc5e3b34dfa92348ac1746"
+    },
+    {
+      "source": "ss-joint-peaks-study-20261101/results.json",
+      "path": "document/evidence/joint-peaks-20261101/results.json",
+      "sha256": "1d325566ebddbe97cde089516216ec46f018f8b2562f51f05a25ae76288f4e19"
+    },
+    {
+      "source": "ss-joint-peaks-study-20261101/summary.png",
+      "path": "document/evidence/joint-peaks-20261101/summary.png",
+      "sha256": "bfed11479cbcd412f5158a1edab6baf5fb0a75d3bfab0631a081db5f7ba721f7"
+    },
+    {
+      "source": "ss-screen-control-s3/verification/canaries.log",
+      "path": "document/evidence/screen-s3-20261031/verification/canaries.log",
+      "sha256": "cdd3ce7bd7199b3f8ef0b9f3e5dc1dfabd6dd83fb3d4281228a8f1bb6ea05800"
+    },
+    {
+      "source": "ss-screen-control-s3/verification/check_canaries.py",
+      "path": "document/evidence/screen-s3-20261031/verification/check_canaries.py",
+      "sha256": "1974a338f70ec7ba7dd0aef74104128f6a6610fcd55363cf6fcbd83f8345e5b1"
+    },
+    {
+      "source": "ss-screen-control-s3/verification/host-tests.log",
+      "path": "document/evidence/screen-s3-20261031/verification/host-tests.log",
+      "sha256": "64708f5c3b67ce9a8cb3f3f3857436dbde5a30832e82902193d50a5e5f316d2c"
+    },
+    {
+      "source": "ss-screen-control-s3/verification/REPORT.md",
+      "path": "document/evidence/screen-s3-20261031/verification/REPORT.md",
+      "sha256": "1a80dd83b395899ecda4eb5c5e157d58bca8770e8591cda4aa11b602248ac4c4"
+    },
+    {
+      "source": "ss-screen-control-s3/verification/test_control.py",
+      "path": "document/evidence/screen-s3-20261031/verification/test_control.py",
+      "sha256": "ab65a3ca4cfad75e4845a42fb46c3acb34b5734d8dde8525bf03cd35c633df37"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/check_release.py",
+      "path": "document/evidence/cf1a-20261102/verification/check_release.py",
+      "sha256": "3495142f282920a4dcafbd637464da31cd1e1232f52cf374daf79edcbf720982"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/INDEPENDENT-REVIEW.md",
+      "path": "document/evidence/cf1a-20261102/verification/INDEPENDENT-REVIEW.md",
+      "sha256": "0c3b06cf3bfb3dff936cc16af9e0e5f82366b9014c1be07182b61ab79e07f522"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/release-integrity.json",
+      "path": "document/evidence/cf1a-20261102/verification/release-integrity.json",
+      "sha256": "1387d9f1ced61d29ff1c5ee40942307f3f1f7b0c5f230d864eec3df3a11f22ad"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/replay.json",
+      "path": "document/evidence/cf1a-20261102/verification/replay.json",
+      "sha256": "82649942bdd2928d320773180475db0113d0a06d5cf33bf560ab61491551a265"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/replay.log",
+      "path": "document/evidence/cf1a-20261102/verification/replay.log",
+      "sha256": "0bb25484199dd526cf7ebabe18a4f2714f79795fe84e31b15d0ff432cdf897ec"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/REPORT.md",
+      "path": "document/evidence/cf1a-20261102/verification/REPORT.md",
+      "sha256": "1dcb6831162a6894a4036c30339832b4cdbd1e59014a38ffbe06a313bf638065"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/run_host.py",
+      "path": "document/evidence/cf1a-20261102/verification/run_host.py",
+      "sha256": "8246775cb67feac01b1cec7ec3ba76a7f4ecb7950ad9edf75011586565515488"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/run_regressions.py",
+      "path": "document/evidence/cf1a-20261102/verification/run_regressions.py",
+      "sha256": "1b0ee19c185705339c13971773a863646bbfc5d19306f2662d242d0adc6d6ece"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/test_cf1.log",
+      "path": "document/evidence/cf1a-20261102/verification/test_cf1.log",
+      "sha256": "baa787dd48a3de982f321ebb08fe81c382185f11acc28cddde6811ffeabe68f7"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/test_follow_sound.log",
+      "path": "document/evidence/cf1a-20261102/verification/test_follow_sound.log",
+      "sha256": "1412c7c8b6803a9f93446e4d4d216fa9fbd7f156f0d89708b2c050f7963348cf"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/test_installer.log",
+      "path": "document/evidence/cf1a-20261102/verification/test_installer.log",
+      "sha256": "eec512e3b7ac1fea9a6d9be1b97421a01cc54f7562c5202c4820cae62d379cc3"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/test_installer.py",
+      "path": "document/evidence/cf1a-20261102/verification/test_installer.py",
+      "sha256": "36159a9827e5714ec0af81a0227645c08e2d78268585e59d899b641c81cd87d5"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/test_online_3d.log",
+      "path": "document/evidence/cf1a-20261102/verification/test_online_3d.log",
+      "sha256": "6cadbb7a61852752d8bf6fdcce07f3a52de12be045414b88d25cd68699f9f8de"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/test_speaker_display.log",
+      "path": "document/evidence/cf1a-20261102/verification/test_speaker_display.log",
+      "sha256": "0ec67eb74f48e8993a39237061dfa1ea813c8d2a13932602ec929a5c86c9afec"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/test_speaker_follow.log",
+      "path": "document/evidence/cf1a-20261102/verification/test_speaker_follow.log",
+      "sha256": "fe419ca22924f51ac4d53fea40bfcb4be3b3063d0e1483e9ec1a0b5be14a6283"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/timing.json",
+      "path": "document/evidence/cf1a-20261102/verification/timing.json",
+      "sha256": "6a7fb6d34959d10e296ceac05afa028e8db5509a1cbce13e7ba9d1124c24525a"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/verification/validate_replay.py",
+      "path": "document/evidence/cf1a-20261102/verification/validate_replay.py",
+      "sha256": "83444eb99cdf56ff097e3786afdff9c7f3e6101167ce266a310a7af43c243a88"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1/verification/board-run-1.json",
+      "path": "document/evidence/cf1-board-20261101/board-run-1.json",
+      "sha256": "d48fbba73029cca703dff13052dd00b76ac1c910d967b0b87195b2297b01ed95"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1/verification/board-run-2.json",
+      "path": "document/evidence/cf1-board-20261101/board-run-2.json",
+      "sha256": "4fbb31e748794ae6c18b252858a0c81e8941ab9141a72c0ba39bed38c05f6fc4"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1/verification/board-summary-console.txt",
+      "path": "document/evidence/cf1-board-20261101/board-summary-console.txt",
+      "sha256": "864922514c0729bff16ad0d8796d02f94b1fcb7a1c9cf91a3fbb0d10279b58c6"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1/verification/board-first-console.txt",
+      "path": "document/evidence/cf1-board-20261101/board-first-console.txt",
+      "sha256": "5a58021339dc138058408d687c17c4b8ebd721104d61a5ec4784b33f05f621b3"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1/verification/BOARD-FIRST.md",
+      "path": "document/evidence/cf1-board-20261101/BOARD-FIRST.md",
+      "sha256": "93bb890269bfd1fa2f33afa4228086c081ecf4afa6625d2a6829341bb7b868be"
+    },
+    {
+      "source": "ss-a-cf1a-handoff-20261102/给A-先读.md",
+      "path": "document/cf1a-handoff/start-here.md",
+      "sha256": "7e95e2434847fe1f4a0bc3c3cd4f6e9b941164ce21e90a834e51809136f361a9"
+    },
+    {
+      "source": "ss-a-cf1a-handoff-20261102/三维测试指令.md",
+      "path": "document/cf1a-handoff/board-test.md",
+      "sha256": "967077a6e74ca484952022508a34731dc4a021c63481beee572fd0431be32fde"
+    },
+    {
+      "source": "ss-a-cf1a-handoff-20261102/测试结果回传模板.md",
+      "path": "document/cf1a-handoff/result-template.md",
+      "sha256": "261a7fc29bcd99d12e48bc8063a1820ec79cf040b5fa4b486e896a244fb85b01"
+    },
+    {
+      "source": "ss-joint-peaks-study-20261101/study.py",
+      "path": "research/coherent-study/ss-joint-peaks-study-20261101/study.py",
+      "sha256": "8b067eb8fe0d910cc1f4bdc2b94992a72e98f35ebbc87c316edae470e3e37ba8"
+    },
+    {
+      "source": "ss-c-3d-analysis-20261101/study_candidates.py",
+      "path": "research/coherent-study/ss-c-3d-analysis-20261101/study_candidates.py",
+      "sha256": "aa80c2fa1377281f7de67e3da9d65cd5236431d51686df36b6e7b2398f893999"
+    },
+    {
+      "source": "ss-c-3d-analysis-20261101/study_weighting.py",
+      "path": "research/coherent-study/ss-c-3d-analysis-20261101/study_weighting.py",
+      "sha256": "53ada3db98cd3153a1bcf04db56ed0519006ba836f778d5876a040a5c0155408"
+    },
+    {
+      "source": "ss-c-3d-analysis-20261101/RAW-ANALYSIS.md",
+      "path": "research/coherent-study/ss-c-3d-analysis-20261101/RAW-ANALYSIS.md",
+      "sha256": "d52685a78a52a743833aba1ae6d2c70480e5b527b2a824ed2a08d99a52c7cd67"
+    },
+    {
+      "source": "ss-c-3d-analysis-20261101/CANDIDATE-STUDY.md",
+      "path": "research/coherent-study/ss-c-3d-analysis-20261101/CANDIDATE-STUDY.md",
+      "sha256": "c17bbf671a5ac29f37e082f07727fd30a4a8fc12f5b64c69e6647db9cf87130d"
+    },
+    {
+      "source": "ss-ab-3d-analysis-20261101/analyze_ab.py",
+      "path": "research/coherent-study/ss-ab-3d-analysis-20261101/analyze_ab.py",
+      "sha256": "e123f139694ee9944eeaa32e5885dae1a74cdfc683cdc4241cb36e0154695c78"
+    },
+    {
+      "source": "ss-ab-3d-analysis-20261101/REPORT.md",
+      "path": "research/coherent-study/ss-ab-3d-analysis-20261101/REPORT.md",
+      "sha256": "bce0b05ad6d5102705cba10f4aea3059d95935c52615f473032a8ed9fc170163"
+    },
+    {
+      "source": "ss-user-3d-analysis-20261101/REPORT.md",
+      "path": "research/coherent-study/ss-user-3d-analysis-20261101/REPORT.md",
+      "sha256": "80ba1938e2b23a38829befe11c6f0a296ca0fa6b51e89b9a6e5ad8d932f475d2"
+    },
+    {
+      "source": "ss-user-3d-analysis-20261101/TIMING-REVIEW.md",
+      "path": "research/coherent-study/ss-user-3d-analysis-20261101/TIMING-REVIEW.md",
+      "sha256": "57dce7e3ddd6b3203953c7168c3dc2b02c90db9c0c391814aef58a71636c513e"
+    },
+    {
+      "source": "ss-b-static-3d-analysis-20261101/REPORT.md",
+      "path": "research/coherent-study/ss-b-static-3d-analysis-20261101/REPORT.md",
+      "sha256": "9a273121488bc463a39de9866f1c4705748917401896526bee5b9db251a35f01"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2_source.zip",
+      "path": "release/output/soundsight_screen_ps_i2c_s2_source.zip",
+      "sha256": "4b12a3ff8e5868dfb450ae9621ae3462fb7afef02698f6da581ddedc67be3107"
+    },
+    {
+      "source": "ss-screen-ps-i2c-release-s2/delivery/soundsight_screen_ps_i2c_s2.zip",
+      "path": "release/output/soundsight_screen_ps_i2c_s2.zip",
+      "sha256": "4e916faa7825bc730ab250eaa0a448c718b485be3824eda7aaefc924e031ffa4"
+    },
+    {
+      "source": "ss-screen-control-s3/delivery/soundsight_screen_control_s3.zip",
+      "path": "release/output/soundsight_screen_control_s3.zip",
+      "sha256": "414b087a0ff3e4743d543bd382760671f3952ba006c80b36c03c0648b0275c1b"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1/delivery/soundsight_three_d_coherent_cf1.zip",
+      "path": "release/output/soundsight_three_d_coherent_cf1.zip",
+      "sha256": "ceb0bb64f8bca1d128034493a088c9f23886a6c72da78bd9755092dfc435af4d"
+    },
+    {
+      "source": "ss-three-d-coherent-cf1a/delivery/soundsight_three_d_coherent_cf1a.zip",
+      "path": "release/output/soundsight_three_d_coherent_cf1a.zip",
+      "sha256": "5649788d4962df613f25e8060c31a4a8ea9f6543e01355ce667fcf70db2f6698"
+    },
+    {
+      "source": "ss-a-cf1a-handoff-20261102/delivery/soundsight_a_cf1a_handoff_20261102.zip",
+      "path": "release/output/soundsight_a_cf1a_handoff_20261102.zip",
+      "sha256": "94a842131f129ec52eb90457a694c2070fcf63acbbdf7d2ffe963a0b7a94d89e"
+    }
+  ]
+}

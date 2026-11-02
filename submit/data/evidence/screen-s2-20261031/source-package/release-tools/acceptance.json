@@ -1,0 +1,44 @@
+{
+  "release_scope": "AXES_OFF_SCREEN_TOUCH_BOARD_CANDIDATE",
+  "revision": "SCREEN_PS_I2C_S2",
+  "date": "2026-10-31",
+  "hardware_review_complete": true,
+  "software_review_complete": true,
+  "product_reviewer": "screen_verify",
+  "independent_test_evidence_review": "root: reviewed requirements, host fixture boundaries, native message assertions, real-HWH checks, lifecycle order, installer rollback snapshots and negative-canary evidence",
+  "counts": {
+    "linux_boundary_methods_pass": 18,
+    "installer_methods_pass": 4,
+    "negative_canaries_detected": 5,
+    "negative_canary_infrastructure_errors": 0
+  },
+  "reviewed_payload_sha256": {
+    "soundsight.bit": "409aeb5d31f1f90a9e0f33d875d49bc15b3a45befb27dac711cae577316d76a2",
+    "soundsight.hwh": "915f4097380eba354660bd95a54cab12857e1d2acb826e5b0cf25e1c7275790d",
+    "soundsight-screen.sh": "f2a65df945abd5b2f4e9d749385784c304d249ba3f3925346b791420ccb65fa2",
+    "soundsight-screen-i2c.sh": "0562b52cd9d76ecea55717078f7750ca0a5c3d7ca8d254c58022ea2102a19e61",
+    "software/screen/hardware.py": "153800c28e223e9315c07c1d1096e8982f95a8b869d3c425dd2733886b81b2b3",
+    "software/screen/ui.py": "e7055bcf5da5d555086acc086fd54eb6a20b2a360e598e2572c02df8017f42d5",
+    "software/screen/backend.py": "428bee8fe44024e71544152f2a6612ad11106c8ee7501f846d022fd2a6483d9e",
+    "software/screen/__init__.py": "9774fc1dbf48185261b30d71eea5783ad5ab929995d2c208b895607de09314e2",
+    "software/screen/linux_i2c.py": "b295f95605935248dbf8959c64a2a4d75f25a41ea284eed36afc1e6360518d46",
+    "software/screen/screen_i2c_prepare.py": "fbdea1f5856dac871c519ec58eecffa317d4e45aeaabdb6d86d5c8d786397757",
+    "software/screen/ps_i2c0_enable.dts": "78b3d1e7f1a479f937c90a1630fd1fe6bfc6e42686f9f334df62832c9f1d133a",
+    "software/screen/ps_i2c0_enable.dtbo": "8136ea2c115e4f1dbf60af27b3b1ddc01253924faba472442ad06568968e0b59",
+    "SCREEN-README.md": "c643c3867c5d17e8cbe1b603878212616f689e6b24eb8d248938fa335a769f60"
+  },
+  "installer_sha256": "197a8ccfa81f508007be29007c231e3ac323a5ea3927cd306781b7ea3933a733",
+  "board_test": "NOT_RUN",
+  "arm_kernel_i2c_runtime": "NOT_RUN",
+  "functional_rtl_simulation": "SKIPPED_BOARD_FAULT_REPAIR",
+  "hardware_timing": {
+    "wns_ns": 0.203,
+    "whs_ns": 0.036,
+    "wpws_ns": 2.208
+  },
+  "retained_limits": [
+    "CDC10/CDC11 not waived; external IO delays incomplete; DRC truncated rules retained",
+    "Actual Cadence driver binding, GT911 transactions, repeat start/stop and kernel timeout require board evidence",
+    "No ILA; no board access; no complete system or recognition acceptance"
+  ]
+}

@@ -1,0 +1,6 @@
+DETECTED=ignore-active-registers
+DETECTED=accept-duplicate-status
+DETECTED=parse-history-as-current
+DETECTED=ttl-grows-with-age
+DETECTED=skip-install-rollback
+NEGATIVE_VARIANTS_DETECTED=5/5 PRODUCT_FILES_CHANGED=0

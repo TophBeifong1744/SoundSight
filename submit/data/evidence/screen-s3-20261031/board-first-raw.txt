@@ -1,0 +1,167 @@
+sudo python3 /boot/soundsight_screen_control_s3.zip
+BACKUP_DIR=/home/xilinx/SoundSight_PYNQ_3D_Speaker/backup_screen_control_s3_s1887ly8
+SCREEN_CONTROL_S3_INSTALLED=1 HARDWARE_ACCESS=0 DEFAULT_AXES=off
+BITSTREAM_UNCHANGED=1 REBOOT_REQUIRED=0 USER_PROFILES_UNCHANGED=1
+xilinx@pynq:~$ 
+xilinx@pynq:~$ cd /home/xilinx/SoundSight_PYNQ_3D_Speaker
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ 
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ sudo env PYNQ_PYTHON=/usr/local/share/pynq-venv/bin/python3 XILINX_XRT=/usr sh soundsight-3d.sh prepare
+PYTHON_EXE=/usr/local/share/pynq-venv/bin/python3
+PYNQ_IMPORT_OK=1
+Solver library built for selected compiler: /home/xilinx/SoundSight_PYNQ_3D_Speaker/software/ps/libss_solver.so
+Built for the selected compiler target: /home/xilinx/SoundSight_PYNQ_3D_Speaker/software/tetra3d/linux/libss_solver_3d.so
+test_axis_mapping_ranges_pole_and_translation (__main__.OnlineTests) ... ok
+test_bounded_summary_and_debug_capacity (__main__.OnlineTests) ... ok
+test_cli_defaults_explicit_manual_and_bounded_debug (__main__.OnlineTests) ... ok
+test_config_rejects_invalid_and_has_no_hardware_effect (__main__.OnlineTests) ... ok
+test_final_extension_failure_still_attempts_legacy_stop (__main__.OnlineTests) ... ok
+test_follow_atomic_write_and_fresh_sequence (__main__.OnlineTests) ... ok
+test_follow_session_commits_only_after_group_and_stops (__main__.OnlineTests) ... ok
+test_hardware_fault_prevents_consume_and_motion_restart (__main__.OnlineTests) ... ok
+test_hwh_rejects_old_before_mmio (__main__.OnlineTests) ... ok
+test_invalid_and_history_display (__main__.OnlineTests) ... ok
+test_local_calibration_roundtrip_does_not_change_shared_settings (__main__.OnlineTests) ... ok
+test_manual_both_no_audio_and_revoke_on_error (__main__.OnlineTests) ... ok
+test_manual_extension_revoke_error_attempts_legacy_stop (__main__.OnlineTests) ... ok
+test_manual_rejects_capture_and_unconfigured_range (__main__.OnlineTests) ... ok
+test_normal_session_off_consumes_and_keeps_debug_after_stop (__main__.OnlineTests) ... ok
+test_outliers_rejection_and_minimum (__main__.OnlineTests) ... ok
+test_quiet_and_target_expiry_revoke (__main__.OnlineTests) ... ok
+test_quiet_fault_gap_and_stop_clear_target (__main__.OnlineTests) ... ok
+test_sink_failure_and_solver_exception_stop_retain_snapshot (__main__.OnlineTests) ... ok
+test_spatial_wrap_poles_and_deadband (__main__.OnlineTests) ... ok
+test_vector_storage_is_bounded (__main__.OnlineTests) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 5.158s
+
+OK
+test_axes_default_off (__main__.FollowSoundTests) ... ok
+test_bad_limits_and_invalid_frames_rejected (__main__.FollowSoundTests) ... ok
+test_existing_run_axes_still_speaker_gated (__main__.FollowSoundTests) ... ok
+test_explicit_axes_keep_acoustic_route (__main__.FollowSoundTests) ... ok
+test_main_uses_existing_runtime_and_status_preflight (__main__.FollowSoundTests) ... ok
+test_missing_calibration_blocks_motion (__main__.FollowSoundTests) ... ok
+test_real_client_still_requires_filtered_direction_and_stops (__main__.FollowSoundTests) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.482s
+
+OK
+THREE_D_OFFLINE_OK=1 HARDWARE_ACTIONS=0
+OFFLINE_TEST= test_normal.py
+.usage: test_normal.py [-h] --hwh HWH [--ip IP] --output OUTPUT
+                      [--library LIBRARY]
+                      [--mode {real,bist-pass,bist-reject}] [--frames FRAMES]
+                      --min-level MIN_LEVEL [--window-frames WINDOW_FRAMES]
+                      [--min-valid MIN_VALID] [--clear-faults CLEAR_FAULTS]
+                      [--host-cpu HOST_CPU] [--worker-cpu WORKER_CPU]
+                      [--lock-file LOCK_FILE] [--horizontal-motion]
+                      [--motion-config MOTION_CONFIG]
+                      [--manual-angle MANUAL_ANGLE]
+test_normal.py: error: Real mode requires frames>=0; BIST requires frames=1
+usage: test_normal.py [-h] --hwh HWH [--ip IP] --output OUTPUT
+                      [--library LIBRARY]
+                      [--mode {real,bist-pass,bist-reject}] [--frames FRAMES]
+                      --min-level MIN_LEVEL [--window-frames WINDOW_FRAMES]
+                      [--min-valid MIN_VALID] [--clear-faults CLEAR_FAULTS]
+                      [--host-cpu HOST_CPU] [--worker-cpu WORKER_CPU]
+                      [--lock-file LOCK_FILE] [--horizontal-motion]
+                      [--motion-config MOTION_CONFIG]
+                      [--manual-angle MANUAL_ANGLE]
+test_normal.py: error: Horizontal motion requires real mode and --motion-config
+................
+----------------------------------------------------------------------
+Ran 17 tests in 10.522s
+
+OK
+OFFLINE_TEST= test_volume_gate.py
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 0.082s
+
+OK
+OFFLINE_TEST= test_serial_english.py
+...
+----------------------------------------------------------------------
+Ran 3 tests in 6.333s
+
+OK
+OFFLINE_TEST= test_board_tools.py
+...DOWNLOAD_BEGIN
+LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 72, "status": 212992, "sys": 8}
+..DOWNLOAD_BEGIN
+LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 64, "status": 212992, "sys": 8}
+..MIN_LEVEL= 4300 APPLIES_TO=NEXT_RUN
+.OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+.OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 64, "status": 212995, "sys": 8}
+..OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 64, "status": 212992, "sys": 8}
+.MIN_LEVEL= 4500 APPLIES_TO=NEXT_RUN
+.DOWNLOAD_BEGIN
+..
+----------------------------------------------------------------------
+Ran 15 tests in 0.255s
+
+OK
+OFFLINE_TEST= test_filter_controls.py
+........WORKER_STAGE=IMPORT_PYNQ
+WORKER_STAGE=MMIO_SOLVER_ID
+.WINDOW_FRAMES=10 MIN_VALID=6 APPLIES_TO=NEXT_RUN
+...WINDOW_FRAMES=10 MIN_VALID=6 APPLIES_TO=NEXT_RUN
+MIN_LEVEL= 5000 APPLIES_TO=NEXT_RUN
+.
+----------------------------------------------------------------------
+Ran 13 tests in 0.453s
+
+OK
+OFFLINE_TEST= test_manual_servo.py
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.012s
+
+OK
+OFFLINE_TEST= test_pcm_capture.py
+............PCM_CHECK= {"audio": {"armed": false, "dma_reset_released": true, "epoch": 0, "errors": 0, "idle": true, "partial_tail": false, "pending": false, "published": 0, "raw": 24, "ready": false, "rejected": 0}, "channels": 4, "dma_status": 1, "motion": false, "packet_bytes": 8224, "ps": {"fault": 0}, "sample_rate": 48000}
+PCM_INTERFACE_OK=1 NO_CAPTURE=1 SERVO=OFF
+.......
+----------------------------------------------------------------------
+Ran 19 tests in 0.436s
+
+OK
+ARM_LIBRARY_LOADED=1
+DOWNLOAD_BEGIN
+LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 0, "status": 983040, "sys": 8}
+READY_FOR_DEBUG MIN_LEVEL=12000 SERVO=OFF
+NEXT: sudo sh soundsight.sh pcm-check
+DEVICE_STATE={"status": 983040, "fault": 0, "drops": 0, "sys": 8, "actuator": 0, "dual_axis": 0}
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ 
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ sudo env PYNQ_PYTHON=/usr/local/share/pynq-venv/bin/python3 sh soundsight-screen-i2c.sh apply
+SCREEN_PREFLIGHT={'status': 983040, 'fault': 0, 'drops': 0, 'sys': 8, 'actuator': 0}
+OF: overlay: WARNING: memory leak will occur if overlay removed, property: /amba/i2c@e0004000/status
+OF: overlay: WARNING: memory leak will occur if overlay removed, property: /amba/i2c@e0004000/clock-frequency
+SCREEN_I2C_SETUP={"after": {"adapters": [{"name": "Cadence I2C at e0004000", "path": "/sys/devices/soc0/amba/e0004000.i2c/i2c-0"}], "configfs_overlay_dir": true, "dt_present": true, "dt_properties": {"clock-frequency": "000186a0", "clocks": "0000000100000026", "compatible": "63646e732c6932632d723170313000", "interrupts": "000000000000001900000004", "pinctrl-0": "", "pinctrl-names": "", "reg": "e000400000001000", "resets": "", "status": "6f6b617900"}, "i2c_dev_class": true, "kernel": "5.4.0-xilinx-v2020.2", "kernel_components": {"cadence_platform_driver": true, "i2c_cadence_module": false, "i2c_dev_module": false}, "machine": "armv7l", "platforms": [{"driver": "/sys/bus/platform/drivers/cdns-i2c", "path": "/sys/devices/soc0/amba/e0004000.i2c"}], "target": "/amba/i2c@e0004000"}, "before": {"adapters": [], "configfs_overlay_dir": true, "dt_present": true, "dt_properties": {"clock-frequency": "00061a80", "clocks": "0000000100000026", "compatible": "63646e732c6932632d723170313000", "interrupts": "000000000000001900000004", "pinctrl-0": "", "pinctrl-names": "", "reg": "e000400000001000", "resets": "", "status": "64697361626c656400"}, "i2c_dev_class": true, "kernel": "5.4.0-xilinx-v2020.2", "kernel_components": {"cadence_platform_driver": true, "i2c_cadence_module": false, "i2c_dev_module": false}, "machine": "armv7l", "platforms": [], "target": "/amba/i2c@e0004000"}, "command": "apply", "result": {"abi": {"buf_offset": 8, "msg_bytes": 12, "pointer_bytes": 4, "transfer_bytes": 8}, "action": "overlay_applied", "adapter": {"adapter": "/sys/devices/soc0/amba/e0004000.i2c/i2c-0", "bus": 0, "clock_frequency": [100000], "clocks": [1, 38], "compatible": ["cdns,i2c-r1p10"], "device": "/dev/i2c-0", "driver": "cdns-i2c", "interrupts": [0, 25, 4], "node": "/sys/firmware/devicetree/base/amba/i2c@e0004000", "platform": "/sys/devices/soc0/amba/e0004000.i2c", "reg": [3758112768, 4096], "resets": [], "status": "okay", "target_path": "/amba/i2c@e0004000"}, "overlay": "/sys/kernel/config/device-tree/overlays/ps_i2c0_enable", "timeout": "Cadence kernel driver default; adapter timeout/retries unchanged", "transfer_performed": false}, "saved_report": "/home/xilinx/SoundSight_PYNQ_3D_Speaker/logs/screen-i2c-apply-20211119-014359-151834-674.json", "success": true}
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ 
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ sudo env PYNQ_PYTHON=/usr/local/share/pynq-venv/bin/python3 sh soundsight-panel.sh 2>&1 | tee -a screen-s3-panel.log
+SCREEN_S3 transport=PS_I2C0_EMIO_LINUX Python=3.8.2 Pillow=7.0.0 numpy=1.20.3
+SCREEN_PREFLIGHT={'status': 983040, 'fault': 0, 'drops': 0, 'sys': 8, 'actuator': 0}
+PS_I2C_READY={"adapter": "/sys/devices/soc0/amba/e0004000.i2c/i2c-0", "bus": 0, "clock_frequency": [100000], "clocks": [1, 38], "compatible": ["cdns,i2c-r1p10"], "device": "/dev/i2c-0", "driver": "cdns-i2c", "interrupts": [0, 25, 4], "node": "/sys/firmware/devicetree/base/amba/i2c@e0004000", "platform": "/sys/devices/soc0/amba/e0004000.i2c", "reg": [3758112768, 4096], "resets": [], "status": "okay", "target_path": "/amba/i2c@e0004000"}
+VDMA_STARTED version=0x62000050 frame0=0x38100000 frame1=0x38300000 stride=2400 height=480
+TOUCH=Goodix 911 @0x14
+SCREEN_READY=1 CURRENT_FRAME_ACK=1 AXES=off CONTROL=1
+PANEL_COMMAND={"operation": "status", "arguments": ["status"]}
+PANEL_COMMAND={"operation": "status", "arguments": ["status"]}
+PANEL_COMMAND={"operation": "SOUND", "arguments": ["follow-sound", "--axes", "off", "--frames", "0"]}
+PANEL_RUNTIME=STOP: KeyboardInterrupt: 
+PANEL_COMMAND={"operation": "verify-stop", "arguments": ["status"]}
+PANEL_STOP_CHECK={"verified": true, "runtime_code": 1, "status_code": 0, "device": {"status": 983040, "fault": 0, "drops": 0, "sys": 8, "actuator": 0, "dual_axis": 0}}
+VDMA_STOPPED=1 HALTED_ACK=1 BACKLIGHT_REQUEST=OFF
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ 
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ 

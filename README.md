@@ -1,3 +1,7 @@
+# 2026-11-02 当前材料入口
+
+[最新S2/S3/CF1A源码、证据及使用边界](document/release-20261102-submit.md)。当前硬件J3 M15/J14；S2准备入口为`python -B tools/prepare_screen_s2.py --output ../s2_work`，只复制文件。下方PR30/W16操作记录为历史，旧rebuild_ps_3d.bat不包含屏幕。比赛交付为[submit](submit/README.md)。
+
 # SoundSight
 
 最新更新：[2026-10-30集成与交付说明](document/release-20261030.md)。包含实际声纹双轴测试、10秒TTL依据、LAT1及累计统计，和同候选实现报告的限制。

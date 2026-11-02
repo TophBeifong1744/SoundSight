@@ -1,0 +1,70 @@
+{
+  "scope": "PC_RECORDED_INPUT_FRONTEND_ONLY_NO_DMA_NO_SPEAKER",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+  "numpy": "2.2.0",
+  "rounds": [
+    {
+      "cf1": {
+        "total_wall_seconds": 0.2725215000082244,
+        "total_cpu_seconds": 0.28125,
+        "median_wall_seconds": 0.00026044999958685366,
+        "max_wall_seconds": 0.0004867000006925082
+      },
+      "cf1a": {
+        "total_wall_seconds": 0.14752629997929034,
+        "total_cpu_seconds": 0.140625,
+        "median_wall_seconds": 0.0001419000000169035,
+        "max_wall_seconds": 0.0002158999996026978
+      }
+    },
+    {
+      "cf1a": {
+        "total_wall_seconds": 0.14774449998185446,
+        "total_cpu_seconds": 0.140625,
+        "median_wall_seconds": 0.00014209999972081278,
+        "max_wall_seconds": 0.0002653999999893131
+      },
+      "cf1": {
+        "total_wall_seconds": 0.27122710001276573,
+        "total_cpu_seconds": 0.28125,
+        "median_wall_seconds": 0.00025999999888881575,
+        "max_wall_seconds": 0.0004337999998824671
+      }
+    },
+    {
+      "cf1": {
+        "total_wall_seconds": 0.2693778000011662,
+        "total_cpu_seconds": 0.28125,
+        "median_wall_seconds": 0.0002586500004326808,
+        "max_wall_seconds": 0.0004772000011143973
+      },
+      "cf1a": {
+        "total_wall_seconds": 0.14861079998991045,
+        "total_cpu_seconds": 0.140625,
+        "median_wall_seconds": 0.00014240000018617138,
+        "max_wall_seconds": 0.0002741999996942468
+      }
+    },
+    {
+      "cf1a": {
+        "total_wall_seconds": 0.15094399999907182,
+        "total_cpu_seconds": 0.15625,
+        "median_wall_seconds": 0.00014310000005934853,
+        "max_wall_seconds": 0.00023519999922427814
+      },
+      "cf1": {
+        "total_wall_seconds": 0.27306550003595476,
+        "total_cpu_seconds": 0.28125,
+        "median_wall_seconds": 0.00026000000070780516,
+        "max_wall_seconds": 0.0012806999984604772
+      }
+    }
+  ],
+  "median_total_wall_seconds": {
+    "cf1": 0.27187430001049506,
+    "cf1a": 0.14817764998588245
+  },
+  "wall_reduction": 0.4549773554169614,
+  "board_latency_measured": false
+}

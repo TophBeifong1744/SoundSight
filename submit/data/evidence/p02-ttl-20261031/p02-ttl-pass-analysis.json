@@ -1,0 +1,266 @@
+{
+  "case": "V-TTL-01",
+  "result": "PASS_FOR_THIS_SCENARIO",
+  "target": "P02",
+  "threshold": 0.45,
+  "ttl_seconds": 10,
+  "axes": "off",
+  "display_rows": 230,
+  "fresh_results": [
+    {
+      "time": "13:59:10.222",
+      "score": "0.5089",
+      "age": "0.25s",
+      "usable": "1",
+      "permit": "1",
+      "remain": "9.75s",
+      "reason": "TRIAL_SPEAKER_PASS"
+    },
+    {
+      "time": "13:59:13.727",
+      "score": "0.5634",
+      "age": "0.38s",
+      "usable": "1",
+      "permit": "1",
+      "remain": "9.62s",
+      "reason": "TRIAL_SPEAKER_PASS"
+    },
+    {
+      "time": "13:59:17.237",
+      "score": "0.5516",
+      "age": "0.45s",
+      "usable": "1",
+      "permit": "1",
+      "remain": "9.55s",
+      "reason": "TRIAL_SPEAKER_PASS"
+    },
+    {
+      "time": "13:59:20.242",
+      "score": "0.4756",
+      "age": "0.13s",
+      "usable": "1",
+      "permit": "1",
+      "remain": "9.87s",
+      "reason": "TRIAL_SPEAKER_PASS"
+    },
+    {
+      "time": "13:59:23.746",
+      "score": "0.4445",
+      "age": "0.23s",
+      "usable": "1",
+      "permit": "1",
+      "remain": "6.37s",
+      "reason": "TRIAL_SPEAKER_PASS"
+    },
+    {
+      "time": "13:59:27.258",
+      "score": "0.5737",
+      "age": "0.43s",
+      "usable": "1",
+      "permit": "1",
+      "remain": "9.57s",
+      "reason": "TRIAL_SPEAKER_PASS"
+    },
+    {
+      "time": "13:59:30.266",
+      "score": "0.5585",
+      "age": "0.12s",
+      "usable": "1",
+      "permit": "1",
+      "remain": "9.88s",
+      "reason": "TRIAL_SPEAKER_PASS"
+    },
+    {
+      "time": "13:59:33.782",
+      "score": "0.4814",
+      "age": "0.38s",
+      "usable": "1",
+      "permit": "1",
+      "remain": "9.62s",
+      "reason": "TRIAL_SPEAKER_PASS"
+    },
+    {
+      "time": "13:59:37.302",
+      "score": "0.5608",
+      "age": "0.51s",
+      "usable": "1",
+      "permit": "1",
+      "remain": "9.49s",
+      "reason": "TRIAL_SPEAKER_PASS"
+    },
+    {
+      "time": "13:59:40.302",
+      "score": "0.5651",
+      "age": "0.19s",
+      "usable": "1",
+      "permit": "1",
+      "remain": "9.81s",
+      "reason": "TRIAL_SPEAKER_PASS"
+    },
+    {
+      "time": "13:59:43.805",
+      "score": "0.6381",
+      "age": "0.36s",
+      "usable": "1",
+      "permit": "1",
+      "remain": "9.64s",
+      "reason": "TRIAL_SPEAKER_PASS"
+    },
+    {
+      "time": "13:59:46.809",
+      "score": "0.5194",
+      "age": "0.20s",
+      "usable": "1",
+      "permit": "1",
+      "remain": "9.80s",
+      "reason": "TRIAL_SPEAKER_PASS"
+    },
+    {
+      "time": "14:00:10.876",
+      "score": "0.1829",
+      "age": "0.33s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    },
+    {
+      "time": "14:00:14.384",
+      "score": "0.1330",
+      "age": "0.49s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    },
+    {
+      "time": "14:00:17.392",
+      "score": "0.2200",
+      "age": "0.15s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    },
+    {
+      "time": "14:00:20.902",
+      "score": "0.1475",
+      "age": "0.36s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    },
+    {
+      "time": "14:00:24.412",
+      "score": "0.2185",
+      "age": "0.38s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    },
+    {
+      "time": "14:00:27.421",
+      "score": "0.1444",
+      "age": "0.06s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    },
+    {
+      "time": "14:00:31.434",
+      "score": "0.0372",
+      "age": "0.48s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    },
+    {
+      "time": "14:00:34.445",
+      "score": "0.1160",
+      "age": "0.24s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    },
+    {
+      "time": "14:00:37.950",
+      "score": "0.1090",
+      "age": "0.32s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    },
+    {
+      "time": "14:00:41.462",
+      "score": "0.1140",
+      "age": "0.42s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    },
+    {
+      "time": "14:00:44.468",
+      "score": "0.1424",
+      "age": "0.20s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    },
+    {
+      "time": "14:00:47.989",
+      "score": "0.1314",
+      "age": "0.22s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    },
+    {
+      "time": "14:00:51.499",
+      "score": "0.1878",
+      "age": "0.42s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    },
+    {
+      "time": "14:00:54.506",
+      "score": "0.0929",
+      "age": "0.23s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    },
+    {
+      "time": "14:00:58.018",
+      "score": "0.0966",
+      "age": "0.38s",
+      "usable": "1",
+      "permit": "0",
+      "remain": "0.00s",
+      "reason": "SPEAKER_REJECTED"
+    }
+  ],
+  "first_permit": "13:59:10.222",
+  "expired": "13:59:56.837",
+  "target_observed_results": 12,
+  "target_above_threshold": 11,
+  "other_observed_results": 15,
+  "other_above_threshold": 0,
+  "other_min": 0.0372,
+  "other_max": 0.22,
+  "runtime_result": "PASS",
+  "runtime_error": null,
+  "report_path": "/home/xilinx/SoundSight_PYNQ_3D_Speaker/logs/speaker-3d-20211119-024554-812570.json",
+  "limits": "User-described sequential self/silence/other scenario; no overlapping-speaker, servo movement, broad accuracy or independent post-stop register claim."
+}

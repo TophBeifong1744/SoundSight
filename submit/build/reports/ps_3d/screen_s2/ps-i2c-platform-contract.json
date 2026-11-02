@@ -1,0 +1,70 @@
+{
+  "scope": "S2 hardware candidate; no board access or PS runtime writes",
+  "controller": {
+    "type": "Zynq PS I2C0 via EMIO",
+    "base": "0xE0004000",
+    "high": "0xE0004FFF",
+    "old_axi_iic_address_removed": "0x41600000",
+    "hwh_module": "ps7",
+    "required_hwh_parameters": {
+      "PCW_EN_I2C0": "1",
+      "PCW_EN_EMIO_I2C0": "1",
+      "PCW_I2C0_I2C0_IO": "EMIO"
+    }
+  },
+  "ps_initialization_delta": {
+    "raw_ps7_init_c_identical_to_s1": true,
+    "identical_emit_commands": 501,
+    "ps7_init_c_sha256": "f12c22e5ee88060217e1327ab7686a2bd51189b5f0b861306bd8ec8033cbdc1b",
+    "changed_SLCR_writes": [],
+    "unchanged": {
+      "ARM_CLK_CTRL": {
+        "address": "0xF8000120",
+        "mask": "0x1F003F30",
+        "old_value": "0x1F000200",
+        "new_value": "0x1F000200"
+      },
+      "APER_CLK_CTRL": {
+        "address": "0xF800012C",
+        "mask": "0x01FFCCCD",
+        "old_value": "0x01DC000D",
+        "new_value": "0x01DC000D",
+        "i2c0_gate_bit18": 1,
+        "i2c1_gate_bit19": 1
+      },
+      "I2C_RST_CTRL": {
+        "address": "0xF8000224",
+        "old_emitted_write": null,
+        "new_emitted_write": null,
+        "runtime_value": "UNVERIFIED"
+      },
+      "CLK_621_TRUE": {
+        "address": "0xF80001C4",
+        "mask": "0x00000001",
+        "old_value": "0x00000001",
+        "new_value": "0x00000001"
+      }
+    },
+    "identical_emit_commands_to_old_screen_project": 501,
+    "old_screen_reference": "F:/Vivado/2026/g_signal_analyzer/g_signal_analyzer.sdk/design_1_wrapper_hw_platform_1/ps7_init.c"
+  },
+  "clock_note": {
+    "old_and_new_xci_PCW_ACT_I2C_PERIPHERAL_FREQMHZ": "50",
+    "old_and_new_requested_MHz": "111.111115",
+    "old_bsp_XPAR_XIICPS_0_I2C_CLK_FREQ_HZ": 111111115,
+    "runtime_linux_clock_rate": "UNVERIFIED; do not infer solely from ACT parameter"
+  },
+  "readonly_board_evidence_needed": [
+    "active DT controller status/compatible/clocks/clock-frequency/pinctrl/child devices for e0004000 and e0005000",
+    "sysfs I2C adapter names, platform driver binding and instantiated child clients; /proc/iomem and /proc/interrupts",
+    "kernel clock summary for CPU_1x/I2C0 gate, active pinctrl ownership, SLCR clock/reset readback",
+    "current bit/HWH identity; no i2cdetect bus probing required"
+  ],
+  "limitations": [
+    "overlay loading does not apply ps7_init or establish Linux ownership",
+    "do not execute whole boot-time ps7_init under running Linux",
+    "PS I2C reset/clock ownership is distinct from PL bus_reset; stop controller before PL reconfiguration",
+    "functional simulation SKIPPED as authorized board-fault repair",
+    "no ILA or JTAG; no board test"
+  ]
+}

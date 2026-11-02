@@ -1,0 +1,59 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Sat Oct 31 03:04:36 2026
+| Host         : Y9000P running 64-bit major release  (build 9200)
+| Command      : report_timing -to [get_ports servo_vertical_pwm] -delay_type min -max_paths 5 -file F:/NUEC/ss-screen-ps-i2c-s2/reports/servo_vertical_pwm-min.rpt
+| Design       : soundsight_stm32_bd_wrapper
+| Device       : 7z020-clg400
+| Speed File   : -2  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack:                    inf
+  Source:                 soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/v_guard/pwm_o_reg/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_soundsight_stm32_bd_clk_audio_0  {rise@0.000ns fall@8.138ns period=16.276ns})
+  Destination:            servo_vertical_pwm
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        5.366ns  (logic 3.166ns (59.001%)  route 2.200ns (40.999%))
+  Logic Levels:           1  (OBUF=1)
+  Clock Uncertainty:      0.467ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Discrete Jitter          (DJ):    0.294ns
+    Phase Error              (PE):    0.318ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_soundsight_stm32_bd_clk_audio_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  soundsight_stm32_bd_i/ps7/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    soundsight_stm32_bd_i/ps7/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.026     0.336 r  soundsight_stm32_bd_i/ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=1, routed)           0.580     0.916    soundsight_stm32_bd_i/clk_main/inst/clk_in1
+    MMCME2_ADV_X0Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -1.122    -0.206 r  soundsight_stm32_bd_i/clk_main/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.518     0.312    soundsight_stm32_bd_i/clk_main/inst/clk_out1_soundsight_stm32_bd_clk_main_0
+    BUFGCTRL_X0Y3        BUFG (Prop_bufg_I_O)         0.026     0.338 r  soundsight_stm32_bd_i/clk_main/inst/clkout1_buf/O
+                         net (fo=1, routed)           0.674     1.012    soundsight_stm32_bd_i/clk_audio/inst/clk_in1
+    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -1.395    -0.383 r  soundsight_stm32_bd_i/clk_audio/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.696     0.314    soundsight_stm32_bd_i/clk_audio/inst/clk_out1_soundsight_stm32_bd_clk_audio_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.340 r  soundsight_stm32_bd_i/clk_audio/inst/clkout1_buf/O
+                         net (fo=7153, routed)        0.564     0.903    soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/v_guard/clk
+    SLICE_X33Y45         FDCE                                         r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/v_guard/pwm_o_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y45         FDCE (Prop_fdce_C_Q)         0.141     1.044 r  soundsight_stm32_bd_i/ps_link/inst/u_core/regs/with_dual_axis.dual_axis/v_guard/pwm_o_reg/Q
+                         net (fo=3, routed)           2.200     3.244    servo_vertical_pwm_OBUF
+    J14                  OBUF (Prop_obuf_I_O)         3.025     6.269 r  servo_vertical_pwm_OBUF_inst/O
+                         net (fo=0)                   0.000     6.269    servo_vertical_pwm
+    J14                                                               r  servo_vertical_pwm (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+

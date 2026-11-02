@@ -1,0 +1,39 @@
+HOST_ONLY=1 HARDWARE_ACTIONS=0 PRIVATE_ASSETS_EXTRACTED=0
+PACKAGE_SHA256=414b087a0ff3e4743d543bd382760671f3952ba006c80b36c03c0648b0275c1b
+test_every_unknown_dependency_and_edited_product_is_rejected_before_write (__main__.InstallerTests.test_every_unknown_dependency_and_edited_product_is_rejected_before_write) ... ok
+test_linux_entry_locks_and_busy_tokens_are_simulated_only (__main__.InstallerTests.test_linux_entry_locks_and_busy_tokens_are_simulated_only) ... ok
+test_package_product_identity_and_crc (__main__.InstallerTests.test_package_product_identity_and_crc) ... ok
+test_six_replace_failure_positions_restore_exact_originals (__main__.InstallerTests.test_six_replace_failure_positions_restore_exact_originals) ... ok
+test_success_repeat_backup_receipt_and_private_preservation (__main__.InstallerTests.test_success_repeat_backup_receipt_and_private_preservation) ... ok
+test_wrong_receipt_missing_dependency_and_corrupt_payload_are_rejected (__main__.InstallerTests.test_wrong_receipt_missing_dependency_and_corrupt_payload_are_rejected) ... ok
+test_busy_blocks_configuration_but_stop_and_exit_remain_available (__main__.RoutingTests.test_busy_blocks_configuration_but_stop_and_exit_remain_available) ... ok
+test_completion_forces_axis_reselection_and_repeated_press_not_retriggered (__main__.RoutingTests.test_completion_forces_axis_reselection_and_repeated_press_not_retriggered) ... ok
+test_real_parser_accepts_continuous_commands_and_ui_resets_axes (__main__.RoutingTests.test_real_parser_accepts_continuous_commands_and_ui_resets_axes) ... ok
+test_all_idle_fields_and_activity_bits (__main__.StopTests.test_all_idle_fields_and_activity_bits) ... ok
+PANEL_COMMAND={"operation": "SOUND", "arguments": ["follow-sound", "--axes", "both", "--frames", "0"]}
+PANEL_RUNTIME=THREE_D_STOPPED SUMMARY=fixture ERROR=None
+PANEL_COMMAND={"operation": "verify-stop", "arguments": ["status"]}
+PANEL_STOP_CHECK={"verified": true, "runtime_code": 0, "status_code": 0, "device": {"status": 1048576, "fault": 64, "drops": 0, "sys": 0, "actuator": 0, "dual_axis": 0}}
+test_full_two_process_runtime_to_readback_lifecycle (__main__.StopTests.test_full_two_process_runtime_to_readback_lifecycle) ... ok
+PANEL_STOP_CHECK={"verified": false, "runtime_code": null, "status_code": 0, "device": null}
+PANEL_STOP_CHECK={"verified": false, "runtime_code": null, "status_code": 0, "device": {"status": 1048576, "fault": 0, "drops": 0, "sys": 0, "actuator": 0, "dual_axis": 0}}
+PANEL_STOP_CHECK={"verified": false, "runtime_code": null, "status_code": 0, "device": null}
+PANEL_STOP_CHECK={"verified": false, "runtime_code": null, "status_code": 1, "device": {"status": 1048576, "fault": 0, "drops": 0, "sys": 0, "actuator": 0, "dual_axis": 0}}
+PANEL_STOP_CHECK={"verified": false, "runtime_code": null, "status_code": 0, "device": {"status": 1048576, "fault": 0, "drops": 0, "sys": 0, "actuator": 0, "dual_axis": 8}}
+test_missing_duplicate_bad_json_nonzero_and_active_status_block (__main__.StopTests.test_missing_duplicate_bad_json_nonzero_and_active_status_block) ... ok
+test_parent_exit_with_live_group_never_unlocks_or_forcekills (__main__.StopTests.test_parent_exit_with_live_group_never_unlocks_or_forcekills) ... ok
+PANEL_STOP_CHECK={"verified": true, "runtime_code": 0, "status_code": 0, "device": {"status": 1048576, "fault": 0, "drops": 0, "sys": 0, "actuator": 0, "dual_axis": 0}}
+PANEL_STOP_CHECK={"verified": true, "runtime_code": 0, "status_code": 0, "device": {"status": 1048576, "fault": 0, "drops": 0, "sys": 0, "actuator": 0, "dual_axis": 0}}
+test_runtime_exit_requires_separate_readback (__main__.StopTests.test_runtime_exit_requires_separate_readback) ... ok
+PANEL_STOP_CHECK={"verified": true, "runtime_code": 1, "status_code": 0, "device": {"status": 1048576, "fault": 0, "drops": 0, "sys": 0, "actuator": 0, "dual_axis": 0}}
+PANEL_STOP_CHECK={"verified": true, "runtime_code": 1, "status_code": 0, "device": {"status": 1048576, "fault": 0, "drops": 0, "sys": 0, "actuator": 0, "dual_axis": 0}}
+test_runtime_failure_remains_latched_after_idle_and_ack (__main__.StopTests.test_runtime_failure_remains_latched_after_idle_and_ack) ... ok
+test_verify_timeout_signals_once_and_retains_ownership (__main__.StopTests.test_verify_timeout_signals_once_and_retains_ownership) ... ok
+test_actual_formatter_current_history_nooutput_and_unobservable (__main__.TelemetryTests.test_actual_formatter_current_history_nooutput_and_unobservable) ... ok
+test_actual_speaker_low_score_old_permission_age_and_expiry (__main__.TelemetryTests.test_actual_speaker_low_score_old_permission_age_and_expiry) ... ok
+test_stop_malformed_long_and_policy_unknown_mask_values (__main__.TelemetryTests.test_stop_malformed_long_and_policy_unknown_mask_values) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 4.386s
+
+OK

@@ -1,0 +1,764 @@
+sudo cat logs/three-d-20211119-064916-477889-661.json
+{
+  "result": "PASS",
+  "error": null,
+  "cleanup_errors": [],
+  "packets": 2811,
+  "tail_packets": 1,
+  "epoch": 41,
+  "dma_halted": true,
+  "max_dma_rearm_seconds": 0.001409913000003371,
+  "max_service_gap_seconds": 0.01657323000000588,
+  "retention": "bounded_statistics",
+  "first_fault": null,
+  "stop_reason": "requested_limit",
+  "hardware": {
+    "audio": {
+      "raw": 28,
+      "errors": 0,
+      "armed": false,
+      "pending": false,
+      "partial_tail": true,
+      "idle": true,
+      "dma_reset_released": true,
+      "ready": false,
+      "rejected": 0,
+      "published": 2812,
+      "epoch": 41
+    },
+    "status": 999428,
+    "fault": 64,
+    "drops": 452,
+    "dma_status": 4098
+  },
+  "phase": "stopped",
+  "at": 244.665141455,
+  "stats": {
+    "consumed": 2358,
+    "drained": 1,
+    "raw_valid": 20,
+    "accepted_windows": 0,
+    "motion_commits": 0,
+    "sequence_gaps": 452,
+    "below_volume": 1354,
+    "first_sequence": 1,
+    "last_sequence": 2810,
+    "fault_or": 0,
+    "drops_first": 0,
+    "drops_last": 452,
+    "max_service_ns": 15369098
+  },
+  "elapsed_seconds": 30.007078390999993,
+  "solver_reasons": {
+    "0": 20,
+    "1": 2227,
+    "2": 0,
+    "3": 29,
+    "4": 82,
+    "5": 0,
+
+    "6": 0,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "other": 0
+  },
+  "latest": {
+    "sequence": 2811,
+    "level": 4247,
+    "output": {
+      "valid": false,
+      "updated": false,
+      "azimuth_deg": null,
+      "elevation_deg": null,
+      "azimuth_valid": false,
+      "elevation_valid": false,
+      "vector": null,
+      "reason": "pcm_window_not_received"
+    },
+    "at": 244.664228201,
+    "window_count": 0,
+    "window_size": 3,
+    "min_valid": 1,
+    "valid_count": 0,
+    "motion": {
+      "requested": true,
+      "committed": false,
+      "targets": null,
+      "axes": 3,
+      "reason": "REVOKED",
+      "mechanical_arrival": "UNVERIFIED"
+    }
+  },
+  "last_group": {
+    "sequence": 2683,
+    "at": 243.31508228,
+    "output": {
+      "valid": false,
+      "updated": false,
+      "azimuth_deg": null,
+      "elevation_deg": null,
+      "azimuth_valid": false,
+      "elevation_valid": false,
+      "vector": null,
+      "reason": "insufficient_valid"
+    },
+    "valid_count": 0,
+    "inlier_count": 0
+  },
+  "last_clear": {
+    "sequence": 2810,
+    "reason": "below_volume_threshold",
+    "at": 244.660272002
+  },
+  "speaker_permission": null,
+  "direction_frontend": {
+    "revision": "CF1",
+    "packets": 2811,
+    "solved": 2358,
+    "valid": 20,
+    "missing_pcm": 1,
+    "resets": 453,
+    "clipped_windows": 0,
+    "max_solve_seconds": 0.013405538999990085,
+    "max_blocks": 64,
+    "buffered_blocks": 64,
+    "history_frames": 0,
+    "audio_support_ms": 181.333333,
+    "nominal_history_center_extra_ms": 80,
+    "freshness_basis": "conservative_start_plus_sample_end",
+    "physical_gates_unchanged": true,
+    "board_latency_measured": false
+  },
+  "last_processed_record": {
+    "frame": {
+      "sequence": 2811,
+      "status": 1015605,
+      "words": [
+        288438275,
+        258106,
+        256574,
+        241082,
+        240582,
+        288307709,
+        396167,
+        381141,
+        389387,
+        364482,
+        288373250,
+        445270,
+        432107,
+        428296,
+        392172,
+        288176902,
+        285980,
+        268947,
+        282906,
+        238353,
+        288308226,
+        340716,
+        336551,
+        326073,
+        318832,
+        288243198,
+        312915,
+        310988,
+        300956,
+        294621
+      ],
+      "energy": 4247,
+      "fault": 64,
+      "drops": 452,
+      "audio": {
+        "epoch": 41,
+        "sample_start": 1438720,
+        "source_window": 2811,
+        "sample_count": 1024,
+        "valid": true
+      }
+    },
+    "result": {
+      "api_status": 0,
+      "direction_valid": 0,
+
+      "reason": 1,
+      "azimuth_valid": 0,
+      "elevation_valid": 0,
+      "azimuth_q8": 0,
+      "elevation_q8": 0,
+      "valid_pairs": 0,
+      "valid_pair_mask": 0,
+      "coordinates_measured": 0,
+      "first_error": 0,
+      "bad_pair": 255,
+      "geometry_status": 0,
+      "geometry_bad_pair": 255,
+      "ux": 0.0,
+      "uy": 0.0,
+      "uz": 0.0,
+      "norm": 0.0,
+      "residual_rms_samples": 0.0,
+      "normal_condition": 0.0,
+      "azimuth_deg": 0.0,
+      "elevation_deg": 0.0,
+      "bridge_status": 0,
+      "sequence": 2811,
+      "profile": "TETRA40_3D",
+      "geometry_revision": 1,
+      "geometry_source": "tetra40-nominal-v1",
+      "pairs": [
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        }
+      ],
+      "servo_cmd_valid": 0,
+      "frontend": "CF1",
+      "cf1_reset": "pcm_window_not_received",
+      "source_completed_at": null
+    },
+    "motion_requested": true,
+    "timing_ns": {
+      "acquire": 1253523,
+      "solve": 669699
+    },
+    "direction_output": {
+      "valid": false,
+      "updated": false,
+      "azimuth_deg": null,
+      "elevation_deg": null,
+      "azimuth_valid": false,
+      "elevation_valid": false,
+      "vector": null,
+      "reason": "pcm_window_not_received"
+    },
+    "angle_filter": {
+      "window_size": 3,
+      "min_valid": 1,
+      "complete": false,
+      "frame_count": 0,
+      "valid_count": 0,
+      "inlier_count": 0,
+      "reset_reason": "pcm_window_not_received"
+    },
+    "frame_direction": {
+      "valid": false,
+      "vector": null
+    },
+    "volume": {
+      "level_counts": 4247,
+      "threshold_counts": 12500,
+      "measured": true,
+      "unit": "mean_abs_dc_removed_pcm"
+    },
+    "motion": {
+      "requested": true,
+      "committed": false,
+      "targets": null,
+      "axes": 3,
+      "reason": "REVOKED",
+      "mechanical_arrival": "UNVERIFIED"
+    }
+  },
+  "console_skipped": 0,
+  "speaker_worker": {
+    "status": "PASS",
+    "enabled": false
+  },
+  "settings": {
+    "speaker": null,
+    "models": {},
+    "target_id": "P01",
+    "min_level": 12500,
+    "window_frames": 3,
+    "min_valid": 1,
+    "axes": "both",
+    "frames": 0,
+    "seconds": 30.0,
+    "geometry": {
+      "schema": 1,
+      "revision": 1,
+      "provenance": "NOMINAL",
+      "source_id": "tetra40-nominal-v1",
+      "sample_rate_hz": 48000,
+      "sound_speed_m_s": 343,
+      "position_error_mm": -1,
+      "microphones": [
+        {
+          "channel": 0,
+          "xyz_mm": [
+            23.094010767585033,
+            0,
+            -8.16496580927726
+          ]
+        },
+        {
+          "channel": 1,
+          "xyz_mm": [
+            -11.547005383792516,
+            20,
+            -8.16496580927726
+          ]
+        },
+        {
+          "channel": 2,
+          "xyz_mm": [
+            -11.547005383792516,
+            -20,
+            -8.16496580927726
+          ]
+        },
+        {
+          "channel": 3,
+          "xyz_mm": [
+            0,
+            0,
+            24.49489742783178
+          ]
+        }
+      ]
+    },
+    "calibration": {
+      "horizontal": {
+        "front_deg": 180,
+        "direction": 1,
+        "min_deg": 0,
+        "max_deg": 360
+      },
+      "vertical": {
+        "front_deg": 110,
+        "direction": 1,
+        "min_deg": 0,
+        "max_deg": 220
+      }
+    },
+    "speaker_statistics_enabled": false,
+    "recognition_qualified": false,
+    "direction_frontend": "CF1",
+    "speaker_enabled": false
+  }
+}
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ 
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ sudo cat logs/three-d-20211119-065002-192671-678.json
+{
+  "result": "PASS",
+  "error": null,
+  "cleanup_errors": [],
+  "packets": 2811,
+  "tail_packets": 2,
+  "epoch": 42,
+  "dma_halted": true,
+  "max_dma_rearm_seconds": 0.0013498980000008487,
+  "max_service_gap_seconds": 0.01722606399999904,
+  "retention": "bounded_statistics",
+  "first_fault": null,
+  "stop_reason": "requested_limit",
+  "hardware": {
+    "audio": {
+      "raw": 28,
+      "errors": 0,
+      "armed": false,
+      "pending": false,
+      "partial_tail": true,
+      "idle": true,
+      "dma_reset_released": true,
+      "ready": false,
+      "rejected": 0,
+      "published": 2813,
+      "epoch": 42
+    },
+    "status": 999428,
+    "fault": 64,
+    "drops": 894,
+    "dma_status": 4098
+  },
+  "phase": "stopped",
+  "at": 290.4925924,
+  "stats": {
+    "consumed": 2369,
+    "drained": 1,
+    "raw_valid": 48,
+    "accepted_windows": 4,
+    "motion_commits": 4,
+    "sequence_gaps": 441,
+    "below_volume": 1199,
+    "first_sequence": 2812,
+    "last_sequence": 5621,
+    "fault_or": 0,
+    "drops_first": 452,
+    "drops_last": 893,
+    "max_service_ns": 16053939
+  },
+  "elapsed_seconds": 30.01953181500005,
+  "solver_reasons": {
+    "0": 48,
+    "1": 2196,
+    "2": 0,
+    "3": 52,
+    "4": 73,
+    "5": 0,
+    "6": 0,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "other": 0
+  },
+  "latest": {
+    "sequence": 5623,
+    "level": 4539,
+    "output": {
+      "valid": false,
+      "updated": false,
+      "azimuth_deg": null,
+      "elevation_deg": null,
+      "azimuth_valid": false,
+      "elevation_valid": false,
+      "vector": null,
+      "reason": "pcm_window_not_received"
+    },
+    "at": 290.491664002,
+    "window_count": 0,
+    "window_size": 3,
+    "min_valid": 1,
+    "valid_count": 0,
+    "motion": {
+      "requested": true,
+      "committed": false,
+      "targets": null,
+      "axes": 3,
+      "reason": "REVOKED",
+      "mechanical_arrival": "UNVERIFIED"
+    }
+  },
+  "last_group": {
+    "sequence": 5599,
+    "at": 290.244187022,
+    "output": {
+      "valid": false,
+      "updated": false,
+      "azimuth_deg": null,
+      "elevation_deg": null,
+      "azimuth_valid": false,
+      "elevation_valid": false,
+      "vector": null,
+      "reason": "insufficient_valid"
+    },
+    "valid_count": 0,
+    "inlier_count": 0
+  },
+  "last_clear": {
+    "sequence": 5621,
+    "reason": "below_volume_threshold",
+    "at": 290.485691997
+  },
+  "speaker_permission": null,
+  "direction_frontend": {
+    "revision": "CF1",
+    "packets": 2811,
+    "solved": 2369,
+    "valid": 48,
+    "missing_pcm": 1,
+    "resets": 442,
+    "clipped_windows": 0,
+    "max_solve_seconds": 0.01319162099997584,
+    "max_blocks": 64,
+    "buffered_blocks": 64,
+    "history_frames": 0,
+    "audio_support_ms": 181.333333,
+    "nominal_history_center_extra_ms": 80,
+    "freshness_basis": "conservative_start_plus_sample_end",
+    "physical_gates_unchanged": true,
+    "board_latency_measured": false
+  },
+
+  "last_processed_record": {
+    "frame": {
+      "sequence": 5623,
+      "status": 1015605,
+      "words": [
+        289159418,
+        319272,
+        349188,
+        287723,
+        259826,
+        289028603,
+        368996,
+        363927,
+        355521,
+        339014,
+        289487610,
+        428748,
+        433186,
+        404952,
+        366861,
+        289291012,
+        531185,
+        516764,
+        517066,
+        480743,
+        289160192,
+        676566,
+        644118,
+        667572,
+        618901,
+        289422846,
+        687145,
+        682681,
+        658925,
+        643400
+      ],
+      "energy": 4539,
+      "fault": 64,
+      "drops": 894,
+      "audio": {
+        "epoch": 42,
+        "sample_start": 1439232,
+        "source_window": 5623,
+        "sample_count": 1024,
+        "valid": true
+      }
+    },
+    "result": {
+      "api_status": 0,
+      "direction_valid": 0,
+      "reason": 1,
+      "azimuth_valid": 0,
+      "elevation_valid": 0,
+      "azimuth_q8": 0,
+      "elevation_q8": 0,
+      "valid_pairs": 0,
+      "valid_pair_mask": 0,
+      "coordinates_measured": 0,
+      "first_error": 0,
+      "bad_pair": 255,
+      "geometry_status": 0,
+      "geometry_bad_pair": 255,
+      "ux": 0.0,
+      "uy": 0.0,
+      "uz": 0.0,
+      "norm": 0.0,
+      "residual_rms_samples": 0.0,
+      "normal_condition": 0.0,
+      "azimuth_deg": 0.0,
+      "elevation_deg": 0.0,
+      "bridge_status": 0,
+      "sequence": 5623,
+      "profile": "TETRA40_3D",
+      "geometry_revision": 1,
+      "geometry_source": "tetra40-nominal-v1",
+      "pairs": [
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        }
+      ],
+      "servo_cmd_valid": 0,
+      "frontend": "CF1",
+      "cf1_reset": "pcm_window_not_received",
+      "source_completed_at": null
+    },
+    "motion_requested": true,
+    "timing_ns": {
+      "acquire": 1264482,
+      "solve": 1058808
+    },
+    "direction_output": {
+      "valid": false,
+      "updated": false,
+      "azimuth_deg": null,
+      "elevation_deg": null,
+      "azimuth_valid": false,
+      "elevation_valid": false,
+      "vector": null,
+      "reason": "pcm_window_not_received"
+    },
+    "angle_filter": {
+      "window_size": 3,
+      "min_valid": 1,
+      "complete": false,
+      "frame_count": 0,
+      "valid_count": 0,
+      "inlier_count": 0,
+      "reset_reason": "pcm_window_not_received"
+    },
+    "frame_direction": {
+      "valid": false,
+      "vector": null
+    },
+    "volume": {
+      "level_counts": 4539,
+      "threshold_counts": 12500,
+      "measured": true,
+      "unit": "mean_abs_dc_removed_pcm"
+    },
+    "motion": {
+      "requested": true,
+      "committed": false,
+      "targets": null,
+      "axes": 3,
+      "reason": "REVOKED",
+      "mechanical_arrival": "UNVERIFIED"
+    }
+  },
+  "console_skipped": 0,
+  "speaker_worker": {
+    "status": "PASS",
+    "enabled": false
+  },
+  "settings": {
+    "speaker": null,
+    "models": {},
+    "target_id": "P01",
+    "min_level": 12500,
+    "window_frames": 3,
+    "min_valid": 1,
+    "axes": "both",
+    "frames": 0,
+    "seconds": 30.0,
+    "geometry": {
+      "schema": 1,
+      "revision": 1,
+      "provenance": "NOMINAL",
+      "source_id": "tetra40-nominal-v1",
+      "sample_rate_hz": 48000,
+      "sound_speed_m_s": 343,
+      "position_error_mm": -1,
+      "microphones": [
+        {
+          "channel": 0,
+          "xyz_mm": [
+            23.094010767585033,
+            0,
+            -8.16496580927726
+          ]
+        },
+        {
+          "channel": 1,
+          "xyz_mm": [
+            -11.547005383792516,
+            20,
+            -8.16496580927726
+          ]
+        },
+        {
+          "channel": 2,
+          "xyz_mm": [
+            -11.547005383792516,
+            -20,
+            -8.16496580927726
+          ]
+        },
+        {
+          "channel": 3,
+          "xyz_mm": [
+            0,
+            0,
+            24.49489742783178
+          ]
+        }
+      ]
+    },
+    "calibration": {
+      "horizontal": {
+        "front_deg": 180,
+        "direction": 1,
+        "min_deg": 0,
+        "max_deg": 360
+      },
+      "vertical": {
+        "front_deg": 110,
+        "direction": 1,
+        "min_deg": 0,
+        "max_deg": 220
+      }
+    },
+    "speaker_statistics_enabled": false,
+    "recognition_qualified": false,
+    "direction_frontend": "CF1",
+    "speaker_enabled": false
+  }
+}
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ 
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ sudo env PYNQ_PYTHON=/usr/local/share/pynq-venv/bin/python3 XILINX_XRT=/usr sh soundsight-3d.sh status
+PYTHON_EXE=/usr/local/share/pynq-venv/bin/python3
+PYNQ_IMPORT_OK=1
+DEVICE_STATE={"status": 999428, "fault": 64, "drops": 894, "sys": 8, "actuator": 0, "dual_axis": 768}
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ 
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ 

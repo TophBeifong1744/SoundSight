@@ -1,0 +1,23 @@
+test_failed_capability_or_device_identity_closes_fd_and_owner (__main__.ConstructorTests.test_failed_capability_or_device_identity_closes_fd_and_owner) ... ok
+test_open_checks_character_identity_and_capabilities_without_probe (__main__.ConstructorTests.test_open_checks_character_identity_and_capabilities_without_probe) ... ok
+test_DT_disabled_wrong_address_clock_and_client_rejected (__main__.DiscoveryTests.test_DT_disabled_wrong_address_clock_and_client_rejected) ... ok
+test_actual_node_identity_selects_bus7_not_number0 (__main__.DiscoveryTests.test_actual_node_identity_selects_bus7_not_number0) ... ok
+test_pinctrl_or_runtime_client_or_driver_mismatch_rejected (__main__.DiscoveryTests.test_pinctrl_or_runtime_client_or_driver_mismatch_rejected) ... ok
+test_runtime_ownership_change_blocks_before_ioctl (__main__.DiscoveryTests.test_runtime_ownership_change_blocks_before_ioctl) ... ok
+test_bus_checked_before_GPIO_probe_and_closed_after_DMA (__main__.LifecycleTests.test_bus_checked_before_GPIO_probe_and_closed_after_DMA) ... ok
+test_bus_rejected_no_GPIO_and_poll_error_closes_every_owner (__main__.LifecycleTests.test_bus_rejected_no_GPIO_and_poll_error_closes_every_owner) ... ok
+test_demo_does_not_open_Linux_I2C (__main__.LifecycleTests.test_demo_does_not_open_Linux_I2C) ... ok
+test_actual_HWH_bad_EMIO_connection_or_parameter_rejected (__main__.MetadataTests.test_actual_HWH_bad_EMIO_connection_or_parameter_rejected) ... ok
+test_actual_generated_HWH_passes_PS_connection_and_parameters (__main__.MetadataTests.test_actual_generated_HWH_passes_PS_connection_and_parameters) ... ok
+test_old_loaded_AXI_IIC_and_wrong_loaded_path_rejected (__main__.MetadataTests.test_old_loaded_AXI_IIC_and_wrong_loaded_path_rejected) ... ok
+test_already_ready_uses_capability_check_no_overlay_mutation (__main__.PrepareTests.test_already_ready_uses_capability_check_no_overlay_mutation) ... ok
+test_wrong_frequency_and_unknown_status_do_not_insert (__main__.PrepareTests.test_wrong_frequency_and_unknown_status_do_not_insert) ... ok
+test_close_is_idempotent (__main__.TransferTests.test_close_is_idempotent) ... ok
+test_errno_preserved_no_data_return_and_invalid_bounds (__main__.TransferTests.test_errno_preserved_no_data_return_and_invalid_bounds) ... ok
+test_native_layout_and_combined_exact_pointer_and_read (__main__.TransferTests.test_native_layout_and_combined_exact_pointer_and_read) ... ok
+test_write_one_message_and_short_transfer_no_retry (__main__.TransferTests.test_write_one_message_and_short_transfer_no_retry) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.713s
+
+OK

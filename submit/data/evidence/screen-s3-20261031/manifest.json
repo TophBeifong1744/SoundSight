@@ -1,0 +1,31 @@
+{
+  "revision": "SCREEN_CONTROL_S3",
+  "files": {
+    "software/screen/backend.py": "7ccb154fff3d93d1cdf44b971a12c7353378bdfc369ff610566a4465f7bf689f",
+    "software/screen/ui.py": "be9d2cc255c4996fef89f170b418f04fb7f8cd6caf9c3df55bbb7b719559c6b6",
+    "soundsight-panel.sh": "bc4cff4fa78498b4c6532e0cdb72efee6a93ac166fc1e27bf6b5658db4a85299",
+    "SCREEN-CONTROL.md": "faa9273f34dfb74a148243a8c8f02294fa6cc1532e7dd5ab7f7e2e803d929861"
+  },
+  "before": {
+    "software/screen/backend.py": "428bee8fe44024e71544152f2a6612ad11106c8ee7501f846d022fd2a6483d9e",
+    "software/screen/ui.py": "e7055bcf5da5d555086acc086fd54eb6a20b2a360e598e2572c02df8017f42d5",
+    "soundsight-panel.sh": null,
+    "SCREEN-CONTROL.md": null
+  },
+  "dependencies": {
+    "soundsight.bit": "409aeb5d31f1f90a9e0f33d875d49bc15b3a45befb27dac711cae577316d76a2",
+    "soundsight.hwh": "915f4097380eba354660bd95a54cab12857e1d2acb826e5b0cf25e1c7275790d",
+    "soundsight-screen.sh": "f2a65df945abd5b2f4e9d749385784c304d249ba3f3925346b791420ccb65fa2",
+    "soundsight-screen-i2c.sh": "0562b52cd9d76ecea55717078f7750ca0a5c3d7ca8d254c58022ea2102a19e61",
+    "software/screen/hardware.py": "153800c28e223e9315c07c1d1096e8982f95a8b869d3c425dd2733886b81b2b3",
+    "software/screen/linux_i2c.py": "b295f95605935248dbf8959c64a2a4d75f25a41ea284eed36afc1e6360518d46",
+    "software/screen/screen_i2c_prepare.py": "fbdea1f5856dac871c519ec58eecffa317d4e45aeaabdb6d86d5c8d786397757",
+    "software/screen/ps_i2c0_enable.dtbo": "8136ea2c115e4f1dbf60af27b3b1ddc01253924faba472442ad06568968e0b59",
+    "soundsight-3d.sh": "1a6ec9c405ab617df3d0ab68d1b6797ca994e09b35d71a1c48c09dff76cf298d",
+    "software/tetra3d/linux/board_3d.py": "7c7bb5d1fc1329d1e90514c04797991799bd25358a26852eb1cae45de86ec507",
+    "software/tetra3d/linux/runtime_3d.py": "0b8dfe49ba223136cb07b70ede7cc122be16656d0f498606eb01086f4eff234e",
+    "software/tetra3d/linux/speaker_runtime_3d.py": "1259924e0e18ddd4da6e98e9853de7923cd6eeb2a3fb9495478ac18c3e7eba38",
+    "software/tetra3d/linux/motion_3d.py": "3f9cd5aa12ad97c3a9c5245891f3c9b5d6e15294cba62b3d764dd528621a8f34",
+    "software/ps/speaker_permission.py": "5f52a8d3d1419feae19a6e2a330f6c50d6b9ad65396e08c9ef6ce0a8760ca226"
+  }
+}

@@ -22,6 +22,7 @@ class ThreeDClient(TimedClient):
         self.expected_audio_epoch = None
         self.motion_interlock = None  # Joint owner polls latest IPC before ARM/COMMIT.
         self.frame_read_started_at = None
+        self.before_solve = None  # Single DMA owner may finish this exact PCM window.
 
     def frame_stale(self):
         # Same 750ms budget as the existing direction hold, measured before
@@ -104,7 +105,7 @@ class ThreeDClient(TimedClient):
                 return
         if not self.axis_mask:
             return
-        if self.speaker_permission is not None and not self.hardware_follow_qualified(record['frame']):
+        if (self.speaker_permission is not None or getattr(self.solver, 'requires_pcm', False) is True) and not self.hardware_follow_qualified(record['frame']):
             self.revoke_target()
             action['reason'] = 'INSUFFICIENT_RAW_PAIRS_FOR_HARDWARE_FOLLOW'
             return
@@ -183,10 +184,23 @@ class ThreeDClient(TimedClient):
                          audio['sample_start'] % 512)):
                     raise RuntimeError('Three-dimensional frame/audio session mismatch; retain snapshot')
             acquired = time.monotonic_ns()
+            if self.before_solve is not None:
+                self.before_solve(frame)
             result = self.solver.solve(frame)
+            source_time = result.get('source_completed_at')
+            if source_time is not None:
+                self.frame_read_started_at = min(self.frame_read_started_at, source_time)
             record = dict(frame=frame, result=result, motion_requested=bool(self.axis_mask),
                           timing_ns=dict(acquire=acquired-began, solve=time.monotonic_ns()-acquired))
             record.update(self.spatial.apply(frame, result, self.threshold))
+            if result.get('cf1_reset'):
+                self.spatial.reset()
+                self.revoke_target()
+                record['direction_output'].update(valid=False, updated=False, vector=None,
+                    azimuth_deg=None, elevation_deg=None, azimuth_valid=False,
+                    elevation_valid=False, reason=result['cf1_reset'])
+                record['angle_filter'].update(reset_reason=result['cf1_reset'], complete=False,
+                    frame_count=0, valid_count=0, inlier_count=0)
             if frame['fault'] and not allow_fault:
                 raise RuntimeError('Device fault while reading frame; retain locked snapshot')
             if result['bridge_status'] or result['api_status']:

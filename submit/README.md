@@ -1,54 +1,46 @@
-# SoundSight 比赛提交材料
+# SoundSight 比赛提交材料 — 2026-11-02
 
-此文件夹包含实际文件，可整体复制、压缩或上交。无需外层仓库或B电脑盘符。源码基线及逐文件来源见`build/file-map.json`；这是固定交付快照，后续开发在原仓库进行，再统一更新提交副本。
+本目录可整体复制、压缩和上交。七类目录存放实际源码、脚本、产物和证据；无需外层仓库或发送方盘符。
 
 ```text
 submit/
   README.md
-  src/       RTL、PS软件、三维/C算法及历史研究源码
-  sim/       testbench、软件测试、参考模型和仿真脚本
-  build/     Vivado配方、构建工具、实现报告、独立工作目录准备脚本
-  board/     上板脚本、操作说明、硬件资料与现场回报
-  data/      测试输入、原始结果、匿名指标和历史归档
-  skill/     两个完整技能包：脚本、示例、测试、许可
-  report/    设计说明、贡献报告、AI协作资料和第三方声明
+  src/
+  sim/
+  build/
+  board/
+  data/
+  skill/
+  report/
 ```
 
-## 项目与当前结果
+## 当前候选与效果
 
-唯一主方案为Zynq-7020 PL+PS/PYNQ：四麦40mm标称正四面体定位、双轴运动控制和可选声纹许可。水平T15、垂直W16。A维护PL和当前总工程；B的历史STM32/PYNQ、三维/DAS、声纹适配与优化贡献见[设计与贡献报告](report/design-report.md)。CAM++、Silero、ONNX Runtime及厂商组件属于第三方。
+唯一方案为Zynq-7020 PL+PS/PYNQ，四麦40mm正四面体，水平J3-2/M15、垂直J3-3/J14。硬件为S2 RGB/VDMA/GPIO + PS I2C0 EMIO，面板为S3，三维软件为CF1A。原有score_ttl_v2许可保留；普通声音模式与声纹模式分开，默认关轴。
 
-当前配方沿PR #30接入LAT1两槽最新定位结果策略，保留31个RTL、Hann数据、实际BD/PS配置、双FFT参数及5份约束。2026-10-30用户两轮声纹双轴测试正常结束并确认跟随，建议TTL10秒；第二轮淘汰1个旧结果。对应已导出实现WNS+0.176ns/WHS+0.029ns，但实际四约束候选缺垂直PWM输出延迟，不能称完整I/O签核。纯声音供电重启后用户接12V适配器报告长稳正常，未测电源波形。声纹门限/其他人对照及声纹联合长稳仍待验证，见[本次集成说明](report/release-20261030.md)。
+S2既有实现WNS +0.203ns/WHS +0.036ns，仍有CDC和外部I/O时序缺项。用户两轮基础显示/触摸与停止已有证据。S3首板中断、CF1两轮最终输出0/4的失败现象保留。P02本人→到期→另一人本轮串行验证通过，不能写成总体识别率。CF1A历史PC回放4598完整/3833稀疏一致、74回归、前端wall下降45.5%，ARM实时性仍待A板测；真实三维精度、联合长稳未验收。
 
-## 从零复现
+详见[本次来源与结果](report/release-20261102-submit.md)、[贡献报告](report/design-report.md)、[未完成项](report/pending-materials.md)。A总工程与B侧后续实现、用户现场操作和第三方模型贡献分别记载。
 
-1. 完整解压或复制本`submit`文件夹。安装Python 3；Vivado复现另需2025.2与器件`xc7z020clg400-2`支持，软件C测试需C编译器。仅阅读资料不需要安装EDA。
-2. 在本文件夹根目录执行：
+## 独立准备
+
+在本目录执行（输出须为新的空目录）：
 
 ```text
 python -B build/prepare_workspace.py --output ../soundsight_work
 ```
 
-这一步只读取本包中的实际文件，复制到新的独立工作目录；不下载、不调用Git、不启动EDA或硬件。它恢复原源码/脚本使用的目录与大小写，避免为提交改名而修改算法、厂商文件或运行逻辑。输出须不存在或为空，拒绝覆盖既有工作。
-
-3. 进入生成的`soundsight_work`，先执行包依赖离线检查：
+只用包内文件恢复源码原路径和大小写；不需要Git、不联网、不启动EDA或硬件。进入生成的soundsight_work后：
 
 ```text
-python -B -m unittest discover -s software/tests -p test_vivado_portable.py
+python -B tools/prepare_screen_s2.py --output ../s2_work
+python -B tools/check_current_software.py --output ../software_check
 ```
 
-4. 将Vivado 2025.2和Python加入PATH，或按生成目录中的`tools.local.env.example`填写仅供本机使用的`tools.local.env`。在Windows终端执行：
+第一条只复制49项S2硬件配方文件并生成可搬移BAT。Vivado2025.2（xc7z020clg400-2）由使用者安装；s2_work完整路径须ASCII且不超过78字节。后续人工运行build.bat只创建工程，显式synth/route才综合/实现；本次资料维护未执行EDA。
 
-```bat
-project\script\rebuild_ps_3d.bat --output "..\soundsight_vivado"
-```
+第二条需要Python、NumPy和PATH中的gcc，使用源码新编译C库，运行合成输入/逻辑回归，不访问硬件。历史私有录音回放和安装器测试另需未公开基线，不能作为本包独立验收；见[研究依赖](sim/research/coherent-study/readme.md)。
 
-新Vivado输出目录完整路径须ASCII且不超过78字节。成功后打开`SoundSight_PS_3D.xpr`。该步骤创建工程/BD/IP；综合、实现、STA、生成位流和硬件操作由使用者后续执行。本次提交整理没有执行这些动作。
+配套S2 bit/HWH/XSA位于board/artifacts/screen_s2。板端操作见[材料说明](report/release-20261102-submit.md)和board/instructions；原CF1A ZIP要求已经安装CF1，不能直接套到10月30日旧工程。个人模型、录音、声纹模板和机械标定不在本包。原S2源ZIP保留历史build.bat默认综合行为，当前可搬移准备入口以本页为准。
 
-5. 仿真输入与执行说明见[sim说明](sim/README.md)。板端安装与运行见[board说明](board/README.md)，必须配套当前候选bit/HWH、PYNQ环境以及使用者自己的模型和登记配置。包内历史STM32/Vitis/旧SD包有日期与范围，不能当成当前W16运行镜像。
-
-源码/脚本中的原相对路径是生成工作目录中的路径；包内Markdown链接已改为本包相对链接，阅读请直接在`submit`内进行。报告/历史证据中的旧机器路径仅记录来源，不是本包运行依赖。`build/file-map.json`记录出处和转换，原始日志、JSON、CSV、图片、二进制与归档ZIP保持内容。
-
-## 材料边界
-
-设计说明、源码、现有结果和协作记录已实际装入七类目录；缺失的最终整机照片/视频、签署文件和原始AI对话不得编造。见[尚缺材料](report/pending-materials.md)。PC、ARM离线、真实采集、用户观察及Vivado结果各自标明，不能把目录或包检查作为整机验收。
+file-map记录实际来源和字节校验；源代码、原始JSON/日志/ZIP不作导航改写，Markdown/HTML仅调整链接。历史W16/PR30配方和失败按当时版本保留，不代表当前S2。当前整理没有新增实测，也没有向比赛平台提交。

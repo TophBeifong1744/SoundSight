@@ -22,8 +22,9 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
         raise RuntimeError('Existing device fault/audio data; preserve before retry')
     if epoch == initial['epoch'] or not 1 <= epoch <= 0xffffffff or not dma.ip.read(SR) & 1:
         raise RuntimeError('New audio epoch and halted DMA required')
-    gate = SpeakerPermission(config, clock)
-    gate.start(epoch)
+    gate = SpeakerPermission(config, clock) if config is not None else None
+    if gate is not None:
+        gate.start(epoch)
     client.speaker_permission = gate
     client.expected_audio_epoch = epoch
     report = dict(result='FAIL', error=None, cleanup_errors=[], packets=0, tail_packets=0,
@@ -38,6 +39,8 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
                     drops=client.read(DROP), dma_status=int(dma.ip.read(SR)))
 
     def poll_permission():
+        if gate is None:
+            return True
         for event in speaker.poll_events():
             gate.event(event)
         allowed = gate.allowed()
@@ -46,6 +49,27 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
         return allowed
 
     client.motion_interlock = poll_permission
+
+    def ensure_pcm(frame):
+        # PL READY can precede the final AXI DMA completion by a short interval.
+        # While holding the same snapshot, service DMA rather than consume an
+        # unmatched result or silently substitute the latest audio window.
+        if tail or not frame.get('audio', {}).get('valid'):
+            return
+        end = clock()+.05
+        while not client.solver.has_window(frame):
+            if stop() or clock() >= end:
+                raise TimeoutError('CF1 exact PCM window unavailable within 50 ms')
+            if client.read(FAULT) or int(audio.read(0x0c)) & 0xff00:
+                raise RuntimeError('Device fault while waiting for CF1 PCM')
+            poll_permission()
+            if dma.completed():
+                take_packet(True, True)
+            else:
+                sleep(.0002)
+
+    if getattr(client.solver, 'requires_pcm', False) is True:
+        client.before_solve = ensure_pcm
 
     def service_frame():
         if not client.read(STATUS) & 3:
@@ -65,6 +89,8 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
             report['max_dma_rearm_seconds'] = max(report['max_dma_rearm_seconds'], clock()-began)
         meta = decode_packet(data, epoch, report['packets']+report['tail_packets'])
         if forward:
+            if getattr(client.solver, 'requires_pcm', False) is True:
+                client.solver.accept_packet(data, meta)
             speaker.submit(data, meta)
             report['packets'] += 1
         else:
@@ -80,6 +106,8 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
         dma.wait_for(lambda: audio_state(audio)['ready'], 'Audio ARM timeout')
         dma.submit()
         start = previous = last_packet = clock()
+        if getattr(client.solver, 'requires_pcm', False) is True:
+            client.solver.started(start)
         speaker.started(start)
         client.start(clear_faults=0x40)
         while not stop() and (not frames or state.stats['consumed'] < frames) and (not seconds or clock()-start < seconds):
@@ -98,7 +126,8 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
                 raise TimeoutError('No DMA packet within 0.5 seconds')
             if now-last_display >= .5:
                 value = state.snapshot()
-                value['speaker'] = gate.snapshot()
+                if gate is not None:
+                    value['speaker'] = gate.snapshot()
                 display(value)
                 last_display = now
             sleep(.0002)
@@ -115,7 +144,8 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
         # One failed packet only; continuous normal mode is not an audio recorder.
         report['last_packet_header_hex'] = last_raw[:32].hex() if last_raw else None
     finally:
-        gate.revoke('SESSION_ENDED')
+        if gate is not None:
+            gate.revoke('SESSION_ENDED')
         # Independently attempt every stop; extension write failure must not skip SYS/audio STOP.
         for name, operation in (('axes_revoke', client.stop_direction_output),
                                 ('audio_stop', lambda: audio.write(0x04, 2)),
@@ -166,7 +196,9 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
         if report['cleanup_errors']:
             report['result'] = 'FAIL'
         report.update(state.snapshot('stopped' if report['result'] == 'PASS' else 'failed'))
-        report['speaker_permission'] = gate.snapshot()
+        report['speaker_permission'] = gate.snapshot() if gate is not None else None
+        if getattr(client.solver, 'requires_pcm', False) is True:
+            report['direction_frontend'] = client.solver.summary()
         report['last_processed_record'] = state.last_record
         if state.debug_limit:
             report['records'] = state.records

@@ -392,3 +392,9 @@ def validate_runtime_inputs(audio,state,sr):
                 motion_requested=False, timing=dict(capture_sample=capture,
                     now_sample=now, sample_rate_hz=self.sample_rate_hz)))
 ```
+
+## 2026-11-02 新资料同步
+
+本次是既有成果归档，不新增实验编号。J3/S2、S3、P02串行TTL和CF1/CF1A的来源、效果、贡献及未完成项见[本次同步](../../../report/release-20261102-submit.md)。P02他人串行对照已有本轮证据，但总体识别率/空间绑定仍未验收；CF1A45.5%为PC前端收益，ARM仍待A板测。此前W15/W16、长稳失败和当时待测记录保留原时点。
+
+新增实现定位：`software/screen/backend.py`/`ui.py`为S3控制与显示；`software/tetra3d/linux/coherent_frontend.py`的CoherentSolver维护79频点滚动积累与有界历史补齐，`speaker_capture_3d.py`接入单DMA PCM。源码身份见本次import-sources.json，不复制第二份实现。

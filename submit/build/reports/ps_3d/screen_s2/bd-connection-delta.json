@@ -1,0 +1,57 @@
+[
+  {
+    "section": "nets",
+    "net": "bus_reset_peripheral_aresetn",
+    "removed": [
+      "control_bus/M05_ARESETN",
+      "screen_iic/s_axi_aresetn"
+    ],
+    "added": []
+  },
+  {
+    "section": "nets",
+    "net": "clk_main_clk_out2",
+    "removed": [
+      "control_bus/M05_ACLK",
+      "screen_iic/s_axi_aclk"
+    ],
+    "added": []
+  },
+  {
+    "section": "interface_nets",
+    "net": "control_bus_M04_AXI",
+    "removed": [
+      "screen_iic/S_AXI"
+    ],
+    "added": [
+      "screen_gpio/S_AXI"
+    ]
+  },
+  {
+    "section": "interface_nets",
+    "net": "control_bus_M05_AXI",
+    "removed": [
+      "control_bus/M05_AXI",
+      "screen_gpio/S_AXI"
+    ],
+    "added": []
+  },
+  {
+    "section": "interface_nets",
+    "net": "ps7_IIC_0",
+    "removed": [],
+    "added": [
+      "ps7/IIC_0",
+      "screen_iic"
+    ]
+  },
+  {
+    "section": "interface_nets",
+    "net": "screen_iic_IIC",
+    "removed": [
+      "screen_iic",
+      "screen_iic/IIC"
+    ],
+    "added": []
+  }
+]

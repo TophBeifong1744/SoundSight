@@ -1,0 +1,13 @@
+/dts-v1/;
+
+/ {
+
+	fragment@0 {
+		target-path = "/amba/i2c@e0004000";
+
+		__overlay__ {
+			status = "okay";
+			clock-frequency = <0x186a0>;
+		};
+	};
+};

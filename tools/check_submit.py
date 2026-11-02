@@ -73,6 +73,22 @@ def main():
             run=call([sys.executable,'-B','-m','unittest','discover','-s','software/tests','-p',pattern],work)
             result['tests'].append({'pattern':pattern,'exit':run.returncode,'output':run.stdout})
             assert run.returncode==0,run.stdout
+        if (work/'tools/prepare_screen_s2.py').is_file():
+            # ASCII short output is a vendor path requirement, not a source-tree dependency.
+            s2=base/'s2'
+            run=call([sys.executable,'-B','tools/prepare_screen_s2.py','--output',str(s2)],work)
+            assert run.returncode==0,run.stdout
+            recipe=json.loads((work/'project/screen_s2/source-map.json').read_text('utf-8'))
+            for item in recipe['files']:
+                assert hashlib.sha256((s2/item['destination']).read_bytes()).hexdigest()==item['sha256']
+            assert 'D:\\AMD' not in (s2/'build.bat').read_text()
+            again=call([sys.executable,'-B','tools/prepare_screen_s2.py','--output',str(s2)],work)
+            assert again.returncode!=0 and 'Refusing to overwrite' in again.stdout
+            result['s2_recipe']={'files':len(recipe['files']),'payload_hashes':'PASS','overwrite_rejected':True,'eda':'NOT_RUN'}
+        if (work/'tools/check_current_software.py').is_file():
+            run=call([sys.executable,'-B','tools/check_current_software.py','--output',str(base/'host-check')],work)
+            assert run.returncode==0,run.stdout
+            result['current_software']=json.loads((base/'host-check/result.json').read_text('utf-8'))
         reject=call([sys.executable,'-B','build/prepare_workspace.py','--output',str(work)],isolated)
         assert reject.returncode!=0 and 'Refusing to overwrite' in reject.stdout
         # Check missing input and attempted traversal before any files can be emitted.

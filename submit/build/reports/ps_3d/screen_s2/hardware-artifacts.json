@@ -1,0 +1,26 @@
+{
+  "artifacts": {
+    "screen-ps-i2c-s2-routed.dcp": {
+      "bytes": 20176022,
+      "sha256": "39582c5164c407e35e3a14df3619d722a0e5999c129268810f3688ea687c6996"
+    },
+    "soundsight.bit": {
+      "bytes": 4045703,
+      "sha256": "409aeb5d31f1f90a9e0f33d875d49bc15b3a45befb27dac711cae577316d76a2"
+    },
+    "soundsight.hwh": {
+      "bytes": 702789,
+      "sha256": "915f4097380eba354660bd95a54cab12857e1d2acb826e5b0cf25e1c7275790d"
+    },
+    "soundsight.xsa": {
+      "bytes": 1017754,
+      "sha256": "ff733ec7e85994ad8bb49a88068022f6362f0d3a89339ea2dde2c59420746f60"
+    }
+  },
+  "xsa_embedded_matches": {
+    ".bit": true,
+    ".hwh": true
+  },
+  "bus_skew_paths": 16,
+  "bus_skew_min_ns": 9.164
+}

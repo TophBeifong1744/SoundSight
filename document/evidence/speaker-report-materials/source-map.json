@@ -899,5 +899,10 @@
         "url": "https://github.com/TophBeifong1744/SoundSight/blob/4adfc48086e889951806102a782d5f804e390d97/document/current-status.md"
       }
     ]
+  },
+  "supplement_20261102": {
+    "note": "Existing experiments archived; no new E numbers.",
+    "source_manifest": "../submit-maintenance-20261102/import-sources.json",
+    "release_note": "../../release-20261102-submit.md"
   }
 }
