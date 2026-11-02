@@ -1,5 +1,5 @@
 {
-  "baseline_commit": "645f2b073cdabc61458666594497a0959f657bed",
+  "baseline_commit": "ce7ddb1e76e5d71129c826ff2bf0a69d9ff75e60",
   "scope": "standalone submission snapshot, no new hardware experiment",
   "files": [
     {
@@ -3230,8 +3230,8 @@
       "source_path": "document/evidence/final-scope-20261102/README.md",
       "submit_path": "data/evidence/final-scope-20261102/readme.md",
       "mode": "100644",
-      "source_sha256": "75ad769234a4999617d05de66944ad69640991dc872c7ae44f75d56b2abc4ec1",
-      "submit_sha256": "c9f1c93288c59cbb6634e40a48b05c75a27dbac68c118b821c94abdbf90eceb8",
+      "source_sha256": "1ec727a9f39cc325f46607c33a178dd15e3eb7f8ed1ee6504ae74c97d2b9c3d7",
+      "submit_sha256": "0083e578b55ba985ff47b9241f91404457e19c2f581da5bf10d30cb2b4f20a02",
       "transform": "documentation_links_only"
     },
     {
@@ -12310,8 +12310,8 @@
       "source_path": "document/history/acoustic-validation-plan.md",
       "submit_path": "report/history/acoustic-validation-plan.md",
       "mode": "100644",
-      "source_sha256": "f75bea782564598033b8c1f3d456d295c4fea7f7868c1eb7f628dcd85b80b3d0",
-      "submit_sha256": "caa5736941cbfd1af1b1d159e5a8ec20fe6d9a113086fc46de8d15c02f7be991",
+      "source_sha256": "536343b9596adcfe7231534c17c8ee32a84ce7dcf81da7e2ef5090777b06950b",
+      "submit_sha256": "788bb5743ad9d0d41ae35299e6fc68b43ae9681f72e5ca2cef33c68f685fb866",
       "transform": "documentation_links_only"
     },
     {
@@ -14022,16 +14022,16 @@
       "source_path": "models/matlab/README.md",
       "submit_path": "sim/models/matlab/readme.md",
       "mode": "100644",
-      "source_sha256": "a90ff650eb339dad9f7deeb06a1134011ccfd177bbc2041bc2bfd4b9ec090583",
-      "submit_sha256": "a90ff650eb339dad9f7deeb06a1134011ccfd177bbc2041bc2bfd4b9ec090583",
+      "source_sha256": "7f92b71a2f4678ac83b78f8cd17d5fa5b9717366ae438f9a1f1dfdcd9af532c2",
+      "submit_sha256": "7f92b71a2f4678ac83b78f8cd17d5fa5b9717366ae438f9a1f1dfdcd9af532c2",
       "transform": "none"
     },
     {
       "source_path": "models/matlab/square_array_baseline.m",
       "submit_path": "sim/models/matlab/square_array_baseline.m",
       "mode": "100644",
-      "source_sha256": "1c2330bfce98eb9e924da2d584f986f70c5857178518cbb7ce7a18de6d5be6b4",
-      "submit_sha256": "1c2330bfce98eb9e924da2d584f986f70c5857178518cbb7ce7a18de6d5be6b4",
+      "source_sha256": "a9be9cd24d13f4c6f538c0f71f0a6887f08a519607db4904d597942b062bc0e9",
+      "submit_sha256": "a9be9cd24d13f4c6f538c0f71f0a6887f08a519607db4904d597942b062bc0e9",
       "transform": "none"
     },
     {
