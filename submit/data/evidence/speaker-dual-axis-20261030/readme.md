@@ -61,4 +61,4 @@ sudo sh soundsight-3d.sh speaker --axes both --seconds 0 --speaker-stats
 
 Ctrl+C结束后保存本轮时间戳报告，短命令显示最近一次统计；历史报告不因更新最近统计而删除。当前测试参数：音量12000、窗口3帧/至少1帧合格、水平0～360、垂直0～220、目标user2。上述记录不自动替换个人配置。
 
-完整计算见 [analysis.json](analysis.json)，本次源码和发布说明见 [集成说明](../../../report/release-20261030.md)。
+完整计算见 [analysis.json](analysis.json)，本次源码和发布说明见 集成说明（历史引用：`../../release-20261030.md`）。

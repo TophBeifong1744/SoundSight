@@ -29,7 +29,11 @@ def main():
     for cat in categories:
         assert sum(n.startswith(cat+'/') for n in files)>2,cat
     manifest=json.loads((root/'build/file-map.json').read_text('utf-8'))
+    forbidden=('software/stm32/', 'software/vitis/', 'research/six-mic/', 'models/', 'document/posters/', 'software/tetra3d/das/', 'data/fixtures/h3_portable/', 'data/fixtures/h1/')
     for item in manifest['files']:
+        assert not item['source_path'].startswith(forbidden),item['source_path']
+        if item['source_path'].startswith('release/output/'):
+            assert item['source_path'].startswith('release/output/screen_s2/'),item['source_path']
         assert hashlib.sha256(files[item['submit_path']].read_bytes()).hexdigest()==item['submit_sha256'],item['submit_path']
         if not item['source_path'].endswith(('.md','.html')):
             assert item['source_sha256']==item['submit_sha256'],item['source_path']
@@ -69,7 +73,7 @@ def main():
         assert prep.returncode==0,prep.stdout
         for item in manifest['files']:
             assert (work/item['source_path']).read_bytes()==(isolated/item['submit_path']).read_bytes(),item['source_path']
-        for pattern in ('test_vivado_portable.py','test_volume_gate.py'):
+        for pattern in ('test_current_runtime.py','test_volume_gate.py'):
             run=call([sys.executable,'-B','-m','unittest','discover','-s','software/tests','-p',pattern],work)
             result['tests'].append({'pattern':pattern,'exit':run.returncode,'output':run.stdout})
             assert run.returncode==0,run.stdout

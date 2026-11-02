@@ -81,6 +81,6 @@ sudo sh soundsight-3d.sh speaker --axes off --seconds 30
 
 真实XSim：最新队列427项、PS接合76项、旧队列随机1500步/10047项、旧PS852项、双轴319254项检查通过。Linux离线：新鲜度/撤许可5项、三维21项、声纹跟随23项通过。Tcl离线命令模型4项通过；这不是实际Vivado BD Validate结果。
 
-测试覆盖满槽替换、LOCKED完整数据保护、同拍所有权命令、计数饱和、停止/源故障/非法事务/BIST禁止替换、FREE接收取消尾，以及过期帧不重启动作。具体命令、失败事实与日志见[evidence/ps-latest-result-20261030](../data/evidence/ps-latest-result-20261030/readme.md)。
+测试覆盖满槽替换、LOCKED完整数据保护、同拍所有权命令、计数饱和、停止/源故障/非法事务/BIST禁止替换、FREE接收取消尾，以及过期帧不重启动作。具体命令、失败事实与日志见evidence/ps-latest-result-20261030（历史引用：`evidence/ps-latest-result-20261030/README.md`）。
 
 新候选综合、实现、STA和板测尚未进行；旧W16位流时序不能直接沿用。新RTL增加READY选择和门控路径，其资源与时序必须由用户后续实际报告确认。

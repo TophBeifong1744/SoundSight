@@ -295,7 +295,7 @@
 - [当前完整运行包与操作](../pynq-final-runtime.md)
 - [两个比赛技能包的交付与验证](../competition-skills-delivery.md)
 - [已有AI协作与纠错记录](../competition-skills-ai-corrections.md)
-- [真实采集失败、修复和千帧资料](../../data/evidence/pynq-board-20261021/readme.md)
+- 真实采集失败、修复和千帧资料（历史引用：`../evidence/pynq-board-20261021/README.md`）
 - [声纹报告素材、性能与迭代资料](../../data/evidence/speaker-report-materials/readme.md)
 - [既有两轮声纹双轴板测及TTL分析](../../data/evidence/speaker-dual-axis-20261030/readme.md)
 - [CF1A长稳归档及计时边界](../../data/evidence/cf1a-longrun-20261102/readme.md)

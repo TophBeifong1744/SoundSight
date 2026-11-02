@@ -1,11 +1,11 @@
 ## 2026-11-02 新资料同步
 
-本次是既有成果归档，不新增实验编号。J3/S2、S3、P02串行TTL和CF1/CF1A的来源、效果、贡献及未完成项见[本次同步](../../../report/release-20261102-submit.md)。P02他人串行对照已有本轮证据，但总体识别率/空间绑定仍未验收；CF1A45.5%为PC前端收益，ARM仍待A板测。此前W15/W16、长稳失败和当时待测记录保留原时点。
+本次是既有成果归档，不新增实验编号。J3/S2、S3、P02串行TTL和CF1/CF1A的来源、效果、贡献及未完成项见本次同步（历史引用：`../../release-20261102-submit.md`）。P02他人串行对照已有本轮证据，但总体识别率/空间绑定仍未验收；CF1A45.5%为PC前端收益，ARM仍待A板测。此前W15/W16、长稳失败和当时待测记录保留原时点。
 
 
 # 声纹识别报告资料
 
-2026-10-29最新增量：已接入[submit实体报告目录](../../../report/README.md)、[PR #30完整Vivado复现](../../../report/vivado-ps-3d-rebuild.md)及[A后续录入板测](../../../board/results/speaker-enrollment-board-result.md)，见[贡献总览首节](07-b-contribution-and-gaps-20261029.md)。这些A侧成果与B历史贡献分列；原ZIP、证据和指标保持。
+2026-10-29最新增量：已接入[submit实体报告目录](../../../report/README.md)、PR #30完整Vivado复现（历史引用：`../../vivado-ps-3d-rebuild.md`）及[A后续录入板测](../speaker-enrollment-20261029/board-result.md)，见[贡献总览首节](07-b-contribution-and-gaps-20261029.md)。这些A侧成果与B历史贡献分列；原ZIP、证据和指标保持。
 
 **当前阅读入口：** [B工作与最新仓库状态](07-b-contribution-and-gaps-20261029.md)。主方案PL+PS、A全面接管、W16手动可转及长稳重启事实以该页为准；以下28日批次保持历史含义。
 
