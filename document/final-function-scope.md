@@ -70,7 +70,7 @@ PL继续承担同步采集、既有相关运算/快照、PCM导出和确定时�
 | S2已保存实现报告 | 已约束路径WNS +0.203ns/WHS +0.036ns、资源结果 | 所有外部I/O与CDC已闭合、后续硬件改版也通过 |
 | 既有屏幕、声纹与双轴记录 | 对应候选和条件下的操作/评分/动作事实 | 全部场景准确率、多人绑定或全功能联合长稳已验收 |
 
-参考：[完整包检查](evidence/final-runtime-20261102/README.md)、[CF1A记录](evidence/cf1a-longrun-20261102/README.md)、[S2实现导出](../report/screen_s2_20261102/README.md)、[此前分项资料](release-20261102-submit.md)。缺少实测的性能数据留在内部核验清单，不能补造数值。
+参考：[完整包检查](evidence/final-runtime-20261102/README.md)、[CF1A记录](evidence/cf1a-longrun-20261102/README.md)、[S2实现导出](../report/screen_s2_20261103/README.md)、[此前分项资料](release-20261102-submit.md)。缺少实测的性能数据留在内部核验清单，不能补造数值。
 
 ## 6. 报告维护入口
 

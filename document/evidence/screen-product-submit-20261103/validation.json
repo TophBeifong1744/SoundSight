@@ -11,7 +11,7 @@
     "src": 144
   },
   "manifest_files": 1019,
-  "relative_links": 268,
+  "relative_links": 272,
   "broken_links": 0,
   "filename_check": "PASS",
   "raw_sources_and_results": "PASS",
@@ -88,5 +88,18 @@
     "overwrite_rejected": true,
     "missing_input_rejected": true,
     "path_traversal_rejected": true
+  },
+  "documentation_followup": {
+    "changed_files": [
+      "build/file-map.json",
+      "report/final-function-scope.md",
+      "report/main-architecture.md",
+      "report/unavailable-references.json",
+      "report/requirements/acceptance.md",
+      "report/requirements/final-report-scope.md",
+      "report/requirements/report-poster-master-guide.md"
+    ],
+    "non_document_payloads": "UNCHANGED_AFTER_141_TEST_PASS",
+    "links": "PASS"
   }
 }

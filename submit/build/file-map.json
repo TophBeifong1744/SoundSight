@@ -1,5 +1,5 @@
 {
-  "baseline_commit": "eb05bd5bfa2e5f8d3d01d494965497bd70e3209e",
+  "baseline_commit": "6eed8c036626e80006ad3f96b23f99d7172df6d5",
   "scope": "standalone submission snapshot, no new hardware experiment",
   "files": [
     {
@@ -4086,8 +4086,8 @@
       "source_path": "document/final-function-scope.md",
       "submit_path": "report/final-function-scope.md",
       "mode": "100644",
-      "source_sha256": "5818a1ebb4f602034eb43b3938bcefaf0901f4a3daae4f284a07b5489bde70ec",
-      "submit_sha256": "5ed1ee43ad68576e9e3030eb34770df66c4d491503efc905242d0581abdcc868",
+      "source_sha256": "30268c779675dfa760c499f708261d2fa226cad5ce1c9b4737b1abaa2debd6b6",
+      "submit_sha256": "ae7154db23ec2ebc1767e980319415820e9a1b8d153180aafcc9ad3060381802",
       "transform": "documentation_links_only"
     },
     {
@@ -4102,8 +4102,8 @@
       "source_path": "document/main-architecture.md",
       "submit_path": "report/main-architecture.md",
       "mode": "100644",
-      "source_sha256": "3ed9edf8b342ff4a57a404ce8eaf285684db3b5c8c08d2a1ef5e1fc2890bc769",
-      "submit_sha256": "9eeb70d4216465e973fbd8ddf6dec64730ea41e20b5895ea739a974c02cd0329",
+      "source_sha256": "e56bd08d1674086645b44caab9ed0b3aee4c5ee0ca58b2cde8b27c00e185a1b6",
+      "submit_sha256": "9d56540309208b9ecdd3c31f31081b30a41710e9fa381856fcca1263d80278cd",
       "transform": "documentation_links_only"
     },
     {
@@ -4190,8 +4190,8 @@
       "source_path": "document/requirements/acceptance.md",
       "submit_path": "report/requirements/acceptance.md",
       "mode": "100644",
-      "source_sha256": "b19968ac85658ee3e99b0805e941c616c35bbfb22dee3318880110d9c54b9fa1",
-      "submit_sha256": "b19968ac85658ee3e99b0805e941c616c35bbfb22dee3318880110d9c54b9fa1",
+      "source_sha256": "15e254012dc4026db9f4ca812dd60fbaeb9999a2dc2b564e7d02a4ee652690a7",
+      "submit_sha256": "15e254012dc4026db9f4ca812dd60fbaeb9999a2dc2b564e7d02a4ee652690a7",
       "transform": "none"
     },
     {
@@ -4222,8 +4222,8 @@
       "source_path": "document/requirements/final-report-scope.md",
       "submit_path": "report/requirements/final-report-scope.md",
       "mode": "100644",
-      "source_sha256": "311a94d539e045762bd39c398d9b07340cabf44c486dc9ea7eb79ed125c78fda",
-      "submit_sha256": "92ce7a26b719fdadbad538a316b85158dd7ded92c3b8f827b9decdb104908bb5",
+      "source_sha256": "67b7a96e74c0fc3219211cde9985f496484f3400da4cfa9bd1b783dee880e02b",
+      "submit_sha256": "4fb46a91808ebf49c1688c4eb4b494d1c673d638fafc9eb588b516d233a30b60",
       "transform": "documentation_links_only"
     },
     {
@@ -4286,8 +4286,8 @@
       "source_path": "document/requirements/report-poster-master-guide.md",
       "submit_path": "report/requirements/report-poster-master-guide.md",
       "mode": "100644",
-      "source_sha256": "9922bb99326db3cf9a7b58e1330bc94099c19c5fef984a3e3fdcbf89dc1e9886",
-      "submit_sha256": "e3da7511c4159a67b30efbf7301f7cfa820a7bc7cd4117b51090d0f15aef1f01",
+      "source_sha256": "78a94399ce4d8ca25c3b61500d648f278dac730cd5b6e8cfea0366a1d37dc90c",
+      "submit_sha256": "ba35a7884f72c531140b81ad906a0c32b926982a58d611a42c7630e737cda9f7",
       "transform": "documentation_links_only"
     },
     {
