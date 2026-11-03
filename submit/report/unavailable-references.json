@@ -55,6 +55,10 @@
     },
     {
       "document": "report/final-function-scope.md",
+      "original_target": "../report/screen_s2_20261102/README.md"
+    },
+    {
+      "document": "report/final-function-scope.md",
       "original_target": "release-20261102-submit.md"
     },
     {
@@ -67,7 +71,7 @@
     },
     {
       "document": "report/main-architecture.md",
-      "original_target": "../handoff/README.md"
+      "original_target": "../report/screen_s2_20261102/README.md"
     },
     {
       "document": "report/ps-latest-result.md",
@@ -123,15 +127,15 @@
     },
     {
       "document": "report/requirements/final-report-scope.md",
-      "original_target": "../../handoff/README.md"
+      "original_target": "../../report/screen_s2_20261102/README.md"
     },
     {
       "document": "report/requirements/report-poster-master-guide.md",
       "original_target": "../evidence/pynq-board-20261021/README.md"
     },
     {
-      "document": "build/reports/current/screen_s2_20261102/readme.md",
-      "original_target": "../../handoff/README.md"
+      "document": "report/requirements/report-poster-master-guide.md",
+      "original_target": "../../report/screen_s2_20261102/README.md"
     },
     {
       "document": "skill/pynq-overlay-dma-validation/references/history/validation-status-20260913.md",

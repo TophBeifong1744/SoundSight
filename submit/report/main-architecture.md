@@ -19,7 +19,7 @@
 
 ## 实际使用哪份工程与说明
 
-- 当前S2可搬移工程及工具见handoff（历史引用：`../handoff/README.md`），只复制准备也可使用`tools/prepare_screen_s2.py`；匹配实现见[S2报告](../build/reports/current/screen_s2_20261102/readme.md)。公共源码仍在`project`；本机旧Vivado工程不覆盖它。
+- 当前S2可搬移工程及工具见[handoff](../build/handoff/readme.md)，只复制准备也可使用`tools/prepare_screen_s2.py`；匹配实现见S2报告（历史引用：`../report/screen_s2_20261102/README.md`）。公共源码仍在`project`；本机旧Vivado工程不覆盖它。
 - 当前安装与联合运行：[完整程序包](pynq-final-runtime.md)；屏幕控制：[S3说明](../board/instructions/screen-control.md)。旧W16更新和PR30复现只服务历史硬件，不能据此重新生成当前S2候选。
 - `project/script/run.bat prepare ps`仍是早期PS音量版基础配方，不能单独代表最新PCM、三维和双轴候选。`variants/pl_ps`保留现有目录名，主方案变更不要求搬动文件或重新生成位流。
 - `rebuild_ps_3d.bat`及其无参数BAT路由保留旧三维双轴准备，不包含S2屏幕硬件；本次只更新说明，不自动运行工程构建。

@@ -3,12 +3,12 @@
 # SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
 # IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
 # SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-# Start of session at: Mon Nov  2 20:51:48 2026
-# Process ID         : 41868
-# Current directory  : F:/NUEC/ss-screen-ps-i2c-release-s2/report-export-20261102
-# Command line       : vivado.exe -mode gui -source F:/NUEC/ss-screen-ps-i2c-release-s2/report-export-20261102/export.tcl -log F:/NUEC/ss-screen-ps-i2c-release-s2/report-export-20261102/vivado-gui-retry.log -journal F:/NUEC/ss-screen-ps-i2c-release-s2/report-export-20261102/vivado-gui-retry.jou
-# Log file           : F:/NUEC/ss-screen-ps-i2c-release-s2/report-export-20261102/vivado-gui-retry.log
-# Journal file       : F:/NUEC/ss-screen-ps-i2c-release-s2/report-export-20261102/vivado-gui-retry.jou
+# Start of session at: Tue Nov  3 16:32:56 2026
+# Process ID         : 47264
+# Current directory  : F:/NUEC/screen-report-p1-export
+# Command line       : vivado.exe -mode gui -source F:/NUEC/screen-report-p1-export/export.tcl -log F:/NUEC/screen-report-p1-export/vivado-export.log -journal F:/NUEC/screen-report-p1-export/vivado-export.jou
+# Log file           : F:/NUEC/screen-report-p1-export/vivado-export.log
+# Journal file       : F:/NUEC/screen-report-p1-export/vivado-export.jou
 # Running On         : Y9000P
 # Platform           : Windows Server 2016 or Windows 10
 # Operating System   : 26200
@@ -17,12 +17,12 @@
 # CPU Physical cores : 16
 # CPU Logical cores  : 32
 # Host memory        : 16844 MB
-# Swap memory        : 25797 MB
-# Total Virtual      : 42642 MB
-# Available Virtual  : 3624 MB
+# Swap memory        : 23622 MB
+# Total Virtual      : 40467 MB
+# Available Virtual  : 19395 MB
 #-----------------------------------------------------------
 start_gui
-source F:/NUEC/ss-screen-ps-i2c-release-s2/report-export-20261102/export.tcl
+source F:/NUEC/screen-report-p1-export/export.tcl
 # set ss_report_root [file dirname [file normalize [info script]]]
 # set ss_report_project {F:/NUEC/ss-screen-ps-i2c-s2/project/par/SoundSight_PS_3D.xpr}
 # if {[catch {
@@ -139,7 +139,6 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24c:part0:1.0 available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24c:part0:1.1 available at D:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24c\1.1\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24i:part0:1.0 available at D:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24i\1.0\board.xml as part xck24-ubva530-2lvi-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.2 available at D:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.2\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.3 available at D:/AMD/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.3\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
 INFO: [Common 17-14] Message 'Board 49-26' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Project 1-5713] Board part '' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
 INFO: [IP_Flow 19-234] Refreshing IP repositories
@@ -201,7 +200,7 @@ soundsight_stm32_bd_irq_concat_0
 soundsight_stm32_bd_irq_zero_0
 soundsight_stm32_bd_screen_reset_gate_0
 soundsight_stm32_bd_screen_pixel_reset_inv_0
-open_project: Time (s): cpu = 00:00:22 ; elapsed = 00:00:13 . Memory (MB): peak = 1743.348 ; gain = 363.777
+open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 1730.676 ; gain = 350.684
 REPORT_SOURCE_PROJECT=F:/NUEC/ss-screen-ps-i2c-s2/project/par/SoundSight_PS_3D.xpr
 REPORT_PART=xc7z020clg400-2
 ## namespace eval bd_impl_export {}
@@ -301,7 +300,7 @@ REPORT_PART=xc7z020clg400-2
 ## if {![info exists ::bd_impl_export_library_only] || !$::bd_impl_export_library_only} {
 ##     bd_impl_export::run
 ## }
-REPORT_EXPORT_DIR=F:/NUEC/ss-screen-ps-i2c-release-s2/report-export-20261102/reports/export_20261102_205236
+REPORT_EXPORT_DIR=F:/NUEC/screen-report-p1-export/reports/export_20261103_163331
 Reading block design file <F:/NUEC/ss-screen-ps-i2c-s2/payload/SoundSight_PS_3D.srcs/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.bd>...
 Adding component instance block -- xilinx.com:ip:processing_system7:5.5 - ps7
 Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_main
@@ -341,14 +340,14 @@ Adding component instance block -- xilinx.com:ip:xpm_cdc_gen:1.0 - screen_axi_re
 Adding component instance block -- xilinx.com:ip:xpm_cdc_gen:1.0 - screen_pixel_release
 Adding component instance block -- xilinx.com:ip:xpm_cdc_gen:1.0 - screen_lock_sync
 Successfully read diagram <soundsight_stm32_bd> from block design file <F:/NUEC/ss-screen-ps-i2c-s2/payload/SoundSight_PS_3D.srcs/sources_1/bd/soundsight_stm32_bd/soundsight_stm32_bd.bd>
-open_bd_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 1772.660 ; gain = 20.961
+open_bd_design: Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1772.469 ; gain = 9.375
 INFO: [Device 21-403] Loading part xc7z020clg400-2
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.746 . Memory (MB): peak = 2061.883 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.531 . Memory (MB): peak = 2072.551 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 2053 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2025.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
-Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.191 . Memory (MB): peak = 2213.520 ; gain = 13.457
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.115 . Memory (MB): peak = 2226.617 ; gain = 14.207
 INFO: [Timing 38-478] Restoring timing data from binary archive.
 INFO: [Timing 38-479] Binary timing data restore complete.
 INFO: [Project 1-856] Restoring constraints from binary archive.
@@ -357,31 +356,31 @@ INFO: [Constraints 18-5170] The checkpoint was created with non-default paramete
 INFO: [Project 1-853] Binary constraint restore complete.
 INFO: [Designutils 20-5722] Start Reading Physical Databases.
 Reading placement.
-Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.073 . Memory (MB): peak = 2902.152 ; gain = 0.000
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 2909.066 ; gain = 0.000
 Reading placer database...
-Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 2902.152 ; gain = 0.000
-Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2902.152 ; gain = 0.000
-Read placeStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2922.609 ; gain = 20.457
-Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2922.609 ; gain = 0.000
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 2909.066 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2909.066 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.719 . Memory (MB): peak = 2928.801 ; gain = 19.734
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2928.801 ; gain = 0.000
 Reading routing.
-Read RouteStorage: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.735 . Memory (MB): peak = 2951.215 ; gain = 28.605
-Read Physdb Files: Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2951.215 ; gain = 49.062
-Restored from archive | CPU: 3.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2951.215 ; gain = 49.062
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 2990.684 ; gain = 0.000
+Read RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.337 . Memory (MB): peak = 2955.320 ; gain = 26.520
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2955.320 ; gain = 46.254
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2955.320 ; gain = 46.254
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 2994.645 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 258 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 5 instances
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 245 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 8 instances
 
-open_run: Time (s): cpu = 00:00:53 ; elapsed = 00:00:43 . Memory (MB): peak = 3760.617 ; gain = 1987.816
+open_run: Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 3502.277 ; gain = 1729.809
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
 WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
-report_timing_summary: Time (s): cpu = 00:00:35 ; elapsed = 00:00:22 . Memory (MB): peak = 3809.457 ; gain = 47.953
-EXPORT_COMPLETE=F:/NUEC/ss-screen-ps-i2c-release-s2/report-export-20261102/reports/export_20261102_205236
+report_timing_summary: Time (s): cpu = 00:00:19 ; elapsed = 00:00:12 . Memory (MB): peak = 3648.242 ; gain = 140.262
+EXPORT_COMPLETE=F:/NUEC/screen-report-p1-export/reports/export_20261103_163331
 # puts {REPORT_ONLY_DONE NO_BUILD=1 HARDWARE_ACTIONS=0}
 REPORT_ONLY_DONE NO_BUILD=1 HARDWARE_ACTIONS=0
 # exit 0
-INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 20:54:07 2026...
+INFO: [Common 17-206] Exiting Vivado at Tue Nov  3 16:34:31 2026...

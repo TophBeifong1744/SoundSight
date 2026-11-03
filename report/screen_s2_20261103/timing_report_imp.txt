@@ -1,14 +1,14 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-| Date         : Mon Nov  2 20:54:00 2026
+| Date         : Tue Nov  3 16:34:27 2026
 | Host         : Y9000P running 64-bit major release  (build 9200)
-| Command      : report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 50 -input_pins -file F:/NUEC/ss-screen-ps-i2c-release-s2/report-export-20261102/reports/export_20261102_205236/timing_report_imp.txt
+| Command      : report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 50 -input_pins -file F:/NUEC/screen-report-p1-export/reports/export_20261103_163331/timing_report_imp.txt
 | Design       : soundsight_stm32_bd_wrapper
 | Device       : 7z020-clg400
 | Speed File   : -2  PRODUCTION 1.12 2019-11-22
 | Design State : Routed
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Timing Summary Report
 
