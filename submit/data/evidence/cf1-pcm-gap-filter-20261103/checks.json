@@ -1,0 +1,37 @@
+[
+  {
+    "test": "software/tetra3d/tests/test_pcm_gap_filter.py",
+    "returncode": 0,
+    "tests": 9
+  },
+  {
+    "test": "software/tetra3d/tests/test_cf1.py",
+    "returncode": 0,
+    "tests": 16
+  },
+  {
+    "test": "software/tests/test_speaker_follow.py",
+    "returncode": 0,
+    "tests": 27
+  },
+  {
+    "test": "software/tetra3d/tests/test_capture_recovery.py",
+    "returncode": 0,
+    "tests": 8
+  },
+  {
+    "test": "software/tetra3d/tests/test_online_3d.py",
+    "returncode": 0,
+    "tests": 21
+  },
+  {
+    "test": "software/tests/test_screen_product.py",
+    "returncode": 0,
+    "tests": 44
+  },
+  {
+    "test": "software/tetra3d/tests/test_follow_sound.py",
+    "returncode": 0,
+    "tests": 7
+  }
+]

@@ -1,0 +1,53 @@
+{
+  "scope": "SUBMISSION_PACKAGING_ONLY",
+  "files": 1196,
+  "category_files": {
+    "board": 36,
+    "build": 187,
+    "data": 598,
+    "report": 50,
+    "sim": 50,
+    "skill": 127,
+    "src": 147
+  },
+  "manifest_files": 1133,
+  "relative_links": 335,
+  "broken_links": 0,
+  "filename_check": "PASS",
+  "raw_sources_and_results": "PASS",
+  "display_and_restore_integrity": "PASS",
+  "original_document_copies": 50,
+  "eda": "NOT_RUN",
+  "hardware": "NOT_RUN",
+  "s2_recipe": {
+    "files": 49,
+    "payload_hashes": "PASS",
+    "overwrite_rejected": true,
+    "eda": "NOT_RUN"
+  },
+  "product_update": {
+    "standalone_rebuild": "PASS",
+    "files": 35,
+    "hardware": "NOT_RUN",
+    "board_validation": "PENDING",
+    "delivered_matches_rebuilt": "PASS"
+  },
+  "isolation": {
+    "zip_crc": "PASS",
+    "workspace_restore_files": 1133,
+    "outside_repository": "PASS",
+    "overwrite_rejected": true,
+    "missing_input_rejected": true,
+    "path_traversal_rejected": true,
+    "restore_traversal_rejected": true,
+    "missing_and_corrupt_original_rejected": true
+  },
+  "host_checks": {
+    "current_software_groups": 12,
+    "current_software_test_executions": 182,
+    "install_test_executions": 11,
+    "volume_test_executions": 15,
+    "all_passed": true
+  },
+  "note": "Result from isolated ZIP extraction and reconstruction; no EDA or hardware operations. This result file was added after verification."
+}

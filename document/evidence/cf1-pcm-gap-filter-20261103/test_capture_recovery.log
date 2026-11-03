@@ -1,0 +1,15 @@
+test_arm_write_failure_still_attempts_stop (__main__.RecoveryTests.test_arm_write_failure_still_attempts_stop) ... ok
+test_first_save_failure_still_stops_but_never_consumes_or_resets (__main__.RecoveryTests.test_first_save_failure_still_stops_but_never_consumes_or_resets) ... ok
+test_panel_checks_audio_and_requires_explicit_confirmation (__main__.RecoveryTests.test_panel_checks_audio_and_requires_explicit_confirmation) ... ok
+test_panel_recovery_requires_success_marker_and_single_idle_readback (__main__.RecoveryTests.test_panel_recovery_requires_success_marker_and_single_idle_readback) ... PANEL_STOP_CHECK={"verified": true, "runtime_code": null, "status_code": 0, "device": {"status": 0, "fault": 64, "drops": 378, "sys": 8, "actuator": 0, "dual_axis": 768, "audio": {"raw": 56, "errors": 0, "armed": false, "pending": false, "partial_tail": false, "idle": true, "dma_reset_released": true, "ready": true, "rejected": 0, "published": 0, "epoch": 63}, "dma_status": 1}}
+PANEL_STOP_CHECK={"verified": false, "runtime_code": null, "status_code": 0, "device": {"status": 0, "fault": 64, "drops": 378, "sys": 8, "actuator": 0, "dual_axis": 768, "audio": {"raw": 56, "errors": 0, "armed": false, "pending": false, "partial_tail": false, "idle": true, "dma_reset_released": true, "ready": true, "rejected": 0, "published": 0, "epoch": 63}, "dma_status": 1}}
+ok
+test_preserve_then_consume_reset_new_epoch_and_idle_without_motion (__main__.RecoveryTests.test_preserve_then_consume_reset_new_epoch_and_idle_without_motion) ... ok
+test_reset_failure_does_not_rearm_or_claim_recovery (__main__.RecoveryTests.test_reset_failure_does_not_rearm_or_claim_recovery) ... ok
+test_save_failure_retains_locked_snapshot_and_never_resets_audio (__main__.RecoveryTests.test_save_failure_retains_locked_snapshot_and_never_resets_audio) ... ok
+test_unrelated_ps_fault_is_preserved_not_cleared (__main__.RecoveryTests.test_unrelated_ps_fault_is_preserved_not_cleared) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.011s
+
+OK

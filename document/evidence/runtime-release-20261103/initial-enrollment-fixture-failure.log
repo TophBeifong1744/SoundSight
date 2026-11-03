@@ -1,0 +1,17 @@
+............E.....
+======================================================================
+ERROR: test_runtime_reads_target_and_threshold_only_inside_owner_lock (__main__.EnrollmentTests.test_runtime_reads_target_and_threshold_only_inside_owner_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<initial-validation>\unpacked\SoundSight_PYNQ_3D_Speaker\software\tests\test_speaker_enrollment.py", line 178, in test_runtime_reads_target_and_threshold_only_inside_owner_lock
+    self.assertEqual(runtime.run(args, self.root), 1)
+                     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "<initial-validation>\unpacked\SoundSight_PYNQ_3D_Speaker\software\tetra3d\linux\speaker_runtime_3d.py", line 131, in run
+    report['capture_scheduling'] = scheduling.info
+                                   ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'info'
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.767s
+
+FAILED (errors=1)

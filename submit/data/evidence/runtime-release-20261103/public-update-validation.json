@@ -1,0 +1,11 @@
+{
+  "scope": "ACTUAL_PUBLIC_ZIP_OFFLINE_UPGRADE",
+  "baseline": "previous installed screen quick-boot update",
+  "payload_files": 33,
+  "upgrade": "PASS",
+  "repeat_install": "PASS",
+  "private_data_preserved": "PASS",
+  "unknown_local_edit_rejected": "PASS",
+  "hardware_actions": 0,
+  "initial_failure": "Known quick-boot board_3d.py hash was in previous but missing in requires; accepted verified LF/CRLF variants from that exact package. No unknown source whitelist added."
+}

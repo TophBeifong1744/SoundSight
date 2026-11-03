@@ -1,0 +1,32 @@
+[
+  {
+    "original_name": "product-check.zip",
+    "saved_as": "product-check.zip",
+    "bytes": 6347,
+    "sha256": "e72914663a780a62188e3a0713df222ea0b974f775f5602b173167c06bd2e75e"
+  },
+  {
+    "original_name": "three-d-20211119-085141-188466-685.json",
+    "saved_as": "runtime.json",
+    "bytes": 8337,
+    "sha256": "13c808cb4b4f4dcd0cd786b4fce47a6f1f8e9301d47027c4deba81aadffa37dd"
+  },
+  {
+    "original_name": "11b61955f977237b7d36cc5bc4953cd4.jpg",
+    "saved_as": "photos/home-idle.jpg",
+    "bytes": 254510,
+    "sha256": "5ec30ceaec96ee5804ef14eba328cbdaf0cde5f470fafac9f884a838dddd798a"
+  },
+  {
+    "original_name": "78bea54f5f090f87df7b0c6a6facc7df.jpg",
+    "saved_as": "photos/settings-level.jpg",
+    "bytes": 220824,
+    "sha256": "d45037bb127e4eddd417c913b6503d6367d99a97d06673a66b1f26131dba7200"
+  },
+  {
+    "original_name": "4d73ee21618bf13574d2ed73c395ea70.jpg",
+    "saved_as": "photos/whole-system.jpg",
+    "bytes": 212095,
+    "sha256": "a21daad757bd6d44cce34e8b2eef67057fb70731b94aad8ab0147a6e4af68042"
+  }
+]

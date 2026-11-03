@@ -1,0 +1,15 @@
+test_diagnostics_bounded_exclude_tail_and_expose_raw_reject (__main__.PCMGapTests.test_diagnostics_bounded_exclude_tail_and_expose_raw_reject) ... ok
+test_frontend_missing_or_clipped_intermediate_block_cannot_prove_link (__main__.PCMGapTests.test_frontend_missing_or_clipped_intermediate_block_cannot_prove_link) ... ok
+test_low_volume_fault_and_norm_residual_still_reject (__main__.PCMGapTests.test_low_volume_fault_and_norm_residual_still_reject) ... ok
+test_minimum_consensus_and_deadband_unchanged (__main__.PCMGapTests.test_minimum_consensus_and_deadband_unchanged) ... ok
+test_permission_and_raw_hardware_pairs_still_block_motion (__main__.PCMGapTests.test_permission_and_raw_hardware_pairs_still_block_motion) ... ok
+test_real_frontend_skipping_every_other_snapshot_produces_groups (__main__.PCMGapTests.test_real_frontend_skipping_every_other_snapshot_produces_groups) ... ok
+test_stale_future_and_whole_group_age_limits (__main__.PCMGapTests.test_stale_future_and_whole_group_age_limits) ... ok
+test_unverified_epoch_reverse_long_gap_and_missing_proof_reset (__main__.PCMGapTests.test_unverified_epoch_reverse_long_gap_and_missing_proof_reset) ... ok
+test_verified_gap_group_can_reach_dual_axis_commit_with_permission (__main__.PCMGapTests.test_verified_gap_group_can_reach_dual_axis_commit_with_permission) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.073s
+
+OK
+SYNTHETIC_GAP_COMPARISON old_groups=0 new_groups=9 bridged=47

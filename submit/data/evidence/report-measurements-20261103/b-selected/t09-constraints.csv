@@ -1,0 +1,7 @@
+﻿file,original_path,enabled,attributes
+spi_ila_debug.xdc,$PPRDIR/../../payload/dual_axis_constraints/01/spi_ila_debug.xdc,false (UserDisabled=1),"{""Library"": [""xil_defaultlib""], ""UserDisabled"": [""1""], ""UsedIn"": [""implementation""], ""ProcessingOrder"": [""LATE""]}"
+board_pins.xdc,$PPRDIR/../../payload/dual_axis_constraints/02/board_pins.xdc,true (未设UserDisabled；默认启用),"{""Library"": [""xil_defaultlib""], ""UsedIn"": [""synthesis"", ""implementation""]}"
+interface_timing.xdc,$PPRDIR/../../payload/dual_axis_constraints/03/interface_timing.xdc,true (未设UserDisabled；默认启用),"{""Library"": [""xil_defaultlib""], ""UsedIn"": [""synthesis"", ""implementation""]}"
+horizontal_reserved.xdc,$PPRDIR/../../payload/dual_axis_constraints/04/horizontal_reserved.xdc,true (未设UserDisabled；默认启用),"{""Library"": [""xil_defaultlib""], ""UsedIn"": [""synthesis"", ""implementation""]}"
+dual_axis_output_timing.xdc,$PPRDIR/../../payload/dual_axis_constraints/05/dual_axis_output_timing.xdc,true (未设UserDisabled；默认启用),"{""UsedIn"": [""synthesis"", ""implementation""]}"
+screen_pins.xdc,$PPRDIR/../../payload/screen_pins.xdc,true (未设UserDisabled；默认启用),"{""UsedIn"": [""synthesis"", ""implementation""]}"

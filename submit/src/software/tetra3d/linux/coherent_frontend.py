@@ -29,9 +29,13 @@ class CoherentSolver:
         self.lags = [np.arange(-n, n+1) for n in SCANS]
         self.lag_indices = [v % 1024 for v in self.lags]
         self.last_packet = self.last_sequence = self.last_start = None
+        self.previous_observation = None
         self.seen_start = None  # Anti-replay watermark survives history resets.
         self.source_completed_at = None
         self.capture_started_at = None
+        # Optional acquisition-owner callback. It may receive PCM, but must not
+        # invoke solve() or change the spectral history. No worker/thread owns DMA.
+        self.service_capture = None
         self.stats = dict(revision='CF1A', packets=0, solved=0, valid=0, missing_pcm=0,
                           resets=0, clipped_windows=0, max_solve_seconds=0., max_blocks=0,
                           total_solve_seconds=0., spectral_windows=0, backfilled_windows=0,
@@ -69,6 +73,7 @@ class CoherentSolver:
                     start in self.blocks and start+512 in self.blocks)
 
     def invalid(self, frame, reason):
+        self.previous_observation = None
         self.reset_history()
         result = self.native.solve(dict(frame, words=[v for i in range(6)
             for v in ((i << 8) | (2 << 24) | (6 << 28), 0, 0, 0, 0)]))
@@ -76,8 +81,8 @@ class CoherentSolver:
                       frontend='CF1A', cf1_reset=reason, source_completed_at=self.source_completed_at)
         return result
 
-    def append_window(self, start):
-        blocks = [self.blocks[start], self.blocks[start+512]]
+    def append_window(self, start, blocks=None):
+        blocks = [self.blocks[start], self.blocks[start+512]] if blocks is None else blocks
         pcm = np.frombuffer(blocks[0][0]+blocks[1][0], dtype='<i4').reshape(1024, 4)
         ft = np.fft.rfft(np.rint(pcm*self.hann[:, None]), axis=0)[7:86]
         cross = np.array([ft[:, x]*ft[:, y].conj() for x, y in PAIRS])
@@ -124,23 +129,45 @@ class CoherentSolver:
             return self.invalid(frame, 'pcm_clipped')
         if self.clock()-self.source_completed_at >= .75:
             return self.invalid(frame, 'pcm_window_stale')
+        # Evidence for the spatial filter, computed before cooperative receipt can
+        # evict blocks. Only a bounded, complete, unclipped PCM interval qualifies.
+        previous = self.previous_observation
+        linked = False
+        if previous is not None:
+            old_start, old_sequence = previous
+            advance = start-old_start
+            seq_advance = (frame['sequence']-old_sequence) & 0xffffffff
+            linked = (0 < advance <= 16*512 and 0 < seq_advance <= 16 and
+                      all(pos in self.blocks and not self.blocks[pos][2]
+                          for pos in range(old_start, start+1024, 512)))
+        continuity = dict(policy='CF1_PCM_GAPS_V1', epoch=self.epoch,
+            sample_start=start, sequence=frame['sequence'], verified=linked,
+            previous_start=None if previous is None else previous[0],
+            previous_sequence=None if previous is None else previous[1])
         if self.last_sequence is not None and frame['sequence'] != (self.last_sequence+1) & 0xffffffff:
             self.stats['snapshot_gaps'] += 1
         # A missing PL snapshot is not missing audio. Reconstruct only preceding
         # windows already present in the validated PCM ring; never invent a frame
-        # or a motion command. The downstream spatial filter still sees the gap.
+        # or a motion command. The downstream filter checks continuity evidence before bridging a gap.
         first = 0 if self.last_start is None else self.last_start+512
         if start-first >= 16*512:
             self.reset_history()
             first = start-15*512
         steps = 0
+        # Pin only this solve's <=17 immutable blocks. Cooperative DMA receipt
+        # may evict the rolling ring while we compute, never this exact window.
+        pinned = {pos: self.blocks.get(pos) for pos in range(first, start+1024, 512)}
         for pos in range(first, start+1, 512):
-            left, right = self.blocks.get(pos), self.blocks.get(pos+512)
+            if self.service_capture is not None:
+                self.service_capture()
+            left, right = pinned.get(pos), pinned.get(pos+512)
             if left is None or right is None or left[2] or right[2]:
                 self.reset_history()
                 continue
-            self.append_window(pos)
+            self.append_window(pos, (left, right))
             steps += 1
+        if self.service_capture is not None:
+            self.service_capture()
         self.last_sequence = frame['sequence']
         self.stats['backfilled_windows'] += max(0, steps-1)
         self.stats['max_windows_per_solve'] = max(self.stats['max_windows_per_solve'], steps)
@@ -151,6 +178,8 @@ class CoherentSolver:
         self.spectrum[:, 7:86] = band
         counts = keep.sum(axis=1)
         corr = np.fft.irfft(self.spectrum, n=1024, axis=1)
+        if self.service_capture is not None:
+            self.service_capture()
         words = []
         for i in range(6):
             if counts[i] < 12:
@@ -162,10 +191,14 @@ class CoherentSolver:
             words.extend([word]+[int(v) & 0xffffffff for v in values]+[0])
         # Only the numerical bridge receives these software features. The original
         # hardware snapshot, sequence, raw admission bits and CONSUME stay intact.
+        if self.service_capture is not None:
+            self.service_capture()
         result = self.native.solve(dict(frame, words=words))
         if result['valid_pairs'] < 4:
             result.update(direction_valid=0, azimuth_valid=0, elevation_valid=0, reason=1)
-        result.update(frontend='CF1A', history_frames=len(self.history), source_completed_at=self.source_completed_at)
+        self.previous_observation = (start, frame['sequence'])
+        result.update(frontend='CF1A', history_frames=len(self.history),
+                      source_completed_at=self.source_completed_at, pcm_continuity=continuity)
         self.stats['solved'] += 1
         self.stats['valid'] += int(bool(result['direction_valid']))
         elapsed = self.clock()-began

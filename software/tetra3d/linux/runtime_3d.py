@@ -18,10 +18,12 @@ from run_capture import address_from_hwh, single_owner
 from client_3d import ThreeDClient
 from solver_3d import Solver3D
 from motion_3d import MASKS
+from direction_diagnostics import DirectionDiagnostics, reason_name
 
 
 class State3D:
-    def __init__(self, debug_limit=0):
+    def __init__(self, debug_limit=0, direction_diagnostics=False):
+        self.diagnostics = DirectionDiagnostics() if direction_diagnostics else None
         self.began = time.monotonic()
         self.stats = dict(consumed=0, drained=0, raw_valid=0, accepted_windows=0,
                           motion_commits=0, sequence_gaps=0, below_volume=0,
@@ -42,13 +44,16 @@ class State3D:
         self.latest = dict(sequence=frame['sequence'], level=record['volume']['level_counts'],
                            output=output, at=now, window_count=detail['frame_count'],
                            window_size=detail['window_size'], min_valid=detail['min_valid'],
-                           valid_count=detail['valid_count'], motion=record.get('motion'))
+                           valid_count=detail['valid_count'], motion=record.get('motion'),
+                           raw_reason=reason_name(result['reason']), raw_pairs=result.get('valid_pairs'))
         if self.debug_limit:
             if len(self.records) >= self.debug_limit:
                 raise RuntimeError('Bounded debug record capacity exhausted')
             self.records.append(record)
         if self.tail:
             return
+        if self.diagnostics is not None:
+            self.diagnostics.accept(record, ThreeDClient.hardware_follow_qualified(frame))
         if detail['complete']:
             self.last_group = dict(sequence=frame['sequence'], at=now, output=output,
                                    valid_count=detail['valid_count'], inlier_count=detail['inlier_count'])
@@ -70,9 +75,12 @@ class State3D:
         self.reasons[key if key in self.reasons else 'other'] += 1
 
     def snapshot(self, phase='running'):
-        return dict(phase=phase, at=time.monotonic(), stats=dict(self.stats),
+        value = dict(phase=phase, at=time.monotonic(), stats=dict(self.stats),
                     elapsed_seconds=time.monotonic()-self.began, solver_reasons=dict(self.reasons),
                     latest=self.latest, last_group=self.last_group, last_clear=self.last_clear)
+        if phase != 'running' and self.diagnostics is not None:
+            value['direction_diagnostics'] = self.diagnostics.snapshot()
+        return value
 
 
 def angle_text(out):
@@ -95,6 +103,7 @@ def display(state, now=None):
     text += ' WINDOW=%s/%s VALID=%s MIN=%s' % (row['window_count'], row['window_size'],
                                              row['valid_count'], row['min_valid'])
     motion = row.get('motion') or {}
+    text += ' RAW_REASON=%s RAW_PAIRS=%s' % (row.get('raw_reason', 'UNKNOWN'), row.get('raw_pairs', 'UNKNOWN'))
     text += ' AXES=%s MOTION=%s' % (motion.get('axes', 0), motion.get('reason', 'OFF'))
     group = state.get('last_group')
     if group:

@@ -1,0 +1,105 @@
+{
+  "package_revision": "S2_P1_CF1A_20261103",
+  "files": 166,
+  "crc": "PASS",
+  "actual_zip_install": "PASS",
+  "screen_receipt_after_mock_reboot": "PASS",
+  "product_receipt_and_upgrade": "PASS",
+  "private_state_preservation": "PASS",
+  "private_asset_bindings": "PASS",
+  "das": false,
+  "hardware_actions": 0,
+  "scope": "PC_SYNTHETIC_AND_PACKAGE_VALIDATION",
+  "test_invocations": 297,
+  "tests": [
+    {
+      "test": "software/tetra3d/tests/test_online_3d.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tetra3d/tests/test_follow_sound.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_speaker_follow.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_speaker_display.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tetra3d/tests/test_cf1.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_screen_product.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_screen_rotation.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_speaker_delete.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_speaker_enrollment.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_screen_quick_boot.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tetra3d/tests/test_capture_recovery.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tetra3d/tests/test_pcm_gap_filter.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_current_runtime.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_speaker_statistics.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_latest_result.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_normal.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_volume_gate.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_serial_english.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_board_tools.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_filter_controls.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_manual_servo.py",
+      "exit": 0
+    },
+    {
+      "test": "software/tests/test_pcm_capture.py",
+      "exit": 0
+    }
+  ],
+  "result": "PASS"
+}

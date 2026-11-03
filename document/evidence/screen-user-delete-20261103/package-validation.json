@@ -1,0 +1,23 @@
+{
+  "tests_passed": 62,
+  "board": "PENDING",
+  "hardware_actions": 0,
+  "package_sha256": "9d3da7d822643a93616bfe80aef38a39191590b4ee08f291f6facc0dc463fded",
+  "upgrade": "PASS",
+  "idempotent": "PASS",
+  "private_data_preserved": "PASS",
+  "unknown_edit_refused": "PASS",
+  "python38_syntax": "PASS",
+  "zip_crc_manifest": "PASS",
+  "changed": [
+    "software/screen/backend.py",
+    "software/screen/ui.py",
+    "tools/install_product.py",
+    "software/tetra3d/linux/board_3d.py",
+    "soundsight-3d.sh",
+    "software/ps/speaker_delete.py",
+    "software/ps/speaker_targets.py",
+    "software/tests/test_speaker_delete.py",
+    "document/screen-user-delete.md"
+  ]
+}

@@ -18,6 +18,25 @@ PAYLOAD = ('software/screen/backend.py', 'software/screen/ui.py', 'software/scre
            'software/screen/product.py', 'soundsight-product.sh',
            'document/screen-product.md', 'software/tests/test_screen_product.py',
            'tools/install_product.py')
+PAYLOAD += ('software/tetra3d/linux/coherent_frontend.py',
+            'software/tetra3d/linux/speaker_capture_3d.py',
+            'software/tetra3d/linux/speaker_runtime_3d.py',
+            'software/tetra3d/linux/board_3d.py',
+            'software/tetra3d/linux/capture_recovery.py',
+            'software/tetra3d/tests/test_cf1.py',
+            'software/tetra3d/tests/test_capture_recovery.py',
+            'document/screen-speaker-capture-fix.md')
+PAYLOAD += ('software/tetra3d/linux/filter_3d.py',
+            'software/tetra3d/linux/client_3d.py',
+            'software/tetra3d/linux/runtime_3d.py',
+            'software/tetra3d/linux/direction_diagnostics.py',
+            'software/tetra3d/tests/test_pcm_gap_filter.py',
+            'document/cf1-pcm-gap-filter.md')
+PAYLOAD += ('software/tests/test_screen_rotation.py', 'document/screen-rotation.md')
+PAYLOAD += ('soundsight-3d.sh', 'software/ps/speaker_delete.py', 'software/ps/speaker_targets.py',
+            'software/tests/test_speaker_delete.py', 'document/screen-user-delete.md')
+PAYLOAD += ('software/ps/board_tools.py', 'software/tests/test_screen_quick_boot.py',
+            'software/tests/test_board_tools.py', 'document/screen-quick-boot.md')
 
 
 def digest(raw):
@@ -203,7 +222,7 @@ def install(archive, root, unit_path, ctl=systemctl, unit_root=None):
         raise
     if hasattr(os, 'sync'):
         os.sync()
-    return dict(revision=REVISION, backup=str(backup), autostart_enabled=True,
+    return dict(revision=REVISION, screen_rotation_default=180, filter_policy='CF1_PCM_GAPS_V1', capture_revision='CAPTURE_COOPERATIVE_V1', backup=str(backup), autostart_enabled=True,
                 service_started=False, hardware_actions=0, reboot_required=True,
                 user_profiles_preserved=True, reboot_validation='PENDING')
 

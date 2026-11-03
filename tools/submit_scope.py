@@ -10,18 +10,18 @@ ROOT = Path(__file__).resolve().parents[1]
 HARDWARE = {row['source'] for row in json.loads(
     (ROOT/'project/screen_s2/source-map.json').read_text('utf-8'))['files']}
 
-TOOLS = set(('export_submit submit_scope check_submit prepare_screen_s2 '
+TOOLS = set(('analyze_measurement_workbook analyze_release_session export_submit submit_scope check_submit prepare_screen_s2 '
              'check_current_software install_current_runtime install_normal_update '
              'pynq_preflight tool_config analyze_speaker_sessions '
              'collect_usb_gadget_inputs package_usb_network install_product package_product').split())
-TESTS = set(('test_current_runtime test_normal test_volume_gate test_serial_english '
+TESTS = set(('test_screen_rotation test_speaker_delete test_screen_quick_boot test_current_runtime test_normal test_volume_gate test_serial_english '
              'test_board_tools test_filter_controls test_manual_servo test_pcm_capture '
              'test_online_angle_filter test_speaker_follow test_speaker_display '
              'test_speaker_enrollment test_speaker_statistics test_latest_result '
              'test_speaker_process test_speaker_rx test_stream_scheduler '
              'test_speaker_live test_live_cpu_profile test_usb_network '
              'test_usb_input_collector test_tool_config test_screen_product').split())
-DOCS = set(('final-function-scope main-architecture pynq-final-runtime '
+DOCS = set(('runtime-update-log release-20261103 cf1-pcm-gap-filter screen-rotation screen-user-delete screen-quick-boot screen-speaker-capture-fix final-function-scope main-architecture pynq-final-runtime '
             'screen-readme screen-control follow-sound-af1 ps-dual-axis-interface '
             'ps-manual-calibration ps-latest-result ps-pcm-integration ps-volume-gate '
             'pynq-online-angle-filter pynq-speaker-enrollment pynq-speaker-statistics '
@@ -29,7 +29,7 @@ DOCS = set(('final-function-scope main-architecture pynq-final-runtime '
             'submit-final-scope screen-product').split())
 # Baselines and rejected optimization measurements are evidence, not deployable
 # candidates. Retain their original data so the improvement claims remain auditable.
-EVIDENCE = set(('cf1-board-20261101 cf1a-20261102 cf1a-longrun-20261102 '
+EVIDENCE = set(('final-board-20261103 report-measurements-20261103 runtime-release-20261103 screen-speaker-capture-fix-20261103 cf1-pcm-gap-filter-20261103 screen-rotation-20261103 screen-user-delete-20261103 screen-quick-boot-20261103 cf1-board-20261101 cf1a-20261102 cf1a-longrun-20261102 '
                 'competition-skills-20261018 final-runtime-20261102 '
                 'joint-peaks-20261101 p02-ttl-20261031 '
                 'screen-s2-20261031 screen-s3-20261031 '
@@ -75,7 +75,7 @@ def include(name):
         return name.split('/')[2] in EVIDENCE
     if name.startswith('document/') and name.count('/') == 1:
         return Path(name).stem in DOCS and name.endswith('.md')
-    if name.startswith('document/requirements/'):
+    if name.startswith(('document/requirements/', 'document/handoff/report-update-20261103/')):
         return True
     if name.startswith('hardware/reference/'):
         return not name.startswith('hardware/reference/camera/') and not name.endswith(('README.md', 'pg308-i2s.pdf'))

@@ -60,6 +60,22 @@ class InstallTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'HARDWARE_MISMATCH'):self.install()
         self.assertEqual(before,{p.relative_to(self.target):p.read_bytes() for p in self.target.rglob('*') if p.is_file()})
 
+    def test_product_receipt_tracks_upgrade_without_enabling_service(self):
+        self.manifest['product_files'] = ['software/ps/example.py']
+        self.pack(); self.install()
+        self.files['software/ps/example.py'] = b'updated product source'
+        self.manifest['files']['software/ps/example.py'] = installer.digest(self.files['software/ps/example.py'])
+        self.pack(); self.install('next-boot')
+        receipt = json.loads((self.target/'PRODUCT-INSTALL.json').read_text())
+        self.assertEqual(receipt['revision'], 'SCREEN_PRODUCT_P1')
+        self.assertEqual(receipt['files']['software/ps/example.py'], installer.digest(self.files['software/ps/example.py']))
+        self.assertEqual(self.install('next-boot')['changed_files'], 0)
+
+    def test_invalid_product_dependency_rejected_before_writes(self):
+        self.manifest['product_files'] = ['missing.py']; self.pack()
+        with self.assertRaisesRegex(ValueError, 'Invalid product'): self.install()
+        self.assertFalse(self.target.exists())
+
     def test_private_asset_change_rejected(self):
         self.install();self.manifest['private_assets']=['software/ps/example.py'];self.pack()
         (self.target/'software/ps/example.py').write_bytes(b'private-independent')

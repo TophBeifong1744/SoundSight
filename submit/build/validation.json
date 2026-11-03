@@ -1,0 +1,72 @@
+{
+  "scope": "SUBMISSION_PACKAGING_ONLY",
+  "files": 1197,
+  "category_files": {
+    "board": 36,
+    "build": 187,
+    "data": 599,
+    "report": 50,
+    "sim": 50,
+    "skill": 127,
+    "src": 147
+  },
+  "manifest_files": 1134,
+  "relative_links": 335,
+  "broken_links": 0,
+  "filename_check": "PASS",
+  "raw_sources_and_results": "PASS",
+  "display_and_restore_integrity": "PASS",
+  "original_document_copies": 50,
+  "eda": "NOT_RUN",
+  "hardware": "NOT_RUN",
+  "s2_recipe": {
+    "files": 49,
+    "payload_hashes": "PASS",
+    "overwrite_rejected": true,
+    "eda": "NOT_RUN"
+  },
+  "product_update": {
+    "standalone_rebuild": "PASS",
+    "files": 35,
+    "hardware": "NOT_RUN",
+    "board_validation": "PENDING",
+    "delivered_matches_rebuilt": "PASS"
+  },
+  "isolation": {
+    "zip_crc": "PASS",
+    "workspace_restore_files": 1134,
+    "outside_repository": "PASS",
+    "overwrite_rejected": true,
+    "missing_input_rejected": true,
+    "path_traversal_rejected": true,
+    "restore_traversal_rejected": true,
+    "missing_and_corrupt_original_rejected": true
+  },
+  "host_checks": {
+    "software_groups": 12,
+    "software_tests": 182,
+    "install_tests": 11,
+    "volume_tests": 15,
+    "all_passed": true
+  },
+  "private_delivery": {
+    "revision": "S2_P1_CF1A_20261103",
+    "source_commit": "83b911e5090616a76024f838161a5ccc7737b6d8",
+    "crc": "PASS",
+    "manifest": "PASS",
+    "all_executable_and_asset_bytes_match_297_test_package": true,
+    "changed_payloads": [
+      "README.md",
+      "SOURCE.json",
+      "document/pynq-final-runtime.md"
+    ],
+    "actual_install": {
+      "files": 166,
+      "hardware_actions": 0,
+      "reboot_required": true
+    },
+    "product_receipt": "PASS",
+    "hardware_actions": 0
+  },
+  "note": "Final payload independently verified; this verification record is generated after the check and is not a reconstruction input."
+}
