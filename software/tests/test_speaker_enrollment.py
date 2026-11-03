@@ -167,7 +167,8 @@ class EnrollmentTests(unittest.TestCase):
         args = SimpleNamespace(lock_file='unused', min_level=1, window_frames=20, min_valid=12,
                                axes='off', frames=1, seconds=1, geometry={}, calibration={})
         with patch.object(runtime, 'single_owner', owner), \
-             patch.object(runtime, 'CaptureScheduling', return_value=contextlib.nullcontext()), \
+             patch.object(runtime, 'CaptureScheduling',
+                          return_value=contextlib.nullcontext(SimpleNamespace(info={'mock': True}))), \
              patch('speaker_follow_setup.check', side_effect=checked({})), \
              patch('speaker_settings.verify_assets', side_effect=checked(dict(target_id='alice'))), \
              patch('speaker_models.verify_candidates', side_effect=checked({})), \

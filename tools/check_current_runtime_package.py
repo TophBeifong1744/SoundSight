@@ -78,7 +78,7 @@ def main():
     results = json.loads((regression/'result.json').read_text('utf-8'))['tests']
     env = os.environ.copy()
     env.update(PYTHONUTF8='1', PYTHONDONTWRITEBYTECODE='1')
-    tests = ('test_current_runtime test_speaker_enrollment test_speaker_statistics '
+    tests = ('test_current_runtime test_speaker_statistics '
              'test_latest_result test_normal test_volume_gate test_serial_english '
              'test_board_tools test_filter_controls test_manual_servo test_pcm_capture').split()
     for name in tests:

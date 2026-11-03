@@ -16,6 +16,7 @@ TESTS=['software/tetra3d/tests/test_online_3d.py',
        'software/tests/test_screen_product.py',
        'software/tests/test_screen_rotation.py',
        'software/tests/test_speaker_delete.py',
+       'software/tests/test_speaker_enrollment.py',
        'software/tests/test_screen_quick_boot.py',
        'software/tetra3d/tests/test_capture_recovery.py',
        'software/tetra3d/tests/test_pcm_gap_filter.py']
