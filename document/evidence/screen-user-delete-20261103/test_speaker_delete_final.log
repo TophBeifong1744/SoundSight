@@ -1,0 +1,22 @@
+test_active_delete_clears_gate_and_prevents_default_fallback (__main__.DeleteTests.test_active_delete_clears_gate_and_prevents_default_fallback) ... ok
+test_cancel_stop_and_repeated_touch_do_not_delete (__main__.DeleteTests.test_cancel_stop_and_repeated_touch_do_not_delete) ... ok
+test_changed_profile_and_running_owner_block_confirmation (__main__.DeleteTests.test_changed_profile_and_running_owner_block_confirmation) ... ok
+test_cli_requires_confirmation_and_owner_lock (__main__.DeleteTests.test_cli_requires_confirmation_and_owner_lock) ... usage: test_speaker_delete.py speaker-delete [-h]
+                                             --confirm-target CONFIRM_TARGET
+                                             --expected-token EXPECTED_TOKEN
+                                             target
+test_speaker_delete.py speaker-delete: error: the following arguments are required: --confirm-target, --expected-token
+STOP: RuntimeError: owner busy
+ok
+test_config_write_failure_keeps_profile (__main__.DeleteTests.test_config_write_failure_keeps_profile) ... ok
+test_confirmation_pins_displayed_name_not_new_list_index (__main__.DeleteTests.test_confirmation_pins_displayed_name_not_new_list_index) ... ok
+test_inactive_delete_preserves_selection_and_threshold (__main__.DeleteTests.test_inactive_delete_preserves_selection_and_threshold) ... ok
+test_legacy_p02_maps_only_to_exact_directory (__main__.DeleteTests.test_legacy_p02_maps_only_to_exact_directory) ... ok
+test_paths_builtins_unknown_files_and_id_mismatch_rejected (__main__.DeleteTests.test_paths_builtins_unknown_files_and_id_mismatch_rejected) ... ok
+test_symlink_refused_before_any_delete (__main__.DeleteTests.test_symlink_refused_before_any_delete) ... ok
+test_wrong_confirmation_and_changed_profile_delete_nothing (__main__.DeleteTests.test_wrong_confirmation_and_changed_profile_delete_nothing) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.667s
+
+OK

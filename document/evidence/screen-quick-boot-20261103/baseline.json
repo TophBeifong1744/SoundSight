@@ -1,0 +1,16 @@
+{
+  "source": "document/evidence/report-measurements-20261103/p1-ui-01/product-check.zip",
+  "first_stages": {
+    "BOOT": 54.062090167,
+    "PREPARING": 54.537210649,
+    "TOUCH_SETUP": 126.54323905,
+    "PANEL_STARTING": 134.53559179,
+    "READY": 143.790180103,
+    "STARTING": 652.651785788,
+    "RUNNING": 668.348521735,
+    "STOPPING": 725.499106971,
+    "VERIFYING": 725.97279957
+  },
+  "prepare_seconds": 72.006028401,
+  "boot_to_ready_seconds": 89.728089936
+}

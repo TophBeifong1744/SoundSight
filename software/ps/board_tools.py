@@ -240,7 +240,8 @@ def run_arguments(args, root=ROOT):
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
     sub = p.add_subparsers(dest='command', required=True)
-    sub.add_parser('prepare', help='Offline tests, load bitstream if needed, set clocks and verify readiness')
+    prep = sub.add_parser('prepare', help='Offline tests, load bitstream if needed, set clocks and verify readiness')
+    prep.add_argument('--quick', action='store_true', help='Check installed library instead of running offline regressions')
     sub.add_parser('pcm-check', help='Read PCM capabilities/status; no DMA start or capture')
     pcm = sub.add_parser('pcm', help='Bounded four-mic DMA test; always no motion')
     pcm.add_argument('--blocks', type=int, default=1, help='1..1024 packets of 512 samples; default 1')
@@ -380,7 +381,11 @@ def main(argv=None):
             with single_owner(LOCK):
                 base, size = hwh_check()
                 get_level()  # 本地配置坏了，先报错，不先下载。
-                offline_checks()
+                if args.quick:
+                    Solver(ROOT/'software/ps/libss_solver.so')
+                    print('ARM_LIBRARY_LOADED=1 BOOT_REGRESSION_SKIPPED=1', flush=True)
+                else:
+                    offline_checks()
                 overlay, slcr, clocks, mmio, ref = load_api()
                 prepare_hardware(overlay, slcr, clocks, mmio, ref, base, size)
             print('READY_FOR_DEBUG MIN_LEVEL=%d SERVO=OFF' % get_level(), flush=True)

@@ -30,7 +30,15 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
     report = dict(result='FAIL', error=None, cleanup_errors=[], packets=0, tail_packets=0,
                   epoch=epoch, dma_halted=False, max_dma_rearm_seconds=0., max_service_gap_seconds=0.,
                   retention='bounded_statistics', first_fault=None)
+    timing = dict(revision='CAPTURE_COOPERATIVE_V1', checkpoints=0,
+                  cooperative_packets=0, max_checkpoint_gap_seconds=0.,
+                  max_checkpoint_seconds=0., max_batch_packets=0,
+                  max_decode_seconds=0., max_pcm_sink_seconds=0.,
+                  max_speaker_submit_seconds=0., max_permission_seconds=0.,
+                  max_display_seconds=0.)
+    report['capture_service'] = timing
     start = previous = last_packet = last_display = clock()
+    last_checkpoint = clock()
     last_raw = None
     tail = False
 
@@ -39,6 +47,7 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
                     drops=client.read(DROP), dma_status=int(dma.ip.read(SR)))
 
     def poll_permission():
+        began = clock()
         if gate is None:
             return True
         for event in speaker.poll_events():
@@ -46,6 +55,7 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
         allowed = gate.allowed()
         if not allowed:
             client.revoke_target()
+        timing['max_permission_seconds'] = max(timing['max_permission_seconds'], clock()-began)
         return allowed
 
     client.motion_interlock = poll_permission
@@ -87,15 +97,52 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
         if rearm:
             dma.submit()
             report['max_dma_rearm_seconds'] = max(report['max_dma_rearm_seconds'], clock()-began)
+        began = clock()
         meta = decode_packet(data, epoch, report['packets']+report['tail_packets'])
+        timing['max_decode_seconds'] = max(timing['max_decode_seconds'], clock()-began)
         if forward:
+            began = clock()
             if getattr(client.solver, 'requires_pcm', False) is True:
                 client.solver.accept_packet(data, meta)
+            timing['max_pcm_sink_seconds'] = max(timing['max_pcm_sink_seconds'], clock()-began)
+            began = clock()
             speaker.submit(data, meta)
+            timing['max_speaker_submit_seconds'] = max(timing['max_speaker_submit_seconds'], clock()-began)
             report['packets'] += 1
         else:
             report['tail_packets'] += 1
         last_packet = clock()
+
+    def service_capture(cooperative=True):
+        nonlocal last_checkpoint
+        if tail:
+            return
+        began = clock()
+        timing['max_checkpoint_gap_seconds'] = max(timing['max_checkpoint_gap_seconds'], began-last_checkpoint)
+        last_checkpoint = began
+        timing['checkpoints'] += 1
+        count = 0
+        # Bounded catch-up: one completion per solve leaves queued audio waiting
+        # through history backfill. Service up to four packets at every boundary.
+        # Each one still has its sequence/sign extension checked and is forwarded.
+        for _ in range(4):
+            if stop():
+                raise KeyboardInterrupt()
+            if client.read(FAULT) or int(audio.read(0x0c)) & 0xff00:
+                raise RuntimeError('Capture/servo fault; stop and preserve diagnostic state')
+            if not dma.completed():
+                break
+            take_packet(True, True)
+            count += 1
+        if cooperative:
+            timing['cooperative_packets'] += count
+        timing['max_batch_packets'] = max(timing['max_batch_packets'], count)
+        poll_permission()
+        timing['max_checkpoint_seconds'] = max(timing['max_checkpoint_seconds'], clock()-began)
+
+    old_service = getattr(client.solver, 'service_capture', None)
+    if getattr(client.solver, 'requires_pcm', False) is True:
+        client.solver.service_capture = service_capture
 
     try:
         client.disable()
@@ -105,7 +152,7 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
         audio.write(0x04, 1)
         dma.wait_for(lambda: audio_state(audio)['ready'], 'Audio ARM timeout')
         dma.submit()
-        start = previous = last_packet = clock()
+        start = previous = last_packet = last_checkpoint = clock()
         if getattr(client.solver, 'requires_pcm', False) is True:
             client.solver.started(start)
         speaker.started(start)
@@ -114,21 +161,21 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
             now = clock()
             report['max_service_gap_seconds'] = max(report['max_service_gap_seconds'], now-previous)
             previous = now
-            poll_permission()
             # Rearm before solving or formatting anything: the single DDR buffer
             # may be reused only after the completed immutable bytes were copied.
-            if dma.completed():
-                take_packet(True, True)
+            service_capture(False)
             service_frame()
             if client.read(FAULT) or int(audio.read(0x0c)) & 0xff00:
                 raise RuntimeError('Capture/servo fault; stop and preserve diagnostic state')
             if clock()-last_packet > .5:
                 raise TimeoutError('No DMA packet within 0.5 seconds')
             if now-last_display >= .5:
+                began = clock()
                 value = state.snapshot()
                 if gate is not None:
                     value['speaker'] = gate.snapshot()
                 display(value)
+                timing['max_display_seconds'] = max(timing['max_display_seconds'], clock()-began)
                 last_display = now
             sleep(.0002)
         report['result'] = 'PASS'
@@ -144,6 +191,8 @@ def capture_joint(client, audio, dma, speaker, epoch, state, config, frames=0,
         # One failed packet only; continuous normal mode is not an audio recorder.
         report['last_packet_header_hex'] = last_raw[:32].hex() if last_raw else None
     finally:
+        if getattr(client.solver, 'requires_pcm', False) is True:
+            client.solver.service_capture = old_service
         if gate is not None:
             gate.revoke('SESSION_ENDED')
         # Independently attempt every stop; extension write failure must not skip SYS/audio STOP.

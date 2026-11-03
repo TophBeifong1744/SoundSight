@@ -1,0 +1,381 @@
+{
+  "result": "PASS",
+  "error": null,
+  "cleanup_errors": [],
+  "packets": 5403,
+  "tail_packets": 0,
+  "epoch": 48,
+  "dma_halted": true,
+  "max_dma_rearm_seconds": 0.0015045480000708267,
+  "max_service_gap_seconds": 0.03134410799998477,
+  "retention": "bounded_statistics",
+  "first_fault": null,
+  "stop_reason": "user_stop",
+  "hardware": {
+    "audio": {
+      "raw": 28,
+      "errors": 0,
+      "armed": false,
+      "pending": false,
+      "partial_tail": true,
+      "idle": true,
+      "dma_reset_released": true,
+      "ready": false,
+      "rejected": 0,
+      "published": 5403,
+      "epoch": 48
+    },
+    "status": 999428,
+    "fault": 64,
+    "drops": 5,
+    "dma_status": 0
+  },
+  "phase": "stopped",
+  "at": 725.481535101,
+  "stats": {
+    "consumed": 5396,
+    "drained": 1,
+    "raw_valid": 172,
+    "accepted_windows": 50,
+    "motion_commits": 0,
+    "sequence_gaps": 4,
+    "below_volume": 4122,
+    "first_sequence": 1,
+    "last_sequence": 5401,
+    "fault_or": 0,
+    "drops_first": 0,
+    "drops_last": 5,
+    "max_service_ns": 22962240
+  },
+  "elapsed_seconds": 57.648401895000006,
+  "solver_reasons": {
+    "0": 172,
+    "1": 741,
+    "2": 0,
+    "3": 618,
+    "4": 3865,
+    "5": 0,
+    "6": 0,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "other": 0
+  },
+  "latest": {
+    "sequence": 5402,
+    "level": 2546,
+    "output": {
+      "valid": false,
+      "updated": false,
+      "azimuth_deg": null,
+      "elevation_deg": null,
+      "azimuth_valid": false,
+      "elevation_valid": false,
+      "vector": null,
+      "reason": "pcm_window_repeated_or_reversed"
+    },
+    "at": 725.480635083,
+    "window_count": 0,
+    "window_size": 3,
+    "min_valid": 1,
+    "valid_count": 0,
+    "motion": {
+      "requested": false,
+      "committed": false,
+      "targets": null,
+      "axes": 0,
+      "reason": "OFF",
+      "mechanical_arrival": "UNVERIFIED"
+    }
+  },
+  "last_group": {
+    "sequence": 5038,
+    "at": 721.594839621,
+    "output": {
+      "valid": false,
+      "updated": false,
+      "azimuth_deg": null,
+      "elevation_deg": null,
+      "azimuth_valid": false,
+      "elevation_valid": false,
+      "vector": null,
+      "reason": "insufficient_valid"
+    },
+    "valid_count": 0,
+    "inlier_count": 0
+  },
+  "last_clear": {
+    "sequence": 5401,
+    "reason": "below_volume_threshold",
+    "at": 725.468847179
+  },
+  "speaker_permission": null,
+  "direction_frontend": {
+    "revision": "CF1A",
+    "packets": 5403,
+    "solved": 5396,
+    "valid": 172,
+    "missing_pcm": 0,
+    "resets": 1,
+    "clipped_windows": 0,
+    "max_solve_seconds": 0.020380398999918725,
+    "max_blocks": 64,
+    "total_solve_seconds": 38.617702844000746,
+    "spectral_windows": 5402,
+    "backfilled_windows": 5,
+    "max_windows_per_solve": 3,
+    "snapshot_gaps": 4,
+    "buffered_blocks": 64,
+    "history_frames": 0,
+    "mean_solve_seconds": 0.007156727732394504,
+    "audio_support_ms": 181.333333,
+    "nominal_history_center_extra_ms": 80,
+    "freshness_basis": "conservative_start_plus_sample_end",
+    "physical_gates_unchanged": true,
+    "board_latency_measured": false
+  },
+  "last_processed_record": {
+    "frame": {
+      "sequence": 5402,
+      "status": 1015605,
+      "words": [
+        286734336,
+        350661,
+        348640,
+        344744,
+        338618,
+        286734592,
+        337938,
+        333573,
+        336581,
+        329690,
+        286603777,
+        328547,
+        326308,
+        324758,
+        318089,
+        286735359,
+        273476,
+        270173,
+        273270,
+        270114,
+        286538753,
+        304973,
+        303317,
+        300814,
+        296048,
+        286539008,
+        295018,
+        294718,
+        290476,
+        289512
+      ],
+      "energy": 2546,
+      "fault": 64,
+      "drops": 5,
+      "audio": {
+        "epoch": 48,
+        "sample_start": 2765312,
+        "source_window": 5402,
+        "sample_count": 1024,
+        "valid": true
+      }
+    },
+    "result": {
+      "api_status": 0,
+      "direction_valid": 0,
+      "reason": 1,
+      "azimuth_valid": 0,
+      "elevation_valid": 0,
+      "azimuth_q8": 0,
+      "elevation_q8": 0,
+      "valid_pairs": 0,
+      "valid_pair_mask": 0,
+      "coordinates_measured": 0,
+      "first_error": 0,
+      "bad_pair": 255,
+      "geometry_status": 0,
+      "geometry_bad_pair": 255,
+      "ux": 0.0,
+      "uy": 0.0,
+      "uz": 0.0,
+      "norm": 0.0,
+      "residual_rms_samples": 0.0,
+      "normal_condition": 0.0,
+      "azimuth_deg": 0.0,
+      "elevation_deg": 0.0,
+      "bridge_status": 0,
+      "sequence": 5402,
+      "profile": "TETRA40_3D",
+      "geometry_revision": 1,
+      "geometry_source": "tetra40-nominal-v1",
+      "pairs": [
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        },
+        {
+          "delta_q12": 0,
+          "tau_q12": 0,
+          "margin_q15": 0,
+          "qualified": 0,
+          "reason": 1
+        }
+      ],
+      "servo_cmd_valid": 0,
+      "frontend": "CF1A",
+      "cf1_reset": "pcm_window_repeated_or_reversed",
+      "source_completed_at": null
+    },
+    "motion_requested": false,
+    "timing_ns": {
+      "acquire": 1223491,
+      "solve": 871416
+    },
+    "direction_output": {
+      "valid": false,
+      "updated": false,
+      "azimuth_deg": null,
+      "elevation_deg": null,
+      "azimuth_valid": false,
+      "elevation_valid": false,
+      "vector": null,
+      "reason": "pcm_window_repeated_or_reversed"
+    },
+    "angle_filter": {
+      "window_size": 3,
+      "min_valid": 1,
+      "complete": false,
+      "frame_count": 0,
+      "valid_count": 0,
+      "inlier_count": 0,
+      "reset_reason": "pcm_window_repeated_or_reversed"
+    },
+    "frame_direction": {
+      "valid": false,
+      "vector": null
+    },
+    "volume": {
+      "level_counts": 2546,
+      "threshold_counts": 12500,
+      "measured": true,
+      "unit": "mean_abs_dc_removed_pcm"
+    },
+    "motion": {
+      "requested": false,
+      "committed": false,
+      "targets": null,
+      "axes": 0,
+      "reason": "OFF",
+      "mechanical_arrival": "UNVERIFIED"
+    }
+  },
+  "console_skipped": 0,
+  "speaker_worker": {
+    "status": "PASS",
+    "enabled": false
+  },
+  "settings": {
+    "speaker": null,
+    "models": {},
+    "target_id": "P01",
+    "min_level": 12500,
+    "window_frames": 3,
+    "min_valid": 1,
+    "axes": "off",
+    "frames": 0,
+    "seconds": 0.0,
+    "geometry": {
+      "schema": 1,
+      "revision": 1,
+      "provenance": "NOMINAL",
+      "source_id": "tetra40-nominal-v1",
+      "sample_rate_hz": 48000,
+      "sound_speed_m_s": 343,
+      "position_error_mm": -1,
+      "microphones": [
+        {
+          "channel": 0,
+          "xyz_mm": [
+            23.094010767585033,
+            0,
+            -8.16496580927726
+          ]
+        },
+        {
+          "channel": 1,
+          "xyz_mm": [
+            -11.547005383792516,
+            20,
+            -8.16496580927726
+          ]
+        },
+        {
+          "channel": 2,
+          "xyz_mm": [
+            -11.547005383792516,
+            -20,
+            -8.16496580927726
+          ]
+        },
+        {
+          "channel": 3,
+          "xyz_mm": [
+            0,
+            0,
+            24.49489742783178
+          ]
+        }
+      ]
+    },
+    "calibration": {
+      "horizontal": {
+        "front_deg": 180,
+        "direction": 1,
+        "min_deg": 0,
+        "max_deg": 360
+      },
+      "vertical": {
+        "front_deg": 110,
+        "direction": 1,
+        "min_deg": 0,
+        "max_deg": 220
+      }
+    },
+    "speaker_statistics_enabled": false,
+    "recognition_qualified": false,
+    "direction_frontend": "CF1A",
+    "speaker_enabled": false
+  }
+}

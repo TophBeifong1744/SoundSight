@@ -1,0 +1,19 @@
+{
+  "rotation_tests": 7,
+  "product_tests": 44,
+  "result": "PASS",
+  "legacy_api": "simulated on PC; board retest pending",
+  "upgrade": "PASS",
+  "idempotent": "PASS",
+  "private_data_preserved": "PASS",
+  "unknown_local_edit_refused": "PASS",
+  "python38_syntax": "PASS",
+  "zip_crc_and_payload": "PASS",
+  "changed_payload": [
+    "software/screen/ui.py",
+    "software/tests/test_screen_rotation.py",
+    "document/screen-rotation.md"
+  ],
+  "hardware_actions": 0,
+  "sha256": "6e1354ce4a154d67a5cd2b4a2094c0372fa62b8c9e97300e1fc8bd0a03046db3"
+}

@@ -1,0 +1,12 @@
+test_default_and_persistent_override (__main__.RotationTests.test_default_and_persistent_override) ... ok
+test_full_frame_exact_permutation_without_channel_swap (__main__.RotationTests.test_full_frame_exact_permutation_without_channel_swap) ... ok
+test_invalid_config_rejected (__main__.RotationTests.test_invalid_config_rejected) ... ok
+test_legacy_pillow_renders_all_pages_and_rotated_navigation (__main__.RotationTests.test_legacy_pillow_renders_all_pages_and_rotated_navigation) ... ok
+test_release_no_update_and_invalid_coordinates (__main__.RotationTests.test_release_no_update_and_invalid_coordinates) ... ok
+test_rotated_navigation_hits_original_button_without_start (__main__.RotationTests.test_rotated_navigation_hits_original_button_without_start) ... ok
+test_touch_inverse_corners_and_interior (__main__.RotationTests.test_touch_inverse_corners_and_interior) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.146s
+
+OK

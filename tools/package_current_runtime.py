@@ -14,6 +14,7 @@ import sys
 from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
 
 from install_current_runtime import PREFIX, REVISION, load_package
+from install_product import PAYLOAD as PRODUCT_FILES
 
 ROOT = Path(__file__).resolve().parents[1]
 CORE = 'software/ps/speaker_core/'
@@ -60,9 +61,14 @@ def collect(private_zip):
     tests = ('test_normal test_volume_gate test_serial_english test_board_tools '
              'test_filter_controls test_manual_servo test_pcm_capture test_online_angle_filter '
              'test_speaker_follow test_speaker_display test_speaker_enrollment '
-             'test_speaker_statistics test_latest_result test_screen_product').split()
+             'test_speaker_statistics test_latest_result test_screen_product '
+             'test_screen_rotation test_speaker_delete test_screen_quick_boot').split()
     for test in tests:
         name = 'software/tests/'+test+'.py'
+        data[name] = (ROOT/name).read_bytes()
+    # Keep the complete runtime and the installed product receipt in sync.
+    # This includes startup scripts, UI helpers and each update's dependencies.
+    for name in PRODUCT_FILES:
         data[name] = (ROOT/name).read_bytes()
     for name in ('soundsight.sh', 'soundsight-3d.sh', 'soundsight-panel.sh',
                  'soundsight-screen.sh', 'soundsight-screen-i2c.sh', 'LICENSE', 'THIRD_PARTY.md',
@@ -81,13 +87,15 @@ def collect(private_zip):
             assert data['soundsight.'+kind] == z.read('soundsight.'+kind)
     with ZipFile(ROOT/'release/output/soundsight_three_d_coherent_cf1a.zip') as z:
         for name in z.namelist():
-            if name.startswith('software/'):
+            if name.startswith('software/tetra3d/core/'):
                 assert data[name].replace(b'\r\n', b'\n') == z.read(name).replace(b'\r\n', b'\n'), name
     commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     data['SOURCE.json'] = (json.dumps(dict(revision=REVISION, source_commit=commit,
         hardware={k: dict(path='soundsight.'+k, sha256=digest(data['soundsight.'+k])) for k in ('bit','hwh')},
         servo_pins=dict(horizontal='M15', vertical='J14'), servo_connector=dict(horizontal='J3 pin 2', vertical='J3 pin 3'),
-        screen='S2_PS_I2C0_EMIO+S3', frontend='CF1A', speaker='CP1_VF1',
+        screen='S2_PS_I2C0_EMIO+P1', frontend='CF1A', speaker='CP1_VF1',
+        capture_revision='CAPTURE_COOPERATIVE_V1', filter_policy='CF1_PCM_GAPS_V1',
+        screen_rotation=180, quick_boot=True, user_delete_confirmation=True,
         permission='score_ttl_v2', das=False, default_axes='off', private=True,
         package_joint_board_test='NOT_RUN', application_parameters='Preserved on upgrade; no invented calibration'), indent=2)+'\n').encode()
     data['README.md'] = data['document/pynq-final-runtime.md']
@@ -106,7 +114,8 @@ def main():
     a = p.parse_args()
     data, commit = collect(a.private_assets_from)
     manifest = dict(revision=REVISION, source_commit=commit, private=True,
-        files={n:digest(b) for n,b in sorted(data.items())}, private_assets=[CORE+n for n in ASSETS])
+        files={n:digest(b) for n,b in sorted(data.items())}, private_assets=[CORE+n for n in ASSETS],
+        product_files=list(PRODUCT_FILES))
     contents = {PREFIX+n:b for n,b in data.items()}
     contents['manifest.json'] = (json.dumps(manifest, indent=2)+'\n').encode()
     contents['__main__.py'] = (ROOT/'tools/install_current_runtime.py').read_bytes().replace(b'\r\n',b'\n')

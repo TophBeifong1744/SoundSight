@@ -72,18 +72,35 @@ def offline(root=ROOT):
     print('THREE_D_OFFLINE_OK=1 HARDWARE_ACTIONS=0', flush=True)
 
 
+def quick_libraries(root=ROOT):
+    """Boot-time ABI/load checks only; full build/regression remains in check."""
+    try:
+        board_tools.Solver(root/'software/ps/libss_solver.so')
+        geometry = read_json((root/'software/tetra3d/core/tetra40-nominal.json').read_text(encoding='utf-8'))
+        Solver3D(root/'software/tetra3d/linux/libss_solver_3d.so', geometry)
+    except Exception as exc:
+        raise RuntimeError('QUICK_BOOT_LIBRARY_ERROR: run soundsight-3d.sh check after stopping the screen service: '+str(exc)) from exc
+    print('QUICK_BOOT_LIBRARIES_OK=1 BUILD_AND_REGRESSION_SKIPPED=1', flush=True)
+
+
 def parser():
     p = argparse.ArgumentParser(description=__doc__)
     sub = p.add_subparsers(dest='command', required=True)
     sub.add_parser('check', help='Native solver build and offline tests; no hardware')
-    sub.add_parser('prepare', help='Offline checks, then explicit bit load and clock preparation')
+    prep = sub.add_parser('prepare', help='Offline checks, then explicit bit load and clock preparation')
+    prep.add_argument('--quick', action='store_true', help='Use installed native libraries; keep all hardware guards, skip build/regression')
     sub.add_parser('status', help='Read state of already prepared hardware')
+    sub.add_parser('recover-capture', help='Explicit STOP, preserve snapshots, reset audio queue; never starts motion')
     sub.add_parser('drain', help='STOP and save existing raw frames with the legacy recovery helper; no 3D/motion')
     sub.add_parser('speaker-check', help='Validate models, selected enrollment and trial settings; no hardware')
     sub.add_parser('speaker-stats', help='Show statistics of the last saved speaker session; no hardware')
     sub.add_parser('speaker-list', help='List saved voice profiles; no hardware')
     select = sub.add_parser('speaker-select', help='Select a saved target and clear the old score threshold')
     select.add_argument('target')
+    delete = sub.add_parser('speaker-delete', help='Delete one confirmed local profile; no hardware')
+    delete.add_argument('target')
+    delete.add_argument('--confirm-target', required=True)
+    delete.add_argument('--expected-token', required=True)
     enroll = sub.add_parser('speaker-enroll', help='Record one short clip and save a new voice profile; axes always off')
     enroll.add_argument('target')
     enroll.add_argument('--seconds', type=float, default=3., help='2..10 seconds, default 3')
@@ -167,6 +184,12 @@ def main(argv=None):
             from speaker_enrollment import run
             print('SPEAKER_ENROLLMENT='+json.dumps(run(ROOT, args.target, args.seconds)), flush=True)
             return 0
+        if args.command == 'speaker-delete':
+            from speaker_delete import delete
+            with single_owner(LOCK):
+                result = delete(ROOT, args.target, args.confirm_target, args.expected_token)
+            print('SPEAKER_DELETED='+json.dumps(result), flush=True)
+            return 0
         if args.command in ('speaker-list', 'speaker-select'):
             from speaker_targets import list_targets, select
             with single_owner(LOCK):
@@ -220,9 +243,15 @@ def main(argv=None):
             print('HARDWARE_ACTIONS=0 APPLIES_TO=NEXT_RUN')
             return 0
         check_hwh(ROOT/'soundsight.hwh')
+        if args.command == 'recover-capture':
+            from capture_recovery import run
+            return run(ROOT)
         if args.command == 'prepare':
-            offline()
-            result = board_tools.main(['prepare'])
+            if args.quick:
+                quick_libraries()
+            else:
+                offline()
+            result = board_tools.main(['prepare', '--quick'] if args.quick else ['prepare'])
             if result:
                 return result
             args.command = 'status'
@@ -239,6 +268,10 @@ def main(argv=None):
                 axes.identify()
                 if args.command == 'status':
                     state['dual_axis'] = axes.read(STATE)
+                    from pcm_capture import check_hwh as audio_hwh, identify_audio, SR
+                    layout = audio_hwh(ROOT/'soundsight.hwh')
+                    state['audio'] = identify_audio(MMIO(*layout['audio_capture']))
+                    state['dma_status'] = int(MMIO(*layout['axi_dma_audio']).read(SR))
                     print('DEVICE_STATE='+json.dumps(state), flush=True)
                     return 0
                 targets = {name: getattr(args, name) for name in ('horizontal', 'vertical')

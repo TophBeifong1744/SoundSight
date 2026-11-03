@@ -87,7 +87,7 @@ def run(args, root, acoustic=False):
             solver = CoherentSolver(Solver3D(args.library, args.geometry), epoch,
                                     root/'software/tetra3d/linux/cf1_hann.mem')
             client = ThreeDClient(ip, solver, args.min_level, args.window_frames,
-                                   args.min_valid, args.axis_mask, args.calibration)
+                                   args.min_valid, args.axis_mask, args.calibration, verified_pcm_gaps=True)
             # All expensive imports/model startup happen before capture starts.
             processor = (AcousticOnly() if acoustic else
                          ProcessSpeaker(core, 1., scheduling, follow=True,
@@ -95,8 +95,9 @@ def run(args, root, acoustic=False):
             from pynq import allocate
             buffer = allocate(shape=(PACKET_BYTES,), dtype='u1')
             dma = SimpleReceive(dma_ip, buffer)
-            state = State3D(args.frames+4 if args.debug else 0)
+            state = State3D(args.frames+4 if args.debug else 0, direction_diagnostics=True)
             print('THREE_D_FRONTEND=CF1A PCM=1 HISTORY=16 PHYSICAL_GATES_UNCHANGED=1', flush=True)
+            print('CAPTURE_SERVICE=CAPTURE_COOPERATIVE_V1 FILTER_POLICY=CF1_PCM_GAPS_V1', flush=True)
             if acoustic:
                 print('FOLLOW_SOUND=CF1A SPEAKER=DISABLED IDENTITY_GATE=OFF AXES='+args.axes, flush=True)
             else:
@@ -127,6 +128,7 @@ def run(args, root, acoustic=False):
             finally:
                 if processor is not None:
                     processor.close()
+    report['capture_scheduling'] = scheduling.info
     report['settings'] = dict(speaker=gate_config, models=models, target_id=profile.get('target_id', 'P01'),
                                min_level=args.min_level, window_frames=args.window_frames,
                                min_valid=args.min_valid, axes=args.axes, frames=args.frames, seconds=args.seconds,

@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "enabled": false,
+  "available": false,
+  "report": "logs/speaker-3d-20211119-121119-401147.json",
+  "session_result": "PASS",
+  "error": null,
+  "target_id": "user2",
+  "statistics": null
+}

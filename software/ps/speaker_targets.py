@@ -145,6 +145,8 @@ def selected_config(core, original, assets):
     if selector.stat().st_size > 4096:
         raise ValueError('SELECTOR_TOO_LARGE')
     cfg = json.loads(selector.read_text(encoding='utf-8'))
+    if cfg == {'schema': 1, 'target_id': None}:
+        raise ValueError('NO_ACTIVE_TARGET: select a saved user before speaker mode')
     if cfg == {'schema': 1, 'target_id': 'P01'}:
         return dict(original, target_id='P01', score_only=False)
     if set(cfg) != {'schema', 'target_id', 'profile_sha256'} or cfg['schema'] != 1:

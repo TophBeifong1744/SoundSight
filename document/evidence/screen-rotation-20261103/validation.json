@@ -1,0 +1,26 @@
+{
+  "rotation_default": 180,
+  "display_and_touch": "same inverse mapping (799-x,479-y)",
+  "tests": {
+    "rotation": 6,
+    "screen_product": 44
+  },
+  "tests_result": "PASS",
+  "package_upgrade": "PASS",
+  "idempotent": "PASS",
+  "private_data_preserved": "PASS",
+  "unknown_edits_refused": "PASS",
+  "python38_syntax": "PASS",
+  "crc_and_source_match": "PASS",
+  "changed_payload": [
+    "software/screen/ui.py",
+    "software/screen/product.py",
+    "tools/install_product.py",
+    "software/tests/test_screen_rotation.py",
+    "document/screen-rotation.md"
+  ],
+  "package_sha256": "027b06aadc2201319f09f976c77f6a68d58fa31edfe5b590e16dec85ca8fed95",
+  "hardware_actions": 0,
+  "board_rotation_touch": "NOT_RUN",
+  "note": "Prior direction/capture payload byte-identical. No product behavior test on hardware."
+}

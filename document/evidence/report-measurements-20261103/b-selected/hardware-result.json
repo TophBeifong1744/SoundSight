@@ -1,0 +1,60 @@
+{
+  "candidate": "SCREEN_PS_I2C_S2",
+  "status": "HARDWARE_COMPLETE_AWAITING_INDEPENDENT_REVIEW_AND_BOARD_PLATFORM_EVIDENCE",
+  "tool": "Vivado 2025.2 SW6299465/IP6300035",
+  "part": "xc7z020clg400-2",
+  "run": "project/par/SoundSight_PS_3D.xpr impl_1",
+  "build_exit": 0,
+  "reopen_exit": 0,
+  "reopen_input_count": 136,
+  "external_or_missing_inputs": 0,
+  "source_manifest_entries": 51,
+  "source_manifest_sha256": "7075d23512f122da9795afe282013cc8cb2e97d24449c550451ca5bd2d24f242",
+  "wns_ns": 0.203,
+  "tns_ns": 0,
+  "whs_ns": 0.036,
+  "ths_ns": 0,
+  "wpws_ns": 2.208,
+  "tpws_ns": 0,
+  "bus_skew_paths": 16,
+  "bus_skew_min_slack_ns": 9.164,
+  "pwm_max_slack_ns": {
+    "horizontal": 10.076,
+    "vertical": 10.841
+  },
+  "fully_routed_nets": 40846,
+  "routing_errors": 0,
+  "resources": {
+    "lut": 19971,
+    "ff": 22358,
+    "bram_tiles": 36,
+    "dsp": 41,
+    "bufg": 8,
+    "mmcm": 3
+  },
+  "cdc": {
+    "CDC-3": 27,
+    "CDC-10": 1,
+    "CDC-11": 2,
+    "CDC-15": 1252
+  },
+  "drc_displayed": 99,
+  "drc_truncated_rules": [
+    "REQP-1839",
+    "REQP-1840"
+  ],
+  "check_timing": {
+    "no_clock": 0,
+    "unconstrained_internal_endpoints": 0,
+    "no_input_delay": 3,
+    "no_output_delay": 30
+  },
+  "environment_diagnostic": "Raw synthesis log Common17-1257 Failed to create directory 'C'; synthesis final summary reports 0 errors, but raw diagnostic retained",
+  "functional_simulation": "SKIPPED_AUTHORIZED_BOARD_FAULT_REPAIR",
+  "board_test": "NOT_RUN",
+  "ila": "NONE_ADDED_OR_PLANNED",
+  "source_zip_relocation": "PENDING_ROOT_FINAL_PACKAGE",
+  "power_acceptance": "NOT_APPLICABLE",
+  "ps_init_emitted_command_delta_to_S1": 0,
+  "ps_init_emitted_command_delta_to_old_screen_reference": 0
+}

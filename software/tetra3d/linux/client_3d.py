@@ -8,9 +8,9 @@ from motion_3d import DualAxis, STATE, mapped_targets
 
 class ThreeDClient(TimedClient):
     def __init__(self, ip, solver, threshold, window_frames=20, min_valid=12,
-                 axis_mask=0, calibration=None):
+                 axis_mask=0, calibration=None, verified_pcm_gaps=False):
         super().__init__(ip, solver, threshold, angle_filter=False)
-        self.spatial = SpatialFilter(window_frames, min_valid)
+        self.spatial = SpatialFilter(window_frames, min_valid, verified_pcm_gaps=verified_pcm_gaps)
         self.axis_mask = axis_mask
         self.calibration = calibration or {}
         self.axes = DualAxis(ip)

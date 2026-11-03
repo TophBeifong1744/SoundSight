@@ -7,7 +7,10 @@ import re
 from pathlib import Path
 import signal
 import subprocess
+import sys
 import time
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'ps'))
 
 
 def read_json(path, default):
@@ -40,8 +43,10 @@ class Backend:
         self.stop_verified = True
         self.session_failed = False
         self.recovery_requested = False
+        self.capture_recovered = False
         self.config_error = None
         self.last_enrolled = None
+        self.last_deleted = None
         self.external_fault = None
         self.cache = dict(level=7000, window=20, minimum=12, threshold=None,
                           ttl=3., target=None, profiles=['P01'], calibration={})
@@ -78,6 +83,22 @@ class Backend:
             raise RuntimeError('Recover confirmed STOP before enrollment')
         self.last_enrolled = None
         self._launch(['speaker-enroll', name, '--seconds', str(seconds)], 'ENROLL')
+
+    def deletion_preview(self, target):
+        if (self.busy or self.state != 'IDLE' or not self.control or
+                self.session_failed or not self.stop_verified or self.config_error):
+            raise RuntimeError('Wait for confirmed STOP before deleting a user')
+        from speaker_delete import preview
+        return preview(self.root, target)
+
+    def delete_user(self, target, token):
+        info = self.deletion_preview(target)
+        if info['token'] != token:
+            raise ValueError('Profile changed; reopen deletion confirmation')
+        self.clear_live()
+        self.last_deleted = None
+        self._launch(['speaker-delete', target, '--confirm-target', target,
+                      '--expected-token', token], 'DELETE')
 
     def fault(self, reason):
         self.external_fault = str(reason)[:240]
@@ -130,6 +151,7 @@ class Backend:
         self.state = 'STARTING' if operation in ('SOUND', 'SPEAKER') else 'RUNNING'
         self.operation = operation
         self.status_rows = []
+        self.capture_recovered = False
         if operation in ('SOUND', 'SPEAKER', 'ENROLL'):
             self.clear_live()
             self.stop_verified = False
@@ -216,8 +238,9 @@ class Backend:
                     self.last_runtime_code = code
                     self.session_failed = code != 0 or bool(self.external_fault)
                     self._verify_stop()
-                elif operation == 'verify-stop':
-                    valid = code == 0 and len(self.status_rows) == 1 and self.idle_state(self.status_rows[0])
+                elif operation in ('verify-stop', 'recover-capture'):
+                    valid = (code == 0 and len(self.status_rows) == 1 and self.idle_state(self.status_rows[0])
+                             and (operation != 'recover-capture' or self.capture_recovered))
                     self.stop_verified = valid
                     if valid and self.recovery_requested and not self.config_error:
                         self.session_failed = False
@@ -237,10 +260,12 @@ class Backend:
                 else:
                     self.state = 'IDLE' if code == 0 and not self.config_error else 'ERROR'
                     self.note = 'Command finished; return code %s' % code
+                    if operation == 'DELETE' and code == 0 and self.last_deleted:
+                        self.note = 'Deleted '+self.last_deleted+'. Other users and logs kept.'
                 self.generation += 1
                 return
         # 配置/status 超时同样只发 SIGINT，不强杀或自动重新启动动作。
-        timeout = 240 if self.operation == 'ENROLL' else 15
+        timeout = 240 if self.operation == 'ENROLL' else 60 if self.operation == 'recover-capture' else 15
         if self.operation not in ('SOUND', 'SPEAKER') and time.monotonic()-self.started > timeout:
             if self.operation == 'verify-stop':
                 if self.state != 'STOPPING':
@@ -266,6 +291,13 @@ class Backend:
         if not isinstance(value, dict) or any(type(value.get(k)) is not int or
                 not 0 <= value[k] <= 0xffffffff for k in keys):
             return False
+        if 'audio' in value:
+            audio = value['audio']
+            if (not isinstance(audio, dict) or audio.get('errors') != 0 or
+                    audio.get('armed') is not False or audio.get('pending') is not False or
+                    audio.get('idle') is not True or audio.get('dma_reset_released') is not True or
+                    type(value.get('dma_status')) is not int or not value['dma_status'] & 1 or value['dma_status'] & 0x770):
+                return False
         return not (value['status'] & (3 | 0x8000) or value['sys'] & 1 or
                     value['actuator'] & 1 or value['dual_axis'] & 0x19 or value['fault'] & ~0x40)
 
@@ -279,6 +311,13 @@ class Backend:
         # Parse bounded complete lines before clipping diagnostics. Never parse LAST_GROUP as current.
         self.lines.append(line[:800])
         self.generation += 1
+        if self.operation == 'DELETE' and line.startswith('SPEAKER_DELETED='):
+            try:
+                self.last_deleted = json.loads(line.split('=', 1)[1])['deleted']
+            except (ValueError, KeyError, TypeError):
+                self.last_deleted = None
+        if self.operation == 'recover-capture' and line == 'CAPTURE_RECOVERED=1 AXES=OFF NEXT_START=EXPLICIT':
+            self.capture_recovered = True
         if self.operation == 'ENROLL':
             if line.startswith('READY_IN='):
                 self.note = 'Get ready: '+line.split('=', 1)[1]
@@ -316,6 +355,8 @@ class Backend:
                 return None
         t = dict(frame=tokens.get('FRAME', '-'), level=tokens.get('LEVEL', '-'),
                  motion=tokens.get('MOTION', 'WAITING'), angle_reason='NO_CURRENT_DIRECTION',
+                 window=tokens.get('WINDOW', '-'), valid=tokens.get('VALID', '-'),
+                 minimum=tokens.get('MIN', '-'), raw_reason=tokens.get('RAW_REASON', 'UNKNOWN'),
                  azimuth=None, elevation=None, score=None, permit=None, remain=0., score_age=None)
         if 'NO_OUTPUT:' in current:
             reasons = current.split('NO_OUTPUT:', 1)[1].strip().split()
@@ -364,3 +405,18 @@ class Backend:
                 self.state = 'IDLE'
                 self.note = 'Idle. Next START is explicit; axes must be reselected.'
             self.generation += 1
+
+    def recover_capture(self):
+        if self.busy or self.config_error or self.external_fault:
+            raise RuntimeError('Exit runtime and resolve screen/configuration faults before recovery')
+        previous = self.state
+        self.clear_live()
+        self.state = 'IDLE'
+        try:
+            self._launch(['recover-capture'], 'recover-capture')
+        except BaseException:
+            self.state = previous
+            raise
+        self.recovery_requested = True
+        self.stop_verified = False
+        self.note = 'Preserving diagnostics and recovering capture; axes remain OFF'

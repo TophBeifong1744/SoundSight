@@ -1,0 +1,14 @@
+﻿item_id,received_files,actual_scope,measured_result,remaining_gap,report_change,status
+T01,document/evidence/cf1a-longrun-20261102/README.md,30.015774秒纯声音双轴；另有32.159/27.254秒旧联合,30.015774秒纯声音双轴；另有32.159/27.254秒旧联合,没有60分钟全负载；数分钟现场回报与摘要关联待补,摘要、6、10,部分材料
+T02,analysis/ss-b-static-3d-analysis-20261101/REPORT.md,四份原始PCM及逐帧；正/背面原有效率21.48%/42.90%,四份原始PCM及逐帧；正/背面原有效率21.48%/42.90%,外部真值、多点重复、MAE/P95及照片未取得,2.1、3.1、6.1、6.4,部分材料
+T03,P02-逐次可观察评分.csv,P02本人11/12过线；另一人0/15；固定0.45,P02本人11/12过线；另一人0/15；固定0.45,不是3人多轮独立留出评价；完整无评分记录不足,3.3、6.1、6.4,可按限定场景回填
+T04,document/evidence/speaker-dual-axis-20261030/README.md,117/94及CF1A22次提交、停止原件,117/94及CF1A22次提交、停止原件,无真实机械角/同步视频/响应测量,2.2、3.4—3.5、6.3—6.4,部分材料
+T05,document/evidence/p02-ttl-20261031/P02-TTL-RESULT.md,首次可见permit、EXPIRED、到期后未重授权；推理耗时原件,首次可见permit、EXPIRED、到期后未重授权；推理耗时原件,发声起点和完整许可轨迹缺失；无端到端延迟,3.4—3.5、6.3—6.4,可按限定场景回填
+T07,document/evidence/screen-s2-20261031/BOARD-RESULT.md,S2显示/触摸/重复启动退出；S3中断如实保留,S2显示/触摸/重复启动退出；S3中断如实保留,无五次操作矩阵/独立操作视频/页面实拍,3.3、3.5、6.4、9.2,基础功能可回填
+T08,document/evidence/speaker-enrollment-20261029/board-result.md,5秒单段录入成功；3秒不足失败,5秒单段录入成功；3秒不足失败,无三用户持久化/切换完整实测,3.3、6.1、9.2,部分材料
+T09,project/reports/ps_3d/screen_s2/hardware-result.json,S2资源时序/PWM路径/CDC/方法学/DRC/约束/bitHWH齐备,S2资源时序/PWM路径/CDC/方法学/DRC/约束/bitHWH齐备,CDC告警、截断DRC及I/O适用性未签核；20ns非器件实测,5.4表4、9.1、9.3,原件齐备但签核未闭合
+PHOTO,共用结果.md,BD和分析图可用；无对应实拍,BD和分析图可用；无对应实拍,整机/阵列/接线/屏幕/声源照片视频待现场,成果图,待材料
+D01,document/evidence/speaker-report-materials/README.md,过程摘要、失败/修改/验证原件,过程摘要、失败/修改/验证原件,缺指定案例完整可见AI问答；不伪造原文,V06,部分材料
+D02,部署与复现补充.md,S2可搬移工程和已有迁移/分阶段部署证据,S2可搬移工程和已有迁移/分阶段部署证据,无整机从零完整复现；镜像及匹配模型分发待补,V08,部分材料
+D03,document/evidence/competition-skills-20261018/README.md,原XSim/离线/mock结果保留,原XSim/离线/mock结果保留,真实PYNQ适配按清单保留待办,V07,本轮不新增
+D04,document/evidence/speaker-report-materials/metrics.csv,既有PS优化与CF1A主机对照,既有PS优化与CF1A主机对照,不新增PL收益/精度/置信区间结论,V10,沿用限定结论

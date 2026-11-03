@@ -39,6 +39,24 @@ def main():
     spec = importlib.util.spec_from_file_location('offline_screen_hardware', app/'software/screen/hardware.py')
     hardware = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(hardware)
+    spec = importlib.util.spec_from_file_location('offline_product', app/'software/screen/product.py')
+    product = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(product)
+    product.verify_product(app)
+    # A second installation must preserve private user state while replacing a
+    # stale P1 receipt with hashes of the actual complete-package payload.
+    sentinels = {'settings.local.json': b'{"min_level": 9000}\n',
+                 'speaker-profiles/offline-user/profile.json': b'{"private":true}\n',
+                 'logs/retained.txt': b'offline preservation sentinel\n'}
+    for name, raw in sentinels.items():
+        path = app/name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(raw)
+    (app/'PRODUCT-INSTALL.json').write_text('{"revision":"OLD"}', encoding='utf-8')
+    installer.install(archive, app, 'offline-install-boot')
+    product.verify_product(app)
+    for name, raw in sentinels.items():
+        assert (app/name).read_bytes() == raw
     read_text = Path.read_text
     # Only the boot-ID file is mocked. Hashes are checked on installed real files.
     for boot in ('offline-install-boot', 'offline-next-boot'):
@@ -75,6 +93,7 @@ def main():
     counts = [re.search(r'Ran (\d+) tests?', r['output']) for r in results]
     summary = dict(package_revision=manifest['revision'], files=len(manifest['files']),
         crc='PASS', actual_zip_install='PASS', screen_receipt_after_mock_reboot='PASS',
+        product_receipt_and_upgrade='PASS', private_state_preservation='PASS',
         private_asset_bindings='PASS', das=False, hardware_actions=0,
         scope='PC_SYNTHETIC_AND_PACKAGE_VALIDATION',
         test_invocations=sum(int(m.group(1)) for m in counts if m),

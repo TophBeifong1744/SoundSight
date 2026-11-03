@@ -2,9 +2,11 @@
 
 The 2-D policy is extended to unit vectors: 20 frames / 12 valid by default,
 10 degree inliers, two-thirds consensus and a 3 degree spatial deadband.
-Low level, faults and sequence gaps revoke the previous target.
+Low level and faults revoke the target. CF1 may bridge bounded snapshot gaps
+only with verified continuous PCM; legacy inputs remain strictly sequential.
 """
 import math
+import time
 from angle_filter import validate_window
 
 RADIUS = 10.0
@@ -33,8 +35,10 @@ def angles(vector):
 
 
 class SpatialFilter:
-    def __init__(self, window_frames=20, min_valid=12):
+    def __init__(self, window_frames=20, min_valid=12, verified_pcm_gaps=False, clock=time.monotonic):
         self.window, self.minimum = validate_window(window_frames, min_valid)
+        self.verified_pcm_gaps = verified_pcm_gaps
+        self.clock = clock
         self.stopped = False
         self.reset()
 
@@ -43,10 +47,30 @@ class SpatialFilter:
         self.vectors = []
         self.held = None
         self.last_sequence = None
+        self.last_audio = None
+        self.group_source_start = self.group_host_start = None
 
     def stop(self):
         self.stopped = True
         self.reset()
+
+    def pcm_observation(self, frame, result, now):
+        """Validate internal CF1 evidence; never infer continuity from sequence alone."""
+        audio = frame.get('audio', {})
+        proof = result.get('pcm_continuity', {})
+        source = result.get('source_completed_at')
+        start = audio.get('sample_start')
+        if (result.get('frontend') != 'CF1A' or result.get('cf1_reset') or
+                proof.get('policy') != 'CF1_PCM_GAPS_V1' or not audio.get('valid') or
+                type(start) is not int or start < 0 or start % 512 or
+                audio.get('sample_count') != 1024 or type(audio.get('epoch')) is not int or
+                proof.get('epoch') != audio['epoch'] or proof.get('sample_start') != start or
+                proof.get('sequence') != frame['sequence']):
+            return None, 'pcm_evidence_unavailable'
+        if (not isinstance(source, (int, float)) or not math.isfinite(source) or
+                not 0 <= now-source < .75):
+            return None, 'pcm_window_stale'
+        return (audio['epoch'], start), None
 
     def apply(self, frame, result, threshold):
         status = frame['status']
@@ -69,6 +93,12 @@ class SpatialFilter:
                    azimuth_valid=False, elevation_valid=False, vector=None, reason='collecting_window')
         detail = dict(window_size=self.window, min_valid=self.minimum, complete=False,
                       frame_count=0, valid_count=0, inlier_count=0, reset_reason=reason)
+        now = self.clock()
+        observation = None
+        if reason is None and self.verified_pcm_gaps:
+            observation, reason = self.pcm_observation(frame, result, now)
+            detail['reset_reason'] = reason
+        detail['gap_bridged'] = False
         raw_valid = reason is None and bool(result['direction_valid'])
         raw_vector = None
         if raw_valid:
@@ -82,9 +112,34 @@ class SpatialFilter:
             out['reason'] = reason
         else:
             seq = frame['sequence']
-            if self.last_sequence is not None and seq != (self.last_sequence + 1) & 0xffffffff:
+            gap = self.last_sequence is not None and seq != (self.last_sequence + 1) & 0xffffffff
+            reset = None
+            if self.verified_pcm_gaps:
+                if self.last_audio is not None:
+                    proof = result['pcm_continuity']
+                    advance = observation[1]-self.last_audio[1]
+                    seq_advance = (seq-self.last_sequence) & 0xffffffff
+                    linked = (proof.get('verified') is True and observation[0] == self.last_audio[0] and
+                              proof.get('previous_start') == self.last_audio[1] and
+                              proof.get('previous_sequence') == self.last_sequence and
+                              0 < advance <= 16*512 and 0 < seq_advance <= 16)
+                    if not linked:
+                        reset = 'pcm_discontinuity'
+                    elif gap:
+                        detail['gap_bridged'] = True
+                if self.count and (now-self.group_host_start >= .75 or
+                        observation[1]-self.group_source_start >= 36000):
+                    reset = reset or 'window_age_limit'
+                if reset:
+                    self.reset()
+                    detail['gap_bridged'] = False
+                if self.count == 0:
+                    self.group_host_start, self.group_source_start = now, observation[1]
+                self.last_audio = observation
+            elif gap:
                 self.reset()
-                detail['reset_reason'] = 'sequence_gap'
+                reset = 'sequence_gap'
+            detail['reset_reason'] = reset
             self.last_sequence = seq
             self.count += 1
             if raw_valid:

@@ -1,0 +1,26 @@
+PRODUCT_STAGE=DISPLAY_LIT
+PRODUCT_STAGE=READY
+PRODUCT_STAGE=READY
+QUICK_BOOT_LIBRARIES_OK=1 BUILD_AND_REGRESSION_SKIPPED=1
+ARM_LIBRARY_LOADED=1 BOOT_REGRESSION_SKIPPED=1
+READY_FOR_DEBUG MIN_LEVEL=7000 SERVO=OFF
+NEXT: sudo sh soundsight.sh run normal
+ARM_LIBRARY_LOADED=1 BOOT_REGRESSION_SKIPPED=1
+test_bad_native_library_fails_before_hardware (__main__.QuickBootTests.test_bad_native_library_fails_before_hardware) ... STOP: RuntimeError: QUICK_BOOT_LIBRARY_ERROR: run soundsight-3d.sh check after stopping the screen service: wrong ELF
+STOP: RuntimeError: QUICK_BOOT_LIBRARY_ERROR: run soundsight-3d.sh check after stopping the screen service: wrong ELF
+ok
+test_first_boot_timings_survive_later_ready (__main__.QuickBootTests.test_first_boot_timings_survive_later_ready) ... ok
+test_quick_and_full_dispatch_keep_legacy_failure (__main__.QuickBootTests.test_quick_and_full_dispatch_keep_legacy_failure) ... ok
+test_quick_checks_both_native_libraries_without_subprocess (__main__.QuickBootTests.test_quick_checks_both_native_libraries_without_subprocess) ... ok
+test_quick_keeps_hardware_preparation (__main__.QuickBootTests.test_quick_keeps_hardware_preparation) ... ok
+test_quick_missing_library_never_loads_overlay (__main__.QuickBootTests.test_quick_missing_library_never_loads_overlay) ... STOP: missing library
+HELP: see document/pynq-board-helper.md; preserve logs on unexpected faults.
+ok
+test_quick_propagates_hardware_fault_no_ready (__main__.QuickBootTests.test_quick_propagates_hardware_fault_no_ready) ... STOP: OLD_FRAMES: preserve
+HELP: see document/pynq-board-helper.md; preserve logs on unexpected faults.
+ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.052s
+
+OK

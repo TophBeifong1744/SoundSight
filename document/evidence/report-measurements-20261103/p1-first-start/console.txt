@@ -1,0 +1,179 @@
+xilinx@pynq:~$ sudo systemctl status soundsight-product.service bootpy.service --no-pager -l
+[sudo] password for xilinx:
+● soundsight-product.service - SoundSight standalone touch product
+     Loaded: loaded (/etc/systemd/system/soundsight-product.service; enabled; vendor preset: enabled)
+     Active: active (running) since Fri 2021-11-19 08:41:30 UTC; 1min 27s ago
+   Main PID: 560 (python3)
+      Tasks: 1 (limit: 2095)
+     Memory: 57.2M
+     CGroup: /system.slice/soundsight-product.service
+             └─560 /usr/local/share/pynq-venv/bin/python3 -B software/screen/product.py boot
+
+Nov 19 08:42:41 pynq sh[668]: Ran 19 tests in 0.393s
+Nov 19 08:42:41 pynq sh[668]: OK
+Nov 19 08:42:41 pynq sh[597]: ARM_LIBRARY_LOADED=1
+Nov 19 08:42:48 pynq sh[597]: DOWNLOAD_BEGIN
+Nov 19 08:42:48 pynq sh[597]: LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+Nov 19 08:42:48 pynq sh[597]: DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 0, "status": 983040, "sys": 8}
+Nov 19 08:42:48 pynq sh[597]: READY_FOR_DEBUG MIN_LEVEL=12500 SERVO=OFF
+Nov 19 08:42:48 pynq sh[597]: NEXT: sudo sh soundsight.sh pcm-check
+Nov 19 08:42:51 pynq sh[597]: DEVICE_STATE={"status": 983040, "fault": 0, "drops": 0, "sys": 8, "actuator": 0, "dual_axis": 0}
+Nov 19 08:42:51 pynq sh[560]: PRODUCT_STAGE=TOUCH_SETUP
+Nov 19 08:42:59 pynq sh[560]: SCREEN_PREFLIGHT={'status': 983040, 'fault': 0, 'drops': 0, 'sys': 8, 'actuator': 0}
+Nov 19 08:43:00 pynq sh[560]: PRODUCT_STAGE=PANEL_STARTING
+
+● bootpy.service - Executing boot.py from the boot partition
+     Loaded: loaded (/lib/systemd/system/bootpy.service; enabled; vendor preset: enabled)
+     Active: inactive (dead) since Fri 2021-11-19 08:41:30 UTC; 1min 29s ago
+    Process: 550 ExecStart=/usr/local/bin/bootpy.sh (code=exited, status=0/SUCCESS)
+   Main PID: 550 (code=exited, status=0/SUCCESS)
+
+Nov 19 08:41:30 pynq systemd[1]: Starting Executing boot.py from the boot partition...
+Nov 19 08:41:30 pynq systemd[1]: bootpy.service: Succeeded.
+Nov 19 08:41:30 pynq systemd[1]: Finished Executing boot.py from the boot partition.
+xilinx@pynq:~$ sudo journalctl -u soundsight-product.service -b --no-pager -n 100
+Journal file /var/log/journal/236dbcc4a6dba1caa1d5d5bc61955d45/system@0005d1136d6977ef-5e7b876956925a59.journal~ is truncated, ignoring file.
+-- Logs begin at Thu 2021-11-18 14:45:13 UTC, end at Fri 2021-11-19 08:43:34 UTC. --
+Nov 19 08:42:14 pynq sh[652]: ----------------------------------------------------------------------
+Nov 19 08:42:14 pynq sh[652]: Ran 12 tests in 5.088s
+Nov 19 08:42:14 pynq sh[652]: OK
+Nov 19 08:42:14 pynq sh[597]: THREE_D_OFFLINE_OK=1 HARDWARE_ACTIONS=0
+Nov 19 08:42:15 pynq sh[597]: OFFLINE_TEST= test_normal.py
+Nov 19 08:42:18 pynq sh[654]: .usage: test_normal.py [-h] --hwh HWH [--ip IP] --output OUTPUT
+Nov 19 08:42:18 pynq sh[654]:                       [--library LIBRARY]
+Nov 19 08:42:18 pynq sh[654]:                       [--mode {real,bist-pass,bist-reject}] [--frames FRAMES]
+Nov 19 08:42:18 pynq sh[654]:                       --min-level MIN_LEVEL [--window-frames WINDOW_FRAMES]
+Nov 19 08:42:18 pynq sh[654]:                       [--min-valid MIN_VALID] [--clear-faults CLEAR_FAULTS]
+Nov 19 08:42:18 pynq sh[654]:                       [--host-cpu HOST_CPU] [--worker-cpu WORKER_CPU]
+Nov 19 08:42:18 pynq sh[654]:                       [--lock-file LOCK_FILE] [--horizontal-motion]
+Nov 19 08:42:18 pynq sh[654]:                       [--motion-config MOTION_CONFIG]
+Nov 19 08:42:18 pynq sh[654]:                       [--manual-angle MANUAL_ANGLE]
+Nov 19 08:42:18 pynq sh[654]: test_normal.py: error: Real mode requires frames>=0; BIST requires frames=1
+Nov 19 08:42:18 pynq sh[654]: usage: test_normal.py [-h] --hwh HWH [--ip IP] --output OUTPUT
+Nov 19 08:42:18 pynq sh[654]:                       [--library LIBRARY]
+Nov 19 08:42:18 pynq sh[654]:                       [--mode {real,bist-pass,bist-reject}] [--frames FRAMES]
+Nov 19 08:42:18 pynq sh[654]:                       --min-level MIN_LEVEL [--window-frames WINDOW_FRAMES]
+Nov 19 08:42:18 pynq sh[654]:                       [--min-valid MIN_VALID] [--clear-faults CLEAR_FAULTS]
+Nov 19 08:42:18 pynq sh[654]:                       [--host-cpu HOST_CPU] [--worker-cpu WORKER_CPU]
+Nov 19 08:42:18 pynq sh[654]:                       [--lock-file LOCK_FILE] [--horizontal-motion]
+Nov 19 08:42:18 pynq sh[654]:                       [--motion-config MOTION_CONFIG]
+Nov 19 08:42:18 pynq sh[654]:                       [--manual-angle MANUAL_ANGLE]
+Nov 19 08:42:18 pynq sh[654]: test_normal.py: error: Horizontal motion requires real mode and --motion-config
+Nov 19 08:42:27 pynq sh[654]: ................
+Nov 19 08:42:27 pynq sh[654]: ----------------------------------------------------------------------
+Nov 19 08:42:27 pynq sh[654]: Ran 17 tests in 10.627s
+Nov 19 08:42:27 pynq sh[654]: OK
+Nov 19 08:42:27 pynq sh[597]: OFFLINE_TEST= test_volume_gate.py
+Nov 19 08:42:28 pynq sh[657]: ...............
+Nov 19 08:42:28 pynq sh[657]: ----------------------------------------------------------------------
+Nov 19 08:42:28 pynq sh[657]: Ran 15 tests in 0.082s
+Nov 19 08:42:28 pynq sh[657]: OK
+Nov 19 08:42:28 pynq sh[597]: OFFLINE_TEST= test_serial_english.py
+Nov 19 08:42:36 pynq sh[658]: ...
+Nov 19 08:42:36 pynq sh[658]: ----------------------------------------------------------------------
+Nov 19 08:42:36 pynq sh[658]: Ran 3 tests in 6.298s
+Nov 19 08:42:36 pynq sh[658]: OK
+Nov 19 08:42:36 pynq sh[597]: OFFLINE_TEST= test_board_tools.py
+Nov 19 08:42:37 pynq sh[665]: ...DOWNLOAD_BEGIN
+Nov 19 08:42:37 pynq sh[665]: LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+Nov 19 08:42:37 pynq sh[665]: DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 72, "status": 212992, "sys": 8}
+Nov 19 08:42:37 pynq sh[665]: ..DOWNLOAD_BEGIN
+Nov 19 08:42:37 pynq sh[665]: LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+Nov 19 08:42:37 pynq sh[665]: DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 64, "status": 212992, "sys": 8}
+Nov 19 08:42:37 pynq sh[665]: ..MIN_LEVEL= 4300 APPLIES_TO=NEXT_RUN
+Nov 19 08:42:37 pynq sh[665]: .OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+Nov 19 08:42:37 pynq sh[665]: OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+Nov 19 08:42:37 pynq sh[665]: .OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+Nov 19 08:42:37 pynq sh[665]: LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+Nov 19 08:42:37 pynq sh[665]: DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 64, "status": 212995, "sys": 8}
+Nov 19 08:42:37 pynq sh[665]: ..OVERLAY_ALREADY_LOADED=1 DOWNLOAD_SKIPPED=1
+Nov 19 08:42:37 pynq sh[665]: LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+Nov 19 08:42:37 pynq sh[665]: DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 64, "status": 212992, "sys": 8}
+Nov 19 08:42:37 pynq sh[665]: .MIN_LEVEL= 4500 APPLIES_TO=NEXT_RUN
+Nov 19 08:42:37 pynq sh[665]: .DOWNLOAD_BEGIN
+Nov 19 08:42:37 pynq sh[665]: ..
+Nov 19 08:42:37 pynq sh[665]: ----------------------------------------------------------------------
+Nov 19 08:42:37 pynq sh[665]: Ran 15 tests in 0.220s
+Nov 19 08:42:37 pynq sh[665]: OK
+Nov 19 08:42:37 pynq sh[597]: OFFLINE_TEST= test_filter_controls.py
+Nov 19 08:42:39 pynq sh[666]: ........WORKER_STAGE=IMPORT_PYNQ
+Nov 19 08:42:39 pynq sh[666]: WORKER_STAGE=MMIO_SOLVER_ID
+Nov 19 08:42:39 pynq sh[666]: .WINDOW_FRAMES=10 MIN_VALID=6 APPLIES_TO=NEXT_RUN
+Nov 19 08:42:39 pynq sh[666]: ...WINDOW_FRAMES=10 MIN_VALID=6 APPLIES_TO=NEXT_RUN
+Nov 19 08:42:39 pynq sh[666]: MIN_LEVEL= 5000 APPLIES_TO=NEXT_RUN
+Nov 19 08:42:39 pynq sh[666]: .
+Nov 19 08:42:39 pynq sh[666]: ----------------------------------------------------------------------
+Nov 19 08:42:39 pynq sh[666]: Ran 13 tests in 0.419s
+Nov 19 08:42:39 pynq sh[666]: OK
+Nov 19 08:42:39 pynq sh[597]: OFFLINE_TEST= test_manual_servo.py
+Nov 19 08:42:40 pynq sh[667]: ........
+Nov 19 08:42:40 pynq sh[667]: ----------------------------------------------------------------------
+Nov 19 08:42:40 pynq sh[667]: Ran 8 tests in 0.013s
+Nov 19 08:42:40 pynq sh[667]: OK
+Nov 19 08:42:40 pynq sh[597]: OFFLINE_TEST= test_pcm_capture.py
+Nov 19 08:42:41 pynq sh[668]: ............PCM_CHECK= {"audio": {"armed": false, "dma_reset_released": true, "epoch": 0, "errors": 0, "idle": true, "partial_tail": false, "pending": false, "published": 0, "raw": 24, "ready": false, "rejected": 0}, "channels": 4, "dma_status": 1, "motion": false, "packet_bytes": 8224, "ps": {"fault": 0}, "sample_rate": 48000}
+Nov 19 08:42:41 pynq sh[668]: PCM_INTERFACE_OK=1 NO_CAPTURE=1 SERVO=OFF
+Nov 19 08:42:41 pynq sh[668]: .......
+Nov 19 08:42:41 pynq sh[668]: ----------------------------------------------------------------------
+Nov 19 08:42:41 pynq sh[668]: Ran 19 tests in 0.393s
+Nov 19 08:42:41 pynq sh[668]: OK
+Nov 19 08:42:41 pynq sh[597]: ARM_LIBRARY_LOADED=1
+Nov 19 08:42:48 pynq sh[597]: DOWNLOAD_BEGIN
+Nov 19 08:42:48 pynq sh[597]: LOADED=True FCLK0_CTRL=0x400400 FCLK0_MHz=99.999999 FPGA_RST_CTRL=0x0
+Nov 19 08:42:48 pynq sh[597]: DEVICE_STATE= {"actuator": 0, "drops": 0, "fault": 0, "status": 983040, "sys": 8}
+Nov 19 08:42:48 pynq sh[597]: READY_FOR_DEBUG MIN_LEVEL=12500 SERVO=OFF
+Nov 19 08:42:48 pynq sh[597]: NEXT: sudo sh soundsight.sh pcm-check
+Nov 19 08:42:51 pynq sh[597]: DEVICE_STATE={"status": 983040, "fault": 0, "drops": 0, "sys": 8, "actuator": 0, "dual_axis": 0}
+Nov 19 08:42:51 pynq sh[560]: PRODUCT_STAGE=TOUCH_SETUP
+Nov 19 08:42:59 pynq sh[560]: SCREEN_PREFLIGHT={'status': 983040, 'fault': 0, 'drops': 0, 'sys': 8, 'actuator': 0}
+Nov 19 08:43:00 pynq sh[560]: PRODUCT_STAGE=PANEL_STARTING
+Nov 19 08:43:01 pynq sh[560]: SCREEN_PRODUCT_P1 transport=PS_I2C0_EMIO_LINUX Python=3.8.2 Pillow=7.0.0 numpy=1.20.3
+Nov 19 08:43:09 pynq sh[560]: SCREEN_PREFLIGHT={'status': 983040, 'fault': 0, 'drops': 0, 'sys': 8, 'actuator': 0}
+Nov 19 08:43:09 pynq sh[560]: VDMA_STARTED version=0x62000050 frame0=0x38100000 frame1=0x38300000 stride=2400 height=480
+Nov 19 08:43:10 pynq sh[560]: TOUCH=Goodix 911
+Nov 19 08:43:10 pynq sh[560]:  @0x14
+Nov 19 08:43:10 pynq sh[560]: SCREEN_READY=1 CURRENT_FRAME_ACK=1 AXES=off CONTROL=1
+Nov 19 08:43:10 pynq sh[560]: PRODUCT_STAGE=READY
+xilinx@pynq:~$ sudo cat /home/xilinx/SoundSight_PYNQ_3D_Speaker/logs/product/latest.json
+{
+  "revision": "SCREEN_PRODUCT_P1",
+  "boot_id": "8d5a1e18-b18e-406c-a221-86331226e15f",
+  "events": [
+    {
+      "stage": "BOOT",
+      "monotonic": 54.002217263
+    },
+    {
+      "stage": "PREPARING",
+      "monotonic": 54.912083015
+    },
+    {
+      "stage": "TOUCH_SETUP",
+      "monotonic": 128.40634564
+    },
+    {
+      "stage": "PANEL_STARTING",
+      "monotonic": 136.817311545
+    },
+    {
+      "stage": "READY",
+      "monotonic": 146.966932147
+    }
+  ],
+  "stage": "READY",
+  "axes": "off",
+  "automatic_motion": false,
+  "previous_boot_id": "5993ae2d-75e6-4b6c-9a79-85350e1596b7",
+  "previous_stage": "STARTUP_ERROR",
+  "new_boot": true,
+  "settings_at_ready": {
+    "settings.local.json": "6a48174ea376a391845e598552a83c1e4c74af7853341d2d196516e2d233013d",
+    "speaker-follow.local.json": "a6358f2548eeb7946a4c1341b5d4df51f7cd8a6e99abe2218018686799e79d46",
+    "speaker-target.local.json": "0e41e50aa6f796dcfd728913bb9c51f1b81139498a743eafa954507ed999bbd9",
+    "servo3d.local.json": "da355e66c270d2ffb2f1203feb9461ab76f8fcaf9ab090d5bd7c2ab054cd988d",
+    "speaker-profiles/P02-v1/profile.json": "ba9d26d34b4afd449514a8939b101e78716fecea194ee28b210c2a45b88d9a5c",
+    "speaker-profiles/toph/profile.json": "8420dda52331680b169ab178b638abde51feaf667f839d198f93ef354676142a",
+    "speaker-profiles/user2/profile.json": "6effa16d677b658c0547f14293b1868d3df7e33e9dff679ca611a3a36a523021"
+  }
+}
+xilinx@pynq:~$

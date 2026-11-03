@@ -1,0 +1,38 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.6",
+  "checks": [
+    {
+      "test": "software/tetra3d/tests/test_cf1.py",
+      "returncode": 0,
+      "resource_import_placeholder": true
+    },
+    {
+      "test": "software/tests/test_speaker_follow.py",
+      "returncode": 0,
+      "resource_import_placeholder": true
+    },
+    {
+      "test": "software/tetra3d/tests/test_capture_recovery.py",
+      "returncode": 0,
+      "resource_import_placeholder": false
+    },
+    {
+      "test": "software/tests/test_screen_product.py",
+      "returncode": 0,
+      "resource_import_placeholder": false
+    },
+    {
+      "test": "software/tetra3d/tests/test_online_3d.py",
+      "returncode": 0,
+      "resource_import_placeholder": false
+    },
+    {
+      "test": "software/tetra3d/tests/test_follow_sound.py",
+      "returncode": 0,
+      "resource_import_placeholder": false
+    }
+  ],
+  "hardware_actions": 0,
+  "board_validation": "PENDING"
+}

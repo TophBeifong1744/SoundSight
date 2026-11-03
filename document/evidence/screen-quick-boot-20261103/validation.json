@@ -1,0 +1,28 @@
+{
+  "tests": {
+    "quick_boot": 7,
+    "hardware_prepare": 15,
+    "screen_product": 44
+  },
+  "result": "PASS",
+  "real_package_upgrade": "PASS",
+  "idempotent": "PASS",
+  "private_data_preserved": "PASS",
+  "unknown_local_edits_refused": "PASS",
+  "python38_syntax": "PASS",
+  "crc_manifest": "PASS",
+  "changed": [
+    "software/screen/ui.py",
+    "software/screen/product.py",
+    "software/tests/test_screen_product.py",
+    "tools/install_product.py",
+    "software/tetra3d/linux/board_3d.py",
+    "software/ps/board_tools.py",
+    "software/tests/test_screen_quick_boot.py",
+    "software/tests/test_board_tools.py",
+    "document/screen-quick-boot.md"
+  ],
+  "sha256": "e9f9c8cbe66774116a7bfb8a7beda38051286b11b345dfdd956aabb9ee49321b",
+  "hardware_actions": 0,
+  "board_timing": "PENDING"
+}

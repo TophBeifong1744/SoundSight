@@ -1,0 +1,9 @@
+{
+  "file": "soundsight_screen_speaker_fix.zip",
+  "sha256": "aab20e0c5efa11bca828fb23ef13610745868ef557a4d6f05e8bb191bea5a623",
+  "files": 16,
+  "python38_syntax": "PASS",
+  "crc": "PASS",
+  "machine_path_dependencies": false,
+  "board_validation": "PENDING"
+}
