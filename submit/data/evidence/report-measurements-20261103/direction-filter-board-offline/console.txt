@@ -1,0 +1,81 @@
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ sudo sh soundsight-3d.sh check
+PYTHON_EXE=/usr/bin/python3.8
+Solver library built for selected compiler: /home/xilinx/SoundSight_PYNQ_3D_Speaker/software/ps/libss_solver.so
+Built for the selected compiler target: /home/xilinx/SoundSight_PYNQ_3D_Speaker/software/tetra3d/linux/libss_solver_3d.so
+test_axis_mapping_ranges_pole_and_translation (__main__.OnlineTests) ... ok
+test_bounded_summary_and_debug_capacity (__main__.OnlineTests) ... ok
+test_cli_defaults_explicit_manual_and_bounded_debug (__main__.OnlineTests) ... ok
+test_config_rejects_invalid_and_has_no_hardware_effect (__main__.OnlineTests) ... ok
+test_final_extension_failure_still_attempts_legacy_stop (__main__.OnlineTests) ... ok
+test_follow_atomic_write_and_fresh_sequence (__main__.OnlineTests) ... ok
+test_follow_session_commits_only_after_group_and_stops (__main__.OnlineTests) ... ok
+test_hardware_fault_prevents_consume_and_motion_restart (__main__.OnlineTests) ... ok
+test_hwh_rejects_old_before_mmio (__main__.OnlineTests) ... ok
+test_invalid_and_history_display (__main__.OnlineTests) ... ok
+test_local_calibration_roundtrip_does_not_change_shared_settings (__main__.OnlineTests) ... ok
+test_manual_both_no_audio_and_revoke_on_error (__main__.OnlineTests) ... ok
+test_manual_extension_revoke_error_attempts_legacy_stop (__main__.OnlineTests) ... ok
+test_manual_rejects_capture_and_unconfigured_range (__main__.OnlineTests) ... ok
+test_normal_session_off_consumes_and_keeps_debug_after_stop (__main__.OnlineTests) ... ok
+test_outliers_rejection_and_minimum (__main__.OnlineTests) ... ok
+test_quiet_and_target_expiry_revoke (__main__.OnlineTests) ... ok
+test_quiet_fault_gap_and_stop_clear_target (__main__.OnlineTests) ... ok
+test_sink_failure_and_solver_exception_stop_retain_snapshot (__main__.OnlineTests) ... ok
+test_spatial_wrap_poles_and_deadband (__main__.OnlineTests) ... ok
+test_vector_storage_is_bounded (__main__.OnlineTests) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 5.396s
+
+OK
+test_axes_default_off (__main__.FollowSoundTests) ... ok
+test_bad_limits_and_invalid_frames_rejected (__main__.FollowSoundTests) ... ok
+test_existing_run_axes_still_speaker_gated (__main__.FollowSoundTests) ... ok
+test_explicit_axes_keep_acoustic_route (__main__.FollowSoundTests) ... ok
+test_main_uses_existing_runtime_and_status_preflight (__main__.FollowSoundTests) ... ok
+test_missing_calibration_blocks_motion (__main__.FollowSoundTests) ... ok
+test_real_client_still_requires_filtered_direction_and_stops (__main__.FollowSoundTests) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.539s
+
+OK
+test_clipped_or_missing_history_does_not_bridge_gap (__main__.NumericTests) ... ok
+test_cooperative_fault_or_stop_never_returns_a_direction (__main__.NumericTests) ... ok
+test_cooperative_receipt_preserves_exact_numeric_window_even_after_eviction (__main__.NumericTests) ... ok
+test_history_backfill_services_receiver_before_fifo_budget (__main__.NumericTests) ... ok
+test_known_pcm_directions_and_filter_output (__main__.NumericTests) ... ok
+test_large_snapshot_gap_is_bounded_and_replay_rejected (__main__.NumericTests) ... ok
+test_missing_clipped_wrong_epoch_and_stale (__main__.NumericTests) ... ok
+test_packet_gap_fails_and_storage_bounded (__main__.NumericTests) ... ok
+test_queued_dma_cannot_refresh_old_samples (__main__.NumericTests) ... ok
+test_silence_does_not_publish_direction (__main__.NumericTests) ... ok
+test_skipped_snapshots_match_full_audio_history (__main__.NumericTests) ... ok
+test_snapshot_gap_keeps_continuous_pcm_history (__main__.NumericTests) ... ok
+test_acoustic_and_speaker_use_exact_window_then_stop (__main__.OwnershipTests) ... ok
+test_ctrl_c_revokes_and_halts (__main__.OwnershipTests) ... ok
+test_frontend_or_dma_failure_stops (__main__.OwnershipTests) ... ok
+test_receiver_hook_is_wired_and_bounded_while_snapshot_is_locked (__main__.OwnershipTests) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 6.049s
+
+OK
+THREE_D_OFFLINE_OK=1 HARDWARE_ACTIONS=0
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$ python3 -B software/tetra3d/tests/test_pcm_gap_filter.py
+test_diagnostics_bounded_exclude_tail_and_expose_raw_reject (__main__.PCMGapTests) ... ok
+test_frontend_missing_or_clipped_intermediate_block_cannot_prove_link (__main__.PCMGapTests) ... ok
+test_low_volume_fault_and_norm_residual_still_reject (__main__.PCMGapTests) ... ok
+test_minimum_consensus_and_deadband_unchanged (__main__.PCMGapTests) ... ok
+test_permission_and_raw_hardware_pairs_still_block_motion (__main__.PCMGapTests) ... ok
+test_real_frontend_skipping_every_other_snapshot_produces_groups (__main__.PCMGapTests) ... SYNTHETIC_GAP_COMPARISON old_groups=0 new_groups=9 bridged=47
+ok
+test_stale_future_and_whole_group_age_limits (__main__.PCMGapTests) ... ok
+test_unverified_epoch_reverse_long_gap_and_missing_proof_reset (__main__.PCMGapTests) ... ok
+test_verified_gap_group_can_reach_dual_axis_commit_with_permission (__main__.PCMGapTests) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 2.885s
+
+OK
+xilinx@pynq:~/SoundSight_PYNQ_3D_Speaker$

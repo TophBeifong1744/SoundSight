@@ -1,0 +1,62 @@
+{
+  "run_id": "P1-UI-01",
+  "actual_receipt_date": "2026-11-03",
+  "board_calendar_unreliable": true,
+  "mode": "SOUND",
+  "axes": "off",
+  "speaker_enabled": false,
+  "elapsed_seconds": 57.648401895000006,
+  "stats": {
+    "consumed": 5396,
+    "drained": 1,
+    "raw_valid": 172,
+    "accepted_windows": 50,
+    "motion_commits": 0,
+    "sequence_gaps": 4,
+    "below_volume": 4122,
+    "first_sequence": 1,
+    "last_sequence": 5401,
+    "fault_or": 0,
+    "drops_first": 0,
+    "drops_last": 5,
+    "max_service_ns": 22962240
+  },
+  "result": "PASS",
+  "error": null,
+  "cleanup_errors": [],
+  "dma_halted": true,
+  "stop_verified": true,
+  "final_hardware": {
+    "audio": {
+      "raw": 28,
+      "errors": 0,
+      "armed": false,
+      "pending": false,
+      "partial_tail": true,
+      "idle": true,
+      "dma_reset_released": true,
+      "ready": false,
+      "rejected": 0,
+      "published": 5403,
+      "epoch": 48
+    },
+    "status": 999428,
+    "fault": 64,
+    "drops": 5,
+    "dma_status": 0
+  },
+  "service_log_names_runtime_file": true,
+  "same_boot": true,
+  "boot_id": "c3064f49-5efc-44e3-b87b-1447b25c8e68",
+  "panel_stop_request_to_ready_seconds": 14.755684574000043,
+  "panel_delay_is_not_mechanical_stop_time": true,
+  "previous_boot": {
+    "boot_id": "8d5a1e18-b18e-406c-a221-86331226e15f",
+    "stage": "ERROR",
+    "stop_verified": false,
+    "error": "STOP NOT VERIFIED. Inspect status; restart blocked."
+  },
+  "video_requested": false,
+  "photos_prove": "physical assembly and visible UI state, not mechanical timing or direction accuracy",
+  "scope": "single no-motion UI run; not speaker or full-system endurance validation"
+}

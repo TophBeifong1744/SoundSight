@@ -150,6 +150,49 @@ class NumericTests(unittest.TestCase):
         s.accept_packet(*packet(0,zeros));s.accept_packet(*packet(1,zeros))
         self.assertEqual(s.solve(frame(0))['cf1_reset'],'pcm_window_stale')
 
+    def test_cooperative_receipt_preserves_exact_numeric_window_even_after_eviction(self):
+        x,_=self.plane(90,20,blocks=100)
+        reference=self.solver(); active=self.solver()
+        for i in range(17):
+            for s in (reference,active):s.accept_packet(*packet(i,x[i*512:(i+1)*512]))
+        expected=reference.solve(frame(15)); calls=[]
+        def receive():
+            calls.append(1)
+            if len(calls)==1:
+                for i in range(17,100):active.accept_packet(*packet(i,x[i*512:(i+1)*512]))
+        active.service_capture=receive
+        actual=active.solve(frame(15))
+        self.assertEqual(actual,expected)
+        self.assertEqual(len(calls),19)
+        self.assertEqual(len(active.blocks),64)
+        self.assertNotIn(0,active.blocks)
+
+    def test_history_backfill_services_receiver_before_fifo_budget(self):
+        # Deterministic scheduling model, not a claim about ARM wall-clock time.
+        x,_=self.plane(0,blocks=17)
+        for cooperative in (False,True):
+            s=self.solver();elapsed=[0.];last=[0.];gaps=[]
+            for i in range(17):s.accept_packet(*packet(i,x[i*512:(i+1)*512]))
+            append=s.append_window
+            def timed_append(*args):
+                elapsed[0]+=.003
+                return append(*args)
+            def receive():
+                gaps.append(elapsed[0]-last[0]);last[0]=elapsed[0]
+            s.append_window=timed_append
+            s.service_capture=receive if cooperative else None
+            s.solve(frame(15));receive()
+            self.assertLess(max(gaps),.01) if cooperative else self.assertGreater(max(gaps),2048/48000.)
+
+    def test_cooperative_fault_or_stop_never_returns_a_direction(self):
+        for error in (RuntimeError('audio overflow'),KeyboardInterrupt()):
+            s=self.solver();x,_=self.plane(0,blocks=17)
+            for i in range(17):s.accept_packet(*packet(i,x[i*512:(i+1)*512]))
+            def fail():raise error
+            s.service_capture=fail
+            with self.assertRaises(type(error)):s.solve(frame(15))
+            self.assertEqual(s.stats['solved'],0)
+
 
 class FakePCM:
     requires_pcm=True
@@ -207,6 +250,17 @@ class OwnershipTests(unittest.TestCase):
         self.assertEqual(r['stop_reason'],'user_stop')
         self.assertFalse(d.active);self.assertTrue(r['dma_halted'])
         self.assertFalse(r['speaker_permission']['permit'])
+
+    def test_receiver_hook_is_wired_and_bounded_while_snapshot_is_locked(self):
+        original=FakePCM.solve
+        def solve(solver,frame):
+            if solver.service_capture is not None:solver.service_capture()
+            return original(solver,frame)
+        with patch.object(FakePCM,'solve',solve):r,d=self.session()
+        self.assertEqual(r['result'],'PASS',r)
+        self.assertGreater(r['capture_service']['cooperative_packets'],0)
+        self.assertEqual(r['capture_service']['max_batch_packets'],4)
+        self.assertEqual(r['packets'],r['direction_frontend']['packets'])
 
 
 if __name__=='__main__':

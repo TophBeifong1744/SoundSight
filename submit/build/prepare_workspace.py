@@ -7,7 +7,11 @@ import json
 ROOT = Path(__file__).resolve().parents[1]
 
 def safe(base, relative):
+    if not isinstance(relative, str):
+        raise ValueError('Relative path must be text')
     p = PurePosixPath(relative)
+    if p.as_posix() != relative:
+        raise ValueError('Noncanonical relative path: '+relative)
     if p.is_absolute() or not p.parts or '..' in p.parts or '\\' in relative or ':' in relative:
         raise ValueError('Unsafe relative path: '+relative)
     target = base.joinpath(*p.parts).resolve()
@@ -26,15 +30,21 @@ def main():
     if output.exists() and (not output.is_dir() or any(output.iterdir())):
         raise ValueError('Refusing to overwrite existing work')
     manifest = json.loads((ROOT/'build/file-map.json').read_text('utf-8'))
+    if manifest.get('schema') != 2:
+        raise ValueError('Source-preserving submission manifest required')
     inputs=[]; seen=set()
     for entry in manifest['files']:
-        source = safe(ROOT, entry['submit_path'])
+        display = safe(ROOT, entry['submit_path'])
+        source = safe(ROOT, entry['restore_path'])
         target = safe(output, entry['source_path'])
         if str(target).casefold() in seen: raise ValueError('Duplicate output path')
         seen.add(str(target).casefold())
-        data = source.read_bytes()
-        if hashlib.sha256(data).hexdigest() != entry['submit_sha256']:
+        if hashlib.sha256(display.read_bytes()).hexdigest() != entry['submit_sha256']:
             raise ValueError('Submission file differs from manifest: '+entry['submit_path'])
+        data = source.read_bytes()
+        digest = hashlib.sha256(data).hexdigest()
+        if digest != entry['restore_sha256'] or digest != entry['source_sha256']:
+            raise ValueError('Original source differs from manifest: '+entry['restore_path'])
         inputs.append((target,data,entry['mode']))
     output.mkdir(parents=True,exist_ok=True)
     for target,data,mode in inputs:

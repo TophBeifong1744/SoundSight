@@ -40,6 +40,21 @@ class ScreenTests(unittest.TestCase):
         with patch.object(backend.os, 'read', return_value=b''), patch.object(self.b, '_group_alive', return_value=False):
             self.b.tick()
 
+    def test_direction_window_and_raw_reason_are_separate_from_permit(self):
+        self.b.state = 'STARTING'
+        self.b.operation = 'SPEAKER'
+        self.b.accept_line('FRAME=10 LEVEL=20000 NO_OUTPUT: COLLECTING_WINDOW '
+            'WINDOW=3/5 VALID=1 MIN=2 RAW_REASON=NORM RAW_PAIRS=6 AXES=3 MOTION=NO_FRESH_VALID_DIRECTION '
+            'SPEAKER_SCORE=0.55 PERMIT=1 REMAIN=4s POLICY=score_ttl_v2')
+        live = self.b.live()
+        self.assertEqual(live['angle_reason'], 'COLLECTING_WINDOW')
+        self.assertEqual((live['window'], live['valid'], live['minimum']), ('3/5', '1', '2'))
+        self.assertEqual(live['raw_reason'], 'NORM')
+        self.assertTrue(live['permit'])
+        self.assertIsNone(live['azimuth'])
+        self.u.mode = 'SPEAKER'
+        self.assertEqual(self.u.render().size, (800, 480))
+
     def test_boot_restores_mode_but_never_axes_or_running(self):
         product.save_mode(self.root, 'SPEAKER')
         u = ui.UI(self.b, product=True)
@@ -252,7 +267,7 @@ class ScreenTests(unittest.TestCase):
              patch.object(product, 'Journal', return_value=journal), \
              patch.object(product.signal, 'signal'), \
              patch.object(hardware, 'verify_install', side_effect=lambda r: events.append('receipt')), \
-             patch.object(product, 'run_stage', side_effect=lambda *a: events.append('prepare')), \
+             patch.object(product, 'run_stage', side_effect=lambda *a: events.append('prepare')) as prepare, \
              patch.object(hardware, 'open_overlay', side_effect=lambda r: events.append('inspect')), \
              patch.object(screen_i2c_prepare, 'apply_overlay', side_effect=lambda r: events.append('i2c')), \
              patch.object(product.os, 'execv', side_effect=ExecReached) as execute:
@@ -261,6 +276,7 @@ class ScreenTests(unittest.TestCase):
             self.assertIn('--owner-fd', args)
             self.assertIn('--product', args)
             self.assertNotIn('--startup-error', args)
+            self.assertEqual(prepare.call_args.args[0][-2:], ['prepare', '--quick'])
         self.assertEqual(events, ['lock', 'receipt', 'prepare', 'inspect', 'i2c'])
         self.assertTrue(owner.closed)
 

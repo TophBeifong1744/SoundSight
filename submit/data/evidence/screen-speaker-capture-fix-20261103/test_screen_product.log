@@ -1,0 +1,83 @@
+PRODUCT_STAGE=BOOT
+PRODUCT_STAGE=PREPARING
+PRODUCT_STAGE=TOUCH_SETUP
+PRODUCT_STAGE=PANEL_STARTING
+PRODUCT_STARTUP_INTERRUPTED: waiting for owner exit
+PRODUCT_STAGE=BOOT
+PRODUCT_STAGE=SHUTDOWN_REQUESTED
+PRODUCT_STAGE=BOOT
+PRODUCT_STAGE=BOOT
+PANEL_STOP_CHECK={"verified": false, "runtime_code": null, "status_code": 0, "device": {"status": 983040, "fault": 64, "drops": 3, "sys": 8, "actuator": 0, "dual_axis": 0}}
+PANEL_STOP_CHECK={"verified": true, "runtime_code": null, "status_code": 0, "device": {"status": 983040, "fault": 64, "drops": 3, "sys": 8, "actuator": 0, "dual_axis": 0}}
+PANEL_STOP_CHECK={"verified": false, "runtime_code": null, "status_code": 0, "device": {"status": 983040, "fault": 64, "drops": 3, "sys": 9, "actuator": 0, "dual_axis": 0}}
+PANEL_STOP_CHECK={"verified": true, "runtime_code": null, "status_code": 0, "device": {"status": 983040, "fault": 64, "drops": 3, "sys": 8, "actuator": 0, "dual_axis": 0}}
+PRODUCT_STAGE=SHUTDOWN_REQUESTED
+PRODUCT_STAGE=SHUTDOWN_FAILED
+SCREEN_PRODUCT_P1 transport=PS_I2C0_EMIO_LINUX Python=3.14.6 Pillow=12.2.0 numpy=2.4.6
+TOUCH=test
+SCREEN_READY=1 CURRENT_FRAME_ACK=0 AXES=off CONTROL=1
+PRODUCT_STAGE=READY
+SCREEN_PRODUCT_P1 transport=PS_I2C0_EMIO_LINUX Python=3.14.6 Pillow=12.2.0 numpy=2.4.6
+TOUCH=test
+SCREEN_READY=1 CURRENT_FRAME_ACK=0 AXES=off CONTROL=1
+PRODUCT_STAGE=READY
+PRODUCT_STAGE=ERROR
+PRODUCT_STAGE=ERROR_STOPPED
+PRODUCT_STAGE=BOOT
+PRODUCT_STAGE=SHUTDOWN_REQUESTED
+PRODUCT_STAGE=BOOT
+PANEL_STOP_CHECK={"verified": true, "runtime_code": null, "status_code": 0, "device": {"status": 983040, "fault": 64, "drops": 3, "sys": 8, "actuator": 0, "dual_axis": 0}}
+PANEL_STOP_CHECK={"verified": false, "runtime_code": null, "status_code": 0, "device": {"status": 983040, "fault": 64, "drops": 3, "sys": 8, "actuator": 1, "dual_axis": 0}}
+SCREEN_S3 transport=PS_I2C0_EMIO_LINUX Python=3.14.6 Pillow=12.2.0 numpy=2.4.6
+TOUCH=test touch
+SCREEN_READY=1 CURRENT_FRAME_ACK=0 AXES=off CONTROL=1
+PRODUCT_TOUCH_FAULT=injected I2C error
+test_active_service_blocks_install (__main__.InstallTests.test_active_service_blocks_install) ... ok
+test_foreign_service_is_preserved (__main__.InstallTests.test_foreign_service_is_preserved) ... ok
+test_install_enables_next_boot_without_start_or_hardware (__main__.InstallTests.test_install_enables_next_boot_without_start_or_hardware) ... ok
+test_missing_bootpy_blocks_install (__main__.InstallTests.test_missing_bootpy_blocks_install) ... ok
+test_payload_corruption_and_traversal_rejected (__main__.InstallTests.test_payload_corruption_and_traversal_rejected) ... ok
+test_profiles_config_hardware_and_original_boot_id_preserved (__main__.InstallTests.test_profiles_config_hardware_and_original_boot_id_preserved) ... ok
+test_reinstall_is_accepted_and_receipt_matches_updated_ui (__main__.InstallTests.test_reinstall_is_accepted_and_receipt_matches_updated_ui) ... ok
+test_service_enable_failure_rolls_back_all_files (__main__.InstallTests.test_service_enable_failure_rolls_back_all_files) ... ok
+test_service_rollback_failure_does_not_skip_file_restore (__main__.InstallTests.test_service_rollback_failure_does_not_skip_file_restore) ... ok
+test_unit_root_cannot_inject_systemd_settings (__main__.InstallTests.test_unit_root_cannot_inject_systemd_settings) ... ok
+test_unknown_hardware_or_modified_program_rejected_before_writes (__main__.InstallTests.test_unknown_hardware_or_modified_program_rejected_before_writes) ... ok
+test_boot_order_and_owner_descriptor_handoff (__main__.ScreenTests.test_boot_order_and_owner_descriptor_handoff) ... ok
+test_boot_restores_mode_but_never_axes_or_running (__main__.ScreenTests.test_boot_restores_mode_but_never_axes_or_running) ... ok
+test_boot_timeout_interrupts_without_killing_or_continuing (__main__.ScreenTests.test_boot_timeout_interrupts_without_killing_or_continuing) ... ok
+test_changed_config_is_not_reported_preserved (__main__.ScreenTests.test_changed_config_is_not_reported_preserved) ... ok
+test_corrupt_mode_never_silently_starts (__main__.ScreenTests.test_corrupt_mode_never_silently_starts) ... ok
+test_damaged_previous_journal_preserved_without_blocking_boot (__main__.ScreenTests.test_damaged_previous_journal_preserved_without_blocking_boot) ... ok
+test_duplicate_status_cannot_confirm_stop (__main__.ScreenTests.test_duplicate_status_cannot_confirm_stop) ... ok
+test_enrollment_dialog_unique_name_and_cancel (__main__.ScreenTests.test_enrollment_dialog_unique_name_and_cancel) ... ok
+test_enrollment_duration_bounds (__main__.ScreenTests.test_enrollment_duration_bounds) ... ok
+test_enrollment_exit_always_verifies_stop (__main__.ScreenTests.test_enrollment_exit_always_verifies_stop) ... ok
+test_enrollment_progress_and_target_unchanged (__main__.ScreenTests.test_enrollment_progress_and_target_unchanged) ... ok
+test_enrollment_race_preserves_existing_profile (__main__.ScreenTests.test_enrollment_race_preserves_existing_profile) ... ok
+test_enrollment_uses_existing_cli_no_select_or_motion (__main__.ScreenTests.test_enrollment_uses_existing_cli_no_select_or_motion) ... ok
+test_error_latched_without_explicit_recovery (__main__.ScreenTests.test_error_latched_without_explicit_recovery) ... ok
+test_fault_requires_explicit_recovery_and_fresh_idle (__main__.ScreenTests.test_fault_requires_explicit_recovery_and_fresh_idle) ... ok
+test_installed_product_checksum_is_checked (__main__.ScreenTests.test_installed_product_checksum_is_checked) ... ok
+test_invalid_configuration_blocks_start_but_renders (__main__.ScreenTests.test_invalid_configuration_blocks_start_but_renders) ... ok
+test_modal_pages_render_and_stop_remains_visible (__main__.ScreenTests.test_modal_pages_render_and_stop_remains_visible) ... ok
+test_mode_change_persists_and_clears_axes (__main__.ScreenTests.test_mode_change_persists_and_clears_axes) ... ok
+test_modes_map_to_distinct_cli (__main__.ScreenTests.test_modes_map_to_distinct_cli) ... ok
+test_motion_requires_explicit_permission (__main__.ScreenTests.test_motion_requires_explicit_permission) ... ok
+test_multitouch_never_starts (__main__.ScreenTests.test_multitouch_never_starts) ... ok
+test_poweroff_failure_is_recorded_and_not_claimed_success (__main__.ScreenTests.test_poweroff_failure_is_recorded_and_not_claimed_success) ... ok
+test_poweroff_main_loop_requires_display_halt_before_os_request (__main__.ScreenTests.test_poweroff_main_loop_requires_display_halt_before_os_request) ... SCREEN_STOP: RuntimeError: Display DMA STOP unconfirmed; shutdown blocked
+ok
+test_restart_records_only_real_new_boot_and_persistence (__main__.ScreenTests.test_restart_records_only_real_new_boot_and_persistence) ... ok
+test_settings_use_original_validating_cli (__main__.ScreenTests.test_settings_use_original_validating_cli) ... ok
+test_shutdown_requires_confirmation_and_fresh_readback (__main__.ScreenTests.test_shutdown_requires_confirmation_and_fresh_readback) ... ok
+test_shutdown_unconfirmed_device_stays_blocked (__main__.ScreenTests.test_shutdown_unconfirmed_device_stays_blocked) ... ok
+test_startup_video_does_not_touch_unowned_reset_or_int (__main__.ScreenTests.test_startup_video_does_not_touch_unowned_reset_or_int) ... ok
+test_stop_cancels_shutdown_and_modal (__main__.ScreenTests.test_stop_cancels_shutdown_and_modal) ... ok
+test_touch_failure_main_loop_stops_and_keeps_fault_frame (__main__.ScreenTests.test_touch_failure_main_loop_stops_and_keeps_fault_frame) ... ok
+test_touch_press_does_not_repeat_start (__main__.ScreenTests.test_touch_press_does_not_repeat_start) ... ok
+
+----------------------------------------------------------------------
+Ran 43 tests in 2.093s
+
+OK

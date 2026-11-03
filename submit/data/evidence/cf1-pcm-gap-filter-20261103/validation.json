@@ -1,0 +1,16 @@
+{
+  "tests": 132,
+  "python": "3.14.6",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python38_syntax": "PASS",
+  "note": "Windows tests use an import-only resource placeholder for Linux-only unused RSS code; affinity/MMIO/DMA are models, not board verification.",
+  "files_in_update": 22,
+  "package_sha256": "0b71791afc25ce088f7b84ab1303da18692a14417b3b1d7a5b6a448bd938eef0",
+  "package_size": 96169,
+  "upgrade_from_capture_cooperative_v1": "PASS",
+  "idempotent": "PASS",
+  "local_edits_preserved": "PASS",
+  "private_data_preserved": "PASS",
+  "hardware_actions": 0,
+  "board_validation": "PENDING"
+}

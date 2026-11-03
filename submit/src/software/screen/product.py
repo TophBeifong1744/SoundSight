@@ -14,7 +14,7 @@ REVISION = 'SCREEN_PRODUCT_P1'
 SERVICE = 'soundsight-product.service'
 CONFIGS = ('settings.local.json', 'speaker-follow.local.json',
            'speaker-target.local.json', 'servo3d.local.json', 'horizontal.local.json',
-           'screen.local.json')
+           'screen.local.json', 'screen-orientation.local.json')
 
 
 def atomic_json(path, value):
@@ -82,7 +82,8 @@ class Journal:
                 # prevent a new boot; preserve the damaged bytes for inspection.
                 self.path.replace(self.path.with_name('damaged-%d.json' % time.time_ns()))
         self.value = dict(revision=REVISION, boot_id=boot_id, events=[], stage='BOOT',
-                          axes='off', automatic_motion=False)
+                          axes='off', automatic_motion=False,
+                          boot_started_monotonic=time.monotonic())
         if journal_error:
             self.value['previous_journal_error'] = journal_error
         if old:
@@ -106,6 +107,13 @@ def update_journal(root, stage, **details):
     path = Path(root)/'logs/product/latest.json'
     value = json.loads(path.read_text('utf-8')) if path.is_file() else dict(revision=REVISION, events=[])
     value.update(stage=stage, **details)
+    if stage in ('DISPLAY_LIT', 'READY'):
+        now = time.monotonic()
+        timings = value.setdefault('startup_timing', {})
+        # Keep first startup measurements even after later READY/STOP transitions.
+        timings.setdefault(stage.lower()+'_uptime_seconds', now)
+        if 'boot_started_monotonic' in value:
+            timings.setdefault(stage.lower()+'_since_service_seconds', now-value['boot_started_monotonic'])
     value.setdefault('events', []).append(dict(stage=stage, monotonic=time.monotonic()))
     value['events'] = value['events'][-32:]
     atomic_json(path, value)
@@ -166,7 +174,7 @@ def boot(root):
         from hardware import verify_install, open_overlay
         verify_install(root)  # Check receipt and previous-boot gate before prepare.
         journal.stage('PREPARING')
-        run_stage(['sh', str(root/'soundsight-3d.sh'), 'prepare'], root, cancelled)
+        run_stage(['sh', str(root/'soundsight-3d.sh'), 'prepare', '--quick'], root, cancelled)
         if cancelled[0]:
             raise RuntimeError('Startup cancelled')
         journal.stage('TOUCH_SETUP')

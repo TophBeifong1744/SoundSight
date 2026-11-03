@@ -14,7 +14,7 @@ import sys
 import tempfile
 from zipfile import ZipFile
 
-REVISION = 'S2_S3_CF1A_NO_DAS_20261102'
+REVISION = 'S2_P1_CF1A_20261103'
 PREFIX = 'SoundSight_PYNQ_3D_Speaker/'
 HARDWARE = ('soundsight.bit', 'soundsight.hwh')
 SCREEN = ('software/screen/hardware.py', 'software/screen/ui.py',
@@ -54,7 +54,7 @@ def load_package(archive):
         for name, sha in manifest['files'].items():
             regular(Path('.'), name)
             if ('.local.' in name or name.startswith(('logs/', 'speaker-profiles/')) or
-                    '/das/' in name or name in ('SCREEN-INSTALL.json', 'RUNTIME-INSTALL.json', 'RUNTIME-INCOMPLETE.json')):
+                    '/das/' in name or name in ('SCREEN-INSTALL.json', 'PRODUCT-INSTALL.json', 'RUNTIME-INSTALL.json', 'RUNTIME-INCOMPLETE.json')):
                 raise ValueError('Protected/unsupported payload: '+name)
             raw = z.read(PREFIX+name)
             if digest(raw) != sha:
@@ -119,8 +119,18 @@ def install(archive, target, boot_id):
             p = regular(target, name)
             if p.exists() and p.read_bytes() != data[name]:
                 raise ValueError('PRIVATE_ASSET_DIFFERS: preserve enrollment binding; '+name)
-    for name in list(data)+['SCREEN-INSTALL.json', 'RUNTIME-INSTALL.json']:
+    for name in list(data)+['SCREEN-INSTALL.json', 'PRODUCT-INSTALL.json', 'RUNTIME-INSTALL.json']:
         regular(target, name)
+    # The autostart service checks this receipt before loading the UI. Updating
+    # program bytes without refreshing it would break the next boot. This only
+    # records the installed files; it does not enable or start any service.
+    product_files = manifest.get('product_files', [])
+    if len(set(product_files)) != len(product_files) or any(n not in data for n in product_files):
+        raise ValueError('Invalid product file list')
+    if product_files:
+        data['PRODUCT-INSTALL.json'] = (json.dumps(dict(revision='SCREEN_PRODUCT_P1',
+            files={n: manifest['files'][n] for n in product_files},
+            hardware_actions=0), indent=2)+'\n').encode()
     screen = dict(revision='SCREEN_PS_I2C_S2', touch_transport='PS_I2C0_EMIO_LINUX',
                   installed_boot_id=boot_id, reboot_required=True,
                   hardware={n: digest(data[n]) for n in HARDWARE},

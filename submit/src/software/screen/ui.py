@@ -10,6 +10,46 @@ import time
 from backend import Backend
 
 
+def screen_rotation(root, override=None):
+    """Keep panel mounting separate from acoustic/servo coordinate settings."""
+    value = 180
+    path = Path(root)/'screen-orientation.local.json'
+    if override is None and path.exists():
+        if path.stat().st_size > 4096:
+            raise ValueError('Screen orientation file too large')
+        config = json.loads(path.read_text('utf-8'))
+        if not isinstance(config, dict) or 'rotation' not in config:
+            raise ValueError('Expected screen orientation rotation=0 or 180')
+        value = config['rotation']
+    elif override is not None:
+        value = override
+    if type(value) is not int or value not in (0, 180):
+        raise ValueError('Screen rotation must be 0 or 180')
+    return value
+
+
+def rotate_frame(frame, rotation):
+    # Pillow transpose is an exact pixel permutation: no resize/interpolation.
+    if rotation == 0:
+        return frame
+    if rotation != 180:
+        raise ValueError('Screen rotation must be 0 or 180')
+    from PIL import Image
+    return frame.transpose(getattr(Image, 'Transpose', Image).ROTATE_180)
+
+
+def rotate_touch(points, rotation):
+    # Touch.poll has already applied physical calibration. Invert the displayed
+    # pixel mapping here; None (no update) and [] (release) must stay distinct.
+    if rotation not in (0, 180):
+        raise ValueError('Screen rotation must be 0 or 180')
+    if points is None:
+        return None
+    if any(not (0 <= x < 800 and 0 <= y < 480) for x, y in points):
+        raise ValueError('Touch coordinate outside 800x480 screen')
+    return [(799-x, 479-y) for x, y in points] if rotation == 180 else points
+
+
 class UI:
     def __init__(self, backend, product=False):
         self.backend = backend
@@ -26,6 +66,8 @@ class UI:
         self.modal = None
         self.enroll_seconds = 5
         self.enroll_name = None
+        self.delete_target = None
+        self.delete_token = None
         self.shutdown_pending = False
         self.shutdown_checked = False
         self.touch_failed = False
@@ -60,6 +102,15 @@ class UI:
                 self.modal = 'POWER'
             elif action == 'CANCEL':
                 self.modal = None
+            elif self.modal == 'DELETE' and action == 'DELETE_CONFIRM':
+                b.delete_user(self.delete_target, self.delete_token)
+                self.modal = None
+                self.axes = 'off'
+                self.message = 'Deleting '+self.delete_target+'; wait for completion'
+            elif self.modal == 'RECOVER' and action == 'RECOVER_CONFIRM':
+                b.recover_capture()
+                self.modal = None
+                self.axes = 'off'
             elif self.modal == 'POWER' and action == 'POWER_CONFIRM':
                 self.modal = None
                 self.axes = 'off'
@@ -103,7 +154,10 @@ class UI:
                     raise RuntimeError('Startup failed: '+self.startup_block)
                 if self.touch_failed:
                     raise RuntimeError('Touch unavailable; wait for touch recovery first')
-                b.acknowledge()
+                if (b.session_failed or not b.stop_verified) and not b.external_fault:
+                    self.modal = 'RECOVER'
+                else:
+                    b.acknowledge()
                 self.axes = 'off'
                 self.draft = dict(b.cache)
             elif action == 'STATUS':
@@ -121,6 +175,12 @@ class UI:
                     raise RuntimeError('Enrollment requires control mode')
                 self.enroll_name = b.next_user()
                 self.modal = 'ENROLL'
+                self.axes = 'off'
+            elif action == 'USER_DELETE':
+                target = b.cache['profiles'][self.user_index]
+                info = b.deletion_preview(target)
+                self.delete_target, self.delete_token = target, info['token']
+                self.modal = 'DELETE'
                 self.axes = 'off'
             elif action == 'FIELD':
                 self.setting_index = (self.setting_index+1) % 5
@@ -211,6 +271,15 @@ class UI:
             value = str(value).encode('ascii', errors='replace').decode()[:limit]
             font = large if big else normal
             if font:
+                # PYNQ ships older Pillow without textbbox; keep clipping active
+                # with its textsize API instead of requiring a board upgrade.
+                def right_edge(value):
+                    bbox = getattr(draw, 'textbbox', None)
+                    if callable(bbox):
+                        return bbox((0, 0), value, font=font)[2]
+                    return draw.textsize(value, font=font)[0]
+                while value and right_edge(value) > 780-x:
+                    value = value[:-1]
                 draw.text((x, y), value, fill=color, font=font)
             else:
                 # 无额外字体时放大 Pillow 自带位图字体，不分发 Windows 字体。
@@ -243,7 +312,13 @@ class UI:
                 az, el = live.get('azimuth'), live.get('elevation')
                 direction = 'Az: %s   El: %s deg' % (
                     '--' if az is None else '%.1f' % az, '--' if el is None else '%.1f' % el)
-                text(24, 199, direction + '   RX age: %.1fs' % live['report_age'], '#53d8cc')
+                if az is None and el is None:
+                    direction = 'No angle: %s  W=%s V=%s/%s' % (
+                        live.get('angle_reason', 'WAITING'), live.get('window', '-'),
+                        live.get('valid', '-'), live.get('minimum', '-'))
+                else:
+                    direction += '   RX age: %.1fs' % live['report_age']
+                text(24, 199, direction, '#53d8cc')
                 text(24, 226, 'Level: %s   Motion: %s' % (live.get('level', '-'), live.get('motion', '-')), limit=72)
             if self.mode == 'SPEAKER':
                 permit = live.get('permit')
@@ -270,10 +345,11 @@ class UI:
             text(24, 205, 'Candidate: '+c['profiles'][self.user_index])
             text(24, 236, 'Local names only. SELECT runs original profile validation.')
             text(24, 264, 'Selecting a user clears the old threshold.', '#f5cd75')
-            button((20, 300, 200, 353), 'Next user', 'USER_NEXT')
-            button((215, 300, 395, 353), 'SELECT', 'USER_SELECT')
-            button((410, 300, 590, 353), 'Validate', 'USER_VERIFY')
-            button((605, 300, 785, 353), 'NEW voice', 'ENROLL')
+            button((20, 288, 200, 332), 'Next user', 'USER_NEXT')
+            button((215, 288, 395, 332), 'SELECT', 'USER_SELECT')
+            button((410, 288, 590, 332), 'Validate', 'USER_VERIFY')
+            button((605, 288, 785, 332), 'NEW voice', 'ENROLL')
+            button((20, 340, 395, 384), 'DELETE candidate', 'USER_DELETE', '#6a3945')
         elif self.page == 'SETTINGS':
             key = ['level', 'window', 'minimum', 'threshold', 'ttl'][self.setting_index]
             text(24, 157, 'Edit: %s = %s' % (key, self.draft[key]), big=True)
@@ -290,13 +366,27 @@ class UI:
             for n, line in enumerate(list(b.lines)[-4:]):
                 text(24, 208+n*25, line, limit=78)
             button((24, 325, 250, 377), 'Read status', 'STATUS')
-            button((266, 325, 575, 377), 'Recheck / reload', 'ACK')
+            button((266, 325, 575, 377), 'Recover capture' if (b.session_failed or not b.stop_verified) and not b.external_fault
+                   else 'Recheck / reload', 'ACK')
             button((591, 325, 778, 377), 'SHUT DOWN' if self.product else 'EXIT panel',
                    'POWER' if self.product else 'EXIT', '#6a3945')
         if self.modal:
             draw.rectangle((10, 145, 790, 388), fill='#183447', outline='#53d8cc')
             self.buttons = []
-            if self.modal == 'POWER':
+            if self.modal == 'DELETE':
+                text(30, 162, 'Delete this user?', big=True)
+                text(30, 205, 'USER: '+str(self.delete_target))
+                text(30, 236, 'Voice profile only. Cannot undo. Logs are kept.')
+                text(30, 267, 'If active: target and threshold will be cleared.')
+                button((30, 320, 350, 380), 'CANCEL', 'CANCEL')
+                button((400, 320, 760, 380), 'CONFIRM DELETE', 'DELETE_CONFIRM', '#9a3545')
+            elif self.modal == 'RECOVER':
+                text(30, 165, 'Recover stopped audio capture?', big=True)
+                text(30, 210, 'Save diagnostics and old direction frames first.')
+                text(30, 240, 'Discard queued audio; keep axes OFF. No auto START.')
+                button((30, 315, 350, 374), 'CANCEL', 'CANCEL')
+                button((400, 315, 760, 374), 'CONFIRM recovery', 'RECOVER_CONFIRM')
+            elif self.modal == 'POWER':
                 text(30, 165, 'Shut down SoundSight?', big=True)
                 text(30, 220, 'Runtime and display DMA must stop before poweroff.')
                 text(30, 250, 'Keep power connected until Linux has shut down.')
@@ -335,13 +425,15 @@ def parser():
     p.add_argument('--swap-xy', action='store_true')
     p.add_argument('--invert-x', action='store_true')
     p.add_argument('--invert-y', action='store_true')
+    p.add_argument('--rotation', type=int, choices=(0, 180), default=None,
+                   help='Display and touch together; local setting or default 180')
     p.add_argument('--product', action='store_true', help='Saved mode, enrollment and confirmed shutdown')
     p.add_argument('--owner-fd', type=int, help=argparse.SUPPRESS)
     p.add_argument('--startup-error', default='', help=argparse.SUPPRESS)
     return p
 
 
-def demo_window(ui):
+def demo_window(ui, rotation=0):
     import tkinter as tk
     from PIL import ImageTk
     window = tk.Tk()
@@ -349,13 +441,13 @@ def demo_window(ui):
     window.resizable(False, False)
     label = tk.Label(window)
     label.pack()
-    label.bind('<ButtonPress-1>', lambda event: ui.touch([(event.x, event.y)]))
+    label.bind('<ButtonPress-1>', lambda event: ui.touch(rotate_touch([(event.x, event.y)], rotation)))
     label.bind('<ButtonRelease-1>', lambda event: ui.touch([]))
 
     def update():
         ui.tick()
         if ui.dirty:
-            photo = ImageTk.PhotoImage(ui.render())
+            photo = ImageTk.PhotoImage(rotate_frame(ui.render(), rotation))
             label.configure(image=photo)
             label.image = photo
         if ui.exit_requested:
@@ -373,6 +465,8 @@ def main(argv=None):
         raise ValueError('Use frames 0..100000 and finite seconds >= 0')
     if args.enable_motion and not args.control:
         raise ValueError('--enable-motion requires --control')
+    rotation = screen_rotation(args.root, args.rotation)
+    print('SCREEN_ROTATION=%d TOUCH_ROTATION=%d' % (rotation, rotation), flush=True)
     try:
         import PIL
         import numpy
@@ -392,10 +486,10 @@ def main(argv=None):
         ui.startup_block = args.startup_error
         backend.fault('Startup failed: '+args.startup_error)
     if offline:
-        ui.render().save(args.screenshot)
+        rotate_frame(ui.render(), rotation).save(args.screenshot)
         print('OFFLINE_SCREENSHOT='+str(args.screenshot.resolve())+' HARDWARE_ACTIONS=0')
         if args.demo_window:
-            demo_window(ui)
+            demo_window(ui, rotation)
         return 0
     if os.name != 'posix':
         raise RuntimeError('Hardware screen requires Linux/PYNQ; use --demo on PC')
@@ -436,8 +530,11 @@ def main(argv=None):
         # 视频输出锁定依赖有效 AXI 视频流，必须先启动 VDMA 再等待锁定。
         wait_until(gpio.locked, 1., 'Screen video output timing lock not asserted')
         ui.message = 'Starting touch controller. Axes are OFF.'
-        display.present(ui.render())
+        display.present(rotate_frame(ui.render(), rotation))
         gpio.backlight(True)
+        if args.product:
+            from product import update_journal
+            update_journal(args.root, 'DISPLAY_LIT')
         touch = None
         touch_attempts, next_touch_retry = 0, 0.
         def touch_error(exc):
@@ -482,7 +579,7 @@ def main(argv=None):
                     next_touch_retry = now+2.
             if touch is not None:
                 try:
-                    ui.touch(touch.poll())
+                    ui.touch(rotate_touch(touch.poll(), rotation))
                 except (OSError, ValueError, RuntimeError) as exc:
                     touch = None
                     if bus:
@@ -494,11 +591,11 @@ def main(argv=None):
                 last_health = now
             interval = .5 if backend.busy else .2
             if ui.dirty and now-last_render >= interval:
-                display.present(ui.render())
+                display.present(rotate_frame(ui.render(), rotation))
                 last_render = time.monotonic()
             if ui.poweroff_ready:
                 ui.message = 'Shutting down. Keep power connected.'
-                display.present(ui.render())
+                display.present(rotate_frame(ui.render(), rotation))
                 if not display.close():
                     raise RuntimeError('Display DMA STOP unconfirmed; shutdown blocked')
                 try:
@@ -513,7 +610,7 @@ def main(argv=None):
                     display = Display(mmio(0x43000000, 0x1000), gpio, allocate, np)
                     display.start(allocate)
                     wait_until(gpio.locked, 1., 'Screen timing lock after shutdown rejection')
-                    display.present(ui.render()); gpio.backlight(True)
+                    display.present(rotate_frame(ui.render(), rotation)); gpio.backlight(True)
             time.sleep(.02)
     except Exception as exc:
         result = 1
