@@ -50,6 +50,7 @@ soundsight-panel.sh -text -eol -whitespace
 document/evidence/*-20261031/** -text -eol -whitespace
 document/evidence/*-20261101/** -text -eol -whitespace
 document/evidence/*-20261102/** -text -eol -whitespace
+document/evidence/screen-product-p1-20261103/** -text -eol -whitespace
 research/coherent-study/** -text -eol -whitespace
 release/output/screen_s2/** -text -eol -whitespace
 

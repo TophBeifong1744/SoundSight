@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Tue Nov  3 16:32:56 2026
+# Process ID         : 47264
+# Current directory  : F:/NUEC/screen-report-p1-export
+# Command line       : vivado.exe -mode gui -source F:/NUEC/screen-report-p1-export/export.tcl -log F:/NUEC/screen-report-p1-export/vivado-export.log -journal F:/NUEC/screen-report-p1-export/vivado-export.jou
+# Log file           : F:/NUEC/screen-report-p1-export/vivado-export.log
+# Journal file       : F:/NUEC/screen-report-p1-export/vivado-export.jou
+# Running On         : Y9000P
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 9 7945HX with Radeon Graphics        
+# CPU Frequency      : 2495 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 32
+# Host memory        : 16844 MB
+# Swap memory        : 23622 MB
+# Total Virtual      : 40467 MB
+# Available Virtual  : 19395 MB
+#-----------------------------------------------------------
+start_gui
+source F:/NUEC/screen-report-p1-export/export.tcl

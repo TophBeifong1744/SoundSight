@@ -60,7 +60,7 @@ def collect(private_zip):
     tests = ('test_normal test_volume_gate test_serial_english test_board_tools '
              'test_filter_controls test_manual_servo test_pcm_capture test_online_angle_filter '
              'test_speaker_follow test_speaker_display test_speaker_enrollment '
-             'test_speaker_statistics test_latest_result').split()
+             'test_speaker_statistics test_latest_result test_screen_product').split()
     for test in tests:
         name = 'software/tests/'+test+'.py'
         data[name] = (ROOT/name).read_bytes()
@@ -69,7 +69,7 @@ def collect(private_zip):
                  'document/pynq-final-runtime.md', 'document/screen-control.md',
                  'document/pynq-speaker-statistics.md', 'document/pynq-speaker-enrollment.md',
                  'tools/check_current_software.py', 'tools/install_current_runtime.py',
-                 'tools/install_normal_update.py',
+                 'tools/install_normal_update.py', 'tools/install_product.py',
                  'software/ps/speaker_core/armv7.cmake',
                  'software/ps/speaker_core/build-lock.json',
                  'software/tests/test_current_runtime.py'):

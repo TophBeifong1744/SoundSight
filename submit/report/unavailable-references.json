@@ -66,10 +66,6 @@
       "original_target": "total-handoff-20261029.md"
     },
     {
-      "document": "report/main-architecture.md",
-      "original_target": "../handoff/README.md"
-    },
-    {
       "document": "report/ps-latest-result.md",
       "original_target": "evidence/ps-latest-result-20261030/README.md"
     },
@@ -122,16 +118,8 @@
       "original_target": "../report-function-summary.md"
     },
     {
-      "document": "report/requirements/final-report-scope.md",
-      "original_target": "../../handoff/README.md"
-    },
-    {
       "document": "report/requirements/report-poster-master-guide.md",
       "original_target": "../evidence/pynq-board-20261021/README.md"
-    },
-    {
-      "document": "build/reports/current/screen_s2_20261102/readme.md",
-      "original_target": "../../handoff/README.md"
     },
     {
       "document": "skill/pynq-overlay-dma-validation/references/history/validation-status-20260913.md",

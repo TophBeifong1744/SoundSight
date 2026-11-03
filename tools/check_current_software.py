@@ -12,7 +12,8 @@ TESTS=['software/tetra3d/tests/test_online_3d.py',
        'software/tetra3d/tests/test_follow_sound.py',
        'software/tests/test_speaker_follow.py',
        'software/tests/test_speaker_display.py',
-       'software/tetra3d/tests/test_cf1.py']
+       'software/tetra3d/tests/test_cf1.py',
+       'software/tests/test_screen_product.py']
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)

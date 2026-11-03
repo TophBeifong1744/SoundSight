@@ -27,8 +27,10 @@ def destination(name):
         return None
     if name == 'LICENSE': return 'report/licenses/license.txt'
     if name == 'THIRD_PARTY.md': return 'report/licenses/third-party.md'
+    if name == 'release/output/soundsight_screen_product_p1.zip':
+        return 'board/artifacts/soundsight_screen_product_p1.zip'
     if name == 'tools.local.env.example': return 'build/config/tools.local.env.example'
-    if name in {'soundsight.sh', 'soundsight-3d.sh', 'soundsight-screen.sh', 'soundsight-screen-i2c.sh', 'soundsight-panel.sh'}: return 'board/scripts/'+name
+    if name in {'soundsight.sh', 'soundsight-3d.sh', 'soundsight-screen.sh', 'soundsight-screen-i2c.sh', 'soundsight-panel.sh', 'soundsight-product.sh'}: return 'board/scripts/'+name
     if name in {'document/screen-readme.md','document/screen-control.md'}:
         return 'board/instructions/'+name.rsplit('/',1)[1]
     pairs = [
@@ -105,11 +107,15 @@ def main():
 if __name__ == '__main__': main()
 '''
 
-README = """# SoundSight 最终提交材料 — 2026-11-02
+README = """# SoundSight 最终提交材料 — 2026-11-03
 
 最终范围：RGB触屏、四麦三维定位、声纹验证、双轴指向。已包含PR #40、#41后的源码。
-当前组合为S2硬件＋S3面板＋CF1A前端＋CP1/VF1声纹与score_ttl_v2许可。
+当前组合为S2硬件＋P1/S3面板＋CF1A前端＋CP1/VF1声纹与score_ttl_v2许可。
 水平J3-2/M15、垂直J3-3/J14；默认不开轴。
+
+P1新增开机自启、触屏录入及确认关机，见[产品化操作与验收](report/screen-product.md)。
+[最新软件更新包](board/artifacts/soundsight_screen_product_p1.zip)已包含在本目录，供已有匹配S2/S3/CF1A板端安装。
+用户已回报C的此前功能测试通过；P1冷启动等新增流程尚待本板测试，不将离线检查记为板测。
 
 七类目录均含实际文件，可整体复制上交。旧平台工程、旧安装包、非最终研究和过时海报副本已移出。
 保留的历史数据用于解释已采用优化的基线和失败，不作为可安装的另一套工程。
@@ -190,6 +196,7 @@ python -B release/check_competition_skills.py --skills-root research/competition
  'report/README.md': """# 当前设计说明
 
 从[设计与结果](design-report.md)、[提交范围](submit-final-scope.md)、[运行说明](pynq-final-runtime.md)开始。
+P1见[产品化说明](screen-product.md)，本轮原生BD/资源/时序见[报告索引](../build/reports/current/readme.md)。
 requirements保留赛事原始模板及规则，不能当作已完成的设计报告。
 旧海报含已取消功能，已移出本提交；正在其他聊天修改的源稿没有被覆盖。
 unavailable-references.json记录当前交付之外的历史引用，不提供失效链接。
@@ -197,7 +204,8 @@ unavailable-references.json记录当前交付之外的历史引用，不提供�
  'report/design-report.md': """# 当前系统与可报告结果
 
 Zynq PL完成四麦采集、时差特征、连续PCM、双轴PWM和停止保护；PS运行CF1A四面体定位、
-CP1/VF1声纹评分与score_ttl_v2许可，S3面板通过S2的RGB/VDMA和PS I2C0 EMIO显示与触摸。
+CP1/VF1声纹评分与score_ttl_v2许可，P1在S3面板上增加开机自启、触屏声纹录入、模式保存和确认关机，
+通过S2的RGB/VDMA和PS I2C0 EMIO显示与触摸。
 纯声音跟随与声纹跟随是两个独立模式，默认关轴。当前三维不估计距离。
 
 A及原作者提供PL/PS和许可基线，B侧后续负责算法迁移、声纹计算优化、J3/S2/S3及CF1/CF1A实现与验证；
@@ -211,6 +219,14 @@ A及原作者提供PL/PS和许可基线，B侧后续负责算法迁移、声纹�
 | 声纹优化 | RX4校验CPU下降95.71%；CP1+VF1同轮离线并发下降18.12%；不同计时边界不可相加 |
 | CF1A PC | 4598完整窗/3833稀疏窗分类与有效向量一致，前端wall中位下降45.5%；非ARM端到端延迟 |
 | CF1A板测 | 摘要30.016秒，36组方向、22次动作、3次快照缺口、正常停止；现场另有几分钟观察，不能混成定量长稳 |
+| C功能验收 | 用户回报声纹、三维转向和屏幕三项通过；不扩展为定量误差或完整识别率 |
+| P1产品化 | 141项离线测试通过，其中新增43项；开机、触屏录入、确认关机及两轮冷启动实板待测 |
+
+可安装更新包：[P1 ZIP](../board/artifacts/soundsight_screen_product_p1.zip)；
+操作见[安装与测试](screen-product.md)，已有S2/S3/CF1A板端安装本包即可，不能将其用作空白SD系统镜像。
+原生硬件报告见[本轮脚本导出](../build/reports/current/screen_s2_20261103/readme.md)，
+产品化软件验证见[P1证据](../data/evidence/screen-product-p1-20261103/readme.md)。
+硬件未变，硬件时序不能用于证明新增软件功能已上板通过。
 
 来源：[声纹原始指标](../data/evidence/speaker-report-materials/metrics.csv)、
 [CF1A板测](../data/evidence/cf1a-longrun-20261102/readme.md)、
@@ -223,9 +239,11 @@ A及原作者提供PL/PS和许可基线，B侧后续负责算法迁移、声纹�
 - 三维定量参考角误差、几分钟观察与原生日志关联、联合长稳和端到端响应。
 - 独立声纹门限标定、混声场景与身份/空间声源绑定；TTL串行测试不能替代这些。
 - 当前候选CDC、外部接口时序及完整物理签核。
+- P1安装后首次自启、触屏录入与关机、正常断电后两轮冷启动；板子离线，本轮未执行。
 - 最终整机图/视频、按最终四项功能更新的正式报告与海报、赛事签署材料。
 
-本次清理只改变提交范围，不新增验收结论。当前程序与底层参数未改。
+本次同步包含P1产品化软件和用户脚本重新导出的S2报告；位流、算法及底层参数未改。
+此前C功能通过按用户回报记录，新P1实板验收单独保留待测。
 """,
 }
 

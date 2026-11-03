@@ -299,7 +299,7 @@
 - [声纹报告素材、性能与迭代资料](../../data/evidence/speaker-report-materials/readme.md)
 - [既有两轮声纹双轴板测及TTL分析](../../data/evidence/speaker-dual-axis-20261030/readme.md)
 - [CF1A长稳归档及计时边界](../../data/evidence/cf1a-longrun-20261102/readme.md)
-- [当前S2实现导出及物理验证限制](../../build/reports/current/screen_s2_20261102/readme.md)
+- [当前S2实现导出及物理验证限制](../../build/reports/current/screen_s2_20261103/readme.md)
 
 部分历史文档仍有旧路线或当时状态的描述；引用时以准确候选、原始报告和后续已核实事实对齐，不能仅凭旧摘要判断当前进度。
 

@@ -33,7 +33,8 @@ def main():
     for item in manifest['files']:
         assert not item['source_path'].startswith(forbidden),item['source_path']
         if item['source_path'].startswith('release/output/'):
-            assert item['source_path'].startswith('release/output/screen_s2/'),item['source_path']
+            assert (item['source_path'].startswith('release/output/screen_s2/') or
+                    item['source_path']=='release/output/soundsight_screen_product_p1.zip'),item['source_path']
         assert hashlib.sha256(files[item['submit_path']].read_bytes()).hexdigest()==item['submit_sha256'],item['submit_path']
         if not item['source_path'].endswith(('.md','.html')):
             assert item['source_sha256']==item['submit_sha256'],item['source_path']
@@ -93,6 +94,19 @@ def main():
             run=call([sys.executable,'-B','tools/check_current_software.py','--output',str(base/'host-check')],work)
             assert run.returncode==0,run.stdout
             result['current_software']=json.loads((base/'host-check/result.json').read_text('utf-8'))
+        if (work/'tools/package_product.py').is_file():
+            # Rebuild the public P1 update without Git or the outer checkout.
+            package=base/'product.zip'
+            run=call([sys.executable,'-B','tools/package_product.py','--output',str(package)],work)
+            assert run.returncode==0,run.stdout
+            with zipfile.ZipFile(package) as z:
+                assert z.testzip() is None
+                result['product_update']={'standalone_rebuild':'PASS','files':len(z.namelist()),
+                                          'hardware':'NOT_RUN','board_validation':'PENDING'}
+            delivered=work/'release/output/soundsight_screen_product_p1.zip'
+            assert delivered.is_file(), 'Missing current installable P1 update'
+            assert delivered.read_bytes()==package.read_bytes(), 'P1 ZIP differs from included source'
+            result['product_update']['delivered_matches_rebuilt']='PASS'
         reject=call([sys.executable,'-B','build/prepare_workspace.py','--output',str(work)],isolated)
         assert reject.returncode!=0 and 'Refusing to overwrite' in reject.stdout
         # Check missing input and attempted traversal before any files can be emitted.

@@ -1,6 +1,10 @@
 # S2 工程复现与报告导出
 
-与 [2026-11-02 S2 报告](../report/screen_s2_20261102/README.md) 配套。目录可单独复制到短 ASCII 路径，不依赖发送方 F 盘或 Vivado 安装位置。Vivado 版本为 2025.2，器件 xc7z020clg400-2。
+与 [2026-11-03 S2 报告](../report/screen_s2_20261103/README.md) 配套。目录可单独复制到短 ASCII 路径，不依赖发送方 F 盘或 Vivado 安装位置。Vivado 版本为 2025.2，器件 xc7z020clg400-2。
+
+2026-11-03：P1 产品化软件不改硬件，继续使用本目录的 S2 配方和原样报告导出脚本。
+更新包见 [P1 ZIP](../release/output/soundsight_screen_product_p1.zip)，安装和板测见[产品化说明](../document/screen-product.md)。
+下文整理基线指原 S2 复现材料来源，不是 P1 软件版本。
 
 ## 内容与来源
 
