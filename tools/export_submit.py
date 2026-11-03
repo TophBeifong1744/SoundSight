@@ -66,7 +66,11 @@ import json
 ROOT = Path(__file__).resolve().parents[1]
 
 def safe(base, relative):
+    if not isinstance(relative, str):
+        raise ValueError('Relative path must be text')
     p = PurePosixPath(relative)
+    if p.as_posix() != relative:
+        raise ValueError('Noncanonical relative path: '+relative)
     if p.is_absolute() or not p.parts or '..' in p.parts or '\\' in relative or ':' in relative:
         raise ValueError('Unsafe relative path: '+relative)
     target = base.joinpath(*p.parts).resolve()
@@ -85,15 +89,21 @@ def main():
     if output.exists() and (not output.is_dir() or any(output.iterdir())):
         raise ValueError('Refusing to overwrite existing work')
     manifest = json.loads((ROOT/'build/file-map.json').read_text('utf-8'))
+    if manifest.get('schema') != 2:
+        raise ValueError('Source-preserving submission manifest required')
     inputs=[]; seen=set()
     for entry in manifest['files']:
-        source = safe(ROOT, entry['submit_path'])
+        display = safe(ROOT, entry['submit_path'])
+        source = safe(ROOT, entry['restore_path'])
         target = safe(output, entry['source_path'])
         if str(target).casefold() in seen: raise ValueError('Duplicate output path')
         seen.add(str(target).casefold())
-        data = source.read_bytes()
-        if hashlib.sha256(data).hexdigest() != entry['submit_sha256']:
+        if hashlib.sha256(display.read_bytes()).hexdigest() != entry['submit_sha256']:
             raise ValueError('Submission file differs from manifest: '+entry['submit_path'])
+        data = source.read_bytes()
+        digest = hashlib.sha256(data).hexdigest()
+        if digest != entry['restore_sha256'] or digest != entry['source_sha256']:
+            raise ValueError('Original source differs from manifest: '+entry['restore_path'])
         inputs.append((target,data,entry['mode']))
     output.mkdir(parents=True,exist_ok=True)
     for target,data,mode in inputs:
@@ -178,13 +188,26 @@ def main():
         destinations.add(target);raw=(ROOT/source).read_bytes();data=rewrite(source,target,raw)
         p=out/target;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
         counts[target.split('/')[0]]+=1
-        records.append({'source_path':source,'submit_path':target,'mode':mode,'source_sha256':hashlib.sha256(raw).hexdigest(),'submit_sha256':hashlib.sha256(data).hexdigest(),'transform':'documentation_links_only' if data!=raw else 'none'})
+        # Navigation in submit uses rewritten links. Workspace reconstruction
+        # must use the original bytes, including documents packaged into ZIPs.
+        restore=target
+        if data!=raw:
+            restore='build/restore/'+target+'.bin'
+            if restore in destinations: raise ValueError('Restore path collision: '+restore)
+            destinations.add(restore)
+            original=out/restore;original.parent.mkdir(parents=True,exist_ok=True);original.write_bytes(raw)
+            counts['build']+=1
+        raw_sha=hashlib.sha256(raw).hexdigest()
+        records.append({'source_path':source,'submit_path':target,'restore_path':restore,
+                        'mode':mode,'source_sha256':raw_sha,'restore_sha256':raw_sha,
+                        'submit_sha256':hashlib.sha256(data).hexdigest(),
+                        'transform':'documentation_links_only' if data!=raw else 'none'})
     for name,text in {'README.md':README,'build/prepare_workspace.py':PREPARE,**EXTRAS}.items():
         if name in destinations:
             # The skills root readme was an index; its actual packages remain copied.
             if name!='skill/README.md': raise ValueError('Generated file collision: '+name)
         p=out/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text,encoding='utf-8',newline='\n')
-    manifest={'baseline_commit':subprocess.check_output(git+['rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'scope':'standalone submission snapshot, no new hardware experiment','files':records,'counts':counts}
+    manifest={'schema':2,'baseline_commit':subprocess.check_output(git+['rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'scope':'standalone submission snapshot, no new hardware experiment','files':records,'counts':counts}
     (out/'build/file-map.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     (out/'report/unavailable-references.json').write_text(json.dumps({'note':'Outside the selected final submission (historical or absent); preserved as text.','references':unavailable},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({'copied_files':len(records),'counts':counts,'historical_missing_references':len(unavailable)},ensure_ascii=False))

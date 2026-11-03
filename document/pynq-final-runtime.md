@@ -139,9 +139,9 @@ sudo sh soundsight-3d.sh speaker-stats
 
 本轮软件维护不执行Vivado或硬件动作。用户实际运行和补测见[统一归档](evidence/final-board-20261103/README.md)，本次软件/实际ZIP的主机验证另见发布说明。启动快速路径复用已有ARM库并检查ABI；修改C源码后应先运行完整check/prepare。
 
-## 维护者重新打包
+## 维护者重新打包（完整Git仓库专用）
 
-在仓库根目录，用含原始私人模型资产的旧完整包作为输入；输入输出不要指向同一个文件：
+此段只适用于完整Git源码仓库，需保留S2/CF1A发布基线ZIP，并持有原始私人模型资产；不是独立submit的操作入口。在仓库根目录执行，输入输出不要指向同一个文件：
 
 ```sh
 python -B tools/package_current_runtime.py --private-assets-from PRIVATE_ORIGINAL.zip --output release/output/soundsight_pynq_3d_speaker.zip
@@ -149,3 +149,11 @@ python -B tools/check_current_runtime_package.py --package release/output/sounds
 ```
 
 检查输出目录须不存在。工具从当前源码、S2匹配硬件和指定私人模型组成包；不会借用旧包的应用代码。PC检查会编译主机C库并使用合成输入、模拟重启ID，不执行ARM推理或板端操作。首次启动仍须使用上文prepare。
+
+独立submit恢复的工作目录可重建公共P1更新，使用：
+
+```sh
+python -B tools/package_product.py --output product-update.zip
+```
+
+它不需要Git，也不需要私人模型；安装目标须已有匹配运行环境。独立submit不承诺生成完整私人模型包。

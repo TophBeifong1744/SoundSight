@@ -1,6 +1,6 @@
 你负责继续完善SoundSight设计报告，更新原有可编辑稿与PDF，不改技术报告或海报。
 
-先读取 document/handoff/report-update-20261103/README.md、facts.md、document/requirements/report-poster-master-guide.md、final-report-scope.md，以及当前任务原始模板/案例。本次真实资料在 document/evidence/final-board-20261103/；大模型协作以 original/llm-collaboration.txt 为主，它是用户提供的经历叙述，不是逐字对话。最新程序和测试记录见 document/runtime-update-log.md、document/release-20261103.md；接口/RTL/BD使用当前源码与S2配方，不能用旧W16工程替代。
+先读取 document/handoff/report-update-20261103/README.md、document/handoff/report-update-20261103/facts.md、document/requirements/report-poster-master-guide.md、document/requirements/final-report-scope.md，以及当前任务原始模板/案例。本次真实资料在 document/evidence/final-board-20261103/；大模型协作以 original/llm-collaboration.txt 为主，它是用户提供的经历叙述，不是逐字对话。最新程序和测试记录见 document/runtime-update-log.md、document/release-20261103.md；接口/RTL/BD使用当前源码与S2配方，不能用旧W16工程替代。
 
 最终仅包括RGB触屏、四麦三维定位、声纹验证、双轴指向。DAS/定向拾音已取消，彻底移除正文、框图、公式、表格、图注、复现步骤和展望中的相关内容，不专设“取消”章节。无证据支撑的结论直接删去，不新增缺项清单或占位；不要编数据，不把尚存的摘要列表扩充为完整时间序列。统一采用facts.md的指标定义：最新联合运行975.374秒、432次动作提交；定位快照淘汰不是PCM丢包，任务数不是识别通过次数，软件命令不是机械到位。原始日志失败和版本边界保持真实。
 
