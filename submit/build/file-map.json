@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "baseline_commit": "9d0892b1b69c4b0c45356cd8635cb435145b4c85",
+  "baseline_commit": "eef2c14b0db4141cd5058a5090cee619506fc947",
   "scope": "standalone submission snapshot, no new hardware experiment",
   "files": [
     {
@@ -52,6 +52,16 @@
       "restore_sha256": "242d636e628c06b591ca559b5603b4366457420d46a0233002197391a4d07bf0",
       "submit_sha256": "7e32dfdc98605126dbdfb90ade4fc1a765a678a43eb93b435fc2104a88dadea2",
       "transform": "documentation_links_only"
+    },
+    {
+      "source_path": "document/design-report.docx",
+      "submit_path": "report/design-report.docx",
+      "restore_path": "report/design-report.docx",
+      "mode": "100644",
+      "source_sha256": "db42362ffeda568877b8f75d226e46774b4ab8bd021f419e224946ea5f262c46",
+      "restore_sha256": "db42362ffeda568877b8f75d226e46774b4ab8bd021f419e224946ea5f262c46",
+      "submit_sha256": "db42362ffeda568877b8f75d226e46774b4ab8bd021f419e224946ea5f262c46",
+      "transform": "none"
     },
     {
       "source_path": "document/evidence/cf1-board-20261101/BOARD-FIRST.md",
@@ -11248,9 +11258,9 @@
       "submit_path": "build/tools/export_submit.py",
       "restore_path": "build/tools/export_submit.py",
       "mode": "100644",
-      "source_sha256": "e67339261b99e50c31b44e410a4c6a1cddbf86f82ebc88774c47960cddf7ce4c",
-      "restore_sha256": "e67339261b99e50c31b44e410a4c6a1cddbf86f82ebc88774c47960cddf7ce4c",
-      "submit_sha256": "e67339261b99e50c31b44e410a4c6a1cddbf86f82ebc88774c47960cddf7ce4c",
+      "source_sha256": "c5b19358aef564ababe3995578b047aa1475bae63300f08cfca8696dc8273d85",
+      "restore_sha256": "c5b19358aef564ababe3995578b047aa1475bae63300f08cfca8696dc8273d85",
+      "submit_sha256": "c5b19358aef564ababe3995578b047aa1475bae63300f08cfca8696dc8273d85",
       "transform": "none"
     },
     {
@@ -11328,9 +11338,9 @@
       "submit_path": "build/tools/submit_scope.py",
       "restore_path": "build/tools/submit_scope.py",
       "mode": "100644",
-      "source_sha256": "93745c3e8b81b0ec069c2ee741c8c37b85eff671bddc7bc91d3dcae22bc1daec",
-      "restore_sha256": "93745c3e8b81b0ec069c2ee741c8c37b85eff671bddc7bc91d3dcae22bc1daec",
-      "submit_sha256": "93745c3e8b81b0ec069c2ee741c8c37b85eff671bddc7bc91d3dcae22bc1daec",
+      "source_sha256": "e6ba395643afd7aa5b3cb076ed7f2cee20bde858e3df81e21d529250b209ef4f",
+      "restore_sha256": "e6ba395643afd7aa5b3cb076ed7f2cee20bde858e3df81e21d529250b209ef4f",
+      "submit_sha256": "e6ba395643afd7aa5b3cb076ed7f2cee20bde858e3df81e21d529250b209ef4f",
       "transform": "none"
     },
     {
@@ -11351,6 +11361,6 @@
     "board": 35,
     "data": 598,
     "skill": 126,
-    "report": 46
+    "report": 47
   }
 }

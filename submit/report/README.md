@@ -1,5 +1,5 @@
-# 写作与技术资料
+# 设计报告与支撑材料
 
-从[三个聊天入口](handoff/report-update-20261103/readme.md)、[共同事实](handoff/report-update-20261103/facts.md)、[运行说明](pynq-final-runtime.md)和[当前发布](release-20261103.md)开始。requirements含模板与规则；此处不是已完成的报告或海报。
+[设计报告](design-report.docx)介绍方案、实现、实测结果与AI协作，第9章给出硬件接线、环境准备、工程重建、软件安装、运行及结果比对步骤。
 
-硬件实际导出见[报告索引](../build/reports/current/readme.md)。旧稿不随提交，以免恢复已取消功能。其他聊天在途稿件不被本轮维护覆盖。unavailable-references.json只保存被筛选掉的历史引用定位，不作为当前任务或缺项清单。
+配套材料：[实现报告](../build/reports/current/screen_s2_20261103/readme.md)、[实测数据](../data/evidence/final-board-20261103/readme.md)、[运行说明](pynq-final-runtime.md)、[触屏操作](screen-product.md)。requirements保存赛事模板与规则。

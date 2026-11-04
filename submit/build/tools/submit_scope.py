@@ -49,6 +49,7 @@ def include(name):
     if name in HARDWARE:
         return True
     if name in {'LICENSE', 'THIRD_PARTY.md', 'tools.local.env.example',
+                'document/design-report.docx',
                 'release/output/soundsight_screen_product_p1.zip',
                 'report/README.md', 'handoff/README.md', 'handoff/source-map.json',
                 'soundsight.sh', 'soundsight-3d.sh', 'soundsight-panel.sh',
