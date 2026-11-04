@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "baseline_commit": "83b911e5090616a76024f838161a5ccc7737b6d8",
+  "baseline_commit": "9d0892b1b69c4b0c45356cd8635cb435145b4c85",
   "scope": "standalone submission snapshot, no new hardware experiment",
   "files": [
     {
@@ -8138,9 +8138,9 @@
       "submit_path": "build/reports/current/screen_s2_20261103/readme.md",
       "restore_path": "build/restore/build/reports/current/screen_s2_20261103/readme.md.bin",
       "mode": "100644",
-      "source_sha256": "1bd48f3df2f2e4877039d8a15e5be413d3758153d6fb3dcf6e3ef184aa1abf12",
-      "restore_sha256": "1bd48f3df2f2e4877039d8a15e5be413d3758153d6fb3dcf6e3ef184aa1abf12",
-      "submit_sha256": "693fef09234d1348fca631683439b16eff5502a46cdce837d4c741e262a2a829",
+      "source_sha256": "4dd87c6a44e6aa97c3e730536f2359c4e8ca22d4be78b5030d8308047c7051a5",
+      "restore_sha256": "4dd87c6a44e6aa97c3e730536f2359c4e8ca22d4be78b5030d8308047c7051a5",
+      "submit_sha256": "9663817d86a6c25daf9e6aa9b98a833126ee8ffa8f219bb6f091e2b62be137ab",
       "transform": "documentation_links_only"
     },
     {
